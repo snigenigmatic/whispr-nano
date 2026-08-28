@@ -1,0 +1,790 @@
+{
+  "gpu_type": "T4",
+  "teacher_model": "openai/whisper-large-v3",
+  "student_model": "openai/whisper-tiny",
+  "device": "cuda",
+  "dtype": "torch.float32",
+  "arms": {
+    "poc_on_policy": {
+      "config": {
+        "name": "poc_on_policy",
+        "student_model": "openai/whisper-tiny",
+        "teacher_model": "openai/whisper-large-v3",
+        "gpu_type": "T4",
+        "dataset_id": "hf-internal-testing/librispeech_asr_dummy",
+        "dataset_config": "clean",
+        "dataset_split": "validation",
+        "num_train_clips": 50,
+        "num_eval_clips": 20,
+        "language": "en",
+        "task": "transcribe",
+        "num_steps": 60,
+        "batch_size": 4,
+        "learning_rate": 1e-05,
+        "max_new_tokens": 64,
+        "temperature": 1.0,
+        "seed": 0,
+        "policy": "on_policy",
+        "eval_every": 20,
+        "log_every": 5,
+        "assumed_seconds_per_step": 14.0,
+        "max_cost_usd": 0.3,
+        "hard_timeout_s": 900
+      },
+      "baseline_eval": {
+        "student_wer": 0.10094637223974763,
+        "teacher_wer": 0.01892744479495268,
+        "mean_reverse_kl": 0.63315881277628,
+        "num_eval_clips": 20,
+        "samples": [
+          {
+            "clip_id": "1272-135031-0000",
+            "reference": "BECAUSE YOU WERE SLEEPING INSTEAD OF CONQUERING THE LOVELY ROSE PRINCESS HAS BECOME A FIDDLE WITHOUT A BOW WHILE POOR SHAGGY SITS THERE A COOING DOVE",
+            "student": "Because you are asleep instead of conquering, the lovely Rose Princess has become a fiddle without a bow. While poor Shaggy sits there, a cooling dove.",
+            "teacher": "because you are sleeping instead of conquering the lovely rose princess has become a fiddle without a bow while poor shaggy sits there a cooing dove"
+          },
+          {
+            "clip_id": "1272-141231-0009",
+            "reference": "THE CONTESTANTS IN THE TWENTIES NEEDED UNDISTURBED REST THEREFORE NIGHTS IN THE DORMITORIES WERE AS QUIET AS DEATH",
+            "student": "The contestants in the 20s needed undisturbed rest. Therefore, knights and the dormitories were as quiet as death.",
+            "teacher": "The contestants in the twenties needed undisturbed rest. Therefore, nights in the dormitories were as quiet as death."
+          },
+          {
+            "clip_id": "1272-135031-0017",
+            "reference": "HOWEVER IF WE LOOK SHARP WE MAY BE ABLE TO DISCOVER ONE OF THESE SECRET WAYS",
+            "student": "However, if we look sharp, we may be able to discover one of these secret ways.",
+            "teacher": "However, if we look sharp, we may be able to discover one of these secret ways."
+          }
+        ],
+        "summary": "student_wer=0.1009 teacher_wer=0.0189 mean_KL=0.6332"
+      },
+      "final_eval": {
+        "student_wer": 0.07886435331230283,
+        "teacher_wer": 0.01892744479495268,
+        "mean_reverse_kl": 0.49636568211251314,
+        "num_eval_clips": 20,
+        "samples": [
+          {
+            "clip_id": "1272-135031-0000",
+            "reference": "BECAUSE YOU WERE SLEEPING INSTEAD OF CONQUERING THE LOVELY ROSE PRINCESS HAS BECOME A FIDDLE WITHOUT A BOW WHILE POOR SHAGGY SITS THERE A COOING DOVE",
+            "student": "Because he was sleeping instead of conquering, the lovely rose princess has become a fiddle without a bow, while poor shaggy sits there, a cooling dove.",
+            "teacher": "because you are sleeping instead of conquering the lovely rose princess has become a fiddle without a bow while poor shaggy sits there a cooing dove"
+          },
+          {
+            "clip_id": "1272-141231-0009",
+            "reference": "THE CONTESTANTS IN THE TWENTIES NEEDED UNDISTURBED REST THEREFORE NIGHTS IN THE DORMITORIES WERE AS QUIET AS DEATH",
+            "student": "The contestants in the twenties needed undisturbed rest. Therefore, knights in the dormitories were as quiet as death.",
+            "teacher": "The contestants in the twenties needed undisturbed rest. Therefore, nights in the dormitories were as quiet as death."
+          },
+          {
+            "clip_id": "1272-135031-0017",
+            "reference": "HOWEVER IF WE LOOK SHARP WE MAY BE ABLE TO DISCOVER ONE OF THESE SECRET WAYS",
+            "student": "However, if we look sharp, we may be able to discover one of these secret ways.",
+            "teacher": "However, if we look sharp, we may be able to discover one of these secret ways."
+          }
+        ],
+        "summary": "student_wer=0.0789 teacher_wer=0.0189 mean_KL=0.4964"
+      },
+      "step_log": [
+        {
+          "step": 1,
+          "loss": 1.0699714422225952,
+          "seconds": 3.549371542000003
+        },
+        {
+          "step": 2,
+          "loss": 0.7857690453529358,
+          "seconds": 3.580321046999998
+        },
+        {
+          "step": 3,
+          "loss": 0.9622700810432434,
+          "seconds": 3.3886739689999956
+        },
+        {
+          "step": 4,
+          "loss": 0.9836302995681763,
+          "seconds": 3.268802812000004
+        },
+        {
+          "step": 5,
+          "loss": 0.5452223420143127,
+          "seconds": 3.2262600829999997
+        },
+        {
+          "step": 6,
+          "loss": 0.628511369228363,
+          "seconds": 3.4246804100000077
+        },
+        {
+          "step": 7,
+          "loss": 0.8543093204498291,
+          "seconds": 3.3226130959999978
+        },
+        {
+          "step": 8,
+          "loss": 0.8664935827255249,
+          "seconds": 3.2089569060000116
+        },
+        {
+          "step": 9,
+          "loss": 1.1075570583343506,
+          "seconds": 3.2932845910000026
+        },
+        {
+          "step": 10,
+          "loss": 0.4139273762702942,
+          "seconds": 3.283478420999998
+        },
+        {
+          "step": 11,
+          "loss": 0.8133187294006348,
+          "seconds": 3.501912458999996
+        },
+        {
+          "step": 12,
+          "loss": 0.7032526731491089,
+          "seconds": 3.355367153000003
+        },
+        {
+          "step": 13,
+          "loss": 0.5920498967170715,
+          "seconds": 3.341164992000003
+        },
+        {
+          "step": 14,
+          "loss": 0.9738249778747559,
+          "seconds": 3.3865328329999898
+        },
+        {
+          "step": 15,
+          "loss": 0.8361198306083679,
+          "seconds": 3.287216748000006
+        },
+        {
+          "step": 16,
+          "loss": 0.5824599862098694,
+          "seconds": 3.371851379000006
+        },
+        {
+          "step": 17,
+          "loss": 0.5472769737243652,
+          "seconds": 3.248351177999993
+        },
+        {
+          "step": 18,
+          "loss": 0.5674856901168823,
+          "seconds": 3.6319616319999852
+        },
+        {
+          "step": 19,
+          "loss": 0.5693852305412292,
+          "seconds": 3.4087810990000094
+        },
+        {
+          "step": 20,
+          "loss": 0.3753815293312073,
+          "seconds": 3.3079083060000016
+        },
+        {
+          "step": 21,
+          "loss": 0.7455148100852966,
+          "seconds": 3.322224265999978
+        },
+        {
+          "step": 22,
+          "loss": 0.6164329648017883,
+          "seconds": 3.2766419290000215
+        },
+        {
+          "step": 23,
+          "loss": 0.6565173268318176,
+          "seconds": 3.534173609000021
+        },
+        {
+          "step": 24,
+          "loss": 0.5962111949920654,
+          "seconds": 3.5279460799999924
+        },
+        {
+          "step": 25,
+          "loss": 0.2856578528881073,
+          "seconds": 3.421164972000014
+        },
+        {
+          "step": 26,
+          "loss": 0.45303580164909363,
+          "seconds": 3.2820930759999953
+        },
+        {
+          "step": 27,
+          "loss": 0.30794498324394226,
+          "seconds": 3.357476174999988
+        },
+        {
+          "step": 28,
+          "loss": 0.3478483259677887,
+          "seconds": 3.3880441610000105
+        },
+        {
+          "step": 29,
+          "loss": 0.33834385871887207,
+          "seconds": 3.3077281310000046
+        },
+        {
+          "step": 30,
+          "loss": 0.36201944947242737,
+          "seconds": 3.2894761309999865
+        },
+        {
+          "step": 31,
+          "loss": 0.6093820929527283,
+          "seconds": 3.3087057410000114
+        },
+        {
+          "step": 32,
+          "loss": 0.5970360040664673,
+          "seconds": 3.2599852010000063
+        },
+        {
+          "step": 33,
+          "loss": 0.28344082832336426,
+          "seconds": 3.4211967699999946
+        },
+        {
+          "step": 34,
+          "loss": 0.5927021503448486,
+          "seconds": 3.4139468680000107
+        },
+        {
+          "step": 35,
+          "loss": 0.816280722618103,
+          "seconds": 3.4964809379999906
+        },
+        {
+          "step": 36,
+          "loss": 0.2985858619213104,
+          "seconds": 3.32485195000001
+        },
+        {
+          "step": 37,
+          "loss": 0.46663305163383484,
+          "seconds": 3.4044777260000103
+        },
+        {
+          "step": 38,
+          "loss": 0.6024689078330994,
+          "seconds": 3.595569693000016
+        },
+        {
+          "step": 39,
+          "loss": 0.5175901651382446,
+          "seconds": 3.4420731820000015
+        },
+        {
+          "step": 40,
+          "loss": 0.342888206243515,
+          "seconds": 3.6046306540000046
+        },
+        {
+          "step": 41,
+          "loss": 0.2693643569946289,
+          "seconds": 3.3051016100000083
+        },
+        {
+          "step": 42,
+          "loss": 0.35560840368270874,
+          "seconds": 3.363548500999997
+        },
+        {
+          "step": 43,
+          "loss": 0.1613188087940216,
+          "seconds": 3.2655803170000013
+        },
+        {
+          "step": 44,
+          "loss": 0.5556278824806213,
+          "seconds": 3.2717797679999876
+        },
+        {
+          "step": 45,
+          "loss": 0.46670979261398315,
+          "seconds": 3.493677608000013
+        },
+        {
+          "step": 46,
+          "loss": 0.7943168878555298,
+          "seconds": 3.3763238960000024
+        },
+        {
+          "step": 47,
+          "loss": 0.2048545479774475,
+          "seconds": 3.353450577000018
+        },
+        {
+          "step": 48,
+          "loss": 0.26328983902931213,
+          "seconds": 3.2743895250000037
+        },
+        {
+          "step": 49,
+          "loss": 0.2507472336292267,
+          "seconds": 3.426501344000002
+        },
+        {
+          "step": 50,
+          "loss": 0.22449734807014465,
+          "seconds": 3.278631907999994
+        },
+        {
+          "step": 51,
+          "loss": 0.555634081363678,
+          "seconds": 3.2775862289999793
+        },
+        {
+          "step": 52,
+          "loss": 0.24241937696933746,
+          "seconds": 3.3130936599999927
+        },
+        {
+          "step": 53,
+          "loss": 0.17045322060585022,
+          "seconds": 3.248505561999991
+        },
+        {
+          "step": 54,
+          "loss": 0.29480206966400146,
+          "seconds": 3.376694504999989
+        },
+        {
+          "step": 55,
+          "loss": 0.5589631199836731,
+          "seconds": 3.271851951000002
+        },
+        {
+          "step": 56,
+          "loss": 0.3267965316772461,
+          "seconds": 3.4043576880000046
+        },
+        {
+          "step": 57,
+          "loss": 0.4205732047557831,
+          "seconds": 3.4616546279999625
+        },
+        {
+          "step": 58,
+          "loss": 0.735512912273407,
+          "seconds": 3.2731025310000064
+        },
+        {
+          "step": 59,
+          "loss": 0.4004255533218384,
+          "seconds": 3.416616615999999
+        },
+        {
+          "step": 60,
+          "loss": 0.3703748881816864,
+          "seconds": 3.5998530159999973
+        }
+      ],
+      "steps_run": 60,
+      "steps_planned": 60,
+      "stopped_early": false,
+      "stop_reason": null,
+      "wall_seconds": 300.139833311,
+      "est_cost_usd": 0.04918958379263611
+    },
+    "poc_off_policy": {
+      "config": {
+        "name": "poc_off_policy",
+        "student_model": "openai/whisper-tiny",
+        "teacher_model": "openai/whisper-large-v3",
+        "gpu_type": "T4",
+        "dataset_id": "hf-internal-testing/librispeech_asr_dummy",
+        "dataset_config": "clean",
+        "dataset_split": "validation",
+        "num_train_clips": 50,
+        "num_eval_clips": 20,
+        "language": "en",
+        "task": "transcribe",
+        "num_steps": 60,
+        "batch_size": 4,
+        "learning_rate": 1e-05,
+        "max_new_tokens": 64,
+        "temperature": 1.0,
+        "seed": 0,
+        "policy": "off_policy",
+        "eval_every": 20,
+        "log_every": 5,
+        "assumed_seconds_per_step": 20.0,
+        "max_cost_usd": 0.3,
+        "hard_timeout_s": 900
+      },
+      "baseline_eval": {
+        "student_wer": 0.10094637223974763,
+        "teacher_wer": 0.01892744479495268,
+        "mean_reverse_kl": 0.63315881277628,
+        "num_eval_clips": 20,
+        "samples": [
+          {
+            "clip_id": "1272-135031-0000",
+            "reference": "BECAUSE YOU WERE SLEEPING INSTEAD OF CONQUERING THE LOVELY ROSE PRINCESS HAS BECOME A FIDDLE WITHOUT A BOW WHILE POOR SHAGGY SITS THERE A COOING DOVE",
+            "student": "Because you are asleep instead of conquering, the lovely Rose Princess has become a fiddle without a bow. While poor Shaggy sits there, a cooling dove.",
+            "teacher": "because you are sleeping instead of conquering the lovely rose princess has become a fiddle without a bow while poor shaggy sits there a cooing dove"
+          },
+          {
+            "clip_id": "1272-141231-0009",
+            "reference": "THE CONTESTANTS IN THE TWENTIES NEEDED UNDISTURBED REST THEREFORE NIGHTS IN THE DORMITORIES WERE AS QUIET AS DEATH",
+            "student": "The contestants in the 20s needed undisturbed rest. Therefore, knights and the dormitories were as quiet as death.",
+            "teacher": "The contestants in the twenties needed undisturbed rest. Therefore, nights in the dormitories were as quiet as death."
+          },
+          {
+            "clip_id": "1272-135031-0017",
+            "reference": "HOWEVER IF WE LOOK SHARP WE MAY BE ABLE TO DISCOVER ONE OF THESE SECRET WAYS",
+            "student": "However, if we look sharp, we may be able to discover one of these secret ways.",
+            "teacher": "However, if we look sharp, we may be able to discover one of these secret ways."
+          }
+        ],
+        "summary": "student_wer=0.1009 teacher_wer=0.0189 mean_KL=0.6332"
+      },
+      "final_eval": {
+        "student_wer": 0.07570977917981073,
+        "teacher_wer": 0.01892744479495268,
+        "mean_reverse_kl": 0.5234969510098915,
+        "num_eval_clips": 20,
+        "samples": [
+          {
+            "clip_id": "1272-135031-0000",
+            "reference": "BECAUSE YOU WERE SLEEPING INSTEAD OF CONQUERING THE LOVELY ROSE PRINCESS HAS BECOME A FIDDLE WITHOUT A BOW WHILE POOR SHAGGY SITS THERE A COOING DOVE",
+            "student": "Because he was sleeping instead of conquering, the lovely rose prince has become a fiddle without a bow, while poor Shaggy sits there, a cooling dove.",
+            "teacher": "because you are sleeping instead of conquering the lovely rose princess has become a fiddle without a bow while poor shaggy sits there a cooing dove"
+          },
+          {
+            "clip_id": "1272-141231-0009",
+            "reference": "THE CONTESTANTS IN THE TWENTIES NEEDED UNDISTURBED REST THEREFORE NIGHTS IN THE DORMITORIES WERE AS QUIET AS DEATH",
+            "student": "The contestants in the twenties needed undisturbed rest. Therefore, knights in the dormitories were as quiet as death.",
+            "teacher": "The contestants in the twenties needed undisturbed rest. Therefore, nights in the dormitories were as quiet as death."
+          },
+          {
+            "clip_id": "1272-135031-0017",
+            "reference": "HOWEVER IF WE LOOK SHARP WE MAY BE ABLE TO DISCOVER ONE OF THESE SECRET WAYS",
+            "student": "However, if we look sharp, we may be able to discover one of these secret ways.",
+            "teacher": "However, if we look sharp, we may be able to discover one of these secret ways."
+          }
+        ],
+        "summary": "student_wer=0.0757 teacher_wer=0.0189 mean_KL=0.5235"
+      },
+      "step_log": [
+        {
+          "step": 1,
+          "loss": 0.9303345084190369,
+          "seconds": 8.834618894000016
+        },
+        {
+          "step": 2,
+          "loss": 1.4254900217056274,
+          "seconds": 10.669184480000013
+        },
+        {
+          "step": 3,
+          "loss": 0.7549809217453003,
+          "seconds": 9.881035827000005
+        },
+        {
+          "step": 4,
+          "loss": 0.8036355972290039,
+          "seconds": 8.90084778299996
+        },
+        {
+          "step": 5,
+          "loss": 0.784336268901825,
+          "seconds": 8.596983037999962
+        },
+        {
+          "step": 6,
+          "loss": 1.029168963432312,
+          "seconds": 9.106177848000016
+        },
+        {
+          "step": 7,
+          "loss": 1.0842183828353882,
+          "seconds": 8.698997474999999
+        },
+        {
+          "step": 8,
+          "loss": 0.8425439596176147,
+          "seconds": 8.439042647999997
+        },
+        {
+          "step": 9,
+          "loss": 0.8437564373016357,
+          "seconds": 8.569117979999987
+        },
+        {
+          "step": 10,
+          "loss": 0.4511764943599701,
+          "seconds": 8.56845757299999
+        },
+        {
+          "step": 11,
+          "loss": 1.2352850437164307,
+          "seconds": 9.567567857000029
+        },
+        {
+          "step": 12,
+          "loss": 0.9207665324211121,
+          "seconds": 8.867569795999998
+        },
+        {
+          "step": 13,
+          "loss": 0.8328930735588074,
+          "seconds": 8.719749304000004
+        },
+        {
+          "step": 14,
+          "loss": 0.5861625671386719,
+          "seconds": 9.265165556999989
+        },
+        {
+          "step": 15,
+          "loss": 0.6980020403862,
+          "seconds": 8.78317808600002
+        },
+        {
+          "step": 16,
+          "loss": 0.3990313708782196,
+          "seconds": 9.484471260999953
+        },
+        {
+          "step": 17,
+          "loss": 0.44552862644195557,
+          "seconds": 8.761104852000017
+        },
+        {
+          "step": 18,
+          "loss": 0.7911094427108765,
+          "seconds": 10.747957099000018
+        },
+        {
+          "step": 19,
+          "loss": 0.7039197683334351,
+          "seconds": 9.296622068000033
+        },
+        {
+          "step": 20,
+          "loss": 0.40137600898742676,
+          "seconds": 8.738972796999974
+        },
+        {
+          "step": 21,
+          "loss": 0.48324519395828247,
+          "seconds": 9.098395842000059
+        },
+        {
+          "step": 22,
+          "loss": 0.7133818864822388,
+          "seconds": 8.711189901000012
+        },
+        {
+          "step": 23,
+          "loss": 0.6973168253898621,
+          "seconds": 9.808990648999952
+        },
+        {
+          "step": 24,
+          "loss": 0.7520162463188171,
+          "seconds": 9.533086896999976
+        },
+        {
+          "step": 25,
+          "loss": 0.3610588312149048,
+          "seconds": 9.286835075999988
+        },
+        {
+          "step": 26,
+          "loss": 0.18640074133872986,
+          "seconds": 8.78999493799995
+        },
+        {
+          "step": 27,
+          "loss": 0.18506473302841187,
+          "seconds": 9.28915254399999
+        },
+        {
+          "step": 28,
+          "loss": 0.3041498363018036,
+          "seconds": 9.261204282999984
+        },
+        {
+          "step": 29,
+          "loss": 0.3228086233139038,
+          "seconds": 8.705927257000099
+        },
+        {
+          "step": 30,
+          "loss": 0.320745050907135,
+          "seconds": 8.849136653000073
+        },
+        {
+          "step": 31,
+          "loss": 0.3834964334964752,
+          "seconds": 9.022520609000026
+        },
+        {
+          "step": 32,
+          "loss": 0.4846564829349518,
+          "seconds": 8.57703892500001
+        },
+        {
+          "step": 33,
+          "loss": 0.40883147716522217,
+          "seconds": 8.81937502900007
+        },
+        {
+          "step": 34,
+          "loss": 0.31466367840766907,
+          "seconds": 8.993099787000006
+        },
+        {
+          "step": 35,
+          "loss": 0.6082207560539246,
+          "seconds": 9.404228539999963
+        },
+        {
+          "step": 36,
+          "loss": 0.2754254937171936,
+          "seconds": 8.856929637999997
+        },
+        {
+          "step": 37,
+          "loss": 0.553695559501648,
+          "seconds": 9.184807473999967
+        },
+        {
+          "step": 38,
+          "loss": 0.7295698523521423,
+          "seconds": 10.34316844
+        },
+        {
+          "step": 39,
+          "loss": 0.49662694334983826,
+          "seconds": 9.500081819999991
+        },
+        {
+          "step": 40,
+          "loss": 0.4587097764015198,
+          "seconds": 10.665630264000015
+        },
+        {
+          "step": 41,
+          "loss": 0.7308204174041748,
+          "seconds": 9.014510296000026
+        },
+        {
+          "step": 42,
+          "loss": 0.326310932636261,
+          "seconds": 8.977890441
+        },
+        {
+          "step": 43,
+          "loss": 0.12504801154136658,
+          "seconds": 8.457893591000015
+        },
+        {
+          "step": 44,
+          "loss": 0.24687273800373077,
+          "seconds": 8.470635433999973
+        },
+        {
+          "step": 45,
+          "loss": 0.46084508299827576,
+          "seconds": 9.61414999300007
+        },
+        {
+          "step": 46,
+          "loss": 0.432203084230423,
+          "seconds": 8.518093527999895
+        },
+        {
+          "step": 47,
+          "loss": 0.18613815307617188,
+          "seconds": 8.75433452599998
+        },
+        {
+          "step": 48,
+          "loss": 0.15551723539829254,
+          "seconds": 8.538009790999922
+        },
+        {
+          "step": 49,
+          "loss": 0.3223607540130615,
+          "seconds": 9.297229341000047
+        },
+        {
+          "step": 50,
+          "loss": 0.161753848195076,
+          "seconds": 8.695068423999942
+        },
+        {
+          "step": 51,
+          "loss": 0.3196925222873688,
+          "seconds": 8.511478709000016
+        },
+        {
+          "step": 52,
+          "loss": 0.11042468249797821,
+          "seconds": 8.832778970999925
+        },
+        {
+          "step": 53,
+          "loss": 0.17628967761993408,
+          "seconds": 8.644799181999929
+        },
+        {
+          "step": 54,
+          "loss": 0.20139539241790771,
+          "seconds": 9.156227164999905
+        },
+        {
+          "step": 55,
+          "loss": 0.6238961219787598,
+          "seconds": 8.602119356999992
+        },
+        {
+          "step": 56,
+          "loss": 0.2721079885959625,
+          "seconds": 9.112931862999972
+        },
+        {
+          "step": 57,
+          "loss": 0.36674433946609497,
+          "seconds": 9.433005202000004
+        },
+        {
+          "step": 58,
+          "loss": 0.35387754440307617,
+          "seconds": 8.461226388
+        },
+        {
+          "step": 59,
+          "loss": 0.2634187638759613,
+          "seconds": 8.937351449999937
+        },
+        {
+          "step": 60,
+          "loss": 0.34093737602233887,
+          "seconds": 10.516853749999996
+        }
+      ],
+      "steps_run": 60,
+      "steps_planned": 60,
+      "stopped_early": false,
+      "stop_reason": null,
+      "wall_seconds": 642.959343721,
+      "est_cost_usd": 0.10537389244316388
+    }
+  },
+  "total_wall_seconds": 961.3144420259999,
+  "total_est_cost_usd": 0.1575487557764833,
+  "run_id": "20260828-080137"
+}
