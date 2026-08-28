@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# Virtual environments
+.venv/
+venv/
+
+# uv
+.uv-cache/
+
+# HF / torch caches (if ever populated locally)
+.cache/
+
+# OS
+.DS_Store
+
+# Modal
+.modal.toml

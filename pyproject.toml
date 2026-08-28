@@ -1,0 +1,33 @@
+[project]
+name = "onpolicy-whisper-distill"
+version = "0.1.0"
+description = "On-policy (GKD-style, reverse-KL) distillation of whisper-tiny from whisper-large-v3, running on Modal."
+readme = "README.md"
+requires-python = ">=3.11,<3.13"
+dependencies = [
+    "modal>=1.0.0",
+    "torch>=2.4.0",
+    "transformers>=4.44.0",
+    "accelerate>=0.33.0",
+    "datasets>=2.20.0",
+    "soundfile>=0.12.1",
+    "librosa>=0.10.2",
+    "torchcodec>=0.4.0",
+    "jiwer>=3.0.4",
+    "numpy>=1.26.0",
+    "matplotlib>=3.9.0",
+    "tqdm>=4.66.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+]
+
+[build-system]
+requires = ["uv_build>=0.12.7,<0.13.0"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "onpolicy_distill"
+module-root = "src"
