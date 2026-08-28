@@ -1,0 +1,366 @@
+{
+  "gpu_type": "T4",
+  "teacher_model": "openai/whisper-large-v3",
+  "student_model": "openai/whisper-tiny",
+  "device": "cuda",
+  "arms": {
+    "svarah_smoke_on_policy": {
+      "config": {
+        "name": "svarah_smoke_on_policy",
+        "student_model": "openai/whisper-tiny",
+        "teacher_model": "openai/whisper-large-v3",
+        "gpu_type": "T4",
+        "dataset_id": "ai4bharat/svarah",
+        "dataset_config": "clean",
+        "dataset_split": "validation",
+        "num_train_clips": 9,
+        "num_eval_clips": 9,
+        "language": "en",
+        "task": "transcribe",
+        "num_steps": 12,
+        "batch_size": 3,
+        "learning_rate": 1e-05,
+        "max_new_tokens": 96,
+        "temperature": 1.0,
+        "seed": 0,
+        "policy": "on_policy",
+        "eval_every": 6,
+        "log_every": 3,
+        "assumed_seconds_per_step": 20.0,
+        "max_cost_usd": 0.1,
+        "hard_timeout_s": 1800
+      },
+      "baseline_eval": {
+        "student_wer": 0.11764705882352941,
+        "teacher_wer": 0.04201680672268908,
+        "mean_reverse_kl": 0.7350427887656472,
+        "num_eval_clips": 9,
+        "samples": [
+          {
+            "clip_id": "svarah_02033",
+            "reference": "House",
+            "student": "house.",
+            "teacher": "House."
+          },
+          {
+            "clip_id": "svarah_00260",
+            "reference": "A few tributaries form marshy land in early dry season due to natural seepage",
+            "student": "A few tributaries form Marcilen in early dry season due to natural sea page.",
+            "teacher": "A few tributaries form marshy land in early dry season due to natural seepage."
+          }
+        ],
+        "summary": "student_wer=0.1176 teacher_wer=0.0420 mean_KL=0.7350",
+        "by_family": {
+          "dravidian": {
+            "n": 3,
+            "student_wer": 0.05555555555555555,
+            "teacher_wer": 0.1111111111111111,
+            "mean_reverse_kl": 0.24823949813842774
+          },
+          "indo_aryan": {
+            "n": 3,
+            "student_wer": 0.1864406779661017,
+            "teacher_wer": 0.03389830508474576,
+            "mean_reverse_kl": 0.9991479632498204
+          },
+          "sino_tibetan": {
+            "n": 3,
+            "student_wer": 0.047619047619047616,
+            "teacher_wer": 0.023809523809523808,
+            "mean_reverse_kl": 0.5311358469837116
+          }
+        }
+      },
+      "final_eval": {
+        "student_wer": 0.12605042016806722,
+        "teacher_wer": 0.04201680672268908,
+        "mean_reverse_kl": 0.6262380736214774,
+        "num_eval_clips": 9,
+        "samples": [
+          {
+            "clip_id": "svarah_02033",
+            "reference": "House",
+            "student": "house.",
+            "teacher": "House."
+          },
+          {
+            "clip_id": "svarah_00260",
+            "reference": "A few tributaries form marshy land in early dry season due to natural seepage",
+            "student": "a few tributaries from Marcyland in early dry season due to natural sea page.",
+            "teacher": "A few tributaries form marshy land in early dry season due to natural seepage."
+          }
+        ],
+        "summary": "student_wer=0.1261 teacher_wer=0.0420 mean_KL=0.6262",
+        "by_family": {
+          "dravidian": {
+            "n": 3,
+            "student_wer": 0.05555555555555555,
+            "teacher_wer": 0.1111111111111111,
+            "mean_reverse_kl": 0.2064739990234375
+          },
+          "indo_aryan": {
+            "n": 3,
+            "student_wer": 0.2033898305084746,
+            "teacher_wer": 0.03389830508474576,
+            "mean_reverse_kl": 0.8325656467013889
+          },
+          "sino_tibetan": {
+            "n": 3,
+            "student_wer": 0.047619047619047616,
+            "teacher_wer": 0.023809523809523808,
+            "mean_reverse_kl": 0.4738724186735333
+          }
+        }
+      },
+      "step_log": [
+        {
+          "step": 1,
+          "loss": 0.555366039276123,
+          "seconds": 2.757916812000005
+        },
+        {
+          "step": 2,
+          "loss": 1.0226829051971436,
+          "seconds": 2.4842984760000064
+        },
+        {
+          "step": 3,
+          "loss": 0.8740701675415039,
+          "seconds": 2.652338553000007
+        },
+        {
+          "step": 4,
+          "loss": 0.4187266528606415,
+          "seconds": 2.5273577640000013
+        },
+        {
+          "step": 5,
+          "loss": 0.9414467811584473,
+          "seconds": 2.7171343899999982
+        },
+        {
+          "step": 6,
+          "loss": 0.9571674466133118,
+          "seconds": 2.658966620000001
+        },
+        {
+          "step": 7,
+          "loss": 1.3415273427963257,
+          "seconds": 2.499879999000001
+        },
+        {
+          "step": 8,
+          "loss": 0.6258062124252319,
+          "seconds": 2.7114651880000054
+        },
+        {
+          "step": 9,
+          "loss": 0.3891046941280365,
+          "seconds": 2.544564441999995
+        },
+        {
+          "step": 10,
+          "loss": 0.4290734529495239,
+          "seconds": 2.5461170299999907
+        },
+        {
+          "step": 11,
+          "loss": 0.3279649615287781,
+          "seconds": 2.471736839000002
+        },
+        {
+          "step": 12,
+          "loss": 0.5600712299346924,
+          "seconds": 2.6040600540000014
+        }
+      ],
+      "steps_run": 12,
+      "steps_planned": 12,
+      "stopped_early": false,
+      "stop_reason": null,
+      "wall_seconds": 122.257819469,
+      "est_cost_usd": 0.020036698190752777
+    },
+    "svarah_smoke_off_policy": {
+      "config": {
+        "name": "svarah_smoke_off_policy",
+        "student_model": "openai/whisper-tiny",
+        "teacher_model": "openai/whisper-large-v3",
+        "gpu_type": "T4",
+        "dataset_id": "ai4bharat/svarah",
+        "dataset_config": "clean",
+        "dataset_split": "validation",
+        "num_train_clips": 9,
+        "num_eval_clips": 9,
+        "language": "en",
+        "task": "transcribe",
+        "num_steps": 12,
+        "batch_size": 3,
+        "learning_rate": 1e-05,
+        "max_new_tokens": 96,
+        "temperature": 1.0,
+        "seed": 0,
+        "policy": "off_policy",
+        "eval_every": 6,
+        "log_every": 3,
+        "assumed_seconds_per_step": 28.0,
+        "max_cost_usd": 0.1,
+        "hard_timeout_s": 1800
+      },
+      "baseline_eval": {
+        "student_wer": 0.11764705882352941,
+        "teacher_wer": 0.04201680672268908,
+        "mean_reverse_kl": 0.7350427887656472,
+        "num_eval_clips": 9,
+        "samples": [
+          {
+            "clip_id": "svarah_02033",
+            "reference": "House",
+            "student": "house.",
+            "teacher": "House."
+          },
+          {
+            "clip_id": "svarah_00260",
+            "reference": "A few tributaries form marshy land in early dry season due to natural seepage",
+            "student": "A few tributaries form Marcilen in early dry season due to natural sea page.",
+            "teacher": "A few tributaries form marshy land in early dry season due to natural seepage."
+          }
+        ],
+        "summary": "student_wer=0.1176 teacher_wer=0.0420 mean_KL=0.7350",
+        "by_family": {
+          "dravidian": {
+            "n": 3,
+            "student_wer": 0.05555555555555555,
+            "teacher_wer": 0.1111111111111111,
+            "mean_reverse_kl": 0.24823949813842774
+          },
+          "indo_aryan": {
+            "n": 3,
+            "student_wer": 0.1864406779661017,
+            "teacher_wer": 0.03389830508474576,
+            "mean_reverse_kl": 0.9991479632498204
+          },
+          "sino_tibetan": {
+            "n": 3,
+            "student_wer": 0.047619047619047616,
+            "teacher_wer": 0.023809523809523808,
+            "mean_reverse_kl": 0.5311358469837116
+          }
+        }
+      },
+      "final_eval": {
+        "student_wer": 0.13445378151260504,
+        "teacher_wer": 0.04201680672268908,
+        "mean_reverse_kl": 0.6909881844578019,
+        "num_eval_clips": 9,
+        "samples": [
+          {
+            "clip_id": "svarah_02033",
+            "reference": "House",
+            "student": "house.",
+            "teacher": "House."
+          },
+          {
+            "clip_id": "svarah_00260",
+            "reference": "A few tributaries form marshy land in early dry season due to natural seepage",
+            "student": "a few tributaries from Marcilen in early dry season due to natural sea page.",
+            "teacher": "A few tributaries form marshy land in early dry season due to natural seepage."
+          }
+        ],
+        "summary": "student_wer=0.1345 teacher_wer=0.0420 mean_KL=0.6910",
+        "by_family": {
+          "dravidian": {
+            "n": 3,
+            "student_wer": 0.05555555555555555,
+            "teacher_wer": 0.1111111111111111,
+            "mean_reverse_kl": 0.17779014587402345
+          },
+          "indo_aryan": {
+            "n": 3,
+            "student_wer": 0.1694915254237288,
+            "teacher_wer": 0.03389830508474576,
+            "mean_reverse_kl": 0.9231714827291081
+          },
+          "sino_tibetan": {
+            "n": 3,
+            "student_wer": 0.11904761904761904,
+            "teacher_wer": 0.023809523809523808,
+            "mean_reverse_kl": 0.5403273655818059
+          }
+        }
+      },
+      "step_log": [
+        {
+          "step": 1,
+          "loss": 0.7157666683197021,
+          "seconds": 6.98397248400002
+        },
+        {
+          "step": 2,
+          "loss": 0.9275663495063782,
+          "seconds": 6.275992303999999
+        },
+        {
+          "step": 3,
+          "loss": 0.6113703846931458,
+          "seconds": 7.448958637000004
+        },
+        {
+          "step": 4,
+          "loss": 0.7533776760101318,
+          "seconds": 7.442688054000001
+        },
+        {
+          "step": 5,
+          "loss": 0.36983054876327515,
+          "seconds": 6.804617380000025
+        },
+        {
+          "step": 6,
+          "loss": 0.8796488642692566,
+          "seconds": 7.355510578999997
+        },
+        {
+          "step": 7,
+          "loss": 1.1430480480194092,
+          "seconds": 6.406298430999982
+        },
+        {
+          "step": 8,
+          "loss": 0.5056353807449341,
+          "seconds": 7.499985070999998
+        },
+        {
+          "step": 9,
+          "loss": 0.15957115590572357,
+          "seconds": 6.7366326400000105
+        },
+        {
+          "step": 10,
+          "loss": 2.0046114921569824,
+          "seconds": 8.459075598999988
+        },
+        {
+          "step": 11,
+          "loss": 0.18821588158607483,
+          "seconds": 6.636090048000028
+        },
+        {
+          "step": 12,
+          "loss": 0.6529320478439331,
+          "seconds": 7.405760848
+        }
+      ],
+      "steps_run": 12,
+      "steps_planned": 12,
+      "stopped_early": false,
+      "stop_reason": null,
+      "wall_seconds": 175.33414035700002,
+      "est_cost_usd": 0.028735317447397223
+    }
+  },
+  "total_wall_seconds": 318.53724721699996,
+  "total_est_cost_usd": 0.05220471551611943,
+  "train_per_family": 3,
+  "eval_per_family": 3
+}

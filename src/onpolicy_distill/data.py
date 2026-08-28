@@ -22,6 +22,7 @@ class Clip:
     audio: np.ndarray  # mono float32 waveform at `sampling_rate` Hz
     sampling_rate: int
     reference_text: str
+    family: str | None = None  # optional accent/language-family label (e.g. for Svarah)
 
 
 def _decode_audio(audio_value) -> tuple[np.ndarray, int]:
