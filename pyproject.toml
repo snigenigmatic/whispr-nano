@@ -23,6 +23,13 @@ dependencies = [
 dev = [
     "pytest>=8.0.0",
 ]
+# Only used by audit/modal_svarah_audit.py's Poisson drop-in-deviance
+# significance test (local, CPU-side stats -- not needed by the on-policy
+# distillation code in src/onpolicy_distill/).
+audit = [
+    "statsmodels>=0.14.0",
+    "pandas>=2.0.0",
+]
 
 [build-system]
 requires = ["uv_build>=0.12.7,<0.13.0"]
