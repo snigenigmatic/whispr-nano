@@ -1,0 +1,25 @@
+{
+  "model_id": "sarvam/saaras-v3",
+  "overall_wer": 0.05806728090850653,
+  "n_utterances": 450,
+  "per_family_wer": {
+    "Indo-Aryan": 0.051452784503631964,
+    "Dravidian": 0.04406779661016949,
+    "Sino-Tibetan": 0.07857142857142857
+  },
+  "family_n": {
+    "Indo-Aryan": 150,
+    "Dravidian": 150,
+    "Sino-Tibetan": 150
+  },
+  "cost_usd": 0.2261076867816092,
+  "cost_inr": 19.67136875,
+  "wall_seconds": 782.6631175389994,
+  "delta_dp_pp": 3.450363196125908,
+  "poisson": {
+    "deviance_diff": 16.759276689176318,
+    "df_diff": 2,
+    "p_value": 0.0002294929278084002
+  },
+  "interpretation": "structural"
+}
