@@ -1,0 +1,24 @@
+{
+  "model_id": "distil-whisper/distil-large-v3",
+  "overall_wer": 0.10029700708247659,
+  "n_utterances": 2500,
+  "per_family_wer": {
+    "Dravidian": 0.09603432968333826,
+    "Indo-Aryan": 0.09928532160527763,
+    "Sino-Tibetan": 0.13622526636225266
+  },
+  "family_n": {
+    "Dravidian": 688,
+    "Indo-Aryan": 1673,
+    "Sino-Tibetan": 139
+  },
+  "cost_usd": 0.2854223353924333,
+  "wall_seconds": 1741.5600125639999,
+  "delta_dp_pp": 4.01909366789144,
+  "poisson": {
+    "deviance_diff": 16.61913325734804,
+    "df_diff": 2,
+    "p_value": 0.0002461506949036108
+  },
+  "interpretation": "structural"
+}

@@ -1,0 +1,24 @@
+{
+  "model_id": "openai/whisper-small",
+  "overall_wer": 0.10875028558373315,
+  "n_utterances": 2500,
+  "per_family_wer": {
+    "Dravidian": 0.10062148564664102,
+    "Indo-Aryan": 0.11006047278724573,
+    "Sino-Tibetan": 0.1324200913242009
+  },
+  "family_n": {
+    "Dravidian": 688,
+    "Indo-Aryan": 1673,
+    "Sino-Tibetan": 139
+  },
+  "cost_usd": 0.09452160090635554,
+  "wall_seconds": 576.741971632,
+  "delta_dp_pp": 3.179860567755989,
+  "poisson": {
+    "deviance_diff": 10.824175747564368,
+    "df_diff": 2,
+    "p_value": 0.004462313730632994
+  },
+  "interpretation": "structural"
+}
