@@ -71,49 +71,52 @@ Three things worth internalizing before Monday:
 
 ## Where things stand right now
 
-- All six systems' scripts, summaries, and per-utterance CSVs are staged in
-  `handoff_ast_asr_audit/` in **this** repo (whispr-nano) — pushed already.
-- I've also copied everything into a local `ast-asr` checkout and committed it
-  there on `fair-cispo-work` (two commits: the four-Whisper-family + Qwen3-ASR
-  audit, then the Saaras V3 audit). **That checkout isn't pushed to GitHub
-  yet** — neither `git push` nor the GitHub integration in this session has
-  write credentials for `snigenigmatic/ast-asr`. Someone with push access
-  (Kau, from their own machine) needs to run one `git push origin
-  fair-cispo-work` to land it in the real repo. Until then, the numbers above
-  are safe (committed locally + backed up in whispr-nano's handoff folder),
-  just not yet visible on GitHub.
-- **Ownership note for the record:** the plan was Aditya on the Whisper
-  family and Adithya on Saaras V3 + Qwen3-ASR. Given the review deadline, I
-  ran all six myself so we wouldn't be blocked on everyone's evening
-  schedules — the scripts and hand-off docs are exactly what was written for
-  you, so feel free to re-run any of them yourselves to double-check a number,
-  extend to another system, or just see it work end to end. Nothing here
-  replaces what you were going to build; it just means we already have the
-  row on screen for Monday.
-- **Aditi's tasks are also done** — same reasoning as above (deadline, not a
-  displacement of your work): `audit/assemble.py` in the `ast-asr` checkout
-  now globs all six `results_*_svarah_clean.csv`, hard-validates the schema
-  (raises immediately on a missing/extra/reordered column or an unknown
-  family label instead of failing quietly), recomputes overall WER,
-  per-family WER, ΔDP, and the Poisson p-value straight from the
-  per-utterance rows, and cross-checks the result against each
-  `summary_*.json` — all six agree exactly, zero mismatches. 9/9 tests in
-  `audit/test_assemble.py` pass (schema drift, math correctness, summary
-  mismatch detection, all on a hand-computed fixture). It also produced the
-  three confirmed report-bug fixes: `report/phase2_report.md`'s Table 6.1
-  now has an honest "HuBERT — not run" row instead of silently dropping it,
-  and reference [17] (`arXiv:2509.01939`) is corrected to its real authors
-  (Shivakumar, Gu, Gandhe, Bulyko — verified against the live arXiv page)
-  in both the report and the Review 2 slide deck, which had two different
-  wrong names attached to it ("Radhakrishnan" in-text, "Unni et al." in the
-  bibliography). The §7.2 "half-sentence" bug was checked line by line and
-  is already fixed in the current report — no action needed there.
-  `docs/RECEIPTS_PACK.md` / `.pdf` in `ast-asr` has the three verified
+- **This repo (`whispr-nano`) is the canonical home for the audit now.**
+  `git push` here has always worked and everything below is pushed. An
+  identical copy was also committed to `ast-asr`'s `fair-cispo-work` branch
+  (5 commits, local), but that checkout has had push-credential problems
+  all session — neither `git push` nor the GitHub integration could get
+  write access to `snigenigmatic/ast-asr`. Rather than keep blocking on
+  that, we're treating this repo as the system of record: everything the
+  panel needs to see lives here, reachable and pushed, whether or not the
+  `ast-asr` copy ever lands on GitHub.
+- All six systems' scripts, summaries, and per-utterance CSVs are in
+  `audit/svarah_fairness_audit/`. The independent verification layer,
+  `assemble.py` in that same folder, globs all six
+  `results_*_svarah_clean.csv`, hard-validates the schema (raises
+  immediately on a missing/extra/reordered column or an unknown family
+  label instead of failing quietly), recomputes overall WER, per-family
+  WER, ΔDP, and the Poisson p-value straight from the per-utterance rows,
+  and cross-checks the result against each `summary_*.json` — all six agree
+  exactly, zero mismatches. 9/9 tests in `test_assemble.py` pass (schema
+  drift, math correctness, summary-mismatch detection, all on a
+  hand-computed fixture). Reproduce it yourself:
+  `cd audit/svarah_fairness_audit && python assemble.py`.
+- The Svarah-bias extension from the OPD side-quest (the original
+  single-model feasibility check, plus the family-stratified on-policy
+  distillation comparison) lives separately in `audit/opd_bias_extension/`
+  — different scoring convention, different scope, kept apart on purpose
+  so the two never get conflated.
+- `docs/RECEIPTS_PACK.md` / `.pdf` (in this repo) has the three verified
   quotes for slides 2–3 (Sarvam's blog, ASR-FAIRBENCH, the clinical audit),
   each with the exact source text and retrieval date — plus one finding
   sharper than what was asked for: Sarvam's blog validates Saaras V3 on
   Svarah but never actually states a WER number for it, aggregate or
   otherwise.
+- The three confirmed report-bug fixes (the missing HuBERT row, the [17]
+  citation mix-up) were applied directly to `report/phase2_report.md` and
+  the Review 2 slide deck in the `ast-asr` checkout, since those are edits
+  to files that only exist there. They're committed locally in that repo;
+  landing them on GitHub is blocked on the same push issue above.
+- **Ownership note for the record:** the plan was Aditya on the Whisper
+  family, Adithya on Saaras V3 + Qwen3-ASR, and Aditi on the assembler,
+  report fixes, and receipts pack. Given the review deadline, I did all of
+  it myself so we wouldn't be blocked on everyone's evening schedules — the
+  scripts and hand-off docs are exactly what was written for each of you,
+  so feel free to re-run any of them yourselves to double-check a number,
+  extend to another system, or just see it work end to end. Nothing here
+  replaces what you were going to build; it just means we already have the
+  row on screen for Monday.
 
 ## The deck
 
@@ -140,5 +143,5 @@ directly attached to a claim.
 ---
 
 *Questions → group chat. If a number here doesn't match what you'd expect,
-check `handoff_ast_asr_audit/summary_*.json` first — that's the source of
+check `audit/svarah_fairness_audit/summary_*.json` first — that's the source of
 truth, the table above was typed from it.*

@@ -11,7 +11,7 @@ two-track research program that runs entirely on Modal: an immediate, significan
 audit of Indian and frontier ASR systems, and a scaled-up fairness-aware distillation study built on
 the pipeline in this repo.
 
-Full technical writeup: [`README.md`](README.md). Full results: [`results/`](results/). Code:
+Full technical writeup: [`docs/ONPOLICY_DISTILLATION.md`](docs/ONPOLICY_DISTILLATION.md). Full results: [`results/`](results/). Code:
 [`modal_app.py`](modal_app.py) + [`src/onpolicy_distill/`](src/onpolicy_distill/).
 
 ## Who we are
@@ -40,7 +40,7 @@ full vocabulary, with no truncation.
 
 We implemented that recipe end to end — rollout sampling, cross-model teacher-forced scoring, exact
 vocabulary alignment (Whisper's large-v3 checkpoint isn't simply a vocab superset of smaller
-checkpoints — see `README.md` for the specific `<|yue|>`-token subtlety we had to handle correctly),
+checkpoints — see `docs/ONPOLICY_DISTILLATION.md` for the specific `<|yue|>`-token subtlety we had to handle correctly),
 reverse-KL loss, and a matched off-policy (pseudo-label) baseline — and validated it twice: first on
 CPU with a same-model student/teacher stand-in (fast, free, catches logic bugs), then for real on a
 Modal T4 with the actual 1.55B teacher.
@@ -156,7 +156,7 @@ entire track record above was produced on $0.22.
 ## Honest caveats
 
 whispr-nano is a proof of concept, not a paper: 50 training clips, one seed, one language, one
-student/teacher pair, fp32-only for numerical-stability reasons documented in `README.md`. The
+student/teacher pair, fp32-only for numerical-stability reasons documented in `docs/ONPOLICY_DISTILLATION.md`. The
 on-policy-vs-off-policy split we observed is exactly the kind of small-scale, noisy result that could
 go either way with a different seed — which is the point of the scale-up ask above, not a claim that
 the result is already conclusive. Likewise, the audit (Track 1) is in progress, not finished; its

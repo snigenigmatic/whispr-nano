@@ -45,7 +45,7 @@ Six slides, mostly condensed from existing docs:
 2. Blocker A/B outcome, stated plainly
 3. The pivot proposal + coverage table (memo §3)
 4. **Money slide:** the one live audit row from Saturday
-5. whispr-nano showcase: real numbers, $0.16, on/off-policy (`README.md` results table)
+5. whispr-nano showcase: real numbers, $0.16, on/off-policy (`docs/ONPOLICY_DISTILLATION.md` results table)
 6. The ask: approve the pivot; ACL SRW unaffected; scale-up already has a Modal credits application
    drafted (`PROPOSAL.md`)
 
