@@ -90,11 +90,30 @@ Three things worth internalizing before Monday:
   extend to another system, or just see it work end to end. Nothing here
   replaces what you were going to build; it just means we already have the
   row on screen for Monday.
-- **Aditi** — your assembler/schema-validator and receipts pack are still the
-  right next step: the six summary JSONs above are exactly what it should
-  ingest, and the receipts (Sarvam's aggregate-only blog post validating
-  Saaras V3 on Svarah, ASR-FAIRBENCH's protocol, the Nov-2025 clinical audit
-  paper) are what backs Slide 4's claims if the panel pushes on them.
+- **Aditi's tasks are also done** — same reasoning as above (deadline, not a
+  displacement of your work): `audit/assemble.py` in the `ast-asr` checkout
+  now globs all six `results_*_svarah_clean.csv`, hard-validates the schema
+  (raises immediately on a missing/extra/reordered column or an unknown
+  family label instead of failing quietly), recomputes overall WER,
+  per-family WER, ΔDP, and the Poisson p-value straight from the
+  per-utterance rows, and cross-checks the result against each
+  `summary_*.json` — all six agree exactly, zero mismatches. 9/9 tests in
+  `audit/test_assemble.py` pass (schema drift, math correctness, summary
+  mismatch detection, all on a hand-computed fixture). It also produced the
+  three confirmed report-bug fixes: `report/phase2_report.md`'s Table 6.1
+  now has an honest "HuBERT — not run" row instead of silently dropping it,
+  and reference [17] (`arXiv:2509.01939`) is corrected to its real authors
+  (Shivakumar, Gu, Gandhe, Bulyko — verified against the live arXiv page)
+  in both the report and the Review 2 slide deck, which had two different
+  wrong names attached to it ("Radhakrishnan" in-text, "Unni et al." in the
+  bibliography). The §7.2 "half-sentence" bug was checked line by line and
+  is already fixed in the current report — no action needed there.
+  `docs/RECEIPTS_PACK.md` / `.pdf` in `ast-asr` has the three verified
+  quotes for slides 2–3 (Sarvam's blog, ASR-FAIRBENCH, the clinical audit),
+  each with the exact source text and retrieval date — plus one finding
+  sharper than what was asked for: Sarvam's blog validates Saaras V3 on
+  Svarah but never actually states a WER number for it, aggregate or
+  otherwise.
 
 ## The deck
 

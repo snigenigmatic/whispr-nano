@@ -210,6 +210,7 @@ def main():
         (0, "Scoring module \u2014 ast_asr.metrics.normalize_for_wer / word_edit_counts, reused unchanged from Phase 2", False),
         (0, "Statistics module \u2014 Poisson drop-in-deviance GLM (statsmodels) \u2192 \u0394DP + p-value + structural/noise verdict", False),
         (0, "Cost-guardrail module \u2014 pre-flight estimate, in-run measured-rate re-plan, hard Modal timeout on every job", False),
+        (0, "Results-assembly module \u2014 schema-hard-fail assembler (9/9 pytest green) that recomputes every reported number straight from the per-utterance CSVs and cross-checks it against each summary JSON", False),
         (0, "Side-quest module \u2014 on-policy distillation (whisper-tiny \u2190 whisper-large-v3) PoC on Modal, parked as a future direction", False),
         (0, "", False),
         (0, "Tools / tech: Modal (serverless GPU), PyTorch + Transformers, HF Datasets/torchcodec, statsmodels, Sarvam Saaras V3 API, Qwen3-ASR \u2014 all open-source or free-tier API access", False),
@@ -232,8 +233,8 @@ def main():
          "Sarvam Saaras V3 client (cache + backoff) and Qwen3-ASR-0.6B feasibility + run",
          "Complete"),
         ("Aditi Mangala Udaya", "Assembly & receipts",
-         "Schema-validated results assembler; receipts pack (Saaras/ASR-FAIRBENCH/clinical-audit sources); report fixes",
-         "In progress"),
+         "Schema-hard-fail results assembler (9/9 tests green, reproduces all 6 rows exactly); 3-source receipts pack (PDF); fixed the HuBERT-row and [17]-citation report bugs",
+         "Complete"),
         ("C Kaustubh", "Pivot lead + audit",
          "Literature search, pivot memo, blockers A/B, on-policy distillation side-quest (whispr-nano), and ran all six audit systems end-to-end to hit this review's deadline",
          "Complete"),
@@ -259,8 +260,9 @@ def main():
     ntf.word_wrap = True
     ntf.paragraphs[0].text = (
         "Note: given the review deadline, Kaustubh personally ran all six audit systems (including the "
-        "Whisper-family and external-API tracks) on Modal + the vendor APIs; ownership above reflects the "
-        "planned task split and hand-off documentation, which the team is now reconciling in parallel."
+        "Whisper-family and external-API tracks) and completed the assembler/receipts/report-fix tasks "
+        "on Modal + the vendor APIs; ownership above reflects the planned task split and hand-off "
+        "documentation, which the team is now reconciling in parallel."
     )
     ntf.paragraphs[0].font.size = Pt(11)
     ntf.paragraphs[0].font.italic = True
