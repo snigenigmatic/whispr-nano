@@ -31,8 +31,8 @@ this repo's tests -- this keeps the remote GPU image lean and the stats
 code trivially inspectable/re-runnable without spending anything.
 
 Usage:
-    modal run audit/modal_svarah_audit.py::smoke   # ~20-40 utterances, validates the whole pipeline
-    modal run audit/modal_svarah_audit.py::run     # the real pass, budget-gated at --max-cost-usd (default $3.00)
+    modal run audit/opd_bias_extension/modal_svarah_audit.py::smoke   # ~20-40 utterances, validates the whole pipeline
+    modal run audit/opd_bias_extension/modal_svarah_audit.py::run     # the real pass, budget-gated at --max-cost-usd (default $3.00)
 
 `ai4bharat/svarah` is a *gated* dataset on the Hugging Face Hub -- the
 remote function is given the existing `huggingface` Modal secret (already
@@ -423,7 +423,7 @@ pipeline, and differs from it in at least three material ways:
    *sampling* itself (uniform random vs. a specific curated held-out set)
    is not guaranteed to match the source project's protocol.
 2. **Independently-reconstructed family mapping, not the authoritative
-   one.** `audit/family_mapping.py`'s Svarah-accent -> family table was
+   one.** `audit/opd_bias_extension/family_mapping.py`'s Svarah-accent -> family table was
    built from scratch from public linguistic classification and
    cross-checked against the Svarah paper's own language list, landing on
    14 Indo-Aryan / 4 Dravidian / 1 Sino-Tibetan (19 total) -- close to, but
@@ -433,7 +433,7 @@ pipeline, and differs from it in at least three material ways:
    the source project's authoritative file and must be cross-checked before
    any of the per-family numbers above are used in a publication-track
    deliverable.** See the disclaimer and full reasoning at the top of
-   `audit/family_mapping.py`.
+   `audit/opd_bias_extension/family_mapping.py`.
 3. **A single feasibility-check run, not a publication-grade result.** One
    model, one random seed, one Modal T4, greedy decoding only -- no repeated
    seeds/variance estimate, no comparison across ASR systems, and (per
@@ -445,8 +445,8 @@ pipeline, and differs from it in at least three material ways:
 
 ```bash
 uv sync --extra audit                                    # adds statsmodels/pandas for the Poisson fit
-uv run modal run audit/modal_svarah_audit.py::smoke      # ~20-40 utterances, validates the pipeline
-uv run modal run audit/modal_svarah_audit.py::run        # the real pass reported above
+uv run modal run audit/opd_bias_extension/modal_svarah_audit.py::smoke      # ~20-40 utterances, validates the pipeline
+uv run modal run audit/opd_bias_extension/modal_svarah_audit.py::run        # the real pass reported above
 ```
 """
     path.write_text(md)
@@ -506,7 +506,7 @@ def _print_report(label: str, remote_result: dict, scored_rows: list[dict]) -> N
 
 @app.local_entrypoint()
 def smoke(num_utterances: int = 32, max_cost_usd: float = 0.20, seed: int = 0):
-    """`modal run audit/modal_svarah_audit.py::smoke` -- a cheap end-to-end
+    """`modal run audit/opd_bias_extension/modal_svarah_audit.py::smoke` -- a cheap end-to-end
     check (model load from cache, chunked greedy decode, family mapping,
     jiwer detail, Poisson fit) on ~20-40 utterances before spending
     anything on the full pass."""
@@ -526,7 +526,7 @@ def smoke(num_utterances: int = 32, max_cost_usd: float = 0.20, seed: int = 0):
 
 @app.local_entrypoint()
 def run(num_utterances: int = 2500, max_cost_usd: float = 3.00, seed: int = 0):
-    """`modal run audit/modal_svarah_audit.py::run` -- the real pass.
+    """`modal run audit/opd_bias_extension/modal_svarah_audit.py::run` -- the real pass.
 
     `ai4bharat/svarah` actually contains 6,656 utterances total (discovered
     by inspecting the dataset directly -- see family_mapping.py's docstring

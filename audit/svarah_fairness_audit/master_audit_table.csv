@@ -1,0 +1,7 @@
+system,n_utterances,overall_wer_pct,Dravidian_wer_pct,Indo-Aryan_wer_pct,Sino-Tibetan_wer_pct,delta_dp_pp,poisson_p,verdict,source_csv
+Qwen3-ASR-0.6B-hf,2500,15.4863,14.161,15.8164,17.7321,3.5711,0.001326394631588575,structural,results_Qwen3-ASR-0.6B-hf_svarah_clean.csv
+distil-large-v3,2500,10.0297,9.6034,9.9285,13.6225,4.0191,0.0002461506949036108,structural,results_distil-large-v3_svarah_clean.csv
+saarasv3,450,5.8067,4.4068,5.1453,7.8571,3.4504,0.0002294929278084002,structural,results_saarasv3_svarah_clean.csv
+whisper-large-v3,2500,7.0406,6.5996,7.0643,8.9802,2.3806,0.015187705832493686,structural,results_whisper-large-v3_svarah_clean.csv
+whisper-small,2500,10.875,10.0621,11.006,13.242,3.1799,0.004462313730632994,structural,results_whisper-small_svarah_clean.csv
+whisper-tiny,2500,20.6039,17.0909,21.138,31.2785,14.1877,3.340659981669706e-24,structural,results_whisper-tiny_svarah_clean.csv

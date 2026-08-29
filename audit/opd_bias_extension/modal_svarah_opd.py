@@ -9,19 +9,19 @@ This is a standalone add-on, deliberately reusing without modification:
   - `onpolicy_distill.evaluate.evaluate` (wrapped per family below, not changed)
   - `onpolicy_distill.config.{DistillConfig, estimate_cost, enforce_budget,
     affordable_steps, gpu_second_rate}` -- same two-layer cost guardrail as
-    `modal_app.py` and `audit/modal_svarah_audit.py`
+    `modal_app.py` and `audit/opd_bias_extension/modal_svarah_audit.py`
   - the same image-build pattern, `onpolicy-distill-hf-cache` Volume (so the
     already-downloaded whisper-large-v3 fp32 checkpoint is reused), and the
     `huggingface` Modal secret needed for the gated `ai4bharat/svarah` dataset
-  - `audit/family_mapping.py`'s Svarah-accent -> family table
+  - `audit/opd_bias_extension/family_mapping.py`'s Svarah-accent -> family table
 
 The only new pieces are a Svarah clip loader (stratified per family, so a
 small train/eval pool still covers the minority Sino-Tibetan/Bodo group) and
 a thin per-family wrapper around the existing `evaluate()` function.
 
 Usage:
-    modal run audit/modal_svarah_opd.py::smoke   # ~$0.05-0.10, both arms, small
-    modal run audit/modal_svarah_opd.py::run     # ~$0.30-0.60, both arms, the real comparison
+    modal run audit/opd_bias_extension/modal_svarah_opd.py::smoke   # ~$0.05-0.10, both arms, small
+    modal run audit/opd_bias_extension/modal_svarah_opd.py::run     # ~$0.30-0.60, both arms, the real comparison
 
 Honest scope: this is a PoC-scale extension of an already-PoC-scale repo.
 Small stratified pools (tens of clips per family), one seed, one run. It is
@@ -303,7 +303,7 @@ def _print_and_save(summary: dict, run_kind: str) -> None:
 
 @app.local_entrypoint()
 def smoke(max_cost_usd: float = 0.20):
-    """`modal run audit/modal_svarah_opd.py::smoke` -- both arms, tiny, on real Svarah audio."""
+    """`modal run audit/opd_bias_extension/modal_svarah_opd.py::smoke` -- both arms, tiny, on real Svarah audio."""
     per_arm_budget = max_cost_usd / 2
     on_cfg = SVARAH_SMOKE_ON.clone(max_cost_usd=per_arm_budget)
     off_cfg = SVARAH_SMOKE_OFF.clone(max_cost_usd=per_arm_budget)
@@ -326,7 +326,7 @@ def smoke(max_cost_usd: float = 0.20):
 
 @app.local_entrypoint()
 def run(max_cost_usd: float = 0.70):
-    """`modal run audit/modal_svarah_opd.py::run` -- the real comparison on Svarah."""
+    """`modal run audit/opd_bias_extension/modal_svarah_opd.py::run` -- the real comparison on Svarah."""
     per_arm_budget = max_cost_usd / 2
     on_cfg = SVARAH_POC_ON.clone(max_cost_usd=per_arm_budget)
     off_cfg = SVARAH_POC_OFF.clone(max_cost_usd=per_arm_budget)

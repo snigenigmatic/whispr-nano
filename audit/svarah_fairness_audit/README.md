@@ -1,21 +1,26 @@
-# Handoff: Svarah audit results → belongs in `ast-asr`, not here
+# Svarah fairness audit — six systems, six structural gaps
 
-These files were produced running against the `ast-asr` repo's own code
-(`ast_asr.taxonomy`, `ast_asr.metrics`) on Modal + the Sarvam API. They're
-staged here only because this is the one repo this session has write
-access to — **this whole folder should end up in `ast-asr`'s `audit/`
-directory, not in whispr-nano.**
+This is the canonical home for the PW25_BJD_05 Phase 3 pivot's audit
+deliverable: **"Whose Indian accent? A significance-tested subgroup audit of
+Indian and frontier ASR systems."** It started life reusing the `ast-asr`
+capstone repo's own scoring convention (`ast_asr.taxonomy.SVARAH_LANGUAGE_FAMILIES`,
+`ast_asr.metrics.normalize_for_wer` / `word_edit_counts`) so its numbers stay
+comparable to every other Svarah number in that project — but the results,
+scripts, assembler, and verification below live **here**, in `whispr-nano`,
+which is the repo this project actually pushes to and presents from. (An
+identical copy was also committed to `ast-asr`'s `fair-cispo-work` branch,
+locally, but that repo has had push-credential issues in this environment;
+treat *this* copy as authoritative.)
 
-## To install into your `ast-asr` clone
+`assemble.py` (below) is the independent verification layer: it reglobs
+every `results_*_svarah_clean.csv`, hard-validates the schema, **recomputes
+every number in the table below directly from the per-utterance rows**, and
+cross-checks the result against each `summary_*.json`. Run it yourself:
 
 ```bash
-cp handoff_ast_asr_audit/*.py    <ast-asr>/audit/
-cp handoff_ast_asr_audit/*.csv   <ast-asr>/audit/
-cp handoff_ast_asr_audit/*.json  <ast-asr>/audit/
-cd <ast-asr>
-git add audit/
-git commit -m "Add Whisper-family + Saaras V3 Svarah audit results"
-git push
+cd audit/svarah_fairness_audit
+python assemble.py                # writes master_audit_table.{csv,md}
+python -m pytest test_assemble.py -v   # 9 tests: schema drift + math regression
 ```
 
 ## Results: every system tested shows the same structural pattern
@@ -80,3 +85,17 @@ Total cost across all six systems: **$1.193**.
 
 Script (`modal_whisper_family_audit.py`) is the exact one already validated
 and described in `docs/TEAM_AGENT_TASKS_20260828.md` in this repo.
+
+## Files in this folder
+
+- `modal_whisper_family_audit.py` / `modal_qwen3_asr_audit.py` /
+  `fetch_stratified.py` / `run_saaras_audit.py` — the four scripts that
+  produced every row below.
+- `results_<system>_svarah_clean.csv` — per-utterance results, one row per
+  clip, for all six systems.
+- `summary_<system>_svarah.json` — per-system summary (overall/per-family
+  WER, ΔDP, Poisson test) as written by the run itself.
+- `assemble.py` / `test_assemble.py` — the independent assembler + its
+  pytest suite (schema hard-fail, math regression, summary cross-check).
+- `master_audit_table.csv` / `.md` — the assembler's output; regenerate
+  any time with `python assemble.py`.

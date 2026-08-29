@@ -13,7 +13,7 @@ The public `ai4bharat/svarah` dataset on Hugging Face (gated; requires an
 authenticated `huggingface` Modal secret / HF token to load) stores the
 accent label in a column called **`primary_language`** -- confirmed by
 directly loading the dataset and inspecting `dataset.column_names` plus
-sample rows on 2026-08-28 (see `audit/modal_svarah_audit.py`'s pre-flight
+sample rows on 2026-08-28 (see `audit/opd_bias_extension/modal_svarah_audit.py`'s pre-flight
 schema check). This is the speaker's self-reported native/mother-tongue
 language, which the Svarah paper (Javed et al., "Svarah: Evaluating English
 ASR Systems on Indian Accents," Interspeech 2023, arXiv:2305.15760) uses as
