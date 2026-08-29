@@ -27,16 +27,32 @@ git push
 | whisper-large-v3 | 7.04% | 2.38pp | 0.0152 | structural | 2500 | $0.411 |
 | distil-large-v3 | 10.03% | 4.02pp | 0.00025 | structural | 2500 | $0.285 |
 | **Saaras V3** | **5.81%** (best overall) | 3.45pp | 0.00023 | structural | 450 | $0.226 |
+| Qwen3-ASR-0.6B | 15.49% | 3.57pp | 0.0013 | structural | 2500 | $0.142 |
 
-**Every single system — every open Whisper variant and Sarvam's own flagship
-Saaras V3 — shows a statistically significant per-family WER gap on Svarah,
-and Sino-Tibetan is the worst-performing family in every single case,
-including in Saaras V3, the model explicitly marketed as solving exactly
-this problem.** Saaras V3 has the best overall WER of anything tested (5.81%)
-but does not close the fairness gap — direct, real-system evidence for
-"aggregate WER hides subgroup movement."
+**Six systems, six statistically significant per-family gaps, and
+Sino-Tibetan is the worst-performing family in every single one** — three
+sizes of open Whisper, a distilled Whisper variant, Sarvam's own flagship
+Saaras V3 (the model explicitly marketed as solving exactly this problem),
+and Alibaba's Qwen3-ASR (state-of-the-art on Western ASR leaderboards, but
+notably *worse* overall on this Indian-accented set than several Whisper
+variants — a second finding worth a slide on its own: general-benchmark SOTA
+does not predict Indian-accent performance). Saaras V3 has the best overall
+WER of anything tested (5.81%) but does not close the fairness gap — direct,
+real-system evidence for "aggregate WER hides subgroup movement."
 
-Total cost across all five systems: **$1.051**.
+Total cost across all six systems: **$1.193**.
+
+### Qwen3-ASR notes
+
+- `Qwen/Qwen3-ASR-0.6B-hf`, native Transformers API
+  (`processor.apply_transcription_request`), language forced to `"English"`
+  per clip (Svarah is Indian-*accented English*, not a different language;
+  forcing avoids any language-ID misfire).
+- One systematic, expected scoring quirk: Qwen3-ASR tends to write numbers
+  as words ("fifty") where Whisper/Saaras more often keep digits ("50") —
+  this is scored as-is (no per-vendor digit normalization), consistent with
+  every other system in this table, but worth a one-line caveat if this
+  number gets quoted.
 
 ## Notes on the Saaras V3 run specifically
 
