@@ -104,5 +104,6 @@ the one that actually gets pushed and presented from — it has push access
 that works, and it already had the Modal skeleton (image, volumes, cost
 guardrails) this audit's Whisper-family systems reuse directly. If/when the
 `ast-asr` push access is fixed, the identical audit files can be copied
-back over; until then, treat **this repo as authoritative** for anything
-Phase 3.
+back over (exact file map + the two report-bug patches that only exist in
+`ast-asr`: [`docs/AST_ASR_PUSH_HANDOFF.md`](docs/AST_ASR_PUSH_HANDOFF.md));
+until then, treat **this repo as authoritative** for anything Phase 3.
