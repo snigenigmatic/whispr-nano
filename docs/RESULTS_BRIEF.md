@@ -107,7 +107,9 @@ Three things worth internalizing before Monday:
   citation mix-up) were applied directly to `report/phase2_report.md` and
   the Review 2 slide deck in the `ast-asr` checkout, since those are edits
   to files that only exist there. They're committed locally in that repo;
-  landing them on GitHub is blocked on the same push issue above.
+  landing them on GitHub is blocked on the same push issue above. An
+  agent with write access to `snigenigmatic/ast-asr` can push the lot
+  from the file map in [`docs/AST_ASR_PUSH_HANDOFF.md`](AST_ASR_PUSH_HANDOFF.md).
 - **Ownership note for the record:** the plan was Aditya on the Whisper
   family, Adithya on Saaras V3 + Qwen3-ASR, and Aditi on the assembler,
   report fixes, and receipts pack. Given the review deadline, I did all of
