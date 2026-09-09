@@ -11,7 +11,9 @@ this up to the full 960h LibriSpeech training set with real credits.
 
 from __future__ import annotations
 
+import io
 from dataclasses import dataclass
+from pathlib import Path
 
 import numpy as np
 
@@ -45,13 +47,16 @@ def _decode_audio(audio_value) -> tuple[np.ndarray, int]:
         if audio_value.get("array") is not None:
             array = np.asarray(audio_value["array"], dtype=np.float32)
             return _resample_16k(array, int(audio_value.get("sampling_rate") or 16_000))
-        payload = audio_value.get("path") or audio_value.get("bytes")
-        if payload is not None:
-            import io
-
+        payload_bytes = audio_value.get("bytes")
+        path = audio_value.get("path")
+        src = None
+        if payload_bytes:
+            src = io.BytesIO(payload_bytes)
+        elif isinstance(path, str) and Path(path).exists():
+            src = path
+        if src is not None:
             import soundfile as sf
 
-            src = payload if isinstance(payload, str) else io.BytesIO(payload)
             array, sr = sf.read(src, always_2d=False)
             array = np.asarray(array, dtype=np.float32)
             if array.ndim > 1:
