@@ -34,6 +34,24 @@ memory.
 Hyperparameters live in the JSON. Do not pass `LR=…` or change the command
 per node.
 
+## First two rounds (ran locally, 2026-09-09)
+
+CPU tiny/tiny, LibriSpeech dummy, 8/4 clips, 6 steps. Project
+`3259e90d-d5d9-4e9a-8b9c-505570dcbc80`.
+
+| Node | Policy | ΔWER pp | Verdict |
+|---|---|---|---|
+| Baseline `orx/baseline-on-policy-reverse-kl` | on_policy KL | +0.00 | flat (expected: identical teacher) |
+| Child `orx/off-policy-reverse-kl` | off_policy KL | +0.00 | flat |
+| Child `orx/scheduled-sampling-gold-ce` | scheduled_sampling p=0.5 | **−2.70** | improved — promoted |
+| Grandchild mix 0.0 | scheduled_sampling p=0.0 | −2.70 | tie |
+| Grandchild mix 1.0 | scheduled_sampling p=1.0 | −2.70 | tie |
+
+Gold CE moved WER; reverse KL against a copy of tiny did not. Mix rate did
+not change the 4-clip WER. Stop sweeping mix on this set. Next descent:
+`teacher_model=openai/whisper-large-v3` on Modal or HF Jobs, more eval clips,
+encoders still frozen.
+
 ## What the first round is asking
 
 The published Whisper-AED cell we occupy is: **teacher-logit on-policy
