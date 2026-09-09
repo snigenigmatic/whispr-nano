@@ -50,7 +50,7 @@ def _ensure_runtime_deps() -> None:
             "install",
             "transformers>=4.44,<5.17",
             "accelerate>=0.33",
-            "datasets>=2.20,<4.5",
+            "datasets>=2.20,<3",
             "soundfile>=0.12",
             "jiwer>=3.0",
         ]

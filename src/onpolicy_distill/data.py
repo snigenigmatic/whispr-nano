@@ -25,15 +25,39 @@ class Clip:
     family: str | None = None  # optional accent/language-family label (e.g. for Svarah)
 
 
+def _resample_16k(array: np.ndarray, sr: int) -> tuple[np.ndarray, int]:
+    if sr == 16_000:
+        return array.astype(np.float32), 16_000
+    duration = len(array) / float(sr)
+    new_len = max(1, int(round(duration * 16_000)))
+    x_old = np.linspace(0.0, 1.0, num=len(array), endpoint=False)
+    x_new = np.linspace(0.0, 1.0, num=new_len, endpoint=False)
+    return np.interp(x_new, x_old, array).astype(np.float32), 16_000
+
+
 def _decode_audio(audio_value) -> tuple[np.ndarray, int]:
-    """Handle both the modern torchcodec-backed `Audio` feature and the
-    legacy dict-of-array format across `datasets` versions."""
+    """Handle torchcodec-backed `Audio`, dict-of-array, path, and bytes."""
     if hasattr(audio_value, "get_all_samples"):
         samples = audio_value.get_all_samples()
         array = samples.data.mean(dim=0).numpy().astype(np.float32)
-        return array, int(samples.sample_rate)
-    array = np.asarray(audio_value["array"], dtype=np.float32)
-    return array, int(audio_value["sampling_rate"])
+        return _resample_16k(array, int(samples.sample_rate))
+    if isinstance(audio_value, dict):
+        if audio_value.get("array") is not None:
+            array = np.asarray(audio_value["array"], dtype=np.float32)
+            return _resample_16k(array, int(audio_value.get("sampling_rate") or 16_000))
+        payload = audio_value.get("path") or audio_value.get("bytes")
+        if payload is not None:
+            import io
+
+            import soundfile as sf
+
+            src = payload if isinstance(payload, str) else io.BytesIO(payload)
+            array, sr = sf.read(src, always_2d=False)
+            array = np.asarray(array, dtype=np.float32)
+            if array.ndim > 1:
+                array = array.mean(axis=1)
+            return _resample_16k(array, int(sr))
+    raise TypeError(f"unrecognized audio payload: {type(audio_value)!r}")
 
 
 def load_clips(
@@ -46,10 +70,18 @@ def load_clips(
 ) -> tuple[list[Clip], list[Clip]]:
     """Load a small ASR dataset and deterministically split it into a
     training pool and a disjoint held-out eval pool."""
-    from datasets import Audio, load_dataset
+    from datasets import load_dataset
 
     ds = load_dataset(dataset_id, dataset_config, split=dataset_split)
-    ds = ds.cast_column("audio", Audio(sampling_rate=16_000))
+    # datasets>=4 decodes Audio via torchcodec, which the Modal CUDA image
+    # does not ship. Leave the column as stored audio and decode ourselves.
+    try:
+        from datasets import Audio
+
+        ds = ds.cast_column("audio", Audio(sampling_rate=16_000, decode=False))
+    except TypeError:
+        # Older datasets.Audio has no decode= flag; skip the cast.
+        pass
 
     total_needed = num_train + num_eval
     if total_needed > len(ds):
