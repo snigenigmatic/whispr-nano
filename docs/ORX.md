@@ -48,9 +48,25 @@ CPU tiny/tiny, LibriSpeech dummy, 8/4 clips, 6 steps. Project
 | Grandchild mix 1.0 | scheduled_sampling p=1.0 | −2.70 | tie |
 
 Gold CE moved WER; reverse KL against a copy of tiny did not. Mix rate did
-not change the 4-clip WER. Stop sweeping mix on this set. Next descent:
-`teacher_model=openai/whisper-large-v3` on Modal or HF Jobs, more eval clips,
-encoders still frozen.
+not change the 4-clip WER. Stop sweeping mix on this set.
+
+## Round 3 — real teacher, Modal T4 (2026-09-09)
+
+Siblings under the scheduled-sampling winner. `whisper-tiny` student,
+`whisper-large-v3` teacher, 16 train / 8 eval, 16 steps, CUDA T4, encoders
+frozen. Command: `python -m experiments.run`. Earlier sandboxes died on
+image deps (3.12-only pins, torchcodec, relative flac paths) and were
+repaired in place — those runs answered nothing.
+
+| Node | Policy | ΔWER pp | KL before→after | Wall | Verdict |
+|---|---|---|---|---|---|
+| `orx/on-policy-kl-large-v3-teacher` | on_policy | +0.00 | 0.827→0.760 | 70s | flat WER, KL improved |
+| `orx/scheduled-sampling-large-v3-teacher` | scheduled_sampling | +0.00 | 0.827→1.041 | 44s | flat WER, KL worse |
+
+Teacher WER on the same 8 clips: 14.29%. Student stayed at 29.32%. This
+smoke is too short to move WER; on-policy is the only arm that reduced
+reverse KL. Next descent: the original 60-step PoC budget on the on-policy
+node, not another mix sweep.
 
 ## What the first round is asking
 
