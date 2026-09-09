@@ -58,6 +58,7 @@ python -m pytest test_assemble.py -v   # schema hard-fail + math regression
 ```
 docs/
   ONPOLICY_DISTILLATION.md    # the OPD side-quest's full research writeup (was this repo's README)
+  ORX.md                      # OpenResearch experiment-tree setup and first-round plan
   TEAM_BRIEF.md               # the pivot story, for teammates, start here for context
   WEEKEND_PLAN.md             # the execution plan with per-person agent-task briefs
   MONDAY_REVIEW.md            # the scoped-down solo plan that produced the audit below
@@ -69,6 +70,7 @@ audit/
   svarah_fairness_audit/      # the six-system audit: scripts, results, assembler, tests
   opd_bias_extension/         # earlier, single-model Svarah bias check from the OPD side-quest
 src/onpolicy_distill/         # the on-policy distillation implementation (see docs/ONPOLICY_DISTILLATION.md)
+experiments/                  # fixed orx runner + committed run.json (see docs/ORX.md)
 tests/                        # OPD unit + CPU integration tests
 modal_app.py                  # the OPD PoC's Modal App (image, GPU function, CLI entrypoints)
 results/                      # OPD PoC metrics/plots from the reported Modal runs
@@ -87,6 +89,12 @@ Parked as a future direction (two 2026 papers already did OPD for ASR at
 scale) rather than this cycle's contribution, but built and validated with
 real numbers. Full writeup: [`docs/ONPOLICY_DISTILLATION.md`](docs/ONPOLICY_DISTILLATION.md).
 Modal-credits pitch built on it: [`PROPOSAL.md`](PROPOSAL.md).
+
+The next OPD questions are driven as an [OpenResearch](https://github.com/alphaXiv/OpenResearch)
+(`orx`) experiment tree. Every node runs the same command
+(`python -m experiments.run`); variants live in committed
+`experiments/run.json`. Skill + loop: [`.cursor/skills/orx/SKILL.md`](.cursor/skills/orx/SKILL.md),
+notes: [`docs/ORX.md`](docs/ORX.md).
 
 ## Relationship to `ast-asr`
 

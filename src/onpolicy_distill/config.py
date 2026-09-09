@@ -67,7 +67,15 @@ class DistillConfig:
     # "off_policy": rollouts sampled from the teacher (pseudo-labels), scored
     #   with the *same* reverse-KL loss -- the controlled ablation from
     #   Agarwal et al. 2023, Table 1, isolating rollout source from loss choice.
+    # "scheduled_sampling": student decoder prefixes mixed with gold tokens,
+    #   gold cross-entropy loss (Moriya et al. ICASSP 2023 / Bengio et al.
+    #   2015). Isolates on-policy *inputs* from teacher-logit distillation.
     policy: str = "on_policy"
+
+    # Probability of feeding the student's own previous token (vs gold) as
+    # the next decoder input. Only used when policy == "scheduled_sampling".
+    # 0.0 = pure teacher-forced CE; 1.0 = fully on-policy prefixes + gold CE.
+    scheduled_sampling_prob: float = 0.5
 
     # Eval / logging
     eval_every: int = 20

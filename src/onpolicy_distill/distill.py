@@ -232,6 +232,60 @@ def build_loss_mask(seqs: torch.Tensor, prefix_len: int, eos_id: int) -> torch.T
     return (not_padding & after_prefix).float()
 
 
+def encode_gold_sequences(
+    bundle: ModelBundle, clips: list[Clip], max_new_tokens: int
+) -> torch.Tensor:
+    """Prefix + gold transcript tokens + EOS, padded with EOS (so
+    `build_loss_mask` treats the pad as post-eos)."""
+    prefix = bundle.prefix_ids.detach().cpu().tolist()
+    token_lists: list[list[int]] = []
+    for clip in clips:
+        ids = bundle.tokenizer(clip.reference_text, add_special_tokens=False).input_ids
+        ids = list(ids)[:max_new_tokens]
+        token_lists.append(prefix + ids + [bundle.eos_id])
+    max_len = max(len(s) for s in token_lists)
+    padded = [s + [bundle.eos_id] * (max_len - len(s)) for s in token_lists]
+    return torch.tensor(padded, dtype=torch.long, device=bundle.device)
+
+
+def mix_decoder_inputs(
+    gold_ids: torch.Tensor,
+    sampled_next: torch.Tensor,
+    prefix_len: int,
+    mix_prob: float,
+) -> torch.Tensor:
+    """Scheduled-sampling decoder inputs.
+
+    `gold_ids` is (B, T) including the forced prefix and a trailing EOS.
+    `sampled_next` is (B, T-1): a sample from the student at each target
+    position (aligned with `gold_ids[:, 1:]`). Positions in the forced
+    prefix stay gold; later positions are replaced with the model's
+    previous-step sample with probability `mix_prob`.
+    """
+    decoder = gold_ids[:, :-1].clone()
+    if mix_prob <= 0.0 or decoder.size(1) <= prefix_len:
+        return decoder
+    mix_len = decoder.size(1) - prefix_len
+    model_tokens = sampled_next[:, prefix_len - 1 : prefix_len - 1 + mix_len]
+    use_model = torch.rand(decoder.size(0), mix_len, device=decoder.device) < mix_prob
+    decoder[:, prefix_len:] = torch.where(use_model, model_tokens, decoder[:, prefix_len:])
+    return decoder
+
+
+def masked_ce_loss(
+    logits: torch.Tensor, targets: torch.Tensor, mask: torch.Tensor
+) -> torch.Tensor:
+    """Mean token-level cross-entropy over `mask` (gold scheduled sampling)."""
+    logp = F.log_softmax(logits.float(), dim=-1)
+    nll = F.nll_loss(
+        logp.reshape(-1, logp.size(-1)),
+        targets.reshape(-1),
+        reduction="none",
+    ).view_as(targets)
+    denom = mask.sum().clamp_min(1.0)
+    return (nll * mask).sum() / denom
+
+
 def reverse_kl_loss(
     student_logits: torch.Tensor,
     teacher_logits: torch.Tensor,
@@ -256,6 +310,16 @@ def reverse_kl_loss(
 # ---------------------------------------------------------------------------
 
 
+def _optimizer_step(student: ModelBundle, optimizer: torch.optim.Optimizer, loss: torch.Tensor) -> float:
+    optimizer.zero_grad(set_to_none=True)
+    loss.backward()
+    torch.nn.utils.clip_grad_norm_(
+        (p for p in student.model.parameters() if p.requires_grad), max_norm=1.0
+    )
+    optimizer.step()
+    return float(loss.detach().cpu())
+
+
 def training_step(
     cfg: DistillConfig,
     student: ModelBundle,
@@ -264,15 +328,29 @@ def training_step(
     batch: list[Clip],
     optimizer: torch.optim.Optimizer,
 ) -> float:
-    """Run one on-policy or off-policy distillation step; returns the mean
-    reverse KL for logging (equal to the loss for on/off policy as defined
-    here, since the loss *is* the mean reverse KL)."""
+    """Run one training step. On/off-policy return mean reverse KL; scheduled
+    sampling returns mean gold cross-entropy."""
     prefix_len = student.prefix_ids.numel()
 
+    if cfg.policy == "scheduled_sampling":
+        gold = encode_gold_sequences(student, batch, cfg.max_new_tokens)
+        student_feats = extract_features(student, batch)
+        gold_inputs = gold[:, :-1]
+        with torch.no_grad():
+            probe_logits = score_sequences(student, student_feats, gold_inputs, grad=False)
+        sampled_next = torch.distributions.Categorical(logits=probe_logits.float()).sample()
+        mixed_inputs = mix_decoder_inputs(
+            gold, sampled_next, prefix_len, cfg.scheduled_sampling_prob
+        )
+        student_logits = score_sequences(student, student_feats, mixed_inputs, grad=True)
+        mask = build_loss_mask(gold, prefix_len, student.eos_id)
+        loss = masked_ce_loss(student_logits, gold[:, 1:], mask)
+        return _optimizer_step(student, optimizer, loss)
+
     if cfg.policy == "on_policy":
-        rollout_bundle, score_bundle = student, teacher
+        rollout_bundle = student
     elif cfg.policy == "off_policy":
-        rollout_bundle, score_bundle = teacher, student
+        rollout_bundle = teacher
     else:
         raise ValueError(f"unknown policy {cfg.policy!r}")
 
@@ -298,15 +376,7 @@ def training_step(
 
     mask = build_loss_mask(seqs, prefix_len, student.eos_id)
     loss, _ = reverse_kl_loss(student_logits, teacher_logits, vocab_map, mask)
-
-    optimizer.zero_grad(set_to_none=True)
-    loss.backward()
-    torch.nn.utils.clip_grad_norm_(
-        (p for p in student.model.parameters() if p.requires_grad), max_norm=1.0
-    )
-    optimizer.step()
-
-    return float(loss.detach().cpu())
+    return _optimizer_step(student, optimizer, loss)
 
 
 # ---------------------------------------------------------------------------
@@ -379,7 +449,7 @@ def train_arm(
         if on_step is not None:
             on_step(log)
         if step % cfg.log_every == 0 or step == planned_steps:
-            print(f"[{cfg.name}] step {step}/{planned_steps} loss(KL)={loss_val:.4f} ({dt:.2f}s)", flush=True)
+            print(f"[{cfg.name}] step {step}/{planned_steps} loss={loss_val:.4f} ({dt:.2f}s)", flush=True)
 
         # In-run, *measured* cost guardrail: after a short warmup, re-project
         # total spend from actual step latency and shrink the remaining plan
