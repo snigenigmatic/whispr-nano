@@ -19,3 +19,15 @@ venv/
 
 # Modal
 .modal.toml
+
+# Listening-lab / Next.js
+listen/node_modules/
+listen/.next/
+listen/out/
+tmp-scaffold/
+
+# Gated Svarah wavs and API caches (never commit)
+listen/public/audio/svarah_*.wav
+audit/**/saaras_audit/
+**/response_cache/
+**/wavs/
