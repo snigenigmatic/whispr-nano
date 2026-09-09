@@ -35,21 +35,24 @@ def _ensure_runtime_deps() -> None:
             missing.append(mod)
     if not missing:
         return
-    print(f"[experiments.run] missing {missing}; installing runtime deps", flush=True)
+    print(
+        f"[experiments.run] python={sys.version.split()[0]} missing {missing}; "
+        "installing runtime deps (3.11-compatible pins)",
+        flush=True,
+    )
+    # Modal's default CUDA image is CPython 3.11; do not pin 3.12-only wheels
+    # (librosa 1.0, numpy 2.5). librosa is unused by the trainer.
     subprocess.check_call(
         [
             sys.executable,
             "-m",
             "pip",
             "install",
-            "--quiet",
-            "transformers==5.16.1",
-            "accelerate==1.11.0",
-            "datasets==4.4.1",
-            "soundfile==0.14.0",
-            "librosa==1.0.0",
-            "jiwer==4.0.0",
-            "numpy==2.5.2",
+            "transformers>=4.44,<5.17",
+            "accelerate>=0.33",
+            "datasets>=2.20,<4.5",
+            "soundfile>=0.12",
+            "jiwer>=3.0",
         ]
     )
 
