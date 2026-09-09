@@ -4,12 +4,17 @@ Reads committed `experiments/run.json`, trains one arm, prints a RESULT
 SUMMARY block that `orx logs` can judge. Adds this snapshot's `src/` to
 sys.path so isolated orx run directories use the node's code, not whatever
 happens to be editable-installed on the machine.
+
+On a bare Modal sandbox (generic CUDA PyTorch image) the scientific
+packages may be missing; we install them once, then continue. That is
+environment repair, not a hyperparameter.
 """
 
 from __future__ import annotations
 
 import json
 import os
+import subprocess
 import sys
 from pathlib import Path
 
@@ -19,6 +24,34 @@ sys.path.insert(0, str(ROOT / "src"))
 os.environ.setdefault("HF_HOME", str(Path.home() / ".cache" / "huggingface"))
 os.environ.setdefault("HF_HUB_ENABLE_HF_TRANSFER", "0")
 os.environ.setdefault("TOKENIZERS_PARALLELISM", "false")
+
+
+def _ensure_runtime_deps() -> None:
+    missing: list[str] = []
+    for mod in ("torch", "transformers", "datasets", "jiwer", "soundfile", "numpy"):
+        try:
+            __import__(mod)
+        except ImportError:
+            missing.append(mod)
+    if not missing:
+        return
+    print(f"[experiments.run] missing {missing}; installing runtime deps", flush=True)
+    subprocess.check_call(
+        [
+            sys.executable,
+            "-m",
+            "pip",
+            "install",
+            "--quiet",
+            "transformers==5.16.1",
+            "accelerate==1.11.0",
+            "datasets==4.4.1",
+            "soundfile==0.14.0",
+            "librosa==1.0.0",
+            "jiwer==4.0.0",
+            "numpy==2.5.2",
+        ]
+    )
 
 CONFIG_PATH = ROOT / "experiments" / "run.json"
 
@@ -80,6 +113,7 @@ def print_summary(cfg, result, device) -> None:
 
 
 def main() -> int:
+    _ensure_runtime_deps()
     import torch
 
     from onpolicy_distill.data import load_clips
