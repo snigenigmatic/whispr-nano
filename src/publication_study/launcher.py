@@ -230,6 +230,7 @@ def run_target_preparation(config: dict, contract: StudyContract) -> dict:
 
 def run_target_teacher(config: dict, contract: StudyContract) -> dict:
     from research.publication.modal_runner import app, label_target_with_teacher
+    from publication_study.integrity import validate_target_teacher_artifacts
 
     ensure_live_budget()
     ledger = BudgetLedger(BUDGET_PATH)
@@ -253,6 +254,12 @@ def run_target_teacher(config: dict, contract: StudyContract) -> dict:
         raise RuntimeError("target pseudo-label transfer hash mismatch")
     if hashlib.sha256(audit_text.encode()).hexdigest() != result["audit_manifest_sha256"]:
         raise RuntimeError("target audit transfer hash mismatch")
+    target_rows = _load_jsonl(ROOT / "research/publication/data/spire_target_train_v1.jsonl")
+    pseudo_rows = [json.loads(line) for line in pseudo_text.splitlines() if line]
+    audit_rows = [json.loads(line) for line in audit_text.splitlines() if line]
+    result["integrity"] = validate_target_teacher_artifacts(
+        target_rows, pseudo_rows, audit_rows
+    )
     receipt_hash = canonical_json_hash(result)
     ledger.complete(config["run_id"], float(result["estimated_resource_cost_usd"]), receipt_hash)
     data = ROOT / "research/publication/data"

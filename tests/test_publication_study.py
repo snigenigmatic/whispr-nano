@@ -5,7 +5,12 @@ import pytest
 
 from publication_study.arithmetic import apply_global_correction
 from publication_study.contract import BudgetLedger, StudyContract, atomic_json
-from publication_study.integrity import balanced_target_rows, validate_speaker_boundary
+from publication_study.integrity import (
+    TARGET_ACCENTS,
+    balanced_target_rows,
+    validate_speaker_boundary,
+    validate_target_teacher_artifacts,
+)
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -59,3 +64,42 @@ def test_global_pseudo2real_arithmetic_and_shape_guard():
     assert report["formula"].startswith("target_pseudo")
     with pytest.raises(ValueError, match="signature"):
         apply_global_correction(real, {"w": np.ones((2, 1), dtype=np.float32)}, target, 1.0)
+
+
+def test_target_teacher_artifacts_require_exact_blind_confidence_extremes():
+    targets = []
+    predictions = []
+    for accent in TARGET_ACCENTS:
+        for index in range(800):
+            uid = f"{accent}-{index:04d}"
+            target = {
+                "utt_id": uid, "speaker_id": f"{accent}-speaker-{index}",
+                "accent": accent, "audio_path": f"wav/{uid}.wav",
+                "audio_sha256": f"{index:064x}", "duration_s": 2.0,
+                "source_sample_rate": 48000, "source_dataset_split": "train",
+            }
+            targets.append(target)
+            predictions.append({
+                **target, "pseudo_text": f"prediction {index}",
+                "teacher_mean_logprob": -float(800 - index),
+                "teacher_min_logprob": -float(801 - index),
+                "teacher_token_count": 2, "teacher_generated_token_ids": [1, 2],
+            })
+    audit = []
+    for accent in TARGET_ACCENTS:
+        group = sorted(
+            (row for row in predictions if row["accent"] == accent),
+            key=lambda row: (row["teacher_mean_logprob"], row["utt_id"]),
+        )
+        for stratum, selected in (("low", group[:10]), ("high", group[-10:])):
+            for row in selected:
+                audit.append({
+                    "utt_id": row["utt_id"], "accent": accent,
+                    "teacher_mean_logprob": row["teacher_mean_logprob"],
+                    "confidence_stratum": stratum,
+                })
+    report = validate_target_teacher_artifacts(targets, predictions, audit)
+    assert report["pseudo_id_coverage"] == 1.0
+    audit[0]["pseudo_text"] = "leak"
+    with pytest.raises(ValueError, match="leaks"):
+        validate_target_teacher_artifacts(targets, predictions, audit)

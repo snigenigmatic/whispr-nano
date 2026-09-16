@@ -4,11 +4,13 @@ from __future__ import annotations
 
 import hashlib
 import json
+import math
 from collections import Counter, defaultdict
 from typing import Any, Iterable, Mapping, Sequence
 
 
 REFERENCE_FIELDS = frozenset({"reference", "reference_text", "sentence", "text", "transcript"})
+TARGET_ACCENTS = ("Bengali", "Hindi", "Kannada", "Marathi", "Tamil", "Telugu")
 
 
 def stable_rank(seed: int, uid: str) -> str:
@@ -85,6 +87,100 @@ def validate_speaker_boundary(
         "sealed_test_speakers": len(test_speakers),
         "speaker_overlap": 0,
         "utterance_overlap": 0,
+    }
+
+
+def validate_target_teacher_artifacts(
+    target_rows: Sequence[Mapping[str, Any]],
+    pseudo_rows: Sequence[Mapping[str, Any]],
+    audit_rows: Sequence[Mapping[str, Any]],
+) -> dict[str, Any]:
+    """Validate exact prediction coverage and the deterministic blind audit."""
+    if len(target_rows) != 4800 or len(pseudo_rows) != 4800 or len(audit_rows) != 120:
+        raise ValueError("target teacher artifacts have unexpected row counts")
+
+    def unique_index(rows: Sequence[Mapping[str, Any]], name: str) -> dict[str, Mapping[str, Any]]:
+        indexed: dict[str, Mapping[str, Any]] = {}
+        for row in rows:
+            uid = str(row.get("utt_id", ""))
+            if not uid or uid in indexed:
+                raise ValueError(f"{name} contains an empty or duplicate utterance ID")
+            indexed[uid] = row
+        return indexed
+
+    targets = unique_index(target_rows, "target manifest")
+    predictions = unique_index(pseudo_rows, "pseudo-label manifest")
+    if set(targets) != set(predictions):
+        raise ValueError("pseudo-label IDs do not exactly match the target manifest")
+    identity_fields = (
+        "speaker_id", "accent", "audio_path", "audio_sha256", "duration_s",
+        "source_sample_rate", "source_dataset_split",
+    )
+    for uid, row in predictions.items():
+        leaked = REFERENCE_FIELDS & set(row)
+        if leaked:
+            raise ValueError(f"pseudo-label row contains corpus reference fields: {sorted(leaked)}")
+        if any(row.get(key) != targets[uid].get(key) for key in identity_fields):
+            raise ValueError(f"pseudo-label metadata differs from target manifest: {uid}")
+        if not isinstance(row.get("pseudo_text"), str) or not row["pseudo_text"].strip():
+            raise ValueError(f"empty target pseudo-label: {uid}")
+        mean = row.get("teacher_mean_logprob")
+        minimum = row.get("teacher_min_logprob")
+        if not all(isinstance(value, (int, float)) and math.isfinite(value) for value in (mean, minimum)):
+            raise ValueError(f"invalid target confidence: {uid}")
+        if minimum > mean or mean > 1e-6:
+            raise ValueError(f"inconsistent target confidence: {uid}")
+        token_ids = row.get("teacher_generated_token_ids")
+        if (
+            not isinstance(row.get("teacher_token_count"), int)
+            or row["teacher_token_count"] <= 0
+            or not isinstance(token_ids, list)
+            or not token_ids
+            or any(not isinstance(token, int) for token in token_ids)
+        ):
+            raise ValueError(f"invalid target teacher token receipt: {uid}")
+
+    audit = unique_index(audit_rows, "blind audit")
+    if set(audit) - set(predictions):
+        raise ValueError("blind audit contains IDs outside the target predictions")
+    forbidden_audit = REFERENCE_FIELDS | frozenset(
+        {"pseudo_text", "teacher_generated_token_ids", "label_source"}
+    )
+    for uid, row in audit.items():
+        leaked = forbidden_audit & set(row)
+        if leaked:
+            raise ValueError(f"blind audit leaks model or reference text: {sorted(leaked)}")
+        prediction = predictions[uid]
+        if row.get("accent") != prediction.get("accent"):
+            raise ValueError(f"blind audit accent differs from prediction: {uid}")
+        if row.get("teacher_mean_logprob") != prediction.get("teacher_mean_logprob"):
+            raise ValueError(f"blind audit confidence differs from prediction: {uid}")
+
+    expected_ids: set[str] = set()
+    strata = Counter()
+    for accent in TARGET_ACCENTS:
+        group = sorted(
+            (row for row in pseudo_rows if row["accent"] == accent),
+            key=lambda row: (row["teacher_mean_logprob"], row["utt_id"]),
+        )
+        if len(group) != 800:
+            raise ValueError(f"target pseudo-label balance changed for {accent}")
+        low = {row["utt_id"] for row in group[:10]}
+        high = {row["utt_id"] for row in group[-10:]}
+        expected_ids.update(low | high)
+        for uid in low:
+            strata[(accent, "low")] += int(audit.get(uid, {}).get("confidence_stratum") == "low")
+        for uid in high:
+            strata[(accent, "high")] += int(audit.get(uid, {}).get("confidence_stratum") == "high")
+    if set(audit) != expected_ids or any(
+        strata[(accent, stratum)] != 10
+        for accent in TARGET_ACCENTS for stratum in ("low", "high")
+    ):
+        raise ValueError("blind audit is not the exact high/low confidence selection")
+    return {
+        "target_rows": len(targets), "pseudo_rows": len(predictions),
+        "audit_rows": len(audit), "pseudo_id_coverage": 1.0,
+        "audit_per_accent_stratum": 10, "reference_fields": 0,
     }
 
 
