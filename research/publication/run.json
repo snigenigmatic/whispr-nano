@@ -1,4 +1,4 @@
 {
-  "action": "prepare_target_manifest",
-  "run_id": "prepare-spire-target-v1"
+  "action": "smoke_source_pseudo",
+  "run_id": "smoke-source-pseudo-seed12-v1"
 }
