@@ -668,18 +668,33 @@ def train_target_pseudo(plan: dict) -> dict:
         if len(target_receipts) % 400 == 0:
             print(f"tiny features prepared {len(target_receipts)}/4800", flush=True)
 
-    source_receipts = {row["utt_id"]: dict(plan["source_dev_receipts"][row["utt_id"]]) for row in dev_rows}
+    source_receipts = {
+        row["utt_id"]: dict(plan["source_dev_receipts"][row["utt_id"]]) for row in dev_rows
+    }
 
-    def stage_source(receipt: dict) -> str:
+    def stage_source(row: dict) -> dict:
+        receipt = dict(source_receipts[row["utt_id"]])
         source = Path("/source/feature_cache/frozen-v1") / receipt["feature_file"]
         payload = source.read_bytes()
         if hashlib.sha256(payload).hexdigest() != receipt["feature_sha256"]:
             raise ValueError("source development feature checksum mismatch")
         (local_features / receipt["feature_file"]).write_bytes(payload)
-        return receipt["utt_id"]
+        audio_path = Path("/source/l2arctic") / row["audio_path"]
+        audio_payload = audio_path.read_bytes()
+        if hashlib.sha256(audio_payload).hexdigest() != receipt["audio_sha256"]:
+            raise ValueError("source development audio checksum mismatch")
+        info = sf.info(audio_path)
+        duration = info.frames / info.samplerate
+        if abs(duration - float(receipt["duration_s"])) > max(0.01, 1 / info.samplerate):
+            raise ValueError("source development audio duration mismatch")
+        if int(receipt["original_sample_rate"]) != info.samplerate:
+            raise ValueError("source development sample-rate mismatch")
+        receipt["channels"] = info.channels
+        return receipt
 
     with ThreadPoolExecutor(max_workers=32) as pool:
-        source_staged = list(pool.map(stage_source, source_receipts.values()))
+        staged_source_receipts = list(pool.map(stage_source, dev_rows))
+    source_receipts = {row["utt_id"]: row for row in staged_source_receipts}
     verified_receipts = {**target_receipts, **source_receipts}
     target_feature_report = {
         "status": "completed", "manifest_sha256": plan["target_manifest_sha256"],
