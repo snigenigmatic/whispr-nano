@@ -1,4 +1,4 @@
 {
-  "action": "train_target_pseudo",
-  "run_id": "train-target-pseudo-seed12-v2"
+  "action": "recover_target_pseudo",
+  "run_id": "recover-target-pseudo-seed12-v1"
 }

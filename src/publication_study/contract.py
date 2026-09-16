@@ -168,3 +168,17 @@ class BudgetLedger:
             raise RuntimeError("measured cost exceeded reservation; freeze new dispatch")
         job.update(status="completed", measured_usd=measured_usd, receipt_sha256=receipt_sha256)
         atomic_json(self.path, raw)
+
+    def cancel(self, job_id: str, measured_usd: float, reason: str) -> None:
+        if not math.isfinite(measured_usd) or measured_usd < 0:
+            raise ValueError("measured_usd must be non-negative and finite")
+        if not reason.strip():
+            raise ValueError("cancellation reason is required")
+        raw = self.load()
+        matches = [job for job in raw["jobs"] if job["job_id"] == job_id]
+        if len(matches) != 1 or matches[0]["status"] != "reserved":
+            raise ValueError(f"job is not uniquely reserved: {job_id}")
+        if measured_usd > float(matches[0]["reserved_usd"]) + 1e-9:
+            raise RuntimeError("measured cancellation cost exceeded reservation")
+        matches[0].update(status="cancelled", measured_usd=measured_usd, reason=reason)
+        atomic_json(self.path, raw)

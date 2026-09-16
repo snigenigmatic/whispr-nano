@@ -437,6 +437,52 @@ def run_target_confidence(config: dict, contract: StudyContract) -> dict:
     return result
 
 
+def run_recover_target_pseudo(config: dict, contract: StudyContract) -> dict:
+    from research.publication.modal_runner import app, recover_target_pseudo_receipt
+    import hashlib
+
+    ensure_live_budget()
+    ledger = BudgetLedger(BUDGET_PATH)
+    # This retry was explicitly stopped after discovering that v1 artifacts
+    # had persisted; its 44-second app lifetime is recorded conservatively.
+    raw = ledger.load()
+    retry = [job for job in raw["jobs"] if job["job_id"] == "train-target-pseudo-seed12-v2"]
+    if len(retry) == 1 and retry[0]["status"] == "reserved":
+        ledger.cancel(
+            "train-target-pseudo-seed12-v2", 0.07,
+            "stopped after 44 seconds when the complete v1 artifact set was found on the result volume",
+        )
+    manifest = _load_jsonl(ROOT / "research/pilot/data/manifest.jsonl")
+    dev_ids = sorted(row["utt_id"] for row in manifest if row["split"] == "dev")
+    teacher_receipt = json.loads(
+        (ROOT / "research/publication/data/spire_target_pseudo_large_v3_seed12.receipt.json").read_text()
+    )
+    plan = {
+        "run_id": config["run_id"],
+        "recovered_run_id": "train-target-pseudo-seed12-v1",
+        "pseudo_manifest_sha256": teacher_receipt["pseudo_manifest_sha256"],
+        "source_dev_ids_sha256": hashlib.sha256(
+            json.dumps(dev_ids, separators=(",", ":")).encode()
+        ).hexdigest(),
+        "original_modal_app_id": "ap-GdSTVOGf4LxtKbVGAQvb6q",
+        "original_app_wall_seconds": 340.0,
+    }
+    plan_hash = canonical_json_hash(plan)
+    ledger.reserve(config["run_id"], 0.05, plan_hash)
+    with app.run():
+        result = recover_target_pseudo_receipt.remote(plan)
+    receipt_hash = canonical_json_hash(result)
+    ledger.complete(
+        plan["recovered_run_id"], float(result["estimated_resource_cost_usd"]), receipt_hash
+    )
+    ledger.complete(config["run_id"], 0.05, receipt_hash)
+    atomic_json(
+        ROOT / "research/publication/results/target_pseudo/receipt.json",
+        {**result, "recovery_plan_sha256": plan_hash, "receipt_sha256": receipt_hash},
+    )
+    return result
+
+
 def global_pseudo2real_plan(config: dict, contract: StudyContract) -> dict:
     import hashlib
 
@@ -516,6 +562,8 @@ def main() -> int:
         result = run_target_pseudo(config, contract)
     elif config["action"] == "train_target_confidence":
         result = run_target_confidence(config, contract)
+    elif config["action"] == "recover_target_pseudo":
+        result = run_recover_target_pseudo(config, contract)
     elif config["action"] == "build_global_pseudo2real":
         result = run_global_pseudo2real(config, contract)
     else:

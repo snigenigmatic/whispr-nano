@@ -45,6 +45,17 @@ def test_budget_releases_unused_terminal_reservation_headroom(tmp_path):
     ledger.reserve("second", 10.9, "c" * 64)
 
 
+def test_budget_records_measured_cancellation(tmp_path):
+    path = tmp_path / "budget.json"
+    atomic_json(path, {"schema_version": 1, "hard_cap_usd": 12.0, "jobs": []})
+    ledger = BudgetLedger(path)
+    ledger.reserve("stopped", 2.0, "a" * 64)
+    ledger.cancel("stopped", 0.25, "bounded worker was stopped")
+    assert ledger.guarded_total() == 0.25
+    with pytest.raises(ValueError, match="not uniquely reserved"):
+        ledger.cancel("stopped", 0.25, "again")
+
+
 def test_balanced_target_manifest_rejects_labels_and_is_deterministic():
     rows = [
         {"utt_id": f"{g}{i}", "speaker_id": f"{g}s{i//2}", "accent": g, "audio": f"{g}{i}.wav"}

@@ -33,6 +33,7 @@ data_image = (
 )
 
 H100_RATE_PER_SECOND = 0.001097 + 8 * 0.0000131 + 32 * 0.00000222
+TARGET_H100_RATE_PER_SECOND = 0.001097 + 16 * 0.0000131 + 64 * 0.00000222
 training_image = (
     modal.Image.debian_slim(python_version="3.12")
     .apt_install("ffmpeg")
@@ -782,13 +783,106 @@ def train_target_pseudo(plan: dict) -> dict:
         "artifacts": hashes, "initial_state_sha256": summary["initial_state_sha256"],
         "checkpoint_sha256": hashes["checkpoint_last/model.safetensors"],
         "wall_seconds": wall_seconds,
-        "estimated_resource_cost_usd": wall_seconds * H100_RATE_PER_SECOND,
+        "estimated_resource_cost_usd": wall_seconds * TARGET_H100_RATE_PER_SECOND,
         "baseline_dev_metrics": summary["baseline_dev_metrics"],
         "final_dev_metrics": summary["final_dev_metrics"],
     }
     (output / "receipt.json").write_text(json.dumps(receipt, indent=2, sort_keys=True) + "\n")
     results.commit()
     return json.loads(json.dumps(receipt))
+
+
+@app.function(
+    image=data_image,
+    cpu=4,
+    memory=8192,
+    timeout=300,
+    retries=0,
+    volumes={"/target": target_data, "/outputs": results},
+)
+def recover_target_pseudo_receipt(plan: dict) -> dict:
+    """Validate a persisted complete endpoint and reconstruct its failed receipt."""
+    import hashlib
+    import json
+    import time
+
+    started = time.monotonic()
+    target_data.reload()
+    results.reload()
+    output = Path("/outputs/seed12/target_pseudo")
+    receipt_path = output / "receipt.json"
+    if receipt_path.exists():
+        raise ValueError("target endpoint receipt already exists")
+    required = (
+        "summary.json", "provenance.json", "manifest.json", "history.jsonl",
+        "baseline_dev_predictions.jsonl", "final_dev_predictions.jsonl",
+        "baseline_dev_metrics.json", "final_dev_metrics.json",
+        "checkpoint_last/model.safetensors", "checkpoint_last/training_state.pt",
+    )
+    if any(not (output / relative).is_file() or (output / relative).stat().st_size == 0 for relative in required):
+        raise ValueError("persisted target endpoint artifact set is incomplete")
+    sha256 = lambda path: hashlib.sha256(path.read_bytes()).hexdigest()
+    artifacts = {relative: sha256(output / relative) for relative in required}
+    summary = json.loads((output / "summary.json").read_text())
+    if (
+        summary.get("status") != "completed"
+        or summary.get("completed_updates") != 600
+        or summary.get("total_training_exposures") != 4800
+        or summary.get("unique_training_utterances_seen") != 4800
+        or summary.get("train_pool_utterances") != 4800
+        or summary.get("dev_utterances") != 974
+        or "H100" not in summary.get("runtime", {}).get("device_name", "")
+    ):
+        raise ValueError("persisted target endpoint summary invariants failed")
+    pseudo_path = Path("/target/v1/pseudo_large_v3_seed12.jsonl")
+    if sha256(pseudo_path) != plan["pseudo_manifest_sha256"]:
+        raise ValueError("persisted target pseudo-label hash changed")
+    pseudo = {
+        row["utt_id"]: row
+        for row in (json.loads(line) for line in pseudo_path.read_text().splitlines() if line)
+    }
+    manifest = json.loads((output / "manifest.json").read_text())
+    train_rows = [row for row in manifest if row["split"] == "train"]
+    dev_rows = [row for row in manifest if row["split"] != "train"]
+    if {row["utt_id"] for row in train_rows} != set(pseudo):
+        raise ValueError("persisted endpoint train IDs differ from target pseudo-labels")
+    if any(
+        row.get("reference_text") != pseudo[row["utt_id"]]["pseudo_text"]
+        or row.get("label_source") != "whisper_large_v3_pseudo"
+        for row in train_rows
+    ):
+        raise ValueError("persisted endpoint objective differs from target pseudo-labels")
+    dev_ids_hash = hashlib.sha256(json.dumps(
+        sorted(row["utt_id"] for row in dev_rows), separators=(",", ":")
+    ).encode()).hexdigest()
+    if dev_ids_hash != plan["source_dev_ids_sha256"]:
+        raise ValueError("persisted endpoint source dev cohort changed")
+    feature_receipt = Path("/target/v1/tiny_features_frozen_v1.receipt.json")
+    feature_report = json.loads(feature_receipt.read_text())
+    if feature_report.get("status") != "completed" or feature_report.get("rows") != 4800:
+        raise ValueError("persisted target feature cache is incomplete")
+    wall_seconds = float(plan["original_app_wall_seconds"])
+    receipt = {
+        "run_id": plan["recovered_run_id"], "status": "completed",
+        "recovered_after_receipt_exception": True,
+        "original_modal_app_id": plan["original_modal_app_id"],
+        "original_app_wall_seconds": wall_seconds,
+        "label_source": "target_pseudo", "selection": "all",
+        "gpu": summary["runtime"]["device_name"], "completed_updates": 600,
+        "total_training_exposures": 4800, "unique_training_utterances_seen": 4800,
+        "train_pool_utterances": 4800, "dev_utterances": 974,
+        "validation_examples_read": 0, "target_features_created": 4800,
+        "target_feature_receipt_sha256": sha256(feature_receipt),
+        "artifacts": artifacts, "initial_state_sha256": summary["initial_state_sha256"],
+        "checkpoint_sha256": artifacts["checkpoint_last/model.safetensors"],
+        "estimated_resource_cost_usd": wall_seconds * TARGET_H100_RATE_PER_SECOND,
+        "baseline_dev_metrics": summary["baseline_dev_metrics"],
+        "final_dev_metrics": summary["final_dev_metrics"],
+        "recovery_validation_wall_seconds": time.monotonic() - started,
+    }
+    receipt_path.write_text(json.dumps(receipt, indent=2, sort_keys=True) + "\n")
+    results.commit()
+    return receipt
 
 
 @app.function(
