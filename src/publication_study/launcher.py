@@ -275,11 +275,11 @@ def run_clustered_source_endpoints(config: dict, contract: StudyContract) -> dic
         "plan_sha256_by_arm": hashes,
     }
     batch_hash = canonical_json_hash(batch_plan)
-    ledger.reserve(config["run_id"], 0.75, batch_hash)
+    ledger.reserve(config["run_id"], 0.60, batch_hash)
     with app.run():
         result = train_clustered_source_batch.remote(batch_plan)
     measured = float(result["estimated_resource_cost_usd"])
-    if measured > 0.75:
+    if measured > 0.60:
         raise RuntimeError("clustered endpoint batch exceeded its reservation")
     receipt_hash = canonical_json_hash(result)
     ledger.complete(config["run_id"], measured, receipt_hash)

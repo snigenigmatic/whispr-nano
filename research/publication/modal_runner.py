@@ -1021,7 +1021,7 @@ def train_source_endpoint(plan: dict) -> dict:
     gpu="H100",
     cpu=16,
     memory=65536,
-    timeout=600,
+    timeout=400,
     startup_timeout=180,
     retries=0,
     max_containers=1,
@@ -1065,42 +1065,6 @@ def train_clustered_source_batch(batch_plan: dict) -> dict:
             raise ValueError("invalid clustered endpoint kind")
         core.validate_rows(plan["rows"])
     source_data.reload()
-    needed = {}
-    receipts = {}
-    for plan in plans:
-        train_rows, dev_rows = core.validate_rows(plan["rows"])
-        indices = core.IndexCycler(len(train_rows), 12).take(4800)
-        for row in dev_rows:
-            needed[row["utt_id"]] = row
-        for index in indices:
-            needed[train_rows[index]["utt_id"]] = train_rows[index]
-        receipts.update(plan["cache_receipts"])
-    local_audio = Path("/tmp/publication-cluster-audio")
-    local_features = Path("/tmp/publication-cluster-features")
-    local_features.mkdir(parents=True, exist_ok=True)
-
-    def stage(row: dict) -> str:
-        receipt = receipts[row["utt_id"]]
-        for source, target, expected_hash in (
-            (
-                Path("/data/l2arctic") / row["audio_path"],
-                local_audio / row["audio_path"], receipt["audio_sha256"],
-            ),
-            (
-                Path("/data/feature_cache/frozen-v1") / receipt["feature_file"],
-                local_features / receipt["feature_file"], receipt["feature_sha256"],
-            ),
-        ):
-            payload = source.read_bytes()
-            if hashlib.sha256(payload).hexdigest() != expected_hash:
-                raise ValueError(f"clustered batch input checksum mismatch: {row['utt_id']}")
-            target.parent.mkdir(parents=True, exist_ok=True)
-            if not target.exists():
-                target.write_bytes(payload)
-        return row["utt_id"]
-
-    with ThreadPoolExecutor(max_workers=32) as pool:
-        staged = list(pool.map(stage, needed.values()))
     result_dir = Path("/tmp/publication-cluster-process-results")
     result_dir.mkdir()
 
@@ -1112,10 +1076,14 @@ def train_clustered_source_batch(batch_plan: dict) -> dict:
             if output.exists():
                 raise ValueError(f"clustered output path already exists: {output}")
             cfg = {
-                **plan["config"], "feature_cache_dir": str(local_features),
+                **plan["config"],
+                "feature_cache_dir": "/data/feature_cache/frozen-v1",
                 "normalizer_path": "/root/normalizer.json",
             }
-            core.train(cfg, plan["rows"], local_audio, output)
+            core.train(
+                cfg, plan["rows"], Path("/data/l2arctic"), output,
+                verified_feature_receipts=plan["cache_receipts"],
+            )
         except BaseException:
             (result_dir / f"{arm}.error.txt").write_text(traceback.format_exc())
             raise
@@ -1170,8 +1138,7 @@ def train_clustered_source_batch(batch_plan: dict) -> dict:
         "run_id": batch_plan["run_id"], "status": "completed",
         "method": "four_isolated_cluster_endpoints_one_h100",
         "runs": sorted(runs, key=lambda row: row["label_source"]),
-        "staged_unique_utterances": len(staged),
-        "staged_ids_sha256": core.canonical_hash(sorted(staged)),
+        "feature_access": "hash-verified frozen Modal volume mount",
         "target_validation_examples_read": 0,
         "gpu": runs[0]["gpu"], "wall_seconds": wall_seconds,
         "estimated_resource_cost_usd": wall_seconds * TARGET_H100_RATE_PER_SECOND,
