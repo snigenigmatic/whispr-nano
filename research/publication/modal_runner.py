@@ -362,6 +362,7 @@ def build_ecapa_clusters(plan: dict) -> dict:
     def embed(rows: list[dict], root: Path, name: str) -> tuple[list[str], np.ndarray]:
         ordered = sorted(rows, key=lambda row: (row["duration_s"], row["utt_id"]))
         output: dict[str, np.ndarray] = {}
+        batch_size = 128
 
         def load(row: dict) -> tuple[np.ndarray, int]:
             path = root / row["audio_path"]
@@ -382,11 +383,11 @@ def build_ecapa_clusters(plan: dict) -> dict:
                 ).astype(np.float32)
             return audio, len(audio)
 
-        for begin in range(0, len(ordered), 64):
+        for begin in range(0, len(ordered), batch_size):
             if time.monotonic() - started > 600:
                 raise TimeoutError("ECAPA extraction stopped before its hard timeout")
-            batch_rows = ordered[begin : begin + 64]
-            with ThreadPoolExecutor(max_workers=16) as pool:
+            batch_rows = ordered[begin : begin + batch_size]
+            with ThreadPoolExecutor(max_workers=32) as pool:
                 loaded = list(pool.map(load, batch_rows))
             lengths = [length for _, length in loaded]
             padded = np.zeros((len(loaded), max(lengths)), dtype=np.float32)
@@ -396,13 +397,13 @@ def build_ecapa_clusters(plan: dict) -> dict:
             wav_lens = torch.tensor(
                 [length / max(lengths) for length in lengths], dtype=torch.float32, device="cuda"
             )
-            with torch.inference_mode():
+            with torch.inference_mode(), torch.autocast("cuda", dtype=torch.float16):
                 vectors = classifier.encode_batch(wavs, wav_lens).squeeze(1).detach().cpu().numpy()
             if vectors.shape != (len(batch_rows), 192) or not np.isfinite(vectors).all():
                 raise ValueError(f"invalid {name} ECAPA embedding tensor")
             for row, vector in zip(batch_rows, vectors):
                 output[row["utt_id"]] = vector.astype(np.float32)
-            if len(output) % 960 == 0 or len(output) == len(ordered):
+            if ((begin // batch_size) + 1) % 8 == 0 or len(output) == len(ordered):
                 print(f"ECAPA {name} embedded {len(output)}/{len(ordered)}", flush=True)
         ids = sorted(output)
         return ids, np.stack([output[uid] for uid in ids])
