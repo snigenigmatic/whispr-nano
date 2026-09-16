@@ -499,3 +499,175 @@ def train_source_endpoint(plan: dict) -> dict:
     (output / "receipt.json").write_text(json.dumps(receipt, indent=2, sort_keys=True) + "\n")
     results.commit()
     return json.loads(json.dumps(receipt))
+
+
+@app.function(
+    image=training_image,
+    gpu="H100",
+    cpu=8,
+    memory=32768,
+    timeout=900,
+    startup_timeout=180,
+    retries=0,
+    max_containers=1,
+    scaledown_window=2,
+    secrets=[modal.Secret.from_name("huggingface")],
+    volumes={"/target": target_data, "/cache/huggingface": hf_cache},
+)
+def label_target_with_teacher(plan: dict) -> dict:
+    """Generate deterministic large-v3 target labels and confidence scores."""
+    import hashlib
+    import importlib.metadata
+    import json
+    import math
+    import time
+    from concurrent.futures import ThreadPoolExecutor
+
+    import librosa
+    import numpy as np
+    import soundfile as sf
+    import torch
+    from transformers import WhisperForConditionalGeneration, WhisperProcessor
+    from transformers.utils import logging as hf_logging
+
+    hf_logging.set_verbosity_error()
+    started = time.monotonic()
+    if plan["teacher_model"] != "openai/whisper-large-v3" or plan["batch_size"] != 4:
+        raise ValueError("target teacher identity or batch size changed")
+    target_data.reload()
+    root = Path("/target/v1")
+    manifest_path = root / "manifest.jsonl"
+    if hashlib.sha256(manifest_path.read_bytes()).hexdigest() != plan["manifest_sha256"]:
+        raise ValueError("target manifest hash mismatch")
+    rows = [json.loads(line) for line in manifest_path.read_text().splitlines()]
+    if len(rows) != 4800 or any("reference_text" in row for row in rows):
+        raise ValueError("target teacher received labeled or incomplete manifest")
+    local_root = Path("/tmp/target-audio")
+
+    def stage(row: dict) -> str:
+        source = root / row["audio_path"]
+        payload = source.read_bytes()
+        if hashlib.sha256(payload).hexdigest() != row["audio_sha256"]:
+            raise ValueError(f"target audio hash mismatch: {row['utt_id']}")
+        target = local_root / row["audio_path"]
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_bytes(payload)
+        return row["utt_id"]
+
+    with ThreadPoolExecutor(max_workers=32) as pool:
+        staged = list(pool.map(stage, rows))
+    model_id, revision = plan["teacher_model"], plan["teacher_revision"]
+    processor = WhisperProcessor.from_pretrained(model_id, revision=revision)
+    model = WhisperForConditionalGeneration.from_pretrained(
+        model_id, revision=revision, dtype=torch.float32, attn_implementation="eager"
+    ).to("cuda").eval()
+    torch.manual_seed(0)
+    torch.set_num_threads(8)
+    predictions = []
+    for begin in range(0, len(rows), plan["batch_size"]):
+        if time.monotonic() - started > 840:
+            raise TimeoutError("target teacher stopped before the hard timeout")
+        batch = rows[begin : begin + plan["batch_size"]]
+        arrays = []
+        for row in batch:
+            audio, sr = sf.read(local_root / row["audio_path"], dtype="float32")
+            if audio.ndim != 1 or abs(len(audio) / sr - row["duration_s"]) > 0.02:
+                raise ValueError(f"target audio structure mismatch: {row['utt_id']}")
+            if sr != 16000:
+                audio = librosa.resample(audio, orig_sr=sr, target_sr=16000)
+            arrays.append(audio)
+        features = processor(
+            arrays, sampling_rate=16000, return_tensors="pt", padding="max_length",
+            truncation=True, return_attention_mask=True,
+        )
+        with torch.inference_mode():
+            generated = model.generate(
+                input_features=features.input_features.to("cuda"),
+                attention_mask=features.attention_mask.to("cuda"),
+                language="en", task="transcribe", return_timestamps=False,
+                do_sample=False, num_beams=1, max_new_tokens=224,
+                return_dict_in_generate=True, output_scores=True,
+            )
+            transition = model.compute_transition_scores(
+                generated.sequences, generated.scores, normalize_logits=True
+            ).detach().cpu()
+        hypotheses = processor.batch_decode(
+            generated.sequences, skip_special_tokens=True, clean_up_tokenization_spaces=False
+        )
+        for row, hypothesis, token_scores, sequence in zip(
+            batch, hypotheses, transition, generated.sequences.detach().cpu().tolist()
+        ):
+            finite = token_scores[torch.isfinite(token_scores) & (token_scores < 0)]
+            if finite.numel() == 0:
+                raise ValueError(f"teacher returned no finite token scores: {row['utt_id']}")
+            text = hypothesis.strip()
+            if not text:
+                raise ValueError(f"teacher returned empty target label: {row['utt_id']}")
+            predictions.append(
+                {
+                    **row,
+                    "pseudo_text": text,
+                    "teacher_mean_logprob": float(finite.mean()),
+                    "teacher_min_logprob": float(finite.min()),
+                    "teacher_token_count": int(finite.numel()),
+                    "teacher_generated_token_ids": sequence,
+                    "label_source": "whisper_large_v3_pseudo",
+                }
+            )
+        if len(predictions) % 200 == 0:
+            print(f"teacher labeled {len(predictions)}/4800 clips", flush=True)
+    predictions.sort(key=lambda row: row["utt_id"])
+    text = "".join(json.dumps(row, sort_keys=True, ensure_ascii=False) + "\n" for row in predictions)
+    pseudo_path = root / "pseudo_large_v3_seed12.jsonl"
+    if pseudo_path.exists():
+        raise ValueError("target pseudo-label artifact already exists")
+    pseudo_path.write_text(text)
+    audit = []
+    for accent in TARGET_ACCENTS:
+        group = sorted(
+            (row for row in predictions if row["accent"] == accent),
+            key=lambda row: (row["teacher_mean_logprob"], row["utt_id"]),
+        )
+        audit.extend({**row, "confidence_stratum": "low"} for row in group[:10])
+        audit.extend({**row, "confidence_stratum": "high"} for row in group[-10:])
+    # The blind audit manifest contains no corpus reference and no model text.
+    blind_fields = (
+        "utt_id", "speaker_id", "native_language", "accent", "gender",
+        "audio_path", "audio_sha256", "duration_s", "confidence_stratum",
+        "teacher_mean_logprob",
+    )
+    blind = [{key: row[key] for key in blind_fields} for row in audit]
+    blind.sort(key=lambda row: (row["accent"], row["confidence_stratum"], row["utt_id"]))
+    blind_text = "".join(json.dumps(row, sort_keys=True) + "\n" for row in blind)
+    (root / "audit_120_blind.jsonl").write_text(blind_text)
+    wall_seconds = time.monotonic() - started
+    receipt = {
+        "run_id": plan["run_id"], "status": "completed", "model_id": model_id,
+        "model_revision": revision, "dtype": "float32", "batch_size": 4,
+        "generation": {"language": "en", "task": "transcribe", "return_timestamps": False,
+                       "do_sample": False, "num_beams": 1, "max_new_tokens": 224},
+        "rows": len(predictions), "audit_rows": len(blind),
+        "manifest_sha256": plan["manifest_sha256"],
+        "pseudo_manifest_sha256": hashlib.sha256(text.encode()).hexdigest(),
+        "audit_manifest_sha256": hashlib.sha256(blind_text.encode()).hexdigest(),
+        "staged_ids_sha256": hashlib.sha256(
+            json.dumps(sorted(staged), separators=(",", ":")).encode()
+        ).hexdigest(),
+        "confidence": {
+            "minimum": min(row["teacher_mean_logprob"] for row in predictions),
+            "maximum": max(row["teacher_mean_logprob"] for row in predictions),
+            "mean": sum(row["teacher_mean_logprob"] for row in predictions) / len(predictions),
+        },
+        "validation_audio_or_reference_examples_read": 0,
+        "gpu": torch.cuda.get_device_name(),
+        "versions": {name: importlib.metadata.version(name) for name in (
+            "torch", "transformers", "librosa", "soundfile"
+        )},
+        "wall_seconds": wall_seconds,
+        "estimated_resource_cost_usd": wall_seconds * H100_RATE_PER_SECOND,
+    }
+    (root / "pseudo_large_v3_seed12.receipt.json").write_text(
+        json.dumps(receipt, indent=2, sort_keys=True) + "\n"
+    )
+    target_data.commit()
+    return {**receipt, "pseudo_manifest_text": text, "audit_manifest_text": blind_text}

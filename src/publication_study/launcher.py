@@ -228,6 +228,43 @@ def run_target_preparation(config: dict, contract: StudyContract) -> dict:
     return result
 
 
+def run_target_teacher(config: dict, contract: StudyContract) -> dict:
+    from research.publication.modal_runner import app, label_target_with_teacher
+
+    ensure_live_budget()
+    ledger = BudgetLedger(BUDGET_PATH)
+    target_report = json.loads(
+        (ROOT / "research/publication/data/spire_target_train_v1.report.json").read_text()
+    )
+    plan = {
+        "run_id": config["run_id"], "manifest_sha256": target_report["manifest_sha256"],
+        "teacher_model": contract.teacher_model, "teacher_revision": contract.teacher_revision,
+        "batch_size": 4,
+    }
+    plan_hash = canonical_json_hash(plan)
+    ledger.reserve(config["run_id"], 1.25, plan_hash)
+    with app.run():
+        result = label_target_with_teacher.remote(plan)
+    pseudo_text = result.pop("pseudo_manifest_text")
+    audit_text = result.pop("audit_manifest_text")
+    import hashlib
+
+    if hashlib.sha256(pseudo_text.encode()).hexdigest() != result["pseudo_manifest_sha256"]:
+        raise RuntimeError("target pseudo-label transfer hash mismatch")
+    if hashlib.sha256(audit_text.encode()).hexdigest() != result["audit_manifest_sha256"]:
+        raise RuntimeError("target audit transfer hash mismatch")
+    receipt_hash = canonical_json_hash(result)
+    ledger.complete(config["run_id"], float(result["estimated_resource_cost_usd"]), receipt_hash)
+    data = ROOT / "research/publication/data"
+    (data / "spire_target_pseudo_large_v3_seed12.jsonl").write_text(pseudo_text)
+    (data / "spire_target_audit_120_blind.jsonl").write_text(audit_text)
+    atomic_json(
+        data / "spire_target_pseudo_large_v3_seed12.receipt.json",
+        {**result, "plan_sha256": plan_hash, "receipt_sha256": receipt_hash},
+    )
+    return result
+
+
 def main() -> int:
     contract = StudyContract.load(CONTRACT_PATH)
     config = json.loads(RUN_PATH.read_text(encoding="utf-8"))
@@ -244,6 +281,8 @@ def main() -> int:
         result = run_source_endpoints(config, contract)
     elif config["action"] == "prepare_target_manifest":
         result = run_target_preparation(config, contract)
+    elif config["action"] == "label_target_teacher":
+        result = run_target_teacher(config, contract)
     else:
         raise SystemExit(f"unknown publication action: {config['action']}")
     print("===== RESULT SUMMARY =====", flush=True)
