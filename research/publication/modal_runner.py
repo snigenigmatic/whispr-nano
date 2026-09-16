@@ -510,7 +510,7 @@ def train_source_endpoint(plan: dict) -> dict:
     gpu="H100",
     cpu=16,
     memory=65536,
-    timeout=1200,
+    timeout=900,
     startup_timeout=180,
     retries=0,
     max_containers=1,
@@ -523,7 +523,7 @@ def train_source_endpoint(plan: dict) -> dict:
     },
 )
 def train_target_pseudo(plan: dict) -> dict:
-    """Cache exact tiny features, then train the 4,800-label target arm."""
+    """Cache exact tiny features, then train a frozen target-pseudo arm."""
     import hashlib
     import importlib.util
     import json
@@ -564,8 +564,25 @@ def train_target_pseudo(plan: dict) -> dict:
     forbidden = {"reference", "reference_text", "transcript", "sentence", "text"}
     if any(forbidden & set(row) for row in pseudo_rows):
         raise ValueError("target pseudo-label manifest contains a corpus reference field")
+    if plan["selection"] == "all":
+        selected_pseudo = pseudo_rows
+    elif plan["selection"] == "top50_per_accent":
+        selected_pseudo = []
+        for accent in TARGET_ACCENTS:
+            group = sorted(
+                (row for row in pseudo_rows if row["accent"] == accent),
+                key=lambda row: (-row["teacher_mean_logprob"], row["utt_id"]),
+            )
+            if len(group) != 800:
+                raise ValueError(f"target confidence group changed: {accent}")
+            selected_pseudo.extend(group[:400])
+        selected_pseudo.sort(key=lambda row: row["utt_id"])
+    else:
+        raise ValueError("unknown target pseudo-label selection")
+    if len(selected_pseudo) != plan["expected_train_pool"]:
+        raise ValueError("target confidence selection count changed")
     target_rows = []
-    for row in pseudo_rows:
+    for row in selected_pseudo:
         transformed = dict(row)
         transformed["reference_text"] = transformed.pop("pseudo_text")
         transformed["split"] = "train"
@@ -696,11 +713,12 @@ def train_target_pseudo(plan: dict) -> dict:
         staged_source_receipts = list(pool.map(stage_source, dev_rows))
     source_receipts = {row["utt_id"]: row for row in staged_source_receipts}
     verified_receipts = {**target_receipts, **source_receipts}
+    persisted_receipts = {**existing, **target_receipts}
     target_feature_report = {
         "status": "completed", "manifest_sha256": plan["target_manifest_sha256"],
-        "feature_signature": feature_signature, "rows": len(target_receipts),
+        "feature_signature": feature_signature, "rows": len(persisted_receipts),
         "created_features": created, "reused_features": reused,
-        "files": sorted(target_receipts.values(), key=lambda row: row["utt_id"]),
+        "files": sorted(persisted_receipts.values(), key=lambda row: row["utt_id"]),
     }
     receipt_path.write_text(json.dumps(target_feature_report, indent=2, sort_keys=True) + "\n")
     target_data.commit()
@@ -726,16 +744,27 @@ def train_target_pseudo(plan: dict) -> dict:
     hashes = {relative: core.sha256_file(output / relative) for relative in required}
     if summary["completed_updates"] != 600 or summary["total_training_exposures"] != 4800:
         raise ValueError("target endpoint exposure mismatch")
-    if summary["unique_training_utterances_seen"] != 4800:
-        raise ValueError("target endpoint did not expose every frozen pseudo-label exactly once")
+    if summary["unique_training_utterances_seen"] != len(target_rows):
+        raise ValueError("target endpoint unique exposure count changed")
     if "H100" not in summary["runtime"]["device_name"]:
         raise ValueError("target endpoint did not use an H100")
     wall_seconds = time.monotonic() - started
     receipt = {
-        "run_id": plan["run_id"], "status": "completed", "label_source": "target_pseudo",
+        "run_id": plan["run_id"], "status": "completed", "label_source": plan["label_source"],
+        "selection": plan["selection"],
+        "selected_ids_sha256": core.canonical_hash(sorted(row["utt_id"] for row in target_rows)),
+        "selected_by_accent": {
+            accent: sum(row["accent"] == accent for row in target_rows) for accent in TARGET_ACCENTS
+        },
+        "minimum_selected_mean_logprob_by_accent": {
+            accent: min(
+                row["teacher_mean_logprob"] for row in selected_pseudo if row["accent"] == accent
+            ) for accent in TARGET_ACCENTS
+        },
         "gpu": summary["runtime"]["device_name"], "completed_updates": 600,
-        "total_training_exposures": 4800, "unique_training_utterances_seen": 4800,
-        "train_pool_utterances": 4800, "dev_utterances": len(dev_rows),
+        "total_training_exposures": 4800,
+        "unique_training_utterances_seen": summary["unique_training_utterances_seen"],
+        "train_pool_utterances": len(target_rows), "dev_utterances": len(dev_rows),
         "validation_examples_read": 0, "target_features_created": created,
         "target_features_reused": reused, "source_dev_features_staged": len(source_staged),
         "target_feature_receipt_sha256": core.sha256_file(receipt_path),
@@ -932,10 +961,10 @@ def build_and_evaluate_global(plan: dict) -> dict:
     gpu="H100",
     cpu=8,
     memory=32768,
-    timeout=900,
+    timeout=600,
     startup_timeout=180,
     retries=0,
-    max_containers=1,
+    max_containers=2,
     scaledown_window=2,
     secrets=[modal.Secret.from_name("huggingface")],
     volumes={"/target": target_data, "/cache/huggingface": hf_cache},
@@ -963,6 +992,8 @@ def label_target_with_teacher(plan: dict) -> dict:
         plan["teacher_model"] != "openai/whisper-large-v3"
         or plan["batch_size"] != 32
         or plan["dtype"] != "float16"
+        or plan["shards"] != 2
+        or plan["shard_index"] not in (0, 1)
     ):
         raise ValueError("target teacher identity, dtype, or batch size changed")
     target_data.reload()
@@ -973,6 +1004,12 @@ def label_target_with_teacher(plan: dict) -> dict:
     rows = [json.loads(line) for line in manifest_path.read_text().splitlines()]
     if len(rows) != 4800 or any("reference_text" in row for row in rows):
         raise ValueError("target teacher received labeled or incomplete manifest")
+    # Striding a duration sort gives each shard the same duration profile.
+    decode_rows = sorted(rows, key=lambda row: (row["duration_s"], row["utt_id"]))[
+        plan["shard_index"] :: plan["shards"]
+    ]
+    if len(decode_rows) != 2400:
+        raise ValueError("target teacher shard is not exactly half the cohort")
     local_root = Path("/tmp/target-audio-16k")
 
     def stage(row: dict) -> str:
@@ -995,7 +1032,7 @@ def label_target_with_teacher(plan: dict) -> dict:
         return row["utt_id"]
 
     with ThreadPoolExecutor(max_workers=16) as pool:
-        staged = list(pool.map(stage, rows))
+        staged = list(pool.map(stage, decode_rows))
     model_id, revision = plan["teacher_model"], plan["teacher_revision"]
     processor = WhisperProcessor.from_pretrained(model_id, revision=revision)
     model = WhisperForConditionalGeneration.from_pretrained(
@@ -1004,11 +1041,8 @@ def label_target_with_teacher(plan: dict) -> dict:
     torch.manual_seed(0)
     torch.set_num_threads(8)
     predictions = []
-    # Similar-duration batches finish together during autoregressive decoding,
-    # avoiding work on padded completed sequences without changing membership.
-    decode_rows = sorted(rows, key=lambda row: (row["duration_s"], row["utt_id"]))
     for begin in range(0, len(decode_rows), plan["batch_size"]):
-        if time.monotonic() - started > 840:
+        if time.monotonic() - started > 540:
             raise TimeoutError("target teacher stopped before the hard timeout")
         batch = decode_rows[begin : begin + plan["batch_size"]]
         arrays = []
@@ -1054,42 +1088,24 @@ def label_target_with_teacher(plan: dict) -> dict:
                 }
             )
         if len(predictions) % 384 == 0 or len(predictions) == len(decode_rows):
-            print(f"teacher labeled {len(predictions)}/4800 clips", flush=True)
+            print(
+                f"teacher shard {plan['shard_index']} labeled {len(predictions)}/2400 clips",
+                flush=True,
+            )
     predictions.sort(key=lambda row: row["utt_id"])
     text = "".join(json.dumps(row, sort_keys=True, ensure_ascii=False) + "\n" for row in predictions)
-    pseudo_path = root / "pseudo_large_v3_seed12.jsonl"
-    if pseudo_path.exists():
-        raise ValueError("target pseudo-label artifact already exists")
-    pseudo_path.write_text(text)
-    audit = []
-    for accent in TARGET_ACCENTS:
-        group = sorted(
-            (row for row in predictions if row["accent"] == accent),
-            key=lambda row: (row["teacher_mean_logprob"], row["utt_id"]),
-        )
-        audit.extend({**row, "confidence_stratum": "low"} for row in group[:10])
-        audit.extend({**row, "confidence_stratum": "high"} for row in group[-10:])
-    # The blind audit manifest contains no corpus reference and no model text.
-    blind_fields = (
-        "utt_id", "speaker_id", "native_language", "accent", "gender",
-        "audio_path", "audio_sha256", "duration_s", "confidence_stratum",
-        "teacher_mean_logprob",
-    )
-    blind = [{key: row[key] for key in blind_fields} for row in audit]
-    blind.sort(key=lambda row: (row["accent"], row["confidence_stratum"], row["utt_id"]))
-    blind_text = "".join(json.dumps(row, sort_keys=True) + "\n" for row in blind)
-    (root / "audit_120_blind.jsonl").write_text(blind_text)
     wall_seconds = time.monotonic() - started
     receipt = {
         "run_id": plan["run_id"], "status": "completed", "model_id": model_id,
+        "shard_index": plan["shard_index"], "shards": plan["shards"],
         "model_revision": revision, "dtype": "float16", "batch_size": 32,
-        "attention_implementation": "sdpa", "batch_order": "duration_then_utt_id",
+        "attention_implementation": "sdpa",
+        "batch_order": "duration_then_utt_id_strided_across_two_shards",
         "generation": {"language": "en", "task": "transcribe", "return_timestamps": False,
                        "do_sample": False, "num_beams": 1, "max_new_tokens": 224},
-        "rows": len(predictions), "audit_rows": len(blind),
+        "rows": len(predictions),
         "manifest_sha256": plan["manifest_sha256"],
-        "pseudo_manifest_sha256": hashlib.sha256(text.encode()).hexdigest(),
-        "audit_manifest_sha256": hashlib.sha256(blind_text.encode()).hexdigest(),
+        "shard_manifest_sha256": hashlib.sha256(text.encode()).hexdigest(),
         "staged_ids_sha256": hashlib.sha256(
             json.dumps(sorted(staged), separators=(",", ":")).encode()
         ).hexdigest(),
@@ -1106,8 +1122,45 @@ def label_target_with_teacher(plan: dict) -> dict:
         "wall_seconds": wall_seconds,
         "estimated_resource_cost_usd": wall_seconds * H100_RATE_PER_SECOND,
     }
-    (root / "pseudo_large_v3_seed12.receipt.json").write_text(
-        json.dumps(receipt, indent=2, sort_keys=True) + "\n"
-    )
+    return {**receipt, "pseudo_manifest_text": text}
+
+
+@app.function(
+    image=data_image,
+    cpu=2,
+    memory=8192,
+    timeout=120,
+    retries=0,
+    volumes={"/target": target_data},
+)
+def persist_target_teacher_artifacts(plan: dict) -> dict:
+    """Persist only the already combined, locally validated teacher artifacts."""
+    import hashlib
+    import json
+
+    pseudo_text = plan["pseudo_manifest_text"]
+    audit_text = plan["audit_manifest_text"]
+    if hashlib.sha256(pseudo_text.encode()).hexdigest() != plan["pseudo_manifest_sha256"]:
+        raise ValueError("combined pseudo-label hash changed during persistence")
+    if hashlib.sha256(audit_text.encode()).hexdigest() != plan["audit_manifest_sha256"]:
+        raise ValueError("combined audit hash changed during persistence")
+    if len(pseudo_text.splitlines()) != 4800 or len(audit_text.splitlines()) != 120:
+        raise ValueError("combined target teacher artifact count changed")
+    root = Path("/target/v1")
+    paths = {
+        "pseudo": root / "pseudo_large_v3_seed12.jsonl",
+        "audit": root / "audit_120_blind.jsonl",
+        "receipt": root / "pseudo_large_v3_seed12.receipt.json",
+    }
+    if any(path.exists() for path in paths.values()):
+        raise ValueError("immutable combined target teacher artifact already exists")
+    paths["pseudo"].write_text(pseudo_text)
+    paths["audit"].write_text(audit_text)
+    paths["receipt"].write_text(json.dumps(plan["receipt"], indent=2, sort_keys=True) + "\n")
     target_data.commit()
-    return {**receipt, "pseudo_manifest_text": text, "audit_manifest_text": blind_text}
+    return {
+        "pseudo_manifest_sha256": plan["pseudo_manifest_sha256"],
+        "audit_manifest_sha256": plan["audit_manifest_sha256"],
+        "receipt_sha256": hashlib.sha256(paths["receipt"].read_bytes()).hexdigest(),
+        "rows": 4800, "audit_rows": 120,
+    }

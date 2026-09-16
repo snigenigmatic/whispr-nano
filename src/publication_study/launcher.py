@@ -229,8 +229,13 @@ def run_target_preparation(config: dict, contract: StudyContract) -> dict:
 
 
 def run_target_teacher(config: dict, contract: StudyContract) -> dict:
-    from research.publication.modal_runner import app, label_target_with_teacher
+    from research.publication.modal_runner import (
+        app,
+        label_target_with_teacher,
+        persist_target_teacher_artifacts,
+    )
     from publication_study.integrity import validate_target_teacher_artifacts
+    import hashlib
 
     ensure_live_budget()
     ledger = BudgetLedger(BUDGET_PATH)
@@ -240,39 +245,95 @@ def run_target_teacher(config: dict, contract: StudyContract) -> dict:
     plan = {
         "run_id": config["run_id"], "manifest_sha256": target_report["manifest_sha256"],
         "teacher_model": contract.teacher_model, "teacher_revision": contract.teacher_revision,
-        "batch_size": 32, "dtype": "float16",
+        "batch_size": 32, "dtype": "float16", "shards": 2,
     }
     plan_hash = canonical_json_hash(plan)
-    ledger.reserve(config["run_id"], 1.25, plan_hash)
+    ledger.reserve(config["run_id"], 1.30, plan_hash)
     with app.run():
-        result = label_target_with_teacher.remote(plan)
-    pseudo_text = result.pop("pseudo_manifest_text")
-    audit_text = result.pop("audit_manifest_text")
-    import hashlib
+        shard_results = []
+        shard_plans = [{**plan, "shard_index": index} for index in range(plan["shards"])]
+        for shard in label_target_with_teacher.map(
+            shard_plans, order_outputs=False, return_exceptions=True
+        ):
+            if isinstance(shard, BaseException):
+                raise shard
+            shard_results.append(shard)
+        shard_results.sort(key=lambda row: row["shard_index"])
+        if [row["shard_index"] for row in shard_results] != [0, 1]:
+            raise RuntimeError("target teacher shard set is incomplete")
+        pseudo_rows = []
+        shard_receipts = []
+        for shard in shard_results:
+            text = shard.pop("pseudo_manifest_text")
+            if hashlib.sha256(text.encode()).hexdigest() != shard["shard_manifest_sha256"]:
+                raise RuntimeError("target pseudo-label shard transfer hash mismatch")
+            pseudo_rows.extend(json.loads(line) for line in text.splitlines() if line)
+            shard_receipts.append(shard)
+        pseudo_rows.sort(key=lambda row: row["utt_id"])
+        pseudo_text = "".join(
+            json.dumps(row, sort_keys=True, ensure_ascii=False) + "\n" for row in pseudo_rows
+        )
+        audit = []
+        for accent in ("Bengali", "Hindi", "Kannada", "Marathi", "Tamil", "Telugu"):
+            group = sorted(
+                (row for row in pseudo_rows if row["accent"] == accent),
+                key=lambda row: (row["teacher_mean_logprob"], row["utt_id"]),
+            )
+            audit.extend({**row, "confidence_stratum": "low"} for row in group[:10])
+            audit.extend({**row, "confidence_stratum": "high"} for row in group[-10:])
+        blind_fields = (
+            "utt_id", "speaker_id", "native_language", "accent", "gender",
+            "audio_path", "audio_sha256", "duration_s", "confidence_stratum",
+            "teacher_mean_logprob",
+        )
+        audit_rows = [{key: row[key] for key in blind_fields} for row in audit]
+        audit_rows.sort(key=lambda row: (row["accent"], row["confidence_stratum"], row["utt_id"]))
+        audit_text = "".join(json.dumps(row, sort_keys=True) + "\n" for row in audit_rows)
 
-    if hashlib.sha256(pseudo_text.encode()).hexdigest() != result["pseudo_manifest_sha256"]:
-        raise RuntimeError("target pseudo-label transfer hash mismatch")
-    if hashlib.sha256(audit_text.encode()).hexdigest() != result["audit_manifest_sha256"]:
-        raise RuntimeError("target audit transfer hash mismatch")
     target_rows = _load_jsonl(ROOT / "research/publication/data/spire_target_train_v1.jsonl")
-    pseudo_rows = [json.loads(line) for line in pseudo_text.splitlines() if line]
-    audit_rows = [json.loads(line) for line in audit_text.splitlines() if line]
-    result["integrity"] = validate_target_teacher_artifacts(
-        target_rows, pseudo_rows, audit_rows
-    )
+    integrity = validate_target_teacher_artifacts(target_rows, pseudo_rows, audit_rows)
+    measured = sum(float(row["estimated_resource_cost_usd"]) for row in shard_receipts)
+    if measured > 1.30:
+        raise RuntimeError("sharded target teacher exceeded its conservative reservation")
+    result = {
+        "run_id": config["run_id"], "status": "completed",
+        "model_id": contract.teacher_model, "model_revision": contract.teacher_revision,
+        "dtype": "float16", "batch_size_per_shard": 32, "shards": 2,
+        "attention_implementation": "sdpa",
+        "batch_order": "duration_then_utt_id_strided_across_two_shards",
+        "rows": len(pseudo_rows), "audit_rows": len(audit_rows),
+        "manifest_sha256": target_report["manifest_sha256"],
+        "pseudo_manifest_sha256": hashlib.sha256(pseudo_text.encode()).hexdigest(),
+        "audit_manifest_sha256": hashlib.sha256(audit_text.encode()).hexdigest(),
+        "integrity": integrity, "shard_receipts": shard_receipts,
+        "validation_audio_or_reference_examples_read": 0,
+        "wall_seconds_sum": sum(float(row["wall_seconds"]) for row in shard_receipts),
+        "estimated_resource_cost_usd": measured,
+    }
     receipt_hash = canonical_json_hash(result)
-    ledger.complete(config["run_id"], float(result["estimated_resource_cost_usd"]), receipt_hash)
+    full_receipt = {**result, "plan_sha256": plan_hash, "receipt_sha256": receipt_hash}
+    with app.run():
+        persisted = persist_target_teacher_artifacts.remote({
+            "pseudo_manifest_text": pseudo_text, "audit_manifest_text": audit_text,
+            "pseudo_manifest_sha256": result["pseudo_manifest_sha256"],
+            "audit_manifest_sha256": result["audit_manifest_sha256"],
+            "receipt": full_receipt,
+        })
+    if persisted["pseudo_manifest_sha256"] != result["pseudo_manifest_sha256"]:
+        raise RuntimeError("persisted target pseudo-label hash mismatch")
+    result["persistence"] = persisted
+    ledger.complete(config["run_id"], measured, receipt_hash)
     data = ROOT / "research/publication/data"
     (data / "spire_target_pseudo_large_v3_seed12.jsonl").write_text(pseudo_text)
     (data / "spire_target_audit_120_blind.jsonl").write_text(audit_text)
     atomic_json(
         data / "spire_target_pseudo_large_v3_seed12.receipt.json",
-        {**result, "plan_sha256": plan_hash, "receipt_sha256": receipt_hash},
+        full_receipt,
     )
     return result
 
 
-def target_pseudo_plan(config: dict, contract: StudyContract) -> dict:
+def target_pseudo_plan(config: dict, contract: StudyContract, selection: str = "all") -> dict:
     import hashlib
 
     data = ROOT / "research/publication/data"
@@ -302,8 +363,17 @@ def target_pseudo_plan(config: dict, contract: StudyContract) -> dict:
     missing = sorted({row["utt_id"] for row in dev} - set(receipts))
     if missing:
         raise ValueError(f"missing source development feature receipts: {missing[:5]}")
+    if selection == "all":
+        output_path, label_source, expected_train_pool = "seed12/target_pseudo", "target_pseudo", 4800
+    elif selection == "top50_per_accent":
+        output_path = "seed12/target_pseudo_conf50"
+        label_source, expected_train_pool = "target_pseudo_conf50", 2400
+    else:
+        raise ValueError("unknown target pseudo-label selection")
     return {
-        "run_id": config["run_id"], "output_path": "seed12/target_pseudo",
+        "run_id": config["run_id"], "output_path": output_path,
+        "selection": selection, "label_source": label_source,
+        "expected_train_pool": expected_train_pool,
         "training_code_sha256": hashlib.sha256(
             (ROOT / "research/pilot/training.py").read_bytes()
         ).hexdigest(),
@@ -312,7 +382,7 @@ def target_pseudo_plan(config: dict, contract: StudyContract) -> dict:
         "source_dev_rows": dev,
         "source_dev_receipts": {row["utt_id"]: receipts[row["utt_id"]] for row in dev},
         "config": {
-            "arm_name": "target_pseudo", "seed": 12, "num_updates": contract.updates,
+            "arm_name": label_source, "seed": 12, "num_updates": contract.updates,
             "batch_size": contract.batch_size, "grad_accum_steps": 1,
             "learning_rate": contract.learning_rate, "weight_decay": 0.01,
             "max_grad_norm": 1.0, "eval_every": 0, "eval_batch_size": 8,
@@ -329,16 +399,38 @@ def run_target_pseudo(config: dict, contract: StudyContract) -> dict:
     ledger = BudgetLedger(BUDGET_PATH)
     plan = target_pseudo_plan(config, contract)
     plan_hash = canonical_json_hash(plan)
-    ledger.reserve(config["run_id"], 1.60, plan_hash)
+    ledger.reserve(config["run_id"], 1.20, plan_hash)
     with app.run():
         result = train_target_pseudo.remote(plan)
     measured = float(result["estimated_resource_cost_usd"])
-    if measured > 1.60:
+    if measured > 1.20:
         raise RuntimeError("target endpoint exceeded its conservative reservation")
     receipt_hash = canonical_json_hash(result)
     ledger.complete(config["run_id"], measured, receipt_hash)
     atomic_json(
         ROOT / "research/publication/results/target_pseudo/receipt.json",
+        {**result, "plan_sha256": plan_hash, "receipt_sha256": receipt_hash},
+    )
+    return result
+
+
+def run_target_confidence(config: dict, contract: StudyContract) -> dict:
+    from research.publication.modal_runner import app, train_target_pseudo
+
+    ensure_live_budget()
+    ledger = BudgetLedger(BUDGET_PATH)
+    plan = target_pseudo_plan(config, contract, selection="top50_per_accent")
+    plan_hash = canonical_json_hash(plan)
+    ledger.reserve(config["run_id"], 0.65, plan_hash)
+    with app.run():
+        result = train_target_pseudo.remote(plan)
+    measured = float(result["estimated_resource_cost_usd"])
+    if measured > 0.65:
+        raise RuntimeError("confidence-filter endpoint exceeded its reservation")
+    receipt_hash = canonical_json_hash(result)
+    ledger.complete(config["run_id"], measured, receipt_hash)
+    atomic_json(
+        ROOT / "research/publication/results/target_pseudo_conf50/receipt.json",
         {**result, "plan_sha256": plan_hash, "receipt_sha256": receipt_hash},
     )
     return result
@@ -421,6 +513,8 @@ def main() -> int:
         result = run_target_teacher(config, contract)
     elif config["action"] == "train_target_pseudo":
         result = run_target_pseudo(config, contract)
+    elif config["action"] == "train_target_confidence":
+        result = run_target_confidence(config, contract)
     elif config["action"] == "build_global_pseudo2real":
         result = run_global_pseudo2real(config, contract)
     else:
