@@ -1,4 +1,4 @@
 {
-  "action": "inspect_spire_train",
-  "run_id": "inspect-spire-train-v3"
+  "action": "prepare_target_manifest",
+  "run_id": "prepare-spire-target-v1"
 }

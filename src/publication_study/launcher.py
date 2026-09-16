@@ -199,6 +199,35 @@ def run_source_endpoints(config: dict, contract: StudyContract) -> dict:
     return {"runs": sorted(output, key=lambda row: row["label_source"])}
 
 
+def run_target_preparation(config: dict, contract: StudyContract) -> dict:
+    from research.publication.modal_runner import app, prepare_target_manifest
+
+    ensure_live_budget()
+    ledger = BudgetLedger(BUDGET_PATH)
+    plan = {"run_id": config["run_id"], "seed": contract.seed, "per_accent": 800}
+    plan_hash = canonical_json_hash(plan)
+    ledger.reserve(config["run_id"], 0.50, plan_hash)
+    with app.run():
+        result = prepare_target_manifest.remote(plan)
+    manifest_text = result.pop("manifest_text")
+    if len(manifest_text.splitlines()) != contract.target_examples:
+        raise RuntimeError("target manifest row count differs from contract")
+    if result["manifest_sha256"] != __import__("hashlib").sha256(manifest_text.encode()).hexdigest():
+        raise RuntimeError("target manifest transfer hash mismatch")
+    receipt_hash = canonical_json_hash(result)
+    # CPU reservation is the measured upper bound because exact Modal CPU
+    # billing is not exposed by the worker API.
+    ledger.complete(config["run_id"], 0.50, receipt_hash)
+    data_dir = ROOT / "research/publication/data"
+    data_dir.mkdir(parents=True, exist_ok=True)
+    (data_dir / "spire_target_train_v1.jsonl").write_text(manifest_text, encoding="utf-8")
+    atomic_json(
+        data_dir / "spire_target_train_v1.report.json",
+        {**result, "plan_sha256": plan_hash, "receipt_sha256": receipt_hash},
+    )
+    return result
+
+
 def main() -> int:
     contract = StudyContract.load(CONTRACT_PATH)
     config = json.loads(RUN_PATH.read_text(encoding="utf-8"))
@@ -213,6 +242,8 @@ def main() -> int:
         result = run_source_smoke(config, contract)
     elif config["action"] == "train_source_endpoints":
         result = run_source_endpoints(config, contract)
+    elif config["action"] == "prepare_target_manifest":
+        result = run_target_preparation(config, contract)
     else:
         raise SystemExit(f"unknown publication action: {config['action']}")
     print("===== RESULT SUMMARY =====", flush=True)

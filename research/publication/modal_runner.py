@@ -124,6 +124,142 @@ def inspect_spire_train() -> dict:
     }
 
 
+TARGET_ACCENTS = ("Bengali", "Hindi", "Kannada", "Marathi", "Tamil", "Telugu")
+
+
+@app.function(
+    image=data_image,
+    cpu=8,
+    memory=16384,
+    timeout=900,
+    retries=0,
+    secrets=[modal.Secret.from_name("huggingface")],
+    volumes={"/target": target_data, "/cache/huggingface": hf_cache},
+)
+def prepare_target_manifest(plan: dict) -> dict:
+    """Materialize a balanced, transcript-free SPIRE train subset."""
+    import hashlib
+    import io
+    import json
+    import math
+    import time
+    from collections import Counter, defaultdict
+
+    import soundfile as sf
+    from datasets import load_dataset
+
+    started = time.monotonic()
+    if plan["seed"] != 12 or plan["per_accent"] != 800:
+        raise ValueError("target manifest is frozen to seed 12 and 800 rows per accent")
+    dataset = load_dataset("VectorSigma389/spire-sies", split="train")
+    required = {
+        "uid", "speaker_id", "accent", "split", "duration", "src_sr",
+        "audio_bytes", "reference",
+    }
+    if not required.issubset(dataset.features):
+        raise ValueError(f"SPIRE schema changed: {sorted(dataset.features)}")
+    metadata = dataset.remove_columns(["audio_bytes", "reference"])
+    train_speakers, val_speakers = set(), set()
+    eligible: dict[str, list[tuple[str, int]]] = defaultdict(list)
+    seen_uids: set[str] = set()
+    for index, row in enumerate(metadata):
+        uid = str(row["uid"])
+        speaker = str(row["speaker_id"])
+        split = str(row["split"])
+        if uid in seen_uids:
+            raise ValueError(f"duplicate SPIRE uid: {uid}")
+        seen_uids.add(uid)
+        if split == "val":
+            val_speakers.add(speaker)
+        elif split == "train":
+            train_speakers.add(speaker)
+            duration = float(row["duration"])
+            if row["accent"] in TARGET_ACCENTS and math.isfinite(duration) and 1.0 <= duration <= 30.0:
+                rank = hashlib.sha256(f"{plan['seed']}\0{uid}".encode()).hexdigest()
+                eligible[str(row["accent"])].append((rank, index))
+    overlap = sorted(train_speakers & val_speakers)
+    if overlap:
+        raise ValueError(f"SPIRE train/val speaker overlap: {overlap[:10]}")
+    if len(val_speakers) != 198:
+        raise ValueError(f"sealed validation speaker count changed: {len(val_speakers)}")
+    selected_indices = []
+    for accent in TARGET_ACCENTS:
+        candidates = sorted(eligible[accent])
+        if len(candidates) < plan["per_accent"]:
+            raise ValueError(f"insufficient eligible {accent} rows: {len(candidates)}")
+        selected_indices.extend(index for _, index in candidates[: plan["per_accent"]])
+    selected_view = dataset.remove_columns(["reference"]).select(sorted(selected_indices))
+    output = Path("/target/v1")
+    if output.exists():
+        raise ValueError("target/v1 already exists; immutable data may not be overwritten")
+    audio_dir = output / "wav"
+    audio_dir.mkdir(parents=True)
+    manifest = []
+    total_bytes = 0
+    for offset, row in enumerate(selected_view):
+        if "reference" in row:
+            raise ValueError("reference leaked into target materialization view")
+        payload = row["audio_bytes"]
+        if not isinstance(payload, bytes) or not payload:
+            raise ValueError(f"invalid audio bytes: {row['uid']}")
+        info = sf.info(io.BytesIO(payload))
+        duration = float(info.frames / info.samplerate)
+        if abs(duration - float(row["duration"])) > max(0.02, 1 / info.samplerate):
+            raise ValueError(f"duration mismatch: {row['uid']}")
+        if info.samplerate != int(row["src_sr"]):
+            raise ValueError(f"sample-rate mismatch: {row['uid']}")
+        uid = str(row["uid"])
+        relative = f"wav/{uid}.wav"
+        path = output / relative
+        path.write_bytes(payload)
+        checksum = hashlib.sha256(payload).hexdigest()
+        total_bytes += len(payload)
+        manifest.append(
+            {
+                "utt_id": uid,
+                "speaker_id": f"SPIRE_{row['speaker_id']}",
+                "native_language": str(row["accent"]),
+                "accent": str(row["accent"]),
+                "gender": str(row["gender"]),
+                "prompt_id": uid,
+                "audio_path": relative,
+                "audio_sha256": checksum,
+                "duration_s": duration,
+                "source_sample_rate": info.samplerate,
+                "split": "train",
+                "source_dataset_split": "train",
+                "label_source": "untranscribed_target",
+            }
+        )
+        if (offset + 1) % 500 == 0:
+            print(f"materialized {offset + 1}/4800 target clips", flush=True)
+    manifest.sort(key=lambda row: row["utt_id"])
+    manifest_text = "".join(json.dumps(row, sort_keys=True) + "\n" for row in manifest)
+    (output / "manifest.jsonl").write_text(manifest_text)
+    selected_speakers = {row["speaker_id"] for row in manifest}
+    report = {
+        "run_id": plan["run_id"], "status": "completed",
+        "repo_id": "VectorSigma389/spire-sies", "seed": 12,
+        "selected_utterances": len(manifest),
+        "selected_speakers": len(selected_speakers),
+        "selected_by_accent": dict(sorted(Counter(row["accent"] for row in manifest).items())),
+        "eligible_by_accent": {accent: len(eligible[accent]) for accent in TARGET_ACCENTS},
+        "train_speakers": len(train_speakers), "sealed_val_speakers": len(val_speakers),
+        "speaker_overlap": 0, "reference_fields_in_manifest": 0,
+        "validation_audio_or_reference_examples_read": 0,
+        "manifest_sha256": hashlib.sha256(manifest_text.encode()).hexdigest(),
+        "selected_ids_sha256": hashlib.sha256(
+            json.dumps(sorted(row["utt_id"] for row in manifest), separators=(",", ":")).encode()
+        ).hexdigest(),
+        "audio_bytes": total_bytes,
+        "audio_hours": sum(row["duration_s"] for row in manifest) / 3600,
+        "wall_seconds": time.monotonic() - started,
+    }
+    (output / "preparation_report.json").write_text(json.dumps(report, indent=2, sort_keys=True) + "\n")
+    target_data.commit()
+    return {**report, "manifest_text": manifest_text}
+
+
 @app.function(
     image=training_image,
     gpu="H100",
