@@ -616,6 +616,18 @@ def train_target_pseudo(plan: dict) -> dict:
     target_receipts: dict[str, dict] = {}
     created = reused = 0
 
+    def persist_feature_progress(status: str) -> dict:
+        persisted = {**existing, **target_receipts}
+        report = {
+            "status": status, "manifest_sha256": plan["target_manifest_sha256"],
+            "feature_signature": feature_signature, "rows": len(persisted),
+            "created_features": created, "reused_features": reused,
+            "files": sorted(persisted.values(), key=lambda row: row["utt_id"]),
+        }
+        receipt_path.write_text(json.dumps(report, indent=2, sort_keys=True) + "\n")
+        target_data.commit()
+        return report
+
     def materialize(row: dict) -> tuple[dict, bytes | None]:
         uid = row["utt_id"]
         cached = existing.get(uid)
@@ -684,6 +696,8 @@ def train_target_pseudo(plan: dict) -> dict:
                 created += 1
         if len(target_receipts) % 400 == 0:
             print(f"tiny features prepared {len(target_receipts)}/4800", flush=True)
+        if len(target_receipts) % 800 == 0:
+            persist_feature_progress("caching")
 
     source_receipts = {
         row["utt_id"]: dict(plan["source_dev_receipts"][row["utt_id"]]) for row in dev_rows
@@ -713,15 +727,7 @@ def train_target_pseudo(plan: dict) -> dict:
         staged_source_receipts = list(pool.map(stage_source, dev_rows))
     source_receipts = {row["utt_id"]: row for row in staged_source_receipts}
     verified_receipts = {**target_receipts, **source_receipts}
-    persisted_receipts = {**existing, **target_receipts}
-    target_feature_report = {
-        "status": "completed", "manifest_sha256": plan["target_manifest_sha256"],
-        "feature_signature": feature_signature, "rows": len(persisted_receipts),
-        "created_features": created, "reused_features": reused,
-        "files": sorted(persisted_receipts.values(), key=lambda row: row["utt_id"]),
-    }
-    receipt_path.write_text(json.dumps(target_feature_report, indent=2, sort_keys=True) + "\n")
-    target_data.commit()
+    target_feature_report = persist_feature_progress("completed")
 
     output = Path("/outputs") / plan["output_path"]
     if output.exists():
