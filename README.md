@@ -1,76 +1,74 @@
 # PW25_BJD_05 — Whose Indian Accent?
 
-**Current work: a two-week research reset.** The goal is a specific,
-reproducible problem that existing methods do not adequately solve — not a
-finished manuscript.
-
-Candidate question (hypothesis, not a novelty claim):
-
-> When do corrections learned from a teacher’s mistakes transfer to
-> Indian-English speakers, and when do they fail?
+This repository is the working home of a PES University capstone on
+Indian-English automatic speech recognition.
 
 | | |
 |---|---|
 | **Project ID** | PW25_BJD_05 |
 | **Guide** | Dr. Bhaskarjyoti Das |
 | **Team** | Aditya Sharma, Adithya V Holla, C Kaustubh, Aditi Mangala Udaya |
-| **This week** | Days 1–3 of [`docs/RESEARCH_RESET.md`](docs/RESEARCH_RESET.md) |
-| **Advisor page** | [`docs/ADVISOR_ONE_PAGER.md`](docs/ADVISOR_ONE_PAGER.md) |
+| **Active study** | Pseudo-label correction transfer across Indian-English speaker groups |
 
-## Days 1–3, in this repo
+## Active research question
 
-1. **One page for the advisor** — negative result, the question, and
-   [Pseudo2Real](https://aclanthology.org/2026.findings-acl.59/) as the closest
-   competing method. Print `docs/ADVISOR_ONE_PAGER.md`.
-2. **120-clip dual transcription** — six L1 groups (Hindi, Bengali, Marathi,
-   Tamil, Telugu, Bodo) × accepted/rejected × 10. Two reviewers, blind to both
-   transcripts. Frozen IDs in `data/research_reset/`. Protocol:
-   [`docs/LISTENING_PROTOCOL.md`](docs/LISTENING_PROTOCOL.md). Listening lab:
-   `listen/` (see below).
-3. **Label-source experiment, specified, not launched.** 2 recording pools × 2
-   label sources × 3 paired seeds = **12 runs**. Primary checkpoint **2,400
-   updates**, designated before launch in `data/research_reset/design.json`.
-   Stop rule: teacher targets must worsen matched-random macro WER by ≥ 0.5 pp
-   on average, in at least two seeds, with no reversal under the Whisper
-   normalizer — or we close this mechanism.
+> When do corrections learned from a teacher's pseudo-label errors transfer to
+> Indian-English speakers, and when do they fail?
 
-SPIRE-SIES and L2-ARCTIC stay frozen. We do not invent a new loss. Existing
-audit and on-policy distillation numbers stay **exploratory**.
+The publication study uses L2-ARCTIC as the labeled source, untranscribed
+SPIRE-SIES training audio as the target adaptation pool, and the speaker-disjoint
+SPIRE-SIES validation cohort as a final evaluation set. The closest method is
+[Pseudo2Real](https://aclanthology.org/2026.findings-acl.59/). The planned
+extension retains its source correction bank and conditions the mixture on
+unlabeled target-speaker embeddings.
+
+The final test set stays closed until the method, checkpoints, normalizers, and
+claims are frozen. Negative results are retained; seeds are never selected by
+test performance.
+
+## Preserved evidence
+
+- [START_HERE.md](START_HERE.md) indexes the completed nine-run H100 pilot.
+- [research/pilot](research/pilot/README.md) contains the original experiment
+  contract, ledgers, manifests, predictions, and independent checks.
+- [research/h100](research/h100/README.md) contains the focused H100 extension.
+- [paper](paper/README.md) preserves the matched-panel reliability report.
+- [docs/AUTORESEARCH_LOOP_REVIEW.md](docs/AUTORESEARCH_LOOP_REVIEW.md) records
+  the evidence and run-control rules adapted from AutoResearch.
+
+The H100 pilot found no supported advantage for teacher-filtered selection over
+matched-random selection under reference-label training. It did not test
+pseudo-label correction transfer and is not presented as evidence that a new
+method improves Indian-English ASR.
+
+## Historical audit limitations
+
+The earlier six-system Svarah audit is exploratory. Saaras and the open models
+used unequal cohorts, Svarah does not expose authoritative public speaker IDs,
+and Bodo is the audit's only Sino-Tibetan language. Historical Poisson p-values
+do not establish population-level disparities. See
+[audit/svarah_fairness_audit](audit/svarah_fairness_audit/README.md) and the
+[matched-panel report](paper/README.md) for the corrected interpretation.
+
+## Current components
+
+```text
+data/research_reset/          frozen audit inputs and contracts
+src/research_reset/           sampling, scoring, pairing, and stop rules
+listen/                       blinded listening and reconciliation lab
+research/pilot/               verified L2-ARCTIC manifests and H100 evidence
+research/h100/                completed H100 extension
+paper/                        historical matched-panel technical report
+experiments/                  fixed-command OpenResearch runner
+```
+
+## Existing checks
 
 ```bash
-PYTHONPATH=src python -m research_reset          # rebuild listening set + 12-run specs
-python -m pytest tests/test_research_reset.py -v
-cd listen && npm install && npm run dev -- --port 43147 --hostname 127.0.0.1
+PYTHONPATH=src python -m pytest tests/test_research_reset.py tests/test_experiment_runner.py -v
+cd listen && npm ci && npm run lint && npm run build
 ```
 
-## Exploratory background (not the claim)
-
-A significance-tested subgroup audit of six ASR systems on a frozen 2,500-clip
-Svarah sample: every system has a structural per-family gap, and Sino-Tibetan
-is worst in every row — including Saaras V3 (best overall WER, not the fairest).
-Full table and reproduction:
-[`audit/svarah_fairness_audit/README.md`](audit/svarah_fairness_audit/README.md).
-
-On-policy distillation of whisper-tiny from large-v3 is parked as a side-quest
-([`docs/ONPOLICY_DISTILLATION.md`](docs/ONPOLICY_DISTILLATION.md)). It did not
-beat off-policy pseudo-labels on LibriSpeech, and it is not the Days 1–3 gate.
-
-## Repository layout
-
-```
-docs/ADVISOR_ONE_PAGER.md     # one page for Dr. Das
-docs/RESEARCH_RESET.md        # two-week plan
-docs/LISTENING_PROTOCOL.md    # two-reviewer audio check
-data/research_reset/          # frozen 120 IDs, gate split, 12-run specs
-src/research_reset/           # sampling, scoring, pairing, stop rule
-listen/                       # two-reviewer lab (Next.js)
-audit/svarah_fairness_audit/  # six-system audit (exploratory)
-src/onpolicy_distill/         # OPD side-quest
-experiments/                  # orx runner (OPD tree)
-```
-
-## Relationship to `ast-asr`
-
-Phase 1/2 code lives in [`snigenigmatic/ast-asr`](https://github.com/snigenigmatic/ast-asr)
-(`fair-cispo-work`). This repo is the Phase 3 / research-reset home. Handoff:
-[`docs/AST_ASR_PUSH_HANDOFF.md`](docs/AST_ASR_PUSH_HANDOFF.md).
+Phase 1/2 code remains in
+[`snigenigmatic/ast-asr`](https://github.com/snigenigmatic/ast-asr) on the
+`fair-cispo-work` branch.

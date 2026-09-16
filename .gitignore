@@ -8,10 +8,8 @@ __pycache__/
 .venv/
 venv/
 
-# uv
+# uv / model caches
 .uv-cache/
-
-# HF / torch caches (if ever populated locally)
 .cache/
 
 # OS
@@ -20,14 +18,23 @@ venv/
 # Modal
 .modal.toml
 
-# Listening-lab / Next.js
+# Listening lab / Next.js
 listen/node_modules/
 listen/.next/
 listen/out/
 tmp-scaffold/
 
-# Gated Svarah wavs and API caches (never commit)
+# Gated audio and API caches
 listen/public/audio/svarah_*.wav
+listen/public/audio/spire_*.wav
 audit/**/saaras_audit/
 **/response_cache/
 **/wavs/
+
+# Generated research artifacts kept on Modal or in evidence archives
+output/
+tmp/
+research/pilot/runs/
+research/pilot/selections_preflight_failed/
+research/h100/runs/
+research/h100/plans.json

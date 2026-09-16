@@ -1,0 +1,8 @@
+{
+  "valid_complete": true,
+  "mean_english_contrast_pp": -0.1179032227046628,
+  "mean_minimal_contrast_pp": -0.1514895839476088,
+  "positive_seed_count": 1,
+  "scope": "Complete same-H100 exploratorypilot; same previously exposeddevelopment speakers; not independent confirmation.",
+  "pilot_positive": false
+}

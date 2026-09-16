@@ -1,0 +1,13 @@
+{
+  "passed": [
+    "speaker_id_leak_rejected",
+    "prompt_id_leak_rejected",
+    "reference_text_leak_rejected",
+    "empty_missing_or_diagnostic_split_rejected",
+    "empty_missing_or_diagnostic_split_rejected",
+    "empty_missing_or_diagnostic_split_rejected",
+    "duplicate_reference_prompt_families_joined",
+    "content_assignment_order_independent"
+  ],
+  "count": 8
+}

@@ -1,0 +1,222 @@
+{
+  "dataset_revision": "ebbf7777fe771490696a3f7b007097606fa8c924",
+  "raw_metadata_sha256": "ae875faf9c12fecff64c765e2a116d413e897fc63c416f60f28f39adc9793d47",
+  "n_unique_existing_ids_verified": 2794,
+  "identity_checks": [
+    "dataset row index",
+    "reference text after boundary whitespace strip",
+    "primary language",
+    "gender",
+    "duration within 0.02 seconds"
+  ],
+  "maximum_source_duration_difference_seconds": 0.0,
+  "source_checks": [
+    {
+      "file": "results_Qwen3-ASR-0.6B-hf_svarah_clean.csv",
+      "sha256": "473860f8328b6b4bfaf2a494cb25995a04b5474fc3a5c361988bb030a248d19c",
+      "n_verified": 2500
+    },
+    {
+      "file": "results_distil-large-v3_svarah_clean.csv",
+      "sha256": "599fe82cc8ca710ea4c6c662b617cb614f8b791d1bcd749459690156f3aa35c8",
+      "n_verified": 2500
+    },
+    {
+      "file": "results_saarasv3_svarah_clean.csv",
+      "sha256": "3dbc4ab50af01729227f3d0cb3470ec0b0d9e78ba2fdd61851d998c31e429741",
+      "n_verified": 450
+    },
+    {
+      "file": "results_whisper-large-v3_svarah_clean.csv",
+      "sha256": "3fdc744178592f86ec66c3b8e20383d83e0f0e8172d5e9c094bf830e0d496f42",
+      "n_verified": 2500
+    },
+    {
+      "file": "results_whisper-small_svarah_clean.csv",
+      "sha256": "5cb642dcb121e6d22b40bc81862137f193be730ba9aef00e05dd36fff90556e2",
+      "n_verified": 2500
+    },
+    {
+      "file": "results_whisper-tiny_svarah_clean.csv",
+      "sha256": "979943e3f4446eafd3716a9f9a46da407efe09f47692e92f5df1c1cc5ab74c0b",
+      "n_verified": 2500
+    }
+  ],
+  "original_artifact_checks": [
+    {
+      "file": "original_meta_speaker_stats.csv",
+      "sha256": "e2daa48863581eb41befd1826b7b14cd80e05f3a1bab9b72d08e7814248f1f94",
+      "n_verified_by_basename": 6656,
+      "fields": [
+        "audio_filepath",
+        "duration",
+        "text",
+        "gender",
+        "age-group",
+        "primary_language",
+        "native_place_state",
+        "native_place_district",
+        "highest_qualification",
+        "job_category",
+        "occupation_domain"
+      ],
+      "speaker_id_present": false
+    },
+    {
+      "file": "original_profile_meta_speaker_stats.csv",
+      "sha256": "e2daa48863581eb41befd1826b7b14cd80e05f3a1bab9b72d08e7814248f1f94",
+      "n_verified_by_basename": 6656,
+      "fields": [
+        "audio_filepath",
+        "duration",
+        "text",
+        "gender",
+        "age-group",
+        "primary_language",
+        "native_place_state",
+        "native_place_district",
+        "highest_qualification",
+        "job_category",
+        "occupation_domain"
+      ],
+      "speaker_id_present": false
+    },
+    {
+      "file": "original_svarah_manifest.jsonl",
+      "sha256": "0e859ea406e8129db84a6ad90b5a3aad9261417976253e7a6fe172bbaa7c63e4",
+      "n_verified_by_basename": 6656,
+      "fields": [
+        "audio_filepath",
+        "duration",
+        "text"
+      ],
+      "speaker_id_present": false
+    }
+  ],
+  "public_speaker_id_available": false,
+  "recording_tag_regex": "_(f\\d+)_chunk_\\d+(?:\\.[^.]+)?$",
+  "recording_tag_interpretation": "Filename-derived recording tags; not speaker identifiers. Their semantics follow the chunk filename convention and remain an inference, not an author-provided recording-to-speaker mapping.",
+  "recording_tag_demographic_inconsistency_counts": {
+    "gender": 0,
+    "age-group": 0,
+    "primary_language": 0,
+    "native_place_state": 0,
+    "native_place_district": 0,
+    "highest_qualification": 0,
+    "job_category": 0,
+    "occupation_domain": 0
+  },
+  "numeric_prefix_demographic_inconsistency_counts": {
+    "gender": 0,
+    "age-group": 0,
+    "primary_language": 0,
+    "native_place_state": 0,
+    "native_place_district": 0,
+    "highest_qualification": 0,
+    "job_category": 0,
+    "occupation_domain": 0
+  },
+  "f_tags_per_numeric_prefix_distribution": {
+    "1": 2644,
+    "2": 294
+  },
+  "numeric_prefix_interpretation": "A coarser filename grouping: every f-tag nests in one numeric prefix. No author-provided semantics or speaker mapping was recovered.",
+  "demographic_profile_fields": [
+    "gender",
+    "age-group",
+    "primary_language",
+    "native_place_state",
+    "native_place_district",
+    "highest_qualification",
+    "job_category",
+    "occupation_domain"
+  ],
+  "demographic_profile_interpretation": "Exact equality of eight categorical metadata fields. These 115 profiles are NOT verified speakers; distinct speakers may share a profile, and inconsistent metadata could split a speaker. Use only as a labeled exploratory blocking sensitivity.",
+  "demographic_profile_missing_value_counts": {
+    "gender": 0,
+    "age-group": 0,
+    "primary_language": 0,
+    "native_place_state": 0,
+    "native_place_district": 0,
+    "highest_qualification": 0,
+    "job_category": 0,
+    "occupation_domain": 0
+  },
+  "family_mapping": {
+    "Kannada": "Dravidian",
+    "Maithili": "Indo-Aryan",
+    "Assamese": "Indo-Aryan",
+    "Marathi": "Indo-Aryan",
+    "Odia": "Indo-Aryan",
+    "Nepali": "Indo-Aryan",
+    "Malayalam": "Dravidian",
+    "Urdu": "Indo-Aryan",
+    "Punjabi": "Indo-Aryan",
+    "Tamil": "Dravidian",
+    "Kashmiri": "Indo-Aryan",
+    "Hindi": "Indo-Aryan",
+    "Gujarati": "Indo-Aryan",
+    "Telugu": "Dravidian",
+    "Konkani": "Indo-Aryan",
+    "Sindhi": "Indo-Aryan",
+    "Bengali": "Indo-Aryan",
+    "Dogri": "Indo-Aryan",
+    "Bodo": "Sino-Tibetan"
+  },
+  "cohorts": {
+    "saaras450": {
+      "n_utterances": 450,
+      "n_recording_clusters": 326,
+      "n_numeric_prefix_clusters": 324,
+      "n_demographic_profiles_unverified": 92,
+      "n_languages": 19,
+      "n_families": 3,
+      "n_singleton_recording_clusters": 273,
+      "maximum_utterances_per_recording_cluster": 11,
+      "duration_seconds": 2360.56425,
+      "true_speaker_count": null
+    },
+    "open2500": {
+      "n_utterances": 2500,
+      "n_recording_clusters": 1473,
+      "n_numeric_prefix_clusters": 1393,
+      "n_demographic_profiles_unverified": 115,
+      "n_languages": 19,
+      "n_families": 3,
+      "n_singleton_recording_clusters": 1100,
+      "maximum_utterances_per_recording_cluster": 23,
+      "duration_seconds": 13053.935875,
+      "true_speaker_count": null
+    },
+    "union2794": {
+      "n_utterances": 2794,
+      "n_recording_clusters": 1600,
+      "n_numeric_prefix_clusters": 1513,
+      "n_demographic_profiles_unverified": 115,
+      "n_languages": 19,
+      "n_families": 3,
+      "n_singleton_recording_clusters": 1205,
+      "maximum_utterances_per_recording_cluster": 24,
+      "duration_seconds": 14571.0594375,
+      "true_speaker_count": null
+    },
+    "all6656": {
+      "n_utterances": 6656,
+      "n_recording_clusters": 3232,
+      "n_numeric_prefix_clusters": 2938,
+      "n_demographic_profiles_unverified": 115,
+      "n_languages": 19,
+      "n_families": 3,
+      "n_singleton_recording_clusters": 2531,
+      "maximum_utterances_per_recording_cluster": 63,
+      "duration_seconds": 34611.9976875,
+      "true_speaker_count": null
+    }
+  },
+  "limitations": [
+    "The paper reports 117 speakers but the current Hub schema exposes no speaker identifiers.",
+    "A speaker may contribute several filename-derived recording clusters; cluster resampling does not resolve all within-speaker dependence.",
+    "Filename-tag semantics have not been independently verified against original recording manifests or audio continuity.",
+    "The Sino-Tibetan group contains only Bodo; it cannot identify a general family-level effect."
+  ]
+}

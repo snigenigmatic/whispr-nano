@@ -1,0 +1,2 @@
+# Offline verification only. Python 3.12 was used for the reported audit.
+regex==2026.9.3

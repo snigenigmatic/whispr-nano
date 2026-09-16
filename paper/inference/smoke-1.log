@@ -1,0 +1,491 @@
+✓ Initialized. View run at 
+https://modal.com/apps/snigenigmatic/main/ap-3SrNNEM295breCcKgXWKU1
+✓ Created objects.
+├── 🔨 Created mount 
+│   /Users/prateekraj/whispr-nano/paper/inference/modal_panel.py
+└── 🔨 Created function transcribe.
+Traceback (most recent call last):
+  File "/pkg/modal/_runtime/task_lifecycle_manager.py", line 84, in handle_task_lifecycle_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 362, in hydrate_function
+    service = get_function_service(function_def, _client)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_container_entrypoint.py", line 340, in get_function_service
+    service = import_single_function_service(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_runtime/user_code_imports.py", line 509, in import_single_function_service
+    module = importlib.import_module(function_def.module_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/root/modal_panel.py", line 18, in <module>
+    ROOT = Path(__file__).resolve().parents[2]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/usr/local/lib/python3.12/pathlib.py", line 282, in __getitem__
+    raise IndexError(idx)
+IndexError: 2
+Runner failed with exception: IndexError(2)
+Traceback (most recent call last):
+  File "/pkg/modal/_runtime/task_lifecycle_manager.py", line 84, in handle_task_lifecycle_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 362, in hydrate_function
+    service = get_function_service(function_def, _client)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_container_entrypoint.py", line 340, in get_function_service
+    service = import_single_function_service(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_runtime/user_code_imports.py", line 509, in import_single_function_service
+    module = importlib.import_module(function_def.module_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/root/modal_panel.py", line 18, in <module>
+    ROOT = Path(__file__).resolve().parents[2]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/usr/local/lib/python3.12/pathlib.py", line 282, in __getitem__
+    raise IndexError(idx)
+IndexError: 2
+Runner failed with exception: IndexError(2)
+Traceback (most recent call last):
+  File "/pkg/modal/_runtime/task_lifecycle_manager.py", line 84, in handle_task_lifecycle_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 362, in hydrate_function
+    service = get_function_service(function_def, _client)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_container_entrypoint.py", line 340, in get_function_service
+    service = import_single_function_service(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_runtime/user_code_imports.py", line 509, in import_single_function_service
+    module = importlib.import_module(function_def.module_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/root/modal_panel.py", line 18, in <module>
+    ROOT = Path(__file__).resolve().parents[2]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/usr/local/lib/python3.12/pathlib.py", line 282, in __getitem__
+    raise IndexError(idx)
+IndexError: 2
+Runner failed with exception: IndexError(2)
+Traceback (most recent call last):
+  File "/pkg/modal/_runtime/task_lifecycle_manager.py", line 84, in handle_task_lifecycle_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 362, in hydrate_function
+    service = get_function_service(function_def, _client)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_container_entrypoint.py", line 340, in get_function_service
+    service = import_single_function_service(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_runtime/user_code_imports.py", line 509, in import_single_function_service
+    module = importlib.import_module(function_def.module_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/root/modal_panel.py", line 18, in <module>
+    ROOT = Path(__file__).resolve().parents[2]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/usr/local/lib/python3.12/pathlib.py", line 282, in __getitem__
+    raise IndexError(idx)
+IndexError: 2
+Runner failed with exception: IndexError(2)
+Traceback (most recent call last):
+  File "/pkg/modal/_runtime/task_lifecycle_manager.py", line 84, in handle_task_lifecycle_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 362, in hydrate_function
+    service = get_function_service(function_def, _client)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_container_entrypoint.py", line 340, in get_function_service
+    service = import_single_function_service(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_runtime/user_code_imports.py", line 509, in import_single_function_service
+    module = importlib.import_module(function_def.module_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/root/modal_panel.py", line 18, in <module>
+    ROOT = Path(__file__).resolve().parents[2]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/usr/local/lib/python3.12/pathlib.py", line 282, in __getitem__
+    raise IndexError(idx)
+IndexError: 2
+Runner failed with exception: IndexError(2)
+Traceback (most recent call last):
+  File "/pkg/modal/_runtime/task_lifecycle_manager.py", line 84, in handle_task_lifecycle_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 362, in hydrate_function
+    service = get_function_service(function_def, _client)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_container_entrypoint.py", line 340, in get_function_service
+    service = import_single_function_service(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_runtime/user_code_imports.py", line 509, in import_single_function_service
+    module = importlib.import_module(function_def.module_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/root/modal_panel.py", line 18, in <module>
+    ROOT = Path(__file__).resolve().parents[2]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/usr/local/lib/python3.12/pathlib.py", line 282, in __getitem__
+    raise IndexError(idx)
+IndexError: 2
+Runner failed with exception: IndexError(2)
+Traceback (most recent call last):
+  File "/pkg/modal/_runtime/task_lifecycle_manager.py", line 84, in handle_task_lifecycle_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 362, in hydrate_function
+    service = get_function_service(function_def, _client)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_container_entrypoint.py", line 340, in get_function_service
+    service = import_single_function_service(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_runtime/user_code_imports.py", line 509, in import_single_function_service
+    module = importlib.import_module(function_def.module_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/root/modal_panel.py", line 18, in <module>
+    ROOT = Path(__file__).resolve().parents[2]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/usr/local/lib/python3.12/pathlib.py", line 282, in __getitem__
+    raise IndexError(idx)
+IndexError: 2
+Runner failed with exception: IndexError(2)
+Traceback (most recent call last):
+  File "/pkg/modal/_runtime/task_lifecycle_manager.py", line 84, in handle_task_lifecycle_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 362, in hydrate_function
+    service = get_function_service(function_def, _client)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_container_entrypoint.py", line 340, in get_function_service
+    service = import_single_function_service(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_runtime/user_code_imports.py", line 509, in import_single_function_service
+    module = importlib.import_module(function_def.module_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/root/modal_panel.py", line 18, in <module>
+    ROOT = Path(__file__).resolve().parents[2]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/usr/local/lib/python3.12/pathlib.py", line 282, in __getitem__
+    raise IndexError(idx)
+IndexError: 2
+Runner failed with exception: IndexError(2)
+Traceback (most recent call last):
+  File "/pkg/modal/_runtime/task_lifecycle_manager.py", line 84, in handle_task_lifecycle_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 362, in hydrate_function
+    service = get_function_service(function_def, _client)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_container_entrypoint.py", line 340, in get_function_service
+    service = import_single_function_service(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_runtime/user_code_imports.py", line 509, in import_single_function_service
+    module = importlib.import_module(function_def.module_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/root/modal_panel.py", line 18, in <module>
+    ROOT = Path(__file__).resolve().parents[2]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/usr/local/lib/python3.12/pathlib.py", line 282, in __getitem__
+    raise IndexError(idx)
+IndexError: 2
+Runner failed with exception: IndexError(2)
+Traceback (most recent call last):
+  File "/pkg/modal/_runtime/task_lifecycle_manager.py", line 84, in handle_task_lifecycle_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 362, in hydrate_function
+    service = get_function_service(function_def, _client)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_container_entrypoint.py", line 340, in get_function_service
+    service = import_single_function_service(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_runtime/user_code_imports.py", line 509, in import_single_function_service
+    module = importlib.import_module(function_def.module_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/root/modal_panel.py", line 18, in <module>
+    ROOT = Path(__file__).resolve().parents[2]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/usr/local/lib/python3.12/pathlib.py", line 282, in __getitem__
+    raise IndexError(idx)
+IndexError: 2
+Runner failed with exception: IndexError(2)
+Traceback (most recent call last):
+Runner failed with exception: IndexError(2)
+  File "/pkg/modal/_runtime/task_lifecycle_manager.py", line 84, in handle_task_lifecycle_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 362, in hydrate_function
+    service = get_function_service(function_def, _client)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_container_entrypoint.py", line 340, in get_function_service
+    service = import_single_function_service(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_runtime/user_code_imports.py", line 509, in import_single_function_service
+    module = importlib.import_module(function_def.module_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/root/modal_panel.py", line 18, in <module>
+    ROOT = Path(__file__).resolve().parents[2]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/usr/local/lib/python3.12/pathlib.py", line 282, in __getitem__
+    raise IndexError(idx)
+IndexError: 2
+Stopping app - user stopped from CLI.
+╭───────────────────── Traceback (most recent call last) ──────────────────────╮
+│ /Users/prateekraj/whispr-nano/paper/inference/modal_panel.py:210 in main     │
+│                                                                              │
+│   209 │   destination = ROOT / "paper/data" / ("smoke_predictions" if mode = │
+│ ❱ 210 │   for result in transcribe.map(configs, order_outputs=False):        │
+│   211 │   │   save_result(result, destination)                               │
+│                                                                              │
+│ /Users/prateekraj/whispr-nano/.venv/lib/python3.12/site-packages/modal/_util │
+│ s/async_utils.py:856 in __iter__                                             │
+│                                                                              │
+│    855 │   │   │   with Runner() as runner:                                  │
+│ ❱  856 │   │   │   │   yield from run_async_gen(runner, self._async_iterable │
+│    857 │   │   except NestedEventLoops:                                      │
+│                                                                              │
+│ /Users/prateekraj/whispr-nano/.venv/lib/python3.12/site-packages/modal/_util │
+│ s/async_utils.py:934 in run_async_gen                                        │
+│                                                                              │
+│    933 │   │   │   else:                                                     │
+│ ❱  934 │   │   │   │   next_yield = runner.run(gen.asend(next_send))  # type │
+│    935 │   │   except KeyboardInterrupt as e:                                │
+│                                                                              │
+│ /Users/prateekraj/.local/share/uv/python/cpython-3.12.14-macos-aarch64-none/ │
+│ lib/python3.12/asyncio/base_events.py:691 in run_until_complete              │
+│                                                                              │
+│    690 │   │                                                                 │
+│ ❱  691 │   │   return future.result()                                        │
+│    692                                                                       │
+│                                                                              │
+│ /Users/prateekraj/whispr-nano/.venv/lib/python3.12/site-packages/modal/_util │
+│ s/async_utils.py:766 in asend                                                │
+│                                                                              │
+│    765 │   │   self.iterated = True                                          │
+│ ❱  766 │   │   return await self.gen.asend(value)                            │
+│    767                                                                       │
+│                                                                              │
+│ /Users/prateekraj/whispr-nano/.venv/lib/python3.12/site-packages/modal/paral │
+│ lel_map.py:1042 in _map_async                                                │
+│                                                                              │
+│   1041 │   async_input_gen = async_zip(*[sync_or_async_iter(it) for it in in │
+│ ❱ 1042 │   async for output in _map_helper(                                  │
+│   1043 │   │   self,                                                         │
+│                                                                              │
+│ /Users/prateekraj/whispr-nano/.venv/lib/python3.12/site-packages/modal/paral │
+│ lel_map.py:1015 in _map_helper                                               │
+│                                                                              │
+│   1014 │   ) as map_output_stream:                                           │
+│ ❱ 1015 │   │   async for output in map_output_stream:                        │
+│   1016 │   │   │   yield output                                              │
+│                                                                              │
+│ /Users/prateekraj/whispr-nano/.venv/lib/python3.12/site-packages/modal/_util │
+│ s/async_utils.py:1108 in async_merge                                         │
+│                                                                              │
+│   1107 │   │   │   │   │   assert_type(item, ExceptionWrapper)               │
+│ ❱ 1108 │   │   │   │   │   raise item.value                                  │
+│   1109                                                                       │
+│                                                                              │
+│ /Users/prateekraj/whispr-nano/.venv/lib/python3.12/site-packages/modal/_util │
+│ s/async_utils.py:1087 in producer                                            │
+│                                                                              │
+│   1086 │   │   │   async with aclosing(generator) as stream:                 │
+│ ❱ 1087 │   │   │   │   async for item in stream:                             │
+│   1088 │   │   │   │   │   await queue.put(ValueWrapper(item))               │
+│                                                                              │
+│ /Users/prateekraj/whispr-nano/.venv/lib/python3.12/site-packages/modal/_obje │
+│ ct.py:56 in wrapped                                                          │
+│                                                                              │
+│    55 │   │   async with aclosing(method(self, *args, **kwargs)) as stream:  │
+│ ❱  56 │   │   │   async for item in stream:                                  │
+│    57 │   │   │   │   yield item                                             │
+│                                                                              │
+│ /Users/prateekraj/whispr-nano/.venv/lib/python3.12/site-packages/modal/_func │
+│ tions.py:1774 in _map                                                        │
+│                                                                              │
+│   1773 │   │   │   ) as stream:                                              │
+│ ❱ 1774 │   │   │   │   async for item in stream:                             │
+│   1775 │   │   │   │   │   yield item                                        │
+│                                                                              │
+│ /Users/prateekraj/whispr-nano/.venv/lib/python3.12/site-packages/modal/paral │
+│ lel_map.py:971 in _map_invocation_inputplane                                 │
+│                                                                              │
+│    970 │   ) as merged:                                                      │
+│ ❱  971 │   │   async for maybe_output in merged:                             │
+│    972 │   │   │   if maybe_output is not None:  # ignore None sentinels     │
+│                                                                              │
+│ /Users/prateekraj/whispr-nano/.venv/lib/python3.12/site-packages/modal/_util │
+│ s/async_utils.py:1108 in async_merge                                         │
+│                                                                              │
+│   1107 │   │   │   │   │   assert_type(item, ExceptionWrapper)               │
+│ ❱ 1108 │   │   │   │   │   raise item.value                                  │
+│   1109                                                                       │
+│                                                                              │
+│ /Users/prateekraj/whispr-nano/.venv/lib/python3.12/site-packages/modal/_util │
+│ s/async_utils.py:1087 in producer                                            │
+│                                                                              │
+│   1086 │   │   │   async with aclosing(generator) as stream:                 │
+│ ❱ 1087 │   │   │   │   async for item in stream:                             │
+│   1088 │   │   │   │   │   await queue.put(ValueWrapper(item))               │
+│                                                                              │
+│ /Users/prateekraj/whispr-nano/.venv/lib/python3.12/site-packages/modal/paral │
+│ lel_map.py:926 in poll_outputs                                               │
+│                                                                              │
+│    925 │   │   ) as streamer:                                                │
+│ ❱  926 │   │   │   async for idx, output in streamer:                        │
+│    927 │   │   │   │   if not order_outputs:                                 │
+│                                                                              │
+│ /Users/prateekraj/whispr-nano/.venv/lib/python3.12/site-packages/modal/_util │
+│ s/async_utils.py:1237 in async_map_ordered                                   │
+│                                                                              │
+│   1236 │   async with aclosing(async_map(async_zip(counter(), input_generato │
+│ ❱ 1237 │   │   async for output_idx, output_item in stream:                  │
+│   1238 │   │   │   buffer[output_idx] = output_item                          │
+│                                                                              │
+│ /Users/prateekraj/whispr-nano/.venv/lib/python3.12/site-packages/modal/_util │
+│ s/async_utils.py:1213 in async_map                                           │
+│                                                                              │
+│   1212 │   ) as stream:                                                      │
+│ ❱ 1213 │   │   async for item in stream:                                     │
+│   1214 │   │   │   yield item                                                │
+│                                                                              │
+│ /Users/prateekraj/whispr-nano/.venv/lib/python3.12/site-packages/modal/_util │
+│ s/async_utils.py:1108 in async_merge                                         │
+│                                                                              │
+│   1107 │   │   │   │   │   assert_type(item, ExceptionWrapper)               │
+│ ❱ 1108 │   │   │   │   │   raise item.value                                  │
+│   1109                                                                       │
+│                                                                              │
+│ /Users/prateekraj/whispr-nano/.venv/lib/python3.12/site-packages/modal/_util │
+│ s/async_utils.py:1087 in producer                                            │
+│                                                                              │
+│   1086 │   │   │   async with aclosing(generator) as stream:                 │
+│ ❱ 1087 │   │   │   │   async for item in stream:                             │
+│   1088 │   │   │   │   │   await queue.put(ValueWrapper(item))               │
+│                                                                              │
+│ /Users/prateekraj/whispr-nano/.venv/lib/python3.12/site-packages/modal/_util │
+│ s/async_utils.py:1202 in worker                                              │
+│                                                                              │
+│   1201 │   │   │   if isinstance(item, ValueWrapper):                        │
+│ ❱ 1202 │   │   │   │   res = await prevent_cancellation_abortion(async_mappe │
+│   1203 │   │   │   │   yield res                                             │
+│                                                                              │
+│ /Users/prateekraj/whispr-nano/.venv/lib/python3.12/site-packages/modal/_util │
+│ s/async_utils.py:1167 in prevent_cancellation_abortion                       │
+│                                                                              │
+│   1166 │   try:                                                              │
+│ ❱ 1167 │   │   return await asyncio.shield(t)                                │
+│   1168 │   except asyncio.CancelledError:                                    │
+│                                                                              │
+│ /Users/prateekraj/whispr-nano/.venv/lib/python3.12/site-packages/modal/_util │
+│ s/async_utils.py:1226 in mapper_func_wrapper                                 │
+│                                                                              │
+│   1225 │   async def mapper_func_wrapper(tup: tuple[int, T]) -> tuple[int, V │
+│ ❱ 1226 │   │   return (tup[0], await async_mapper_func(tup[1]))              │
+│   1227                                                                       │
+│                                                                              │
+│ /Users/prateekraj/whispr-nano/.venv/lib/python3.12/site-packages/modal/paral │
+│ lel_map.py:915 in fetch_output                                               │
+│                                                                              │
+│    914 │   │   │   else:                                                     │
+│ ❱  915 │   │   │   │   raise e                                               │
+│    916 │   │   return (item.idx, output)                                     │
+│                                                                              │
+│ /Users/prateekraj/whispr-nano/.venv/lib/python3.12/site-packages/modal/paral │
+│ lel_map.py:910 in fetch_output                                               │
+│                                                                              │
+│    909 │   │   try:                                                          │
+│ ❱  910 │   │   │   output = await _process_result(item.result, item.data_for │
+│    911 │   │   except Exception as e:                                        │
+│                                                                              │
+│ /Users/prateekraj/whispr-nano/.venv/lib/python3.12/site-packages/modal/_util │
+│ s/function_utils.py:574 in _process_result                                   │
+│                                                                              │
+│   573 │   │                                                                  │
+│ ❱ 574 │   │   raise RemoteError(result.exception)                            │
+│   575                                                                        │
+╰──────────────────────────────────────────────────────────────────────────────╯
+RemoteError

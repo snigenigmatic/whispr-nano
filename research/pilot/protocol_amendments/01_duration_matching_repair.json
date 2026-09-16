@@ -1,0 +1,9 @@
+{
+  "amended_at": "2026-09-09T07:56:56.162525+00:00",
+  "reason": "Preflight greedy duration matcher stalled at a local minimum in NCC length-bin0 (9 of13 candidates), missing unchanged tolerance by0.0026s. No proper training job was dispatched. Added exhaustive feasible-set sampling for small strata only; references,teacheroutputs,metric,seeds,updates,and0.5% tolerance unchanged.",
+  "old_selection_code_sha256": "ddd0dde184d20104dc630ee7c0bea8f5cb8ebd68c3aea7841e9a281966938024",
+  "new_selection_code_sha256": "e060ccc8cb4ed6832c6b11790add28afd9d385b2829672e1c973c0c15f1bb212",
+  "prior_schedule_sha256": "ec68b78bf8acbf2703b8180c3c3fa0d6443bf882911f6dc02940d3f46b3f4641",
+  "retained_failed_selection": "research/pilot/selections_preflight_failed",
+  "full_development_results_seen": false
+}

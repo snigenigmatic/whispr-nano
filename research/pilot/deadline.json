@@ -1,0 +1,8 @@
+{
+  "started_at": "2026-09-09T07:46:43.058666+00:00",
+  "experiment_cutoff": "2026-09-09T08:36:43.058666+00:00",
+  "delivery_deadline": "2026-09-09T08:46:43.058666+00:00",
+  "deadline_epoch": 1788943603.058666,
+  "experiment_cutoff_epoch": 1788943003.058666,
+  "policy": "No new scientific branches. Preserve all results. End new compute by minute50, verify and deliver self-contained artifacts before minute60."
+}
