@@ -547,7 +547,7 @@ def run_tune_global_pseudo2real(config: dict, contract: StudyContract) -> dict:
     ledger = BudgetLedger(BUDGET_PATH)
     plan = global_pseudo2real_plan(config, contract)
     plan.pop("scale")
-    plan["output_path"] = "seed12/global_pseudo2real_tuned"
+    plan["output_path"] = "seed12/global_pseudo2real_tuned_v3"
     plan["scales"] = [round(index / 10, 1) for index in range(1, 11)]
     target_receipt = json.loads(
         (ROOT / "research/publication/results/target_pseudo/receipt.json").read_text()
