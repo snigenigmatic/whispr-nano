@@ -31,6 +31,30 @@ data_image = (
     )
 )
 
+H100_RATE_PER_SECOND = 0.001097 + 8 * 0.0000131 + 32 * 0.00000222
+training_image = (
+    modal.Image.debian_slim(python_version="3.12")
+    .apt_install("ffmpeg")
+    .pip_install(
+        "torch==2.13.0",
+        "transformers==5.16.1",
+        "accelerate==1.11.0",
+        "datasets==4.4.1",
+        "torchcodec==0.16.0",
+        "soundfile==0.14.0",
+        "librosa==1.0.0",
+        "numpy==2.5.2",
+        "jiwer==4.0.0",
+    )
+    .env({"HF_HOME": "/cache/huggingface", "HF_HUB_ENABLE_HF_TRANSFER": "0"})
+    .add_local_file(ROOT / "research/pilot/training.py", "/root/research/pilot/training.py")
+    .add_local_file(
+        ROOT / "research/pilot/frozen_english_normalizer.py",
+        "/root/research/pilot/frozen_english_normalizer.py",
+    )
+    .add_local_file(ROOT / "paper/data/whisper_normalizer.json", "/root/normalizer.json")
+)
+
 
 @app.function(
     image=data_image,
@@ -91,3 +115,129 @@ def inspect_spire_train() -> dict:
         "validation_examples_read": 0,
         "wall_seconds": time.monotonic() - started,
     }
+
+
+@app.function(
+    image=training_image,
+    gpu="H100",
+    cpu=8,
+    memory=32768,
+    timeout=360,
+    startup_timeout=180,
+    retries=0,
+    max_containers=1,
+    scaledown_window=2,
+    volumes={
+        "/data": source_data,
+        "/outputs": results,
+        "/cache/huggingface": hf_cache,
+    },
+)
+def train_source_smoke(plan: dict) -> dict:
+    """Run 100 updates with pseudo source labels and return a hashed receipt."""
+    import hashlib
+    import importlib.util
+    import json
+    import sys
+    import time
+    from concurrent.futures import ThreadPoolExecutor
+
+    started = time.monotonic()
+    spec = importlib.util.spec_from_file_location(
+        "publication_frozen_training", "/root/research/pilot/training.py"
+    )
+    core = importlib.util.module_from_spec(spec)
+    sys.modules[spec.name] = core
+    spec.loader.exec_module(core)
+    if core.sha256_file(Path(core.__file__)) != plan["training_code_sha256"]:
+        raise ValueError("frozen training source changed")
+    if plan["config"]["num_updates"] != 100 or plan["config"]["seed"] != 12:
+        raise ValueError("smoke must be exactly 100 updates at seed 12")
+    source_data.reload()
+    rows = plan["rows"]
+    train_rows, dev_rows = core.validate_rows(rows)
+    cycler = core.IndexCycler(len(train_rows), 12)
+    indices = cycler.take(plan["config"]["num_updates"] * plan["config"]["batch_size"])
+    needed = {row["utt_id"]: row for row in dev_rows}
+    needed.update({train_rows[index]["utt_id"]: train_rows[index] for index in indices})
+    local_audio = Path("/tmp/publication-audio")
+    local_features = Path("/tmp/publication-features")
+    local_features.mkdir(parents=True, exist_ok=True)
+
+    def stage(row: dict) -> str:
+        receipt = plan["cache_receipts"][row["utt_id"]]
+        paths = (
+            (
+                Path("/data/l2arctic") / row["audio_path"],
+                local_audio / row["audio_path"],
+                receipt["audio_sha256"],
+            ),
+            (
+                Path("/data/feature_cache/frozen-v1") / receipt["feature_file"],
+                local_features / receipt["feature_file"],
+                receipt["feature_sha256"],
+            ),
+        )
+        for source, target, expected in paths:
+            payload = source.read_bytes()
+            if hashlib.sha256(payload).hexdigest() != expected:
+                raise ValueError(f"input checksum mismatch: {row['utt_id']}")
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(payload)
+        return row["utt_id"]
+
+    with ThreadPoolExecutor(max_workers=32) as pool:
+        staged = list(pool.map(stage, needed.values()))
+    output = Path("/outputs") / plan["output_path"]
+    if output.exists():
+        raise ValueError(f"output path already exists: {output}")
+    config = {
+        **plan["config"],
+        "feature_cache_dir": str(local_features),
+        "normalizer_path": "/root/normalizer.json",
+    }
+    summary = core.train(config, rows, local_audio, output)
+    required = (
+        "summary.json",
+        "provenance.json",
+        "manifest.json",
+        "history.jsonl",
+        "baseline_dev_predictions.jsonl",
+        "final_dev_predictions.jsonl",
+        "baseline_dev_metrics.json",
+        "final_dev_metrics.json",
+        "checkpoint_last/model.safetensors",
+        "checkpoint_last/training_state.pt",
+    )
+    hashes = {}
+    for relative in required:
+        path = output / relative
+        if not path.is_file() or path.stat().st_size == 0:
+            raise ValueError(f"missing required artifact: {relative}")
+        hashes[relative] = core.sha256_file(path)
+    if summary["completed_updates"] != 100 or summary["total_training_exposures"] != 800:
+        raise ValueError("smoke exposure receipt mismatch")
+    if "H100" not in summary["runtime"]["device_name"]:
+        raise ValueError("smoke did not use an H100")
+    wall_seconds = time.monotonic() - started
+    receipt = {
+        "run_id": plan["run_id"],
+        "status": "completed",
+        "gpu": summary["runtime"]["device_name"],
+        "completed_updates": summary["completed_updates"],
+        "total_training_exposures": summary["total_training_exposures"],
+        "train_pool_utterances": summary["train_pool_utterances"],
+        "dev_utterances": summary["dev_utterances"],
+        "label_source": "source_pseudo",
+        "validation_examples_read": 0,
+        "staged_utterances": len(staged),
+        "staged_ids_sha256": core.canonical_hash(sorted(staged)),
+        "artifacts": hashes,
+        "wall_seconds": wall_seconds,
+        "estimated_resource_cost_usd": wall_seconds * H100_RATE_PER_SECOND,
+        "baseline_dev_metrics": summary["baseline_dev_metrics"],
+        "final_dev_metrics": summary["final_dev_metrics"],
+    }
+    (output / "receipt.json").write_text(json.dumps(receipt, indent=2, sort_keys=True) + "\n")
+    results.commit()
+    return json.loads(json.dumps(receipt))

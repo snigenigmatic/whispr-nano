@@ -45,6 +45,88 @@ def run_inspection(config: dict) -> dict:
     return result
 
 
+def _load_jsonl(path: Path) -> list[dict]:
+    return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line]
+
+
+def _feature_receipts() -> dict[str, dict]:
+    receipts: dict[str, dict] = {}
+    for path in sorted((ROOT / "research/pilot/feature_receipts").glob("*.json")):
+        for row in json.loads(path.read_text(encoding="utf-8"))["files"]:
+            if row["utt_id"] in receipts:
+                raise ValueError(f"duplicate feature receipt: {row['utt_id']}")
+            receipts[row["utt_id"]] = row
+    return receipts
+
+
+def source_smoke_plan(config: dict, contract: StudyContract) -> dict:
+    pseudo = _load_jsonl(ROOT / "research/pilot/teacher_predictions/all_train.jsonl")
+    if len(pseudo) != 9495:
+        raise ValueError("pinned source pseudo-label count changed")
+    # The source corpus is labeled, but this arm must expose only teacher text
+    # to the CE objective. Keep source references out of the rows sent to Modal.
+    train = []
+    for row in pseudo:
+        transformed = dict(row)
+        transformed["reference_text"] = transformed.pop("hypothesis_text")
+        transformed["label_source"] = "teacher_pseudo"
+        train.append(transformed)
+    dev = _load_jsonl(ROOT / "research/pilot/data/smoke_dev_ledger_manifest.jsonl")
+    receipts = _feature_receipts()
+    all_rows = train + dev
+    missing = sorted({row["utt_id"] for row in all_rows} - set(receipts))
+    if missing:
+        raise ValueError(f"missing feature receipts: {missing[:5]}")
+    training_path = ROOT / "research/pilot/training.py"
+    import hashlib
+
+    return {
+        "run_id": config["run_id"],
+        "output_path": f"seed12/{config['run_id']}",
+        "training_code_sha256": hashlib.sha256(training_path.read_bytes()).hexdigest(),
+        "rows": all_rows,
+        "cache_receipts": {row["utt_id"]: receipts[row["utt_id"]] for row in all_rows},
+        "config": {
+            "arm_name": "smoke_source_pseudo",
+            "seed": 12,
+            "num_updates": 100,
+            "batch_size": contract.batch_size,
+            "grad_accum_steps": 1,
+            "learning_rate": contract.learning_rate,
+            "weight_decay": 0.01,
+            "max_grad_norm": 1.0,
+            "eval_every": 0,
+            "eval_batch_size": 8,
+            "max_new_tokens": 224,
+            "model_id": contract.student_model,
+            "model_revision": contract.student_revision,
+        },
+    }
+
+
+def run_source_smoke(config: dict, contract: StudyContract) -> dict:
+    from research.publication.modal_runner import app, train_source_smoke
+
+    ensure_live_budget()
+    ledger = BudgetLedger(BUDGET_PATH)
+    plan = source_smoke_plan(config, contract)
+    plan_hash = canonical_json_hash(plan)
+    ledger.reserve(config["run_id"], 0.50, plan_hash)
+    try:
+        with app.run():
+            result = train_source_smoke.remote(plan)
+    except BaseException:
+        raise
+    measured = float(result["estimated_resource_cost_usd"])
+    receipt_hash = canonical_json_hash(result)
+    ledger.complete(config["run_id"], measured, receipt_hash)
+    atomic_json(
+        ROOT / f"research/publication/results/{config['run_id']}/receipt.json",
+        {**result, "plan_sha256": plan_hash, "receipt_sha256": receipt_hash},
+    )
+    return result
+
+
 def main() -> int:
     contract = StudyContract.load(CONTRACT_PATH)
     config = json.loads(RUN_PATH.read_text(encoding="utf-8"))
@@ -55,6 +137,8 @@ def main() -> int:
     print(f"run_config: {json.dumps(config, sort_keys=True)}", flush=True)
     if config["action"] == "inspect_spire_train":
         result = run_inspection(config)
+    elif config["action"] == "smoke_source_pseudo":
+        result = run_source_smoke(config, contract)
     else:
         raise SystemExit(f"unknown publication action: {config['action']}")
     print("===== RESULT SUMMARY =====", flush=True)
