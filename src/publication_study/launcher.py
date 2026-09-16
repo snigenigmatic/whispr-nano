@@ -337,6 +337,63 @@ def run_target_pseudo(config: dict, contract: StudyContract) -> dict:
     return result
 
 
+def global_pseudo2real_plan(config: dict, contract: StudyContract) -> dict:
+    import hashlib
+
+    receipts = {}
+    for arm in ("source_real", "source_pseudo", "target_pseudo"):
+        path = ROOT / f"research/publication/results/{arm}/receipt.json"
+        receipt = json.loads(path.read_text())
+        if receipt.get("status") != "completed":
+            raise ValueError(f"{arm} endpoint is not complete")
+        receipts[arm] = receipt
+    initial = {receipts[arm].get("initial_state_sha256") for arm in receipts}
+    if len(initial) != 1:
+        raise ValueError("endpoint initial model states differ")
+    manifest = _load_jsonl(ROOT / "research/pilot/data/manifest.jsonl")
+    dev = [row for row in manifest if row["split"] == "dev"]
+    feature_receipts = _feature_receipts()
+    return {
+        "run_id": config["run_id"], "output_path": "seed12/global_pseudo2real",
+        "scale": contract.correction_scale,
+        "checkpoint_sha256": {
+            arm: receipts[arm]["checkpoint_sha256"] for arm in receipts
+        },
+        "training_code_sha256": hashlib.sha256(
+            (ROOT / "research/pilot/training.py").read_bytes()
+        ).hexdigest(),
+        "arithmetic_code_sha256": hashlib.sha256(
+            (ROOT / "src/publication_study/arithmetic.py").read_bytes()
+        ).hexdigest(),
+        "source_dev_rows": dev,
+        "source_dev_receipts": {
+            row["utt_id"]: feature_receipts[row["utt_id"]] for row in dev
+        },
+    }
+
+
+def run_global_pseudo2real(config: dict, contract: StudyContract) -> dict:
+    from research.publication.modal_runner import app, build_and_evaluate_global
+
+    ensure_live_budget()
+    ledger = BudgetLedger(BUDGET_PATH)
+    plan = global_pseudo2real_plan(config, contract)
+    plan_hash = canonical_json_hash(plan)
+    ledger.reserve(config["run_id"], 0.50, plan_hash)
+    with app.run():
+        result = build_and_evaluate_global.remote(plan)
+    measured = float(result["estimated_resource_cost_usd"])
+    if measured > 0.50:
+        raise RuntimeError("global correction evaluation exceeded its reservation")
+    receipt_hash = canonical_json_hash(result)
+    ledger.complete(config["run_id"], measured, receipt_hash)
+    atomic_json(
+        ROOT / "research/publication/results/global_pseudo2real/receipt.json",
+        {**result, "plan_sha256": plan_hash, "receipt_sha256": receipt_hash},
+    )
+    return result
+
+
 def main() -> int:
     contract = StudyContract.load(CONTRACT_PATH)
     config = json.loads(RUN_PATH.read_text(encoding="utf-8"))
@@ -357,6 +414,8 @@ def main() -> int:
         result = run_target_teacher(config, contract)
     elif config["action"] == "train_target_pseudo":
         result = run_target_pseudo(config, contract)
+    elif config["action"] == "build_global_pseudo2real":
+        result = run_global_pseudo2real(config, contract)
     else:
         raise SystemExit(f"unknown publication action: {config['action']}")
     print("===== RESULT SUMMARY =====", flush=True)

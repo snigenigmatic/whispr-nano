@@ -53,6 +53,10 @@ training_image = (
         ROOT / "research/pilot/frozen_english_normalizer.py",
         "/root/research/pilot/frozen_english_normalizer.py",
     )
+    .add_local_file(
+        ROOT / "src/publication_study/arithmetic.py",
+        "/root/src/publication_study/arithmetic.py",
+    )
     .add_local_file(ROOT / "paper/data/whisper_normalizer.json", "/root/normalizer.json")
 )
 
@@ -737,6 +741,182 @@ def train_target_pseudo(plan: dict) -> dict:
     gpu="H100",
     cpu=8,
     memory=32768,
+    timeout=420,
+    startup_timeout=180,
+    retries=0,
+    max_containers=1,
+    scaledown_window=2,
+    volumes={
+        "/source": source_data,
+        "/outputs": results,
+        "/cache/huggingface": hf_cache,
+    },
+)
+def build_and_evaluate_global(plan: dict) -> dict:
+    """Apply the exact global Pseudo2Real vector and evaluate on source dev."""
+    import hashlib
+    import importlib.util
+    import json
+    import shutil
+    import sys
+    import time
+    from concurrent.futures import ThreadPoolExecutor
+
+    import numpy as np
+    import torch
+    from safetensors.torch import load_file, save_file
+    from transformers import WhisperForConditionalGeneration, WhisperProcessor
+
+    started = time.monotonic()
+    train_spec = importlib.util.spec_from_file_location(
+        "publication_global_eval", "/root/research/pilot/training.py"
+    )
+    core = importlib.util.module_from_spec(train_spec)
+    sys.modules[train_spec.name] = core
+    train_spec.loader.exec_module(core)
+    arithmetic_spec = importlib.util.spec_from_file_location(
+        "publication_global_arithmetic", "/root/src/publication_study/arithmetic.py"
+    )
+    arithmetic = importlib.util.module_from_spec(arithmetic_spec)
+    arithmetic_spec.loader.exec_module(arithmetic)
+    if core.sha256_file(Path(core.__file__)) != plan["training_code_sha256"]:
+        raise ValueError("global evaluator training source changed")
+    if core.sha256_file(Path(arithmetic.__file__)) != plan["arithmetic_code_sha256"]:
+        raise ValueError("global correction arithmetic source changed")
+    if plan["scale"] != 1.0 or len(plan["source_dev_rows"]) != 974:
+        raise ValueError("global correction scale or source dev cohort changed")
+    checkpoints = {
+        "source_real": Path("/outputs/seed12/source_real/checkpoint_last"),
+        "source_pseudo": Path("/outputs/seed12/source_pseudo/checkpoint_last"),
+        "target_pseudo": Path("/outputs/seed12/target_pseudo/checkpoint_last"),
+    }
+    model_paths = {name: path / "model.safetensors" for name, path in checkpoints.items()}
+    for name, path in model_paths.items():
+        if core.sha256_file(path) != plan["checkpoint_sha256"][name]:
+            raise ValueError(f"{name} checkpoint hash mismatch")
+    states = {name: load_file(str(path), device="cpu") for name, path in model_paths.items()}
+    corrected, correction = arithmetic.apply_global_correction(
+        states["source_real"], states["source_pseudo"], states["target_pseudo"], plan["scale"]
+    )
+    fingerprints = {name: arithmetic.state_fingerprint(state) for name, state in states.items()}
+    fingerprints["global_pseudo2real"] = arithmetic.state_fingerprint(corrected)
+    if fingerprints["source_real"] == fingerprints["source_pseudo"]:
+        raise ValueError("source correction vector is identically zero")
+    output = Path("/outputs") / plan["output_path"]
+    if output.exists():
+        raise ValueError(f"output path already exists: {output}")
+    checkpoint = output / "checkpoint_last"
+    checkpoint.mkdir(parents=True)
+    for source in checkpoints["target_pseudo"].iterdir():
+        if source.is_file() and source.name not in {"model.safetensors", "training_state.pt"}:
+            shutil.copy2(source, checkpoint / source.name)
+    save_file(corrected, str(checkpoint / "model.safetensors"), metadata={
+        "format": "pt", "formula": correction["formula"], "scale": str(plan["scale"])
+    })
+    corrected_sha = core.sha256_file(checkpoint / "model.safetensors")
+
+    local_features = Path("/tmp/publication-global-features")
+    local_features.mkdir(parents=True)
+    receipts = plan["source_dev_receipts"]
+
+    def stage(row: dict) -> str:
+        receipt = receipts[row["utt_id"]]
+        payload = (Path("/source/feature_cache/frozen-v1") / receipt["feature_file"]).read_bytes()
+        if hashlib.sha256(payload).hexdigest() != receipt["feature_sha256"]:
+            raise ValueError(f"source dev feature checksum mismatch: {row['utt_id']}")
+        (local_features / receipt["feature_file"]).write_bytes(payload)
+        return row["utt_id"]
+
+    with ThreadPoolExecutor(max_workers=32) as pool:
+        staged = list(pool.map(stage, plan["source_dev_rows"]))
+    processor = WhisperProcessor.from_pretrained(checkpoint, local_files_only=True)
+    model = WhisperForConditionalGeneration.from_pretrained(
+        checkpoint, local_files_only=True, torch_dtype=torch.float32, attn_implementation="eager"
+    ).to("cuda").eval()
+    from research.pilot.frozen_english_normalizer import EnglishTextNormalizer
+    english_normalize = EnglishTextNormalizer(json.loads(Path("/root/normalizer.json").read_text()))
+    predictions = []
+    generation = {
+        "language": "en", "task": "transcribe", "return_timestamps": False,
+        "max_new_tokens": 224, "do_sample": False, "num_beams": 1, "use_cache": True,
+    }
+    rows = sorted(plan["source_dev_rows"], key=lambda row: row["utt_id"])
+    with torch.inference_mode():
+        for begin in range(0, len(rows), 8):
+            chunk = rows[begin : begin + 8]
+            features = []
+            for row in chunk:
+                receipt = receipts[row["utt_id"]]
+                value = np.load(local_features / receipt["feature_file"], allow_pickle=False)
+                if value.shape != (80, 3000) or value.dtype != np.float32 or not np.isfinite(value).all():
+                    raise ValueError(f"invalid source dev feature: {row['utt_id']}")
+                features.append(value)
+            generated = model.generate(input_features=torch.from_numpy(np.stack(features)).to("cuda"), **generation)
+            hypotheses = processor.batch_decode(
+                generated, skip_special_tokens=True, clean_up_tokenization_spaces=False
+            )
+            for row, hypothesis, sequence in zip(chunk, hypotheses, generated.cpu().tolist()):
+                reference = row["reference_text"]
+                hypothesis = hypothesis.strip()
+                predictions.append({
+                    **{key: row[key] for key in (
+                        "utt_id", "speaker_id", "native_language", "prompt_id", "split"
+                    )},
+                    "reference_text": reference, "prediction": hypothesis,
+                    "generated_token_ids": sequence,
+                    "minimal": core.word_counts(
+                        core.minimal_normalize(reference), core.minimal_normalize(hypothesis)
+                    ),
+                    "english": core.word_counts(
+                        english_normalize(reference), english_normalize(hypothesis)
+                    ),
+                })
+    prediction_path = output / "source_dev_predictions.jsonl"
+    prediction_path.write_text("".join(
+        json.dumps(row, ensure_ascii=False, sort_keys=True) + "\n" for row in predictions
+    ))
+    metrics = core.summarize_predictions(predictions)
+    (output / "source_dev_metrics.json").write_text(
+        json.dumps(metrics, indent=2, sort_keys=True) + "\n"
+    )
+    correction_report = {
+        **correction, "state_fingerprints": fingerprints,
+        "input_checkpoint_sha256": plan["checkpoint_sha256"],
+        "corrected_checkpoint_sha256": corrected_sha,
+        "arithmetic_code_sha256": plan["arithmetic_code_sha256"],
+        "evaluation_cohort": "L2-ARCTIC frozen development only",
+        "target_validation_examples_read": 0,
+    }
+    report_path = output / "correction_report.json"
+    report_path.write_text(json.dumps(correction_report, indent=2, sort_keys=True) + "\n")
+    artifact_paths = {
+        "checkpoint_last/model.safetensors": checkpoint / "model.safetensors",
+        "correction_report.json": report_path,
+        "source_dev_predictions.jsonl": prediction_path,
+        "source_dev_metrics.json": output / "source_dev_metrics.json",
+    }
+    artifact_hashes = {name: core.sha256_file(path) for name, path in artifact_paths.items()}
+    wall_seconds = time.monotonic() - started
+    receipt = {
+        "run_id": plan["run_id"], "status": "completed", "method": "global_pseudo2real",
+        "formula": correction["formula"], "scale": plan["scale"],
+        "gpu": torch.cuda.get_device_name(), "source_dev_utterances": len(predictions),
+        "target_validation_examples_read": 0, "staged_source_dev_features": len(staged),
+        "corrected_checkpoint_sha256": corrected_sha, "artifacts": artifact_hashes,
+        "correction": correction, "source_dev_metrics": metrics,
+        "wall_seconds": wall_seconds,
+        "estimated_resource_cost_usd": wall_seconds * H100_RATE_PER_SECOND,
+    }
+    (output / "receipt.json").write_text(json.dumps(receipt, indent=2, sort_keys=True) + "\n")
+    results.commit()
+    return json.loads(json.dumps(receipt))
+
+
+@app.function(
+    image=training_image,
+    gpu="H100",
+    cpu=8,
+    memory=32768,
     timeout=900,
     startup_timeout=180,
     retries=0,
@@ -826,7 +1006,7 @@ def label_target_with_teacher(plan: dict) -> dict:
         )
         with torch.inference_mode():
             generated = model.generate(
-                input_features=features.input_features.to("cuda"),
+                input_features=features.input_features.to("cuda", dtype=torch.float16),
                 attention_mask=features.attention_mask.to("cuda"),
                 language="en", task="transcribe", return_timestamps=False,
                 do_sample=False, num_beams=1, max_new_tokens=224,
