@@ -1,0 +1,62 @@
+{
+  "builder_features": "None",
+  "config_sha256": "93f44fd553733d7d733fe0da9b145b1d1f49d49ec1e2545a38dac01e03f255ac",
+  "full_receipt_artifact_sha256": "212c19603d41b87ad5a0e430c9c3e37d375c1ffd109416cbdf1d66fb2bdc483b",
+  "metadata_summary": {
+    "accent_counts": {
+      "Bengali": 3357,
+      "Dogri": 36,
+      "Gujarati": 98,
+      "Hindi": 6255,
+      "Kannada": 3461,
+      "Kashmiri": 19,
+      "Konkani": 1091,
+      "Maithili": 192,
+      "Malayalam": 3198,
+      "Marathi": 6441,
+      "Nepali": 34,
+      "Odia": 813,
+      "Punjabi": 208,
+      "Sindhi": 13,
+      "Tamil": 3441,
+      "Telugu": 6114,
+      "Urdu": 528
+    },
+    "gender_counts": {
+      "Female": 15770,
+      "Male": 19375,
+      "Other": 154
+    },
+    "speaker_count": 1411,
+    "split_counts": {
+      "train": 29796,
+      "unassigned": 289,
+      "val": 5214
+    },
+    "uid_count": 35299
+  },
+  "receipt_sha256": "f8915eb39fe4f0c906b3e41ad9fc1a706b68fbb245ba12d3355a9853b9a8754b",
+  "removed_before_iteration": [
+    "reference"
+  ],
+  "repo_id": "VectorSigma389/spire-sies",
+  "splits": [
+    "train"
+  ],
+  "train_feature_names": [
+    "accent",
+    "age",
+    "audio_bytes",
+    "duration",
+    "gender",
+    "language_family",
+    "reference",
+    "speaker_id",
+    "split",
+    "src_sr",
+    "uid"
+  ],
+  "train_rows": 35299,
+  "validation_examples_read": 0,
+  "wall_seconds": 359.735321617
+}

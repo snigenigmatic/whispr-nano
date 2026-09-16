@@ -89,7 +89,7 @@ def inspect_spire_train() -> dict:
     remove = []
     for name, feature in (dataset.features or {}).items():
         if feature.__class__.__name__ == "Audio" or name.lower() in {
-            "reference", "reference_text", "sentence", "text", "transcript"
+            "audio", "audio_bytes", "reference", "reference_text", "sentence", "text", "transcript"
         }:
             remove.append(name)
     stream = dataset.remove_columns(remove)
@@ -97,7 +97,7 @@ def inspect_spire_train() -> dict:
     # and demographic fields. Text/reference fields are never dereferenced.
     safe_candidates = (
         "speaker_id", "speaker", "client_id", "accent", "native_language",
-        "language", "gender", "uid", "id", "audio_id", "split", "subset",
+        "language", "gender", "split", "subset",
     )
     counts: dict[str, Counter] = {name: Counter() for name in safe_candidates}
     observed = 0
