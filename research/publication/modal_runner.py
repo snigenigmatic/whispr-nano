@@ -1170,7 +1170,14 @@ def tune_global_pseudo2real(plan: dict) -> dict:
         corrected, correction = arithmetic.apply_global_correction(
             states["source_real"], states["source_pseudo"], states["target_pseudo"], scale
         )
-        model.load_state_dict(corrected, strict=True)
+        incompatible = model.load_state_dict(corrected, strict=False)
+        if incompatible.missing_keys != ["proj_out.weight"] or incompatible.unexpected_keys:
+            raise ValueError(
+                "scale tuner checkpoint keys differ beyond Whisper's tied projection weight: "
+                f"missing={incompatible.missing_keys} unexpected={incompatible.unexpected_keys}"
+            )
+        if model.proj_out.weight.data_ptr() != model.model.decoder.embed_tokens.weight.data_ptr():
+            raise ValueError("Whisper output projection is not tied to decoder embeddings")
         model.eval()
         predictions = []
         with torch.inference_mode():
