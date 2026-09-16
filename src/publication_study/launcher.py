@@ -239,7 +239,7 @@ def run_target_teacher(config: dict, contract: StudyContract) -> dict:
     plan = {
         "run_id": config["run_id"], "manifest_sha256": target_report["manifest_sha256"],
         "teacher_model": contract.teacher_model, "teacher_revision": contract.teacher_revision,
-        "batch_size": 16,
+        "batch_size": 32, "dtype": "float16",
     }
     plan_hash = canonical_json_hash(plan)
     ledger.reserve(config["run_id"], 1.25, plan_hash)
@@ -265,6 +265,78 @@ def run_target_teacher(config: dict, contract: StudyContract) -> dict:
     return result
 
 
+def target_pseudo_plan(config: dict, contract: StudyContract) -> dict:
+    import hashlib
+
+    data = ROOT / "research/publication/data"
+    target_report = json.loads((data / "spire_target_train_v1.report.json").read_text())
+    pseudo_path = data / "spire_target_pseudo_large_v3_seed12.jsonl"
+    pseudo_rows = _load_jsonl(pseudo_path)
+    if len(pseudo_rows) != contract.target_examples:
+        raise ValueError("target pseudo-label count differs from the frozen contract")
+    forbidden = {"reference", "reference_text", "transcript", "sentence", "text"}
+    if any(forbidden & set(row) for row in pseudo_rows):
+        raise ValueError("target pseudo-label manifest contains a reference-like field")
+    if {row.get("utt_id") for row in pseudo_rows} != {
+        row["utt_id"] for row in _load_jsonl(data / "spire_target_train_v1.jsonl")
+    }:
+        raise ValueError("target pseudo-label IDs differ from the frozen target manifest")
+    teacher_receipt = json.loads(
+        (data / "spire_target_pseudo_large_v3_seed12.receipt.json").read_text()
+    )
+    pseudo_sha = hashlib.sha256(pseudo_path.read_bytes()).hexdigest()
+    if pseudo_sha != teacher_receipt["pseudo_manifest_sha256"]:
+        raise ValueError("target pseudo-label receipt hash mismatch")
+    manifest = _load_jsonl(ROOT / "research/pilot/data/manifest.jsonl")
+    dev = [row for row in manifest if row["split"] == "dev"]
+    if len(dev) != 974:
+        raise ValueError("pinned source development count changed")
+    receipts = _feature_receipts()
+    missing = sorted({row["utt_id"] for row in dev} - set(receipts))
+    if missing:
+        raise ValueError(f"missing source development feature receipts: {missing[:5]}")
+    return {
+        "run_id": config["run_id"], "output_path": "seed12/target_pseudo",
+        "training_code_sha256": hashlib.sha256(
+            (ROOT / "research/pilot/training.py").read_bytes()
+        ).hexdigest(),
+        "target_manifest_sha256": target_report["manifest_sha256"],
+        "pseudo_manifest_sha256": pseudo_sha,
+        "source_dev_rows": dev,
+        "source_dev_receipts": {row["utt_id"]: receipts[row["utt_id"]] for row in dev},
+        "config": {
+            "arm_name": "target_pseudo", "seed": 12, "num_updates": contract.updates,
+            "batch_size": contract.batch_size, "grad_accum_steps": 1,
+            "learning_rate": contract.learning_rate, "weight_decay": 0.01,
+            "max_grad_norm": 1.0, "eval_every": 0, "eval_batch_size": 8,
+            "max_new_tokens": 224, "model_id": contract.student_model,
+            "model_revision": contract.student_revision,
+        },
+    }
+
+
+def run_target_pseudo(config: dict, contract: StudyContract) -> dict:
+    from research.publication.modal_runner import app, train_target_pseudo
+
+    ensure_live_budget()
+    ledger = BudgetLedger(BUDGET_PATH)
+    plan = target_pseudo_plan(config, contract)
+    plan_hash = canonical_json_hash(plan)
+    ledger.reserve(config["run_id"], 1.60, plan_hash)
+    with app.run():
+        result = train_target_pseudo.remote(plan)
+    measured = float(result["estimated_resource_cost_usd"])
+    if measured > 1.60:
+        raise RuntimeError("target endpoint exceeded its conservative reservation")
+    receipt_hash = canonical_json_hash(result)
+    ledger.complete(config["run_id"], measured, receipt_hash)
+    atomic_json(
+        ROOT / "research/publication/results/target_pseudo/receipt.json",
+        {**result, "plan_sha256": plan_hash, "receipt_sha256": receipt_hash},
+    )
+    return result
+
+
 def main() -> int:
     contract = StudyContract.load(CONTRACT_PATH)
     config = json.loads(RUN_PATH.read_text(encoding="utf-8"))
@@ -283,6 +355,8 @@ def main() -> int:
         result = run_target_preparation(config, contract)
     elif config["action"] == "label_target_teacher":
         result = run_target_teacher(config, contract)
+    elif config["action"] == "train_target_pseudo":
+        result = run_target_pseudo(config, contract)
     else:
         raise SystemExit(f"unknown publication action: {config['action']}")
     print("===== RESULT SUMMARY =====", flush=True)

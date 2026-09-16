@@ -227,7 +227,8 @@ def _write_json(path: Path, data: Any) -> None:
 
 
 def train(config: TrainConfig | Mapping[str, Any], manifest_rows: Sequence[Mapping[str, Any]],
-          audio_root: str | Path, output_dir: str | Path) -> dict:
+          audio_root: str | Path, output_dir: str | Path,
+          verified_feature_receipts: Mapping[str, Mapping[str, Any]] | None = None) -> dict:
     """Train one fixed-selection supervised arm and return a JSON-safe summary.
 
     Outputs include the frozen manifest/config, initial model state hash, all
@@ -315,6 +316,9 @@ def train(config: TrainConfig | Mapping[str, Any], manifest_rows: Sequence[Mappi
 
     cache = Path(cfg.feature_cache_dir) if cfg.feature_cache_dir else out / "feature_cache"
     cache.mkdir(parents=True, exist_ok=True)
+    receipts = dict(verified_feature_receipts or {})
+    if receipts and set(receipts) != {row["utt_id"] for row in train_rows + dev_rows}:
+        raise ValueError("Verified feature receipts must cover the exact train/dev manifest")
     audio_info: dict[str, dict] = {}
     feature_paths: dict[str, Path] = {}
     feature_signature = canonical_hash({"revision": cfg.model_revision, "transformers": transformers.__version__,
@@ -325,6 +329,33 @@ def train(config: TrainConfig | Mapping[str, Any], manifest_rows: Sequence[Mappi
     def features(row: dict):
         uid = row["utt_id"]
         if uid not in feature_paths:
+            if receipts:
+                receipt = dict(receipts[uid])
+                required_receipt = {
+                    "audio_sha256", "duration_s", "original_sample_rate", "channels",
+                    "feature_file", "feature_sha256",
+                }
+                if not required_receipt.issubset(receipt):
+                    raise ValueError(f"Incomplete verified feature receipt: {uid}")
+                expected = row.get("audio_sha256")
+                if expected and expected != receipt["audio_sha256"]:
+                    raise ValueError(f"Verified audio checksum mismatch: {uid}")
+                if abs(float(receipt["duration_s"]) - row["duration_s"]) > 0.02:
+                    raise ValueError(f"Verified audio duration mismatch: {uid}")
+                feature_path = cache / str(receipt["feature_file"])
+                if not feature_path.is_file() or sha256_file(feature_path) != receipt["feature_sha256"]:
+                    raise ValueError(f"Verified feature checksum mismatch: {uid}")
+                feature = np.load(feature_path, mmap_mode="r", allow_pickle=False)
+                if feature.shape != (80, 3000) or feature.dtype != np.float32 or not np.isfinite(feature).all():
+                    raise ValueError(f"Invalid verified feature tensor: {uid}")
+                audio_info[uid] = {
+                    "audio_sha256": receipt["audio_sha256"],
+                    "duration_s": float(receipt["duration_s"]),
+                    "original_sample_rate": int(receipt["original_sample_rate"]),
+                    "channels": int(receipt["channels"]),
+                }
+                feature_paths[uid] = feature_path
+                return feature
             path = (root / row["audio_path"]).resolve()
             if not path.is_relative_to(root):
                 raise ValueError(f"Audio path escapes audio_root: {uid}")
@@ -364,6 +395,7 @@ def train(config: TrainConfig | Mapping[str, Any], manifest_rows: Sequence[Mappi
                   "normalizer_implementation_sha256": sha256_file(Path(inspect.getfile(EnglishTextNormalizer))),
                   "training_code_sha256": sha256_file(Path(__file__)),
                   "normalizer_source": cfg.normalizer_path or f"{cfg.model_id}@{cfg.model_revision}/normalizer.json",
+                  "verified_feature_receipts_sha256": canonical_hash(receipts) if receipts else None,
                   "decoder_prefix_ids": prefix, "generation_kwargs": generation_kwargs,
                   "generation_config": model.generation_config.to_dict(),
                   "trainable_parameters": sum(p.numel() for p in parameters if p.requires_grad),

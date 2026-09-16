@@ -504,6 +504,237 @@ def train_source_endpoint(plan: dict) -> dict:
 @app.function(
     image=training_image,
     gpu="H100",
+    cpu=16,
+    memory=65536,
+    timeout=1200,
+    startup_timeout=180,
+    retries=0,
+    max_containers=1,
+    scaledown_window=2,
+    volumes={
+        "/source": source_data,
+        "/target": target_data,
+        "/outputs": results,
+        "/cache/huggingface": hf_cache,
+    },
+)
+def train_target_pseudo(plan: dict) -> dict:
+    """Cache exact tiny features, then train the 4,800-label target arm."""
+    import hashlib
+    import importlib.util
+    import json
+    import math
+    import os
+    import sys
+    import time
+    from concurrent.futures import ThreadPoolExecutor
+
+    import numpy as np
+    import scipy
+    import scipy.signal
+    import soundfile as sf
+    import transformers
+    from transformers import WhisperProcessor
+
+    started = time.monotonic()
+    spec = importlib.util.spec_from_file_location(
+        "publication_target_training", "/root/research/pilot/training.py"
+    )
+    core = importlib.util.module_from_spec(spec)
+    sys.modules[spec.name] = core
+    spec.loader.exec_module(core)
+    if core.sha256_file(Path(core.__file__)) != plan["training_code_sha256"]:
+        raise ValueError("frozen target training source changed")
+    cfg = plan["config"]
+    if cfg["num_updates"] != 600 or cfg["seed"] != 12 or cfg["batch_size"] != 8:
+        raise ValueError("target endpoint must be 600 x 8 at seed 12")
+    source_data.reload()
+    target_data.reload()
+    target_root = Path("/target/v1")
+    pseudo_path = target_root / "pseudo_large_v3_seed12.jsonl"
+    if core.sha256_file(pseudo_path) != plan["pseudo_manifest_sha256"]:
+        raise ValueError("target pseudo-label manifest hash mismatch")
+    pseudo_rows = [json.loads(line) for line in pseudo_path.read_text().splitlines() if line]
+    if len(pseudo_rows) != 4800:
+        raise ValueError("target pseudo-label row count changed")
+    forbidden = {"reference", "reference_text", "transcript", "sentence", "text"}
+    if any(forbidden & set(row) for row in pseudo_rows):
+        raise ValueError("target pseudo-label manifest contains a corpus reference field")
+    target_rows = []
+    for row in pseudo_rows:
+        transformed = dict(row)
+        transformed["reference_text"] = transformed.pop("pseudo_text")
+        transformed["split"] = "train"
+        transformed["label_source"] = "whisper_large_v3_pseudo"
+        target_rows.append(transformed)
+    dev_rows = [dict(row) for row in plan["source_dev_rows"]]
+    rows = target_rows + dev_rows
+    core.validate_rows(rows)
+
+    processor = WhisperProcessor.from_pretrained(
+        cfg["model_id"], revision=cfg["model_revision"], language="english", task="transcribe"
+    )
+    feature_signature = core.canonical_hash({
+        "revision": cfg["model_revision"], "transformers": transformers.__version__,
+        "numpy": np.__version__, "scipy": scipy.__version__, "soundfile": sf.__version__,
+        "downmix": "arithmetic mean", "resampling": "scipy.signal.resample_poly to 16000",
+        "feature_extractor": processor.feature_extractor.to_dict(),
+    })
+    local_features = Path("/tmp/publication-target-features")
+    local_features.mkdir(parents=True, exist_ok=True)
+    volume_features = target_root / "tiny_features_frozen_v1"
+    volume_features.mkdir(parents=True, exist_ok=True)
+    receipt_path = target_root / "tiny_features_frozen_v1.receipt.json"
+    existing: dict[str, dict] = {}
+    if receipt_path.exists():
+        cached = json.loads(receipt_path.read_text())
+        if cached.get("feature_signature") != feature_signature:
+            raise ValueError("persisted target feature signature changed")
+        existing = {row["utt_id"]: row for row in cached["files"]}
+
+    target_receipts: dict[str, dict] = {}
+    created = reused = 0
+
+    def materialize(row: dict) -> tuple[dict, bytes | None]:
+        uid = row["utt_id"]
+        cached = existing.get(uid)
+        if cached:
+            source = volume_features / cached["feature_file"]
+            payload = source.read_bytes()
+            if hashlib.sha256(payload).hexdigest() != cached["feature_sha256"]:
+                raise ValueError(f"persisted target feature checksum mismatch: {uid}")
+            (local_features / cached["feature_file"]).write_bytes(payload)
+            return cached, None
+        source = target_root / row["audio_path"]
+        payload = source.read_bytes()
+        checksum = hashlib.sha256(payload).hexdigest()
+        if checksum != row["audio_sha256"]:
+            raise ValueError(f"target audio checksum mismatch: {uid}")
+        audio, sample_rate = sf.read(source, dtype="float32", always_2d=True)
+        duration = len(audio) / sample_rate
+        if not len(audio) or audio.shape[1] < 1 or not np.isfinite(audio).all():
+            raise ValueError(f"invalid target audio: {uid}")
+        if abs(duration - row["duration_s"]) > max(0.02, 1 / sample_rate):
+            raise ValueError(f"target audio duration mismatch: {uid}")
+        channels = audio.shape[1]
+        audio = audio.mean(axis=1)
+        if sample_rate != 16000:
+            divisor = math.gcd(sample_rate, 16000)
+            audio = scipy.signal.resample_poly(
+                audio, 16000 // divisor, sample_rate // divisor
+            ).astype(np.float32)
+        extracted = processor.feature_extractor(
+            audio, sampling_rate=16000, return_tensors="np"
+        ).input_features[0].astype(np.float32)
+        if extracted.shape != (80, 3000) or not np.isfinite(extracted).all():
+            raise ValueError(f"invalid target feature tensor: {uid}")
+        feature_file = core.canonical_hash([checksum, feature_signature]) + ".npy"
+        local = local_features / feature_file
+        temporary = local.with_name(local.name + f".{uid}.{os.getpid()}.tmp")
+        with temporary.open("wb") as stream:
+            np.save(stream, extracted, allow_pickle=False)
+        temporary.replace(local)
+        feature_payload = local.read_bytes()
+        receipt = {
+            "utt_id": uid, "audio_sha256": checksum, "duration_s": duration,
+            "original_sample_rate": sample_rate, "channels": int(channels),
+            "feature_file": feature_file,
+            "feature_sha256": hashlib.sha256(feature_payload).hexdigest(),
+            "feature_bytes": len(feature_payload),
+        }
+        return receipt, feature_payload
+
+    # Bounded chunks avoid retaining the full 13-hour waveform set in RAM.
+    for begin in range(0, len(target_rows), 64):
+        chunk = target_rows[begin : begin + 64]
+        with ThreadPoolExecutor(max_workers=16) as pool:
+            prepared = list(pool.map(materialize, chunk))
+        for receipt, payload in prepared:
+            target_receipts[receipt["utt_id"]] = receipt
+            if payload is None:
+                reused += 1
+            else:
+                destination = volume_features / receipt["feature_file"]
+                if destination.exists():
+                    if hashlib.sha256(destination.read_bytes()).hexdigest() != receipt["feature_sha256"]:
+                        raise ValueError(f"target feature collision: {receipt['utt_id']}")
+                else:
+                    destination.write_bytes(payload)
+                created += 1
+        if len(target_receipts) % 400 == 0:
+            print(f"tiny features prepared {len(target_receipts)}/4800", flush=True)
+
+    source_receipts = {row["utt_id"]: dict(plan["source_dev_receipts"][row["utt_id"]]) for row in dev_rows}
+
+    def stage_source(receipt: dict) -> str:
+        source = Path("/source/feature_cache/frozen-v1") / receipt["feature_file"]
+        payload = source.read_bytes()
+        if hashlib.sha256(payload).hexdigest() != receipt["feature_sha256"]:
+            raise ValueError("source development feature checksum mismatch")
+        (local_features / receipt["feature_file"]).write_bytes(payload)
+        return receipt["utt_id"]
+
+    with ThreadPoolExecutor(max_workers=32) as pool:
+        source_staged = list(pool.map(stage_source, source_receipts.values()))
+    verified_receipts = {**target_receipts, **source_receipts}
+    target_feature_report = {
+        "status": "completed", "manifest_sha256": plan["target_manifest_sha256"],
+        "feature_signature": feature_signature, "rows": len(target_receipts),
+        "created_features": created, "reused_features": reused,
+        "files": sorted(target_receipts.values(), key=lambda row: row["utt_id"]),
+    }
+    receipt_path.write_text(json.dumps(target_feature_report, indent=2, sort_keys=True) + "\n")
+    target_data.commit()
+
+    output = Path("/outputs") / plan["output_path"]
+    if output.exists():
+        raise ValueError(f"output path already exists: {output}")
+    summary = core.train(
+        {**cfg, "feature_cache_dir": str(local_features), "normalizer_path": "/root/normalizer.json"},
+        rows,
+        "/tmp/unused-verified-audio",
+        output,
+        verified_feature_receipts=verified_receipts,
+    )
+    required = (
+        "summary.json", "provenance.json", "manifest.json", "history.jsonl",
+        "baseline_dev_predictions.jsonl", "final_dev_predictions.jsonl",
+        "baseline_dev_metrics.json", "final_dev_metrics.json",
+        "checkpoint_last/model.safetensors", "checkpoint_last/training_state.pt",
+    )
+    if any(not (output / relative).is_file() for relative in required):
+        raise ValueError("target endpoint artifact set is incomplete")
+    hashes = {relative: core.sha256_file(output / relative) for relative in required}
+    if summary["completed_updates"] != 600 or summary["total_training_exposures"] != 4800:
+        raise ValueError("target endpoint exposure mismatch")
+    if summary["unique_training_utterances_seen"] != 4800:
+        raise ValueError("target endpoint did not expose every frozen pseudo-label exactly once")
+    if "H100" not in summary["runtime"]["device_name"]:
+        raise ValueError("target endpoint did not use an H100")
+    wall_seconds = time.monotonic() - started
+    receipt = {
+        "run_id": plan["run_id"], "status": "completed", "label_source": "target_pseudo",
+        "gpu": summary["runtime"]["device_name"], "completed_updates": 600,
+        "total_training_exposures": 4800, "unique_training_utterances_seen": 4800,
+        "train_pool_utterances": 4800, "dev_utterances": len(dev_rows),
+        "validation_examples_read": 0, "target_features_created": created,
+        "target_features_reused": reused, "source_dev_features_staged": len(source_staged),
+        "target_feature_receipt_sha256": core.sha256_file(receipt_path),
+        "artifacts": hashes, "initial_state_sha256": summary["initial_state_sha256"],
+        "checkpoint_sha256": hashes["checkpoint_last/model.safetensors"],
+        "wall_seconds": wall_seconds,
+        "estimated_resource_cost_usd": wall_seconds * H100_RATE_PER_SECOND,
+        "baseline_dev_metrics": summary["baseline_dev_metrics"],
+        "final_dev_metrics": summary["final_dev_metrics"],
+    }
+    (output / "receipt.json").write_text(json.dumps(receipt, indent=2, sort_keys=True) + "\n")
+    results.commit()
+    return json.loads(json.dumps(receipt))
+
+
+@app.function(
+    image=training_image,
+    gpu="H100",
     cpu=8,
     memory=32768,
     timeout=900,
@@ -533,8 +764,12 @@ def label_target_with_teacher(plan: dict) -> dict:
 
     hf_logging.set_verbosity_error()
     started = time.monotonic()
-    if plan["teacher_model"] != "openai/whisper-large-v3" or plan["batch_size"] != 16:
-        raise ValueError("target teacher identity or batch size changed")
+    if (
+        plan["teacher_model"] != "openai/whisper-large-v3"
+        or plan["batch_size"] != 32
+        or plan["dtype"] != "float16"
+    ):
+        raise ValueError("target teacher identity, dtype, or batch size changed")
     target_data.reload()
     root = Path("/target/v1")
     manifest_path = root / "manifest.jsonl"
@@ -569,15 +804,18 @@ def label_target_with_teacher(plan: dict) -> dict:
     model_id, revision = plan["teacher_model"], plan["teacher_revision"]
     processor = WhisperProcessor.from_pretrained(model_id, revision=revision)
     model = WhisperForConditionalGeneration.from_pretrained(
-        model_id, revision=revision, dtype=torch.float32, attn_implementation="eager"
+        model_id, revision=revision, dtype=torch.float16, attn_implementation="sdpa"
     ).to("cuda").eval()
     torch.manual_seed(0)
     torch.set_num_threads(8)
     predictions = []
-    for begin in range(0, len(rows), plan["batch_size"]):
+    # Similar-duration batches finish together during autoregressive decoding,
+    # avoiding work on padded completed sequences without changing membership.
+    decode_rows = sorted(rows, key=lambda row: (row["duration_s"], row["utt_id"]))
+    for begin in range(0, len(decode_rows), plan["batch_size"]):
         if time.monotonic() - started > 840:
             raise TimeoutError("target teacher stopped before the hard timeout")
-        batch = rows[begin : begin + plan["batch_size"]]
+        batch = decode_rows[begin : begin + plan["batch_size"]]
         arrays = []
         for row in batch:
             audio = np.load(local_root / f"{row['utt_id']}.npy", allow_pickle=False)
@@ -620,7 +858,7 @@ def label_target_with_teacher(plan: dict) -> dict:
                     "label_source": "whisper_large_v3_pseudo",
                 }
             )
-        if len(predictions) % 400 == 0:
+        if len(predictions) % 384 == 0 or len(predictions) == len(decode_rows):
             print(f"teacher labeled {len(predictions)}/4800 clips", flush=True)
     predictions.sort(key=lambda row: row["utt_id"])
     text = "".join(json.dumps(row, sort_keys=True, ensure_ascii=False) + "\n" for row in predictions)
@@ -649,7 +887,8 @@ def label_target_with_teacher(plan: dict) -> dict:
     wall_seconds = time.monotonic() - started
     receipt = {
         "run_id": plan["run_id"], "status": "completed", "model_id": model_id,
-        "model_revision": revision, "dtype": "float32", "batch_size": 16,
+        "model_revision": revision, "dtype": "float16", "batch_size": 32,
+        "attention_implementation": "sdpa", "batch_order": "duration_then_utt_id",
         "generation": {"language": "en", "task": "transcribe", "return_timestamps": False,
                        "do_sample": False, "num_beams": 1, "max_new_tokens": 224},
         "rows": len(predictions), "audit_rows": len(blind),
