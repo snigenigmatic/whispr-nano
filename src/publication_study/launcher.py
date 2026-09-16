@@ -224,6 +224,16 @@ def clustered_source_endpoint_plans(config: dict, contract: StudyContract) -> li
     if set(real_by_id) != set(assignments) or set(pseudo_by_id) != set(assignments):
         raise ValueError("cluster assignments differ from source endpoint cohorts")
     receipts = _feature_receipts()
+    manifest_by_id = {
+        row["utt_id"]: row for row in manifest if row["split"] in {"train", "dev"}
+    }
+    for uid, receipt in receipts.items():
+        row = manifest_by_id[uid]
+        mono_pcm_bytes = round(receipt["duration_s"] * receipt["original_sample_rate"]) * 2
+        wav_overhead_bytes = row["audio_uncompressed_bytes"] - mono_pcm_bytes
+        if not 0 <= wav_overhead_bytes <= 4096:
+            raise ValueError(f"source WAV is not consistent with mono 16-bit PCM: {uid}")
+        receipt["channels"] = 1
     training_hash = hashlib.sha256(
         (ROOT / "research/pilot/training.py").read_bytes()
     ).hexdigest()
@@ -275,11 +285,11 @@ def run_clustered_source_endpoints(config: dict, contract: StudyContract) -> dic
         "plan_sha256_by_arm": hashes,
     }
     batch_hash = canonical_json_hash(batch_plan)
-    ledger.reserve(config["run_id"], 0.60, batch_hash)
+    ledger.reserve(config["run_id"], 0.50, batch_hash)
     with app.run():
         result = train_clustered_source_batch.remote(batch_plan)
     measured = float(result["estimated_resource_cost_usd"])
-    if measured > 0.60:
+    if measured > 0.50:
         raise RuntimeError("clustered endpoint batch exceeded its reservation")
     receipt_hash = canonical_json_hash(result)
     ledger.complete(config["run_id"], measured, receipt_hash)

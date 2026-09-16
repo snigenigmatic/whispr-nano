@@ -1021,7 +1021,7 @@ def train_source_endpoint(plan: dict) -> dict:
     gpu="H100",
     cpu=16,
     memory=65536,
-    timeout=400,
+    timeout=340,
     startup_timeout=180,
     retries=0,
     max_containers=1,
