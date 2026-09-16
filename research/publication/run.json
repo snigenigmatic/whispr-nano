@@ -1,4 +1,4 @@
 {
-  "action": "recover_target_pseudo",
-  "run_id": "recover-target-pseudo-seed12-v1"
+  "action": "build_global_pseudo2real",
+  "run_id": "global-pseudo2real-seed12-lambda1-v1"
 }
