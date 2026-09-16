@@ -34,6 +34,17 @@ def test_budget_refuses_duplicate_and_over_cap(tmp_path):
         ledger.reserve("too-much", 11.51, "b" * 64)
 
 
+def test_budget_releases_unused_terminal_reservation_headroom(tmp_path):
+    path = tmp_path / "budget.json"
+    atomic_json(path, {"schema_version": 1, "hard_cap_usd": 12.0, "jobs": []})
+    ledger = BudgetLedger(path)
+    ledger.reserve("first", 5.0, "a" * 64)
+    ledger.complete("first", 1.0, "b" * 64)
+    assert ledger.reserved_total() == 5.0
+    assert ledger.guarded_total() == 1.0
+    ledger.reserve("second", 10.9, "c" * 64)
+
+
 def test_balanced_target_manifest_rejects_labels_and_is_deterministic():
     rows = [
         {"utt_id": f"{g}{i}", "speaker_id": f"{g}s{i//2}", "accent": g, "audio": f"{g}{i}.wav"}

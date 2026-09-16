@@ -374,6 +374,7 @@ def target_pseudo_plan(config: dict, contract: StudyContract, selection: str = "
         "run_id": config["run_id"], "output_path": output_path,
         "selection": selection, "label_source": label_source,
         "expected_train_pool": expected_train_pool,
+        "requires_persisted_feature_cache": True,
         "training_code_sha256": hashlib.sha256(
             (ROOT / "research/pilot/training.py").read_bytes()
         ).hexdigest(),
@@ -399,11 +400,11 @@ def run_target_pseudo(config: dict, contract: StudyContract) -> dict:
     ledger = BudgetLedger(BUDGET_PATH)
     plan = target_pseudo_plan(config, contract)
     plan_hash = canonical_json_hash(plan)
-    ledger.reserve(config["run_id"], 1.20, plan_hash)
+    ledger.reserve(config["run_id"], 0.55, plan_hash)
     with app.run():
         result = train_target_pseudo.remote(plan)
     measured = float(result["estimated_resource_cost_usd"])
-    if measured > 1.20:
+    if measured > 0.55:
         raise RuntimeError("target endpoint exceeded its conservative reservation")
     receipt_hash = canonical_json_hash(result)
     ledger.complete(config["run_id"], measured, receipt_hash)

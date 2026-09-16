@@ -101,11 +101,12 @@ class StudyContract:
 
 
 class BudgetLedger:
-    """Reserve before dispatch; completed reservations continue to count.
+    """Reserve before dispatch against measured terminal and worst-case active cost.
 
-    A reservation is deliberately conservative. A failed or interrupted job
-    remains charged against the cap until its measured cost is recorded. This
-    prevents retries from silently exceeding the user's US$12 ceiling.
+    A reservation is deliberately conservative while a job is active or its
+    cost is unknown. Once a terminal job records measured cost, the guard uses
+    that amount. This prevents retries from silently exceeding the user's
+    US$12 ceiling without treating unused reservation headroom as spending.
     """
 
     def __init__(self, path: str | Path):
@@ -122,6 +123,13 @@ class BudgetLedger:
         data = dict(raw or self.load())
         return float(sum(float(job["reserved_usd"]) for job in data["jobs"]))
 
+    def guarded_total(self, raw: Mapping[str, Any] | None = None) -> float:
+        data = dict(raw or self.load())
+        return float(sum(
+            float(job.get("measured_usd", job["reserved_usd"]))
+            for job in data["jobs"]
+        ))
+
     def reserve(self, job_id: str, reserved_usd: float, config_sha256: str) -> dict[str, Any]:
         if not job_id or not config_sha256:
             raise ValueError("job_id and config_sha256 are required")
@@ -130,7 +138,7 @@ class BudgetLedger:
         raw = self.load()
         if any(job["job_id"] == job_id for job in raw["jobs"]):
             raise ValueError(f"job id cannot be reused: {job_id}")
-        total = self.reserved_total(raw) + reserved_usd
+        total = self.guarded_total(raw) + reserved_usd
         if total > float(raw["hard_cap_usd"]) + 1e-9:
             raise RuntimeError(
                 f"reservation would exceed US${raw['hard_cap_usd']:.2f}: US${total:.2f}"

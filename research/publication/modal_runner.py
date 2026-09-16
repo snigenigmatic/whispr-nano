@@ -510,7 +510,7 @@ def train_source_endpoint(plan: dict) -> dict:
     gpu="H100",
     cpu=16,
     memory=65536,
-    timeout=900,
+    timeout=420,
     startup_timeout=180,
     retries=0,
     max_containers=1,
@@ -612,6 +612,10 @@ def train_target_pseudo(plan: dict) -> dict:
         if cached.get("feature_signature") != feature_signature:
             raise ValueError("persisted target feature signature changed")
         existing = {row["utt_id"]: row for row in cached["files"]}
+    if plan["requires_persisted_feature_cache"] and not {
+        row["utt_id"] for row in target_rows
+    }.issubset(existing):
+        raise ValueError("required persisted target feature cache is incomplete")
 
     target_receipts: dict[str, dict] = {}
     created = reused = 0
@@ -772,7 +776,8 @@ def train_target_pseudo(plan: dict) -> dict:
         "unique_training_utterances_seen": summary["unique_training_utterances_seen"],
         "train_pool_utterances": len(target_rows), "dev_utterances": len(dev_rows),
         "validation_examples_read": 0, "target_features_created": created,
-        "target_features_reused": reused, "source_dev_features_staged": len(source_staged),
+        "target_features_reused": reused,
+        "source_dev_features_staged": len(staged_source_receipts),
         "target_feature_receipt_sha256": core.sha256_file(receipt_path),
         "artifacts": hashes, "initial_state_sha256": summary["initial_state_sha256"],
         "checkpoint_sha256": hashes["checkpoint_last/model.safetensors"],
