@@ -356,6 +356,7 @@ def ecapa_cluster_plan(config: dict, contract: StudyContract) -> dict:
         "model_revision": "0f99f2d0ebe89ac095bcc5903c4dd8f72b367286",
         "seed": contract.seed,
         "clusters": 2,
+        "shards": 4,
         "kmeans": {
             "init": "k-means++", "n_init": 10, "max_iter": 300,
             "tol": 0.0001, "algorithm": "lloyd", "random_state": 12,
@@ -367,16 +368,29 @@ def ecapa_cluster_plan(config: dict, contract: StudyContract) -> dict:
 
 
 def run_ecapa_clusters(config: dict, contract: StudyContract) -> dict:
-    from research.publication.modal_runner import app, build_ecapa_clusters
+    from research.publication.modal_runner import app, extract_ecapa_shard, finalize_ecapa_clusters
     import hashlib
 
     ensure_live_budget()
     ledger = BudgetLedger(BUDGET_PATH)
     plan = ecapa_cluster_plan(config, contract)
     plan_hash = canonical_json_hash(plan)
-    ledger.reserve(config["run_id"], 0.85, plan_hash)
+    ledger.reserve(config["run_id"], 1.30, plan_hash)
     with app.run():
-        result = build_ecapa_clusters.remote(plan)
+        shard_plans = [{**plan, "shard_index": index} for index in range(plan["shards"])]
+        shard_results = []
+        for shard in extract_ecapa_shard.map(
+            shard_plans, order_outputs=False, return_exceptions=True
+        ):
+            if isinstance(shard, BaseException):
+                raise shard
+            shard_results.append(shard)
+        shard_results.sort(key=lambda row: row["shard_index"])
+        if [row["shard_index"] for row in shard_results] != list(range(4)):
+            raise RuntimeError("ECAPA shard set is incomplete")
+        result = finalize_ecapa_clusters.remote({
+            **plan, "shard_receipts": shard_results,
+        })
     assignment_text = result.pop("assignments_text")
     assignment_hash = hashlib.sha256(assignment_text.encode()).hexdigest()
     if assignment_hash != result["assignments_sha256"]:
@@ -393,7 +407,7 @@ def run_ecapa_clusters(config: dict, contract: StudyContract) -> dict:
     if len(weights) != 2 or abs(sum(weights) - 1.0) > 1e-12 or min(weights) <= 0:
         raise RuntimeError("invalid target-conditioned weights")
     measured = float(result["estimated_resource_cost_usd"])
-    if measured > 0.85:
+    if measured > 1.30:
         raise RuntimeError("ECAPA extraction exceeded its reservation")
     receipt_hash = canonical_json_hash(result)
     ledger.complete(config["run_id"], measured, receipt_hash)

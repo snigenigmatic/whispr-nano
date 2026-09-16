@@ -480,6 +480,278 @@ def build_ecapa_clusters(plan: dict) -> dict:
 
 
 @app.function(
+    image=speaker_image,
+    gpu="H100",
+    cpu=8,
+    memory=32768,
+    timeout=540,
+    startup_timeout=180,
+    retries=0,
+    max_containers=4,
+    scaledown_window=2,
+    secrets=[modal.Secret.from_name("huggingface")],
+    volumes={
+        "/source": source_data,
+        "/target": target_data,
+        "/outputs": results,
+        "/cache/huggingface": hf_cache,
+    },
+)
+def extract_ecapa_shard(plan: dict) -> dict:
+    """Persist one of four duration-strided ECAPA embedding shards."""
+    import hashlib
+    import json
+    import math
+    import time
+    from concurrent.futures import ThreadPoolExecutor
+
+    import numpy as np
+    import scipy.signal
+    import soundfile as sf
+    import torch
+    import torchaudio
+    from huggingface_hub import snapshot_download
+    if not hasattr(torchaudio, "list_audio_backends"):
+        torchaudio.list_audio_backends = lambda: []
+    from speechbrain.inference.speaker import EncoderClassifier
+
+    started = time.monotonic()
+    if (
+        plan["model_id"] != "speechbrain/spkrec-ecapa-voxceleb"
+        or plan["model_revision"] != "0f99f2d0ebe89ac095bcc5903c4dd8f72b367286"
+        or plan["shards"] != 4
+        or plan["shard_index"] not in range(4)
+    ):
+        raise ValueError("ECAPA shard protocol changed")
+    source_data.reload()
+    target_data.reload()
+    source_rows = plan["source_train_rows"]
+    if len(source_rows) != 9495 or len({row["utt_id"] for row in source_rows}) != 9495:
+        raise ValueError("source ECAPA cohort changed")
+    target_root = Path("/target/v1")
+    target_manifest = target_root / "manifest.jsonl"
+    if hashlib.sha256(target_manifest.read_bytes()).hexdigest() != plan["target_manifest_sha256"]:
+        raise ValueError("target ECAPA manifest hash changed")
+    target_rows = [json.loads(line) for line in target_manifest.read_text().splitlines() if line]
+    if len(target_rows) != 4800 or any("reference_text" in row for row in target_rows):
+        raise ValueError("target ECAPA cohort is labeled or incomplete")
+    shard_index = plan["shard_index"]
+    source_rows = sorted(source_rows, key=lambda row: (row["duration_s"], row["utt_id"]))[
+        shard_index :: plan["shards"]
+    ]
+    target_rows = sorted(target_rows, key=lambda row: (row["duration_s"], row["utt_id"]))[
+        shard_index :: plan["shards"]
+    ]
+    snapshot = snapshot_download(
+        plan["model_id"], revision=plan["model_revision"],
+        cache_dir="/cache/huggingface/ecapa-snapshot",
+    )
+    classifier = EncoderClassifier.from_hparams(
+        source=snapshot, savedir=f"/tmp/ecapa-model-{shard_index}",
+        overrides={"pretrained_path": snapshot}, run_opts={"device": "cuda"},
+    )
+    torch.set_num_threads(8)
+
+    def embed(rows: list[dict], root: Path, name: str) -> tuple[list[str], np.ndarray]:
+        output = {}
+
+        def load(row: dict) -> tuple[np.ndarray, int]:
+            path = root / row["audio_path"]
+            payload = path.read_bytes()
+            if hashlib.sha256(payload).hexdigest() != row["audio_sha256"]:
+                raise ValueError(f"{name} shard audio hash mismatch: {row['utt_id']}")
+            audio, sample_rate = sf.read(path, dtype="float32", always_2d=True)
+            if not len(audio) or not np.isfinite(audio).all():
+                raise ValueError(f"invalid {name} shard audio: {row['utt_id']}")
+            duration = len(audio) / sample_rate
+            if abs(duration - row["duration_s"]) > max(0.02, 1 / sample_rate):
+                raise ValueError(f"{name} shard duration mismatch: {row['utt_id']}")
+            audio = audio.mean(axis=1)
+            if sample_rate != 16000:
+                divisor = math.gcd(sample_rate, 16000)
+                audio = scipy.signal.resample_poly(
+                    audio, 16000 // divisor, sample_rate // divisor
+                ).astype(np.float32)
+            return audio, len(audio)
+
+        for begin in range(0, len(rows), 64):
+            batch_rows = rows[begin : begin + 64]
+            with ThreadPoolExecutor(max_workers=24) as pool:
+                loaded = list(pool.map(load, batch_rows))
+            lengths = [length for _, length in loaded]
+            padded = np.zeros((len(loaded), max(lengths)), dtype=np.float32)
+            for index, (audio, length) in enumerate(loaded):
+                padded[index, :length] = audio
+            wavs = torch.from_numpy(padded).to("cuda")
+            wav_lens = torch.tensor(
+                [length / max(lengths) for length in lengths], dtype=torch.float32, device="cuda"
+            )
+            with torch.inference_mode(), torch.autocast("cuda", dtype=torch.float16):
+                vectors = classifier.encode_batch(wavs, wav_lens).squeeze(1).detach().cpu().numpy()
+            if vectors.shape != (len(batch_rows), 192) or not np.isfinite(vectors).all():
+                raise ValueError(f"invalid {name} shard embedding tensor")
+            for row, vector in zip(batch_rows, vectors):
+                output[row["utt_id"]] = vector.astype(np.float32)
+        ids = sorted(output)
+        return ids, np.stack([output[uid] for uid in ids])
+
+    source_ids, source_embeddings = embed(source_rows, Path("/source/l2arctic"), "source")
+    target_ids, target_embeddings = embed(target_rows, target_root, "target")
+    target_speaker_by_id = {row["utt_id"]: row["speaker_id"] for row in target_rows}
+    target_speakers = [target_speaker_by_id[uid] for uid in target_ids]
+    output = Path(f"/outputs/seed12/ecapa_c2_sharded_v1/shard_{shard_index}")
+    if output.exists():
+        raise ValueError(f"ECAPA shard output already exists: {output}")
+    output.mkdir(parents=True)
+    npz_path = output / "embeddings.npz"
+    np.savez_compressed(
+        npz_path, source_ids=np.array(source_ids), source_embeddings=source_embeddings,
+        target_ids=np.array(target_ids), target_embeddings=target_embeddings,
+        target_speakers=np.array(target_speakers),
+    )
+    wall_seconds = time.monotonic() - started
+    receipt = {
+        "run_id": plan["run_id"], "shard_index": shard_index, "shards": plan["shards"],
+        "status": "completed", "source_utterances": len(source_ids),
+        "target_utterances": len(target_ids), "embedding_dimension": 192,
+        "target_reference_examples_read": 0, "gpu": torch.cuda.get_device_name(),
+        "embeddings_npz_sha256": hashlib.sha256(npz_path.read_bytes()).hexdigest(),
+        "source_ids_sha256": hashlib.sha256(json.dumps(source_ids).encode()).hexdigest(),
+        "target_ids_sha256": hashlib.sha256(json.dumps(target_ids).encode()).hexdigest(),
+        "wall_seconds": wall_seconds,
+        "estimated_resource_cost_usd": wall_seconds * H100_RATE_PER_SECOND,
+    }
+    (output / "receipt.json").write_text(json.dumps(receipt, indent=2, sort_keys=True) + "\n")
+    results.commit()
+    return receipt
+
+
+@app.function(
+    image=speaker_image,
+    cpu=4,
+    memory=16384,
+    timeout=180,
+    retries=0,
+    max_containers=1,
+    volumes={"/outputs": results},
+)
+def finalize_ecapa_clusters(plan: dict) -> dict:
+    """Merge verified shards and freeze source clusters and target mixture weights."""
+    import hashlib
+    import json
+    import time
+    from collections import Counter, defaultdict
+
+    import numpy as np
+    from sklearn.cluster import KMeans
+
+    started = time.monotonic()
+    if plan["clusters"] != 2 or plan["seed"] != 12 or len(plan["shard_receipts"]) != 4:
+        raise ValueError("ECAPA finalization protocol changed")
+    if plan["kmeans"] != {
+        "init": "k-means++", "n_init": 10, "max_iter": 300,
+        "tol": 0.0001, "algorithm": "lloyd", "random_state": 12,
+    }:
+        raise ValueError("frozen k-means configuration changed")
+    results.reload()
+    source_parts = []
+    target_parts = []
+    for receipt in sorted(plan["shard_receipts"], key=lambda row: row["shard_index"]):
+        index = receipt["shard_index"]
+        path = Path(f"/outputs/seed12/ecapa_c2_sharded_v1/shard_{index}/embeddings.npz")
+        if hashlib.sha256(path.read_bytes()).hexdigest() != receipt["embeddings_npz_sha256"]:
+            raise ValueError(f"ECAPA shard {index} hash mismatch")
+        with np.load(path, allow_pickle=False) as shard:
+            source_parts.extend(zip(shard["source_ids"].tolist(), shard["source_embeddings"]))
+            target_parts.extend(zip(
+                shard["target_ids"].tolist(), shard["target_speakers"].tolist(),
+                shard["target_embeddings"],
+            ))
+    source_parts.sort(key=lambda row: row[0])
+    target_parts.sort(key=lambda row: row[0])
+    source_ids = [row[0] for row in source_parts]
+    source_embeddings = np.stack([row[1] for row in source_parts]).astype(np.float32)
+    target_ids = [row[0] for row in target_parts]
+    target_speakers = [row[1] for row in target_parts]
+    target_embeddings = np.stack([row[2] for row in target_parts]).astype(np.float32)
+    if (
+        len(source_ids) != 9495 or len(set(source_ids)) != 9495
+        or len(target_ids) != 4800 or len(set(target_ids)) != 4800
+        or source_embeddings.shape != (9495, 192)
+        or target_embeddings.shape != (4800, 192)
+        or not np.isfinite(source_embeddings).all() or not np.isfinite(target_embeddings).all()
+    ):
+        raise ValueError("merged ECAPA embedding cohort is incomplete")
+    kmeans = KMeans(**plan["kmeans"], n_clusters=2)
+    source_labels = kmeans.fit_predict(source_embeddings)
+    counts = Counter(int(value) for value in source_labels)
+    if set(counts) != {0, 1} or min(counts.values()) < 1000:
+        raise ValueError(f"degenerate source ECAPA clusters: {counts}")
+    source_assignments = {
+        uid: int(cluster) for uid, cluster in zip(source_ids, source_labels)
+    }
+    speaker_vectors = defaultdict(list)
+    for speaker, vector in zip(target_speakers, target_embeddings):
+        speaker_vectors[speaker].append(vector)
+    if len(speaker_vectors) != 799:
+        raise ValueError("target speaker count changed")
+    centroids = kmeans.cluster_centers_.astype(np.float64)
+    centroids /= np.linalg.norm(centroids, axis=1, keepdims=True)
+    speaker_assignments = {}
+    for speaker, vectors in sorted(speaker_vectors.items()):
+        vector = np.mean(np.stack(vectors).astype(np.float64), axis=0)
+        vector /= np.linalg.norm(vector)
+        speaker_assignments[speaker] = int(np.argmax(centroids @ vector))
+    target_counts = Counter(speaker_assignments.values())
+    target_weights = [target_counts[index] / len(speaker_assignments) for index in range(2)]
+    if abs(sum(target_weights) - 1.0) > 1e-12 or min(target_weights) <= 0:
+        raise ValueError("invalid target-conditioned cluster weights")
+    output = Path("/outputs/seed12/ecapa_c2")
+    if output.exists():
+        raise ValueError(f"ECAPA output path already exists: {output}")
+    output.mkdir(parents=True)
+    npz_path = output / "embeddings.npz"
+    np.savez_compressed(
+        npz_path, source_ids=np.array(source_ids), source_embeddings=source_embeddings,
+        target_ids=np.array(target_ids), target_embeddings=target_embeddings,
+        source_centroids=kmeans.cluster_centers_.astype(np.float32),
+    )
+    assignments = {
+        "source_utterance_cluster": source_assignments,
+        "target_speaker_cluster": speaker_assignments,
+        "target_speaker_conditioned_weights": target_weights,
+    }
+    assignment_text = json.dumps(assignments, indent=2, sort_keys=True) + "\n"
+    (output / "assignments.json").write_text(assignment_text)
+    shard_cost = sum(float(row["estimated_resource_cost_usd"]) for row in plan["shard_receipts"])
+    report = {
+        "run_id": plan["run_id"], "status": "completed",
+        "model_id": plan["model_id"], "model_revision": plan["model_revision"],
+        "source_utterances": len(source_ids), "target_utterances": len(target_ids),
+        "target_speakers": len(speaker_assignments), "embedding_dimension": 192,
+        "clusters": 2, "kmeans": plan["kmeans"],
+        "source_cluster_counts": {str(key): counts[key] for key in sorted(counts)},
+        "target_speaker_cluster_counts": {
+            str(key): target_counts[key] for key in sorted(target_counts)
+        },
+        "target_speaker_conditioned_weights": target_weights,
+        "weighting_rule": "equal-target-speaker nearest source-centroid assignment proportions",
+        "target_reference_examples_read": 0,
+        "source_embeddings_sha256": hashlib.sha256(source_embeddings.tobytes()).hexdigest(),
+        "target_embeddings_sha256": hashlib.sha256(target_embeddings.tobytes()).hexdigest(),
+        "embeddings_npz_sha256": hashlib.sha256(npz_path.read_bytes()).hexdigest(),
+        "assignments_sha256": hashlib.sha256(assignment_text.encode()).hexdigest(),
+        "shard_receipts": plan["shard_receipts"],
+        "shard_h100_wall_seconds_sum": sum(float(row["wall_seconds"]) for row in plan["shard_receipts"]),
+        "finalization_wall_seconds": time.monotonic() - started,
+        "estimated_resource_cost_usd": shard_cost + 0.01,
+    }
+    (output / "receipt.json").write_text(json.dumps(report, indent=2, sort_keys=True) + "\n")
+    results.commit()
+    return {**report, "assignments_text": assignment_text}
+
+
+@app.function(
     image=training_image,
     gpu="H100",
     cpu=8,
