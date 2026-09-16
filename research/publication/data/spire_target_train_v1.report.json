@@ -1,0 +1,36 @@
+{
+  "audio_bytes": 4545819538,
+  "audio_hours": 13.239870020313681,
+  "eligible_by_accent": {
+    "Bengali": 2683,
+    "Hindi": 5343,
+    "Kannada": 2903,
+    "Marathi": 5626,
+    "Tamil": 2852,
+    "Telugu": 4898
+  },
+  "manifest_sha256": "aad9c4892cde31303ebbca79c9470d4739e06cb58b2d3e2fd0bcb33d47d0412b",
+  "plan_sha256": "271dd502ee0445fd0c808d3ed6ee2993738dbdb50842a6b196c79b1a19d8cf09",
+  "receipt_sha256": "9ccd86ea75f49a9cdfe6dd05fea0e218c807937b9746b1a750881514ecd10473",
+  "reference_fields_in_manifest": 0,
+  "repo_id": "VectorSigma389/spire-sies",
+  "run_id": "prepare-spire-target-v1",
+  "sealed_val_speakers": 198,
+  "seed": 12,
+  "selected_by_accent": {
+    "Bengali": 800,
+    "Hindi": 800,
+    "Kannada": 800,
+    "Marathi": 800,
+    "Tamil": 800,
+    "Telugu": 800
+  },
+  "selected_ids_sha256": "7c6a70780e09fa8c8fe9078bb3ee8e2e6de0cb86c3bf4d53854d614a8613c909",
+  "selected_speakers": 799,
+  "selected_utterances": 4800,
+  "speaker_overlap": 0,
+  "status": "completed",
+  "train_speakers": 1126,
+  "validation_audio_or_reference_examples_read": 0,
+  "wall_seconds": 46.446015216999996
+}
