@@ -65,8 +65,8 @@ speaker_image = (
     modal.Image.debian_slim(python_version="3.12")
     .apt_install("ffmpeg")
     .pip_install(
-        "torch==2.13.0",
-        "torchaudio==2.13.0",
+        "torch==2.11.0",
+        "torchaudio==2.11.0",
         "speechbrain==1.0.3",
         "huggingface_hub>=0.35,<2",
         "soundfile==0.14.0",
