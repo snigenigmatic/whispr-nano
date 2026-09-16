@@ -248,3 +248,118 @@ def train_source_smoke(plan: dict) -> dict:
     (output / "receipt.json").write_text(json.dumps(receipt, indent=2, sort_keys=True) + "\n")
     results.commit()
     return json.loads(json.dumps(receipt))
+
+
+@app.function(
+    image=training_image,
+    gpu="H100",
+    cpu=8,
+    memory=32768,
+    timeout=480,
+    startup_timeout=180,
+    retries=0,
+    max_containers=2,
+    scaledown_window=2,
+    volumes={
+        "/data": source_data,
+        "/outputs": results,
+        "/cache/huggingface": hf_cache,
+    },
+)
+def train_source_endpoint(plan: dict) -> dict:
+    """Train one 600-update source endpoint from verified cached features."""
+    import hashlib
+    import importlib.util
+    import json
+    import sys
+    import time
+    from concurrent.futures import ThreadPoolExecutor
+
+    started = time.monotonic()
+    spec = importlib.util.spec_from_file_location(
+        "publication_endpoint_training", "/root/research/pilot/training.py"
+    )
+    core = importlib.util.module_from_spec(spec)
+    sys.modules[spec.name] = core
+    spec.loader.exec_module(core)
+    if core.sha256_file(Path(core.__file__)) != plan["training_code_sha256"]:
+        raise ValueError("frozen training source changed")
+    cfg = plan["config"]
+    if cfg["num_updates"] != 600 or cfg["seed"] != 12 or cfg["batch_size"] != 8:
+        raise ValueError("source endpoint must be 600 x 8 at seed 12")
+    if plan["label_source"] not in {"source_real", "source_pseudo"}:
+        raise ValueError("invalid source endpoint")
+    source_data.reload()
+    train_rows, dev_rows = core.validate_rows(plan["rows"])
+    cycler = core.IndexCycler(len(train_rows), 12)
+    indices = cycler.take(cfg["num_updates"] * cfg["batch_size"])
+    needed = {row["utt_id"]: row for row in dev_rows}
+    needed.update({train_rows[index]["utt_id"]: train_rows[index] for index in indices})
+    local_audio = Path("/tmp/publication-audio")
+    local_features = Path("/tmp/publication-features")
+    local_features.mkdir(parents=True, exist_ok=True)
+
+    def stage(row: dict) -> str:
+        receipt = plan["cache_receipts"][row["utt_id"]]
+        for source, target, expected in (
+            (
+                Path("/data/l2arctic") / row["audio_path"],
+                local_audio / row["audio_path"],
+                receipt["audio_sha256"],
+            ),
+            (
+                Path("/data/feature_cache/frozen-v1") / receipt["feature_file"],
+                local_features / receipt["feature_file"],
+                receipt["feature_sha256"],
+            ),
+        ):
+            payload = source.read_bytes()
+            if hashlib.sha256(payload).hexdigest() != expected:
+                raise ValueError(f"input checksum mismatch: {row['utt_id']}")
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(payload)
+        return row["utt_id"]
+
+    with ThreadPoolExecutor(max_workers=32) as pool:
+        staged = list(pool.map(stage, needed.values()))
+    output = Path("/outputs") / plan["output_path"]
+    if output.exists():
+        raise ValueError(f"output path already exists: {output}")
+    summary = core.train(
+        {**cfg, "feature_cache_dir": str(local_features), "normalizer_path": "/root/normalizer.json"},
+        plan["rows"],
+        local_audio,
+        output,
+    )
+    required = (
+        "summary.json", "provenance.json", "manifest.json", "history.jsonl",
+        "baseline_dev_predictions.jsonl", "final_dev_predictions.jsonl",
+        "baseline_dev_metrics.json", "final_dev_metrics.json",
+        "checkpoint_last/model.safetensors", "checkpoint_last/training_state.pt",
+    )
+    hashes = {relative: core.sha256_file(output / relative) for relative in required}
+    if any(not (output / relative).is_file() for relative in required):
+        raise ValueError("source endpoint artifact set is incomplete")
+    if summary["completed_updates"] != 600 or summary["total_training_exposures"] != 4800:
+        raise ValueError("source endpoint exposure mismatch")
+    if "H100" not in summary["runtime"]["device_name"]:
+        raise ValueError("source endpoint did not use an H100")
+    wall_seconds = time.monotonic() - started
+    receipt = {
+        "run_id": plan["run_id"], "status": "completed",
+        "label_source": plan["label_source"], "gpu": summary["runtime"]["device_name"],
+        "completed_updates": 600, "total_training_exposures": 4800,
+        "train_pool_utterances": summary["train_pool_utterances"],
+        "dev_utterances": summary["dev_utterances"],
+        "validation_examples_read": 0, "staged_utterances": len(staged),
+        "staged_ids_sha256": core.canonical_hash(sorted(staged)), "artifacts": hashes,
+        "initial_state_sha256": summary["initial_state_sha256"],
+        "checkpoint_sha256": hashes["checkpoint_last/model.safetensors"],
+        "wall_seconds": wall_seconds,
+        "estimated_resource_cost_usd": wall_seconds * H100_RATE_PER_SECOND,
+        "baseline_dev_metrics": summary["baseline_dev_metrics"],
+        "final_dev_metrics": summary["final_dev_metrics"],
+    }
+    (output / "receipt.json").write_text(json.dumps(receipt, indent=2, sort_keys=True) + "\n")
+    results.commit()
+    return json.loads(json.dumps(receipt))

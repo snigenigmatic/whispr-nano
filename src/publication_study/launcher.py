@@ -127,6 +127,78 @@ def run_source_smoke(config: dict, contract: StudyContract) -> dict:
     return result
 
 
+def source_endpoint_plan(config: dict, contract: StudyContract, label_source: str) -> dict:
+    manifest = _load_jsonl(ROOT / "research/pilot/data/manifest.jsonl")
+    dev = [row for row in manifest if row["split"] == "dev"]
+    if len(dev) != 974:
+        raise ValueError("pinned source development count changed")
+    if label_source == "source_real":
+        train = [row for row in manifest if row["split"] == "train"]
+    elif label_source == "source_pseudo":
+        train = []
+        for row in _load_jsonl(ROOT / "research/pilot/teacher_predictions/all_train.jsonl"):
+            transformed = dict(row)
+            transformed["reference_text"] = transformed.pop("hypothesis_text")
+            transformed["label_source"] = "teacher_pseudo"
+            train.append(transformed)
+    else:
+        raise ValueError(f"unknown source endpoint: {label_source}")
+    if len(train) != 9495:
+        raise ValueError("pinned source training count changed")
+    all_rows = train + dev
+    receipts = _feature_receipts()
+    missing = sorted({row["utt_id"] for row in all_rows} - set(receipts))
+    if missing:
+        raise ValueError(f"missing source feature receipts: {missing[:5]}")
+    import hashlib
+
+    return {
+        "run_id": config["run_id"] + "/" + label_source,
+        "label_source": label_source,
+        "output_path": f"seed12/{label_source}",
+        "training_code_sha256": hashlib.sha256(
+            (ROOT / "research/pilot/training.py").read_bytes()
+        ).hexdigest(),
+        "rows": all_rows,
+        "cache_receipts": {row["utt_id"]: receipts[row["utt_id"]] for row in all_rows},
+        "config": {
+            "arm_name": label_source, "seed": 12, "num_updates": contract.updates,
+            "batch_size": contract.batch_size, "grad_accum_steps": 1,
+            "learning_rate": contract.learning_rate, "weight_decay": 0.01,
+            "max_grad_norm": 1.0, "eval_every": 0, "eval_batch_size": 8,
+            "max_new_tokens": 224, "model_id": contract.student_model,
+            "model_revision": contract.student_revision,
+        },
+    }
+
+
+def run_source_endpoints(config: dict, contract: StudyContract) -> dict:
+    from research.publication.modal_runner import app, train_source_endpoint
+
+    ensure_live_budget()
+    ledger = BudgetLedger(BUDGET_PATH)
+    plans = [source_endpoint_plan(config, contract, arm) for arm in ("source_real", "source_pseudo")]
+    hashes = {plan["label_source"]: canonical_json_hash(plan) for plan in plans}
+    for plan in plans:
+        ledger.reserve(plan["run_id"], 0.65, hashes[plan["label_source"]])
+    output = []
+    with app.run():
+        for result in train_source_endpoint.map(plans, order_outputs=False, return_exceptions=True):
+            if isinstance(result, BaseException):
+                raise result
+            arm = result["label_source"]
+            receipt_hash = canonical_json_hash(result)
+            ledger.complete(result["run_id"], float(result["estimated_resource_cost_usd"]), receipt_hash)
+            atomic_json(
+                ROOT / f"research/publication/results/{arm}/receipt.json",
+                {**result, "plan_sha256": hashes[arm], "receipt_sha256": receipt_hash},
+            )
+            output.append(result)
+    if {row["label_source"] for row in output} != {"source_real", "source_pseudo"}:
+        raise RuntimeError("source endpoint batch incomplete")
+    return {"runs": sorted(output, key=lambda row: row["label_source"])}
+
+
 def main() -> int:
     contract = StudyContract.load(CONTRACT_PATH)
     config = json.loads(RUN_PATH.read_text(encoding="utf-8"))
@@ -139,6 +211,8 @@ def main() -> int:
         result = run_inspection(config)
     elif config["action"] == "smoke_source_pseudo":
         result = run_source_smoke(config, contract)
+    elif config["action"] == "train_source_endpoints":
+        result = run_source_endpoints(config, contract)
     else:
         raise SystemExit(f"unknown publication action: {config['action']}")
     print("===== RESULT SUMMARY =====", flush=True)
