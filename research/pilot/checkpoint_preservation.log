@@ -1,0 +1,4 @@
+{"run": "full_gold-seed0", "status": "checkpoint_preserved", "model_sha256": "834a9809bf4481baff34caeb715fa851f11a6f6b534c02860f1903b7ec4736db"}
+{"run": "filtered10_gold-seed0", "status": "checkpoint_preserved", "model_sha256": "fd88bb13e4b05484e0691da229eb018ac31f4dec200d4462fdaa53e22cb7674f"}
+{"run": "random_matched_gold-seed0", "status": "checkpoint_preserved", "model_sha256": "fa96638a5986f8a4e4550f67ee6339f50e352f60e714860f38ecc04b5732fcc6"}
+{"run": "full_gold-seed1", "status": "checkpoint_preserved", "model_sha256": "583fef75644ea699705d8537a6a7c577f8dfe1ee9d2e5539ff6d5001468c9ee2"}

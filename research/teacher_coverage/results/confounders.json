@@ -1,0 +1,191 @@
+{
+  "status": "post_hoc_descriptive_controls_no_causal_claim",
+  "metadata_sha256": "c3c79964a74905832bc9fe8d66ce243f694afe4541b243feeca20e96a455da68",
+  "controls": [
+    {
+      "normalizer": "minimal",
+      "threshold_wer_pct": 10,
+      "Bodo_observed_rejected_pct": 30.935251798561154,
+      "non_Bodo_reweighted_to_Bodo_length_bins_rejected_pct": 25.22156318794368,
+      "length_standardized_difference_pp": 5.713688610617473,
+      "length_bins": [
+        {
+          "length_bin": "1-4",
+          "Bodo_n": 43,
+          "non_Bodo_n": 648,
+          "Bodo_rejected_pct": 34.883720930232556,
+          "non_Bodo_rejected_pct": 24.074074074074073
+        },
+        {
+          "length_bin": "5-9",
+          "Bodo_n": 36,
+          "non_Bodo_n": 562,
+          "Bodo_rejected_pct": 36.11111111111111,
+          "non_Bodo_rejected_pct": 32.74021352313167
+        },
+        {
+          "length_bin": "10-19",
+          "Bodo_n": 44,
+          "non_Bodo_n": 874,
+          "Bodo_rejected_pct": 25.0,
+          "non_Bodo_rejected_pct": 23.455377574370708
+        },
+        {
+          "length_bin": "20+",
+          "Bodo_n": 16,
+          "non_Bodo_n": 277,
+          "Bodo_rejected_pct": 25.0,
+          "non_Bodo_rejected_pct": 16.24548736462094
+        }
+      ],
+      "shared_text_sensitivity": {
+        "n_shared_minimal_normalized_reference_strings": 19,
+        "Bodo_n": 22,
+        "non_Bodo_n": 151,
+        "equal_reference_string_weight_rejected_pct_Bodo": 15.789473684210526,
+        "equal_reference_string_weight_rejected_pct_non_Bodo": 18.932748538011694
+      }
+    },
+    {
+      "normalizer": "english",
+      "threshold_wer_pct": 10,
+      "Bodo_observed_rejected_pct": 30.935251798561154,
+      "non_Bodo_reweighted_to_Bodo_length_bins_rejected_pct": 22.471930346707513,
+      "length_standardized_difference_pp": 8.46332145185364,
+      "length_bins": [
+        {
+          "length_bin": "1-4",
+          "Bodo_n": 43,
+          "non_Bodo_n": 644,
+          "Bodo_rejected_pct": 34.883720930232556,
+          "non_Bodo_rejected_pct": 20.96273291925466
+        },
+        {
+          "length_bin": "5-9",
+          "Bodo_n": 37,
+          "non_Bodo_n": 563,
+          "Bodo_rejected_pct": 35.13513513513514,
+          "non_Bodo_rejected_pct": 29.129662522202487
+        },
+        {
+          "length_bin": "10-19",
+          "Bodo_n": 43,
+          "non_Bodo_n": 871,
+          "Bodo_rejected_pct": 25.581395348837212,
+          "non_Bodo_rejected_pct": 21.354764638346726
+        },
+        {
+          "length_bin": "20+",
+          "Bodo_n": 16,
+          "non_Bodo_n": 283,
+          "Bodo_rejected_pct": 25.0,
+          "non_Bodo_rejected_pct": 14.13427561837456
+        }
+      ],
+      "shared_text_sensitivity": {
+        "n_shared_minimal_normalized_reference_strings": 19,
+        "Bodo_n": 22,
+        "non_Bodo_n": 151,
+        "equal_reference_string_weight_rejected_pct_Bodo": 15.789473684210526,
+        "equal_reference_string_weight_rejected_pct_non_Bodo": 13.596491228070176
+      }
+    }
+  ],
+  "old_poc_split_reconstruction": {
+    "saved_run_sha256": "2384a840e08395ca6461962d985ab34f731aecae8d832a5bdd46783f02fad13e",
+    "train_n": 45,
+    "eval_n": 24,
+    "matches_all_saved_example_ids": true,
+    "overlap": {
+      "utt_id": {
+        "distinct_shared_values": 0,
+        "eval_utterances_with_value_in_train": 0
+      },
+      "recording_cluster_id": {
+        "distinct_shared_values": 0,
+        "eval_utterances_with_value_in_train": 0
+      },
+      "demographic_profile_id": {
+        "distinct_shared_values": 10,
+        "eval_utterances_with_value_in_train": 14
+      },
+      "minimal_normalized_reference": {
+        "eval_utterances_with_value_in_train": 1
+      }
+    },
+    "caveat": "Reconstructed from seed and pinned row order, not saved complete split IDs. Profiles are not verified speakers. The old loader samples utterances from Svarah test; it never enforces speaker independence.",
+    "train_ids": [
+      "svarah_04840",
+      "svarah_04307",
+      "svarah_00102",
+      "svarah_02023",
+      "svarah_05392",
+      "svarah_00478",
+      "svarah_05421",
+      "svarah_01778",
+      "svarah_06452",
+      "svarah_04206",
+      "svarah_00258",
+      "svarah_01825",
+      "svarah_06219",
+      "svarah_04226",
+      "svarah_03372",
+      "svarah_04521",
+      "svarah_04385",
+      "svarah_03820",
+      "svarah_05575",
+      "svarah_06505",
+      "svarah_01690",
+      "svarah_05292",
+      "svarah_04610",
+      "svarah_04201",
+      "svarah_04997",
+      "svarah_00957",
+      "svarah_04048",
+      "svarah_04738",
+      "svarah_06311",
+      "svarah_03431",
+      "svarah_05711",
+      "svarah_05645",
+      "svarah_05701",
+      "svarah_04645",
+      "svarah_01536",
+      "svarah_02669",
+      "svarah_06372",
+      "svarah_00656",
+      "svarah_04186",
+      "svarah_01150",
+      "svarah_03938",
+      "svarah_05288",
+      "svarah_01822",
+      "svarah_00472",
+      "svarah_00377"
+    ],
+    "eval_ids": [
+      "svarah_03613",
+      "svarah_03330",
+      "svarah_04017",
+      "svarah_04469",
+      "svarah_06069",
+      "svarah_03722",
+      "svarah_01127",
+      "svarah_05624",
+      "svarah_04249",
+      "svarah_04475",
+      "svarah_02620",
+      "svarah_06606",
+      "svarah_02553",
+      "svarah_03027",
+      "svarah_02538",
+      "svarah_05860",
+      "svarah_05479",
+      "svarah_02252",
+      "svarah_01700",
+      "svarah_04772",
+      "svarah_05326",
+      "svarah_00645",
+      "svarah_02462",
+      "svarah_02834"
+    ]
+  }
+}

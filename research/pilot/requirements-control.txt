@@ -1,0 +1,9 @@
+# Selection, tests, and report rendering. GPU training dependencies are pinned
+# separately in modal_runner.py and recorded in every run's provenance.json.
+regex==2026.9.3
+numpy==2.5.3
+jiwer==4.0.0
+pytest==9.1.1
+matplotlib==3.11.1
+reportlab==5.0.1
+pypdf==6.18.0

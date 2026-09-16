@@ -1,0 +1,312 @@
+{
+  "checks": [
+    {
+      "run": "filtered10_gold-seed0",
+      "phase": "baseline",
+      "normalization": "english",
+      "wer": 0.28817956237311076,
+      "matches": true
+    },
+    {
+      "run": "filtered10_gold-seed0",
+      "phase": "baseline",
+      "normalization": "minimal",
+      "wer": 0.2966254218222722,
+      "matches": true
+    },
+    {
+      "run": "filtered10_gold-seed0",
+      "phase": "final",
+      "normalization": "english",
+      "wer": 0.24655989172118203,
+      "matches": true
+    },
+    {
+      "run": "filtered10_gold-seed0",
+      "phase": "final",
+      "normalization": "minimal",
+      "wer": 0.24938132733408325,
+      "matches": true
+    },
+    {
+      "run": "filtered10_gold-seed0",
+      "checkpoint_tensors": 167,
+      "stored_values": 37760640,
+      "all_finite": true
+    },
+    {
+      "run": "filtered10_gold-seed1",
+      "phase": "baseline",
+      "normalization": "english",
+      "wer": 0.28817956237311076,
+      "matches": true
+    },
+    {
+      "run": "filtered10_gold-seed1",
+      "phase": "baseline",
+      "normalization": "minimal",
+      "wer": 0.2966254218222722,
+      "matches": true
+    },
+    {
+      "run": "filtered10_gold-seed1",
+      "phase": "final",
+      "normalization": "english",
+      "wer": 0.2512970900067674,
+      "matches": true
+    },
+    {
+      "run": "filtered10_gold-seed1",
+      "phase": "final",
+      "normalization": "minimal",
+      "wer": 0.2548931383577053,
+      "matches": true
+    },
+    {
+      "run": "filtered10_gold-seed1",
+      "checkpoint_tensors": 167,
+      "stored_values": 37760640,
+      "all_finite": true
+    },
+    {
+      "run": "filtered10_gold-seed2",
+      "phase": "baseline",
+      "normalization": "english",
+      "wer": 0.28817956237311076,
+      "matches": true
+    },
+    {
+      "run": "filtered10_gold-seed2",
+      "phase": "baseline",
+      "normalization": "minimal",
+      "wer": 0.2966254218222722,
+      "matches": true
+    },
+    {
+      "run": "filtered10_gold-seed2",
+      "phase": "final",
+      "normalization": "english",
+      "wer": 0.2428378073539364,
+      "matches": true
+    },
+    {
+      "run": "filtered10_gold-seed2",
+      "phase": "final",
+      "normalization": "minimal",
+      "wer": 0.2470191226096738,
+      "matches": true
+    },
+    {
+      "run": "filtered10_gold-seed2",
+      "checkpoint_tensors": 167,
+      "stored_values": 37760640,
+      "all_finite": true
+    },
+    {
+      "run": "full_gold-seed0",
+      "phase": "baseline",
+      "normalization": "english",
+      "wer": 0.28817956237311076,
+      "matches": true
+    },
+    {
+      "run": "full_gold-seed0",
+      "phase": "baseline",
+      "normalization": "minimal",
+      "wer": 0.2966254218222722,
+      "matches": true
+    },
+    {
+      "run": "full_gold-seed0",
+      "phase": "final",
+      "normalization": "english",
+      "wer": 0.24802616738100608,
+      "matches": true
+    },
+    {
+      "run": "full_gold-seed0",
+      "phase": "final",
+      "normalization": "minimal",
+      "wer": 0.2517435320584927,
+      "matches": true
+    },
+    {
+      "run": "full_gold-seed0",
+      "checkpoint_tensors": 167,
+      "stored_values": 37760640,
+      "all_finite": true
+    },
+    {
+      "run": "full_gold-seed1",
+      "phase": "baseline",
+      "normalization": "english",
+      "wer": 0.28817956237311076,
+      "matches": true
+    },
+    {
+      "run": "full_gold-seed1",
+      "phase": "baseline",
+      "normalization": "minimal",
+      "wer": 0.2966254218222722,
+      "matches": true
+    },
+    {
+      "run": "full_gold-seed1",
+      "phase": "final",
+      "normalization": "english",
+      "wer": 0.24351454996616287,
+      "matches": true
+    },
+    {
+      "run": "full_gold-seed1",
+      "phase": "final",
+      "normalization": "minimal",
+      "wer": 0.24769403824521935,
+      "matches": true
+    },
+    {
+      "run": "full_gold-seed1",
+      "checkpoint_tensors": 167,
+      "stored_values": 37760640,
+      "all_finite": true
+    },
+    {
+      "run": "full_gold-seed2",
+      "phase": "baseline",
+      "normalization": "english",
+      "wer": 0.28817956237311076,
+      "matches": true
+    },
+    {
+      "run": "full_gold-seed2",
+      "phase": "baseline",
+      "normalization": "minimal",
+      "wer": 0.2966254218222722,
+      "matches": true
+    },
+    {
+      "run": "full_gold-seed2",
+      "phase": "final",
+      "normalization": "english",
+      "wer": 0.25389127002030226,
+      "matches": true
+    },
+    {
+      "run": "full_gold-seed2",
+      "phase": "final",
+      "normalization": "minimal",
+      "wer": 0.2580427446569179,
+      "matches": true
+    },
+    {
+      "run": "full_gold-seed2",
+      "checkpoint_tensors": 167,
+      "stored_values": 37760640,
+      "all_finite": true
+    },
+    {
+      "run": "random_matched_gold-seed0",
+      "phase": "baseline",
+      "normalization": "english",
+      "wer": 0.28817956237311076,
+      "matches": true
+    },
+    {
+      "run": "random_matched_gold-seed0",
+      "phase": "baseline",
+      "normalization": "minimal",
+      "wer": 0.2966254218222722,
+      "matches": true
+    },
+    {
+      "run": "random_matched_gold-seed0",
+      "phase": "final",
+      "normalization": "english",
+      "wer": 0.24701105346266636,
+      "matches": true
+    },
+    {
+      "run": "random_matched_gold-seed0",
+      "phase": "final",
+      "normalization": "minimal",
+      "wer": 0.25050618672665914,
+      "matches": true
+    },
+    {
+      "run": "random_matched_gold-seed0",
+      "checkpoint_tensors": 167,
+      "stored_values": 37760640,
+      "all_finite": true
+    },
+    {
+      "run": "random_matched_gold-seed1",
+      "phase": "baseline",
+      "normalization": "english",
+      "wer": 0.28817956237311076,
+      "matches": true
+    },
+    {
+      "run": "random_matched_gold-seed1",
+      "phase": "baseline",
+      "normalization": "minimal",
+      "wer": 0.2966254218222722,
+      "matches": true
+    },
+    {
+      "run": "random_matched_gold-seed1",
+      "phase": "final",
+      "normalization": "english",
+      "wer": 0.25095871870065417,
+      "matches": true
+    },
+    {
+      "run": "random_matched_gold-seed1",
+      "phase": "final",
+      "normalization": "minimal",
+      "wer": 0.2547806524184477,
+      "matches": true
+    },
+    {
+      "run": "random_matched_gold-seed1",
+      "checkpoint_tensors": 167,
+      "stored_values": 37760640,
+      "all_finite": true
+    },
+    {
+      "run": "random_matched_gold-seed2",
+      "phase": "baseline",
+      "normalization": "english",
+      "wer": 0.28817956237311076,
+      "matches": true
+    },
+    {
+      "run": "random_matched_gold-seed2",
+      "phase": "baseline",
+      "normalization": "minimal",
+      "wer": 0.2966254218222722,
+      "matches": true
+    },
+    {
+      "run": "random_matched_gold-seed2",
+      "phase": "final",
+      "normalization": "english",
+      "wer": 0.2457703586735845,
+      "matches": true
+    },
+    {
+      "run": "random_matched_gold-seed2",
+      "phase": "final",
+      "normalization": "minimal",
+      "wer": 0.2499437570303712,
+      "matches": true
+    },
+    {
+      "run": "random_matched_gold-seed2",
+      "checkpoint_tensors": 167,
+      "stored_values": 37760640,
+      "all_finite": true
+    }
+  ],
+  "status": "passed",
+  "inference_calls": 0
+}

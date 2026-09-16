@@ -1,0 +1,5669 @@
+{
+  "speaker_id": "YDCK",
+  "native_language": "Korean",
+  "split": "dev",
+  "archive_sha256": "314ce2580c30508096efb4fab9e287bbb4c7db9cd89bcae53d90afca60417ce3",
+  "archive_bytes": 358685931,
+  "n_wav": 1131,
+  "audio_metadata": {
+    "arctic_a0001": {
+      "duration_s": 4.188707482993197,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0002": {
+      "duration_s": 5.064036281179138,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0003": {
+      "duration_s": 4.532380952380953,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0004": {
+      "duration_s": 3.0797732426303854,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0005": {
+      "duration_s": 1.72,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0006": {
+      "duration_s": 4.599501133786848,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0007": {
+      "duration_s": 3.748344671201814,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0008": {
+      "duration_s": 2.59,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0009": {
+      "duration_s": 4.45498866213152,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0010": {
+      "duration_s": 5.244036281179138,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0011": {
+      "duration_s": 4.341768707482993,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0012": {
+      "duration_s": 4.689410430839002,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0013": {
+      "duration_s": 5.748526077097505,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0014": {
+      "duration_s": 4.055487528344671,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0015": {
+      "duration_s": 2.492721088435374,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0016": {
+      "duration_s": 5.378185941043084,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0017": {
+      "duration_s": 5.606417233560091,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0018": {
+      "duration_s": 1.46859410430839,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0019": {
+      "duration_s": 5.711133786848072,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0020": {
+      "duration_s": 4.65952380952381,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0021": {
+      "duration_s": 3.625578231292517,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0022": {
+      "duration_s": 6.4431746031746036,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0023": {
+      "duration_s": 6.837777777777778,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0024": {
+      "duration_s": 6.277687074829932,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0025": {
+      "duration_s": 4.175283446712018,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0026": {
+      "duration_s": 4.182290249433106,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0027": {
+      "duration_s": 5.149954648526077,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0028": {
+      "duration_s": 2.5293197278911563,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0029": {
+      "duration_s": 3.73827664399093,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0030": {
+      "duration_s": 2.3,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0031": {
+      "duration_s": 2.980657596371882,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0032": {
+      "duration_s": 5.625238095238095,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0033": {
+      "duration_s": 5.65,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0034": {
+      "duration_s": 4.6,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0035": {
+      "duration_s": 6.154353741496599,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0036": {
+      "duration_s": 2.228639455782313,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0037": {
+      "duration_s": 3.458866213151927,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0038": {
+      "duration_s": 2.581451247165533,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0039": {
+      "duration_s": 3.96,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0040": {
+      "duration_s": 3.4025396825396825,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0041": {
+      "duration_s": 3.660090702947846,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0042": {
+      "duration_s": 3.458208616780045,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0043": {
+      "duration_s": 5.0449433106575965,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0044": {
+      "duration_s": 4.108684807256235,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0045": {
+      "duration_s": 3.8646485260770973,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0046": {
+      "duration_s": 4.252244897959184,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0047": {
+      "duration_s": 5.652312925170068,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0048": {
+      "duration_s": 3.2282086167800452,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0049": {
+      "duration_s": 3.990453514739229,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0050": {
+      "duration_s": 5.37358276643991,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0051": {
+      "duration_s": 6.051768707482993,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0052": {
+      "duration_s": 2.260816326530612,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0053": {
+      "duration_s": 3.6696145124716555,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0054": {
+      "duration_s": 1.8507936507936509,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0055": {
+      "duration_s": 6.352222222222222,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0056": {
+      "duration_s": 3.830136054421769,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0057": {
+      "duration_s": 2.377324263038549,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0058": {
+      "duration_s": 5.140249433106576,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0059": {
+      "duration_s": 3.1386167800453513,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0060": {
+      "duration_s": 2.54,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0061": {
+      "duration_s": 4.60891156462585,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0062": {
+      "duration_s": 3.1543537414965988,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0063": {
+      "duration_s": 3.189002267573696,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0064": {
+      "duration_s": 4.52,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0065": {
+      "duration_s": 4.873333333333333,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0066": {
+      "duration_s": 2.6551473922902495,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0067": {
+      "duration_s": 2.9748526077097504,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0068": {
+      "duration_s": 3.89437641723356,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0069": {
+      "duration_s": 3.6709297052154195,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0070": {
+      "duration_s": 4.392947845804989,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0071": {
+      "duration_s": 3.191315192743764,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0072": {
+      "duration_s": 2.401473922902494,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0073": {
+      "duration_s": 4.893015873015873,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0074": {
+      "duration_s": 3.653877551020408,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0075": {
+      "duration_s": 2.87,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0076": {
+      "duration_s": 3.84,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0077": {
+      "duration_s": 3.340408163265306,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0078": {
+      "duration_s": 3.9563945578231294,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0079": {
+      "duration_s": 1.9,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0080": {
+      "duration_s": 2.3729478458049886,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0081": {
+      "duration_s": 2.3113378684807255,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0082": {
+      "duration_s": 2.834671201814059,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0083": {
+      "duration_s": 3.8796145124716555,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0084": {
+      "duration_s": 5.5600907029478455,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0085": {
+      "duration_s": 3.09,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0086": {
+      "duration_s": 3.3,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0087": {
+      "duration_s": 4.728390022675737,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0088": {
+      "duration_s": 4.878344671201814,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0089": {
+      "duration_s": 3.903832199546485,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0090": {
+      "duration_s": 2.6199773242630386,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0091": {
+      "duration_s": 3.0833333333333335,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0092": {
+      "duration_s": 6.342063492063492,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0093": {
+      "duration_s": 3.0971201814058955,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0094": {
+      "duration_s": 4.551791383219955,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0095": {
+      "duration_s": 4.92,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0096": {
+      "duration_s": 5.4471428571428575,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0097": {
+      "duration_s": 4.92437641723356,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0098": {
+      "duration_s": 1.6106802721088436,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0099": {
+      "duration_s": 3.779954648526077,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0100": {
+      "duration_s": 2.2653968253968255,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0101": {
+      "duration_s": 3.746371882086168,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0102": {
+      "duration_s": 2.0619501133786846,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0103": {
+      "duration_s": 4.133582766439909,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0104": {
+      "duration_s": 4.55,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0105": {
+      "duration_s": 4.811224489795919,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0106": {
+      "duration_s": 5.888299319727891,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0107": {
+      "duration_s": 3.1953514739229023,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0108": {
+      "duration_s": 4.706689342403628,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0109": {
+      "duration_s": 2.7625396825396824,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0110": {
+      "duration_s": 3.3540816326530614,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0111": {
+      "duration_s": 4.99,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0112": {
+      "duration_s": 2.3572108843537416,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0113": {
+      "duration_s": 4.237097505668935,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0114": {
+      "duration_s": 3.6744897959183676,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0115": {
+      "duration_s": 4.544988662131519,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0116": {
+      "duration_s": 4.6,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0117": {
+      "duration_s": 4.500748299319728,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0118": {
+      "duration_s": 2.9183219954648525,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0119": {
+      "duration_s": 3.2584353741496597,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0120": {
+      "duration_s": 3.766780045351474,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0121": {
+      "duration_s": 5.15,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0122": {
+      "duration_s": 3.321655328798186,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0123": {
+      "duration_s": 2.7342403628117915,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0124": {
+      "duration_s": 3.4898185941043085,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0125": {
+      "duration_s": 5.298480725623583,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0126": {
+      "duration_s": 3.491678004535147,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0127": {
+      "duration_s": 2.882154195011338,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0128": {
+      "duration_s": 4.47795918367347,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0129": {
+      "duration_s": 2.496031746031746,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0130": {
+      "duration_s": 2.7310204081632654,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0131": {
+      "duration_s": 3.591473922902494,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0132": {
+      "duration_s": 3.15,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0133": {
+      "duration_s": 5.078639455782313,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0134": {
+      "duration_s": 2.58702947845805,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0135": {
+      "duration_s": 3.528548752834467,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0136": {
+      "duration_s": 6.06,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0137": {
+      "duration_s": 3.745328798185941,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0138": {
+      "duration_s": 4.912879818594105,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0139": {
+      "duration_s": 6.8868027210884355,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0140": {
+      "duration_s": 3.213219954648526,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0141": {
+      "duration_s": 3.562448979591837,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0142": {
+      "duration_s": 3.572108843537415,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0143": {
+      "duration_s": 3.6737414965986392,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0144": {
+      "duration_s": 5.08047619047619,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0145": {
+      "duration_s": 4.226417233560091,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0146": {
+      "duration_s": 3.1643083900226756,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0147": {
+      "duration_s": 5.581791383219954,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0148": {
+      "duration_s": 4.462721088435374,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0149": {
+      "duration_s": 5.64374149659864,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0150": {
+      "duration_s": 2.6137414965986396,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0151": {
+      "duration_s": 4.638934240362812,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0152": {
+      "duration_s": 3.9194784580498867,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0153": {
+      "duration_s": 6.568299319727891,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0154": {
+      "duration_s": 4.1624036281179135,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0155": {
+      "duration_s": 1.9013378684807256,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0156": {
+      "duration_s": 5.064036281179138,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0157": {
+      "duration_s": 5.928299319727891,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0158": {
+      "duration_s": 1.1678911564625851,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0159": {
+      "duration_s": 4.735873015873016,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0160": {
+      "duration_s": 3.9568480725623583,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0161": {
+      "duration_s": 4.797755102040816,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0162": {
+      "duration_s": 2.957120181405896,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0163": {
+      "duration_s": 2.1349433106575963,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0164": {
+      "duration_s": 4.088367346938775,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0165": {
+      "duration_s": 3.2748072562358277,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0166": {
+      "duration_s": 4.13,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0167": {
+      "duration_s": 2.5927891156462586,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0168": {
+      "duration_s": 5.62,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0169": {
+      "duration_s": 3.1953968253968252,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0170": {
+      "duration_s": 3.120657596371882,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0171": {
+      "duration_s": 4.07,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0172": {
+      "duration_s": 4.349274376417234,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0173": {
+      "duration_s": 2.96,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0174": {
+      "duration_s": 3.083265306122449,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0175": {
+      "duration_s": 4.209092970521542,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0176": {
+      "duration_s": 4.702562358276644,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0177": {
+      "duration_s": 4.05,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0178": {
+      "duration_s": 4.659297052154195,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0179": {
+      "duration_s": 3.7468480725623583,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0180": {
+      "duration_s": 3.9893197278911563,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0181": {
+      "duration_s": 3.19,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0182": {
+      "duration_s": 2.74,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0183": {
+      "duration_s": 2.180498866213152,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0184": {
+      "duration_s": 2.966485260770975,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0185": {
+      "duration_s": 3.519795918367347,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0186": {
+      "duration_s": 5.748321995464853,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0187": {
+      "duration_s": 4.005215419501134,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0188": {
+      "duration_s": 4.7089795918367345,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0189": {
+      "duration_s": 4.63,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0190": {
+      "duration_s": 4.517460317460317,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0191": {
+      "duration_s": 4.21,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0192": {
+      "duration_s": 1.57,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0193": {
+      "duration_s": 2.2239909297052156,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0194": {
+      "duration_s": 2.303219954648526,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0195": {
+      "duration_s": 1.98,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0196": {
+      "duration_s": 3.26,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0197": {
+      "duration_s": 4.76,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0198": {
+      "duration_s": 2.98,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0199": {
+      "duration_s": 5.262312925170068,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0200": {
+      "duration_s": 4.069002267573696,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0201": {
+      "duration_s": 3.033424036281179,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0202": {
+      "duration_s": 4.592380952380952,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0203": {
+      "duration_s": 2.554172335600907,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0204": {
+      "duration_s": 4.48,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0205": {
+      "duration_s": 2.766371882086168,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0206": {
+      "duration_s": 2.82,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0207": {
+      "duration_s": 1.3913378684807256,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0208": {
+      "duration_s": 4.92,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0209": {
+      "duration_s": 3.554557823129252,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0210": {
+      "duration_s": 3.5939002267573694,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0211": {
+      "duration_s": 5.611065759637188,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0212": {
+      "duration_s": 7.045215419501134,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0213": {
+      "duration_s": 5.9183219954648525,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0214": {
+      "duration_s": 4.91641723356009,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0215": {
+      "duration_s": 2.1828798185941043,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0216": {
+      "duration_s": 4.549297052154195,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0217": {
+      "duration_s": 4.983628117913832,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0218": {
+      "duration_s": 3.426734693877551,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0219": {
+      "duration_s": 6.2634920634920634,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0220": {
+      "duration_s": 3.68,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0221": {
+      "duration_s": 2.8,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0222": {
+      "duration_s": 3.18,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0223": {
+      "duration_s": 4.78578231292517,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0224": {
+      "duration_s": 4.69281179138322,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0225": {
+      "duration_s": 5.72,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0226": {
+      "duration_s": 4.51,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0227": {
+      "duration_s": 4.531065759637189,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0228": {
+      "duration_s": 2.68,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0229": {
+      "duration_s": 3.3775736961451246,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0230": {
+      "duration_s": 2.82,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0231": {
+      "duration_s": 4.6361678004535145,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0232": {
+      "duration_s": 1.9370521541950114,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0233": {
+      "duration_s": 4.5423129251700685,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0234": {
+      "duration_s": 6.6224036281179135,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0235": {
+      "duration_s": 3.09,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0236": {
+      "duration_s": 1.6,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0237": {
+      "duration_s": 4.62,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0238": {
+      "duration_s": 5.56,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0239": {
+      "duration_s": 5.570294784580499,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0240": {
+      "duration_s": 1.33,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0241": {
+      "duration_s": 2.65,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0242": {
+      "duration_s": 1.82,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0243": {
+      "duration_s": 2.35,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0244": {
+      "duration_s": 3.9928344671201814,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0245": {
+      "duration_s": 5.65,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0246": {
+      "duration_s": 5.04,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0247": {
+      "duration_s": 3.4,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0248": {
+      "duration_s": 2.6048299319727892,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0249": {
+      "duration_s": 5.888639455782313,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0250": {
+      "duration_s": 5.796439909297052,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0251": {
+      "duration_s": 3.969229024943311,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0252": {
+      "duration_s": 5.028231292517007,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0253": {
+      "duration_s": 5.638684807256236,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0254": {
+      "duration_s": 5.109727891156463,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0255": {
+      "duration_s": 4.144263038548753,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0256": {
+      "duration_s": 4.460408163265306,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0257": {
+      "duration_s": 3.496077097505669,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0258": {
+      "duration_s": 3.9183219954648525,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0259": {
+      "duration_s": 3.4201814058956916,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0260": {
+      "duration_s": 5.058367346938775,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0261": {
+      "duration_s": 3.1036507936507935,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0262": {
+      "duration_s": 4.241859410430839,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0263": {
+      "duration_s": 4.718775510204082,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0264": {
+      "duration_s": 4.3034693877551025,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0265": {
+      "duration_s": 4.5705215419501135,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0266": {
+      "duration_s": 3.9236961451247168,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0267": {
+      "duration_s": 3.8104761904761904,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0268": {
+      "duration_s": 5.00702947845805,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0269": {
+      "duration_s": 4.86827664399093,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0270": {
+      "duration_s": 4.5088888888888885,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0271": {
+      "duration_s": 3.8104761904761904,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0272": {
+      "duration_s": 2.223628117913832,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0273": {
+      "duration_s": 3.8104761904761904,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0274": {
+      "duration_s": 3.959387755102041,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0275": {
+      "duration_s": 4.524285714285714,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0276": {
+      "duration_s": 6.472834467120181,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0277": {
+      "duration_s": 5.962199546485261,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0278": {
+      "duration_s": 2.665283446712018,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0279": {
+      "duration_s": 2.4187755102040818,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0280": {
+      "duration_s": 2.9682539682539684,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0281": {
+      "duration_s": 3.3688208616780044,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0282": {
+      "duration_s": 4.589410430839003,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0283": {
+      "duration_s": 5.443537414965986,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0284": {
+      "duration_s": 4.42,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0285": {
+      "duration_s": 4.863605442176871,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0286": {
+      "duration_s": 4.529433106575964,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0287": {
+      "duration_s": 2.3894331065759635,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0288": {
+      "duration_s": 3.760453514739229,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0289": {
+      "duration_s": 5.247573696145125,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0290": {
+      "duration_s": 3.0662131519274376,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0291": {
+      "duration_s": 5.086575963718821,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0292": {
+      "duration_s": 4.820385487528345,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0293": {
+      "duration_s": 3.6152834467120183,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0294": {
+      "duration_s": 2.859251700680272,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0295": {
+      "duration_s": 4.50092970521542,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0296": {
+      "duration_s": 2.202766439909297,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0297": {
+      "duration_s": 4.257256235827664,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0298": {
+      "duration_s": 6.558390022675737,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0299": {
+      "duration_s": 6.6965759637188205,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0300": {
+      "duration_s": 5.941678004535148,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0301": {
+      "duration_s": 3.1837414965986395,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0302": {
+      "duration_s": 5.423945578231293,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0303": {
+      "duration_s": 3.7313832199546484,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0304": {
+      "duration_s": 2.9558503401360543,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0305": {
+      "duration_s": 5.945827664399093,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0306": {
+      "duration_s": 3.477732426303855,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0307": {
+      "duration_s": 3.981360544217687,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0308": {
+      "duration_s": 5.50140589569161,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0309": {
+      "duration_s": 3.619387755102041,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0310": {
+      "duration_s": 3.9850340136054423,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0311": {
+      "duration_s": 2.70437641723356,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0312": {
+      "duration_s": 5.10687074829932,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0313": {
+      "duration_s": 3.24,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0314": {
+      "duration_s": 3.92,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0315": {
+      "duration_s": 4.770566893424037,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0316": {
+      "duration_s": 3.84,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0317": {
+      "duration_s": 1.9217913832199547,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0318": {
+      "duration_s": 4.740045351473923,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0319": {
+      "duration_s": 5.02,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0320": {
+      "duration_s": 5.190657596371882,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0321": {
+      "duration_s": 5.077619047619048,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0322": {
+      "duration_s": 2.926575963718821,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0323": {
+      "duration_s": 5.199569160997733,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0324": {
+      "duration_s": 4.965419501133787,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0325": {
+      "duration_s": 6.487460317460317,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0326": {
+      "duration_s": 3.7104308390022678,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0327": {
+      "duration_s": 4.49,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0328": {
+      "duration_s": 4.024036281179138,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0329": {
+      "duration_s": 2.20546485260771,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0330": {
+      "duration_s": 4.094988662131519,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0331": {
+      "duration_s": 4.559886621315193,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0332": {
+      "duration_s": 5.83,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0333": {
+      "duration_s": 1.7267573696145124,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0334": {
+      "duration_s": 3.69140589569161,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0335": {
+      "duration_s": 5.399546485260771,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0336": {
+      "duration_s": 4.287437641723356,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0337": {
+      "duration_s": 6.311541950113378,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0338": {
+      "duration_s": 3.409455782312925,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0339": {
+      "duration_s": 4.56,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0340": {
+      "duration_s": 2.5895691609977325,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0341": {
+      "duration_s": 2.534875283446712,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0342": {
+      "duration_s": 2.3888208616780044,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0343": {
+      "duration_s": 3.33140589569161,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0344": {
+      "duration_s": 4.263061224489796,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0345": {
+      "duration_s": 4.333197278911564,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0346": {
+      "duration_s": 1.7,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0347": {
+      "duration_s": 6.94437641723356,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0348": {
+      "duration_s": 4.336213151927438,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0349": {
+      "duration_s": 3.9030385487528343,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0350": {
+      "duration_s": 4.950045351473923,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0351": {
+      "duration_s": 1.4672562358276644,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0352": {
+      "duration_s": 4.2194557823129255,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0353": {
+      "duration_s": 4.49,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0354": {
+      "duration_s": 2.21,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0355": {
+      "duration_s": 2.9491609977324265,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0356": {
+      "duration_s": 3.559342403628118,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0357": {
+      "duration_s": 5.187755102040816,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0358": {
+      "duration_s": 5.71,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0359": {
+      "duration_s": 3.241451247165533,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0360": {
+      "duration_s": 6.331927437641723,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0361": {
+      "duration_s": 5.284716553287982,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0362": {
+      "duration_s": 2.9789342403628116,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0363": {
+      "duration_s": 2.6822902494331067,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0364": {
+      "duration_s": 4.69031746031746,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0365": {
+      "duration_s": 3.19,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0366": {
+      "duration_s": 7.34,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0367": {
+      "duration_s": 4.84,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0368": {
+      "duration_s": 4.12,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0369": {
+      "duration_s": 7.651859410430839,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0370": {
+      "duration_s": 3.307641723356009,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0371": {
+      "duration_s": 5.556848072562358,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0372": {
+      "duration_s": 4.231065759637188,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0373": {
+      "duration_s": 3.512857142857143,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0374": {
+      "duration_s": 3.9851927437641725,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0375": {
+      "duration_s": 6.31,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0376": {
+      "duration_s": 4.358095238095238,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0377": {
+      "duration_s": 4.767573696145124,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0378": {
+      "duration_s": 5.090839002267574,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0379": {
+      "duration_s": 1.5986167800453515,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0380": {
+      "duration_s": 7.372607709750567,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0381": {
+      "duration_s": 2.4,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0382": {
+      "duration_s": 4.54,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0383": {
+      "duration_s": 4.654195011337868,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0384": {
+      "duration_s": 3.52,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0385": {
+      "duration_s": 2.45,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0386": {
+      "duration_s": 2.87,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0387": {
+      "duration_s": 6.01,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0388": {
+      "duration_s": 2.969591836734694,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0389": {
+      "duration_s": 1.36,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0390": {
+      "duration_s": 1.8186621315192744,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0391": {
+      "duration_s": 3.849954648526077,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0392": {
+      "duration_s": 5.724920634920635,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0393": {
+      "duration_s": 3.71,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0394": {
+      "duration_s": 4.7391836734693875,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0395": {
+      "duration_s": 5.9005668934240365,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0396": {
+      "duration_s": 3.72,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0397": {
+      "duration_s": 3.08,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0398": {
+      "duration_s": 5.955736961451247,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0399": {
+      "duration_s": 1.57,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0400": {
+      "duration_s": 2.17,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0401": {
+      "duration_s": 4.9668707482993195,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0402": {
+      "duration_s": 6.84,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0403": {
+      "duration_s": 5.17,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0404": {
+      "duration_s": 4.858503401360545,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0405": {
+      "duration_s": 4.993492063492064,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0406": {
+      "duration_s": 4.227437641723356,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0407": {
+      "duration_s": 8.08,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0408": {
+      "duration_s": 5.49687074829932,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0409": {
+      "duration_s": 2.8086621315192746,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0410": {
+      "duration_s": 4.283106575963719,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0411": {
+      "duration_s": 5.1,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0412": {
+      "duration_s": 3.69,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0413": {
+      "duration_s": 3.394421768707483,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0414": {
+      "duration_s": 3.159138321995465,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0415": {
+      "duration_s": 4.09,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0416": {
+      "duration_s": 4.29,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0417": {
+      "duration_s": 4.26,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0418": {
+      "duration_s": 3.706734693877551,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0419": {
+      "duration_s": 3.2,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0420": {
+      "duration_s": 6.02,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0421": {
+      "duration_s": 1.9729705215419502,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0422": {
+      "duration_s": 6.139387755102041,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0423": {
+      "duration_s": 5.16,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0424": {
+      "duration_s": 5.12,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0425": {
+      "duration_s": 4.92,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0426": {
+      "duration_s": 3.78,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0427": {
+      "duration_s": 3.32,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0428": {
+      "duration_s": 3.5392290249433107,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0429": {
+      "duration_s": 5.71,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0430": {
+      "duration_s": 5.7411337868480725,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0431": {
+      "duration_s": 4.26,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0432": {
+      "duration_s": 2.97,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0433": {
+      "duration_s": 5.59,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0434": {
+      "duration_s": 5.352426303854875,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0435": {
+      "duration_s": 3.07,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0436": {
+      "duration_s": 3.15,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0437": {
+      "duration_s": 5.39,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0438": {
+      "duration_s": 4.544829931972789,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0439": {
+      "duration_s": 4.5626303854875285,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0440": {
+      "duration_s": 1.89,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0441": {
+      "duration_s": 5.195736961451247,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0442": {
+      "duration_s": 3.411111111111111,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0443": {
+      "duration_s": 2.32,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0444": {
+      "duration_s": 2.84,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0445": {
+      "duration_s": 2.3880272108843537,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0446": {
+      "duration_s": 4.13,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0447": {
+      "duration_s": 3.15,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0448": {
+      "duration_s": 4.428934240362811,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0449": {
+      "duration_s": 6.01,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0450": {
+      "duration_s": 3.226734693877551,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0451": {
+      "duration_s": 5.39,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0452": {
+      "duration_s": 4.69,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0453": {
+      "duration_s": 3.57015873015873,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0454": {
+      "duration_s": 3.67,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0455": {
+      "duration_s": 4.6964852607709755,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0456": {
+      "duration_s": 4.15,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0457": {
+      "duration_s": 3.4771655328798188,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0458": {
+      "duration_s": 4.12,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0459": {
+      "duration_s": 2.9,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0460": {
+      "duration_s": 2.5922902494331064,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0461": {
+      "duration_s": 4.824920634920635,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0462": {
+      "duration_s": 5.37,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0463": {
+      "duration_s": 5.443832199546486,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0464": {
+      "duration_s": 6.48,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0465": {
+      "duration_s": 4.99,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0466": {
+      "duration_s": 5.09,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0467": {
+      "duration_s": 2.38,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0468": {
+      "duration_s": 4.9,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0469": {
+      "duration_s": 3.97,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0470": {
+      "duration_s": 3.807392290249433,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0471": {
+      "duration_s": 6.0456235827664395,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0472": {
+      "duration_s": 5.915124716553288,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0473": {
+      "duration_s": 2.127324263038549,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0474": {
+      "duration_s": 6.54156462585034,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0475": {
+      "duration_s": 5.7995238095238095,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0476": {
+      "duration_s": 3.1353287981859412,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0477": {
+      "duration_s": 6.79,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0478": {
+      "duration_s": 5.13,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0479": {
+      "duration_s": 5.59,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0480": {
+      "duration_s": 3.24,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0481": {
+      "duration_s": 6.03328798185941,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0482": {
+      "duration_s": 6.274943310657596,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0483": {
+      "duration_s": 6.06,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0484": {
+      "duration_s": 1.03,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0485": {
+      "duration_s": 2.9730839002267575,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0486": {
+      "duration_s": 3.2203401360544217,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0487": {
+      "duration_s": 8.39,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0488": {
+      "duration_s": 3.34,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0489": {
+      "duration_s": 2.92,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0490": {
+      "duration_s": 5.3100226757369615,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0491": {
+      "duration_s": 6.3,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0492": {
+      "duration_s": 3.39,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0493": {
+      "duration_s": 4.713197278911565,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0494": {
+      "duration_s": 3.875283446712018,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0495": {
+      "duration_s": 4.517732426303855,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0496": {
+      "duration_s": 2.8,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0497": {
+      "duration_s": 2.64,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0498": {
+      "duration_s": 2.52,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0499": {
+      "duration_s": 3.52,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0500": {
+      "duration_s": 4.404603174603174,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0501": {
+      "duration_s": 4.81,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0502": {
+      "duration_s": 6.04,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0503": {
+      "duration_s": 6.651451247165533,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0504": {
+      "duration_s": 3.348140589569161,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0505": {
+      "duration_s": 3.910045351473923,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0506": {
+      "duration_s": 3.7327437641723358,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0507": {
+      "duration_s": 8.03,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0508": {
+      "duration_s": 5.53,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0509": {
+      "duration_s": 4.92,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0510": {
+      "duration_s": 6.138231292517006,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0511": {
+      "duration_s": 4.881088435374149,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0512": {
+      "duration_s": 4.95,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0513": {
+      "duration_s": 4.16687074829932,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0514": {
+      "duration_s": 4.327528344671202,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0515": {
+      "duration_s": 3.311700680272109,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0516": {
+      "duration_s": 4.474285714285714,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0517": {
+      "duration_s": 6.82,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0518": {
+      "duration_s": 3.42,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0519": {
+      "duration_s": 5.5921768707482995,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0520": {
+      "duration_s": 4.264308390022676,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0521": {
+      "duration_s": 3.6294104308390023,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0522": {
+      "duration_s": 4.902199546485261,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0523": {
+      "duration_s": 4.820090702947846,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0524": {
+      "duration_s": 6.332721088435374,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0525": {
+      "duration_s": 8.584648526077098,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0526": {
+      "duration_s": 3.1791156462585035,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0527": {
+      "duration_s": 5.81,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0528": {
+      "duration_s": 3.1948979591836735,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0529": {
+      "duration_s": 4.147845804988662,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0530": {
+      "duration_s": 3.823378684807256,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0531": {
+      "duration_s": 6.91,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0532": {
+      "duration_s": 3.04,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0533": {
+      "duration_s": 3.16,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0534": {
+      "duration_s": 3.68,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0535": {
+      "duration_s": 4.57,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0536": {
+      "duration_s": 2.8936507936507936,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0537": {
+      "duration_s": 4.553990929705216,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0538": {
+      "duration_s": 4.71,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0539": {
+      "duration_s": 4.6,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0540": {
+      "duration_s": 5.18,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0541": {
+      "duration_s": 3.26,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0542": {
+      "duration_s": 3.33,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0543": {
+      "duration_s": 5.921791383219954,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0544": {
+      "duration_s": 3.261950113378685,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0545": {
+      "duration_s": 4.37,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0546": {
+      "duration_s": 5.66,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0547": {
+      "duration_s": 5.39,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0548": {
+      "duration_s": 5.047369614512472,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0549": {
+      "duration_s": 4.01,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0550": {
+      "duration_s": 2.68,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0551": {
+      "duration_s": 3.58265306122449,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0552": {
+      "duration_s": 4.0298639455782315,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0553": {
+      "duration_s": 3.347233560090703,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0554": {
+      "duration_s": 4.71,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0555": {
+      "duration_s": 5.33,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0556": {
+      "duration_s": 4.479092970521542,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0557": {
+      "duration_s": 2.47,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0558": {
+      "duration_s": 5.52,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0559": {
+      "duration_s": 3.6982086167800454,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0560": {
+      "duration_s": 4.24,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0561": {
+      "duration_s": 5.76,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0562": {
+      "duration_s": 1.45,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0563": {
+      "duration_s": 4.15,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0564": {
+      "duration_s": 5.29047619047619,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0565": {
+      "duration_s": 3.44,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0566": {
+      "duration_s": 5.220204081632653,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0567": {
+      "duration_s": 4.17,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0568": {
+      "duration_s": 3.64,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0569": {
+      "duration_s": 6.94,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0570": {
+      "duration_s": 7.4,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0571": {
+      "duration_s": 3.22,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0572": {
+      "duration_s": 3.4821541950113377,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0573": {
+      "duration_s": 4.78,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0574": {
+      "duration_s": 3.26,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0575": {
+      "duration_s": 3.06,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0576": {
+      "duration_s": 5.5121541950113375,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0577": {
+      "duration_s": 8.03312925170068,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0578": {
+      "duration_s": 2.28734693877551,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0579": {
+      "duration_s": 2.2739909297052154,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0580": {
+      "duration_s": 2.08,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0581": {
+      "duration_s": 7.14,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0582": {
+      "duration_s": 5.795260770975057,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0583": {
+      "duration_s": 4.22,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0584": {
+      "duration_s": 4.180589569160998,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0585": {
+      "duration_s": 3.942222222222222,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0586": {
+      "duration_s": 3.25,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0587": {
+      "duration_s": 4.934965986394558,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0588": {
+      "duration_s": 6.58,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0589": {
+      "duration_s": 2.33,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0590": {
+      "duration_s": 2.67,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0591": {
+      "duration_s": 2.914285714285714,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0592": {
+      "duration_s": 3.81,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_a0593": {
+      "duration_s": 3.12,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0001": {
+      "duration_s": 2.29,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0002": {
+      "duration_s": 4.83,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0003": {
+      "duration_s": 1.97,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0004": {
+      "duration_s": 3.8,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0005": {
+      "duration_s": 3.767120181405896,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0006": {
+      "duration_s": 4.620113378684807,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0007": {
+      "duration_s": 4.332925170068028,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0008": {
+      "duration_s": 4.03,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0009": {
+      "duration_s": 4.38,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0010": {
+      "duration_s": 3.9426303854875284,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0011": {
+      "duration_s": 5.309909297052154,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0012": {
+      "duration_s": 4.584172335600907,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0014": {
+      "duration_s": 5.0731519274376415,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0015": {
+      "duration_s": 3.1,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0016": {
+      "duration_s": 4.52,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0017": {
+      "duration_s": 4.51,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0018": {
+      "duration_s": 2.7841496598639455,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0019": {
+      "duration_s": 3.53,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0020": {
+      "duration_s": 4.54,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0021": {
+      "duration_s": 2.59,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0022": {
+      "duration_s": 4.007777777777778,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0023": {
+      "duration_s": 3.61,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0024": {
+      "duration_s": 3.171995464852608,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0025": {
+      "duration_s": 1.526031746031746,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0026": {
+      "duration_s": 2.92,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0027": {
+      "duration_s": 5.241632653061225,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0028": {
+      "duration_s": 3.72,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0029": {
+      "duration_s": 6.121972789115646,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0030": {
+      "duration_s": 5.6040136054421765,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0031": {
+      "duration_s": 5.480907029478458,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0032": {
+      "duration_s": 2.025532879818594,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0033": {
+      "duration_s": 2.69,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0034": {
+      "duration_s": 3.96,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0035": {
+      "duration_s": 3.5920408163265307,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0036": {
+      "duration_s": 4.101609977324263,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0037": {
+      "duration_s": 3.0082993197278913,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0038": {
+      "duration_s": 4.43578231292517,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0039": {
+      "duration_s": 5.0154421768707484,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0040": {
+      "duration_s": 3.27,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0041": {
+      "duration_s": 3.84,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0042": {
+      "duration_s": 4.821428571428571,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0043": {
+      "duration_s": 2.07,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0044": {
+      "duration_s": 2.79,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0045": {
+      "duration_s": 2.49,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0046": {
+      "duration_s": 6.07,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0047": {
+      "duration_s": 3.19,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0048": {
+      "duration_s": 6.0357369614512475,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0049": {
+      "duration_s": 5.06469387755102,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0050": {
+      "duration_s": 3.41031746031746,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0051": {
+      "duration_s": 4.38,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0052": {
+      "duration_s": 2.511065759637188,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0053": {
+      "duration_s": 4.08,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0054": {
+      "duration_s": 2.2637414965986395,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0055": {
+      "duration_s": 4.408888888888889,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0056": {
+      "duration_s": 5.99,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0057": {
+      "duration_s": 4.29,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0058": {
+      "duration_s": 2.4952380952380953,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0059": {
+      "duration_s": 4.172630385487528,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0060": {
+      "duration_s": 4.24,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0061": {
+      "duration_s": 5.16,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0062": {
+      "duration_s": 2.31,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0063": {
+      "duration_s": 3.8586621315192744,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0064": {
+      "duration_s": 4.274081632653061,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0065": {
+      "duration_s": 3.9676870748299318,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0066": {
+      "duration_s": 4.85,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0067": {
+      "duration_s": 5.35,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0068": {
+      "duration_s": 4.494943310657597,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0069": {
+      "duration_s": 4.410045351473923,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0070": {
+      "duration_s": 3.36,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0071": {
+      "duration_s": 3.1,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0072": {
+      "duration_s": 3.98,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0073": {
+      "duration_s": 5.38,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0074": {
+      "duration_s": 4.88,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0075": {
+      "duration_s": 4.234648526077097,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0076": {
+      "duration_s": 5.694648526077097,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0077": {
+      "duration_s": 2.1091156462585032,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0078": {
+      "duration_s": 4.6518820861678005,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0079": {
+      "duration_s": 3.15,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0080": {
+      "duration_s": 3.730045351473923,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0081": {
+      "duration_s": 3.5923356009070293,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0082": {
+      "duration_s": 4.946825396825397,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0083": {
+      "duration_s": 3.615873015873016,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0084": {
+      "duration_s": 2.16,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0085": {
+      "duration_s": 4.89,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0086": {
+      "duration_s": 2.092721088435374,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0087": {
+      "duration_s": 4.27,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0088": {
+      "duration_s": 2.15,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0089": {
+      "duration_s": 4.846371882086168,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0090": {
+      "duration_s": 6.045238095238095,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0091": {
+      "duration_s": 4.522131519274376,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0092": {
+      "duration_s": 1.6762585034013606,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0093": {
+      "duration_s": 2.83,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0094": {
+      "duration_s": 4.195238095238095,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0095": {
+      "duration_s": 5.323106575963719,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0096": {
+      "duration_s": 3.8,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0097": {
+      "duration_s": 3.8311791383219953,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0098": {
+      "duration_s": 5.610045351473923,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0099": {
+      "duration_s": 4.5784353741496595,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0100": {
+      "duration_s": 3.7356009070294784,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0101": {
+      "duration_s": 3.39,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0102": {
+      "duration_s": 2.67,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0103": {
+      "duration_s": 4.543673469387755,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0104": {
+      "duration_s": 5.39390022675737,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0105": {
+      "duration_s": 3.7586167800453514,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0106": {
+      "duration_s": 4.824172335600907,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0107": {
+      "duration_s": 2.96,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0108": {
+      "duration_s": 2.773106575963719,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0109": {
+      "duration_s": 5.2240816326530615,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0110": {
+      "duration_s": 3.262244897959184,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0111": {
+      "duration_s": 2.5070068027210883,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0112": {
+      "duration_s": 4.0403174603174605,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0113": {
+      "duration_s": 3.9746938775510205,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0114": {
+      "duration_s": 3.3080725623582765,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0115": {
+      "duration_s": 3.5903628117913833,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0116": {
+      "duration_s": 3.2346938775510203,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0117": {
+      "duration_s": 2.99,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0118": {
+      "duration_s": 4.579342403628118,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0119": {
+      "duration_s": 2.3810657596371883,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0120": {
+      "duration_s": 3.91,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0121": {
+      "duration_s": 2.859160997732426,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0122": {
+      "duration_s": 4.527777777777778,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0123": {
+      "duration_s": 4.96,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0124": {
+      "duration_s": 5.9209070294784585,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0125": {
+      "duration_s": 5.179274376417234,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0126": {
+      "duration_s": 4.79,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0127": {
+      "duration_s": 3.848140589569161,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0128": {
+      "duration_s": 2.338888888888889,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0129": {
+      "duration_s": 3.51,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0130": {
+      "duration_s": 2.75,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0131": {
+      "duration_s": 4.535056689342404,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0132": {
+      "duration_s": 4.476213151927437,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0133": {
+      "duration_s": 3.6559863945578233,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0134": {
+      "duration_s": 3.488979591836735,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0135": {
+      "duration_s": 2.245124716553288,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0136": {
+      "duration_s": 3.5733333333333333,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0137": {
+      "duration_s": 2.995079365079365,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0138": {
+      "duration_s": 3.02,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0139": {
+      "duration_s": 1.9851927437641723,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0140": {
+      "duration_s": 5.656190476190476,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0141": {
+      "duration_s": 5.519569160997732,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0142": {
+      "duration_s": 4.811768707482993,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0143": {
+      "duration_s": 3.2999773242630384,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0144": {
+      "duration_s": 4.603083900226757,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0145": {
+      "duration_s": 5.337052154195011,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0146": {
+      "duration_s": 3.35,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0147": {
+      "duration_s": 4.187233560090703,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0148": {
+      "duration_s": 5.78,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0149": {
+      "duration_s": 3.68,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0150": {
+      "duration_s": 4.41,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0151": {
+      "duration_s": 2.8137414965986394,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0152": {
+      "duration_s": 3.6934467120181407,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0153": {
+      "duration_s": 4.912131519274377,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0154": {
+      "duration_s": 2.5224716553287982,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0155": {
+      "duration_s": 3.996485260770975,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0156": {
+      "duration_s": 5.061065759637188,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0157": {
+      "duration_s": 4.66,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0158": {
+      "duration_s": 4.2674149659863945,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0159": {
+      "duration_s": 2.7002947845804988,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0160": {
+      "duration_s": 5.02,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0161": {
+      "duration_s": 3.6544897959183675,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0162": {
+      "duration_s": 5.987913832199546,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0163": {
+      "duration_s": 4.23,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0164": {
+      "duration_s": 2.41,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0165": {
+      "duration_s": 4.533650793650794,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0166": {
+      "duration_s": 1.8668480725623582,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0167": {
+      "duration_s": 4.94,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0168": {
+      "duration_s": 4.3,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0169": {
+      "duration_s": 4.490385487528345,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0170": {
+      "duration_s": 2.38,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0171": {
+      "duration_s": 4.77,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0172": {
+      "duration_s": 4.773424036281179,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0173": {
+      "duration_s": 3.367233560090703,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0174": {
+      "duration_s": 6.458185941043084,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0175": {
+      "duration_s": 3.687278911564626,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0176": {
+      "duration_s": 2.471859410430839,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0177": {
+      "duration_s": 4.185056689342404,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0178": {
+      "duration_s": 1.9758503401360543,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0179": {
+      "duration_s": 3.0,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0180": {
+      "duration_s": 3.74,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0181": {
+      "duration_s": 4.923741496598639,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0182": {
+      "duration_s": 2.632154195011338,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0183": {
+      "duration_s": 2.823764172335601,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0184": {
+      "duration_s": 5.53,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0185": {
+      "duration_s": 5.01,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0186": {
+      "duration_s": 4.04,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0187": {
+      "duration_s": 4.1821541950113374,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0188": {
+      "duration_s": 4.9773696145124715,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0189": {
+      "duration_s": 4.4,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0190": {
+      "duration_s": 6.6,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0191": {
+      "duration_s": 5.71,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0192": {
+      "duration_s": 5.120657596371882,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0193": {
+      "duration_s": 3.97,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0194": {
+      "duration_s": 2.46,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0195": {
+      "duration_s": 3.289795918367347,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0196": {
+      "duration_s": 3.4323356009070296,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0197": {
+      "duration_s": 3.36,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0198": {
+      "duration_s": 3.4440362811791383,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0199": {
+      "duration_s": 4.93421768707483,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0200": {
+      "duration_s": 3.9757596371882085,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0201": {
+      "duration_s": 6.458344671201814,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0202": {
+      "duration_s": 3.1859637188208616,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0203": {
+      "duration_s": 3.030294784580499,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0204": {
+      "duration_s": 8.893809523809523,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0205": {
+      "duration_s": 1.5016326530612245,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0206": {
+      "duration_s": 6.66,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0207": {
+      "duration_s": 2.56,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0208": {
+      "duration_s": 3.34,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0209": {
+      "duration_s": 5.353492063492063,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0210": {
+      "duration_s": 5.352562358276644,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0211": {
+      "duration_s": 1.83,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0212": {
+      "duration_s": 4.714104308390023,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0213": {
+      "duration_s": 3.7579138321995464,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0214": {
+      "duration_s": 3.5138775510204083,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0215": {
+      "duration_s": 3.93,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0216": {
+      "duration_s": 4.049705215419501,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0217": {
+      "duration_s": 3.77,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0218": {
+      "duration_s": 2.09,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0219": {
+      "duration_s": 3.294875283446712,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0220": {
+      "duration_s": 3.862766439909297,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0221": {
+      "duration_s": 2.63,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0222": {
+      "duration_s": 4.263378684807257,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0223": {
+      "duration_s": 4.267981859410431,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0224": {
+      "duration_s": 6.19249433106576,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0225": {
+      "duration_s": 3.68,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0226": {
+      "duration_s": 3.9680725623582767,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0227": {
+      "duration_s": 4.24,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0228": {
+      "duration_s": 1.4780725623582767,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0229": {
+      "duration_s": 4.167777777777777,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0230": {
+      "duration_s": 3.52,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0231": {
+      "duration_s": 3.5812925170068026,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0232": {
+      "duration_s": 2.1,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0233": {
+      "duration_s": 5.730476190476191,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0234": {
+      "duration_s": 4.748208616780046,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0235": {
+      "duration_s": 3.4372562358276646,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0236": {
+      "duration_s": 4.82,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0237": {
+      "duration_s": 4.709229024943311,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0238": {
+      "duration_s": 5.6899546485260775,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0239": {
+      "duration_s": 2.21,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0240": {
+      "duration_s": 3.94,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0241": {
+      "duration_s": 4.921315192743764,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0242": {
+      "duration_s": 5.92,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0243": {
+      "duration_s": 3.4187074829931974,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0244": {
+      "duration_s": 4.641337868480726,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0245": {
+      "duration_s": 2.620090702947846,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0246": {
+      "duration_s": 2.92,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0247": {
+      "duration_s": 5.23,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0248": {
+      "duration_s": 3.9911791383219954,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0249": {
+      "duration_s": 2.2012698412698413,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0250": {
+      "duration_s": 5.3240589569161,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0251": {
+      "duration_s": 4.2437641723356005,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0252": {
+      "duration_s": 4.81,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0253": {
+      "duration_s": 5.684399092970522,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0254": {
+      "duration_s": 5.254149659863946,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0255": {
+      "duration_s": 5.251746031746031,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0256": {
+      "duration_s": 4.248027210884354,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0257": {
+      "duration_s": 3.23,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0258": {
+      "duration_s": 3.68,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0259": {
+      "duration_s": 4.97795918367347,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0260": {
+      "duration_s": 1.95,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0261": {
+      "duration_s": 1.86,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0262": {
+      "duration_s": 2.027845804988662,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0263": {
+      "duration_s": 6.24,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0264": {
+      "duration_s": 2.89,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0265": {
+      "duration_s": 3.5209297052154196,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0266": {
+      "duration_s": 3.2293650793650794,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0267": {
+      "duration_s": 3.15,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0268": {
+      "duration_s": 3.1481179138321997,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0269": {
+      "duration_s": 4.7030839002267575,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0270": {
+      "duration_s": 2.59,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0271": {
+      "duration_s": 5.647891156462585,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0272": {
+      "duration_s": 6.742244897959184,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0273": {
+      "duration_s": 2.79,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0274": {
+      "duration_s": 3.0434467120181408,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0275": {
+      "duration_s": 2.14,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0276": {
+      "duration_s": 1.5731292517006803,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0277": {
+      "duration_s": 2.8,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0278": {
+      "duration_s": 2.784988662131519,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0279": {
+      "duration_s": 5.780362811791383,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0280": {
+      "duration_s": 5.1335374149659865,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0281": {
+      "duration_s": 5.38,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0282": {
+      "duration_s": 4.823015873015873,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0283": {
+      "duration_s": 2.23,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0284": {
+      "duration_s": 2.24,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0285": {
+      "duration_s": 2.2098412698412697,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0286": {
+      "duration_s": 2.82,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0287": {
+      "duration_s": 3.13,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0288": {
+      "duration_s": 2.98,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0289": {
+      "duration_s": 4.4,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0290": {
+      "duration_s": 5.422789115646259,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0291": {
+      "duration_s": 3.227301587301587,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0292": {
+      "duration_s": 5.85,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0293": {
+      "duration_s": 5.551791383219955,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0294": {
+      "duration_s": 4.640816326530612,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0295": {
+      "duration_s": 3.94,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0296": {
+      "duration_s": 4.757437641723356,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0297": {
+      "duration_s": 4.77,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0298": {
+      "duration_s": 5.457777777777777,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0299": {
+      "duration_s": 3.5,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0300": {
+      "duration_s": 5.24,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0301": {
+      "duration_s": 2.607687074829932,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0302": {
+      "duration_s": 3.274671201814059,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0303": {
+      "duration_s": 5.527755102040817,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0304": {
+      "duration_s": 5.247868480725623,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0305": {
+      "duration_s": 4.892222222222222,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0306": {
+      "duration_s": 5.73,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0307": {
+      "duration_s": 3.97,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0308": {
+      "duration_s": 2.344036281179138,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0309": {
+      "duration_s": 3.41,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0310": {
+      "duration_s": 4.771814058956916,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0311": {
+      "duration_s": 2.2291156462585033,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0312": {
+      "duration_s": 3.6525850340136055,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0313": {
+      "duration_s": 5.839501133786848,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0314": {
+      "duration_s": 2.9358730158730157,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0315": {
+      "duration_s": 4.644807256235827,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0316": {
+      "duration_s": 5.6,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0317": {
+      "duration_s": 4.9681632653061225,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0318": {
+      "duration_s": 3.3402721088435374,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0319": {
+      "duration_s": 3.699410430839002,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0320": {
+      "duration_s": 5.455646258503402,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0321": {
+      "duration_s": 3.4357142857142855,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0322": {
+      "duration_s": 2.42,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0323": {
+      "duration_s": 5.712766439909297,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0324": {
+      "duration_s": 4.215918367346939,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0325": {
+      "duration_s": 3.06,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0326": {
+      "duration_s": 4.297823129251701,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0327": {
+      "duration_s": 1.77,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0328": {
+      "duration_s": 2.7878004535147394,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0329": {
+      "duration_s": 2.4828571428571427,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0330": {
+      "duration_s": 3.78,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0331": {
+      "duration_s": 3.83,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0332": {
+      "duration_s": 4.182244897959183,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0333": {
+      "duration_s": 3.2,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0334": {
+      "duration_s": 3.6638775510204082,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0335": {
+      "duration_s": 3.039002267573696,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0336": {
+      "duration_s": 1.3220861678004534,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0337": {
+      "duration_s": 2.2,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0338": {
+      "duration_s": 3.0303401360544218,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0339": {
+      "duration_s": 3.97,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0340": {
+      "duration_s": 4.66,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0341": {
+      "duration_s": 2.9411111111111112,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0342": {
+      "duration_s": 5.098299319727891,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0343": {
+      "duration_s": 2.3984126984126983,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0344": {
+      "duration_s": 3.18,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0345": {
+      "duration_s": 4.35,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0346": {
+      "duration_s": 3.65,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0347": {
+      "duration_s": 6.64,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0348": {
+      "duration_s": 4.278866213151927,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0349": {
+      "duration_s": 4.2700453514739225,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0350": {
+      "duration_s": 4.38,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0351": {
+      "duration_s": 3.35,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0352": {
+      "duration_s": 2.94,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0353": {
+      "duration_s": 3.05,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0354": {
+      "duration_s": 1.6710204081632654,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0355": {
+      "duration_s": 5.72,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0356": {
+      "duration_s": 2.4941496598639454,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0357": {
+      "duration_s": 2.18,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0358": {
+      "duration_s": 5.94,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0359": {
+      "duration_s": 3.1225850340136057,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0360": {
+      "duration_s": 5.758253968253968,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0361": {
+      "duration_s": 4.1,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0362": {
+      "duration_s": 5.459750566893424,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0363": {
+      "duration_s": 2.636122448979592,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0364": {
+      "duration_s": 5.89,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0365": {
+      "duration_s": 2.7168480725623585,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0366": {
+      "duration_s": 4.64,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0367": {
+      "duration_s": 3.58,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0368": {
+      "duration_s": 3.4083219954648527,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0369": {
+      "duration_s": 3.7505442176870747,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0370": {
+      "duration_s": 2.7111337868480727,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0371": {
+      "duration_s": 4.977528344671202,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0372": {
+      "duration_s": 3.32265306122449,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0373": {
+      "duration_s": 6.054580498866213,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0374": {
+      "duration_s": 7.297528344671202,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0375": {
+      "duration_s": 2.1431746031746033,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0376": {
+      "duration_s": 3.729138321995465,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0377": {
+      "duration_s": 4.516734693877551,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0378": {
+      "duration_s": 3.8898639455782313,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0379": {
+      "duration_s": 5.29421768707483,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0380": {
+      "duration_s": 4.656054421768707,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0381": {
+      "duration_s": 3.2616553287981858,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0382": {
+      "duration_s": 5.518684807256236,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0383": {
+      "duration_s": 3.4912698412698413,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0384": {
+      "duration_s": 6.67,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0385": {
+      "duration_s": 5.51,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0386": {
+      "duration_s": 5.22718820861678,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0387": {
+      "duration_s": 2.587891156462585,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0388": {
+      "duration_s": 3.04,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0389": {
+      "duration_s": 5.685759637188209,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0390": {
+      "duration_s": 2.95,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0391": {
+      "duration_s": 5.03,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0392": {
+      "duration_s": 3.068095238095238,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0393": {
+      "duration_s": 3.4763492063492065,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0394": {
+      "duration_s": 3.5134920634920634,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0395": {
+      "duration_s": 4.44,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0396": {
+      "duration_s": 3.295124716553288,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0397": {
+      "duration_s": 7.217165532879819,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0398": {
+      "duration_s": 3.273718820861678,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0399": {
+      "duration_s": 3.88,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0400": {
+      "duration_s": 3.6818820861678003,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0401": {
+      "duration_s": 3.31,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0402": {
+      "duration_s": 5.838979591836734,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0403": {
+      "duration_s": 6.91,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0404": {
+      "duration_s": 3.488548752834467,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0405": {
+      "duration_s": 4.114897959183674,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0406": {
+      "duration_s": 3.8148526077097507,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0407": {
+      "duration_s": 7.7851020408163265,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0408": {
+      "duration_s": 1.6448979591836734,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0409": {
+      "duration_s": 6.518367346938776,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0410": {
+      "duration_s": 3.0967573696145125,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0411": {
+      "duration_s": 4.147074829931973,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0412": {
+      "duration_s": 2.988503401360544,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0413": {
+      "duration_s": 3.93,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0414": {
+      "duration_s": 5.392312925170068,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0415": {
+      "duration_s": 3.7975283446712016,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0416": {
+      "duration_s": 3.74,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0417": {
+      "duration_s": 5.04,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0418": {
+      "duration_s": 4.5993650793650795,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0419": {
+      "duration_s": 2.75,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0420": {
+      "duration_s": 5.567165532879819,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0421": {
+      "duration_s": 5.853378684807256,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0422": {
+      "duration_s": 2.7394331065759636,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0423": {
+      "duration_s": 4.363605442176871,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0424": {
+      "duration_s": 5.32,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0425": {
+      "duration_s": 4.98,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0426": {
+      "duration_s": 3.6360090702947847,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0427": {
+      "duration_s": 6.97,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0428": {
+      "duration_s": 5.4248979591836735,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0429": {
+      "duration_s": 5.334671201814059,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0430": {
+      "duration_s": 3.44,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0431": {
+      "duration_s": 3.834172335600907,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0432": {
+      "duration_s": 4.97,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0433": {
+      "duration_s": 4.423197278911565,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0434": {
+      "duration_s": 5.123174603174603,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0435": {
+      "duration_s": 1.52,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0436": {
+      "duration_s": 3.789750566893424,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0437": {
+      "duration_s": 5.017324263038549,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0438": {
+      "duration_s": 4.601836734693878,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0439": {
+      "duration_s": 6.923446712018141,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0440": {
+      "duration_s": 4.71,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0441": {
+      "duration_s": 5.84702947845805,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0442": {
+      "duration_s": 3.436235827664399,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0443": {
+      "duration_s": 2.87,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0444": {
+      "duration_s": 5.05,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0445": {
+      "duration_s": 4.64,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0446": {
+      "duration_s": 6.13,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0447": {
+      "duration_s": 7.9123809523809525,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0448": {
+      "duration_s": 3.08,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0449": {
+      "duration_s": 2.1811337868480725,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0450": {
+      "duration_s": 5.3066893424036286,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0451": {
+      "duration_s": 3.728049886621315,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0452": {
+      "duration_s": 3.47,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0453": {
+      "duration_s": 6.995192743764172,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0454": {
+      "duration_s": 1.9,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0455": {
+      "duration_s": 3.9846485260770974,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0456": {
+      "duration_s": 5.283990929705215,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0457": {
+      "duration_s": 3.29,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0458": {
+      "duration_s": 5.02891156462585,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0459": {
+      "duration_s": 4.01,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0460": {
+      "duration_s": 5.66,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0461": {
+      "duration_s": 3.1851020408163264,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0462": {
+      "duration_s": 2.6788662131519274,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0463": {
+      "duration_s": 2.82,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0464": {
+      "duration_s": 2.2113832199546484,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0465": {
+      "duration_s": 6.8,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0466": {
+      "duration_s": 3.95,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0467": {
+      "duration_s": 3.07,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0468": {
+      "duration_s": 4.221020408163265,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0469": {
+      "duration_s": 3.51,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0470": {
+      "duration_s": 2.36,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0471": {
+      "duration_s": 5.22,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0472": {
+      "duration_s": 4.91,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0473": {
+      "duration_s": 1.7186621315192743,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0474": {
+      "duration_s": 4.695668934240363,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0475": {
+      "duration_s": 3.01,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0476": {
+      "duration_s": 5.4,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0477": {
+      "duration_s": 2.71,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0478": {
+      "duration_s": 6.15,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0479": {
+      "duration_s": 6.98,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0480": {
+      "duration_s": 8.668231292517007,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0481": {
+      "duration_s": 3.72,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0482": {
+      "duration_s": 6.8,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0483": {
+      "duration_s": 6.15,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0484": {
+      "duration_s": 5.88,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0485": {
+      "duration_s": 3.2496371882086166,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0486": {
+      "duration_s": 5.227845804988662,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0487": {
+      "duration_s": 7.41,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0488": {
+      "duration_s": 4.68,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0489": {
+      "duration_s": 6.0534467120181406,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0490": {
+      "duration_s": 4.3,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0491": {
+      "duration_s": 5.01,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0492": {
+      "duration_s": 5.42,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0493": {
+      "duration_s": 3.74,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0494": {
+      "duration_s": 4.18,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0495": {
+      "duration_s": 4.69,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0496": {
+      "duration_s": 6.83,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0497": {
+      "duration_s": 5.59,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0498": {
+      "duration_s": 5.38,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0499": {
+      "duration_s": 4.9124489795918365,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0500": {
+      "duration_s": 1.8514965986394558,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0501": {
+      "duration_s": 6.429727891156462,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0502": {
+      "duration_s": 5.073038548752835,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0503": {
+      "duration_s": 5.7,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0504": {
+      "duration_s": 5.74,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0505": {
+      "duration_s": 4.724353741496599,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0506": {
+      "duration_s": 4.69421768707483,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0507": {
+      "duration_s": 2.33,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0508": {
+      "duration_s": 5.558639455782313,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0509": {
+      "duration_s": 3.113174603174603,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0510": {
+      "duration_s": 3.1970294784580497,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0511": {
+      "duration_s": 1.49,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0512": {
+      "duration_s": 5.03,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0513": {
+      "duration_s": 6.2,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0514": {
+      "duration_s": 2.78,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0515": {
+      "duration_s": 3.045124716553288,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0516": {
+      "duration_s": 6.94,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0517": {
+      "duration_s": 2.496984126984127,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0518": {
+      "duration_s": 4.71,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0519": {
+      "duration_s": 2.53,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0520": {
+      "duration_s": 7.946417233560091,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0521": {
+      "duration_s": 4.17,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0522": {
+      "duration_s": 4.82,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0523": {
+      "duration_s": 5.746621315192744,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0524": {
+      "duration_s": 5.410816326530612,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0525": {
+      "duration_s": 3.58,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0526": {
+      "duration_s": 3.21,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0527": {
+      "duration_s": 3.9798866213151927,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0528": {
+      "duration_s": 4.657687074829932,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0529": {
+      "duration_s": 2.66,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0530": {
+      "duration_s": 4.156122448979592,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0531": {
+      "duration_s": 3.65,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0532": {
+      "duration_s": 6.31,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0533": {
+      "duration_s": 6.04,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0534": {
+      "duration_s": 4.99,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0535": {
+      "duration_s": 2.580272108843537,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0536": {
+      "duration_s": 2.3840136054421768,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0537": {
+      "duration_s": 2.250340136054422,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0538": {
+      "duration_s": 3.4296145124716553,
+      "sample_rate": 44100,
+      "channels": 1
+    },
+    "arctic_b0539": {
+      "duration_s": 3.9843764172335603,
+      "sample_rate": 44100,
+      "channels": 1
+    }
+  },
+  "job_id": "data-2/7",
+  "cache_hit": false,
+  "wall_seconds": 141.710523843,
+  "estimated_resource_cost_usd": 0.00622959462813828
+}

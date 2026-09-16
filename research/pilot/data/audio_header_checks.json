@@ -1,0 +1,116 @@
+{
+  "all_train_dev_archives_verified": true,
+  "test_audio_checked": false,
+  "manifest_unchanged": true,
+  "speakers": [
+    {
+      "speaker_id": "ABA",
+      "rows": 1129,
+      "max_abs_duration_difference_s": 0.0,
+      "validation_file_sha256": "379429cd58860c4a03ac90739d6cda8d3cc9fa1decb1e5c268fb50a6ff751afd"
+    },
+    {
+      "speaker_id": "YBAA",
+      "rows": 1130,
+      "max_abs_duration_difference_s": 0.0,
+      "validation_file_sha256": "5fe03aae896a365481669d7e55765174e73572acec4f147bca48594270e9e279"
+    },
+    {
+      "speaker_id": "SKA",
+      "rows": 974,
+      "max_abs_duration_difference_s": 0.0,
+      "validation_file_sha256": "2ee158b7020bb0ff21edd121548c85e4e9b8c561d19bdd5b530fd4ebb01c3461"
+    },
+    {
+      "speaker_id": "NCC",
+      "rows": 1131,
+      "max_abs_duration_difference_s": 0.0,
+      "validation_file_sha256": "ae722744cfba1108968180fb4339ce0d0598034b7bd3a12e1849d6bcc8d7f77b"
+    },
+    {
+      "speaker_id": "TXHC",
+      "rows": 1132,
+      "max_abs_duration_difference_s": 0.0,
+      "validation_file_sha256": "5405a920196cfa50df394614902469580b3f078d4c1be5da573f7d57ad603939"
+    },
+    {
+      "speaker_id": "BWC",
+      "rows": 1130,
+      "max_abs_duration_difference_s": 0.0,
+      "validation_file_sha256": "d85a30ce75982ab92b7a6ebc709b85a28d6b3df275ef2f8921b8b8e9d3f5eb6c"
+    },
+    {
+      "speaker_id": "SVBI",
+      "rows": 1132,
+      "max_abs_duration_difference_s": 0.0,
+      "validation_file_sha256": "ebb44e6f51ae3498c9361ba07de914f0174ec7e0fbfcd89a8c5bd923c292cc9f"
+    },
+    {
+      "speaker_id": "RRBI",
+      "rows": 1130,
+      "max_abs_duration_difference_s": 0.0043764172335600815,
+      "validation_file_sha256": "b83783320d69ef294ea5a66c6237331dade255cc13510c0a430f5d6c4d808259"
+    },
+    {
+      "speaker_id": "ASI",
+      "rows": 1131,
+      "max_abs_duration_difference_s": 0.0,
+      "validation_file_sha256": "1e53318e61d71c1410b4c1c0d74fa11aef9efa3149376cf6d0046dc8698d5fd1"
+    },
+    {
+      "speaker_id": "HJK",
+      "rows": 1131,
+      "max_abs_duration_difference_s": 0.0,
+      "validation_file_sha256": "1ed1046b22f5c8c2089095694e7438690edcc8e1d8d4a16cfe6b4dbe35bf0147"
+    },
+    {
+      "speaker_id": "HKK",
+      "rows": 1131,
+      "max_abs_duration_difference_s": 0.0,
+      "validation_file_sha256": "2c0a9baa156ce5ba9f0052bd94812b94b76577cb98bb56127b2b8a292f7cd38c"
+    },
+    {
+      "speaker_id": "YDCK",
+      "rows": 1131,
+      "max_abs_duration_difference_s": 0.0,
+      "validation_file_sha256": "910b9db7dd023abd7ca6d9cbab156724f70973ebdc80ea1b17492c1396cb3413"
+    },
+    {
+      "speaker_id": "ERMS",
+      "rows": 1132,
+      "max_abs_duration_difference_s": 0.0,
+      "validation_file_sha256": "aec954a016be55fdc475ee76d1573285f667154dd19cb406df8cc9ddcc5be8f4"
+    },
+    {
+      "speaker_id": "MBMPS",
+      "rows": 1132,
+      "max_abs_duration_difference_s": 0.0,
+      "validation_file_sha256": "3b0ac19d1e880b43435f274334804ab8e135371a1ac91bad5fa2c8d6a207fb6d"
+    },
+    {
+      "speaker_id": "EBVS",
+      "rows": 1007,
+      "max_abs_duration_difference_s": 0.0,
+      "validation_file_sha256": "6d6a9a184c37abea69d12bbb5d1c5c5012639208b071bd1752c311df0b97110b"
+    },
+    {
+      "speaker_id": "PNV",
+      "rows": 1132,
+      "max_abs_duration_difference_s": 0.0,
+      "validation_file_sha256": "91af20186ced8e6b1b70c9df372dee14bc39e102ab967581ea74f10d5a5490c7"
+    },
+    {
+      "speaker_id": "HQTV",
+      "rows": 1132,
+      "max_abs_duration_difference_s": 0.0,
+      "validation_file_sha256": "fb15a35177931d5e9c4845bc6a711fe3dca327979462c4eaaf2c3dc8dc8ea67f"
+    },
+    {
+      "speaker_id": "TLV",
+      "rows": 1132,
+      "max_abs_duration_difference_s": 0.0,
+      "validation_file_sha256": "f6f3d559272d53ea35a8e792dc48987c91e709065a795edf46ffbc7b483924b1"
+    }
+  ],
+  "note": "Use per-prompt decoded duration from audio_validation for exact duration matching; frozen alignment durations differ at most10ms."
+}

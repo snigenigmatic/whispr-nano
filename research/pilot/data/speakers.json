@@ -1,0 +1,218 @@
+[
+  {
+    "speaker_id": "ABA",
+    "native_language": "Arabic",
+    "gender": "M",
+    "split": "train",
+    "archive_url": "https://huggingface.co/datasets/chikingsley/l2-arctic-release-v5.0/resolve/cc02fd37197966e5de11ad737f7affd577c61992/ABA.zip",
+    "archive_sha256": "79c2b820946077200908c54972d4562dc9c1e3068519b177e95b4b8e7299509d",
+    "archive_bytes": 349450469
+  },
+  {
+    "speaker_id": "YBAA",
+    "native_language": "Arabic",
+    "gender": "M",
+    "split": "train",
+    "archive_url": "https://huggingface.co/datasets/chikingsley/l2-arctic-release-v5.0/resolve/cc02fd37197966e5de11ad737f7affd577c61992/YBAA.zip",
+    "archive_sha256": "f5085f11bf39bafe89a4d01af76c883cd24b2fac923dd817592e1ef32e713091",
+    "archive_bytes": 327984671
+  },
+  {
+    "speaker_id": "SKA",
+    "native_language": "Arabic",
+    "gender": "F",
+    "split": "dev",
+    "archive_url": "https://huggingface.co/datasets/chikingsley/l2-arctic-release-v5.0/resolve/cc02fd37197966e5de11ad737f7affd577c61992/SKA.zip",
+    "archive_sha256": "e435e0feb9c55ddfd85b6beecc2051883c90d64c7dd66dced2deebfb53192929",
+    "archive_bytes": 237107659
+  },
+  {
+    "speaker_id": "ZHAA",
+    "native_language": "Arabic",
+    "gender": "F",
+    "split": "test",
+    "archive_url": "https://huggingface.co/datasets/chikingsley/l2-arctic-release-v5.0/resolve/cc02fd37197966e5de11ad737f7affd577c61992/ZHAA.zip",
+    "archive_sha256": "d902fe8922b027f1a3915335998e25ad2c66216aa98a7e4095598a1687d30ce2",
+    "archive_bytes": 282235574
+  },
+  {
+    "speaker_id": "NCC",
+    "native_language": "Mandarin",
+    "gender": "F",
+    "split": "train",
+    "archive_url": "https://huggingface.co/datasets/chikingsley/l2-arctic-release-v5.0/resolve/cc02fd37197966e5de11ad737f7affd577c61992/NCC.zip",
+    "archive_sha256": "23432e0fa123b97f566a8bdf9bdbb6c4880c842c1dfba192829848415bc49170",
+    "archive_bytes": 318712266
+  },
+  {
+    "speaker_id": "TXHC",
+    "native_language": "Mandarin",
+    "gender": "M",
+    "split": "train",
+    "archive_url": "https://huggingface.co/datasets/chikingsley/l2-arctic-release-v5.0/resolve/cc02fd37197966e5de11ad737f7affd577c61992/TXHC.zip",
+    "archive_sha256": "ea6876726ab2ac71e77962e107d63c1307998686f61d4a13341a63ac9f9e3621",
+    "archive_bytes": 302853365
+  },
+  {
+    "speaker_id": "BWC",
+    "native_language": "Mandarin",
+    "gender": "M",
+    "split": "dev",
+    "archive_url": "https://huggingface.co/datasets/chikingsley/l2-arctic-release-v5.0/resolve/cc02fd37197966e5de11ad737f7affd577c61992/BWC.zip",
+    "archive_sha256": "d3b5f304647968babd69468c3fcf691eaac4fc4dd3a55c595ee9cb47cd8e5c2f",
+    "archive_bytes": 354595346
+  },
+  {
+    "speaker_id": "LXC",
+    "native_language": "Mandarin",
+    "gender": "F",
+    "split": "test",
+    "archive_url": "https://huggingface.co/datasets/chikingsley/l2-arctic-release-v5.0/resolve/cc02fd37197966e5de11ad737f7affd577c61992/LXC.zip",
+    "archive_sha256": "3030bd78995f59e9b4af5da17836ad9f00573d3b4f8d79c7cd10ea8d40c79bc0",
+    "archive_bytes": 337997990
+  },
+  {
+    "speaker_id": "SVBI",
+    "native_language": "Hindi",
+    "gender": "F",
+    "split": "train",
+    "archive_url": "https://huggingface.co/datasets/chikingsley/l2-arctic-release-v5.0/resolve/cc02fd37197966e5de11ad737f7affd577c61992/SVBI.zip",
+    "archive_sha256": "b9741aaa999ed89e5c555470fcee8e2c12844f6ac03be1cd985bb786822e5126",
+    "archive_bytes": 243183025
+  },
+  {
+    "speaker_id": "RRBI",
+    "native_language": "Hindi",
+    "gender": "M",
+    "split": "train",
+    "archive_url": "https://huggingface.co/datasets/chikingsley/l2-arctic-release-v5.0/resolve/cc02fd37197966e5de11ad737f7affd577c61992/RRBI.zip",
+    "archive_sha256": "9660858d6100fcb30c34f2230f8044a26d9942693a4334f0b32908f312eaf2ab",
+    "archive_bytes": 291175015
+  },
+  {
+    "speaker_id": "ASI",
+    "native_language": "Hindi",
+    "gender": "M",
+    "split": "dev",
+    "archive_url": "https://huggingface.co/datasets/chikingsley/l2-arctic-release-v5.0/resolve/cc02fd37197966e5de11ad737f7affd577c61992/ASI.zip",
+    "archive_sha256": "302dc53af870acb8378c2c8205062fb7af1b3ad8ebc61826f87faf7d3dc4e8ff",
+    "archive_bytes": 252835922
+  },
+  {
+    "speaker_id": "TNI",
+    "native_language": "Hindi",
+    "gender": "F",
+    "split": "test",
+    "archive_url": "https://huggingface.co/datasets/chikingsley/l2-arctic-release-v5.0/resolve/cc02fd37197966e5de11ad737f7affd577c61992/TNI.zip",
+    "archive_sha256": "35ad7e15cbcb70ef1eee020bde74b4b39c73890f45f7dba6ad76bb41cb5dc1c1",
+    "archive_bytes": 267374267
+  },
+  {
+    "speaker_id": "HJK",
+    "native_language": "Korean",
+    "gender": "F",
+    "split": "train",
+    "archive_url": "https://huggingface.co/datasets/chikingsley/l2-arctic-release-v5.0/resolve/cc02fd37197966e5de11ad737f7affd577c61992/HJK.zip",
+    "archive_sha256": "5d2a19f09a250d8ad0de903ff70b409531a64490f727134168e54391333b7ee4",
+    "archive_bytes": 267841281
+  },
+  {
+    "speaker_id": "HKK",
+    "native_language": "Korean",
+    "gender": "M",
+    "split": "train",
+    "archive_url": "https://huggingface.co/datasets/chikingsley/l2-arctic-release-v5.0/resolve/cc02fd37197966e5de11ad737f7affd577c61992/HKK.zip",
+    "archive_sha256": "6a2fc1b0ced8c65cfc231a57050016866d66981efe3b9d48c5c0fbcec121e088",
+    "archive_bytes": 322229249
+  },
+  {
+    "speaker_id": "YDCK",
+    "native_language": "Korean",
+    "gender": "F",
+    "split": "dev",
+    "archive_url": "https://huggingface.co/datasets/chikingsley/l2-arctic-release-v5.0/resolve/cc02fd37197966e5de11ad737f7affd577c61992/YDCK.zip",
+    "archive_sha256": "314ce2580c30508096efb4fab9e287bbb4c7db9cd89bcae53d90afca60417ce3",
+    "archive_bytes": 358685931
+  },
+  {
+    "speaker_id": "YKWK",
+    "native_language": "Korean",
+    "gender": "M",
+    "split": "test",
+    "archive_url": "https://huggingface.co/datasets/chikingsley/l2-arctic-release-v5.0/resolve/cc02fd37197966e5de11ad737f7affd577c61992/YKWK.zip",
+    "archive_sha256": "550fc703280a003888d793d222dc987cd2a95506f94dc29e7e22d3d5479e5ed5",
+    "archive_bytes": 313929213
+  },
+  {
+    "speaker_id": "ERMS",
+    "native_language": "Spanish",
+    "gender": "M",
+    "split": "train",
+    "archive_url": "https://huggingface.co/datasets/chikingsley/l2-arctic-release-v5.0/resolve/cc02fd37197966e5de11ad737f7affd577c61992/ERMS.zip",
+    "archive_sha256": "f9242b2b7cf1adae2cdd209751130b3b47c7ffaace3993a5d898b0c388512ac6",
+    "archive_bytes": 342407125
+  },
+  {
+    "speaker_id": "MBMPS",
+    "native_language": "Spanish",
+    "gender": "F",
+    "split": "train",
+    "archive_url": "https://huggingface.co/datasets/chikingsley/l2-arctic-release-v5.0/resolve/cc02fd37197966e5de11ad737f7affd577c61992/MBMPS.zip",
+    "archive_sha256": "3aa442d3364cd8e6e65a71e489914ac16fe7b0b9045d1707297ff98f6d9197af",
+    "archive_bytes": 371611366
+  },
+  {
+    "speaker_id": "EBVS",
+    "native_language": "Spanish",
+    "gender": "M",
+    "split": "dev",
+    "archive_url": "https://huggingface.co/datasets/chikingsley/l2-arctic-release-v5.0/resolve/cc02fd37197966e5de11ad737f7affd577c61992/EBVS.zip",
+    "archive_sha256": "12922bf6e2b5ecbda02aa128a37567e2c50633e091e66592e32a744419fe6301",
+    "archive_bytes": 283108726
+  },
+  {
+    "speaker_id": "NJS",
+    "native_language": "Spanish",
+    "gender": "F",
+    "split": "test",
+    "archive_url": "https://huggingface.co/datasets/chikingsley/l2-arctic-release-v5.0/resolve/cc02fd37197966e5de11ad737f7affd577c61992/NJS.zip",
+    "archive_sha256": "e1265e3cac53805016ca7188055b3c5f972198cc0a9f76854c445e6c8790aa5e",
+    "archive_bytes": 269707138
+  },
+  {
+    "speaker_id": "PNV",
+    "native_language": "Vietnamese",
+    "gender": "F",
+    "split": "train",
+    "archive_url": "https://huggingface.co/datasets/chikingsley/l2-arctic-release-v5.0/resolve/cc02fd37197966e5de11ad737f7affd577c61992/PNV.zip",
+    "archive_sha256": "71733b2e888c5a68227506d2eb6e078b057bd56e59d40a965bc9e1d9283ea28c",
+    "archive_bytes": 318888354
+  },
+  {
+    "speaker_id": "HQTV",
+    "native_language": "Vietnamese",
+    "gender": "M",
+    "split": "train",
+    "archive_url": "https://huggingface.co/datasets/chikingsley/l2-arctic-release-v5.0/resolve/cc02fd37197966e5de11ad737f7affd577c61992/HQTV.zip",
+    "archive_sha256": "0ee16e0f024f4cf321bde2f526646b030704367c4dbb11514ac57f74a899984a",
+    "archive_bytes": 324342162
+  },
+  {
+    "speaker_id": "TLV",
+    "native_language": "Vietnamese",
+    "gender": "M",
+    "split": "dev",
+    "archive_url": "https://huggingface.co/datasets/chikingsley/l2-arctic-release-v5.0/resolve/cc02fd37197966e5de11ad737f7affd577c61992/TLV.zip",
+    "archive_sha256": "86a0bfee50347f6c0cd506deb7d88fad7922155172699f921e20b66395a21461",
+    "archive_bytes": 350502173
+  },
+  {
+    "speaker_id": "THV",
+    "native_language": "Vietnamese",
+    "gender": "F",
+    "split": "test",
+    "archive_url": "https://huggingface.co/datasets/chikingsley/l2-arctic-release-v5.0/resolve/cc02fd37197966e5de11ad737f7affd577c61992/THV.zip",
+    "archive_sha256": "0446325ef61938834a9f8eb0086f19051317408ef469bd9ce0a44e7f8b7a6a38",
+    "archive_bytes": 322875956
+  }
+]

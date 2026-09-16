@@ -1,0 +1,27 @@
+{
+  "status": "completed",
+  "rows": 10469,
+  "speakers": 18,
+  "feature_signature": "56064b5bf0cb64284468f069d15c8fe9a477684e0a3ad1cb068ea2013376d829",
+  "test_access": false,
+  "speaker_receipt_sha256": {
+    "ABA.json": "11417216aa507412c44fa5ab6f1ec2b436450daaad8778a8aae891f5c30cf6ff",
+    "ASI.json": "6eded774ea47e2e67137baf790620a80e3ac7399716fa79e99c53b5fe4f569da",
+    "BWC.json": "d42d2f69a12d78befc6bda5969b48366b8764ba92393ef60988333e58d4e4e7f",
+    "EBVS.json": "d971c562e8bf45a4bde5a66faba185d54b2635ddb4e40c81279d758f864f79e8",
+    "ERMS.json": "09d967627a9cfa5241db28a3ff39c8bd104750e378e447b1233a936afdebd6f6",
+    "HJK.json": "9b1aa39ed3a10cf017a514293488afad2ec6bf2adcfc1c076ba832d2e5bfdbff",
+    "HKK.json": "c1d166eba277d9626f2bf64dabb9c0725b1c3e1fa01c3c6c03fc1d55f281077d",
+    "HQTV.json": "b339529f8f30b7771032ce29914a0225ac5e457082edde53e9eee63d60fefdb5",
+    "MBMPS.json": "98b3a4d5e13f4131520ccf119bf8c83bf41fb8d2aa59acb2c57600ae55f007f1",
+    "NCC.json": "f7ebc9a55fa8f22df863f2c856f31e69ddafe1219956fba361b3caf6d9d3cd5d",
+    "PNV.json": "c55c8428e9c1808627fc7bbd106c7bea4a7804cfbe342f4610d8555646b6109b",
+    "RRBI.json": "5ab7ab1e9ef4c06223f8246df2ff6cb68ef1299068ab0144d23869c61d8904eb",
+    "SKA.json": "6b76999fec7e43cb01db8eadf11c96c3ed8b9cb2f9a50b9e7771eaa288c1bc3f",
+    "SVBI.json": "788e76b8f2a82d77d8db7d27589d74e3bef383c594b215f120666da753ae778e",
+    "TLV.json": "8e60594200f2c48e5bea51eff8fe3ede92db27c88fb5e1fd8520a2897f6928bc",
+    "TXHC.json": "d2848ecf53fd5fd70d2f7e1ceb1c8cf68b5d0cf58630ddd02e368cef30a62ce1",
+    "YBAA.json": "e2b685a7a253bdc72a968f2eaffa866d7308a9bbff7335666ca0f2b61a31c05a",
+    "YDCK.json": "c59be3b784eefa32e9b05c008b8158b312080b9de5df11e15a52aa79e182013e"
+  }
+}

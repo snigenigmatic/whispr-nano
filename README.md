@@ -1,6 +1,27 @@
 # PW25_BJD_05 — Whose Indian Accent?
 
-**A significance-tested subgroup audit of Indian and frontier ASR systems**,
+> **Completed H100 experiment:** see [START_HERE.md](START_HERE.md) for all nine
+> audited runs, the final research report, evidence archive and offline
+> reproduction. The [AutoResearch review](docs/AUTORESEARCH_LOOP_REVIEW.md)
+> explains the frozen experiment contract, evaluation-access ledger and
+> independent result checks now implemented in [research/pilot](research/pilot/README.md).
+
+> **Research direction, September 9, 2026:** the sprint manuscript is retained as
+> a technical report and is **not recommended for submission in its current
+> form**. The [reviewer assessment and replacement experiment](docs/RESEARCH_RESET_20260909.md)
+> move the project toward a controlled study of teacher filtering, accent
+> coverage and recognition improvement. The [literature review](docs/RESEARCH_FRONTIER_20260909.md)
+> identifies the existing methods that a new contribution must improve upon.
+
+> **September 2026 reliability study:** the [paper package](paper/README.md)
+> supersedes the preliminary interpretation below. The original Saaras and open
+> model aggregates used different samples; independent-utterance Poisson tests
+> do not establish structural disparities. The revised study uses a matched
+> 450-utterance panel, two shared normalizers, native-language breakdowns, and
+> explicitly limited dependence diagnostics. Historical predictions are retained
+> unchanged for reproduction.
+
+**A subgroup audit of Indian and frontier ASR systems**,
 plus the on-policy-distillation side-quest that led to it. This repo is the
 working home for the Phase 3 pivot of PW25_BJD_05, a PES University
 capstone project.
@@ -16,14 +37,15 @@ capstone project.
 
 Phase 2 built an evaluation protocol for Indian-accented ASR: per-family
 (Indo-Aryan / Dravidian / Sino-Tibetan) WER on the [Svarah](https://huggingface.co/datasets/ai4bharat/svarah)
-benchmark, with a Poisson significance test so a gap is only reported as
-real if it clears p < 0.05. In August, Sarvam's flagship Saaras V3 was
+benchmark, originally using nominal Poisson tests. Those tests did not account
+for speaker or recording dependence and do not establish structural disparities.
+In August, Sarvam's flagship Saaras V3 was
 evaluated on that exact benchmark by its own team — with only an aggregate
 number, no subgroup breakdown, no significance test. Rather than keep
 competing on a training result against a funded lab, Phase 3 points our own
 protocol at every ASR system we can reach. Full story: [`docs/TEAM_BRIEF.md`](docs/TEAM_BRIEF.md).
 
-## The headline result: six systems, six structural gaps
+## Historical pilot results: original scoring and nominal Poisson tests
 
 | System | Overall WER | Worst family | ΔDP (pp) | Poisson p | n | Cost |
 |---|---|---|---|---|---|---|
@@ -34,12 +56,11 @@ protocol at every ASR system we can reach. Full story: [`docs/TEAM_BRIEF.md`](do
 | **Saaras V3** | **5.81%** (best overall) | Sino-Tibetan | 3.45 | 0.00023 | 450 | $0.226 |
 | Qwen3-ASR-0.6B | 15.49% | Sino-Tibetan | 3.57 | 0.0013 | 2,500 | $0.142 |
 
-Every system shows a statistically significant per-family gap, and
-Sino-Tibetan is the worst-performing family in all six — including Sarvam's
-own flagship (best overall WER, but doesn't close the fairness gap) and
-Qwen3-ASR (general-ASR SOTA elsewhere, but *worse* on this set than several
-Whisper variants). Total cost across all six systems: **$1.193**. Full
-writeup, per-family breakdown, and reproduction steps:
+The original scoring reported Sino-Tibetan as the highest-WER family for all
+six systems. The nominal p-values above do not establish population-level
+significance, and the unequal samples prevent a matched comparison between
+Saaras and the open models. The original recorded resource estimate was
+**$1.193**. Historical results, limitations and reproduction steps:
 [`audit/svarah_fairness_audit/README.md`](audit/svarah_fairness_audit/README.md).
 
 These numbers aren't just claimed — `audit/svarah_fairness_audit/assemble.py`

@@ -1,0 +1,54 @@
+Preparation complete; verifying teacher provenance and freezing selection.
+{
+  "full_gold": {
+    "n": 9495,
+    "hours": 9.598447946586043,
+    "native_language_counts": {
+      "Arabic": 1580,
+      "Spanish": 1584,
+      "Korean": 1582,
+      "Vietnamese": 1584,
+      "Mandarin": 1583,
+      "Hindi": 1582
+    },
+    "teacher_wer_pct": 7.838146747263365,
+    "teacher_rejected_included_n": 2764
+  },
+  "filtered10_gold": {
+    "n": 6731,
+    "hours": 6.766481229528849,
+    "native_language_counts": {
+      "Arabic": 1175,
+      "Spanish": 1172,
+      "Korean": 1186,
+      "Vietnamese": 848,
+      "Mandarin": 1031,
+      "Hindi": 1319
+    },
+    "teacher_wer_pct": 1.535055590825479,
+    "teacher_rejected_included_n": 0
+  },
+  "random_matched_gold": {
+    "n": 6731,
+    "hours": 6.790746636432351,
+    "native_language_counts": {
+      "Arabic": 1175,
+      "Spanish": 1172,
+      "Korean": 1186,
+      "Vietnamese": 848,
+      "Mandarin": 1031,
+      "Hindi": 1319
+    },
+    "teacher_wer_pct": 6.645492303933545,
+    "teacher_rejected_included_n": 1657
+  }
+}
+Starting seed 0 at 2026-09-09T07:55:31.176094+00:00
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Users/prateekraj/whispr-nano/research/pilot/run_schedule.py", line 59, in <module>
+    main()
+  File "/Users/prateekraj/whispr-nano/research/pilot/run_schedule.py", line 51, in main
+    raise RuntimeError(f'Seed wave {seed} stopped with code {process.returncode}; inspect {log}')
+RuntimeError: Seed wave 0 stopped with code 1; inspect /Users/prateekraj/whispr-nano/research/pilot/train-seed0.log

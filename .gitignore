@@ -19,3 +19,11 @@ venv/
 
 # Modal
 .modal.toml
+
+# Generated research artifacts kept on Modal or in evidence archives
+output/
+tmp/
+research/pilot/runs/
+research/pilot/selections_preflight_failed/
+research/h100/runs/
+research/h100/plans.json

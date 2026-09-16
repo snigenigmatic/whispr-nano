@@ -1,0 +1,123 @@
+✓ Initialized. View run at 
+https://modal.com/apps/snigenigmatic/main/ap-XvE25Dzbk35rFWXVuTcvQE
+✓ Created objects.
+├── 🔨 Created mount 
+│   /Users/prateekraj/whispr-nano/research/pilot/modal_runner.py
+├── 🔨 Created mount 
+│   /Users/prateekraj/whispr-nano/paper/data/whisper_normalizer.json
+├── 🔨 Created mount 
+│   /Users/prateekraj/whispr-nano/research/pilot/test_training.py
+├── 🔨 Created mount 
+│   /Users/prateekraj/whispr-nano/research/pilot/frozen_english_normalizer.py
+├── 🔨 Created mount /Users/prateekraj/whispr-nano/research/pilot/training.py
+├── 🔨 Created function prepare_speaker.
+├── 🔨 Created function teacher_speaker.
+└── 🔨 Created function train_model.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+[1ALoading weights:   0%|          | 0/1259 [00:00<?, ?it/s]
+[1ALoading weights:   6%|▌         | 72/1259 [00:00<00:01, 653.85it/s]
+[1ALoading weights:  11%|█         | 138/1259 [00:00<00:01, 635.03it/s]
+[1ALoading weights:  19%|█▊        | 235/1259 [00:00<00:01, 780.47it/s]
+[1ALoading weights:  26%|██▌       | 327/1259 [00:00<00:01, 825.93it/s]
+[1ALoading weights:  34%|███▎      | 423/1259 [00:00<00:00, 868.65it/s]
+[1ALoading weights:  42%|████▏     | 528/1259 [00:00<00:00, 915.16it/s]
+[1ALoading weights:  50%|████▉     | 629/1259 [00:00<00:00, 941.16it/s]
+[1ALoading weights:  58%|█████▊    | 731/1259 [00:00<00:00, 962.49it/s]
+[1ALoading weights:  66%|██████▌   | 828/1259 [00:00<00:00, 837.98it/s]
+[1ALoading weights:  73%|███████▎  | 915/1259 [00:01<00:00, 808.31it/s]
+[1ALoading weights:  79%|███████▉  | 998/1259 [00:01<00:00, 808.42it/s]
+[1ALoading weights:  86%|████████▌ | 1081/1259 [00:01<00:00, 769.04it/s]
+[1ALoading weights:  93%|█████████▎| 1171/1259 [00:01<00:00, 782.46it/s]
+[1ALoading weights: 100%|██████████| 1259/1259 [00:01<00:00, 832.27it/s]
+Teacher NCC: 4/791 in 10.0s
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+[1ALoading weights:   0%|          | 0/1259 [00:00<?, ?it/s]Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+[1ALoading weights:   6%|▌         | 70/1259 [00:00<00:01, 685.95it/s]
+[1ALoading weights:  11%|█         | 139/1259 [00:00<00:01, 621.50it/s]
+[1ALoading weights:  18%|█▊        | 231/1259 [00:00<00:01, 744.23it/s]
+[1ALoading weights:  26%|██▌       | 327/1259 [00:00<00:01, 821.56it/s]
+[1ALoading weights:  34%|███▎      | 423/1259 [00:00<00:00, 866.62it/s]
+[1ALoading weights:  42%|████▏     | 528/1259 [00:00<00:00, 913.06it/s]
+[1ALoading weights:  50%|████▉     | 626/1259 [00:00<00:00, 929.37it/s]
+[1ALoading weights:  58%|█████▊    | 731/1259 [00:00<00:00, 961.65it/s]Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+[1ALoading weights:  66%|██████▌   | 828/1259 [00:00<00:00, 837.88it/s]
+[1ALoading weights:  73%|███████▎  | 915/1259 [00:01<00:00, 818.15it/s]
+[1ALoading weights:  79%|███████▉  | 999/1259 [00:01<00:00, 763.79it/s]
+[1ALoading weights:   0%|          | 0/1259 [00:00<?, ?it/s]
+[1ALoading weights:  87%|████████▋ | 1092/1259 [00:01<00:00, 803.99it/s]
+[1ALoading weights:   6%|▌         | 72/1259 [00:00<00:01, 650.91it/s]
+[1ALoading weights:  93%|█████████▎| 1175/1259 [00:01<00:00, 801.06it/s]Loading weights: 100%|██████████| 1259/1259 [00:01<00:00, 832.18it/s]
+
+[1ALoading weights:  11%|█         | 139/1259 [00:00<00:01, 661.11it/s]
+[1ALoading weights:  18%|█▊        | 231/1259 [00:00<00:01, 774.87it/s]
+[1ALoading weights:  26%|██▌       | 327/1259 [00:00<00:01, 842.75it/s]
+[1ALoading weights:  34%|███▎      | 423/1259 [00:00<00:00, 869.07it/s]
+[1ALoading weights:  42%|████▏     | 528/1259 [00:00<00:00, 906.71it/s]
+[1ALoading weights:  49%|████▉     | 622/1259 [00:00<00:00, 917.15it/s]
+[1ALoading weights:  58%|█████▊    | 727/1259 [00:00<00:00, 956.16it/s]
+[1ALoading weights:   0%|          | 0/1259 [00:00<?, ?it/s]
+[1ALoading weights:  65%|██████▌   | 823/1259 [00:00<00:00, 880.84it/s]
+[1ALoading weights:  73%|███████▎  | 913/1259 [00:01<00:00, 800.07it/s]
+[1ALoading weights:   5%|▌         | 68/1259 [00:00<00:01, 673.26it/s]
+[1ALoading weights:  79%|███████▉  | 995/1259 [00:01<00:00, 767.92it/s]
+[1ALoading weights:  11%|█         | 136/1259 [00:00<00:01, 612.93it/s]
+[1ALoading weights:  86%|████████▋ | 1088/1259 [00:01<00:00, 807.70it/s]
+[1ALoading weights:  17%|█▋        | 212/1259 [00:00<00:01, 668.84it/s]
+[1ALoading weights:  24%|██▎       | 299/1259 [00:00<00:01, 744.93it/s]
+[1ALoading weights:  93%|█████████▎| 1171/1259 [00:01<00:00, 792.01it/s]Loading weights: 100%|██████████| 1259/1259 [00:01<00:00, 835.95it/s]
+
+[1ALoading weights:  30%|███       | 383/1259 [00:00<00:01, 778.08it/s]
+[1ALoading weights:  37%|███▋      | 465/1259 [00:00<00:01, 786.50it/s]
+[1ALoading weights:  43%|████▎     | 544/1259 [00:00<00:00, 785.97it/s]
+[1ALoading weights:  50%|████▉     | 626/1259 [00:00<00:00, 791.87it/s]
+[1ALoading weights:  56%|█████▌    | 707/1259 [00:00<00:00, 790.89it/s]
+[1ALoading weights:  63%|██████▎   | 787/1259 [00:01<00:00, 744.47it/s]
+[1ALoading weights:  69%|██████▊   | 863/1259 [00:01<00:00, 634.59it/s]
+[1ALoading weights:  74%|███████▍  | 934/1259 [00:01<00:00, 654.08it/s]
+[1ALoading weights:  80%|███████▉  | 1006/1259 [00:01<00:00, 662.40it/s]
+[1ALoading weights:  85%|████████▌ | 1075/1259 [00:01<00:00, 668.36it/s]
+[1ALoading weights:  91%|█████████ | 1144/1259 [00:01<00:00, 631.34it/s]
+[1ALoading weights:  97%|█████████▋| 1221/1259 [00:01<00:00, 668.23it/s]
+[1ALoading weights: 100%|██████████| 1259/1259 [00:01<00:00, 705.59it/s]
+Teacher MBMPS: 4/792 in 10.1s
+Teacher HQTV: 4/792 in 10.9s
+Teacher PNV: 4/792 in 11.1s
+Teacher NCC: 104/791 in 87.7s
+Teacher MBMPS: 104/792 in 90.0s
+Teacher HQTV: 104/792 in 89.7s
+Teacher PNV: 104/792 in 93.9s
+Teacher NCC: 204/791 in 162.1s
+Teacher MBMPS: 204/792 in 170.3s
+Teacher HQTV: 204/792 in 169.1s
+Teacher PNV: 204/792 in 174.7s
+Teacher NCC: 304/791 in 237.2s
+Teacher MBMPS: 304/792 in 251.0s
+Teacher HQTV: 304/792 in 250.1s
+Teacher PNV: 304/792 in 254.5s
+Teacher NCC: 404/791 in 315.3s
+Teacher HQTV: 404/792 in 330.6s
+Teacher MBMPS: 404/792 in 332.3s
+Teacher PNV: 404/792 in 338.0s
+Teacher NCC: 504/791 in 391.1s
+Teacher MBMPS: 504/792 in 410.6s
+Teacher HQTV: 504/792 in 410.6s
+Teacher PNV: 504/792 in 421.0s
+Teacher MBMPS: 604/792 in 456.2s
+Teacher NCC: 604/791 in 466.6s
+Teacher HQTV: 604/792 in 491.2s
+Teacher PNV: 604/792 in 496.7s
+Teacher MBMPS: 704/792 in 503.0s
+Teacher NCC: 704/791 in 532.0s
+Teacher MBMPS: 792/792 in 542.0s
+Teacher HQTV: 704/792 in 547.5s
+Teacher PNV: 704/792 in 555.4s
+Teacher NCC: 791/791 in 577.2s
+Teacher HQTV: 792/792 in 597.9s
+Teacher PNV: 792/792 in 607.0s
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/snigenigmatic/main/ap-XvE25Dzbk35rFWXVuTcvQE

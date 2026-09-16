@@ -1,0 +1,31 @@
+✓ Initialized. View run at 
+https://modal.com/apps/snigenigmatic/main/ap-Vk02VvuzDbfauPOhSLV9xA
+✓ Created objects.
+├── 🔨 Created mount 
+│   /Users/prateekraj/whispr-nano/paper/inference/modal_panel.py
+└── 🔨 Created function transcribe.
+
+[1ALoading weights:   0%|          | 0/167 [00:00<?, ?it/s]
+[1ALoading weights:  34%|███▎      | 56/167 [00:00<00:00, 356.42it/s]
+[1ALoading weights: 100%|██████████| 167/167 [00:00<00:00, 652.16it/s]
+[transformers] Passing `generation_config` together with generation-related arguments=({'begin_suppress_tokens', 'suppress_tokens'}) is deprecated and will be removed in future versions. Please pass either a `generation_config` object OR all generation parameters explicitly, but not both.
+[transformers] Both `max_new_tokens` (=200) and `max_length`(=448) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+[transformers] Ignoring clean_up_tokenization_spaces=True for BPE tokenizer WhisperTokenizer. The clean_up_tokenization post-processing step is designed for WordPiece tokenizers and is destructive for BPE (it strips spaces before punctuation). Set clean_up_tokenization_spaces=False to suppress this warning, or set clean_up_tokenization_spaces_for_bpe_even_though_it_will_corrupt_output=True to force cleanup anyway.
+[whisper-tiny] 4/12 in 7.4s
+[transformers] Both `max_new_tokens` (=200) and `max_length`(=448) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+[transformers] Both `max_new_tokens` (=200) and `max_length`(=448) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+[whisper-tiny] 12/12 in 8.8s
+{"model_id": "openai/whisper-tiny", "completed_rows": 12, "wall_seconds": 8.754544955, "estimated_resource_cost_usd": 0.0019760758872426}
+
+[1ALoading weights:   0%|          | 0/611 [00:00<?, ?it/s]
+[1ALoading weights:  12%|█▏        | 75/611 [00:00<00:01, 431.32it/s]
+[1ALoading weights:  32%|███▏      | 196/611 [00:00<00:00, 562.60it/s]
+[1ALoading weights:  49%|████▉     | 298/611 [00:00<00:00, 346.46it/s]
+[1ALoading weights:  99%|█████████▊| 603/611 [00:00<00:00, 835.85it/s]
+[1ALoading weights: 100%|██████████| 611/611 [00:00<00:00, 683.24it/s]
+[Qwen3-ASR-0.6B-hf] 4/12 in 16.2s
+[Qwen3-ASR-0.6B-hf] 12/12 in 19.7s
+{"model_id": "Qwen/Qwen3-ASR-0.6B-hf", "completed_rows": 12, "wall_seconds": 19.681047392, "estimated_resource_cost_usd": 0.00444240601732224}
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/snigenigmatic/main/ap-Vk02VvuzDbfauPOhSLV9xA

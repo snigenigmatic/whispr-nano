@@ -1,0 +1,59 @@
+{
+  "dataset_id": "ai4bharat/Svarah",
+  "dataset_revision": "ebbf7777fe771490696a3f7b007097606fa8c924",
+  "split": "test",
+  "dataset_fingerprint": "ac19cf30d32b3aae",
+  "features": {
+    "audio_filepath": {
+      "_type": "Audio"
+    },
+    "duration": {
+      "dtype": "float64",
+      "_type": "Value"
+    },
+    "text": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "gender": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "age-group": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "primary_language": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "native_place_state": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "native_place_district": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "highest_qualification": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "job_category": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "occupation_domain": {
+      "dtype": "string",
+      "_type": "Value"
+    }
+  },
+  "extracted_at_utc": "2026-09-09T06:42:52.849694+00:00",
+  "audio_bytes_exported": false,
+  "candidate_speaker_metadata_paths": [
+    "/legacy_data/fr_cispo/source/meta_speaker_stats.csv",
+    "/legacy_data/fr_cispo_profile/raw/Svarah/meta_speaker_stats.csv"
+  ],
+  "wall_seconds": 5.862723709,
+  "num_rows": 6656
+}

@@ -1,0 +1,30 @@
+{
+  "experiment_id": "l2arctic_selection_v1",
+  "contract_sha256": "85ce4dff6fdd44cec8d1cbb71183a8c8594466a510e13487329515692a0f27a0",
+  "ledger_events": 49,
+  "ledger_head": "720c380ce8734f108533bddc7c8601a823fc5d0f511d79d38ff3b601d1f69360",
+  "jobs": {
+    "filtered10_gold-seed0": "passed",
+    "filtered10_gold-seed1": "passed",
+    "filtered10_gold-seed2": "queued",
+    "full_gold-seed0": "passed",
+    "full_gold-seed1": "passed",
+    "full_gold-seed2": "queued",
+    "random_matched_gold-seed0": "passed",
+    "random_matched_gold-seed1": "running",
+    "random_matched_gold-seed2": "queued",
+    "scientific_assessment": "queued",
+    "smoke_prior": "passed"
+  },
+  "ready_jobs": [
+    "filtered10_gold-seed2",
+    "full_gold-seed2",
+    "random_matched_gold-seed2"
+  ],
+  "dev_queries_consumed": 14,
+  "dev_queries_actual_reported": 12,
+  "dev_reservations_charged": 12,
+  "dev_execution_receipts": 10,
+  "max_dev_queries": 20,
+  "final_test": "sealed"
+}
