@@ -1,0 +1,151 @@
+{
+  "analysis_scope": "reference_free_teacher_diagnostics",
+  "audit_contains_token_limit_row": false,
+  "audit_manifest_sha256": "c9ccf2f2f8b3998a7b1ce82e695e3e8be5031d0b4e87299923707f52f32006cb",
+  "by_accent": {
+    "Bengali": {
+      "mean_logprob": {
+        "p00": -1.6026978492736816,
+        "p10": -0.43289321660995483,
+        "p100": -0.010031531564891338,
+        "p25": -0.2968387305736542,
+        "p50": -0.18665462732315063,
+        "p75": -0.12293902784585953,
+        "p90": -0.07623511552810669
+      },
+      "repetition_flags": 0,
+      "rows": 800,
+      "token_limit_rows": 0,
+      "word_count": {
+        "p00": 2,
+        "p100": 76,
+        "p50": 10,
+        "p90": 32,
+        "p99": 60
+      }
+    },
+    "Hindi": {
+      "mean_logprob": {
+        "p00": -2.1130058765411377,
+        "p10": -0.5053517818450928,
+        "p100": -0.02130957879126072,
+        "p25": -0.3440490663051605,
+        "p50": -0.22110413014888763,
+        "p75": -0.13531529903411865,
+        "p90": -0.0880318135023117
+      },
+      "repetition_flags": 0,
+      "rows": 800,
+      "token_limit_rows": 0,
+      "word_count": {
+        "p00": 1,
+        "p100": 89,
+        "p50": 15,
+        "p90": 42,
+        "p99": 68
+      }
+    },
+    "Kannada": {
+      "mean_logprob": {
+        "p00": -3.7450268268585205,
+        "p10": -0.45134925842285156,
+        "p100": -0.020838817581534386,
+        "p25": -0.2835865914821625,
+        "p50": -0.17844891548156738,
+        "p75": -0.1139163225889206,
+        "p90": -0.07481063157320023
+      },
+      "repetition_flags": 0,
+      "rows": 800,
+      "token_limit_rows": 0,
+      "word_count": {
+        "p00": 1,
+        "p100": 72,
+        "p50": 11,
+        "p90": 35,
+        "p99": 62
+      }
+    },
+    "Marathi": {
+      "mean_logprob": {
+        "p00": -3.21618914604187,
+        "p10": -0.5535351634025574,
+        "p100": -0.01630675606429577,
+        "p25": -0.3533349633216858,
+        "p50": -0.2295125126838684,
+        "p75": -0.1366095244884491,
+        "p90": -0.08617675304412842
+      },
+      "repetition_flags": 0,
+      "rows": 800,
+      "token_limit_rows": 0,
+      "word_count": {
+        "p00": 1,
+        "p100": 79,
+        "p50": 14,
+        "p90": 35,
+        "p99": 57
+      }
+    },
+    "Tamil": {
+      "mean_logprob": {
+        "p00": -2.268434762954712,
+        "p10": -0.46433010697364807,
+        "p100": -0.023950861766934395,
+        "p25": -0.3262435495853424,
+        "p50": -0.21332472562789917,
+        "p75": -0.1409221589565277,
+        "p90": -0.09241655468940735
+      },
+      "repetition_flags": 1,
+      "rows": 800,
+      "token_limit_rows": 1,
+      "word_count": {
+        "p00": 2,
+        "p100": 119,
+        "p50": 16,
+        "p90": 38,
+        "p99": 69
+      }
+    },
+    "Telugu": {
+      "mean_logprob": {
+        "p00": -3.368865489959717,
+        "p10": -0.5045689940452576,
+        "p100": -0.00253385491669178,
+        "p25": -0.34639936685562134,
+        "p50": -0.22275492548942566,
+        "p75": -0.13324423134326935,
+        "p90": -0.07729572802782059
+      },
+      "repetition_flags": 1,
+      "rows": 800,
+      "token_limit_rows": 1,
+      "word_count": {
+        "p00": 1,
+        "p100": 150,
+        "p50": 17,
+        "p90": 43,
+        "p99": 66
+      }
+    }
+  },
+  "duplicate_prediction_text_instances": 28,
+  "interpretation": "These diagnostics detect truncation and mechanical repetition without target references. They do not establish transcript correctness; the frozen 120-clip human audit remains required.",
+  "pseudo_manifest_sha256": "5a098de515f9bd48004fdc9504dee58abaa345584583abe2892274d00a25fe66",
+  "repetition_flagged_rows": 2,
+  "repetition_flagged_utterance_ids": [
+    "IISc_SPIRE_SIES_M2211_51_1622784342673",
+    "IISc_SPIRE_SIES_M286_305_1638546087611_1"
+  ],
+  "repetition_rule": "at least 20 words and trigram-repeat fraction >=0.35 or identical-word run >=5",
+  "rows": 4800,
+  "status": "completed",
+  "token_limit_rows": 2,
+  "token_limit_utterance_ids": [
+    "IISc_SPIRE_SIES_M2211_51_1622784342673",
+    "IISc_SPIRE_SIES_M286_305_1638546087611_1"
+  ],
+  "unique_prediction_texts": 4772,
+  "unique_utterance_ids": 4800
+}
