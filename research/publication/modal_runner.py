@@ -61,6 +61,22 @@ training_image = (
     .add_local_file(ROOT / "paper/data/whisper_normalizer.json", "/root/normalizer.json")
 )
 
+speaker_image = (
+    modal.Image.debian_slim(python_version="3.12")
+    .apt_install("ffmpeg")
+    .pip_install(
+        "torch==2.13.0",
+        "torchaudio==2.13.0",
+        "speechbrain==1.0.3",
+        "huggingface_hub>=0.35,<2",
+        "soundfile==0.14.0",
+        "scipy==1.17.1",
+        "numpy==2.5.2",
+        "scikit-learn==1.7.2",
+    )
+    .env({"HF_HOME": "/cache/huggingface", "HF_HUB_ENABLE_HF_TRANSFER": "0"})
+)
+
 
 @app.function(
     image=data_image,
@@ -263,6 +279,194 @@ def prepare_target_manifest(plan: dict) -> dict:
     (output / "preparation_report.json").write_text(json.dumps(report, indent=2, sort_keys=True) + "\n")
     target_data.commit()
     return {**report, "manifest_text": manifest_text}
+
+
+@app.function(
+    image=speaker_image,
+    gpu="H100",
+    cpu=8,
+    memory=32768,
+    timeout=660,
+    startup_timeout=180,
+    retries=0,
+    max_containers=1,
+    scaledown_window=2,
+    secrets=[modal.Secret.from_name("huggingface")],
+    volumes={
+        "/source": source_data,
+        "/target": target_data,
+        "/outputs": results,
+        "/cache/huggingface": hf_cache,
+    },
+)
+def build_ecapa_clusters(plan: dict) -> dict:
+    """Extract pinned ECAPA utterance embeddings and freeze C=2 assignments."""
+    import hashlib
+    import json
+    import math
+    import time
+    from collections import Counter, defaultdict
+    from concurrent.futures import ThreadPoolExecutor
+
+    import numpy as np
+    import scipy.signal
+    import soundfile as sf
+    import torch
+    from huggingface_hub import snapshot_download
+    from sklearn.cluster import KMeans
+    from speechbrain.inference.speaker import EncoderClassifier
+
+    started = time.monotonic()
+    if (
+        plan["model_id"] != "speechbrain/spkrec-ecapa-voxceleb"
+        or plan["model_revision"] != "0f99f2d0ebe89ac095bcc5903c4dd8f72b367286"
+        or plan["clusters"] != 2
+        or plan["seed"] != 12
+    ):
+        raise ValueError("ECAPA or clustering protocol changed")
+    if plan["kmeans"] != {
+        "init": "k-means++", "n_init": 10, "max_iter": 300,
+        "tol": 0.0001, "algorithm": "lloyd", "random_state": 12,
+    }:
+        raise ValueError("frozen k-means configuration changed")
+    source_data.reload()
+    target_data.reload()
+    source_rows = plan["source_train_rows"]
+    if len(source_rows) != 9495 or len({row["utt_id"] for row in source_rows}) != 9495:
+        raise ValueError("source ECAPA cohort changed")
+    target_root = Path("/target/v1")
+    target_manifest = target_root / "manifest.jsonl"
+    if hashlib.sha256(target_manifest.read_bytes()).hexdigest() != plan["target_manifest_sha256"]:
+        raise ValueError("target ECAPA manifest hash changed")
+    target_rows = [json.loads(line) for line in target_manifest.read_text().splitlines() if line]
+    if len(target_rows) != 4800 or any("reference_text" in row for row in target_rows):
+        raise ValueError("target ECAPA cohort is labeled or incomplete")
+    snapshot = snapshot_download(
+        plan["model_id"], revision=plan["model_revision"],
+        cache_dir="/cache/huggingface/ecapa-snapshot",
+    )
+    classifier = EncoderClassifier.from_hparams(
+        source=snapshot, savedir="/tmp/ecapa-model", run_opts={"device": "cuda"}
+    )
+    torch.set_num_threads(8)
+
+    def embed(rows: list[dict], root: Path, name: str) -> tuple[list[str], np.ndarray]:
+        ordered = sorted(rows, key=lambda row: (row["duration_s"], row["utt_id"]))
+        output: dict[str, np.ndarray] = {}
+
+        def load(row: dict) -> tuple[np.ndarray, int]:
+            path = root / row["audio_path"]
+            payload = path.read_bytes()
+            if hashlib.sha256(payload).hexdigest() != row["audio_sha256"]:
+                raise ValueError(f"{name} ECAPA audio hash mismatch: {row['utt_id']}")
+            audio, sample_rate = sf.read(path, dtype="float32", always_2d=True)
+            duration = len(audio) / sample_rate
+            if not len(audio) or not np.isfinite(audio).all():
+                raise ValueError(f"invalid {name} ECAPA audio: {row['utt_id']}")
+            if abs(duration - row["duration_s"]) > max(0.02, 1 / sample_rate):
+                raise ValueError(f"{name} ECAPA duration mismatch: {row['utt_id']}")
+            audio = audio.mean(axis=1)
+            if sample_rate != 16000:
+                divisor = math.gcd(sample_rate, 16000)
+                audio = scipy.signal.resample_poly(
+                    audio, 16000 // divisor, sample_rate // divisor
+                ).astype(np.float32)
+            return audio, len(audio)
+
+        for begin in range(0, len(ordered), 64):
+            if time.monotonic() - started > 600:
+                raise TimeoutError("ECAPA extraction stopped before its hard timeout")
+            batch_rows = ordered[begin : begin + 64]
+            with ThreadPoolExecutor(max_workers=16) as pool:
+                loaded = list(pool.map(load, batch_rows))
+            lengths = [length for _, length in loaded]
+            padded = np.zeros((len(loaded), max(lengths)), dtype=np.float32)
+            for index, (audio, length) in enumerate(loaded):
+                padded[index, :length] = audio
+            wavs = torch.from_numpy(padded).to("cuda")
+            wav_lens = torch.tensor(
+                [length / max(lengths) for length in lengths], dtype=torch.float32, device="cuda"
+            )
+            with torch.inference_mode():
+                vectors = classifier.encode_batch(wavs, wav_lens).squeeze(1).detach().cpu().numpy()
+            if vectors.shape != (len(batch_rows), 192) or not np.isfinite(vectors).all():
+                raise ValueError(f"invalid {name} ECAPA embedding tensor")
+            for row, vector in zip(batch_rows, vectors):
+                output[row["utt_id"]] = vector.astype(np.float32)
+            if len(output) % 960 == 0 or len(output) == len(ordered):
+                print(f"ECAPA {name} embedded {len(output)}/{len(ordered)}", flush=True)
+        ids = sorted(output)
+        return ids, np.stack([output[uid] for uid in ids])
+
+    source_ids, source_embeddings = embed(
+        source_rows, Path("/source/l2arctic"), "source"
+    )
+    target_ids, target_embeddings = embed(target_rows, target_root, "target")
+    kmeans = KMeans(**plan["kmeans"], n_clusters=2)
+    source_labels = kmeans.fit_predict(source_embeddings)
+    counts = Counter(int(value) for value in source_labels)
+    if set(counts) != {0, 1} or min(counts.values()) < 1000:
+        raise ValueError(f"degenerate source ECAPA clusters: {counts}")
+    source_assignments = {
+        uid: int(cluster) for uid, cluster in zip(source_ids, source_labels)
+    }
+    target_by_id = {uid: vector for uid, vector in zip(target_ids, target_embeddings)}
+    speaker_vectors: dict[str, list[np.ndarray]] = defaultdict(list)
+    for row in target_rows:
+        speaker_vectors[row["speaker_id"]].append(target_by_id[row["utt_id"]])
+    centroids = kmeans.cluster_centers_.astype(np.float64)
+    centroids /= np.linalg.norm(centroids, axis=1, keepdims=True)
+    speaker_assignments = {}
+    for speaker, vectors in sorted(speaker_vectors.items()):
+        vector = np.mean(np.stack(vectors).astype(np.float64), axis=0)
+        vector /= np.linalg.norm(vector)
+        speaker_assignments[speaker] = int(np.argmax(centroids @ vector))
+    target_counts = Counter(speaker_assignments.values())
+    target_weights = [target_counts[index] / len(speaker_assignments) for index in range(2)]
+    if abs(sum(target_weights) - 1.0) > 1e-12 or min(target_weights) <= 0:
+        raise ValueError("invalid target-conditioned cluster weights")
+    output = Path("/outputs/seed12/ecapa_c2")
+    if output.exists():
+        raise ValueError(f"ECAPA output path already exists: {output}")
+    output.mkdir(parents=True)
+    npz_path = output / "embeddings.npz"
+    np.savez_compressed(
+        npz_path, source_ids=np.array(source_ids), source_embeddings=source_embeddings,
+        target_ids=np.array(target_ids), target_embeddings=target_embeddings,
+        source_centroids=kmeans.cluster_centers_.astype(np.float32),
+    )
+    assignments = {
+        "source_utterance_cluster": source_assignments,
+        "target_speaker_cluster": speaker_assignments,
+        "target_speaker_conditioned_weights": target_weights,
+    }
+    assignment_text = json.dumps(assignments, indent=2, sort_keys=True) + "\n"
+    assignment_path = output / "assignments.json"
+    assignment_path.write_text(assignment_text)
+    wall_seconds = time.monotonic() - started
+    report = {
+        "run_id": plan["run_id"], "status": "completed",
+        "model_id": plan["model_id"], "model_revision": plan["model_revision"],
+        "source_utterances": len(source_ids), "target_utterances": len(target_ids),
+        "target_speakers": len(speaker_assignments), "embedding_dimension": 192,
+        "clusters": 2, "kmeans": plan["kmeans"],
+        "source_cluster_counts": {str(key): counts[key] for key in sorted(counts)},
+        "target_speaker_cluster_counts": {
+            str(key): target_counts[key] for key in sorted(target_counts)
+        },
+        "target_speaker_conditioned_weights": target_weights,
+        "weighting_rule": "equal-target-speaker nearest source-centroid assignment proportions",
+        "target_reference_examples_read": 0,
+        "source_embeddings_sha256": hashlib.sha256(source_embeddings.tobytes()).hexdigest(),
+        "target_embeddings_sha256": hashlib.sha256(target_embeddings.tobytes()).hexdigest(),
+        "embeddings_npz_sha256": hashlib.sha256(npz_path.read_bytes()).hexdigest(),
+        "assignments_sha256": hashlib.sha256(assignment_text.encode()).hexdigest(),
+        "gpu": torch.cuda.get_device_name(), "wall_seconds": wall_seconds,
+        "estimated_resource_cost_usd": wall_seconds * H100_RATE_PER_SECOND,
+    }
+    (output / "receipt.json").write_text(json.dumps(report, indent=2, sort_keys=True) + "\n")
+    results.commit()
+    return {**report, "assignments_text": assignment_text}
 
 
 @app.function(

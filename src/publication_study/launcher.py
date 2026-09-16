@@ -228,6 +228,92 @@ def run_target_preparation(config: dict, contract: StudyContract) -> dict:
     return result
 
 
+def ecapa_cluster_plan(config: dict, contract: StudyContract) -> dict:
+    """Bind every speaker-embedding input to the frozen manifests and hashes."""
+    import hashlib
+
+    manifest = _load_jsonl(ROOT / "research/pilot/data/manifest.jsonl")
+    receipts = _feature_receipts()
+    source = []
+    for row in manifest:
+        if row["split"] != "train":
+            continue
+        receipt = receipts.get(row["utt_id"])
+        if receipt is None:
+            raise ValueError(f"missing source feature receipt: {row['utt_id']}")
+        source.append({
+            "utt_id": row["utt_id"],
+            "speaker_id": row["speaker_id"],
+            "native_language": row["native_language"],
+            "audio_path": row["audio_path"],
+            "audio_sha256": receipt["audio_sha256"],
+            "duration_s": receipt["duration_s"],
+        })
+    if len(source) != 9495 or len({row["utt_id"] for row in source}) != 9495:
+        raise ValueError("pinned source ECAPA cohort changed")
+    target_report_path = ROOT / "research/publication/data/spire_target_train_v1.report.json"
+    target_report = json.loads(target_report_path.read_text(encoding="utf-8"))
+    target_manifest_path = ROOT / "research/publication/data/spire_target_train_v1.jsonl"
+    if hashlib.sha256(target_manifest_path.read_bytes()).hexdigest() != target_report["manifest_sha256"]:
+        raise ValueError("local target manifest hash changed")
+    if contract.seed != 12:
+        raise ValueError("ECAPA feasibility batch is frozen to seed 12")
+    return {
+        "run_id": config["run_id"],
+        "model_id": "speechbrain/spkrec-ecapa-voxceleb",
+        "model_revision": "0f99f2d0ebe89ac095bcc5903c4dd8f72b367286",
+        "seed": contract.seed,
+        "clusters": 2,
+        "kmeans": {
+            "init": "k-means++", "n_init": 10, "max_iter": 300,
+            "tol": 0.0001, "algorithm": "lloyd", "random_state": 12,
+        },
+        "source_train_rows": source,
+        "target_manifest_sha256": target_report["manifest_sha256"],
+        "target_reference_examples_read": 0,
+    }
+
+
+def run_ecapa_clusters(config: dict, contract: StudyContract) -> dict:
+    from research.publication.modal_runner import app, build_ecapa_clusters
+    import hashlib
+
+    ensure_live_budget()
+    ledger = BudgetLedger(BUDGET_PATH)
+    plan = ecapa_cluster_plan(config, contract)
+    plan_hash = canonical_json_hash(plan)
+    ledger.reserve(config["run_id"], 0.85, plan_hash)
+    with app.run():
+        result = build_ecapa_clusters.remote(plan)
+    assignment_text = result.pop("assignments_text")
+    assignment_hash = hashlib.sha256(assignment_text.encode()).hexdigest()
+    if assignment_hash != result["assignments_sha256"]:
+        raise RuntimeError("ECAPA assignment transfer hash mismatch")
+    assignments = json.loads(assignment_text)
+    if (
+        len(assignments["source_utterance_cluster"]) != 9495
+        or len(assignments["target_speaker_cluster"]) != 799
+        or set(assignments["source_utterance_cluster"].values()) != {0, 1}
+        or set(assignments["target_speaker_cluster"].values()) != {0, 1}
+    ):
+        raise RuntimeError("ECAPA assignment cohort is incomplete")
+    weights = assignments["target_speaker_conditioned_weights"]
+    if len(weights) != 2 or abs(sum(weights) - 1.0) > 1e-12 or min(weights) <= 0:
+        raise RuntimeError("invalid target-conditioned weights")
+    measured = float(result["estimated_resource_cost_usd"])
+    if measured > 0.85:
+        raise RuntimeError("ECAPA extraction exceeded its reservation")
+    receipt_hash = canonical_json_hash(result)
+    ledger.complete(config["run_id"], measured, receipt_hash)
+    data = ROOT / "research/publication/data"
+    (data / "ecapa_c2_assignments.json").write_text(assignment_text, encoding="utf-8")
+    atomic_json(
+        ROOT / "research/publication/results/ecapa_c2/receipt.json",
+        {**result, "plan_sha256": plan_hash, "receipt_sha256": receipt_hash},
+    )
+    return result
+
+
 def run_target_teacher(config: dict, contract: StudyContract) -> dict:
     from research.publication.modal_runner import (
         app,
@@ -589,6 +675,8 @@ def main() -> int:
         result = run_source_endpoints(config, contract)
     elif config["action"] == "prepare_target_manifest":
         result = run_target_preparation(config, contract)
+    elif config["action"] == "build_ecapa_clusters":
+        result = run_ecapa_clusters(config, contract)
     elif config["action"] == "label_target_teacher":
         result = run_target_teacher(config, contract)
     elif config["action"] == "train_target_pseudo":
