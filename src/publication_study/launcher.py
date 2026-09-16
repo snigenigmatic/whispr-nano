@@ -751,6 +751,101 @@ def run_tune_global_pseudo2real(config: dict, contract: StudyContract) -> dict:
     return result
 
 
+def sc_correction_plan(config: dict) -> dict:
+    import hashlib
+
+    checkpoint_receipts = {}
+    for kind in ("real", "pseudo"):
+        for cluster in (0, 1):
+            arm = f"source_{kind}_c{cluster}"
+            receipt = json.loads(
+                (ROOT / f"research/publication/results/sc_c2/{arm}/receipt.json").read_text()
+            )
+            if receipt.get("status") != "completed":
+                raise ValueError(f"{arm} endpoint is not complete")
+            checkpoint_receipts[arm] = receipt
+    target = json.loads(
+        (ROOT / "research/publication/results/target_pseudo/receipt.json").read_text()
+    )
+    initial_states = {
+        receipt["initial_state_sha256"] for receipt in [*checkpoint_receipts.values(), target]
+    }
+    if len(initial_states) != 1:
+        raise ValueError("SC endpoint initial model states differ")
+    assignment_path = ROOT / "research/publication/data/ecapa_c2_assignments.json"
+    assignment_receipt = json.loads(
+        (ROOT / "research/publication/results/ecapa_c2/receipt.json").read_text()
+    )
+    if hashlib.sha256(assignment_path.read_bytes()).hexdigest() != assignment_receipt["assignments_sha256"]:
+        raise ValueError("SC assignment hash changed")
+    assignments = json.loads(assignment_path.read_text())
+    target_weights = assignments["target_speaker_conditioned_weights"]
+    if len(target_weights) != 2 or abs(sum(target_weights) - 1.0) > 1e-12:
+        raise ValueError("invalid target-conditioned weights")
+    manifest = _load_jsonl(ROOT / "research/pilot/data/manifest.jsonl")
+    dev = [row for row in manifest if row["split"] == "dev"]
+    feature_receipts = _feature_receipts()
+    checkpoint_sha256 = {
+        arm: receipt["checkpoint_sha256"] for arm, receipt in checkpoint_receipts.items()
+    }
+    checkpoint_sha256["target_pseudo"] = target["checkpoint_sha256"]
+    return {
+        "run_id": config["run_id"], "output_path": "seed12/sc_c2_tuned",
+        "scales": [round(index / 10, 1) for index in range(1, 11)],
+        "method_weights": {
+            "published_uniform": [0.5, 0.5],
+            "target_conditioned": target_weights,
+        },
+        "weighting_rules": {
+            "published_uniform": "uniform mean of the C source correction vectors",
+            "target_conditioned": (
+                "fraction of target speakers whose mean ECAPA embedding is nearest to each "
+                "source utterance k-means centroid"
+            ),
+        },
+        "cluster_assignment_sha256": assignment_receipt["assignments_sha256"],
+        "checkpoint_sha256": checkpoint_sha256,
+        "training_code_sha256": hashlib.sha256(
+            (ROOT / "research/pilot/training.py").read_bytes()
+        ).hexdigest(),
+        "arithmetic_code_sha256": hashlib.sha256(
+            (ROOT / "src/publication_study/arithmetic.py").read_bytes()
+        ).hexdigest(),
+        "source_dev_rows": dev,
+        "source_dev_receipts": {
+            row["utt_id"]: feature_receipts[row["utt_id"]] for row in dev
+        },
+        "uncorrected_lambda_0_source_dev": {
+            "english_macro_wer": target["final_dev_metrics"]["english"]["macro_language_wer"],
+            "english_micro_wer": target["final_dev_metrics"]["english"]["micro_wer"],
+            "prediction_sha256": target["artifacts"]["final_dev_predictions.jsonl"],
+        },
+        "target_validation_examples_read": 0,
+    }
+
+
+def run_tune_sc_correction_bank(config: dict) -> dict:
+    from research.publication.modal_runner import app, tune_sc_correction_bank
+
+    ensure_live_budget()
+    ledger = BudgetLedger(BUDGET_PATH)
+    plan = sc_correction_plan(config)
+    plan_hash = canonical_json_hash(plan)
+    ledger.reserve(config["run_id"], 0.70, plan_hash)
+    with app.run():
+        result = tune_sc_correction_bank.remote(plan)
+    measured = float(result["estimated_resource_cost_usd"])
+    if measured > 0.70:
+        raise RuntimeError("SC correction grid exceeded its reservation")
+    receipt_hash = canonical_json_hash(result)
+    ledger.complete(config["run_id"], measured, receipt_hash)
+    atomic_json(
+        ROOT / "research/publication/results/sc_c2_tuned/receipt.json",
+        {**result, "plan_sha256": plan_hash, "receipt_sha256": receipt_hash},
+    )
+    return result
+
+
 def main() -> int:
     contract = StudyContract.load(CONTRACT_PATH)
     config = json.loads(RUN_PATH.read_text(encoding="utf-8"))
@@ -783,6 +878,8 @@ def main() -> int:
         result = run_global_pseudo2real(config, contract)
     elif config["action"] == "tune_global_pseudo2real":
         result = run_tune_global_pseudo2real(config, contract)
+    elif config["action"] == "tune_sc_correction_bank":
+        result = run_tune_sc_correction_bank(config)
     else:
         raise SystemExit(f"unknown publication action: {config['action']}")
     print("===== RESULT SUMMARY =====", flush=True)

@@ -68,6 +68,7 @@ speaker_image = (
         "torch==2.11.0",
         "torchaudio==2.11.0",
         "speechbrain==1.0.3",
+        "requests==2.32.5",
         "huggingface_hub>=0.35,<2",
         "soundfile==0.14.0",
         "scipy==1.17.1",
@@ -1471,6 +1472,238 @@ def tune_global_pseudo2real(plan: dict) -> dict:
         "source_dev_utterances_per_scale": len(rows), "scales_evaluated": len(grid),
         "target_validation_examples_read": 0, "staged_source_dev_features": len(staged),
         "selected_checkpoint_sha256": checkpoint_sha,
+        "scale_selection_sha256": core.sha256_file(report_path),
+        "grid": grid, "gpu": torch.cuda.get_device_name(),
+        "wall_seconds": wall_seconds,
+        "estimated_resource_cost_usd": wall_seconds * H100_RATE_PER_SECOND,
+    }
+    (output / "receipt.json").write_text(json.dumps(receipt, indent=2, sort_keys=True) + "\n")
+    results.commit()
+    return json.loads(json.dumps(receipt))
+
+
+@app.function(
+    image=training_image,
+    gpu="H100",
+    cpu=8,
+    memory=32768,
+    timeout=600,
+    startup_timeout=180,
+    retries=0,
+    max_containers=1,
+    scaledown_window=2,
+    volumes={
+        "/source": source_data,
+        "/outputs": results,
+        "/cache/huggingface": hf_cache,
+    },
+)
+def tune_sc_correction_bank(plan: dict) -> dict:
+    """Tune published uniform SC and target-conditioned C=2 banks on source dev."""
+    import hashlib
+    import importlib.util
+    import json
+    import shutil
+    import sys
+    import time
+    from concurrent.futures import ThreadPoolExecutor
+
+    import numpy as np
+    import torch
+    from safetensors.torch import load_file, save_file
+    from transformers import WhisperForConditionalGeneration, WhisperProcessor
+
+    started = time.monotonic()
+    train_spec = importlib.util.spec_from_file_location(
+        "publication_sc_eval", "/root/research/pilot/training.py"
+    )
+    core = importlib.util.module_from_spec(train_spec)
+    sys.modules[train_spec.name] = core
+    train_spec.loader.exec_module(core)
+    arithmetic_spec = importlib.util.spec_from_file_location(
+        "publication_sc_arithmetic", "/root/src/publication_study/arithmetic.py"
+    )
+    arithmetic = importlib.util.module_from_spec(arithmetic_spec)
+    arithmetic_spec.loader.exec_module(arithmetic)
+    if core.sha256_file(Path(core.__file__)) != plan["training_code_sha256"]:
+        raise ValueError("SC evaluator training source changed")
+    if core.sha256_file(Path(arithmetic.__file__)) != plan["arithmetic_code_sha256"]:
+        raise ValueError("SC correction arithmetic source changed")
+    expected_scales = [round(index / 10, 1) for index in range(1, 11)]
+    if plan["scales"] != expected_scales or len(plan["source_dev_rows"]) != 974:
+        raise ValueError("SC source-dev scale grid changed")
+    if set(plan["method_weights"]) != {"published_uniform", "target_conditioned"}:
+        raise ValueError("SC comparison set changed")
+    if plan["method_weights"]["published_uniform"] != [0.5, 0.5]:
+        raise ValueError("published SC must uniformly average its two correction vectors")
+    for weights in plan["method_weights"].values():
+        if len(weights) != 2 or min(weights) < 0 or abs(sum(weights) - 1.0) > 1e-12:
+            raise ValueError("invalid frozen SC weights")
+    checkpoints = {
+        f"source_{kind}_c{cluster}": Path(
+            f"/outputs/seed12/sc_c2/source_{kind}_c{cluster}/checkpoint_last"
+        )
+        for kind in ("real", "pseudo") for cluster in (0, 1)
+    }
+    checkpoints["target_pseudo"] = Path("/outputs/seed12/target_pseudo/checkpoint_last")
+    model_paths = {name: path / "model.safetensors" for name, path in checkpoints.items()}
+    for name, path in model_paths.items():
+        if core.sha256_file(path) != plan["checkpoint_sha256"][name]:
+            raise ValueError(f"SC tuner {name} checkpoint hash mismatch")
+    states = {name: load_file(str(path), device="cpu") for name, path in model_paths.items()}
+    real_states = [states[f"source_real_c{cluster}"] for cluster in (0, 1)]
+    pseudo_states = [states[f"source_pseudo_c{cluster}"] for cluster in (0, 1)]
+    local_features = Path("/tmp/publication-sc-features")
+    local_features.mkdir(parents=True)
+    receipts = plan["source_dev_receipts"]
+
+    def stage(row: dict) -> str:
+        receipt = receipts[row["utt_id"]]
+        payload = (Path("/source/feature_cache/frozen-v1") / receipt["feature_file"]).read_bytes()
+        if hashlib.sha256(payload).hexdigest() != receipt["feature_sha256"]:
+            raise ValueError(f"SC tuner source feature hash mismatch: {row['utt_id']}")
+        (local_features / receipt["feature_file"]).write_bytes(payload)
+        return row["utt_id"]
+
+    with ThreadPoolExecutor(max_workers=32) as pool:
+        staged = list(pool.map(stage, plan["source_dev_rows"]))
+    target_checkpoint = checkpoints["target_pseudo"]
+    processor = WhisperProcessor.from_pretrained(target_checkpoint, local_files_only=True)
+    model = WhisperForConditionalGeneration.from_pretrained(
+        target_checkpoint, local_files_only=True,
+        torch_dtype=torch.float32, attn_implementation="eager",
+    ).to("cuda").eval()
+    from research.pilot.frozen_english_normalizer import EnglishTextNormalizer
+    english_normalize = EnglishTextNormalizer(json.loads(Path("/root/normalizer.json").read_text()))
+    rows = sorted(plan["source_dev_rows"], key=lambda row: row["utt_id"])
+    feature_batches = []
+    for begin in range(0, len(rows), 8):
+        chunk = rows[begin : begin + 8]
+        values = []
+        for row in chunk:
+            value = np.load(
+                local_features / receipts[row["utt_id"]]["feature_file"], allow_pickle=False
+            )
+            if value.shape != (80, 3000) or value.dtype != np.float32 or not np.isfinite(value).all():
+                raise ValueError(f"invalid SC tuner source feature: {row['utt_id']}")
+            values.append(value)
+        feature_batches.append((chunk, np.stack(values)))
+    generation = {
+        "language": "en", "task": "transcribe", "return_timestamps": False,
+        "max_new_tokens": 224, "do_sample": False, "num_beams": 1, "use_cache": True,
+    }
+    output = Path("/outputs") / plan["output_path"]
+    if output.exists():
+        raise ValueError(f"output path already exists: {output}")
+    output.mkdir(parents=True)
+    grid = []
+    selected_by_method = {}
+    selected_states = {}
+    for method, weights in plan["method_weights"].items():
+        candidate_dir = output / "candidates" / method
+        candidate_dir.mkdir(parents=True)
+        method_grid = []
+        for scale in plan["scales"]:
+            corrected, correction = arithmetic.apply_weighted_correction(
+                real_states, pseudo_states, states["target_pseudo"], weights, scale
+            )
+            incompatible = model.load_state_dict(corrected, strict=False)
+            if incompatible.missing_keys != ["proj_out.weight"] or incompatible.unexpected_keys:
+                raise ValueError(
+                    "SC checkpoint keys differ beyond Whisper's tied projection weight: "
+                    f"missing={incompatible.missing_keys} unexpected={incompatible.unexpected_keys}"
+                )
+            if model.proj_out.weight.data_ptr() != model.model.decoder.embed_tokens.weight.data_ptr():
+                raise ValueError("Whisper output projection is not tied to decoder embeddings")
+            model.eval()
+            predictions = []
+            with torch.inference_mode():
+                for chunk, values in feature_batches:
+                    generated = model.generate(
+                        input_features=torch.from_numpy(values).to("cuda"), **generation
+                    )
+                    hypotheses = processor.batch_decode(
+                        generated, skip_special_tokens=True, clean_up_tokenization_spaces=False
+                    )
+                    for row, hypothesis, sequence in zip(chunk, hypotheses, generated.cpu().tolist()):
+                        reference, hypothesis = row["reference_text"], hypothesis.strip()
+                        predictions.append({
+                            **{key: row[key] for key in (
+                                "utt_id", "speaker_id", "native_language", "prompt_id", "split"
+                            )},
+                            "reference_text": reference, "prediction": hypothesis,
+                            "generated_token_ids": sequence, "method": method, "scale": scale,
+                            "minimal": core.word_counts(
+                                core.minimal_normalize(reference), core.minimal_normalize(hypothesis)
+                            ),
+                            "english": core.word_counts(
+                                english_normalize(reference), english_normalize(hypothesis)
+                            ),
+                        })
+            metrics = core.summarize_predictions(predictions)
+            label = f"lambda_{scale:.1f}".replace(".", "p")
+            prediction_path = candidate_dir / f"{label}_predictions.jsonl"
+            prediction_path.write_text("".join(
+                json.dumps(row, ensure_ascii=False, sort_keys=True) + "\n" for row in predictions
+            ))
+            metrics_path = candidate_dir / f"{label}_metrics.json"
+            metrics_path.write_text(json.dumps(metrics, indent=2, sort_keys=True) + "\n")
+            entry = {
+                "method": method, "weights": weights, "scale": scale,
+                "correction": correction,
+                "english_macro_wer": metrics["english"]["macro_language_wer"],
+                "english_micro_wer": metrics["english"]["micro_wer"],
+                "prediction_sha256": core.sha256_file(prediction_path),
+                "metrics_sha256": core.sha256_file(metrics_path),
+            }
+            method_grid.append(entry)
+            grid.append(entry)
+            print(
+                f"{method} scale {scale:.1f} macro WER {entry['english_macro_wer']:.6f}",
+                flush=True,
+            )
+        selected = min(method_grid, key=lambda row: (row["english_macro_wer"], row["scale"]))
+        selected_state, selected_correction = arithmetic.apply_weighted_correction(
+            real_states, pseudo_states, states["target_pseudo"], weights, selected["scale"]
+        )
+        checkpoint = output / method / "checkpoint_last"
+        checkpoint.mkdir(parents=True)
+        for source in target_checkpoint.iterdir():
+            if source.is_file() and source.name not in {"model.safetensors", "training_state.pt"}:
+                shutil.copy2(source, checkpoint / source.name)
+        save_file(selected_state, str(checkpoint / "model.safetensors"), metadata={
+            "format": "pt", "formula": selected_correction["formula"],
+            "scale": str(selected["scale"]), "weights": json.dumps(weights),
+            "selection": "source_dev_macro_wer",
+        })
+        selected_states[method] = core.sha256_file(checkpoint / "model.safetensors")
+        selected_by_method[method] = {
+            "scale": selected["scale"],
+            "source_dev_english_macro_wer": selected["english_macro_wer"],
+            "source_dev_english_micro_wer": selected["english_micro_wer"],
+            "weights": weights, "correction": selected_correction,
+            "checkpoint_sha256": selected_states[method],
+        }
+    report = {
+        "status": "completed", "selection_metric": "source_dev_english_macro_wer",
+        "target_validation_examples_read": 0,
+        "weighting_rules": plan["weighting_rules"],
+        "method_weights": plan["method_weights"], "scales": plan["scales"],
+        "uncorrected_lambda_0_source_dev": plan["uncorrected_lambda_0_source_dev"],
+        "grid": grid, "selected_by_method": selected_by_method,
+        "input_checkpoint_sha256": plan["checkpoint_sha256"],
+        "cluster_assignment_sha256": plan["cluster_assignment_sha256"],
+    }
+    report_path = output / "scale_selection.json"
+    report_path.write_text(json.dumps(report, indent=2, sort_keys=True) + "\n")
+    wall_seconds = time.monotonic() - started
+    receipt = {
+        "run_id": plan["run_id"], "status": "completed",
+        "methods": ["published_uniform", "target_conditioned"],
+        "selection_metric": report["selection_metric"],
+        "source_dev_utterances_per_candidate": len(rows), "candidates_evaluated": len(grid),
+        "target_validation_examples_read": 0, "staged_source_dev_features": len(staged),
+        "selected_by_method": selected_by_method,
         "scale_selection_sha256": core.sha256_file(report_path),
         "grid": grid, "gpu": torch.cuda.get_device_name(),
         "wall_seconds": wall_seconds,
