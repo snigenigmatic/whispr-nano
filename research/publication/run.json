@@ -1,4 +1,4 @@
 {
-  "action": "label_target_teacher",
-  "run_id": "label-spire-target-large-v3-seed12-v6"
+  "action": "train_target_pseudo",
+  "run_id": "train-target-pseudo-seed12-v1"
 }
