@@ -29,6 +29,7 @@ data_image = (
         "soundfile==0.14.0",
         "torchcodec==0.16.0",
     )
+    .env({"HF_HOME": "/cache/huggingface", "HF_HUB_ENABLE_HF_TRANSFER": "0"})
 )
 
 H100_RATE_PER_SECOND = 0.001097 + 8 * 0.0000131 + 32 * 0.00000222
@@ -71,7 +72,7 @@ def inspect_spire_train() -> dict:
     import time
     from collections import Counter
 
-    from datasets import Audio, get_dataset_split_names, load_dataset, load_dataset_builder
+    from datasets import get_dataset_split_names, load_dataset, load_dataset_builder
 
     os.environ["HF_HOME"] = "/cache/huggingface"
     started = time.monotonic()
@@ -80,18 +81,23 @@ def inspect_spire_train() -> dict:
     builder = load_dataset_builder(repo_id)
     if "train" not in splits:
         raise RuntimeError(f"SPIRE dataset has no train split: {splits}")
-    stream = load_dataset(repo_id, split="train", streaming=True)
-    feature_names = sorted(stream.features) if stream.features else []
-    # Constructing a streaming row decodes Audio columns even if user code does
-    # not index that field. Explicitly disable decode before metadata iteration.
-    for name, feature in (stream.features or {}).items():
-        if feature.__class__.__name__ == "Audio":
-            stream = stream.cast_column(name, Audio(decode=False))
+    dataset = load_dataset(repo_id, split="train")
+    feature_names = sorted(dataset.features) if dataset.features else []
+    # Reuse the verified August cache. Remove audio and transcript columns from
+    # the Arrow view before iteration, so neither bytes nor labels are copied
+    # into Python rows during this metadata-only pass.
+    remove = []
+    for name, feature in (dataset.features or {}).items():
+        if feature.__class__.__name__ == "Audio" or name.lower() in {
+            "reference", "reference_text", "sentence", "text", "transcript"
+        }:
+            remove.append(name)
+    stream = dataset.remove_columns(remove)
     # Metadata keys vary across mirrors. We inspect values only from identity
     # and demographic fields. Text/reference fields are never dereferenced.
     safe_candidates = (
         "speaker_id", "speaker", "client_id", "accent", "native_language",
-        "language", "gender", "uid", "id", "audio_id",
+        "language", "gender", "uid", "id", "audio_id", "split", "subset",
     )
     counts: dict[str, Counter] = {name: Counter() for name in safe_candidates}
     observed = 0
@@ -110,6 +116,7 @@ def inspect_spire_train() -> dict:
         "splits": list(splits),
         "builder_features": str(builder.info.features),
         "train_feature_names": feature_names,
+        "removed_before_iteration": sorted(remove),
         "train_rows": observed,
         "safe_metadata_counts": safe_counts,
         "validation_examples_read": 0,
