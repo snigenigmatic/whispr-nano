@@ -1066,6 +1066,203 @@ def build_and_evaluate_global(plan: dict) -> dict:
     gpu="H100",
     cpu=8,
     memory=32768,
+    timeout=420,
+    startup_timeout=180,
+    retries=0,
+    max_containers=1,
+    scaledown_window=2,
+    volumes={
+        "/source": source_data,
+        "/outputs": results,
+        "/cache/huggingface": hf_cache,
+    },
+)
+def tune_global_pseudo2real(plan: dict) -> dict:
+    """Tune the published global correction scale on source dev only."""
+    import hashlib
+    import importlib.util
+    import json
+    import shutil
+    import sys
+    import time
+    from concurrent.futures import ThreadPoolExecutor
+
+    import numpy as np
+    import torch
+    from safetensors.torch import load_file, save_file
+    from transformers import WhisperForConditionalGeneration, WhisperProcessor
+
+    started = time.monotonic()
+    train_spec = importlib.util.spec_from_file_location(
+        "publication_scale_eval", "/root/research/pilot/training.py"
+    )
+    core = importlib.util.module_from_spec(train_spec)
+    sys.modules[train_spec.name] = core
+    train_spec.loader.exec_module(core)
+    arithmetic_spec = importlib.util.spec_from_file_location(
+        "publication_scale_arithmetic", "/root/src/publication_study/arithmetic.py"
+    )
+    arithmetic = importlib.util.module_from_spec(arithmetic_spec)
+    arithmetic_spec.loader.exec_module(arithmetic)
+    if core.sha256_file(Path(core.__file__)) != plan["training_code_sha256"]:
+        raise ValueError("scale tuner training source changed")
+    if core.sha256_file(Path(arithmetic.__file__)) != plan["arithmetic_code_sha256"]:
+        raise ValueError("scale tuner arithmetic source changed")
+    expected_scales = [round(index / 10, 1) for index in range(1, 11)]
+    if plan["scales"] != expected_scales or len(plan["source_dev_rows"]) != 974:
+        raise ValueError("published source-dev scale grid changed")
+    checkpoints = {
+        "source_real": Path("/outputs/seed12/source_real/checkpoint_last"),
+        "source_pseudo": Path("/outputs/seed12/source_pseudo/checkpoint_last"),
+        "target_pseudo": Path("/outputs/seed12/target_pseudo/checkpoint_last"),
+    }
+    model_paths = {name: path / "model.safetensors" for name, path in checkpoints.items()}
+    for name, path in model_paths.items():
+        if core.sha256_file(path) != plan["checkpoint_sha256"][name]:
+            raise ValueError(f"scale tuner {name} checkpoint hash mismatch")
+    states = {name: load_file(str(path), device="cpu") for name, path in model_paths.items()}
+    local_features = Path("/tmp/publication-scale-features")
+    local_features.mkdir(parents=True)
+    receipts = plan["source_dev_receipts"]
+
+    def stage(row: dict) -> str:
+        receipt = receipts[row["utt_id"]]
+        payload = (Path("/source/feature_cache/frozen-v1") / receipt["feature_file"]).read_bytes()
+        if hashlib.sha256(payload).hexdigest() != receipt["feature_sha256"]:
+            raise ValueError(f"scale tuner source feature hash mismatch: {row['utt_id']}")
+        (local_features / receipt["feature_file"]).write_bytes(payload)
+        return row["utt_id"]
+
+    with ThreadPoolExecutor(max_workers=32) as pool:
+        staged = list(pool.map(stage, plan["source_dev_rows"]))
+    processor = WhisperProcessor.from_pretrained(checkpoints["target_pseudo"], local_files_only=True)
+    model = WhisperForConditionalGeneration.from_pretrained(
+        checkpoints["target_pseudo"], local_files_only=True,
+        torch_dtype=torch.float32, attn_implementation="eager",
+    ).to("cuda").eval()
+    from research.pilot.frozen_english_normalizer import EnglishTextNormalizer
+    english_normalize = EnglishTextNormalizer(json.loads(Path("/root/normalizer.json").read_text()))
+    rows = sorted(plan["source_dev_rows"], key=lambda row: row["utt_id"])
+    feature_batches = []
+    for begin in range(0, len(rows), 8):
+        chunk = rows[begin : begin + 8]
+        values = []
+        for row in chunk:
+            value = np.load(
+                local_features / receipts[row["utt_id"]]["feature_file"], allow_pickle=False
+            )
+            if value.shape != (80, 3000) or value.dtype != np.float32 or not np.isfinite(value).all():
+                raise ValueError(f"invalid scale tuner source feature: {row['utt_id']}")
+            values.append(value)
+        feature_batches.append((chunk, np.stack(values)))
+    generation = {
+        "language": "en", "task": "transcribe", "return_timestamps": False,
+        "max_new_tokens": 224, "do_sample": False, "num_beams": 1, "use_cache": True,
+    }
+    output = Path("/outputs") / plan["output_path"]
+    if output.exists():
+        raise ValueError(f"output path already exists: {output}")
+    candidates = output / "candidates"
+    candidates.mkdir(parents=True)
+    grid = []
+    selected_state = None
+    for scale in plan["scales"]:
+        corrected, correction = arithmetic.apply_global_correction(
+            states["source_real"], states["source_pseudo"], states["target_pseudo"], scale
+        )
+        model.load_state_dict(corrected, strict=True)
+        model.eval()
+        predictions = []
+        with torch.inference_mode():
+            for chunk, values in feature_batches:
+                generated = model.generate(
+                    input_features=torch.from_numpy(values).to("cuda"), **generation
+                )
+                hypotheses = processor.batch_decode(
+                    generated, skip_special_tokens=True, clean_up_tokenization_spaces=False
+                )
+                for row, hypothesis, sequence in zip(chunk, hypotheses, generated.cpu().tolist()):
+                    reference, hypothesis = row["reference_text"], hypothesis.strip()
+                    predictions.append({
+                        **{key: row[key] for key in (
+                            "utt_id", "speaker_id", "native_language", "prompt_id", "split"
+                        )},
+                        "reference_text": reference, "prediction": hypothesis,
+                        "generated_token_ids": sequence, "scale": scale,
+                        "minimal": core.word_counts(
+                            core.minimal_normalize(reference), core.minimal_normalize(hypothesis)
+                        ),
+                        "english": core.word_counts(
+                            english_normalize(reference), english_normalize(hypothesis)
+                        ),
+                    })
+        metrics = core.summarize_predictions(predictions)
+        label = f"lambda_{scale:.1f}".replace(".", "p")
+        prediction_path = candidates / f"{label}_predictions.jsonl"
+        prediction_path.write_text("".join(
+            json.dumps(row, ensure_ascii=False, sort_keys=True) + "\n" for row in predictions
+        ))
+        metrics_path = candidates / f"{label}_metrics.json"
+        metrics_path.write_text(json.dumps(metrics, indent=2, sort_keys=True) + "\n")
+        grid.append({
+            "scale": scale, "correction": correction,
+            "english_macro_wer": metrics["english"]["macro_language_wer"],
+            "english_micro_wer": metrics["english"]["micro_wer"],
+            "prediction_sha256": core.sha256_file(prediction_path),
+            "metrics_sha256": core.sha256_file(metrics_path),
+        })
+        print(f"scale {scale:.1f} macro WER {grid[-1]['english_macro_wer']:.6f}", flush=True)
+    selected = min(grid, key=lambda row: (row["english_macro_wer"], row["scale"]))
+    selected_state, selected_correction = arithmetic.apply_global_correction(
+        states["source_real"], states["source_pseudo"],
+        states["target_pseudo"], selected["scale"],
+    )
+    checkpoint = output / "checkpoint_last"
+    checkpoint.mkdir()
+    for source in checkpoints["target_pseudo"].iterdir():
+        if source.is_file() and source.name not in {"model.safetensors", "training_state.pt"}:
+            shutil.copy2(source, checkpoint / source.name)
+    save_file(selected_state, str(checkpoint / "model.safetensors"), metadata={
+        "format": "pt", "formula": selected_correction["formula"],
+        "scale": str(selected["scale"]), "selection": "source_dev_macro_wer",
+    })
+    checkpoint_sha = core.sha256_file(checkpoint / "model.safetensors")
+    report = {
+        "status": "completed", "selection_metric": "source_dev_english_macro_wer",
+        "target_validation_examples_read": 0, "scales": plan["scales"],
+        "uncorrected_lambda_0_source_dev": plan["uncorrected_lambda_0_source_dev"],
+        "grid": grid, "selected_scale": selected["scale"],
+        "selected_source_dev_english_macro_wer": selected["english_macro_wer"],
+        "selected_source_dev_english_micro_wer": selected["english_micro_wer"],
+        "selected_correction": selected_correction,
+        "input_checkpoint_sha256": plan["checkpoint_sha256"],
+        "selected_checkpoint_sha256": checkpoint_sha,
+    }
+    report_path = output / "scale_selection.json"
+    report_path.write_text(json.dumps(report, indent=2, sort_keys=True) + "\n")
+    wall_seconds = time.monotonic() - started
+    receipt = {
+        "run_id": plan["run_id"], "status": "completed",
+        "method": "global_pseudo2real_source_dev_tuned",
+        "selection_metric": report["selection_metric"], "selected_scale": selected["scale"],
+        "source_dev_utterances_per_scale": len(rows), "scales_evaluated": len(grid),
+        "target_validation_examples_read": 0, "staged_source_dev_features": len(staged),
+        "selected_checkpoint_sha256": checkpoint_sha,
+        "scale_selection_sha256": core.sha256_file(report_path),
+        "grid": grid, "gpu": torch.cuda.get_device_name(),
+        "wall_seconds": wall_seconds,
+        "estimated_resource_cost_usd": wall_seconds * H100_RATE_PER_SECOND,
+    }
+    (output / "receipt.json").write_text(json.dumps(receipt, indent=2, sort_keys=True) + "\n")
+    results.commit()
+    return json.loads(json.dumps(receipt))
+
+
+@app.function(
+    image=training_image,
+    gpu="H100",
+    cpu=8,
+    memory=32768,
     timeout=600,
     startup_timeout=180,
     retries=0,

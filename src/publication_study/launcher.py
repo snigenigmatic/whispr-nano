@@ -540,6 +540,39 @@ def run_global_pseudo2real(config: dict, contract: StudyContract) -> dict:
     return result
 
 
+def run_tune_global_pseudo2real(config: dict, contract: StudyContract) -> dict:
+    from research.publication.modal_runner import app, tune_global_pseudo2real
+
+    ensure_live_budget()
+    ledger = BudgetLedger(BUDGET_PATH)
+    plan = global_pseudo2real_plan(config, contract)
+    plan.pop("scale")
+    plan["output_path"] = "seed12/global_pseudo2real_tuned"
+    plan["scales"] = [round(index / 10, 1) for index in range(1, 11)]
+    target_receipt = json.loads(
+        (ROOT / "research/publication/results/target_pseudo/receipt.json").read_text()
+    )
+    plan["uncorrected_lambda_0_source_dev"] = {
+        "english_macro_wer": target_receipt["final_dev_metrics"]["english"]["macro_language_wer"],
+        "english_micro_wer": target_receipt["final_dev_metrics"]["english"]["micro_wer"],
+        "prediction_sha256": target_receipt["artifacts"]["final_dev_predictions.jsonl"],
+    }
+    plan_hash = canonical_json_hash(plan)
+    ledger.reserve(config["run_id"], 0.50, plan_hash)
+    with app.run():
+        result = tune_global_pseudo2real.remote(plan)
+    measured = float(result["estimated_resource_cost_usd"])
+    if measured > 0.50:
+        raise RuntimeError("global scale grid exceeded its reservation")
+    receipt_hash = canonical_json_hash(result)
+    ledger.complete(config["run_id"], measured, receipt_hash)
+    atomic_json(
+        ROOT / "research/publication/results/global_pseudo2real_tuned/receipt.json",
+        {**result, "plan_sha256": plan_hash, "receipt_sha256": receipt_hash},
+    )
+    return result
+
+
 def main() -> int:
     contract = StudyContract.load(CONTRACT_PATH)
     config = json.loads(RUN_PATH.read_text(encoding="utf-8"))
@@ -566,6 +599,8 @@ def main() -> int:
         result = run_recover_target_pseudo(config, contract)
     elif config["action"] == "build_global_pseudo2real":
         result = run_global_pseudo2real(config, contract)
+    elif config["action"] == "tune_global_pseudo2real":
+        result = run_tune_global_pseudo2real(config, contract)
     else:
         raise SystemExit(f"unknown publication action: {config['action']}")
     print("===== RESULT SUMMARY =====", flush=True)

@@ -1,4 +1,4 @@
 {
-  "action": "build_global_pseudo2real",
-  "run_id": "global-pseudo2real-seed12-lambda1-v1"
+  "action": "tune_global_pseudo2real",
+  "run_id": "global-pseudo2real-seed12-source-dev-grid-v1"
 }
