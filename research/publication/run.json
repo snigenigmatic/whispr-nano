@@ -1,4 +1,4 @@
 {
-  "action": "smoke_source_pseudo",
-  "run_id": "smoke-source-pseudo-seed12-v1"
+  "action": "train_source_endpoints",
+  "run_id": "source-endpoints-seed12-v1"
 }

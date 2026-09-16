@@ -1,0 +1,145 @@
+{
+  "artifacts": {
+    "baseline_dev_metrics.json": "f5deeeb02648fa615f2d49e57c59792c87e5f2bafd0b86180a060d2b9a35b001",
+    "baseline_dev_predictions.jsonl": "1ad80402598f6fddf64d64684af8b1ee525a671a74d5b7589454c14e3c1394bc",
+    "checkpoint_last/model.safetensors": "8be2be0aeb382499d671eb3fc5350ed758087cbe1cc9a6579083f23c14644f23",
+    "checkpoint_last/training_state.pt": "14875c007d41e4a20b7a5f67aea9b29376e9b29b40b76529e509ad4b49867e46",
+    "final_dev_metrics.json": "ea108af13ce0539e4085155d702423fcc3a72815be7bf4a4b2b2a05f9250e57e",
+    "final_dev_predictions.jsonl": "29e59deddee536fe4f998d9cf41aa14951793c61bdf540879fcc2ebb923e1b02",
+    "history.jsonl": "a7e59aad7a1c78b4503626993d3ef232a3f842f9a93ba9e74fef27a2ecbc1f99",
+    "manifest.json": "b7e17d8e7c73628b76c9abc245e9fd10ce76a41431fc37391243292d7e12cfc8",
+    "provenance.json": "b4ebe654a97d268ca81430e575ee6aacc86d6f2bd5b0c2950a2150637a39013a",
+    "summary.json": "87e7d7c8ee39f9e9bab04ff49f0bc8cb9922552222284c7f87790b09daeaec44"
+  },
+  "baseline_dev_metrics": {
+    "english": {
+      "groups": {
+        "language:Hindi": {
+          "errors": 8,
+          "reference_words": 107,
+          "speakers": 1,
+          "utterances": 12,
+          "wer": 0.07476635514018691
+        },
+        "overall": {
+          "errors": 8,
+          "reference_words": 107,
+          "speakers": 1,
+          "utterances": 12,
+          "wer": 0.07476635514018691
+        },
+        "split:dev": {
+          "errors": 8,
+          "reference_words": 107,
+          "speakers": 1,
+          "utterances": 12,
+          "wer": 0.07476635514018691
+        }
+      },
+      "macro_language_wer": 0.07476635514018691,
+      "micro_wer": 0.07476635514018691,
+      "worst_language_wer": 0.07476635514018691
+    },
+    "minimal": {
+      "groups": {
+        "language:Hindi": {
+          "errors": 10,
+          "reference_words": 107,
+          "speakers": 1,
+          "utterances": 12,
+          "wer": 0.09345794392523364
+        },
+        "overall": {
+          "errors": 10,
+          "reference_words": 107,
+          "speakers": 1,
+          "utterances": 12,
+          "wer": 0.09345794392523364
+        },
+        "split:dev": {
+          "errors": 10,
+          "reference_words": 107,
+          "speakers": 1,
+          "utterances": 12,
+          "wer": 0.09345794392523364
+        }
+      },
+      "macro_language_wer": 0.09345794392523364,
+      "micro_wer": 0.09345794392523364,
+      "worst_language_wer": 0.09345794392523364
+    }
+  },
+  "completed_updates": 100,
+  "dev_utterances": 12,
+  "estimated_resource_cost_usd": 0.12335655689774329,
+  "final_dev_metrics": {
+    "english": {
+      "groups": {
+        "language:Hindi": {
+          "errors": 15,
+          "reference_words": 107,
+          "speakers": 1,
+          "utterances": 12,
+          "wer": 0.14018691588785046
+        },
+        "overall": {
+          "errors": 15,
+          "reference_words": 107,
+          "speakers": 1,
+          "utterances": 12,
+          "wer": 0.14018691588785046
+        },
+        "split:dev": {
+          "errors": 15,
+          "reference_words": 107,
+          "speakers": 1,
+          "utterances": 12,
+          "wer": 0.14018691588785046
+        }
+      },
+      "macro_language_wer": 0.14018691588785046,
+      "micro_wer": 0.14018691588785046,
+      "worst_language_wer": 0.14018691588785046
+    },
+    "minimal": {
+      "groups": {
+        "language:Hindi": {
+          "errors": 16,
+          "reference_words": 107,
+          "speakers": 1,
+          "utterances": 12,
+          "wer": 0.14953271028037382
+        },
+        "overall": {
+          "errors": 16,
+          "reference_words": 107,
+          "speakers": 1,
+          "utterances": 12,
+          "wer": 0.14953271028037382
+        },
+        "split:dev": {
+          "errors": 16,
+          "reference_words": 107,
+          "speakers": 1,
+          "utterances": 12,
+          "wer": 0.14953271028037382
+        }
+      },
+      "macro_language_wer": 0.14953271028037382,
+      "micro_wer": 0.14953271028037382,
+      "worst_language_wer": 0.14953271028037382
+    }
+  },
+  "gpu": "NVIDIA H100 80GB HBM3",
+  "label_source": "source_pseudo",
+  "plan_sha256": "7b37589f92d850904a5ea86db113ec20cd09792d0af5b59550b018583739c5ab",
+  "receipt_sha256": "b6dd74c68f3741bf1ebfb38644d0d0da11be0d147e98e2d6249b08c73a025558",
+  "run_id": "smoke-source-pseudo-seed12-v1",
+  "staged_ids_sha256": "aff512502c29ad7ee721acbce10057d6582f8df53d65635c4f6ced99fe842385",
+  "staged_utterances": 812,
+  "status": "completed",
+  "total_training_exposures": 800,
+  "train_pool_utterances": 9495,
+  "validation_examples_read": 0,
+  "wall_seconds": 96.914425142
+}
