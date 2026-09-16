@@ -47,7 +47,7 @@ def inspect_spire_train() -> dict:
     import time
     from collections import Counter
 
-    from datasets import get_dataset_split_names, load_dataset, load_dataset_builder
+    from datasets import Audio, get_dataset_split_names, load_dataset, load_dataset_builder
 
     os.environ["HF_HOME"] = "/cache/huggingface"
     started = time.monotonic()
@@ -58,6 +58,11 @@ def inspect_spire_train() -> dict:
         raise RuntimeError(f"SPIRE dataset has no train split: {splits}")
     stream = load_dataset(repo_id, split="train", streaming=True)
     feature_names = sorted(stream.features) if stream.features else []
+    # Constructing a streaming row decodes Audio columns even if user code does
+    # not index that field. Explicitly disable decode before metadata iteration.
+    for name, feature in (stream.features or {}).items():
+        if feature.__class__.__name__ == "Audio":
+            stream = stream.cast_column(name, Audio(decode=False))
     # Metadata keys vary across mirrors. We inspect values only from identity
     # and demographic fields. Text/reference fields are never dereferenced.
     safe_candidates = (
@@ -71,6 +76,8 @@ def inspect_spire_train() -> dict:
         for name in safe_candidates:
             if name in row and row[name] is not None:
                 counts[name][str(row[name])] += 1
+        if observed % 5000 == 0:
+            print(f"inspected {observed} train metadata rows", flush=True)
     safe_counts = {
         name: dict(counter.most_common()) for name, counter in counts.items() if counter
     }

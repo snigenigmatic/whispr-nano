@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import os
 import sys
 from pathlib import Path
 
@@ -12,12 +13,20 @@ from .contract import BudgetLedger, StudyContract, atomic_json, canonical_json_h
 ROOT = Path(__file__).resolve().parents[2]
 RUN_PATH = ROOT / "research/publication/run.json"
 CONTRACT_PATH = ROOT / "research/publication/contract.json"
-BUDGET_PATH = ROOT / "research/publication/budget.json"
+LEDGER_ROOT = Path.home() / ".local/share/openresearch/whispr-nano-publication-study"
+BUDGET_PATH = Path(os.environ.get("WHISPR_PUBLICATION_BUDGET", LEDGER_ROOT / "budget.json"))
+
+
+def ensure_live_budget() -> None:
+    if not BUDGET_PATH.exists():
+        template = json.loads((ROOT / "research/publication/budget.json").read_text(encoding="utf-8"))
+        atomic_json(BUDGET_PATH, template)
 
 
 def run_inspection(config: dict) -> dict:
     from research.publication.modal_runner import app, inspect_spire_train
 
+    ensure_live_budget()
     ledger = BudgetLedger(BUDGET_PATH)
     config_hash = canonical_json_hash(config)
     ledger.reserve(config["run_id"], 0.10, config_hash)
