@@ -532,7 +532,7 @@ def label_target_with_teacher(plan: dict) -> dict:
 
     hf_logging.set_verbosity_error()
     started = time.monotonic()
-    if plan["teacher_model"] != "openai/whisper-large-v3" or plan["batch_size"] != 4:
+    if plan["teacher_model"] != "openai/whisper-large-v3" or plan["batch_size"] != 16:
         raise ValueError("target teacher identity or batch size changed")
     target_data.reload()
     root = Path("/target/v1")
@@ -643,7 +643,7 @@ def label_target_with_teacher(plan: dict) -> dict:
     wall_seconds = time.monotonic() - started
     receipt = {
         "run_id": plan["run_id"], "status": "completed", "model_id": model_id,
-        "model_revision": revision, "dtype": "float32", "batch_size": 4,
+        "model_revision": revision, "dtype": "float32", "batch_size": 16,
         "generation": {"language": "en", "task": "transcribe", "return_timestamps": False,
                        "do_sample": False, "num_beams": 1, "max_new_tokens": 224},
         "rows": len(predictions), "audit_rows": len(blind),

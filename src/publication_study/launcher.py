@@ -239,7 +239,7 @@ def run_target_teacher(config: dict, contract: StudyContract) -> dict:
     plan = {
         "run_id": config["run_id"], "manifest_sha256": target_report["manifest_sha256"],
         "teacher_model": contract.teacher_model, "teacher_revision": contract.teacher_revision,
-        "batch_size": 4,
+        "batch_size": 16,
     }
     plan_hash = canonical_json_hash(plan)
     ledger.reserve(config["run_id"], 1.25, plan_hash)
