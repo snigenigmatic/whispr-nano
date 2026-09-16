@@ -518,13 +518,14 @@ def label_target_with_teacher(plan: dict) -> dict:
     """Generate deterministic large-v3 target labels and confidence scores."""
     import hashlib
     import importlib.metadata
+    import io
     import json
     import math
     import time
     from concurrent.futures import ThreadPoolExecutor
 
-    import librosa
     import numpy as np
+    import scipy.signal
     import soundfile as sf
     import torch
     from transformers import WhisperForConditionalGeneration, WhisperProcessor
@@ -542,19 +543,28 @@ def label_target_with_teacher(plan: dict) -> dict:
     rows = [json.loads(line) for line in manifest_path.read_text().splitlines()]
     if len(rows) != 4800 or any("reference_text" in row for row in rows):
         raise ValueError("target teacher received labeled or incomplete manifest")
-    local_root = Path("/tmp/target-audio")
+    local_root = Path("/tmp/target-audio-16k")
 
     def stage(row: dict) -> str:
         source = root / row["audio_path"]
         payload = source.read_bytes()
         if hashlib.sha256(payload).hexdigest() != row["audio_sha256"]:
             raise ValueError(f"target audio hash mismatch: {row['utt_id']}")
-        target = local_root / row["audio_path"]
+        audio, sr = sf.read(io.BytesIO(payload), dtype="float32")
+        if audio.ndim != 1 or abs(len(audio) / sr - row["duration_s"]) > 0.02:
+            raise ValueError(f"target audio structure mismatch: {row['utt_id']}")
+        if sr != 16000:
+            divisor = math.gcd(sr, 16000)
+            audio = scipy.signal.resample_poly(
+                audio, 16000 // divisor, sr // divisor
+            ).astype(np.float32)
+        target = local_root / f"{row['utt_id']}.npy"
         target.parent.mkdir(parents=True, exist_ok=True)
-        target.write_bytes(payload)
+        with target.open("wb") as stream:
+            np.save(stream, audio, allow_pickle=False)
         return row["utt_id"]
 
-    with ThreadPoolExecutor(max_workers=32) as pool:
+    with ThreadPoolExecutor(max_workers=16) as pool:
         staged = list(pool.map(stage, rows))
     model_id, revision = plan["teacher_model"], plan["teacher_revision"]
     processor = WhisperProcessor.from_pretrained(model_id, revision=revision)
@@ -570,11 +580,7 @@ def label_target_with_teacher(plan: dict) -> dict:
         batch = rows[begin : begin + plan["batch_size"]]
         arrays = []
         for row in batch:
-            audio, sr = sf.read(local_root / row["audio_path"], dtype="float32")
-            if audio.ndim != 1 or abs(len(audio) / sr - row["duration_s"]) > 0.02:
-                raise ValueError(f"target audio structure mismatch: {row['utt_id']}")
-            if sr != 16000:
-                audio = librosa.resample(audio, orig_sr=sr, target_sr=16000)
+            audio = np.load(local_root / f"{row['utt_id']}.npy", allow_pickle=False)
             arrays.append(audio)
         features = processor(
             arrays, sampling_rate=16000, return_tensors="pt", padding="max_length",
@@ -614,7 +620,7 @@ def label_target_with_teacher(plan: dict) -> dict:
                     "label_source": "whisper_large_v3_pseudo",
                 }
             )
-        if len(predictions) % 200 == 0:
+        if len(predictions) % 400 == 0:
             print(f"teacher labeled {len(predictions)}/4800 clips", flush=True)
     predictions.sort(key=lambda row: row["utt_id"])
     text = "".join(json.dumps(row, sort_keys=True, ensure_ascii=False) + "\n" for row in predictions)
