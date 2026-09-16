@@ -1,4 +1,4 @@
 {
-  "action": "build_ecapa_clusters",
-  "run_id": "build-ecapa-c2-seed12-v7"
+  "action": "recover_ecapa_shard2",
+  "run_id": "recover-ecapa-c2-shard2-seed12-v1"
 }

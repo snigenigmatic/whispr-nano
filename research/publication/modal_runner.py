@@ -521,6 +521,8 @@ def extract_ecapa_shard(plan: dict) -> dict:
         or plan["model_revision"] != "0f99f2d0ebe89ac095bcc5903c4dd8f72b367286"
         or plan["shards"] != 4
         or plan["shard_index"] not in range(4)
+        or plan.get("subshards", 1) not in (1, 2)
+        or plan.get("subshard_index", 0) not in range(plan.get("subshards", 1))
     ):
         raise ValueError("ECAPA shard protocol changed")
     source_data.reload()
@@ -542,6 +544,10 @@ def extract_ecapa_shard(plan: dict) -> dict:
     target_rows = sorted(target_rows, key=lambda row: (row["duration_s"], row["utt_id"]))[
         shard_index :: plan["shards"]
     ]
+    subshards = plan.get("subshards", 1)
+    subshard_index = plan.get("subshard_index", 0)
+    source_rows = source_rows[subshard_index::subshards]
+    target_rows = target_rows[subshard_index::subshards]
     snapshot = snapshot_download(
         plan["model_id"], revision=plan["model_revision"],
         cache_dir="/cache/huggingface/ecapa-snapshot",
@@ -599,7 +605,12 @@ def extract_ecapa_shard(plan: dict) -> dict:
     target_ids, target_embeddings = embed(target_rows, target_root, "target")
     target_speaker_by_id = {row["utt_id"]: row["speaker_id"] for row in target_rows}
     target_speakers = [target_speaker_by_id[uid] for uid in target_ids]
-    output = Path(f"/outputs/seed12/ecapa_c2_sharded_v1/shard_{shard_index}")
+    suffix = (
+        f"shard_{shard_index}" if subshards == 1
+        else f"shard_{shard_index}_part_{subshard_index}"
+    )
+    output_path = f"seed12/ecapa_c2_sharded_v1/{suffix}"
+    output = Path("/outputs") / output_path
     if output.exists():
         raise ValueError(f"ECAPA shard output already exists: {output}")
     output.mkdir(parents=True)
@@ -612,6 +623,8 @@ def extract_ecapa_shard(plan: dict) -> dict:
     wall_seconds = time.monotonic() - started
     receipt = {
         "run_id": plan["run_id"], "shard_index": shard_index, "shards": plan["shards"],
+        "subshards": subshards, "subshard_index": subshard_index,
+        "output_path": output_path,
         "status": "completed", "source_utterances": len(source_ids),
         "target_utterances": len(target_ids), "embedding_dimension": 192,
         "target_reference_examples_read": 0, "gpu": torch.cuda.get_device_name(),
@@ -646,7 +659,7 @@ def finalize_ecapa_clusters(plan: dict) -> dict:
     from sklearn.cluster import KMeans
 
     started = time.monotonic()
-    if plan["clusters"] != 2 or plan["seed"] != 12 or len(plan["shard_receipts"]) != 4:
+    if plan["clusters"] != 2 or plan["seed"] != 12 or len(plan["shard_receipts"]) not in (4, 5):
         raise ValueError("ECAPA finalization protocol changed")
     if plan["kmeans"] != {
         "init": "k-means++", "n_init": 10, "max_iter": 300,
@@ -656,9 +669,15 @@ def finalize_ecapa_clusters(plan: dict) -> dict:
     results.reload()
     source_parts = []
     target_parts = []
-    for receipt in sorted(plan["shard_receipts"], key=lambda row: row["shard_index"]):
+    for receipt in sorted(
+        plan["shard_receipts"],
+        key=lambda row: (row["shard_index"], row.get("subshard_index", 0)),
+    ):
         index = receipt["shard_index"]
-        path = Path(f"/outputs/seed12/ecapa_c2_sharded_v1/shard_{index}/embeddings.npz")
+        output_path = receipt.get(
+            "output_path", f"seed12/ecapa_c2_sharded_v1/shard_{index}"
+        )
+        path = Path("/outputs") / output_path / "embeddings.npz"
         if hashlib.sha256(path.read_bytes()).hexdigest() != receipt["embeddings_npz_sha256"]:
             raise ValueError(f"ECAPA shard {index} hash mismatch")
         with np.load(path, allow_pickle=False) as shard:
@@ -724,6 +743,9 @@ def finalize_ecapa_clusters(plan: dict) -> dict:
     assignment_text = json.dumps(assignments, indent=2, sort_keys=True) + "\n"
     (output / "assignments.json").write_text(assignment_text)
     shard_cost = sum(float(row["estimated_resource_cost_usd"]) for row in plan["shard_receipts"])
+    prior_completed_cost = float(plan.get("prior_completed_shard_cost_usd", 0.0))
+    if prior_completed_cost < 0 or prior_completed_cost > shard_cost:
+        raise ValueError("invalid prior ECAPA shard cost")
     report = {
         "run_id": plan["run_id"], "status": "completed",
         "model_id": plan["model_id"], "model_revision": plan["model_revision"],
@@ -744,7 +766,9 @@ def finalize_ecapa_clusters(plan: dict) -> dict:
         "shard_receipts": plan["shard_receipts"],
         "shard_h100_wall_seconds_sum": sum(float(row["wall_seconds"]) for row in plan["shard_receipts"]),
         "finalization_wall_seconds": time.monotonic() - started,
-        "estimated_resource_cost_usd": shard_cost + 0.01,
+        "completed_shard_resource_cost_usd": shard_cost,
+        "prior_completed_shard_cost_usd": prior_completed_cost,
+        "estimated_resource_cost_usd": shard_cost - prior_completed_cost + 0.01,
     }
     (output / "receipt.json").write_text(json.dumps(report, indent=2, sort_keys=True) + "\n")
     results.commit()

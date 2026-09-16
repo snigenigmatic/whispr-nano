@@ -420,6 +420,74 @@ def run_ecapa_clusters(config: dict, contract: StudyContract) -> dict:
     return result
 
 
+def run_recover_ecapa_shard2(config: dict, contract: StudyContract) -> dict:
+    """Recover only timed-out shard 2 as two halves, then finalize all evidence."""
+    from research.publication.modal_runner import app, extract_ecapa_shard, finalize_ecapa_clusters
+    import hashlib
+
+    ensure_live_budget()
+    ledger = BudgetLedger(BUDGET_PATH)
+    plan = ecapa_cluster_plan(config, contract)
+    partial = ROOT / "research/publication/data/ecapa_c2_partial_v7"
+    existing = [
+        json.loads((partial / f"shard_{index}.receipt.json").read_text())
+        for index in (0, 1, 3)
+    ]
+    if [row["shard_index"] for row in existing] != [0, 1, 3]:
+        raise ValueError("persisted ECAPA recovery shard receipts changed")
+    existing_cost = sum(float(row["estimated_resource_cost_usd"]) for row in existing)
+    plan_hash = canonical_json_hash({**plan, "existing_shard_receipts": existing})
+    ledger.reserve(config["run_id"], 0.50, plan_hash)
+    with app.run():
+        recovery_plans = [
+            {
+                **plan, "run_id": f"{config['run_id']}/part_{part}",
+                "shard_index": 2, "subshards": 2, "subshard_index": part,
+            }
+            for part in (0, 1)
+        ]
+        recovered = []
+        for shard in extract_ecapa_shard.map(
+            recovery_plans, order_outputs=False, return_exceptions=True
+        ):
+            if isinstance(shard, BaseException):
+                raise shard
+            recovered.append(shard)
+        recovered.sort(key=lambda row: row["subshard_index"])
+        if [row["subshard_index"] for row in recovered] != [0, 1]:
+            raise RuntimeError("ECAPA shard-2 recovery is incomplete")
+        result = finalize_ecapa_clusters.remote({
+            **plan, "shard_receipts": existing + recovered,
+            "prior_completed_shard_cost_usd": existing_cost,
+        })
+    assignment_text = result.pop("assignments_text")
+    if hashlib.sha256(assignment_text.encode()).hexdigest() != result["assignments_sha256"]:
+        raise RuntimeError("recovered ECAPA assignment transfer hash mismatch")
+    assignments = json.loads(assignment_text)
+    if (
+        len(assignments["source_utterance_cluster"]) != 9495
+        or len(assignments["target_speaker_cluster"]) != 799
+        or set(assignments["source_utterance_cluster"].values()) != {0, 1}
+        or set(assignments["target_speaker_cluster"].values()) != {0, 1}
+    ):
+        raise RuntimeError("recovered ECAPA assignment cohort is incomplete")
+    weights = assignments["target_speaker_conditioned_weights"]
+    if len(weights) != 2 or abs(sum(weights) - 1.0) > 1e-12 or min(weights) <= 0:
+        raise RuntimeError("invalid recovered target-conditioned weights")
+    measured = float(result["estimated_resource_cost_usd"])
+    if measured > 0.50:
+        raise RuntimeError("ECAPA shard recovery exceeded its reservation")
+    receipt_hash = canonical_json_hash(result)
+    ledger.complete(config["run_id"], measured, receipt_hash)
+    data = ROOT / "research/publication/data"
+    (data / "ecapa_c2_assignments.json").write_text(assignment_text, encoding="utf-8")
+    atomic_json(
+        ROOT / "research/publication/results/ecapa_c2/receipt.json",
+        {**result, "plan_sha256": plan_hash, "receipt_sha256": receipt_hash},
+    )
+    return result
+
+
 def run_target_teacher(config: dict, contract: StudyContract) -> dict:
     from research.publication.modal_runner import (
         app,
@@ -880,6 +948,8 @@ def main() -> int:
         result = run_target_preparation(config, contract)
     elif config["action"] == "build_ecapa_clusters":
         result = run_ecapa_clusters(config, contract)
+    elif config["action"] == "recover_ecapa_shard2":
+        result = run_recover_ecapa_shard2(config, contract)
     elif config["action"] == "label_target_teacher":
         result = run_target_teacher(config, contract)
     elif config["action"] == "train_target_pseudo":
