@@ -314,6 +314,53 @@ def run_clustered_source_endpoints(config: dict, contract: StudyContract) -> dic
     return result
 
 
+def run_missing_c0_endpoints(config: dict, contract: StudyContract) -> dict:
+    """Complete only the two large C=2 endpoints missing after the timed batch."""
+    from research.publication.modal_runner import app, train_clustered_source_batch
+
+    ensure_live_budget()
+    ledger = BudgetLedger(BUDGET_PATH)
+    for arm in ("source_real_c1", "source_pseudo_c1"):
+        receipt = json.loads(
+            (ROOT / f"research/publication/results/sc_c2/{arm}/receipt.json").read_text()
+        )
+        if receipt.get("status") != "completed" or receipt.get("completed_updates") != 600:
+            raise ValueError(f"accepted {arm} endpoint is missing")
+    plans = [
+        plan for plan in clustered_source_endpoint_plans(config, contract)
+        if plan["cluster"] == 0
+    ]
+    hashes = {plan["label_source"]: canonical_json_hash(plan) for plan in plans}
+    batch_plan = {
+        "run_id": config["run_id"], "plans": plans,
+        "plan_sha256_by_arm": hashes,
+    }
+    batch_hash = canonical_json_hash(batch_plan)
+    ledger.reserve(config["run_id"], 0.50, batch_hash)
+    with app.run():
+        result = train_clustered_source_batch.remote(batch_plan)
+    measured = float(result["estimated_resource_cost_usd"])
+    if measured > 0.50:
+        raise RuntimeError("cluster-0 endpoint batch exceeded its reservation")
+    receipt_hash = canonical_json_hash(result)
+    ledger.complete(config["run_id"], measured, receipt_hash)
+    for run in result["runs"]:
+        arm = run["label_source"]
+        atomic_json(
+            ROOT / f"research/publication/results/sc_c2/{arm}/receipt.json",
+            {
+                **run, "batch_run_id": config["run_id"],
+                "batch_receipt_sha256": receipt_hash,
+                "plan_sha256": hashes[arm],
+            },
+        )
+    atomic_json(
+        ROOT / "research/publication/results/sc_c2/c0_batch_receipt.json",
+        {**result, "batch_plan_sha256": batch_hash, "receipt_sha256": receipt_hash},
+    )
+    return result
+
+
 def run_target_preparation(config: dict, contract: StudyContract) -> dict:
     from research.publication.modal_runner import app, prepare_target_manifest
 
@@ -967,6 +1014,8 @@ def main() -> int:
         result = run_source_endpoints(config, contract)
     elif config["action"] == "train_clustered_source_endpoints":
         result = run_clustered_source_endpoints(config, contract)
+    elif config["action"] == "train_missing_c0_endpoints":
+        result = run_missing_c0_endpoints(config, contract)
     elif config["action"] == "prepare_target_manifest":
         result = run_target_preparation(config, contract)
     elif config["action"] == "build_ecapa_clusters":

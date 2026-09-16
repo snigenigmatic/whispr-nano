@@ -14,6 +14,6 @@ reserves worst-case cost before dispatch and refuses a repeated run ID or a
 total above US$12. This path is outside immutable node snapshots, so a new node
 cannot reset prior reservations.
 
-The first node inspects only the gated SPIRE train schema and safe identity
-metadata. It does not iterate validation examples. The target manifest builder
-will be finalized against that receipt rather than guessing field names.
+The current evidence, accepted and rejected runs, exact budget state, and next
+experimental gate are recorded in [STATUS.md](STATUS.md). The SPIRE validation
+set remains sealed: every receipt reports zero target validation examples read.

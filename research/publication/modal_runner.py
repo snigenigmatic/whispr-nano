@@ -1046,8 +1046,12 @@ def train_clustered_source_batch(batch_plan: dict) -> dict:
 
     started = time.monotonic()
     plans = batch_plan["plans"]
-    expected = {f"source_{kind}_c{cluster}" for kind in ("real", "pseudo") for cluster in (0, 1)}
-    if len(plans) != 4 or {plan["label_source"] for plan in plans} != expected:
+    expected_all = {
+        f"source_{kind}_c{cluster}" for kind in ("real", "pseudo") for cluster in (0, 1)
+    }
+    expected_c0 = {"source_real_c0", "source_pseudo_c0"}
+    actual = {plan["label_source"] for plan in plans}
+    if actual not in (expected_all, expected_c0) or len(plans) != len(actual):
         raise ValueError("clustered endpoint batch changed")
     spec = importlib.util.spec_from_file_location(
         "publication_cluster_batch_training", "/root/research/pilot/training.py"
@@ -1123,7 +1127,7 @@ def train_clustered_source_batch(batch_plan: dict) -> dict:
             "run_id": plan["run_id"], "status": "completed",
             "label_source": plan["label_source"], "endpoint_kind": plan["endpoint_kind"],
             "cluster": plan["cluster"], "gpu": summary["runtime"]["device_name"],
-            "concurrent_isolated_processes": 4,
+            "concurrent_isolated_processes": len(plans),
             "completed_updates": 600, "total_training_exposures": 4800,
             "train_pool_utterances": summary["train_pool_utterances"],
             "dev_utterances": summary["dev_utterances"],
@@ -1136,7 +1140,7 @@ def train_clustered_source_batch(batch_plan: dict) -> dict:
     wall_seconds = time.monotonic() - started
     receipt = {
         "run_id": batch_plan["run_id"], "status": "completed",
-        "method": "four_isolated_cluster_endpoints_one_h100",
+        "method": f"{len(plans)}_isolated_cluster_endpoints_one_h100",
         "runs": sorted(runs, key=lambda row: row["label_source"]),
         "feature_access": "hash-verified frozen Modal volume mount",
         "target_validation_examples_read": 0,

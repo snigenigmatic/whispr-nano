@@ -1,0 +1,20 @@
+{
+  "arms": {
+    "source_pseudo_c0": {
+      "accepted": false,
+      "completed_updates_before_rejection": 347,
+      "history_sha256": "f25d84f9b7edd0ed36a8357ce8ca6499eaddf9e0c5cae263848fd7b1aaa2d568",
+      "required_updates": 600
+    },
+    "source_real_c0": {
+      "accepted": false,
+      "completed_updates_before_rejection": 347,
+      "history_sha256": "2bd5ee8c53a8e72f8e68ef652ffd66d0366872880c2cc962218508e671c3ae99",
+      "required_updates": 600
+    }
+  },
+  "reason": "340-second hard timeout before cluster-0 final artifacts",
+  "run_id": "train-source-sc-c2-seed12-v3",
+  "status": "rejected_partial",
+  "target_validation_examples_read": 0
+}
