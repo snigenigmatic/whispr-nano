@@ -264,31 +264,44 @@ def clustered_source_endpoint_plans(config: dict, contract: StudyContract) -> li
 
 
 def run_clustered_source_endpoints(config: dict, contract: StudyContract) -> dict:
-    from research.publication.modal_runner import app, train_source_endpoint
+    from research.publication.modal_runner import app, train_clustered_source_batch
 
     ensure_live_budget()
     ledger = BudgetLedger(BUDGET_PATH)
     plans = clustered_source_endpoint_plans(config, contract)
     hashes = {plan["label_source"]: canonical_json_hash(plan) for plan in plans}
-    for plan in plans:
-        ledger.reserve(plan["run_id"], 0.65, hashes[plan["label_source"]])
-    output = []
+    batch_plan = {
+        "run_id": config["run_id"], "plans": plans,
+        "plan_sha256_by_arm": hashes,
+    }
+    batch_hash = canonical_json_hash(batch_plan)
+    ledger.reserve(config["run_id"], 0.75, batch_hash)
     with app.run():
-        for result in train_source_endpoint.map(plans, order_outputs=False, return_exceptions=True):
-            if isinstance(result, BaseException):
-                raise result
-            arm = result["label_source"]
-            receipt_hash = canonical_json_hash(result)
-            ledger.complete(result["run_id"], float(result["estimated_resource_cost_usd"]), receipt_hash)
-            atomic_json(
-                ROOT / f"research/publication/results/sc_c2/{arm}/receipt.json",
-                {**result, "plan_sha256": hashes[arm], "receipt_sha256": receipt_hash},
-            )
-            output.append(result)
+        result = train_clustered_source_batch.remote(batch_plan)
+    measured = float(result["estimated_resource_cost_usd"])
+    if measured > 0.75:
+        raise RuntimeError("clustered endpoint batch exceeded its reservation")
+    receipt_hash = canonical_json_hash(result)
+    ledger.complete(config["run_id"], measured, receipt_hash)
+    for run in result["runs"]:
+        arm = run["label_source"]
+        atomic_json(
+            ROOT / f"research/publication/results/sc_c2/{arm}/receipt.json",
+            {
+                **run, "batch_run_id": config["run_id"],
+                "batch_receipt_sha256": receipt_hash,
+                "plan_sha256": hashes[arm],
+            },
+        )
+    atomic_json(
+        ROOT / "research/publication/results/sc_c2/batch_receipt.json",
+        {**result, "batch_plan_sha256": batch_hash, "receipt_sha256": receipt_hash},
+    )
+    output = result["runs"]
     expected = {f"source_{kind}_c{cluster}" for kind in ("real", "pseudo") for cluster in (0, 1)}
     if {row["label_source"] for row in output} != expected:
         raise RuntimeError("clustered source endpoint batch incomplete")
-    return {"runs": sorted(output, key=lambda row: row["label_source"])}
+    return result
 
 
 def run_target_preparation(config: dict, contract: StudyContract) -> dict:

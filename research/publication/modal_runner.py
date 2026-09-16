@@ -1021,6 +1021,172 @@ def train_source_endpoint(plan: dict) -> dict:
     gpu="H100",
     cpu=16,
     memory=65536,
+    timeout=600,
+    startup_timeout=180,
+    retries=0,
+    max_containers=1,
+    scaledown_window=2,
+    volumes={
+        "/data": source_data,
+        "/outputs": results,
+        "/cache/huggingface": hf_cache,
+    },
+)
+def train_clustered_source_batch(batch_plan: dict) -> dict:
+    """Train four isolated C=2 endpoints concurrently on one H100."""
+    import hashlib
+    import importlib.util
+    import json
+    import multiprocessing
+    import os
+    import sys
+    import time
+    import traceback
+    from concurrent.futures import ThreadPoolExecutor
+
+    started = time.monotonic()
+    plans = batch_plan["plans"]
+    expected = {f"source_{kind}_c{cluster}" for kind in ("real", "pseudo") for cluster in (0, 1)}
+    if len(plans) != 4 or {plan["label_source"] for plan in plans} != expected:
+        raise ValueError("clustered endpoint batch changed")
+    spec = importlib.util.spec_from_file_location(
+        "publication_cluster_batch_training", "/root/research/pilot/training.py"
+    )
+    core = importlib.util.module_from_spec(spec)
+    sys.modules[spec.name] = core
+    spec.loader.exec_module(core)
+    for plan in plans:
+        if core.sha256_file(Path(core.__file__)) != plan["training_code_sha256"]:
+            raise ValueError("clustered endpoint training source changed")
+        cfg = plan["config"]
+        if cfg["num_updates"] != 600 or cfg["seed"] != 12 or cfg["batch_size"] != 8:
+            raise ValueError("clustered endpoint must be 600 x 8 at seed 12")
+        if plan["endpoint_kind"] not in {"source_real", "source_pseudo"}:
+            raise ValueError("invalid clustered endpoint kind")
+        core.validate_rows(plan["rows"])
+    source_data.reload()
+    needed = {}
+    receipts = {}
+    for plan in plans:
+        train_rows, dev_rows = core.validate_rows(plan["rows"])
+        indices = core.IndexCycler(len(train_rows), 12).take(4800)
+        for row in dev_rows:
+            needed[row["utt_id"]] = row
+        for index in indices:
+            needed[train_rows[index]["utt_id"]] = train_rows[index]
+        receipts.update(plan["cache_receipts"])
+    local_audio = Path("/tmp/publication-cluster-audio")
+    local_features = Path("/tmp/publication-cluster-features")
+    local_features.mkdir(parents=True, exist_ok=True)
+
+    def stage(row: dict) -> str:
+        receipt = receipts[row["utt_id"]]
+        for source, target, expected_hash in (
+            (
+                Path("/data/l2arctic") / row["audio_path"],
+                local_audio / row["audio_path"], receipt["audio_sha256"],
+            ),
+            (
+                Path("/data/feature_cache/frozen-v1") / receipt["feature_file"],
+                local_features / receipt["feature_file"], receipt["feature_sha256"],
+            ),
+        ):
+            payload = source.read_bytes()
+            if hashlib.sha256(payload).hexdigest() != expected_hash:
+                raise ValueError(f"clustered batch input checksum mismatch: {row['utt_id']}")
+            target.parent.mkdir(parents=True, exist_ok=True)
+            if not target.exists():
+                target.write_bytes(payload)
+        return row["utt_id"]
+
+    with ThreadPoolExecutor(max_workers=32) as pool:
+        staged = list(pool.map(stage, needed.values()))
+    result_dir = Path("/tmp/publication-cluster-process-results")
+    result_dir.mkdir()
+
+    def train_child(plan: dict) -> None:
+        arm = plan["label_source"]
+        try:
+            os.environ["TOKENIZERS_PARALLELISM"] = "false"
+            output = Path("/outputs") / plan["output_path"]
+            if output.exists():
+                raise ValueError(f"clustered output path already exists: {output}")
+            cfg = {
+                **plan["config"], "feature_cache_dir": str(local_features),
+                "normalizer_path": "/root/normalizer.json",
+            }
+            core.train(cfg, plan["rows"], local_audio, output)
+        except BaseException:
+            (result_dir / f"{arm}.error.txt").write_text(traceback.format_exc())
+            raise
+
+    context = multiprocessing.get_context("fork")
+    processes = [context.Process(target=train_child, args=(plan,)) for plan in plans]
+    for process in processes:
+        process.start()
+    for process in processes:
+        process.join()
+    failures = []
+    for plan, process in zip(plans, processes):
+        error_path = result_dir / f"{plan['label_source']}.error.txt"
+        if process.exitcode != 0:
+            failures.append(error_path.read_text() if error_path.exists() else f"exit {process.exitcode}")
+    if failures:
+        raise RuntimeError("clustered endpoint child failed:\n" + "\n".join(failures))
+    required = (
+        "summary.json", "provenance.json", "manifest.json", "history.jsonl",
+        "baseline_dev_predictions.jsonl", "final_dev_predictions.jsonl",
+        "baseline_dev_metrics.json", "final_dev_metrics.json",
+        "checkpoint_last/model.safetensors", "checkpoint_last/training_state.pt",
+    )
+    runs = []
+    for plan in plans:
+        output = Path("/outputs") / plan["output_path"]
+        summary = json.loads((output / "summary.json").read_text())
+        hashes = {}
+        for relative in required:
+            path = output / relative
+            if not path.is_file() or path.stat().st_size == 0:
+                raise ValueError(f"missing clustered artifact {plan['label_source']}: {relative}")
+            hashes[relative] = core.sha256_file(path)
+        if summary["completed_updates"] != 600 or summary["total_training_exposures"] != 4800:
+            raise ValueError(f"clustered exposure mismatch: {plan['label_source']}")
+        runs.append({
+            "run_id": plan["run_id"], "status": "completed",
+            "label_source": plan["label_source"], "endpoint_kind": plan["endpoint_kind"],
+            "cluster": plan["cluster"], "gpu": summary["runtime"]["device_name"],
+            "concurrent_isolated_processes": 4,
+            "completed_updates": 600, "total_training_exposures": 4800,
+            "train_pool_utterances": summary["train_pool_utterances"],
+            "dev_utterances": summary["dev_utterances"],
+            "validation_examples_read": 0, "artifacts": hashes,
+            "initial_state_sha256": summary["initial_state_sha256"],
+            "checkpoint_sha256": hashes["checkpoint_last/model.safetensors"],
+            "baseline_dev_metrics": summary["baseline_dev_metrics"],
+            "final_dev_metrics": summary["final_dev_metrics"],
+        })
+    wall_seconds = time.monotonic() - started
+    receipt = {
+        "run_id": batch_plan["run_id"], "status": "completed",
+        "method": "four_isolated_cluster_endpoints_one_h100",
+        "runs": sorted(runs, key=lambda row: row["label_source"]),
+        "staged_unique_utterances": len(staged),
+        "staged_ids_sha256": core.canonical_hash(sorted(staged)),
+        "target_validation_examples_read": 0,
+        "gpu": runs[0]["gpu"], "wall_seconds": wall_seconds,
+        "estimated_resource_cost_usd": wall_seconds * TARGET_H100_RATE_PER_SECOND,
+    }
+    output = Path("/outputs/seed12/sc_c2")
+    (output / "batch_receipt.json").write_text(json.dumps(receipt, indent=2, sort_keys=True) + "\n")
+    results.commit()
+    return receipt
+
+
+@app.function(
+    image=training_image,
+    gpu="H100",
+    cpu=16,
+    memory=65536,
     timeout=420,
     startup_timeout=180,
     retries=0,

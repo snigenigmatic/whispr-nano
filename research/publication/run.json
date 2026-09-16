@@ -1,4 +1,4 @@
 {
-  "action": "recover_ecapa_shard2",
-  "run_id": "recover-ecapa-c2-shard2-seed12-v1"
+  "action": "train_clustered_source_endpoints",
+  "run_id": "train-source-sc-c2-seed12-v1"
 }
