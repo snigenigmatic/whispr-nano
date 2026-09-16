@@ -352,7 +352,10 @@ def build_ecapa_clusters(plan: dict) -> dict:
         cache_dir="/cache/huggingface/ecapa-snapshot",
     )
     classifier = EncoderClassifier.from_hparams(
-        source=snapshot, savedir="/tmp/ecapa-model", run_opts={"device": "cuda"}
+        source=snapshot,
+        savedir="/tmp/ecapa-model",
+        overrides={"pretrained_path": snapshot},
+        run_opts={"device": "cuda"},
     )
     torch.set_num_threads(8)
 
