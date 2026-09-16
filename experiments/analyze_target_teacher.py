@@ -14,6 +14,7 @@ DATA = ROOT / "research/publication/data"
 PSEUDO = DATA / "spire_target_pseudo_large_v3_seed12.jsonl"
 AUDIT = DATA / "spire_target_audit_120_blind.jsonl"
 OUTPUT = DATA / "spire_target_teacher_quality.json"
+ANOMALY_AUDIT = DATA / "spire_target_audit_anomalies_blind.jsonl"
 EOS_ID = 50257
 
 
@@ -51,6 +52,23 @@ def main() -> None:
     repeated = {row["utt_id"]: repetition(row) for row in rows}
     flagged = [row for row in rows if repeated[row["utt_id"]]["flagged"]]
     token_limit = [row for row in rows if row["teacher_generated_token_ids"][-1] != EOS_ID]
+    anomaly_ids = {
+        row["utt_id"] for row in flagged
+    } | {row["utt_id"] for row in token_limit}
+    anomaly_fields = (
+        "utt_id", "speaker_id", "native_language", "accent", "gender",
+        "audio_path", "audio_sha256", "duration_s", "teacher_mean_logprob",
+    )
+    anomaly_rows = []
+    for row in sorted((row for row in rows if row["utt_id"] in anomaly_ids), key=lambda row: row["utt_id"]):
+        anomaly_rows.append({
+            **{key: row[key] for key in anomaly_fields},
+            "repetition_flag": repeated[row["utt_id"]]["flagged"],
+            "token_limit_flag": row["teacher_generated_token_ids"][-1] != EOS_ID,
+        })
+    ANOMALY_AUDIT.write_text("".join(
+        json.dumps(row, sort_keys=True) + "\n" for row in anomaly_rows
+    ))
     accents = {}
     for accent in sorted({row["accent"] for row in rows}):
         group = [row for row in rows if row["accent"] == accent]
@@ -80,6 +98,8 @@ def main() -> None:
         "repetition_rule": "at least 20 words and trigram-repeat fraction >=0.35 or identical-word run >=5",
         "repetition_flagged_rows": len(flagged),
         "repetition_flagged_utterance_ids": sorted(row["utt_id"] for row in flagged),
+        "blind_anomaly_audit_rows": len(anomaly_rows),
+        "blind_anomaly_audit_sha256": hashlib.sha256(ANOMALY_AUDIT.read_bytes()).hexdigest(),
         "audit_contains_token_limit_row": bool(
             {row["utt_id"] for row in audit} & {row["utt_id"] for row in token_limit}
         ),

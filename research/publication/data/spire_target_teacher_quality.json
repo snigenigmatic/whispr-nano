@@ -2,6 +2,8 @@
   "analysis_scope": "reference_free_teacher_diagnostics",
   "audit_contains_token_limit_row": false,
   "audit_manifest_sha256": "c9ccf2f2f8b3998a7b1ce82e695e3e8be5031d0b4e87299923707f52f32006cb",
+  "blind_anomaly_audit_rows": 2,
+  "blind_anomaly_audit_sha256": "551894da017e8f87a6074d462370e066b0abaa991bf8706e5da7aa9873db33c1",
   "by_accent": {
     "Bengali": {
       "mean_logprob": {
