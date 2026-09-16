@@ -1,0 +1,170 @@
+{
+  "estimated_resource_cost_usd": 0.13118914944330493,
+  "gpu": "NVIDIA H100 80GB HBM3",
+  "grid": [
+    {
+      "correction": {
+        "correction_l2": 2.1159092425050856,
+        "formula": "target_pseudo + scale * (source_real - source_pseudo)",
+        "parameter_tensors": 167,
+        "relative_correction_l2": 0.0028865727376477155,
+        "scale": 0.1,
+        "target_l2": 733.0178155251864
+      },
+      "english_macro_wer": 0.3129212272448955,
+      "english_micro_wer": 0.3099481163997293,
+      "metrics_sha256": "abaa72651ddf68be572c78071d7f320d58840d15f5ed82fce6a956edba39bc6d",
+      "prediction_sha256": "8e15004ddd13ccbd7eac155a87713c9481e106bedb8053430913b054540ffe88",
+      "scale": 0.1
+    },
+    {
+      "correction": {
+        "correction_l2": 2.1159092425050856,
+        "formula": "target_pseudo + scale * (source_real - source_pseudo)",
+        "parameter_tensors": 167,
+        "relative_correction_l2": 0.0028865727376477155,
+        "scale": 0.2,
+        "target_l2": 733.0178155251864
+      },
+      "english_macro_wer": 0.31118561021415253,
+      "english_micro_wer": 0.30848184073990526,
+      "metrics_sha256": "81faa31eab301bb28682023a8bc89a1132fbdfa03bfd3cd83007cbfb7b79014f",
+      "prediction_sha256": "aa455764dae2a0ec67a60b6139be5343ae5a3006f5b4f54f9f1d9052480e2fcc",
+      "scale": 0.2
+    },
+    {
+      "correction": {
+        "correction_l2": 2.1159092425050856,
+        "formula": "target_pseudo + scale * (source_real - source_pseudo)",
+        "parameter_tensors": 167,
+        "relative_correction_l2": 0.0028865727376477155,
+        "scale": 0.3,
+        "target_l2": 733.0178155251864
+      },
+      "english_macro_wer": 0.31106189378052923,
+      "english_micro_wer": 0.30836905030453415,
+      "metrics_sha256": "234c5dd22209eb2ab2ba4f9e3c2c052b45482973ac6621f63e69f1ec90247662",
+      "prediction_sha256": "43e5dde377dc034c1bfdd1eaf478ea762ac0d90785a0a28ac533944973a00eb8",
+      "scale": 0.3
+    },
+    {
+      "correction": {
+        "correction_l2": 2.1159092425050856,
+        "formula": "target_pseudo + scale * (source_real - source_pseudo)",
+        "parameter_tensors": 167,
+        "relative_correction_l2": 0.0028865727376477155,
+        "scale": 0.4,
+        "target_l2": 733.0178155251864
+      },
+      "english_macro_wer": 0.309118974956332,
+      "english_micro_wer": 0.3064516129032258,
+      "metrics_sha256": "4a0fdfa526c0603b0c8d7dd0406a5bcaeeaf6adeb79259467ec1cb9473634e5d",
+      "prediction_sha256": "93a209d9478b3ec74fceaedf2e99cb3501cbd9de1856d2e10ae8db24266851df",
+      "scale": 0.4
+    },
+    {
+      "correction": {
+        "correction_l2": 2.1159092425050856,
+        "formula": "target_pseudo + scale * (source_real - source_pseudo)",
+        "parameter_tensors": 167,
+        "relative_correction_l2": 0.0028865727376477155,
+        "scale": 0.5,
+        "target_l2": 733.0178155251864
+      },
+      "english_macro_wer": 0.31190853406523816,
+      "english_micro_wer": 0.30904579291676065,
+      "metrics_sha256": "6ed342683126b563fa96aef60f3b125e0b24207878459bb393ee0ca2b4d981dd",
+      "prediction_sha256": "6e11b2058a85b025091e0c8096e08a0ba3e1f412bf42bfcad74d7da3c20efe44",
+      "scale": 0.5
+    },
+    {
+      "correction": {
+        "correction_l2": 2.1159092425050856,
+        "formula": "target_pseudo + scale * (source_real - source_pseudo)",
+        "parameter_tensors": 167,
+        "relative_correction_l2": 0.0028865727376477155,
+        "scale": 0.6,
+        "target_l2": 733.0178155251864
+      },
+      "english_macro_wer": 0.31347925492606094,
+      "english_micro_wer": 0.3106248590119558,
+      "metrics_sha256": "df4368fda6afe5aad8af3951ab9facaaee7f77f570bc1b25c2561e9c1a391cae",
+      "prediction_sha256": "4a917fde5871eba9f07a35b5c7ee6abdfbd312ab9b29a959299fe55cde66886f",
+      "scale": 0.6
+    },
+    {
+      "correction": {
+        "correction_l2": 2.1159092425050856,
+        "formula": "target_pseudo + scale * (source_real - source_pseudo)",
+        "parameter_tensors": 167,
+        "relative_correction_l2": 0.0028865727376477155,
+        "scale": 0.7,
+        "target_l2": 733.0178155251864
+      },
+      "english_macro_wer": 0.31619332175115783,
+      "english_micro_wer": 0.31333182946086174,
+      "metrics_sha256": "ebd567fa601082da222f066f645ed0b4f4df9fc433c8f3e60d10cab0ac78a85a",
+      "prediction_sha256": "5f6250ccff1b50b54a45fdb701c2b934f7bb7a0caeb4d87d3d5035fbe1078050",
+      "scale": 0.7
+    },
+    {
+      "correction": {
+        "correction_l2": 2.1159092425050856,
+        "formula": "target_pseudo + scale * (source_real - source_pseudo)",
+        "parameter_tensors": 167,
+        "relative_correction_l2": 0.0028865727376477155,
+        "scale": 0.8,
+        "target_l2": 733.0178155251864
+      },
+      "english_macro_wer": 0.31961015734520515,
+      "english_micro_wer": 0.316489961651252,
+      "metrics_sha256": "eb59f056ed19201a8a6b5bec192e0821932466685c25d0636a3a10afa7f1f377",
+      "prediction_sha256": "180cd0c725aca2419b03dee66c3162b823b3faa205894b8db48181c1a5ee9ce0",
+      "scale": 0.8
+    },
+    {
+      "correction": {
+        "correction_l2": 2.1159092425050856,
+        "formula": "target_pseudo + scale * (source_real - source_pseudo)",
+        "parameter_tensors": 167,
+        "relative_correction_l2": 0.0028865727376477155,
+        "scale": 0.9,
+        "target_l2": 733.0178155251864
+      },
+      "english_macro_wer": 0.32041055367003823,
+      "english_micro_wer": 0.3170539138281074,
+      "metrics_sha256": "030e9d3956a685ccb4f20ad2f2266d586ea8f14bdef73d37e31410afe37d96b2",
+      "prediction_sha256": "7aee99bbfc624297a8ce49349a34764d324a71ddb408018c57bad13b876bf776",
+      "scale": 0.9
+    },
+    {
+      "correction": {
+        "correction_l2": 2.1159092425050856,
+        "formula": "target_pseudo + scale * (source_real - source_pseudo)",
+        "parameter_tensors": 167,
+        "relative_correction_l2": 0.0028865727376477155,
+        "scale": 1.0,
+        "target_l2": 733.0178155251864
+      },
+      "english_macro_wer": 0.3239534163462709,
+      "english_micro_wer": 0.32055041732461087,
+      "metrics_sha256": "f299367f10a5ed4c35508c9bed4568f4a48757f4fda626ef43013bf1be362e47",
+      "prediction_sha256": "8a9d5d0e5f5c665242d5f4f5e74b31f32646d8259f1201623ecd644c882b11b5",
+      "scale": 1.0
+    }
+  ],
+  "method": "global_pseudo2real_source_dev_tuned",
+  "plan_sha256": "188c2084a1624947f372f57917e8ed0a945585a15c0b1e4ba3d323c8790b1123",
+  "receipt_sha256": "cb6a2d82e1c25a112522c00ed03626685bbe2254a8b8177c8676cb1921a63afe",
+  "run_id": "global-pseudo2real-seed12-source-dev-grid-v3",
+  "scale_selection_sha256": "ab172653e57c4698e7db9e58a5ef8e8d66e8ec0483724ed7ac84b49521891e3c",
+  "scales_evaluated": 10,
+  "selected_checkpoint_sha256": "2904ca090d47ecbf32f50215373bb58826a7cc4a4d4f373ea9f3e81fb9f88882",
+  "selected_scale": 0.4,
+  "selection_metric": "source_dev_english_macro_wer",
+  "source_dev_utterances_per_scale": 974,
+  "staged_source_dev_features": 974,
+  "status": "completed",
+  "target_validation_examples_read": 0,
+  "wall_seconds": 103.068059963
+}

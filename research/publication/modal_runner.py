@@ -772,6 +772,13 @@ def train_target_pseudo(plan: dict) -> dict:
                 row["teacher_mean_logprob"] for row in selected_pseudo if row["accent"] == accent
             ) for accent in TARGET_ACCENTS
         },
+        "selected_token_limit_rows": sum(
+            row["teacher_generated_token_ids"][-1] != 50257 for row in selected_pseudo
+        ),
+        "selected_token_limit_utterance_ids": sorted(
+            row["utt_id"] for row in selected_pseudo
+            if row["teacher_generated_token_ids"][-1] != 50257
+        ),
         "gpu": summary["runtime"]["device_name"], "completed_updates": 600,
         "total_training_exposures": 4800,
         "unique_training_utterances_seen": summary["unique_training_utterances_seen"],
