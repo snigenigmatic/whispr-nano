@@ -312,8 +312,13 @@ def build_ecapa_clusters(plan: dict) -> dict:
     import scipy.signal
     import soundfile as sf
     import torch
+    import torchaudio
     from huggingface_hub import snapshot_download
     from sklearn.cluster import KMeans
+    # SpeechBrain 1.0.3 only probes this removed torchaudio API at import;
+    # audio decoding in this worker is hash-checked soundfile, not torchaudio.
+    if not hasattr(torchaudio, "list_audio_backends"):
+        torchaudio.list_audio_backends = lambda: []
     from speechbrain.inference.speaker import EncoderClassifier
 
     started = time.monotonic()
@@ -603,7 +608,7 @@ def train_source_smoke(plan: dict) -> dict:
     timeout=480,
     startup_timeout=180,
     retries=0,
-    max_containers=2,
+    max_containers=4,
     scaledown_window=2,
     volumes={
         "/data": source_data,
@@ -632,7 +637,7 @@ def train_source_endpoint(plan: dict) -> dict:
     cfg = plan["config"]
     if cfg["num_updates"] != 600 or cfg["seed"] != 12 or cfg["batch_size"] != 8:
         raise ValueError("source endpoint must be 600 x 8 at seed 12")
-    if plan["label_source"] not in {"source_real", "source_pseudo"}:
+    if plan.get("endpoint_kind", plan["label_source"]) not in {"source_real", "source_pseudo"}:
         raise ValueError("invalid source endpoint")
     source_data.reload()
     train_rows, dev_rows = core.validate_rows(plan["rows"])

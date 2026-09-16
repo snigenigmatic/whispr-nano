@@ -199,6 +199,98 @@ def run_source_endpoints(config: dict, contract: StudyContract) -> dict:
     return {"runs": sorted(output, key=lambda row: row["label_source"])}
 
 
+def clustered_source_endpoint_plans(config: dict, contract: StudyContract) -> list[dict]:
+    """Create the four frozen C=2 real/pseudo source training arms."""
+    import hashlib
+
+    assignment_path = ROOT / "research/publication/data/ecapa_c2_assignments.json"
+    assignment_receipt = json.loads(
+        (ROOT / "research/publication/results/ecapa_c2/receipt.json").read_text(encoding="utf-8")
+    )
+    if hashlib.sha256(assignment_path.read_bytes()).hexdigest() != assignment_receipt["assignments_sha256"]:
+        raise ValueError("local ECAPA assignment hash changed")
+    assignments = json.loads(assignment_path.read_text(encoding="utf-8"))["source_utterance_cluster"]
+    if len(assignments) != 9495 or set(assignments.values()) != {0, 1}:
+        raise ValueError("source ECAPA assignment set is incomplete")
+    manifest = _load_jsonl(ROOT / "research/pilot/data/manifest.jsonl")
+    real_by_id = {row["utt_id"]: row for row in manifest if row["split"] == "train"}
+    dev = [row for row in manifest if row["split"] == "dev"]
+    pseudo_by_id = {}
+    for row in _load_jsonl(ROOT / "research/pilot/teacher_predictions/all_train.jsonl"):
+        transformed = dict(row)
+        transformed["reference_text"] = transformed.pop("hypothesis_text")
+        transformed["label_source"] = "teacher_pseudo"
+        pseudo_by_id[transformed["utt_id"]] = transformed
+    if set(real_by_id) != set(assignments) or set(pseudo_by_id) != set(assignments):
+        raise ValueError("cluster assignments differ from source endpoint cohorts")
+    receipts = _feature_receipts()
+    training_hash = hashlib.sha256(
+        (ROOT / "research/pilot/training.py").read_bytes()
+    ).hexdigest()
+    plans = []
+    for cluster in (0, 1):
+        cluster_ids = sorted(uid for uid, value in assignments.items() if value == cluster)
+        if len(cluster_ids) < 1000:
+            raise ValueError(f"source cluster {cluster} is too small")
+        for endpoint_kind, rows_by_id in (
+            ("source_real", real_by_id), ("source_pseudo", pseudo_by_id)
+        ):
+            arm = f"{endpoint_kind}_c{cluster}"
+            train = [rows_by_id[uid] for uid in cluster_ids]
+            all_rows = train + dev
+            missing = sorted({row["utt_id"] for row in all_rows} - set(receipts))
+            if missing:
+                raise ValueError(f"missing clustered source feature receipts: {missing[:5]}")
+            plans.append({
+                "run_id": config["run_id"] + "/" + arm,
+                "label_source": arm,
+                "endpoint_kind": endpoint_kind,
+                "cluster": cluster,
+                "cluster_assignment_sha256": assignment_receipt["assignments_sha256"],
+                "output_path": f"seed12/sc_c2/{arm}",
+                "training_code_sha256": training_hash,
+                "rows": all_rows,
+                "cache_receipts": {row["utt_id"]: receipts[row["utt_id"]] for row in all_rows},
+                "config": {
+                    "arm_name": arm, "seed": 12, "num_updates": contract.updates,
+                    "batch_size": contract.batch_size, "grad_accum_steps": 1,
+                    "learning_rate": contract.learning_rate, "weight_decay": 0.01,
+                    "max_grad_norm": 1.0, "eval_every": 0, "eval_batch_size": 8,
+                    "max_new_tokens": 224, "model_id": contract.student_model,
+                    "model_revision": contract.student_revision,
+                },
+            })
+    return plans
+
+
+def run_clustered_source_endpoints(config: dict, contract: StudyContract) -> dict:
+    from research.publication.modal_runner import app, train_source_endpoint
+
+    ensure_live_budget()
+    ledger = BudgetLedger(BUDGET_PATH)
+    plans = clustered_source_endpoint_plans(config, contract)
+    hashes = {plan["label_source"]: canonical_json_hash(plan) for plan in plans}
+    for plan in plans:
+        ledger.reserve(plan["run_id"], 0.65, hashes[plan["label_source"]])
+    output = []
+    with app.run():
+        for result in train_source_endpoint.map(plans, order_outputs=False, return_exceptions=True):
+            if isinstance(result, BaseException):
+                raise result
+            arm = result["label_source"]
+            receipt_hash = canonical_json_hash(result)
+            ledger.complete(result["run_id"], float(result["estimated_resource_cost_usd"]), receipt_hash)
+            atomic_json(
+                ROOT / f"research/publication/results/sc_c2/{arm}/receipt.json",
+                {**result, "plan_sha256": hashes[arm], "receipt_sha256": receipt_hash},
+            )
+            output.append(result)
+    expected = {f"source_{kind}_c{cluster}" for kind in ("real", "pseudo") for cluster in (0, 1)}
+    if {row["label_source"] for row in output} != expected:
+        raise RuntimeError("clustered source endpoint batch incomplete")
+    return {"runs": sorted(output, key=lambda row: row["label_source"])}
+
+
 def run_target_preparation(config: dict, contract: StudyContract) -> dict:
     from research.publication.modal_runner import app, prepare_target_manifest
 
@@ -673,6 +765,8 @@ def main() -> int:
         result = run_source_smoke(config, contract)
     elif config["action"] == "train_source_endpoints":
         result = run_source_endpoints(config, contract)
+    elif config["action"] == "train_clustered_source_endpoints":
+        result = run_clustered_source_endpoints(config, contract)
     elif config["action"] == "prepare_target_manifest":
         result = run_target_preparation(config, contract)
     elif config["action"] == "build_ecapa_clusters":

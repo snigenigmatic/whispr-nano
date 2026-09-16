@@ -62,6 +62,60 @@ def apply_global_correction(
     return corrected, report
 
 
+def apply_weighted_correction(
+    source_real: list[Mapping[str, Any]],
+    source_pseudo: list[Mapping[str, Any]],
+    target_pseudo: Mapping[str, Any],
+    weights: list[float],
+    scale: float,
+) -> tuple[dict[str, Any], dict[str, Any]]:
+    """Apply a fixed weighted bank of cluster-specific correction vectors."""
+    if not source_real or len(source_real) != len(source_pseudo) or len(weights) != len(source_real):
+        raise ValueError("real, pseudo and weight cluster counts must match and be nonzero")
+    if not math.isfinite(scale) or scale <= 0:
+        raise ValueError("scale must be positive and finite")
+    if any(not math.isfinite(weight) or weight < 0 for weight in weights):
+        raise ValueError("cluster weights must be finite and non-negative")
+    if not math.isclose(sum(weights), 1.0, rel_tol=0.0, abs_tol=1e-12):
+        raise ValueError("cluster weights must sum to one")
+    states = [*source_real, *source_pseudo, target_pseudo]
+    keys = validate_compatible(*states)
+    corrected: dict[str, Any] = {}
+    component_sq = [0.0 for _ in weights]
+    weighted_sq = target_sq = 0.0
+    for key in keys:
+        deltas = [real[key] - pseudo[key] for real, pseudo in zip(source_real, source_pseudo)]
+        weighted = deltas[0] * weights[0]
+        for weight, delta in zip(weights[1:], deltas[1:]):
+            weighted = weighted + delta * weight
+        value = target_pseudo[key] + weighted * scale
+        if hasattr(value, "isfinite"):
+            finite = bool(value.isfinite().all())
+        else:
+            import numpy as np
+
+            finite = bool(np.isfinite(value).all())
+        if not finite:
+            raise ValueError(f"non-finite corrected tensor: {key}")
+        corrected[key] = value
+        for index, delta in enumerate(deltas):
+            component_sq[index] += _sum_squares(delta)
+        weighted_sq += _sum_squares(weighted)
+        target_sq += _sum_squares(target_pseudo[key])
+    report = {
+        "formula": "target_pseudo + scale * sum_c(weight_c * (source_real_c - source_pseudo_c))",
+        "scale": scale,
+        "weights": list(weights),
+        "clusters": len(weights),
+        "parameter_tensors": len(keys),
+        "component_correction_l2": [math.sqrt(value) for value in component_sq],
+        "weighted_correction_l2": math.sqrt(weighted_sq),
+        "target_l2": math.sqrt(target_sq),
+        "relative_weighted_correction_l2": math.sqrt(weighted_sq / target_sq) if target_sq else None,
+    }
+    return corrected, report
+
+
 def _sum_squares(value: Any) -> float:
     if hasattr(value, "detach"):
         return float(value.detach().double().square().sum().cpu())

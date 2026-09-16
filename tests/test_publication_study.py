@@ -3,7 +3,7 @@ from pathlib import Path
 import numpy as np
 import pytest
 
-from publication_study.arithmetic import apply_global_correction
+from publication_study.arithmetic import apply_global_correction, apply_weighted_correction
 from publication_study.contract import BudgetLedger, StudyContract, atomic_json
 from publication_study.integrity import (
     TARGET_ACCENTS,
@@ -86,6 +86,25 @@ def test_global_pseudo2real_arithmetic_and_shape_guard():
     assert report["formula"].startswith("target_pseudo")
     with pytest.raises(ValueError, match="signature"):
         apply_global_correction(real, {"w": np.ones((2, 1), dtype=np.float32)}, target, 1.0)
+
+
+def test_weighted_correction_bank_uses_frozen_mixture_weights():
+    real = [
+        {"w": np.array([3.0, 5.0], dtype=np.float32)},
+        {"w": np.array([8.0, 2.0], dtype=np.float32)},
+    ]
+    pseudo = [
+        {"w": np.array([2.0, 1.0], dtype=np.float32)},
+        {"w": np.array([4.0, 4.0], dtype=np.float32)},
+    ]
+    target = {"w": np.array([10.0, 20.0], dtype=np.float32)}
+    out, report = apply_weighted_correction(real, pseudo, target, [0.25, 0.75], 0.5)
+    assert np.allclose(out["w"], [11.625, 19.75])
+    assert report["weights"] == [0.25, 0.75]
+    with pytest.raises(ValueError, match="sum to one"):
+        apply_weighted_correction(real, pseudo, target, [0.5, 0.6], 1.0)
+    with pytest.raises(ValueError, match="non-negative"):
+        apply_weighted_correction(real, pseudo, target, [-0.1, 1.1], 1.0)
 
 
 def test_target_teacher_artifacts_require_exact_blind_confidence_extremes():
