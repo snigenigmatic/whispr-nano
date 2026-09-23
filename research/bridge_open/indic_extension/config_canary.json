@@ -1,0 +1,32 @@
+{
+  "model_id": "ai4bharat/indic-conformer-600m-multilingual",
+  "model_revision": "e9b71b369c048e2c6b634d4c131061c34e441179",
+  "manifest_path": "/Users/prateekraj/whispr-nano/data/bridge_open/fleurs_test_v1/corpus-v2.jsonl",
+  "manifest_sha256": "967d8dca02f9f729c1ed7548dce7283cf9dfc62623815a7c131f71acb13ce2c7",
+  "supported_languages": [
+    "as",
+    "bn",
+    "hi"
+  ],
+  "batch_size": 3,
+  "onnx_providers": [
+    "CUDAExecutionProvider",
+    "CPUExecutionProvider"
+  ],
+  "required_packages": [
+    "numpy",
+    "soundfile",
+    "jiwer"
+  ],
+  "audio_contract": "float32 mono 16000 Hz full waveform; finite and non-silent; no resampling in runner",
+  "adapter_protocol": "module:factory -> load(model_dir, providers), adapter.transcribe_batch([(waveform,16000),...], languages) -> texts in input order",
+  "model_state_note": "ONNX runtime has no assumed torch eval state; adapter evidence controls eval_state_observable",
+  "conversation_ids": [
+    "fleurs-as_in-test-10007973808011083086",
+    "fleurs-bn_in-test-10012315972427481934",
+    "fleurs-hi_in-test-10011266027513218401"
+  ],
+  "output_dir": "runtime-indic-canary",
+  "condition_id": "indic_conformer_native_canary",
+  "purpose": "three-language frozen FLEURS test diagnostic; unexecuted while gated access is denied"
+}
