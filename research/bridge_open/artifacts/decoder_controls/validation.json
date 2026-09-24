@@ -1,0 +1,20 @@
+[
+  {
+    "valid": true,
+    "output_dir": "/Users/prateekraj/.local/share/openresearch/local-runs/8001faf9-356f-4071-841d-aad42f6780c6/repo/research/bridge_open/artifacts/hindi-turbo-cuda-beam5-v1",
+    "conversation_count": 3,
+    "errors": []
+  },
+  {
+    "valid": true,
+    "output_dir": "/Users/prateekraj/.local/share/openresearch/local-runs/8001faf9-356f-4071-841d-aad42f6780c6/repo/research/bridge_open/artifacts/hindi-turbo-cuda-beam5-15s-v1",
+    "conversation_count": 3,
+    "errors": []
+  },
+  {
+    "valid": true,
+    "output_dir": "/Users/prateekraj/.local/share/openresearch/local-runs/8001faf9-356f-4071-841d-aad42f6780c6/repo/research/bridge_open/artifacts/hindi-turbo-cuda-native-longform-v1",
+    "conversation_count": 3,
+    "errors": []
+  }
+]

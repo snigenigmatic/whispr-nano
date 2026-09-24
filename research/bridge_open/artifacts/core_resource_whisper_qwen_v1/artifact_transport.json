@@ -1,0 +1,5 @@
+{
+  "schema_version": "artifact-transport/v1",
+  "transport": "single zlib/base64 bundle emitted after all top-level artifacts",
+  "top_level_only": true
+}

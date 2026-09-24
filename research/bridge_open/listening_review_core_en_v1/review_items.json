@@ -1,0 +1,566 @@
+[
+  {
+    "review_id": "svarah_06413",
+    "selection_kinds": [
+      "preexposed_resource_panel"
+    ],
+    "language": "en",
+    "exposure_scope": "preexposed_exploratory_corpus",
+    "audio_url": "../../../data/bridge_open/svarah_native_shard02_v2/bundle/wav/svarah_06413.wav",
+    "audio_path_relative": "data/bridge_open/svarah_native_shard02_v2/bundle/wav/svarah_06413.wav",
+    "audio_sha256": "5c2a1c0bdbbec34e37580b89f80ee1f46192c531ec0c12b1bd524da02db189d9",
+    "reference_sha256": "e66ff61ce6d5470d1290370d010258ebd6af1d71cdad4da2e299390ff1e9f91e",
+    "reference_text": "The government and people arrange and celebrate different festivals associated with environment. For example, for lions, Asiatic lions, we have Lions Day celebrated near the Gir forest. Some cultural programs are arranged at historical places such as Tana Riri festival, music festival at Modhera Sun Temple.",
+    "systems": [
+      {
+        "system_label": "system_A",
+        "transcript": " The government and people arrange and celebrate different festivals associated with environment. For example, for lions, Asiatic lions, we have Lions Day celebrated near the Gir forest. Some cultural programs are arranged at historical places such as Tanah Riri Music Festival at Modhera Sun Temple."
+      },
+      {
+        "system_label": "system_B",
+        "transcript": "The government and people arrange and celebrate different festivals associated with environment. For example, for lions, Asiatic lions, we have Lions Day celebrated near the Gir Forest. Some cultural programs are arranged at historical places such as Tana Riri Festival Music Festival at Modera Sun Temple."
+      },
+      {
+        "system_label": "system_C",
+        "transcript": "the government and people arrange and celebrate different festivals associated with environment for example for lions asiatic lions we have lions day celebrated near the gir forest some cultural programmes are arranged at historical places such as tanariri festival music festival at modera sun temple"
+      },
+      {
+        "system_label": "system_D",
+        "transcript": "The government and people arrange and celebrate different festivals associated with environment. For example, for lions, Asiatic lions, we have Lions Day celebrated near the Gir Forest. Some cultural programs are arranged at historical places such as Tana Riri Festival, music festival at Modera Sun Temple."
+      },
+      {
+        "system_label": "system_E",
+        "transcript": " The government and people arrange and celebrate different festivals associated with the environment. For example, for lions, Asiatic lions, we have Lions Day celebrated near the Gir Forest. Some cultural programs are arranged at historical places such as Tana Reeri Festival, Music Festival at Modera Sun Temple."
+      },
+      {
+        "system_label": "system_F",
+        "transcript": " The government and people arrange and celebrate different festivals associated with environment. For example, for lions, Asiatic lions, we have Lions Day celebrated near the Gir forest. Some cultural programs are arranged at historical places such as Tanariri music festival at Modera Sun Temple."
+      }
+    ],
+    "review_status": "UNREVIEWED",
+    "reviewer_response": {
+      "reference_correct": "",
+      "audio_quality": "",
+      "language_or_script_by_system": {},
+      "meaning_preserved_by_system": {},
+      "notes": ""
+    }
+  },
+  {
+    "review_id": "svarah_06648",
+    "selection_kinds": [
+      "preexposed_resource_panel"
+    ],
+    "language": "en",
+    "exposure_scope": "preexposed_exploratory_corpus",
+    "audio_url": "../../../data/bridge_open/svarah_native_shard02_v2/bundle/wav/svarah_06648.wav",
+    "audio_path_relative": "data/bridge_open/svarah_native_shard02_v2/bundle/wav/svarah_06648.wav",
+    "audio_sha256": "04997bbb4151302266a868f90ae773b1151448e9eb62c4b66f5f73e78a45f46a",
+    "reference_sha256": "5c9de49f5c277ba7d297b57a17064cc0fbfc09fda7def5b237d6a7bc4baff59f",
+    "reference_text": "Government offers a number of scholarships,",
+    "systems": [
+      {
+        "system_label": "system_A",
+        "transcript": "Government offers a number of scholarships."
+      },
+      {
+        "system_label": "system_B",
+        "transcript": " Government offers a number of scholarships"
+      },
+      {
+        "system_label": "system_C",
+        "transcript": "Government offers a number of scholarships."
+      },
+      {
+        "system_label": "system_D",
+        "transcript": " Government offers a number of scholarships."
+      },
+      {
+        "system_label": "system_E",
+        "transcript": "government offers a number of scholarships"
+      },
+      {
+        "system_label": "system_F",
+        "transcript": " Government offers a number of scholarships"
+      }
+    ],
+    "review_status": "UNREVIEWED",
+    "reviewer_response": {
+      "reference_correct": "",
+      "audio_quality": "",
+      "language_or_script_by_system": {},
+      "meaning_preserved_by_system": {},
+      "notes": ""
+    }
+  },
+  {
+    "review_id": "svarah_06257",
+    "selection_kinds": [
+      "preexposed_resource_panel"
+    ],
+    "language": "en",
+    "exposure_scope": "preexposed_exploratory_corpus",
+    "audio_url": "../../../data/bridge_open/svarah_native_shard02_v2/bundle/wav/svarah_06257.wav",
+    "audio_path_relative": "data/bridge_open/svarah_native_shard02_v2/bundle/wav/svarah_06257.wav",
+    "audio_sha256": "b1b461189068d35521519d2252c600cd893f47399e44792d740f7cb271ac4084",
+    "reference_sha256": "acac80266f97bdbc39d71c6ae0d9a2956fedfec7a3d2eaae02b2462188140b1d",
+    "reference_text": "Visual",
+    "systems": [
+      {
+        "system_label": "system_A",
+        "transcript": " Visual."
+      },
+      {
+        "system_label": "system_B",
+        "transcript": "Visual."
+      },
+      {
+        "system_label": "system_C",
+        "transcript": " Vídeo ora."
+      },
+      {
+        "system_label": "system_D",
+        "transcript": " Visual."
+      },
+      {
+        "system_label": "system_E",
+        "transcript": "Visual."
+      },
+      {
+        "system_label": "system_F",
+        "transcript": "ليzول"
+      }
+    ],
+    "review_status": "UNREVIEWED",
+    "reviewer_response": {
+      "reference_correct": "",
+      "audio_quality": "",
+      "language_or_script_by_system": {},
+      "meaning_preserved_by_system": {},
+      "notes": ""
+    }
+  },
+  {
+    "review_id": "svarah_06387",
+    "selection_kinds": [
+      "preexposed_resource_panel"
+    ],
+    "language": "en",
+    "exposure_scope": "preexposed_exploratory_corpus",
+    "audio_url": "../../../data/bridge_open/svarah_native_shard02_v2/bundle/wav/svarah_06387.wav",
+    "audio_path_relative": "data/bridge_open/svarah_native_shard02_v2/bundle/wav/svarah_06387.wav",
+    "audio_sha256": "334db011a77b5989302b37ce391af16b4b829b3db4d0b865a236f68fc8909cbb",
+    "reference_sha256": "537fcd4ede2c80271c769cffb5650d4ae3f86e49d8308e3cd42e4aba8036e5b2",
+    "reference_text": "give a new direction to tourism industry of Goa",
+    "systems": [
+      {
+        "system_label": "system_A",
+        "transcript": "Give a new direction to tourism industry of Goa."
+      },
+      {
+        "system_label": "system_B",
+        "transcript": " Give a new direction to tourism industry of Goa."
+      },
+      {
+        "system_label": "system_C",
+        "transcript": "Give a new direction to tourism industry of Goa."
+      },
+      {
+        "system_label": "system_D",
+        "transcript": "giव a नू ડિrેक્tન ટo ટूrिઝમ इंડસ્ટ્રy ऑफ goवa"
+      },
+      {
+        "system_label": "system_E",
+        "transcript": " give a new direction to tourism industry of Goa."
+      },
+      {
+        "system_label": "system_F",
+        "transcript": " give a new direction to tourism industry of Goa."
+      }
+    ],
+    "review_status": "UNREVIEWED",
+    "reviewer_response": {
+      "reference_correct": "",
+      "audio_quality": "",
+      "language_or_script_by_system": {},
+      "meaning_preserved_by_system": {},
+      "notes": ""
+    }
+  },
+  {
+    "review_id": "svarah_06420",
+    "selection_kinds": [
+      "preexposed_resource_panel"
+    ],
+    "language": "en",
+    "exposure_scope": "preexposed_exploratory_corpus",
+    "audio_url": "../../../data/bridge_open/svarah_native_shard02_v2/bundle/wav/svarah_06420.wav",
+    "audio_path_relative": "data/bridge_open/svarah_native_shard02_v2/bundle/wav/svarah_06420.wav",
+    "audio_sha256": "3174e2f4de05591524f84043a7f362fab1f4ddde2f77c9d12937a0ebf75b2336",
+    "reference_sha256": "e5b0575bb83659aab89d0b95a9683ba3e39c0610642bac9fe92911a8c16ebaef",
+    "reference_text": "That knitwear or that yarns are like it trouble in",
+    "systems": [
+      {
+        "system_label": "system_A",
+        "transcript": " that meatware or that yarns are like it troubles in"
+      },
+      {
+        "system_label": "system_B",
+        "transcript": "tाट मीटवेर और  यानज र लाक  tरouबl न"
+      },
+      {
+        "system_label": "system_C",
+        "transcript": "That meetwear or that yarns are like it troubles in."
+      },
+      {
+        "system_label": "system_D",
+        "transcript": " that midway or that yarns are like it troubles in"
+      },
+      {
+        "system_label": "system_E",
+        "transcript": "That knitwear or that yarns are like it troubles in."
+      },
+      {
+        "system_label": "system_F",
+        "transcript": " that meat wear or that yarns are like troubles in"
+      }
+    ],
+    "review_status": "UNREVIEWED",
+    "reviewer_response": {
+      "reference_correct": "",
+      "audio_quality": "",
+      "language_or_script_by_system": {},
+      "meaning_preserved_by_system": {},
+      "notes": ""
+    }
+  },
+  {
+    "review_id": "svarah_06341",
+    "selection_kinds": [
+      "preexposed_resource_panel"
+    ],
+    "language": "en",
+    "exposure_scope": "preexposed_exploratory_corpus",
+    "audio_url": "../../../data/bridge_open/svarah_native_shard02_v2/bundle/wav/svarah_06341.wav",
+    "audio_path_relative": "data/bridge_open/svarah_native_shard02_v2/bundle/wav/svarah_06341.wav",
+    "audio_sha256": "9e068e98065da5b0e3989695d8d321b23d62e838c39a8581c9eb3b3c56aa5fe2",
+    "reference_sha256": "11f2daea39e2eb3e2e52fa7d825fc110d4ce939d9af979e259785125524a8e25",
+    "reference_text": "Why is there no ESIC Centres in area with pincode",
+    "systems": [
+      {
+        "system_label": "system_A",
+        "transcript": " Why is there no ESIC centers in area with pin code"
+      },
+      {
+        "system_label": "system_B",
+        "transcript": " Why is there no ESIC centers in area with PIN code?"
+      },
+      {
+        "system_label": "system_C",
+        "transcript": " Why is there no ESIC centres in area with PIN code?"
+      },
+      {
+        "system_label": "system_D",
+        "transcript": "Why is there no E S I C centers in area with pin code?"
+      },
+      {
+        "system_label": "system_E",
+        "transcript": "wي ا e نo esc سr ان aरيا w bنco"
+      },
+      {
+        "system_label": "system_F",
+        "transcript": "Why is there no E S I C centers in area with pin code"
+      }
+    ],
+    "review_status": "UNREVIEWED",
+    "reviewer_response": {
+      "reference_correct": "",
+      "audio_quality": "",
+      "language_or_script_by_system": {},
+      "meaning_preserved_by_system": {},
+      "notes": ""
+    }
+  },
+  {
+    "review_id": "svarah_06269",
+    "selection_kinds": [
+      "preexposed_resource_panel"
+    ],
+    "language": "en",
+    "exposure_scope": "preexposed_exploratory_corpus",
+    "audio_url": "../../../data/bridge_open/svarah_native_shard02_v2/bundle/wav/svarah_06269.wav",
+    "audio_path_relative": "data/bridge_open/svarah_native_shard02_v2/bundle/wav/svarah_06269.wav",
+    "audio_sha256": "43c35013e103f471a308ff2027a7c7d9072f40a524f10f2a1c2d004daa146331",
+    "reference_sha256": "0055c2a34cdbf386fc8fae678cfadd488188c6b62dc839d372ea0cd1678601f8",
+    "reference_text": "Carnatic music itself developed around musical works or compositions of phenomenal composers",
+    "systems": [
+      {
+        "system_label": "system_A",
+        "transcript": "कारनाटिक म्યूजिक इtसेलफ ડेvलपeड अराunડ म्यूजिकल वરकस औr कॉमपosिशनस ऑफ फેनॉमनल कंपोजरs"
+      },
+      {
+        "system_label": "system_B",
+        "transcript": "Carnatic music itself developed around musical works or compositions of phenomenal composers."
+      },
+      {
+        "system_label": "system_C",
+        "transcript": " Carnatic music itself developed around musical works or compositions of phenomenal composers."
+      },
+      {
+        "system_label": "system_D",
+        "transcript": " Carnatic music itself developed around musical works are compositions of phenomenal composers."
+      },
+      {
+        "system_label": "system_E",
+        "transcript": " Carnatic music itself developed around musical works or compositions of phenomenal composers."
+      },
+      {
+        "system_label": "system_F",
+        "transcript": "Karnatic music itself developed around musical works or compositions of phenomenal composers."
+      }
+    ],
+    "review_status": "UNREVIEWED",
+    "reviewer_response": {
+      "reference_correct": "",
+      "audio_quality": "",
+      "language_or_script_by_system": {},
+      "meaning_preserved_by_system": {},
+      "notes": ""
+    }
+  },
+  {
+    "review_id": "svarah_06271",
+    "selection_kinds": [
+      "preexposed_resource_panel"
+    ],
+    "language": "en",
+    "exposure_scope": "preexposed_exploratory_corpus",
+    "audio_url": "../../../data/bridge_open/svarah_native_shard02_v2/bundle/wav/svarah_06271.wav",
+    "audio_path_relative": "data/bridge_open/svarah_native_shard02_v2/bundle/wav/svarah_06271.wav",
+    "audio_sha256": "3e36305247d0e240fdfaab1319788a3eab10f32dcb99cdd54d9225bd5a63e9b7",
+    "reference_sha256": "7d7658731d323c5d7cf4196627eba9c571a7c3b8524f61fb2115d06db0b39a1a",
+    "reference_text": "can you please use that for mobile number 69780549482 to log into Co-win portal?",
+    "systems": [
+      {
+        "system_label": "system_A",
+        "transcript": " can you please use that for mobile number six nine seven eight zero five four nine four eight two to log into coin portal"
+      },
+      {
+        "system_label": "system_B",
+        "transcript": " Can you please use that for mobile number 69780549482 to log into co-in port?"
+      },
+      {
+        "system_label": "system_C",
+        "transcript": " can you please use that for mobile number 69780549482 to log into coin portal"
+      },
+      {
+        "system_label": "system_D",
+        "transcript": "Can you please use that for mobile number six nine seven eight zero five four nine four eight two, to log into, Coen portal."
+      },
+      {
+        "system_label": "system_E",
+        "transcript": "can you please use that for mobile number six nine seven eight zero five four nine four eight two to log in to co in port"
+      },
+      {
+        "system_label": "system_F",
+        "transcript": "Can you please use that for mobile number six nine seven eight zero five four nine four eight two to log into Covin portal."
+      }
+    ],
+    "review_status": "UNREVIEWED",
+    "reviewer_response": {
+      "reference_correct": "",
+      "audio_quality": "",
+      "language_or_script_by_system": {},
+      "meaning_preserved_by_system": {},
+      "notes": ""
+    }
+  },
+  {
+    "review_id": "svarah_06332",
+    "selection_kinds": [
+      "preexposed_resource_panel"
+    ],
+    "language": "en",
+    "exposure_scope": "preexposed_exploratory_corpus",
+    "audio_url": "../../../data/bridge_open/svarah_native_shard02_v2/bundle/wav/svarah_06332.wav",
+    "audio_path_relative": "data/bridge_open/svarah_native_shard02_v2/bundle/wav/svarah_06332.wav",
+    "audio_sha256": "8bcc60567b907f9542333cb9491a5097389023ff06fec911380028203f627aa4",
+    "reference_sha256": "4692ca4b522ac4b09c3659a1d6f0c50928bc2cd2e4deb53fd92b4186b06ab94d",
+    "reference_text": "So, there are so many bodies who are working",
+    "systems": [
+      {
+        "system_label": "system_A",
+        "transcript": " So, there are so many bodies who are working"
+      },
+      {
+        "system_label": "system_B",
+        "transcript": "So there are so so many bodies who are working."
+      },
+      {
+        "system_label": "system_C",
+        "transcript": "So there are so many bodies who are working."
+      },
+      {
+        "system_label": "system_D",
+        "transcript": "و  ا سو ماني بادي  ا واكن"
+      },
+      {
+        "system_label": "system_E",
+        "transcript": " So there are so many bodies who are working."
+      },
+      {
+        "system_label": "system_F",
+        "transcript": " So, there are so many bodies who are working."
+      }
+    ],
+    "review_status": "UNREVIEWED",
+    "reviewer_response": {
+      "reference_correct": "",
+      "audio_quality": "",
+      "language_or_script_by_system": {},
+      "meaning_preserved_by_system": {},
+      "notes": ""
+    }
+  },
+  {
+    "review_id": "svarah_06284",
+    "selection_kinds": [
+      "preexposed_resource_panel"
+    ],
+    "language": "en",
+    "exposure_scope": "preexposed_exploratory_corpus",
+    "audio_url": "../../../data/bridge_open/svarah_native_shard02_v2/bundle/wav/svarah_06284.wav",
+    "audio_path_relative": "data/bridge_open/svarah_native_shard02_v2/bundle/wav/svarah_06284.wav",
+    "audio_sha256": "5be6d44dc519a075699304832c5b4706b12b48a0f80da1b80c6833cf634177bd",
+    "reference_sha256": "34b6aeaa69381b67b87118abd248d4c96e0049d92ac4fc63a92def35886003fa",
+    "reference_text": "650 km",
+    "systems": [
+      {
+        "system_label": "system_A",
+        "transcript": " 650 kilometers"
+      },
+      {
+        "system_label": "system_B",
+        "transcript": "Six fifty kilometers."
+      },
+      {
+        "system_label": "system_C",
+        "transcript": "Six fifty kilometers."
+      },
+      {
+        "system_label": "system_D",
+        "transcript": " 650 kilometers"
+      },
+      {
+        "system_label": "system_E",
+        "transcript": "six fifty kilometers"
+      },
+      {
+        "system_label": "system_F",
+        "transcript": " 650 kilometers"
+      }
+    ],
+    "review_status": "UNREVIEWED",
+    "reviewer_response": {
+      "reference_correct": "",
+      "audio_quality": "",
+      "language_or_script_by_system": {},
+      "meaning_preserved_by_system": {},
+      "notes": ""
+    }
+  },
+  {
+    "review_id": "svarah_06191",
+    "selection_kinds": [
+      "preexposed_resource_panel"
+    ],
+    "language": "en",
+    "exposure_scope": "preexposed_exploratory_corpus",
+    "audio_url": "../../../data/bridge_open/svarah_native_shard02_v2/bundle/wav/svarah_06191.wav",
+    "audio_path_relative": "data/bridge_open/svarah_native_shard02_v2/bundle/wav/svarah_06191.wav",
+    "audio_sha256": "bc974cff0b29dd24ae1c14e8f9eb73698a44ac01987d50a02dc51ae5ac033293",
+    "reference_sha256": "b007069653ab188a72a9b87485b8a90f47ec6c16e74f862ffb02c8318295603b",
+    "reference_text": "that to have a round shaped roti was an impossible task for me.",
+    "systems": [
+      {
+        "system_label": "system_A",
+        "transcript": "that to have a round shaped roti was an impossible task for me"
+      },
+      {
+        "system_label": "system_B",
+        "transcript": " that to have a round shaped roti was an impossible task for me."
+      },
+      {
+        "system_label": "system_C",
+        "transcript": "That to have a round-shaped roti was an impossible task for me."
+      },
+      {
+        "system_label": "system_D",
+        "transcript": " that to have a round shaped roti was an impossible task for me."
+      },
+      {
+        "system_label": "system_E",
+        "transcript": "That to have a round-shaped roti was an impossible task for me."
+      },
+      {
+        "system_label": "system_F",
+        "transcript": " that to have a round shaped roti was an impossible task for me."
+      }
+    ],
+    "review_status": "UNREVIEWED",
+    "reviewer_response": {
+      "reference_correct": "",
+      "audio_quality": "",
+      "language_or_script_by_system": {},
+      "meaning_preserved_by_system": {},
+      "notes": ""
+    }
+  },
+  {
+    "review_id": "svarah_06522",
+    "selection_kinds": [
+      "preexposed_resource_panel"
+    ],
+    "language": "en",
+    "exposure_scope": "preexposed_exploratory_corpus",
+    "audio_url": "../../../data/bridge_open/svarah_native_shard02_v2/bundle/wav/svarah_06522.wav",
+    "audio_path_relative": "data/bridge_open/svarah_native_shard02_v2/bundle/wav/svarah_06522.wav",
+    "audio_sha256": "e16aa896e50ffe4fdb487432d2573eebcee364c52e809ecd8b640613194e2501",
+    "reference_sha256": "0e6a40023c84f5683092c16207683b9b748659eacd87cd7eeb4762e81cb3fe53",
+    "reference_text": "Please use mobile number 82562848140 to register on Co-WIn platform",
+    "systems": [
+      {
+        "system_label": "system_A",
+        "transcript": " Please use mobile number 82562848140 to register on CoWin platform."
+      },
+      {
+        "system_label": "system_B",
+        "transcript": "Please use mobile number eight two five six two eight four eight one four zero to register on Co Win platform."
+      },
+      {
+        "system_label": "system_C",
+        "transcript": " Please use mobile number 82562848140 to register on CoVin platform."
+      },
+      {
+        "system_label": "system_D",
+        "transcript": "پلیز وز موبائل نمبر t to fئو سx o  fوr ٹ ن  زیرو ٹو رجسٹر آن کo ون پلیٹفورم"
+      },
+      {
+        "system_label": "system_E",
+        "transcript": " Please use mobile number 82562848140 to register on CoVin platform."
+      },
+      {
+        "system_label": "system_F",
+        "transcript": "Please use mobile number eight two five six two eight four eight one four zero to register on Covin platform."
+      }
+    ],
+    "review_status": "UNREVIEWED",
+    "reviewer_response": {
+      "reference_correct": "",
+      "audio_quality": "",
+      "language_or_script_by_system": {},
+      "meaning_preserved_by_system": {},
+      "notes": ""
+    }
+  }
+]

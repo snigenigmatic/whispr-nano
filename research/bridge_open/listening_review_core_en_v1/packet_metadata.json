@@ -1,0 +1,24 @@
+{
+  "packet_name": "listening_review_core_en_v1",
+  "packet_status": "UNREVIEWED",
+  "fixed_panel_source": "svarah_native_shard02_v2_fixed_12",
+  "fixed_panel_manifest_sha256": "14c08d00b5e585de77ee3af6b486b05980e0cc9e8a31139654437b2ed8082dac",
+  "item_count": 12,
+  "anonymous_card_count": 72,
+  "language_counts": {
+    "en": 12
+  },
+  "source_outputs": "accepted batch-one resource-profile timed pass 3 only",
+  "source_profiles_accepted": true,
+  "source_profile_sha256": {
+    "omni": "669bcfe70689b850ad39e4c9b5bf4e23524834885cfac32383e3dd80a0341a43",
+    "whisper_small": "87d3036e1e5229a316f8712ac288fee92456c6f704fe702369e3d2b531daac46",
+    "whisper_turbo": "88fd2130246eee098cb38c4ce8d226b9b263424a837b0ac4c8cfbb23894efca5",
+    "whisper_large_v3": "751c808094832e1b634f961b77423fadd9fc66171a7a6e57c274276003c20ad4",
+    "qwen_0_6b": "9aa6b11828b9ec454959b300e8a094c560ba7215d818bc42ed5ae416af6c1542",
+    "qwen_1_7b": "de4d6016c687a8a6901de4da14f91019e5d3ca2ec01fd202d8b2a5adfe669922"
+  },
+  "preexposure_note": "The fixed 12-item Svarah panel is pre-exposed and adds no independent observations.",
+  "comparability_note": "These batch-one resource-profile transcripts are separate from primary batch-eight quality conditions.",
+  "reviewer_view_excludes_true_system_names_and_scores": true
+}

@@ -1,0 +1,9 @@
+{
+  "status": "completed",
+  "records": 124,
+  "long_per_model": 14,
+  "short_turbo_parity": 24,
+  "total_wall_seconds": 437.335561357002,
+  "cost_usd": null,
+  "purpose": "All-long native route correction plus Turbo independent parity; post-result audit, not held-out improvement."
+}

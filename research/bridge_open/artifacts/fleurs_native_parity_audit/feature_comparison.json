@@ -1,0 +1,326 @@
+[
+  {
+    "conversation_id": "fleurs-hi_in-test-10011266027513218401",
+    "max_abs_delta": 1.1920928955078125e-07,
+    "hf_shape": [
+      128,
+      3000
+    ],
+    "native_shape": [
+      128,
+      3000
+    ]
+  },
+  {
+    "conversation_id": "fleurs-hi_in-test-10014385262415025488",
+    "max_abs_delta": 1.1920928955078125e-07,
+    "hf_shape": [
+      128,
+      3000
+    ],
+    "native_shape": [
+      128,
+      3000
+    ]
+  },
+  {
+    "conversation_id": "fleurs-hi_in-test-10015817292782645020",
+    "max_abs_delta": 1.1920928955078125e-07,
+    "hf_shape": [
+      128,
+      3000
+    ],
+    "native_shape": [
+      128,
+      3000
+    ]
+  },
+  {
+    "conversation_id": "fleurs-hi_in-test-10027305580492162464",
+    "max_abs_delta": 2.384185791015625e-07,
+    "hf_shape": [
+      128,
+      3000
+    ],
+    "native_shape": [
+      128,
+      3000
+    ]
+  },
+  {
+    "conversation_id": "fleurs-hi_in-test-10069289676238419279",
+    "max_abs_delta": 1.1920928955078125e-07,
+    "hf_shape": [
+      128,
+      3000
+    ],
+    "native_shape": [
+      128,
+      3000
+    ]
+  },
+  {
+    "conversation_id": "fleurs-hi_in-test-10107687492910459268",
+    "max_abs_delta": 1.1920928955078125e-07,
+    "hf_shape": [
+      128,
+      3000
+    ],
+    "native_shape": [
+      128,
+      3000
+    ]
+  },
+  {
+    "conversation_id": "fleurs-hi_in-test-10128382631186456345",
+    "max_abs_delta": 1.1920928955078125e-07,
+    "hf_shape": [
+      128,
+      3000
+    ],
+    "native_shape": [
+      128,
+      3000
+    ]
+  },
+  {
+    "conversation_id": "fleurs-hi_in-test-10135688561274120767",
+    "max_abs_delta": 1.1920928955078125e-07,
+    "hf_shape": [
+      128,
+      3000
+    ],
+    "native_shape": [
+      128,
+      3000
+    ]
+  },
+  {
+    "conversation_id": "fleurs-hi_in-test-13003185437122223029",
+    "max_abs_delta": 1.1920928955078125e-07,
+    "hf_shape": [
+      128,
+      3000
+    ],
+    "native_shape": [
+      128,
+      3000
+    ]
+  },
+  {
+    "conversation_id": "fleurs-bn_in-test-10012315972427481934",
+    "max_abs_delta": 1.1920928955078125e-07,
+    "hf_shape": [
+      128,
+      3000
+    ],
+    "native_shape": [
+      128,
+      3000
+    ]
+  },
+  {
+    "conversation_id": "fleurs-bn_in-test-10025278611427771211",
+    "max_abs_delta": 1.1920928955078125e-07,
+    "hf_shape": [
+      128,
+      3000
+    ],
+    "native_shape": [
+      128,
+      3000
+    ]
+  },
+  {
+    "conversation_id": "fleurs-bn_in-test-10059008353469041076",
+    "max_abs_delta": 1.1920928955078125e-07,
+    "hf_shape": [
+      128,
+      3000
+    ],
+    "native_shape": [
+      128,
+      3000
+    ]
+  },
+  {
+    "conversation_id": "fleurs-bn_in-test-10100521488104977460",
+    "max_abs_delta": 1.1920928955078125e-07,
+    "hf_shape": [
+      128,
+      3000
+    ],
+    "native_shape": [
+      128,
+      3000
+    ]
+  },
+  {
+    "conversation_id": "fleurs-bn_in-test-10104859715102207297",
+    "max_abs_delta": 1.1920928955078125e-07,
+    "hf_shape": [
+      128,
+      3000
+    ],
+    "native_shape": [
+      128,
+      3000
+    ]
+  },
+  {
+    "conversation_id": "fleurs-bn_in-test-10112260419298134236",
+    "max_abs_delta": 1.1920928955078125e-07,
+    "hf_shape": [
+      128,
+      3000
+    ],
+    "native_shape": [
+      128,
+      3000
+    ]
+  },
+  {
+    "conversation_id": "fleurs-bn_in-test-10113993134008827381",
+    "max_abs_delta": 1.1920928955078125e-07,
+    "hf_shape": [
+      128,
+      3000
+    ],
+    "native_shape": [
+      128,
+      3000
+    ]
+  },
+  {
+    "conversation_id": "fleurs-bn_in-test-10133515389098801664",
+    "max_abs_delta": 1.1920928955078125e-07,
+    "hf_shape": [
+      128,
+      3000
+    ],
+    "native_shape": [
+      128,
+      3000
+    ]
+  },
+  {
+    "conversation_id": "fleurs-bn_in-test-12869216347907550991",
+    "max_abs_delta": 1.1920928955078125e-07,
+    "hf_shape": [
+      128,
+      3000
+    ],
+    "native_shape": [
+      128,
+      3000
+    ]
+  },
+  {
+    "conversation_id": "fleurs-as_in-test-10007973808011083086",
+    "max_abs_delta": 1.1920928955078125e-07,
+    "hf_shape": [
+      128,
+      3000
+    ],
+    "native_shape": [
+      128,
+      3000
+    ]
+  },
+  {
+    "conversation_id": "fleurs-as_in-test-10025377740714651614",
+    "max_abs_delta": 1.1920928955078125e-07,
+    "hf_shape": [
+      128,
+      3000
+    ],
+    "native_shape": [
+      128,
+      3000
+    ]
+  },
+  {
+    "conversation_id": "fleurs-as_in-test-1003211011223090716",
+    "max_abs_delta": 1.1920928955078125e-07,
+    "hf_shape": [
+      128,
+      3000
+    ],
+    "native_shape": [
+      128,
+      3000
+    ]
+  },
+  {
+    "conversation_id": "fleurs-as_in-test-10034701086497817897",
+    "max_abs_delta": 1.1920928955078125e-07,
+    "hf_shape": [
+      128,
+      3000
+    ],
+    "native_shape": [
+      128,
+      3000
+    ]
+  },
+  {
+    "conversation_id": "fleurs-as_in-test-10041524874893156910",
+    "max_abs_delta": 1.1920928955078125e-07,
+    "hf_shape": [
+      128,
+      3000
+    ],
+    "native_shape": [
+      128,
+      3000
+    ]
+  },
+  {
+    "conversation_id": "fleurs-as_in-test-10050229560315113670",
+    "max_abs_delta": 1.1920928955078125e-07,
+    "hf_shape": [
+      128,
+      3000
+    ],
+    "native_shape": [
+      128,
+      3000
+    ]
+  },
+  {
+    "conversation_id": "fleurs-as_in-test-10072979866343141327",
+    "max_abs_delta": 1.1920928955078125e-07,
+    "hf_shape": [
+      128,
+      3000
+    ],
+    "native_shape": [
+      128,
+      3000
+    ]
+  },
+  {
+    "conversation_id": "fleurs-as_in-test-10075010449597923334",
+    "max_abs_delta": 1.1920928955078125e-07,
+    "hf_shape": [
+      128,
+      3000
+    ],
+    "native_shape": [
+      128,
+      3000
+    ]
+  },
+  {
+    "conversation_id": "fleurs-as_in-test-10189020253469894562",
+    "max_abs_delta": 1.1920928955078125e-07,
+    "hf_shape": [
+      128,
+      3000
+    ],
+    "native_shape": [
+      128,
+      3000
+    ]
+  }
+]

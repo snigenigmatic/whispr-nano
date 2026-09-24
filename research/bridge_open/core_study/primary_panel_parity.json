@@ -1,0 +1,73 @@
+{
+  "scope": "Post-result exact-ID/audio-hash comparison; no independent samples added. Resource and primary conditions remain separately reported.",
+  "models": {
+    "whisper_small": {
+      "raw_text_different_ids": [],
+      "normalized_text_different_ids": [],
+      "primary_panel_word_errors": 13,
+      "primary_panel_reference_words": 144,
+      "primary_panel_wer": 0.09027777777777778,
+      "primary_predictions_sha256": "fe239646617069be68bb64b9368cde1f633fcd2d9e75becd6c0046d521f2994b",
+      "resource_profile_sha256": "87d3036e1e5229a316f8712ac288fee92456c6f704fe702369e3d2b531daac46"
+    },
+    "whisper_turbo": {
+      "raw_text_different_ids": [],
+      "normalized_text_different_ids": [],
+      "primary_panel_word_errors": 18,
+      "primary_panel_reference_words": 144,
+      "primary_panel_wer": 0.125,
+      "primary_predictions_sha256": "3ab1d3bd17eb20907d850dddc56c35147e1c334d6baf0a2eb142d77f6135dc86",
+      "resource_profile_sha256": "88fd2130246eee098cb38c4ce8d226b9b263424a837b0ac4c8cfbb23894efca5"
+    },
+    "whisper_large_v3": {
+      "raw_text_different_ids": [],
+      "normalized_text_different_ids": [],
+      "primary_panel_word_errors": 23,
+      "primary_panel_reference_words": 144,
+      "primary_panel_wer": 0.1597222222222222,
+      "primary_predictions_sha256": "f9247a92103f5d9ff01433955a70d5e7ddf74b1e3c48c439c00592ba79fda7f5",
+      "resource_profile_sha256": "751c808094832e1b634f961b77423fadd9fc66171a7a6e57c274276003c20ad4"
+    },
+    "qwen_0_6b": {
+      "raw_text_different_ids": [
+        "svarah_06271"
+      ],
+      "normalized_text_different_ids": [
+        "svarah_06271"
+      ],
+      "primary_panel_word_errors": 38,
+      "primary_panel_reference_words": 144,
+      "primary_panel_wer": 0.2638888888888889,
+      "primary_predictions_sha256": "b9ce6209e4bf4c7fe1f029927a308aaa6e22d5b6edcec3b991c2a8ee1035a6ae",
+      "resource_profile_sha256": "9aa6b11828b9ec454959b300e8a094c560ba7215d818bc42ed5ae416af6c1542"
+    },
+    "qwen_1_7b": {
+      "raw_text_different_ids": [
+        "svarah_06413",
+        "svarah_06420",
+        "svarah_06341",
+        "svarah_06271",
+        "svarah_06522"
+      ],
+      "normalized_text_different_ids": [
+        "svarah_06420",
+        "svarah_06341",
+        "svarah_06522"
+      ],
+      "primary_panel_word_errors": 37,
+      "primary_panel_reference_words": 144,
+      "primary_panel_wer": 0.2569444444444444,
+      "primary_predictions_sha256": "f107e20946efdac2e05b4486f72c6b4c1242ad5ad5ca88caa86986a4ccf9e026",
+      "resource_profile_sha256": "de4d6016c687a8a6901de4da14f91019e5d3ca2ec01fd202d8b2a5adfe669922"
+    },
+    "omni": {
+      "raw_text_different_ids": [],
+      "normalized_text_different_ids": [],
+      "primary_panel_word_errors": 90,
+      "primary_panel_reference_words": 144,
+      "primary_panel_wer": 0.625,
+      "primary_predictions_sha256": "9eae45023c91eaf73dc0d935ae98415cb3dd4c76f213d7ad2a17d02d643ca435",
+      "resource_profile_sha256": "669bcfe70689b850ad39e4c9b5bf4e23524834885cfac32383e3dd80a0341a43"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "embedding_dimension": 192,
+  "embeddings_npz_sha256": "1b62d6b6a454911d88c4e5a690cc463f037e52f6bfb523729aca793268529a16",
+  "estimated_resource_cost_usd": 0.25227279727425617,
+  "gpu": "NVIDIA H100 80GB HBM3",
+  "run_id": "build-ecapa-c2-seed12-v7",
+  "shard_index": 0,
+  "shards": 4,
+  "source_ids_sha256": "aa60644e7c88a6d9a0441c7b72ed1b73e86987bbea8d8e0aa6e79ec57947b9e4",
+  "source_utterances": 2374,
+  "status": "completed",
+  "target_ids_sha256": "735d7624a1c05286ac1c468afa87b0b0bea3c9781e545040105400fb7e9df9e6",
+  "target_reference_examples_read": 0,
+  "target_utterances": 1200,
+  "wall_seconds": 198.196786143
+}

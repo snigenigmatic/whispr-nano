@@ -1,0 +1,16 @@
+{
+  "model_id": "openai/whisper-large-v3",
+  "model_revision": "06f233fe06e710322aca913c1bc4249a0d71fce1",
+  "native_model": "large-v3",
+  "seed": 12,
+  "max_new_tokens": 440,
+  "max_wall_seconds": 1450,
+  "purpose": "Post-result diagnostic only. Not a held-out improvement or new benchmark score.",
+  "arms": [
+    "hf_original_batch",
+    "hf_single",
+    "hf_pipeline",
+    "native_decode_matched",
+    "native_transcribe_default"
+  ]
+}

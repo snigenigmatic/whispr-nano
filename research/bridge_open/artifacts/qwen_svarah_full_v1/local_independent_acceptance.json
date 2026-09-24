@@ -1,0 +1,25 @@
+{
+  "valid": true,
+  "model": "Qwen/Qwen3-ASR-1.7B",
+  "n": 518,
+  "word_errors": 733,
+  "reference_words": 5389,
+  "micro_wer": 0.13601781406568936,
+  "source_cohort": "518 items from one recovered 518-record shard; not full Svarah",
+  "api_agreements": null,
+  "eos_completed": 518,
+  "interpretation": "Descriptive comparison on all 518 available shard02 items; includes preexposed data; not full Svarah or independent confirmation",
+  "receipt": {
+    "run_id": "e5f19c1e-4479-4334-a087-5229eb433b80",
+    "commit": "80ec0e80bf994e8528bd0032efe0cf64fb612e2f",
+    "provider_status": "done",
+    "jobId": "6ab397f751992417dfcd6930",
+    "namespace": "snigenigmatic",
+    "url": "https://huggingface.co/jobs/snigenigmatic/6ab397f751992417dfcd6930",
+    "sourceDigest": "e8b2ad4967f36c16dd9d2e30b5191336fcc02e9db717ca3637d44ae3e36e65dd",
+    "sourcePath": "/Users/prateekraj/.local/share/openresearch/source-snapshots/e8b2ad4967f36c16dd9d2e30b5191336fcc02e9db717ca3637d44ae3e36e65dd.tar",
+    "sourceSize": 94300160,
+    "portable_archive": "source_snapshot.tar.gz",
+    "portable_archive_sha256": "0dcf8e4a0cce17c0d1a0f19e72d57cac214032aa80b8ad8e0727c03c9e1042f4"
+  }
+}

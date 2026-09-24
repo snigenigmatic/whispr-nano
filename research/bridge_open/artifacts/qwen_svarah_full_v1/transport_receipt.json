@@ -1,0 +1,12 @@
+{
+  "sha256": "380827e82cf532687e4e0fca9f6dc5afb691276d36d73a8fe5a4cedd93aff016",
+  "files": [
+    "config.json",
+    "environment.json",
+    "hf_receipt.json",
+    "predictions.jsonl",
+    "remote_validation.json",
+    "summary.json"
+  ],
+  "chunks": 114
+}

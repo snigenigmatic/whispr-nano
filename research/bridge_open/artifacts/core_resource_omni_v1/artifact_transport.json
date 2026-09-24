@@ -1,0 +1,7 @@
+{
+  "schema_version": "artifact-transport/v1",
+  "transport": "zlib/base64 JSON chunks emitted to job logs",
+  "top_level": true,
+  "source_artifact_directory": "/workspace/repo/artifacts/core_resource_omni_ctc_1b_svarah12_v1",
+  "includes_container_receipt": true
+}

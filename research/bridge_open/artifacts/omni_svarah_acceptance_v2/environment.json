@@ -1,0 +1,160 @@
+{
+  "started_at": "2026-09-23T09:00:55.391713+00:00",
+  "config_sha256": "850c05a2a377183621131e30f0b587f61ff31196f01460a25de921e799f0db99",
+  "manifest_sha256": "14c08d00b5e585de77ee3af6b486b05980e0cc9e8a31139654437b2ed8082dac",
+  "model_id": "facebook/omniASR-CTC-1B",
+  "model_revision": "8c22e3ffdaa4aab6431b128b84b991a7d9c2515c",
+  "model_card": "omniASR_CTC_1B",
+  "asset_sha256": {
+    "omniASR-CTC-1B.pt": "e8564fa59dab7caedbcdb54ab7fb9bd6c96989f4d19add2ad81ddd969716952c",
+    "omniASR_tokenizer.model": "b954cc166b0c9e0271b953fa226fa27ca706a25b7029e84579fe2c60a2b451fe"
+  },
+  "code_sha256": {
+    "run_omni_full.py": "40ab977d1beaae0b9bc63ea08cf87680146a5c0ac1f1dcdb0d598e75c3bb99f0",
+    "scoring.py": "a63c0fdce68e33810bf233c813a5ebad0f3692e6718aad2828a802b2e776ff3c"
+  },
+  "runtime_evidence": {
+    "official_omnilingual_asr_commit": "81f51e224ce9e74b02cc2a3eaf21b2d91d743455",
+    "pipeline_source_path": "/opt/conda/lib/python3.11/site-packages/omnilingual_asr/models/inference/pipeline.py",
+    "pipeline_source_sha256": "766728688901376dfce1b36115b8e780c1dfc3055798ab49d78a4b9df41fd863",
+    "package_init_path": "/opt/conda/lib/python3.11/site-packages/omnilingual_asr/__init__.py",
+    "package_init_sha256": "1a35a7783b57015efa8a77f7c5d5e0a396e6a7f957036d936425ce4f69753dd8",
+    "parameter_dtypes": [
+      "torch.bfloat16"
+    ],
+    "parameter_count": 975065300,
+    "model_training": false,
+    "requested_pipeline_dtype": "torch.bfloat16"
+  },
+  "input_preflight": {
+    "svarah_06413": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 444901,
+      "subtype": "PCM_16",
+      "duration_seconds": 27.8063125,
+      "peak": 0.570404052734375,
+      "finite": true
+    },
+    "svarah_06648": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 48083,
+      "subtype": "PCM_16",
+      "duration_seconds": 3.0051875,
+      "peak": 0.336761474609375,
+      "finite": true
+    },
+    "svarah_06257": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 9849,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.6155625,
+      "peak": 0.399444580078125,
+      "finite": true
+    },
+    "svarah_06387": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 103559,
+      "subtype": "PCM_16",
+      "duration_seconds": 6.4724375,
+      "peak": 0.40380859375,
+      "finite": true
+    },
+    "svarah_06420": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 108013,
+      "subtype": "PCM_16",
+      "duration_seconds": 6.7508125,
+      "peak": 0.48883056640625,
+      "finite": true
+    },
+    "svarah_06341": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 75927,
+      "subtype": "PCM_16",
+      "duration_seconds": 4.7454375,
+      "peak": 0.277130126953125,
+      "finite": true
+    },
+    "svarah_06269": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 94323,
+      "subtype": "PCM_16",
+      "duration_seconds": 5.8951875,
+      "peak": 0.349212646484375,
+      "finite": true
+    },
+    "svarah_06271": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 152949,
+      "subtype": "PCM_16",
+      "duration_seconds": 9.5593125,
+      "peak": 0.330596923828125,
+      "finite": true
+    },
+    "svarah_06332": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 55196,
+      "subtype": "PCM_16",
+      "duration_seconds": 3.44975,
+      "peak": 0.437530517578125,
+      "finite": true
+    },
+    "svarah_06284": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 24803,
+      "subtype": "PCM_16",
+      "duration_seconds": 1.5501875,
+      "peak": 0.47998046875,
+      "finite": true
+    },
+    "svarah_06191": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 136174,
+      "subtype": "PCM_16",
+      "duration_seconds": 8.510875,
+      "peak": 0.863037109375,
+      "finite": true
+    },
+    "svarah_06522": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 112486,
+      "subtype": "PCM_16",
+      "duration_seconds": 7.030375,
+      "peak": 0.8245849609375,
+      "finite": true
+    }
+  },
+  "packages": {
+    "torch": "2.8.0+cu128",
+    "torchaudio": "2.8.0+cu128",
+    "fairseq2": "0.6",
+    "omnilingual-asr": "0.2.0",
+    "numpy": "1.26.4",
+    "scipy": "1.15.3",
+    "soundfile": "0.13.1",
+    "jiwer": "4.0.0",
+    "huggingface-hub": "0.36.2"
+  },
+  "platform": "Linux-6.12.100-125.179.amzn2023.x86_64-x86_64-with-glibc2.35",
+  "python": "3.11.13",
+  "device": "cuda",
+  "gpu": "NVIDIA A100-SXM4-80GB",
+  "cuda": "12.8",
+  "dtype": "bfloat16",
+  "model_load_seconds": 40.760396941099316,
+  "ctc_termination": true,
+  "full_waveform": true,
+  "cloud_cost_usd": null
+}

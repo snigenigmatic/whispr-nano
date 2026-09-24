@@ -1,0 +1,41 @@
+{
+  "source_repo": "google/fleurs",
+  "source_revision": "70bb2e84b976b7e960aa89f1c648e09c59f894dd",
+  "manifest_path": "/Users/prateekraj/whispr-nano/data/bridge_open/fleurs_dev_v1/corpus-v1.jsonl",
+  "manifest_sha256": "a1e4a1d217e200084efd997282951d778f0fbf7ba1f95e4c1bb68c70fbe1e300",
+  "code_sha256": "48129408f85733ac3909fe184b7fe4e3c10ed8ff024c408ea99dbde7114b0963",
+  "selection": "First 12 dev filenames per language ordered by SHA256(12:config:filename).",
+  "conversations": 36,
+  "total_duration_seconds": 447.12,
+  "qc_pass": 36,
+  "qc_suspect_ids": [],
+  "source_archives": [
+    {
+      "config": "hi_in",
+      "dev_split_total_rows": 239,
+      "source_archive_sha256": "9adbca6d6fc70e40c121910941bcd7c8906eee60b402b6d21b4bd160e20030c7",
+      "source_archive_bytes": 131741732
+    },
+    {
+      "config": "bn_in",
+      "dev_split_total_rows": 402,
+      "source_archive_sha256": "b7f380b67d50bc59f328af3e1bd8096ab9e728bd0103349b9746ca95ab75ff30",
+      "source_archive_bytes": 278667778
+    },
+    {
+      "config": "as_in",
+      "dev_split_total_rows": 418,
+      "source_archive_sha256": "84ae2875dcdc8173640e132e549bcf4473951186b1257aee5669fbe91973d4bc",
+      "source_archive_bytes": 267206767
+    }
+  ],
+  "limits": [
+    "Read speech, not a conversational BRIDGE replication.",
+    "Development smoke set; no model results or test scores claimed.",
+    "No speaker IDs in these TSVs; sentence IDs are not speaker IDs.",
+    "Automated QC does not establish transcript correctness.",
+    "Public benchmark; model training/evaluation exposure must be disclosed."
+  ],
+  "test_audio_or_references_opened": false,
+  "cloud_cost_usd": 0
+}

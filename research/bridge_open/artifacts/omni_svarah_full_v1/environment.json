@@ -1,0 +1,4714 @@
+{
+  "started_at": "2026-09-23T09:10:26.136911+00:00",
+  "config_sha256": "90ca0c58da4277164042e152de8ddb22d6ee0df39e9503fec4e2113763f2b99c",
+  "manifest_sha256": "dbddbaeef3a1f78ff85d0cd741e85d86daf7c868b39ee8d4c48f67a21bfafedd",
+  "model_id": "facebook/omniASR-CTC-1B",
+  "model_revision": "8c22e3ffdaa4aab6431b128b84b991a7d9c2515c",
+  "model_card": "omniASR_CTC_1B",
+  "asset_sha256": {
+    "omniASR-CTC-1B.pt": "e8564fa59dab7caedbcdb54ab7fb9bd6c96989f4d19add2ad81ddd969716952c",
+    "omniASR_tokenizer.model": "b954cc166b0c9e0271b953fa226fa27ca706a25b7029e84579fe2c60a2b451fe"
+  },
+  "code_sha256": {
+    "run_omni_full.py": "40ab977d1beaae0b9bc63ea08cf87680146a5c0ac1f1dcdb0d598e75c3bb99f0",
+    "scoring.py": "a63c0fdce68e33810bf233c813a5ebad0f3692e6718aad2828a802b2e776ff3c"
+  },
+  "runtime_evidence": {
+    "official_omnilingual_asr_commit": "81f51e224ce9e74b02cc2a3eaf21b2d91d743455",
+    "pipeline_source_path": "/opt/conda/lib/python3.11/site-packages/omnilingual_asr/models/inference/pipeline.py",
+    "pipeline_source_sha256": "766728688901376dfce1b36115b8e780c1dfc3055798ab49d78a4b9df41fd863",
+    "package_init_path": "/opt/conda/lib/python3.11/site-packages/omnilingual_asr/__init__.py",
+    "package_init_sha256": "1a35a7783b57015efa8a77f7c5d5e0a396e6a7f957036d936425ce4f69753dd8",
+    "parameter_dtypes": [
+      "torch.bfloat16"
+    ],
+    "parameter_count": 975065300,
+    "model_training": false,
+    "requested_pipeline_dtype": "torch.bfloat16"
+  },
+  "input_preflight": {
+    "svarah_06138": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 170560,
+      "subtype": "PCM_16",
+      "duration_seconds": 10.66,
+      "peak": 0.797210693359375,
+      "finite": true
+    },
+    "svarah_06139": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 8136,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.5085,
+      "peak": 0.049713134765625,
+      "finite": true
+    },
+    "svarah_06140": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 10582,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.661375,
+      "peak": 0.57452392578125,
+      "finite": true
+    },
+    "svarah_06141": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 91535,
+      "subtype": "PCM_16",
+      "duration_seconds": 5.7209375,
+      "peak": 0.054473876953125,
+      "finite": true
+    },
+    "svarah_06142": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 191027,
+      "subtype": "PCM_16",
+      "duration_seconds": 11.9391875,
+      "peak": 0.229736328125,
+      "finite": true
+    },
+    "svarah_06143": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 79139,
+      "subtype": "PCM_16",
+      "duration_seconds": 4.9461875,
+      "peak": 0.313446044921875,
+      "finite": true
+    },
+    "svarah_06144": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 49714,
+      "subtype": "PCM_16",
+      "duration_seconds": 3.107125,
+      "peak": 0.482391357421875,
+      "finite": true
+    },
+    "svarah_06145": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 128387,
+      "subtype": "PCM_16",
+      "duration_seconds": 8.0241875,
+      "peak": 0.43170166015625,
+      "finite": true
+    },
+    "svarah_06146": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 21595,
+      "subtype": "PCM_16",
+      "duration_seconds": 1.3496875,
+      "peak": 0.25933837890625,
+      "finite": true
+    },
+    "svarah_06147": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 108520,
+      "subtype": "PCM_16",
+      "duration_seconds": 6.7825,
+      "peak": 0.642242431640625,
+      "finite": true
+    },
+    "svarah_06148": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 60478,
+      "subtype": "PCM_16",
+      "duration_seconds": 3.779875,
+      "peak": 0.7117919921875,
+      "finite": true
+    },
+    "svarah_06149": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 101385,
+      "subtype": "PCM_16",
+      "duration_seconds": 6.3365625,
+      "peak": 0.42364501953125,
+      "finite": true
+    },
+    "svarah_06150": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 63613,
+      "subtype": "PCM_16",
+      "duration_seconds": 3.9758125,
+      "peak": 0.171112060546875,
+      "finite": true
+    },
+    "svarah_06151": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 39745,
+      "subtype": "PCM_16",
+      "duration_seconds": 2.4840625,
+      "peak": 0.08233642578125,
+      "finite": true
+    },
+    "svarah_06152": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 170677,
+      "subtype": "PCM_16",
+      "duration_seconds": 10.6673125,
+      "peak": 0.357818603515625,
+      "finite": true
+    },
+    "svarah_06153": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 12693,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.7933125,
+      "peak": 0.331451416015625,
+      "finite": true
+    },
+    "svarah_06154": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 10994,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.687125,
+      "peak": 0.26507568359375,
+      "finite": true
+    },
+    "svarah_06155": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 70552,
+      "subtype": "PCM_16",
+      "duration_seconds": 4.4095,
+      "peak": 0.497039794921875,
+      "finite": true
+    },
+    "svarah_06156": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 352971,
+      "subtype": "PCM_16",
+      "duration_seconds": 22.0606875,
+      "peak": 0.103515625,
+      "finite": true
+    },
+    "svarah_06157": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 14060,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.87875,
+      "peak": 0.322967529296875,
+      "finite": true
+    },
+    "svarah_06158": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 64000,
+      "subtype": "PCM_16",
+      "duration_seconds": 4.0,
+      "peak": 0.9659423828125,
+      "finite": true
+    },
+    "svarah_06159": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 9579,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.5986875,
+      "peak": 0.743194580078125,
+      "finite": true
+    },
+    "svarah_06160": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 14445,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.9028125,
+      "peak": 0.099945068359375,
+      "finite": true
+    },
+    "svarah_06161": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 14899,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.9311875,
+      "peak": 0.542144775390625,
+      "finite": true
+    },
+    "svarah_06162": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 4348,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.27175,
+      "peak": 0.638580322265625,
+      "finite": true
+    },
+    "svarah_06163": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 7583,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.4739375,
+      "peak": 0.33349609375,
+      "finite": true
+    },
+    "svarah_06164": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 5715,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.3571875,
+      "peak": 0.39593505859375,
+      "finite": true
+    },
+    "svarah_06165": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 66241,
+      "subtype": "PCM_16",
+      "duration_seconds": 4.1400625,
+      "peak": 0.994384765625,
+      "finite": true
+    },
+    "svarah_06166": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 92160,
+      "subtype": "PCM_16",
+      "duration_seconds": 5.76,
+      "peak": 0.161407470703125,
+      "finite": true
+    },
+    "svarah_06167": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 82971,
+      "subtype": "PCM_16",
+      "duration_seconds": 5.1856875,
+      "peak": 0.534698486328125,
+      "finite": true
+    },
+    "svarah_06168": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 74071,
+      "subtype": "PCM_16",
+      "duration_seconds": 4.6294375,
+      "peak": 0.535369873046875,
+      "finite": true
+    },
+    "svarah_06169": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 58880,
+      "subtype": "PCM_16",
+      "duration_seconds": 3.68,
+      "peak": 0.535980224609375,
+      "finite": true
+    },
+    "svarah_06170": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 91707,
+      "subtype": "PCM_16",
+      "duration_seconds": 5.7316875,
+      "peak": 0.39923095703125,
+      "finite": true
+    },
+    "svarah_06171": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 14365,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.8978125,
+      "peak": 0.076690673828125,
+      "finite": true
+    },
+    "svarah_06172": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 214950,
+      "subtype": "PCM_16",
+      "duration_seconds": 13.434375,
+      "peak": 0.992950439453125,
+      "finite": true
+    },
+    "svarah_06173": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 94581,
+      "subtype": "PCM_16",
+      "duration_seconds": 5.9113125,
+      "peak": 0.847747802734375,
+      "finite": true
+    },
+    "svarah_06174": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 203626,
+      "subtype": "PCM_16",
+      "duration_seconds": 12.726625,
+      "peak": 0.442779541015625,
+      "finite": true
+    },
+    "svarah_06175": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 8564,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.53525,
+      "peak": 0.268524169921875,
+      "finite": true
+    },
+    "svarah_06176": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 68778,
+      "subtype": "PCM_16",
+      "duration_seconds": 4.298625,
+      "peak": 0.904022216796875,
+      "finite": true
+    },
+    "svarah_06177": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 8597,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.5373125,
+      "peak": 0.102325439453125,
+      "finite": true
+    },
+    "svarah_06178": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 16381,
+      "subtype": "PCM_16",
+      "duration_seconds": 1.0238125,
+      "peak": 0.488433837890625,
+      "finite": true
+    },
+    "svarah_06179": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 191360,
+      "subtype": "PCM_16",
+      "duration_seconds": 11.96,
+      "peak": 0.904754638671875,
+      "finite": true
+    },
+    "svarah_06180": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 14692,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.91825,
+      "peak": 0.00921630859375,
+      "finite": true
+    },
+    "svarah_06181": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 91146,
+      "subtype": "PCM_16",
+      "duration_seconds": 5.696625,
+      "peak": 0.735198974609375,
+      "finite": true
+    },
+    "svarah_06182": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 125706,
+      "subtype": "PCM_16",
+      "duration_seconds": 7.856625,
+      "peak": 0.717681884765625,
+      "finite": true
+    },
+    "svarah_06183": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 78684,
+      "subtype": "PCM_16",
+      "duration_seconds": 4.91775,
+      "peak": 0.5810546875,
+      "finite": true
+    },
+    "svarah_06184": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 106564,
+      "subtype": "PCM_16",
+      "duration_seconds": 6.66025,
+      "peak": 0.571319580078125,
+      "finite": true
+    },
+    "svarah_06185": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 30198,
+      "subtype": "PCM_16",
+      "duration_seconds": 1.887375,
+      "peak": 0.26654052734375,
+      "finite": true
+    },
+    "svarah_06186": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 70403,
+      "subtype": "PCM_16",
+      "duration_seconds": 4.4001875,
+      "peak": 0.999969482421875,
+      "finite": true
+    },
+    "svarah_06187": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 114040,
+      "subtype": "PCM_16",
+      "duration_seconds": 7.1275,
+      "peak": 0.11865234375,
+      "finite": true
+    },
+    "svarah_06188": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 125522,
+      "subtype": "PCM_16",
+      "duration_seconds": 7.845125,
+      "peak": 0.6026611328125,
+      "finite": true
+    },
+    "svarah_06189": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 61442,
+      "subtype": "PCM_16",
+      "duration_seconds": 3.840125,
+      "peak": 0.510711669921875,
+      "finite": true
+    },
+    "svarah_06190": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 125784,
+      "subtype": "PCM_16",
+      "duration_seconds": 7.8615,
+      "peak": 0.262969970703125,
+      "finite": true
+    },
+    "svarah_06191": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 136174,
+      "subtype": "PCM_16",
+      "duration_seconds": 8.510875,
+      "peak": 0.863037109375,
+      "finite": true
+    },
+    "svarah_06192": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 78513,
+      "subtype": "PCM_16",
+      "duration_seconds": 4.9070625,
+      "peak": 0.078521728515625,
+      "finite": true
+    },
+    "svarah_06193": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 5257,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.3285625,
+      "peak": 1.0,
+      "finite": true
+    },
+    "svarah_06194": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 104960,
+      "subtype": "PCM_16",
+      "duration_seconds": 6.56,
+      "peak": 0.27935791015625,
+      "finite": true
+    },
+    "svarah_06195": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 112444,
+      "subtype": "PCM_16",
+      "duration_seconds": 7.02775,
+      "peak": 0.613433837890625,
+      "finite": true
+    },
+    "svarah_06196": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 6014,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.375875,
+      "peak": 0.98553466796875,
+      "finite": true
+    },
+    "svarah_06197": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 140314,
+      "subtype": "PCM_16",
+      "duration_seconds": 8.769625,
+      "peak": 0.592132568359375,
+      "finite": true
+    },
+    "svarah_06198": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 72268,
+      "subtype": "PCM_16",
+      "duration_seconds": 4.51675,
+      "peak": 0.39617919921875,
+      "finite": true
+    },
+    "svarah_06199": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 63333,
+      "subtype": "PCM_16",
+      "duration_seconds": 3.9583125,
+      "peak": 0.4017333984375,
+      "finite": true
+    },
+    "svarah_06200": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 40719,
+      "subtype": "PCM_16",
+      "duration_seconds": 2.5449375,
+      "peak": 0.306549072265625,
+      "finite": true
+    },
+    "svarah_06201": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 26871,
+      "subtype": "PCM_16",
+      "duration_seconds": 1.6794375,
+      "peak": 0.131072998046875,
+      "finite": true
+    },
+    "svarah_06202": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 14285,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.8928125,
+      "peak": 0.127288818359375,
+      "finite": true
+    },
+    "svarah_06203": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 73765,
+      "subtype": "PCM_16",
+      "duration_seconds": 4.6103125,
+      "peak": 0.52069091796875,
+      "finite": true
+    },
+    "svarah_06204": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 5268,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.32925,
+      "peak": 0.830108642578125,
+      "finite": true
+    },
+    "svarah_06205": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 127239,
+      "subtype": "PCM_16",
+      "duration_seconds": 7.9524375,
+      "peak": 0.5382080078125,
+      "finite": true
+    },
+    "svarah_06206": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 10169,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.6355625,
+      "peak": 0.104248046875,
+      "finite": true
+    },
+    "svarah_06207": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 251653,
+      "subtype": "PCM_16",
+      "duration_seconds": 15.7283125,
+      "peak": 0.84503173828125,
+      "finite": true
+    },
+    "svarah_06208": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 111680,
+      "subtype": "PCM_16",
+      "duration_seconds": 6.98,
+      "peak": 0.807159423828125,
+      "finite": true
+    },
+    "svarah_06209": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 5247,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.3279375,
+      "peak": 0.516693115234375,
+      "finite": true
+    },
+    "svarah_06210": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 118079,
+      "subtype": "PCM_16",
+      "duration_seconds": 7.3799375,
+      "peak": 0.4063720703125,
+      "finite": true
+    },
+    "svarah_06211": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 158940,
+      "subtype": "PCM_16",
+      "duration_seconds": 9.93375,
+      "peak": 0.53460693359375,
+      "finite": true
+    },
+    "svarah_06212": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 5926,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.370375,
+      "peak": 0.35260009765625,
+      "finite": true
+    },
+    "svarah_06213": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 136966,
+      "subtype": "PCM_16",
+      "duration_seconds": 8.560375,
+      "peak": 0.527496337890625,
+      "finite": true
+    },
+    "svarah_06214": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 225122,
+      "subtype": "PCM_16",
+      "duration_seconds": 14.070125,
+      "peak": 0.576080322265625,
+      "finite": true
+    },
+    "svarah_06215": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 186726,
+      "subtype": "PCM_16",
+      "duration_seconds": 11.670375,
+      "peak": 0.257080078125,
+      "finite": true
+    },
+    "svarah_06216": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 157954,
+      "subtype": "PCM_16",
+      "duration_seconds": 9.872125,
+      "peak": 0.999969482421875,
+      "finite": true
+    },
+    "svarah_06217": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 68904,
+      "subtype": "PCM_16",
+      "duration_seconds": 4.3065,
+      "peak": 0.560791015625,
+      "finite": true
+    },
+    "svarah_06218": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 262220,
+      "subtype": "PCM_16",
+      "duration_seconds": 16.38875,
+      "peak": 0.07891845703125,
+      "finite": true
+    },
+    "svarah_06219": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 53881,
+      "subtype": "PCM_16",
+      "duration_seconds": 3.3675625,
+      "peak": 0.3424072265625,
+      "finite": true
+    },
+    "svarah_06220": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 11916,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.74475,
+      "peak": 0.09063720703125,
+      "finite": true
+    },
+    "svarah_06221": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 148618,
+      "subtype": "PCM_16",
+      "duration_seconds": 9.288625,
+      "peak": 0.990692138671875,
+      "finite": true
+    },
+    "svarah_06222": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 49600,
+      "subtype": "PCM_16",
+      "duration_seconds": 3.1,
+      "peak": 0.42315673828125,
+      "finite": true
+    },
+    "svarah_06223": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 110527,
+      "subtype": "PCM_16",
+      "duration_seconds": 6.9079375,
+      "peak": 0.535125732421875,
+      "finite": true
+    },
+    "svarah_06224": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 15760,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.985,
+      "peak": 0.380218505859375,
+      "finite": true
+    },
+    "svarah_06225": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 4342,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.271375,
+      "peak": 0.14752197265625,
+      "finite": true
+    },
+    "svarah_06226": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 5476,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.34225,
+      "peak": 0.12945556640625,
+      "finite": true
+    },
+    "svarah_06227": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 84800,
+      "subtype": "PCM_16",
+      "duration_seconds": 5.3,
+      "peak": 0.713470458984375,
+      "finite": true
+    },
+    "svarah_06228": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 21543,
+      "subtype": "PCM_16",
+      "duration_seconds": 1.3464375,
+      "peak": 0.336639404296875,
+      "finite": true
+    },
+    "svarah_06229": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 10875,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.6796875,
+      "peak": 0.867340087890625,
+      "finite": true
+    },
+    "svarah_06230": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 103501,
+      "subtype": "PCM_16",
+      "duration_seconds": 6.4688125,
+      "peak": 0.0614013671875,
+      "finite": true
+    },
+    "svarah_06231": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 51891,
+      "subtype": "PCM_16",
+      "duration_seconds": 3.2431875,
+      "peak": 0.59539794921875,
+      "finite": true
+    },
+    "svarah_06232": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 85439,
+      "subtype": "PCM_16",
+      "duration_seconds": 5.3399375,
+      "peak": 0.28045654296875,
+      "finite": true
+    },
+    "svarah_06233": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 144000,
+      "subtype": "PCM_16",
+      "duration_seconds": 9.0,
+      "peak": 0.601287841796875,
+      "finite": true
+    },
+    "svarah_06234": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 43410,
+      "subtype": "PCM_16",
+      "duration_seconds": 2.713125,
+      "peak": 0.563201904296875,
+      "finite": true
+    },
+    "svarah_06235": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 154880,
+      "subtype": "PCM_16",
+      "duration_seconds": 9.68,
+      "peak": 0.766937255859375,
+      "finite": true
+    },
+    "svarah_06236": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 48352,
+      "subtype": "PCM_16",
+      "duration_seconds": 3.022,
+      "peak": 0.558074951171875,
+      "finite": true
+    },
+    "svarah_06237": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 81907,
+      "subtype": "PCM_16",
+      "duration_seconds": 5.1191875,
+      "peak": 0.541229248046875,
+      "finite": true
+    },
+    "svarah_06238": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 36368,
+      "subtype": "PCM_16",
+      "duration_seconds": 2.273,
+      "peak": 0.1717529296875,
+      "finite": true
+    },
+    "svarah_06239": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 103327,
+      "subtype": "PCM_16",
+      "duration_seconds": 6.4579375,
+      "peak": 0.86627197265625,
+      "finite": true
+    },
+    "svarah_06240": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 48782,
+      "subtype": "PCM_16",
+      "duration_seconds": 3.048875,
+      "peak": 0.345947265625,
+      "finite": true
+    },
+    "svarah_06241": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 144000,
+      "subtype": "PCM_16",
+      "duration_seconds": 9.0,
+      "peak": 1.0,
+      "finite": true
+    },
+    "svarah_06242": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 125613,
+      "subtype": "PCM_16",
+      "duration_seconds": 7.8508125,
+      "peak": 0.10980224609375,
+      "finite": true
+    },
+    "svarah_06243": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 122491,
+      "subtype": "PCM_16",
+      "duration_seconds": 7.6556875,
+      "peak": 0.459381103515625,
+      "finite": true
+    },
+    "svarah_06244": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 108160,
+      "subtype": "PCM_16",
+      "duration_seconds": 6.76,
+      "peak": 0.963836669921875,
+      "finite": true
+    },
+    "svarah_06245": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 16564,
+      "subtype": "PCM_16",
+      "duration_seconds": 1.03525,
+      "peak": 0.604705810546875,
+      "finite": true
+    },
+    "svarah_06246": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 51837,
+      "subtype": "PCM_16",
+      "duration_seconds": 3.2398125,
+      "peak": 0.39599609375,
+      "finite": true
+    },
+    "svarah_06247": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 34397,
+      "subtype": "PCM_16",
+      "duration_seconds": 2.1498125,
+      "peak": 0.2515869140625,
+      "finite": true
+    },
+    "svarah_06248": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 105996,
+      "subtype": "PCM_16",
+      "duration_seconds": 6.62475,
+      "peak": 0.497833251953125,
+      "finite": true
+    },
+    "svarah_06249": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 55775,
+      "subtype": "PCM_16",
+      "duration_seconds": 3.4859375,
+      "peak": 0.647186279296875,
+      "finite": true
+    },
+    "svarah_06250": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 63798,
+      "subtype": "PCM_16",
+      "duration_seconds": 3.987375,
+      "peak": 0.608184814453125,
+      "finite": true
+    },
+    "svarah_06251": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 44227,
+      "subtype": "PCM_16",
+      "duration_seconds": 2.7641875,
+      "peak": 0.415679931640625,
+      "finite": true
+    },
+    "svarah_06252": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 73600,
+      "subtype": "PCM_16",
+      "duration_seconds": 4.6,
+      "peak": 0.6282958984375,
+      "finite": true
+    },
+    "svarah_06253": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 29835,
+      "subtype": "PCM_16",
+      "duration_seconds": 1.8646875,
+      "peak": 0.61083984375,
+      "finite": true
+    },
+    "svarah_06254": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 8179,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.5111875,
+      "peak": 0.86334228515625,
+      "finite": true
+    },
+    "svarah_06255": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 60802,
+      "subtype": "PCM_16",
+      "duration_seconds": 3.800125,
+      "peak": 0.353973388671875,
+      "finite": true
+    },
+    "svarah_06256": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 57061,
+      "subtype": "PCM_16",
+      "duration_seconds": 3.5663125,
+      "peak": 0.55181884765625,
+      "finite": true
+    },
+    "svarah_06257": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 9849,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.6155625,
+      "peak": 0.399444580078125,
+      "finite": true
+    },
+    "svarah_06258": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 6653,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.4158125,
+      "peak": 0.43017578125,
+      "finite": true
+    },
+    "svarah_06259": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 63262,
+      "subtype": "PCM_16",
+      "duration_seconds": 3.953875,
+      "peak": 0.6820068359375,
+      "finite": true
+    },
+    "svarah_06260": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 18988,
+      "subtype": "PCM_16",
+      "duration_seconds": 1.18675,
+      "peak": 0.3167724609375,
+      "finite": true
+    },
+    "svarah_06261": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 143338,
+      "subtype": "PCM_16",
+      "duration_seconds": 8.958625,
+      "peak": 0.999969482421875,
+      "finite": true
+    },
+    "svarah_06262": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 61795,
+      "subtype": "PCM_16",
+      "duration_seconds": 3.8621875,
+      "peak": 0.94000244140625,
+      "finite": true
+    },
+    "svarah_06263": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 78420,
+      "subtype": "PCM_16",
+      "duration_seconds": 4.90125,
+      "peak": 0.746826171875,
+      "finite": true
+    },
+    "svarah_06264": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 61819,
+      "subtype": "PCM_16",
+      "duration_seconds": 3.8636875,
+      "peak": 0.02056884765625,
+      "finite": true
+    },
+    "svarah_06265": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 59739,
+      "subtype": "PCM_16",
+      "duration_seconds": 3.7336875,
+      "peak": 0.999969482421875,
+      "finite": true
+    },
+    "svarah_06266": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 185604,
+      "subtype": "PCM_16",
+      "duration_seconds": 11.60025,
+      "peak": 0.80462646484375,
+      "finite": true
+    },
+    "svarah_06267": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 39766,
+      "subtype": "PCM_16",
+      "duration_seconds": 2.485375,
+      "peak": 0.622039794921875,
+      "finite": true
+    },
+    "svarah_06268": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 152091,
+      "subtype": "PCM_16",
+      "duration_seconds": 9.5056875,
+      "peak": 0.017669677734375,
+      "finite": true
+    },
+    "svarah_06269": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 94323,
+      "subtype": "PCM_16",
+      "duration_seconds": 5.8951875,
+      "peak": 0.349212646484375,
+      "finite": true
+    },
+    "svarah_06270": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 204693,
+      "subtype": "PCM_16",
+      "duration_seconds": 12.7933125,
+      "peak": 0.86883544921875,
+      "finite": true
+    },
+    "svarah_06271": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 152949,
+      "subtype": "PCM_16",
+      "duration_seconds": 9.5593125,
+      "peak": 0.330596923828125,
+      "finite": true
+    },
+    "svarah_06272": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 198082,
+      "subtype": "PCM_16",
+      "duration_seconds": 12.380125,
+      "peak": 0.745147705078125,
+      "finite": true
+    },
+    "svarah_06273": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 33263,
+      "subtype": "PCM_16",
+      "duration_seconds": 2.0789375,
+      "peak": 0.09417724609375,
+      "finite": true
+    },
+    "svarah_06274": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 57990,
+      "subtype": "PCM_16",
+      "duration_seconds": 3.624375,
+      "peak": 0.98565673828125,
+      "finite": true
+    },
+    "svarah_06275": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 13835,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.8646875,
+      "peak": 0.357696533203125,
+      "finite": true
+    },
+    "svarah_06276": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 11755,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.7346875,
+      "peak": 0.301788330078125,
+      "finite": true
+    },
+    "svarah_06277": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 108160,
+      "subtype": "PCM_16",
+      "duration_seconds": 6.76,
+      "peak": 0.75531005859375,
+      "finite": true
+    },
+    "svarah_06278": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 128603,
+      "subtype": "PCM_16",
+      "duration_seconds": 8.0376875,
+      "peak": 0.61065673828125,
+      "finite": true
+    },
+    "svarah_06279": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 80109,
+      "subtype": "PCM_16",
+      "duration_seconds": 5.0068125,
+      "peak": 0.6121826171875,
+      "finite": true
+    },
+    "svarah_06280": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 22788,
+      "subtype": "PCM_16",
+      "duration_seconds": 1.42425,
+      "peak": 0.507232666015625,
+      "finite": true
+    },
+    "svarah_06281": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 12962,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.810125,
+      "peak": 0.6480712890625,
+      "finite": true
+    },
+    "svarah_06282": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 102257,
+      "subtype": "PCM_16",
+      "duration_seconds": 6.3910625,
+      "peak": 0.464508056640625,
+      "finite": true
+    },
+    "svarah_06283": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 41991,
+      "subtype": "PCM_16",
+      "duration_seconds": 2.6244375,
+      "peak": 0.322265625,
+      "finite": true
+    },
+    "svarah_06284": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 24803,
+      "subtype": "PCM_16",
+      "duration_seconds": 1.5501875,
+      "peak": 0.47998046875,
+      "finite": true
+    },
+    "svarah_06285": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 10110,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.631875,
+      "peak": 0.2623291015625,
+      "finite": true
+    },
+    "svarah_06286": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 79891,
+      "subtype": "PCM_16",
+      "duration_seconds": 4.9931875,
+      "peak": 0.364105224609375,
+      "finite": true
+    },
+    "svarah_06287": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 209110,
+      "subtype": "PCM_16",
+      "duration_seconds": 13.069375,
+      "peak": 0.06414794921875,
+      "finite": true
+    },
+    "svarah_06288": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 74382,
+      "subtype": "PCM_16",
+      "duration_seconds": 4.648875,
+      "peak": 0.83929443359375,
+      "finite": true
+    },
+    "svarah_06289": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 136331,
+      "subtype": "PCM_16",
+      "duration_seconds": 8.5206875,
+      "peak": 0.53302001953125,
+      "finite": true
+    },
+    "svarah_06290": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 32539,
+      "subtype": "PCM_16",
+      "duration_seconds": 2.0336875,
+      "peak": 0.369049072265625,
+      "finite": true
+    },
+    "svarah_06291": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 118400,
+      "subtype": "PCM_16",
+      "duration_seconds": 7.4,
+      "peak": 0.126007080078125,
+      "finite": true
+    },
+    "svarah_06292": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 112684,
+      "subtype": "PCM_16",
+      "duration_seconds": 7.04275,
+      "peak": 0.115814208984375,
+      "finite": true
+    },
+    "svarah_06293": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 120331,
+      "subtype": "PCM_16",
+      "duration_seconds": 7.5206875,
+      "peak": 0.31463623046875,
+      "finite": true
+    },
+    "svarah_06294": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 27604,
+      "subtype": "PCM_16",
+      "duration_seconds": 1.72525,
+      "peak": 0.7705078125,
+      "finite": true
+    },
+    "svarah_06295": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 15575,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.9734375,
+      "peak": 0.40179443359375,
+      "finite": true
+    },
+    "svarah_06296": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 65801,
+      "subtype": "PCM_16",
+      "duration_seconds": 4.1125625,
+      "peak": 0.799102783203125,
+      "finite": true
+    },
+    "svarah_06297": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 249303,
+      "subtype": "PCM_16",
+      "duration_seconds": 15.5814375,
+      "peak": 0.124359130859375,
+      "finite": true
+    },
+    "svarah_06298": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 272000,
+      "subtype": "PCM_16",
+      "duration_seconds": 17.0,
+      "peak": 0.065155029296875,
+      "finite": true
+    },
+    "svarah_06299": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 73808,
+      "subtype": "PCM_16",
+      "duration_seconds": 4.613,
+      "peak": 0.582061767578125,
+      "finite": true
+    },
+    "svarah_06300": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 55523,
+      "subtype": "PCM_16",
+      "duration_seconds": 3.4701875,
+      "peak": 0.251556396484375,
+      "finite": true
+    },
+    "svarah_06301": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 166717,
+      "subtype": "PCM_16",
+      "duration_seconds": 10.4198125,
+      "peak": 0.100311279296875,
+      "finite": true
+    },
+    "svarah_06302": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 101862,
+      "subtype": "PCM_16",
+      "duration_seconds": 6.366375,
+      "peak": 0.6695556640625,
+      "finite": true
+    },
+    "svarah_06303": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 38396,
+      "subtype": "PCM_16",
+      "duration_seconds": 2.39975,
+      "peak": 0.39239501953125,
+      "finite": true
+    },
+    "svarah_06304": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 91697,
+      "subtype": "PCM_16",
+      "duration_seconds": 5.7310625,
+      "peak": 0.932403564453125,
+      "finite": true
+    },
+    "svarah_06305": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 210875,
+      "subtype": "PCM_16",
+      "duration_seconds": 13.1796875,
+      "peak": 0.76312255859375,
+      "finite": true
+    },
+    "svarah_06306": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 16154,
+      "subtype": "PCM_16",
+      "duration_seconds": 1.009625,
+      "peak": 0.154510498046875,
+      "finite": true
+    },
+    "svarah_06307": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 31069,
+      "subtype": "PCM_16",
+      "duration_seconds": 1.9418125,
+      "peak": 0.518096923828125,
+      "finite": true
+    },
+    "svarah_06308": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 72262,
+      "subtype": "PCM_16",
+      "duration_seconds": 4.516375,
+      "peak": 0.107818603515625,
+      "finite": true
+    },
+    "svarah_06309": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 37120,
+      "subtype": "PCM_16",
+      "duration_seconds": 2.32,
+      "peak": 0.499664306640625,
+      "finite": true
+    },
+    "svarah_06310": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 40960,
+      "subtype": "PCM_16",
+      "duration_seconds": 2.56,
+      "peak": 0.83685302734375,
+      "finite": true
+    },
+    "svarah_06311": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 71463,
+      "subtype": "PCM_16",
+      "duration_seconds": 4.4664375,
+      "peak": 0.377044677734375,
+      "finite": true
+    },
+    "svarah_06312": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 149100,
+      "subtype": "PCM_16",
+      "duration_seconds": 9.31875,
+      "peak": 0.4169921875,
+      "finite": true
+    },
+    "svarah_06313": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 44798,
+      "subtype": "PCM_16",
+      "duration_seconds": 2.799875,
+      "peak": 0.398193359375,
+      "finite": true
+    },
+    "svarah_06314": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 108906,
+      "subtype": "PCM_16",
+      "duration_seconds": 6.806625,
+      "peak": 0.71636962890625,
+      "finite": true
+    },
+    "svarah_06315": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 17970,
+      "subtype": "PCM_16",
+      "duration_seconds": 1.123125,
+      "peak": 0.30438232421875,
+      "finite": true
+    },
+    "svarah_06316": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 71055,
+      "subtype": "PCM_16",
+      "duration_seconds": 4.4409375,
+      "peak": 0.154571533203125,
+      "finite": true
+    },
+    "svarah_06317": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 122103,
+      "subtype": "PCM_16",
+      "duration_seconds": 7.6314375,
+      "peak": 0.463226318359375,
+      "finite": true
+    },
+    "svarah_06318": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 73599,
+      "subtype": "PCM_16",
+      "duration_seconds": 4.5999375,
+      "peak": 0.89874267578125,
+      "finite": true
+    },
+    "svarah_06319": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 114581,
+      "subtype": "PCM_16",
+      "duration_seconds": 7.1613125,
+      "peak": 0.35064697265625,
+      "finite": true
+    },
+    "svarah_06320": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 122854,
+      "subtype": "PCM_16",
+      "duration_seconds": 7.678375,
+      "peak": 0.57000732421875,
+      "finite": true
+    },
+    "svarah_06321": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 24305,
+      "subtype": "PCM_16",
+      "duration_seconds": 1.5190625,
+      "peak": 0.518524169921875,
+      "finite": true
+    },
+    "svarah_06322": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 13794,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.862125,
+      "peak": 0.29693603515625,
+      "finite": true
+    },
+    "svarah_06323": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 20275,
+      "subtype": "PCM_16",
+      "duration_seconds": 1.2671875,
+      "peak": 0.12744140625,
+      "finite": true
+    },
+    "svarah_06324": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 79351,
+      "subtype": "PCM_16",
+      "duration_seconds": 4.9594375,
+      "peak": 0.947418212890625,
+      "finite": true
+    },
+    "svarah_06325": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 71764,
+      "subtype": "PCM_16",
+      "duration_seconds": 4.48525,
+      "peak": 0.94036865234375,
+      "finite": true
+    },
+    "svarah_06326": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 6338,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.396125,
+      "peak": 0.570220947265625,
+      "finite": true
+    },
+    "svarah_06327": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 81414,
+      "subtype": "PCM_16",
+      "duration_seconds": 5.088375,
+      "peak": 0.98736572265625,
+      "finite": true
+    },
+    "svarah_06328": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 107804,
+      "subtype": "PCM_16",
+      "duration_seconds": 6.73775,
+      "peak": 0.094146728515625,
+      "finite": true
+    },
+    "svarah_06329": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 37903,
+      "subtype": "PCM_16",
+      "duration_seconds": 2.3689375,
+      "peak": 0.544586181640625,
+      "finite": true
+    },
+    "svarah_06330": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 113164,
+      "subtype": "PCM_16",
+      "duration_seconds": 7.07275,
+      "peak": 0.6212158203125,
+      "finite": true
+    },
+    "svarah_06331": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 35200,
+      "subtype": "PCM_16",
+      "duration_seconds": 2.2,
+      "peak": 0.749114990234375,
+      "finite": true
+    },
+    "svarah_06332": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 55196,
+      "subtype": "PCM_16",
+      "duration_seconds": 3.44975,
+      "peak": 0.437530517578125,
+      "finite": true
+    },
+    "svarah_06333": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 13492,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.84325,
+      "peak": 0.61956787109375,
+      "finite": true
+    },
+    "svarah_06334": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 71900,
+      "subtype": "PCM_16",
+      "duration_seconds": 4.49375,
+      "peak": 0.025054931640625,
+      "finite": true
+    },
+    "svarah_06335": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 71459,
+      "subtype": "PCM_16",
+      "duration_seconds": 4.4661875,
+      "peak": 0.456787109375,
+      "finite": true
+    },
+    "svarah_06336": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 111044,
+      "subtype": "PCM_16",
+      "duration_seconds": 6.94025,
+      "peak": 0.47540283203125,
+      "finite": true
+    },
+    "svarah_06337": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 214005,
+      "subtype": "PCM_16",
+      "duration_seconds": 13.3753125,
+      "peak": 0.904296875,
+      "finite": true
+    },
+    "svarah_06338": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 64214,
+      "subtype": "PCM_16",
+      "duration_seconds": 4.013375,
+      "peak": 0.896942138671875,
+      "finite": true
+    },
+    "svarah_06339": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 41998,
+      "subtype": "PCM_16",
+      "duration_seconds": 2.624875,
+      "peak": 0.573272705078125,
+      "finite": true
+    },
+    "svarah_06340": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 102377,
+      "subtype": "PCM_16",
+      "duration_seconds": 6.3985625,
+      "peak": 0.0792236328125,
+      "finite": true
+    },
+    "svarah_06341": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 75927,
+      "subtype": "PCM_16",
+      "duration_seconds": 4.7454375,
+      "peak": 0.277130126953125,
+      "finite": true
+    },
+    "svarah_06342": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 135166,
+      "subtype": "PCM_16",
+      "duration_seconds": 8.447875,
+      "peak": 0.511199951171875,
+      "finite": true
+    },
+    "svarah_06343": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 197558,
+      "subtype": "PCM_16",
+      "duration_seconds": 12.347375,
+      "peak": 0.745849609375,
+      "finite": true
+    },
+    "svarah_06344": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 11104,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.694,
+      "peak": 0.332183837890625,
+      "finite": true
+    },
+    "svarah_06345": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 19124,
+      "subtype": "PCM_16",
+      "duration_seconds": 1.19525,
+      "peak": 0.675201416015625,
+      "finite": true
+    },
+    "svarah_06346": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 96791,
+      "subtype": "PCM_16",
+      "duration_seconds": 6.0494375,
+      "peak": 0.651580810546875,
+      "finite": true
+    },
+    "svarah_06347": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 97986,
+      "subtype": "PCM_16",
+      "duration_seconds": 6.124125,
+      "peak": 0.5516357421875,
+      "finite": true
+    },
+    "svarah_06348": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 86808,
+      "subtype": "PCM_16",
+      "duration_seconds": 5.4255,
+      "peak": 0.714630126953125,
+      "finite": true
+    },
+    "svarah_06349": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 38152,
+      "subtype": "PCM_16",
+      "duration_seconds": 2.3845,
+      "peak": 0.731903076171875,
+      "finite": true
+    },
+    "svarah_06350": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 11464,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.7165,
+      "peak": 0.85931396484375,
+      "finite": true
+    },
+    "svarah_06351": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 303474,
+      "subtype": "PCM_16",
+      "duration_seconds": 18.967125,
+      "peak": 0.69439697265625,
+      "finite": true
+    },
+    "svarah_06352": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 128003,
+      "subtype": "PCM_16",
+      "duration_seconds": 8.0001875,
+      "peak": 0.513946533203125,
+      "finite": true
+    },
+    "svarah_06353": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 95911,
+      "subtype": "PCM_16",
+      "duration_seconds": 5.9944375,
+      "peak": 0.1663818359375,
+      "finite": true
+    },
+    "svarah_06354": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 84264,
+      "subtype": "PCM_16",
+      "duration_seconds": 5.2665,
+      "peak": 0.95562744140625,
+      "finite": true
+    },
+    "svarah_06355": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 81748,
+      "subtype": "PCM_16",
+      "duration_seconds": 5.10925,
+      "peak": 0.59014892578125,
+      "finite": true
+    },
+    "svarah_06356": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 5366,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.335375,
+      "peak": 0.2677001953125,
+      "finite": true
+    },
+    "svarah_06357": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 248835,
+      "subtype": "PCM_16",
+      "duration_seconds": 15.5521875,
+      "peak": 0.881500244140625,
+      "finite": true
+    },
+    "svarah_06358": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 23464,
+      "subtype": "PCM_16",
+      "duration_seconds": 1.4665,
+      "peak": 0.470977783203125,
+      "finite": true
+    },
+    "svarah_06359": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 44795,
+      "subtype": "PCM_16",
+      "duration_seconds": 2.7996875,
+      "peak": 0.37603759765625,
+      "finite": true
+    },
+    "svarah_06360": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 138208,
+      "subtype": "PCM_16",
+      "duration_seconds": 8.638,
+      "peak": 0.475006103515625,
+      "finite": true
+    },
+    "svarah_06361": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 35318,
+      "subtype": "PCM_16",
+      "duration_seconds": 2.207375,
+      "peak": 0.380615234375,
+      "finite": true
+    },
+    "svarah_06362": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 5319,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.3324375,
+      "peak": 0.714935302734375,
+      "finite": true
+    },
+    "svarah_06363": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 73205,
+      "subtype": "PCM_16",
+      "duration_seconds": 4.5753125,
+      "peak": 0.561767578125,
+      "finite": true
+    },
+    "svarah_06364": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 9631,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.6019375,
+      "peak": 0.883636474609375,
+      "finite": true
+    },
+    "svarah_06365": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 7332,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.45825,
+      "peak": 0.674224853515625,
+      "finite": true
+    },
+    "svarah_06366": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 40583,
+      "subtype": "PCM_16",
+      "duration_seconds": 2.5364375,
+      "peak": 0.72650146484375,
+      "finite": true
+    },
+    "svarah_06367": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 44424,
+      "subtype": "PCM_16",
+      "duration_seconds": 2.7765,
+      "peak": 0.176025390625,
+      "finite": true
+    },
+    "svarah_06368": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 16876,
+      "subtype": "PCM_16",
+      "duration_seconds": 1.05475,
+      "peak": 0.094757080078125,
+      "finite": true
+    },
+    "svarah_06369": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 16496,
+      "subtype": "PCM_16",
+      "duration_seconds": 1.031,
+      "peak": 0.15802001953125,
+      "finite": true
+    },
+    "svarah_06370": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 13542,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.846375,
+      "peak": 0.13165283203125,
+      "finite": true
+    },
+    "svarah_06371": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 211897,
+      "subtype": "PCM_16",
+      "duration_seconds": 13.2435625,
+      "peak": 0.95074462890625,
+      "finite": true
+    },
+    "svarah_06372": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 81024,
+      "subtype": "PCM_16",
+      "duration_seconds": 5.064,
+      "peak": 0.28375244140625,
+      "finite": true
+    },
+    "svarah_06373": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 58211,
+      "subtype": "PCM_16",
+      "duration_seconds": 3.6381875,
+      "peak": 0.56707763671875,
+      "finite": true
+    },
+    "svarah_06374": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 122626,
+      "subtype": "PCM_16",
+      "duration_seconds": 7.664125,
+      "peak": 0.949615478515625,
+      "finite": true
+    },
+    "svarah_06375": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 65929,
+      "subtype": "PCM_16",
+      "duration_seconds": 4.1205625,
+      "peak": 0.260986328125,
+      "finite": true
+    },
+    "svarah_06376": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 9961,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.6225625,
+      "peak": 0.7879638671875,
+      "finite": true
+    },
+    "svarah_06377": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 7757,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.4848125,
+      "peak": 0.83709716796875,
+      "finite": true
+    },
+    "svarah_06378": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 201066,
+      "subtype": "PCM_16",
+      "duration_seconds": 12.566625,
+      "peak": 0.79656982421875,
+      "finite": true
+    },
+    "svarah_06379": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 39108,
+      "subtype": "PCM_16",
+      "duration_seconds": 2.44425,
+      "peak": 0.85546875,
+      "finite": true
+    },
+    "svarah_06380": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 39988,
+      "subtype": "PCM_16",
+      "duration_seconds": 2.49925,
+      "peak": 0.32867431640625,
+      "finite": true
+    },
+    "svarah_06381": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 91606,
+      "subtype": "PCM_16",
+      "duration_seconds": 5.725375,
+      "peak": 0.639556884765625,
+      "finite": true
+    },
+    "svarah_06382": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 107912,
+      "subtype": "PCM_16",
+      "duration_seconds": 6.7445,
+      "peak": 0.621826171875,
+      "finite": true
+    },
+    "svarah_06383": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 189985,
+      "subtype": "PCM_16",
+      "duration_seconds": 11.8740625,
+      "peak": 0.1761474609375,
+      "finite": true
+    },
+    "svarah_06384": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 130477,
+      "subtype": "PCM_16",
+      "duration_seconds": 8.1548125,
+      "peak": 0.73077392578125,
+      "finite": true
+    },
+    "svarah_06385": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 28051,
+      "subtype": "PCM_16",
+      "duration_seconds": 1.7531875,
+      "peak": 0.876251220703125,
+      "finite": true
+    },
+    "svarah_06386": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 206251,
+      "subtype": "PCM_16",
+      "duration_seconds": 12.8906875,
+      "peak": 0.700469970703125,
+      "finite": true
+    },
+    "svarah_06387": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 103559,
+      "subtype": "PCM_16",
+      "duration_seconds": 6.4724375,
+      "peak": 0.40380859375,
+      "finite": true
+    },
+    "svarah_06388": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 260806,
+      "subtype": "PCM_16",
+      "duration_seconds": 16.300375,
+      "peak": 0.69622802734375,
+      "finite": true
+    },
+    "svarah_06389": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 102308,
+      "subtype": "PCM_16",
+      "duration_seconds": 6.39425,
+      "peak": 0.81195068359375,
+      "finite": true
+    },
+    "svarah_06390": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 7288,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.4555,
+      "peak": 0.724609375,
+      "finite": true
+    },
+    "svarah_06391": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 7580,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.47375,
+      "peak": 0.50030517578125,
+      "finite": true
+    },
+    "svarah_06392": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 235091,
+      "subtype": "PCM_16",
+      "duration_seconds": 14.6931875,
+      "peak": 0.231353759765625,
+      "finite": true
+    },
+    "svarah_06393": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 81920,
+      "subtype": "PCM_16",
+      "duration_seconds": 5.12,
+      "peak": 0.51458740234375,
+      "finite": true
+    },
+    "svarah_06394": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 40001,
+      "subtype": "PCM_16",
+      "duration_seconds": 2.5000625,
+      "peak": 0.48297119140625,
+      "finite": true
+    },
+    "svarah_06395": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 10246,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.640375,
+      "peak": 0.495147705078125,
+      "finite": true
+    },
+    "svarah_06396": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 98374,
+      "subtype": "PCM_16",
+      "duration_seconds": 6.148375,
+      "peak": 0.34490966796875,
+      "finite": true
+    },
+    "svarah_06397": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 11148,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.69675,
+      "peak": 0.212738037109375,
+      "finite": true
+    },
+    "svarah_06398": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 9207,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.5754375,
+      "peak": 0.372100830078125,
+      "finite": true
+    },
+    "svarah_06399": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 43660,
+      "subtype": "PCM_16",
+      "duration_seconds": 2.72875,
+      "peak": 0.29766845703125,
+      "finite": true
+    },
+    "svarah_06400": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 128640,
+      "subtype": "PCM_16",
+      "duration_seconds": 8.04,
+      "peak": 0.434356689453125,
+      "finite": true
+    },
+    "svarah_06401": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 180495,
+      "subtype": "PCM_16",
+      "duration_seconds": 11.2809375,
+      "peak": 0.553466796875,
+      "finite": true
+    },
+    "svarah_06402": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 94169,
+      "subtype": "PCM_16",
+      "duration_seconds": 5.8855625,
+      "peak": 0.146453857421875,
+      "finite": true
+    },
+    "svarah_06403": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 9596,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.59975,
+      "peak": 0.716522216796875,
+      "finite": true
+    },
+    "svarah_06404": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 35726,
+      "subtype": "PCM_16",
+      "duration_seconds": 2.232875,
+      "peak": 0.487091064453125,
+      "finite": true
+    },
+    "svarah_06405": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 112752,
+      "subtype": "PCM_16",
+      "duration_seconds": 7.047,
+      "peak": 0.999969482421875,
+      "finite": true
+    },
+    "svarah_06406": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 93592,
+      "subtype": "PCM_16",
+      "duration_seconds": 5.8495,
+      "peak": 0.0443115234375,
+      "finite": true
+    },
+    "svarah_06407": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 48450,
+      "subtype": "PCM_16",
+      "duration_seconds": 3.028125,
+      "peak": 0.078399658203125,
+      "finite": true
+    },
+    "svarah_06408": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 107450,
+      "subtype": "PCM_16",
+      "duration_seconds": 6.715625,
+      "peak": 0.664886474609375,
+      "finite": true
+    },
+    "svarah_06409": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 171817,
+      "subtype": "PCM_16",
+      "duration_seconds": 10.7385625,
+      "peak": 0.297088623046875,
+      "finite": true
+    },
+    "svarah_06410": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 37211,
+      "subtype": "PCM_16",
+      "duration_seconds": 2.3256875,
+      "peak": 0.267669677734375,
+      "finite": true
+    },
+    "svarah_06411": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 194259,
+      "subtype": "PCM_16",
+      "duration_seconds": 12.1411875,
+      "peak": 0.2027587890625,
+      "finite": true
+    },
+    "svarah_06412": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 115325,
+      "subtype": "PCM_16",
+      "duration_seconds": 7.2078125,
+      "peak": 0.391876220703125,
+      "finite": true
+    },
+    "svarah_06413": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 444901,
+      "subtype": "PCM_16",
+      "duration_seconds": 27.8063125,
+      "peak": 0.570404052734375,
+      "finite": true
+    },
+    "svarah_06414": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 70400,
+      "subtype": "PCM_16",
+      "duration_seconds": 4.4,
+      "peak": 0.45050048828125,
+      "finite": true
+    },
+    "svarah_06415": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 148543,
+      "subtype": "PCM_16",
+      "duration_seconds": 9.2839375,
+      "peak": 0.278289794921875,
+      "finite": true
+    },
+    "svarah_06416": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 142621,
+      "subtype": "PCM_16",
+      "duration_seconds": 8.9138125,
+      "peak": 0.380157470703125,
+      "finite": true
+    },
+    "svarah_06417": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 114618,
+      "subtype": "PCM_16",
+      "duration_seconds": 7.163625,
+      "peak": 0.452239990234375,
+      "finite": true
+    },
+    "svarah_06418": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 77639,
+      "subtype": "PCM_16",
+      "duration_seconds": 4.8524375,
+      "peak": 0.667510986328125,
+      "finite": true
+    },
+    "svarah_06419": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 103026,
+      "subtype": "PCM_16",
+      "duration_seconds": 6.439125,
+      "peak": 0.32965087890625,
+      "finite": true
+    },
+    "svarah_06420": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 108013,
+      "subtype": "PCM_16",
+      "duration_seconds": 6.7508125,
+      "peak": 0.48883056640625,
+      "finite": true
+    },
+    "svarah_06421": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 14162,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.885125,
+      "peak": 0.55364990234375,
+      "finite": true
+    },
+    "svarah_06422": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 48667,
+      "subtype": "PCM_16",
+      "duration_seconds": 3.0416875,
+      "peak": 0.467529296875,
+      "finite": true
+    },
+    "svarah_06423": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 64000,
+      "subtype": "PCM_16",
+      "duration_seconds": 4.0,
+      "peak": 0.180999755859375,
+      "finite": true
+    },
+    "svarah_06424": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 65014,
+      "subtype": "PCM_16",
+      "duration_seconds": 4.063375,
+      "peak": 0.858154296875,
+      "finite": true
+    },
+    "svarah_06425": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 7990,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.499375,
+      "peak": 0.77777099609375,
+      "finite": true
+    },
+    "svarah_06426": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 9138,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.571125,
+      "peak": 0.5445556640625,
+      "finite": true
+    },
+    "svarah_06427": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 113280,
+      "subtype": "PCM_16",
+      "duration_seconds": 7.08,
+      "peak": 0.56292724609375,
+      "finite": true
+    },
+    "svarah_06428": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 118342,
+      "subtype": "PCM_16",
+      "duration_seconds": 7.396375,
+      "peak": 0.29156494140625,
+      "finite": true
+    },
+    "svarah_06429": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 133531,
+      "subtype": "PCM_16",
+      "duration_seconds": 8.3456875,
+      "peak": 0.985015869140625,
+      "finite": true
+    },
+    "svarah_06430": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 87636,
+      "subtype": "PCM_16",
+      "duration_seconds": 5.47725,
+      "peak": 0.270782470703125,
+      "finite": true
+    },
+    "svarah_06431": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 14434,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.902125,
+      "peak": 0.456329345703125,
+      "finite": true
+    },
+    "svarah_06432": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 32320,
+      "subtype": "PCM_16",
+      "duration_seconds": 2.02,
+      "peak": 0.970977783203125,
+      "finite": true
+    },
+    "svarah_06433": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 73188,
+      "subtype": "PCM_16",
+      "duration_seconds": 4.57425,
+      "peak": 0.39019775390625,
+      "finite": true
+    },
+    "svarah_06434": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 320808,
+      "subtype": "PCM_16",
+      "duration_seconds": 20.0505,
+      "peak": 0.712799072265625,
+      "finite": true
+    },
+    "svarah_06435": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 9451,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.5906875,
+      "peak": 0.36395263671875,
+      "finite": true
+    },
+    "svarah_06436": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 120965,
+      "subtype": "PCM_16",
+      "duration_seconds": 7.5603125,
+      "peak": 0.231353759765625,
+      "finite": true
+    },
+    "svarah_06437": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 36000,
+      "subtype": "PCM_16",
+      "duration_seconds": 2.25,
+      "peak": 0.41326904296875,
+      "finite": true
+    },
+    "svarah_06438": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 74422,
+      "subtype": "PCM_16",
+      "duration_seconds": 4.651375,
+      "peak": 0.258880615234375,
+      "finite": true
+    },
+    "svarah_06439": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 7957,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.4973125,
+      "peak": 0.85498046875,
+      "finite": true
+    },
+    "svarah_06440": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 13884,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.86775,
+      "peak": 0.296600341796875,
+      "finite": true
+    },
+    "svarah_06441": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 99641,
+      "subtype": "PCM_16",
+      "duration_seconds": 6.2275625,
+      "peak": 0.099090576171875,
+      "finite": true
+    },
+    "svarah_06442": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 92160,
+      "subtype": "PCM_16",
+      "duration_seconds": 5.76,
+      "peak": 0.110809326171875,
+      "finite": true
+    },
+    "svarah_06443": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 76702,
+      "subtype": "PCM_16",
+      "duration_seconds": 4.793875,
+      "peak": 0.843017578125,
+      "finite": true
+    },
+    "svarah_06444": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 191201,
+      "subtype": "PCM_16",
+      "duration_seconds": 11.9500625,
+      "peak": 0.999969482421875,
+      "finite": true
+    },
+    "svarah_06445": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 16066,
+      "subtype": "PCM_16",
+      "duration_seconds": 1.004125,
+      "peak": 0.5384521484375,
+      "finite": true
+    },
+    "svarah_06446": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 233687,
+      "subtype": "PCM_16",
+      "duration_seconds": 14.6054375,
+      "peak": 0.25244140625,
+      "finite": true
+    },
+    "svarah_06447": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 12076,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.75475,
+      "peak": 0.709686279296875,
+      "finite": true
+    },
+    "svarah_06448": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 12321,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.7700625,
+      "peak": 0.5555419921875,
+      "finite": true
+    },
+    "svarah_06449": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 10596,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.66225,
+      "peak": 0.25341796875,
+      "finite": true
+    },
+    "svarah_06450": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 11435,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.7146875,
+      "peak": 1.0,
+      "finite": true
+    },
+    "svarah_06451": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 5781,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.3613125,
+      "peak": 0.137969970703125,
+      "finite": true
+    },
+    "svarah_06452": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 49993,
+      "subtype": "PCM_16",
+      "duration_seconds": 3.1245625,
+      "peak": 0.669677734375,
+      "finite": true
+    },
+    "svarah_06453": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 94630,
+      "subtype": "PCM_16",
+      "duration_seconds": 5.914375,
+      "peak": 0.487091064453125,
+      "finite": true
+    },
+    "svarah_06454": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 106720,
+      "subtype": "PCM_16",
+      "duration_seconds": 6.67,
+      "peak": 0.999969482421875,
+      "finite": true
+    },
+    "svarah_06455": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 98256,
+      "subtype": "PCM_16",
+      "duration_seconds": 6.141,
+      "peak": 0.10614013671875,
+      "finite": true
+    },
+    "svarah_06456": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 128663,
+      "subtype": "PCM_16",
+      "duration_seconds": 8.0414375,
+      "peak": 0.665008544921875,
+      "finite": true
+    },
+    "svarah_06457": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 6599,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.4124375,
+      "peak": 0.165802001953125,
+      "finite": true
+    },
+    "svarah_06458": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 53865,
+      "subtype": "PCM_16",
+      "duration_seconds": 3.3665625,
+      "peak": 0.150421142578125,
+      "finite": true
+    },
+    "svarah_06459": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 78100,
+      "subtype": "PCM_16",
+      "duration_seconds": 4.88125,
+      "peak": 0.86273193359375,
+      "finite": true
+    },
+    "svarah_06460": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 151046,
+      "subtype": "PCM_16",
+      "duration_seconds": 9.440375,
+      "peak": 0.4527587890625,
+      "finite": true
+    },
+    "svarah_06461": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 92688,
+      "subtype": "PCM_16",
+      "duration_seconds": 5.793,
+      "peak": 0.23553466796875,
+      "finite": true
+    },
+    "svarah_06462": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 108802,
+      "subtype": "PCM_16",
+      "duration_seconds": 6.800125,
+      "peak": 0.538543701171875,
+      "finite": true
+    },
+    "svarah_06463": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 66063,
+      "subtype": "PCM_16",
+      "duration_seconds": 4.1289375,
+      "peak": 0.966461181640625,
+      "finite": true
+    },
+    "svarah_06464": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 112000,
+      "subtype": "PCM_16",
+      "duration_seconds": 7.0,
+      "peak": 0.56439208984375,
+      "finite": true
+    },
+    "svarah_06465": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 154173,
+      "subtype": "PCM_16",
+      "duration_seconds": 9.6358125,
+      "peak": 0.087738037109375,
+      "finite": true
+    },
+    "svarah_06466": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 72402,
+      "subtype": "PCM_16",
+      "duration_seconds": 4.525125,
+      "peak": 0.5091552734375,
+      "finite": true
+    },
+    "svarah_06467": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 69905,
+      "subtype": "PCM_16",
+      "duration_seconds": 4.3690625,
+      "peak": 0.999969482421875,
+      "finite": true
+    },
+    "svarah_06468": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 226357,
+      "subtype": "PCM_16",
+      "duration_seconds": 14.1473125,
+      "peak": 0.299835205078125,
+      "finite": true
+    },
+    "svarah_06469": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 159487,
+      "subtype": "PCM_16",
+      "duration_seconds": 9.9679375,
+      "peak": 0.2691650390625,
+      "finite": true
+    },
+    "svarah_06470": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 99785,
+      "subtype": "PCM_16",
+      "duration_seconds": 6.2365625,
+      "peak": 0.88067626953125,
+      "finite": true
+    },
+    "svarah_06471": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 59848,
+      "subtype": "PCM_16",
+      "duration_seconds": 3.7405,
+      "peak": 0.138427734375,
+      "finite": true
+    },
+    "svarah_06472": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 27131,
+      "subtype": "PCM_16",
+      "duration_seconds": 1.6956875,
+      "peak": 0.09381103515625,
+      "finite": true
+    },
+    "svarah_06473": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 11316,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.70725,
+      "peak": 0.1123046875,
+      "finite": true
+    },
+    "svarah_06474": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 89593,
+      "subtype": "PCM_16",
+      "duration_seconds": 5.5995625,
+      "peak": 0.631591796875,
+      "finite": true
+    },
+    "svarah_06475": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 16000,
+      "subtype": "PCM_16",
+      "duration_seconds": 1.0,
+      "peak": 0.287872314453125,
+      "finite": true
+    },
+    "svarah_06476": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 45872,
+      "subtype": "PCM_16",
+      "duration_seconds": 2.867,
+      "peak": 0.4329833984375,
+      "finite": true
+    },
+    "svarah_06477": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 49597,
+      "subtype": "PCM_16",
+      "duration_seconds": 3.0998125,
+      "peak": 0.24969482421875,
+      "finite": true
+    },
+    "svarah_06478": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 75892,
+      "subtype": "PCM_16",
+      "duration_seconds": 4.74325,
+      "peak": 0.102081298828125,
+      "finite": true
+    },
+    "svarah_06479": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 101760,
+      "subtype": "PCM_16",
+      "duration_seconds": 6.36,
+      "peak": 0.242279052734375,
+      "finite": true
+    },
+    "svarah_06480": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 38076,
+      "subtype": "PCM_16",
+      "duration_seconds": 2.37975,
+      "peak": 0.507537841796875,
+      "finite": true
+    },
+    "svarah_06481": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 60480,
+      "subtype": "PCM_16",
+      "duration_seconds": 3.78,
+      "peak": 0.761474609375,
+      "finite": true
+    },
+    "svarah_06482": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 115840,
+      "subtype": "PCM_16",
+      "duration_seconds": 7.24,
+      "peak": 0.863037109375,
+      "finite": true
+    },
+    "svarah_06483": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 103733,
+      "subtype": "PCM_16",
+      "duration_seconds": 6.4833125,
+      "peak": 0.59295654296875,
+      "finite": true
+    },
+    "svarah_06484": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 11302,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.706375,
+      "peak": 0.16552734375,
+      "finite": true
+    },
+    "svarah_06485": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 13112,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.8195,
+      "peak": 0.2623291015625,
+      "finite": true
+    },
+    "svarah_06486": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 64676,
+      "subtype": "PCM_16",
+      "duration_seconds": 4.04225,
+      "peak": 0.013702392578125,
+      "finite": true
+    },
+    "svarah_06487": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 4587,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.2866875,
+      "peak": 0.420501708984375,
+      "finite": true
+    },
+    "svarah_06488": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 5751,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.3594375,
+      "peak": 0.401275634765625,
+      "finite": true
+    },
+    "svarah_06489": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 105826,
+      "subtype": "PCM_16",
+      "duration_seconds": 6.614125,
+      "peak": 0.999969482421875,
+      "finite": true
+    },
+    "svarah_06490": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 42721,
+      "subtype": "PCM_16",
+      "duration_seconds": 2.6700625,
+      "peak": 0.281158447265625,
+      "finite": true
+    },
+    "svarah_06491": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 28278,
+      "subtype": "PCM_16",
+      "duration_seconds": 1.767375,
+      "peak": 0.059417724609375,
+      "finite": true
+    },
+    "svarah_06492": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 5903,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.3689375,
+      "peak": 0.290283203125,
+      "finite": true
+    },
+    "svarah_06493": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 122240,
+      "subtype": "PCM_16",
+      "duration_seconds": 7.64,
+      "peak": 0.2823486328125,
+      "finite": true
+    },
+    "svarah_06494": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 62243,
+      "subtype": "PCM_16",
+      "duration_seconds": 3.8901875,
+      "peak": 0.59893798828125,
+      "finite": true
+    },
+    "svarah_06495": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 75843,
+      "subtype": "PCM_16",
+      "duration_seconds": 4.7401875,
+      "peak": 0.40606689453125,
+      "finite": true
+    },
+    "svarah_06496": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 35197,
+      "subtype": "PCM_16",
+      "duration_seconds": 2.1998125,
+      "peak": 0.55438232421875,
+      "finite": true
+    },
+    "svarah_06497": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 318506,
+      "subtype": "PCM_16",
+      "duration_seconds": 19.906625,
+      "peak": 0.393157958984375,
+      "finite": true
+    },
+    "svarah_06498": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 45590,
+      "subtype": "PCM_16",
+      "duration_seconds": 2.849375,
+      "peak": 0.2001953125,
+      "finite": true
+    },
+    "svarah_06499": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 9674,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.604625,
+      "peak": 0.939117431640625,
+      "finite": true
+    },
+    "svarah_06500": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 67204,
+      "subtype": "PCM_16",
+      "duration_seconds": 4.20025,
+      "peak": 0.7015380859375,
+      "finite": true
+    },
+    "svarah_06501": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 134073,
+      "subtype": "PCM_16",
+      "duration_seconds": 8.3795625,
+      "peak": 0.54925537109375,
+      "finite": true
+    },
+    "svarah_06502": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 365187,
+      "subtype": "PCM_16",
+      "duration_seconds": 22.8241875,
+      "peak": 0.999969482421875,
+      "finite": true
+    },
+    "svarah_06503": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 128000,
+      "subtype": "PCM_16",
+      "duration_seconds": 8.0,
+      "peak": 0.148712158203125,
+      "finite": true
+    },
+    "svarah_06504": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 165292,
+      "subtype": "PCM_16",
+      "duration_seconds": 10.33075,
+      "peak": 0.103057861328125,
+      "finite": true
+    },
+    "svarah_06505": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 6080,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.38,
+      "peak": 0.250335693359375,
+      "finite": true
+    },
+    "svarah_06506": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 81560,
+      "subtype": "PCM_16",
+      "duration_seconds": 5.0975,
+      "peak": 0.150543212890625,
+      "finite": true
+    },
+    "svarah_06507": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 14413,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.9008125,
+      "peak": 0.561492919921875,
+      "finite": true
+    },
+    "svarah_06508": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 13025,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.8140625,
+      "peak": 0.24267578125,
+      "finite": true
+    },
+    "svarah_06509": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 351540,
+      "subtype": "PCM_16",
+      "duration_seconds": 21.97125,
+      "peak": 0.207489013671875,
+      "finite": true
+    },
+    "svarah_06510": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 3189,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.1993125,
+      "peak": 0.372802734375,
+      "finite": true
+    },
+    "svarah_06511": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 369537,
+      "subtype": "PCM_16",
+      "duration_seconds": 23.0960625,
+      "peak": 0.15240478515625,
+      "finite": true
+    },
+    "svarah_06512": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 84002,
+      "subtype": "PCM_16",
+      "duration_seconds": 5.250125,
+      "peak": 0.356109619140625,
+      "finite": true
+    },
+    "svarah_06513": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 78720,
+      "subtype": "PCM_16",
+      "duration_seconds": 4.92,
+      "peak": 0.568359375,
+      "finite": true
+    },
+    "svarah_06514": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 47768,
+      "subtype": "PCM_16",
+      "duration_seconds": 2.9855,
+      "peak": 0.48272705078125,
+      "finite": true
+    },
+    "svarah_06515": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 52487,
+      "subtype": "PCM_16",
+      "duration_seconds": 3.2804375,
+      "peak": 0.068084716796875,
+      "finite": true
+    },
+    "svarah_06516": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 71125,
+      "subtype": "PCM_16",
+      "duration_seconds": 4.4453125,
+      "peak": 0.640228271484375,
+      "finite": true
+    },
+    "svarah_06517": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 51200,
+      "subtype": "PCM_16",
+      "duration_seconds": 3.2,
+      "peak": 0.41400146484375,
+      "finite": true
+    },
+    "svarah_06518": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 79975,
+      "subtype": "PCM_16",
+      "duration_seconds": 4.9984375,
+      "peak": 0.58270263671875,
+      "finite": true
+    },
+    "svarah_06519": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 41898,
+      "subtype": "PCM_16",
+      "duration_seconds": 2.618625,
+      "peak": 0.227783203125,
+      "finite": true
+    },
+    "svarah_06520": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 56662,
+      "subtype": "PCM_16",
+      "duration_seconds": 3.541375,
+      "peak": 0.775634765625,
+      "finite": true
+    },
+    "svarah_06521": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 32761,
+      "subtype": "PCM_16",
+      "duration_seconds": 2.0475625,
+      "peak": 0.337310791015625,
+      "finite": true
+    },
+    "svarah_06522": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 112486,
+      "subtype": "PCM_16",
+      "duration_seconds": 7.030375,
+      "peak": 0.8245849609375,
+      "finite": true
+    },
+    "svarah_06523": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 11294,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.705875,
+      "peak": 0.999969482421875,
+      "finite": true
+    },
+    "svarah_06524": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 405682,
+      "subtype": "PCM_16",
+      "duration_seconds": 25.355125,
+      "peak": 0.242919921875,
+      "finite": true
+    },
+    "svarah_06525": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 85120,
+      "subtype": "PCM_16",
+      "duration_seconds": 5.32,
+      "peak": 0.10015869140625,
+      "finite": true
+    },
+    "svarah_06526": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 107899,
+      "subtype": "PCM_16",
+      "duration_seconds": 6.7436875,
+      "peak": 0.6431884765625,
+      "finite": true
+    },
+    "svarah_06527": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 138919,
+      "subtype": "PCM_16",
+      "duration_seconds": 8.6824375,
+      "peak": 0.648193359375,
+      "finite": true
+    },
+    "svarah_06528": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 43929,
+      "subtype": "PCM_16",
+      "duration_seconds": 2.7455625,
+      "peak": 0.48321533203125,
+      "finite": true
+    },
+    "svarah_06529": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 36587,
+      "subtype": "PCM_16",
+      "duration_seconds": 2.2866875,
+      "peak": 0.104095458984375,
+      "finite": true
+    },
+    "svarah_06530": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 27621,
+      "subtype": "PCM_16",
+      "duration_seconds": 1.7263125,
+      "peak": 0.5670166015625,
+      "finite": true
+    },
+    "svarah_06531": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 16780,
+      "subtype": "PCM_16",
+      "duration_seconds": 1.04875,
+      "peak": 0.248016357421875,
+      "finite": true
+    },
+    "svarah_06532": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 71725,
+      "subtype": "PCM_16",
+      "duration_seconds": 4.4828125,
+      "peak": 0.372711181640625,
+      "finite": true
+    },
+    "svarah_06533": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 66591,
+      "subtype": "PCM_16",
+      "duration_seconds": 4.1619375,
+      "peak": 0.559539794921875,
+      "finite": true
+    },
+    "svarah_06534": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 48640,
+      "subtype": "PCM_16",
+      "duration_seconds": 3.04,
+      "peak": 0.502471923828125,
+      "finite": true
+    },
+    "svarah_06535": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 79529,
+      "subtype": "PCM_16",
+      "duration_seconds": 4.9705625,
+      "peak": 0.452545166015625,
+      "finite": true
+    },
+    "svarah_06536": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 92610,
+      "subtype": "PCM_16",
+      "duration_seconds": 5.788125,
+      "peak": 0.869659423828125,
+      "finite": true
+    },
+    "svarah_06537": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 251727,
+      "subtype": "PCM_16",
+      "duration_seconds": 15.7329375,
+      "peak": 0.67218017578125,
+      "finite": true
+    },
+    "svarah_06538": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 7185,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.4490625,
+      "peak": 0.189239501953125,
+      "finite": true
+    },
+    "svarah_06539": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 55078,
+      "subtype": "PCM_16",
+      "duration_seconds": 3.442375,
+      "peak": 0.420623779296875,
+      "finite": true
+    },
+    "svarah_06540": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 56423,
+      "subtype": "PCM_16",
+      "duration_seconds": 3.5264375,
+      "peak": 0.572265625,
+      "finite": true
+    },
+    "svarah_06541": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 66032,
+      "subtype": "PCM_16",
+      "duration_seconds": 4.127,
+      "peak": 0.30950927734375,
+      "finite": true
+    },
+    "svarah_06542": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 71919,
+      "subtype": "PCM_16",
+      "duration_seconds": 4.4949375,
+      "peak": 0.67877197265625,
+      "finite": true
+    },
+    "svarah_06543": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 63405,
+      "subtype": "PCM_16",
+      "duration_seconds": 3.9628125,
+      "peak": 0.738677978515625,
+      "finite": true
+    },
+    "svarah_06544": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 80995,
+      "subtype": "PCM_16",
+      "duration_seconds": 5.0621875,
+      "peak": 0.321685791015625,
+      "finite": true
+    },
+    "svarah_06545": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 46720,
+      "subtype": "PCM_16",
+      "duration_seconds": 2.92,
+      "peak": 0.916015625,
+      "finite": true
+    },
+    "svarah_06546": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 63359,
+      "subtype": "PCM_16",
+      "duration_seconds": 3.9599375,
+      "peak": 0.106170654296875,
+      "finite": true
+    },
+    "svarah_06547": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 183212,
+      "subtype": "PCM_16",
+      "duration_seconds": 11.45075,
+      "peak": 0.545654296875,
+      "finite": true
+    },
+    "svarah_06548": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 18647,
+      "subtype": "PCM_16",
+      "duration_seconds": 1.1654375,
+      "peak": 0.285797119140625,
+      "finite": true
+    },
+    "svarah_06549": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 158878,
+      "subtype": "PCM_16",
+      "duration_seconds": 9.929875,
+      "peak": 0.42108154296875,
+      "finite": true
+    },
+    "svarah_06550": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 17667,
+      "subtype": "PCM_16",
+      "duration_seconds": 1.1041875,
+      "peak": 0.437774658203125,
+      "finite": true
+    },
+    "svarah_06551": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 159467,
+      "subtype": "PCM_16",
+      "duration_seconds": 9.9666875,
+      "peak": 0.999969482421875,
+      "finite": true
+    },
+    "svarah_06552": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 108160,
+      "subtype": "PCM_16",
+      "duration_seconds": 6.76,
+      "peak": 0.82659912109375,
+      "finite": true
+    },
+    "svarah_06553": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 135063,
+      "subtype": "PCM_16",
+      "duration_seconds": 8.4414375,
+      "peak": 0.60479736328125,
+      "finite": true
+    },
+    "svarah_06554": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 48486,
+      "subtype": "PCM_16",
+      "duration_seconds": 3.030375,
+      "peak": 0.585357666015625,
+      "finite": true
+    },
+    "svarah_06555": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 8830,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.551875,
+      "peak": 0.67333984375,
+      "finite": true
+    },
+    "svarah_06556": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 10261,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.6413125,
+      "peak": 0.400390625,
+      "finite": true
+    },
+    "svarah_06557": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 9202,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.575125,
+      "peak": 0.169464111328125,
+      "finite": true
+    },
+    "svarah_06558": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 109300,
+      "subtype": "PCM_16",
+      "duration_seconds": 6.83125,
+      "peak": 0.73931884765625,
+      "finite": true
+    },
+    "svarah_06559": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 49619,
+      "subtype": "PCM_16",
+      "duration_seconds": 3.1011875,
+      "peak": 0.0955810546875,
+      "finite": true
+    },
+    "svarah_06560": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 289580,
+      "subtype": "PCM_16",
+      "duration_seconds": 18.09875,
+      "peak": 0.049041748046875,
+      "finite": true
+    },
+    "svarah_06561": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 98395,
+      "subtype": "PCM_16",
+      "duration_seconds": 6.1496875,
+      "peak": 0.093536376953125,
+      "finite": true
+    },
+    "svarah_06562": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 16902,
+      "subtype": "PCM_16",
+      "duration_seconds": 1.056375,
+      "peak": 0.015960693359375,
+      "finite": true
+    },
+    "svarah_06563": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 113282,
+      "subtype": "PCM_16",
+      "duration_seconds": 7.080125,
+      "peak": 0.498077392578125,
+      "finite": true
+    },
+    "svarah_06564": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 6007,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.3754375,
+      "peak": 0.2510986328125,
+      "finite": true
+    },
+    "svarah_06565": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 136961,
+      "subtype": "PCM_16",
+      "duration_seconds": 8.5600625,
+      "peak": 0.8834228515625,
+      "finite": true
+    },
+    "svarah_06566": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 10041,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.6275625,
+      "peak": 0.668121337890625,
+      "finite": true
+    },
+    "svarah_06567": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 10260,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.64125,
+      "peak": 0.573211669921875,
+      "finite": true
+    },
+    "svarah_06568": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 72468,
+      "subtype": "PCM_16",
+      "duration_seconds": 4.52925,
+      "peak": 0.15887451171875,
+      "finite": true
+    },
+    "svarah_06569": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 322583,
+      "subtype": "PCM_16",
+      "duration_seconds": 20.1614375,
+      "peak": 0.966461181640625,
+      "finite": true
+    },
+    "svarah_06570": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 15422,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.963875,
+      "peak": 0.107666015625,
+      "finite": true
+    },
+    "svarah_06571": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 107562,
+      "subtype": "PCM_16",
+      "duration_seconds": 6.722625,
+      "peak": 0.16259765625,
+      "finite": true
+    },
+    "svarah_06572": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 186960,
+      "subtype": "PCM_16",
+      "duration_seconds": 11.685,
+      "peak": 0.219390869140625,
+      "finite": true
+    },
+    "svarah_06573": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 176000,
+      "subtype": "PCM_16",
+      "duration_seconds": 11.0,
+      "peak": 0.622772216796875,
+      "finite": true
+    },
+    "svarah_06574": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 77396,
+      "subtype": "PCM_16",
+      "duration_seconds": 4.83725,
+      "peak": 0.712493896484375,
+      "finite": true
+    },
+    "svarah_06575": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 29867,
+      "subtype": "PCM_16",
+      "duration_seconds": 1.8666875,
+      "peak": 0.44879150390625,
+      "finite": true
+    },
+    "svarah_06576": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 106063,
+      "subtype": "PCM_16",
+      "duration_seconds": 6.6289375,
+      "peak": 0.513946533203125,
+      "finite": true
+    },
+    "svarah_06577": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 41187,
+      "subtype": "PCM_16",
+      "duration_seconds": 2.5741875,
+      "peak": 0.503204345703125,
+      "finite": true
+    },
+    "svarah_06578": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 108714,
+      "subtype": "PCM_16",
+      "duration_seconds": 6.794625,
+      "peak": 0.547210693359375,
+      "finite": true
+    },
+    "svarah_06579": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 54308,
+      "subtype": "PCM_16",
+      "duration_seconds": 3.39425,
+      "peak": 0.241302490234375,
+      "finite": true
+    },
+    "svarah_06580": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 70182,
+      "subtype": "PCM_16",
+      "duration_seconds": 4.386375,
+      "peak": 0.280517578125,
+      "finite": true
+    },
+    "svarah_06581": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 315989,
+      "subtype": "PCM_16",
+      "duration_seconds": 19.7493125,
+      "peak": 0.164154052734375,
+      "finite": true
+    },
+    "svarah_06582": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 32000,
+      "subtype": "PCM_16",
+      "duration_seconds": 2.0,
+      "peak": 0.174346923828125,
+      "finite": true
+    },
+    "svarah_06583": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 142944,
+      "subtype": "PCM_16",
+      "duration_seconds": 8.934,
+      "peak": 0.98486328125,
+      "finite": true
+    },
+    "svarah_06584": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 128833,
+      "subtype": "PCM_16",
+      "duration_seconds": 8.0520625,
+      "peak": 0.616546630859375,
+      "finite": true
+    },
+    "svarah_06585": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 49755,
+      "subtype": "PCM_16",
+      "duration_seconds": 3.1096875,
+      "peak": 0.268096923828125,
+      "finite": true
+    },
+    "svarah_06586": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 109529,
+      "subtype": "PCM_16",
+      "duration_seconds": 6.8455625,
+      "peak": 0.79461669921875,
+      "finite": true
+    },
+    "svarah_06587": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 106970,
+      "subtype": "PCM_16",
+      "duration_seconds": 6.685625,
+      "peak": 0.68841552734375,
+      "finite": true
+    },
+    "svarah_06588": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 45754,
+      "subtype": "PCM_16",
+      "duration_seconds": 2.859625,
+      "peak": 0.350128173828125,
+      "finite": true
+    },
+    "svarah_06589": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 8309,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.5193125,
+      "peak": 0.920654296875,
+      "finite": true
+    },
+    "svarah_06590": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 16000,
+      "subtype": "PCM_16",
+      "duration_seconds": 1.0,
+      "peak": 0.1087646484375,
+      "finite": true
+    },
+    "svarah_06591": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 18960,
+      "subtype": "PCM_16",
+      "duration_seconds": 1.185,
+      "peak": 0.35443115234375,
+      "finite": true
+    },
+    "svarah_06592": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 62352,
+      "subtype": "PCM_16",
+      "duration_seconds": 3.897,
+      "peak": 0.94244384765625,
+      "finite": true
+    },
+    "svarah_06593": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 8541,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.5338125,
+      "peak": 0.655914306640625,
+      "finite": true
+    },
+    "svarah_06594": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 300160,
+      "subtype": "PCM_16",
+      "duration_seconds": 18.76,
+      "peak": 0.5833740234375,
+      "finite": true
+    },
+    "svarah_06595": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 233678,
+      "subtype": "PCM_16",
+      "duration_seconds": 14.604875,
+      "peak": 0.293975830078125,
+      "finite": true
+    },
+    "svarah_06596": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 8361,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.5225625,
+      "peak": 0.34564208984375,
+      "finite": true
+    },
+    "svarah_06597": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 33535,
+      "subtype": "PCM_16",
+      "duration_seconds": 2.0959375,
+      "peak": 0.57806396484375,
+      "finite": true
+    },
+    "svarah_06598": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 126652,
+      "subtype": "PCM_16",
+      "duration_seconds": 7.91575,
+      "peak": 0.47637939453125,
+      "finite": true
+    },
+    "svarah_06599": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 157942,
+      "subtype": "PCM_16",
+      "duration_seconds": 9.871375,
+      "peak": 0.370025634765625,
+      "finite": true
+    },
+    "svarah_06600": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 128009,
+      "subtype": "PCM_16",
+      "duration_seconds": 8.0005625,
+      "peak": 0.7679443359375,
+      "finite": true
+    },
+    "svarah_06601": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 188846,
+      "subtype": "PCM_16",
+      "duration_seconds": 11.802875,
+      "peak": 0.781585693359375,
+      "finite": true
+    },
+    "svarah_06602": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 53695,
+      "subtype": "PCM_16",
+      "duration_seconds": 3.3559375,
+      "peak": 0.3465576171875,
+      "finite": true
+    },
+    "svarah_06603": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 8883,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.5551875,
+      "peak": 0.79168701171875,
+      "finite": true
+    },
+    "svarah_06604": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 280430,
+      "subtype": "PCM_16",
+      "duration_seconds": 17.526875,
+      "peak": 0.448577880859375,
+      "finite": true
+    },
+    "svarah_06605": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 11184,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.699,
+      "peak": 0.8724365234375,
+      "finite": true
+    },
+    "svarah_06606": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 57923,
+      "subtype": "PCM_16",
+      "duration_seconds": 3.6201875,
+      "peak": 0.29229736328125,
+      "finite": true
+    },
+    "svarah_06607": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 40145,
+      "subtype": "PCM_16",
+      "duration_seconds": 2.5090625,
+      "peak": 0.997161865234375,
+      "finite": true
+    },
+    "svarah_06608": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 146404,
+      "subtype": "PCM_16",
+      "duration_seconds": 9.15025,
+      "peak": 0.27947998046875,
+      "finite": true
+    },
+    "svarah_06609": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 73600,
+      "subtype": "PCM_16",
+      "duration_seconds": 4.6,
+      "peak": 0.4217529296875,
+      "finite": true
+    },
+    "svarah_06610": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 18025,
+      "subtype": "PCM_16",
+      "duration_seconds": 1.1265625,
+      "peak": 0.30523681640625,
+      "finite": true
+    },
+    "svarah_06611": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 94810,
+      "subtype": "PCM_16",
+      "duration_seconds": 5.925625,
+      "peak": 0.734405517578125,
+      "finite": true
+    },
+    "svarah_06612": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 167767,
+      "subtype": "PCM_16",
+      "duration_seconds": 10.4854375,
+      "peak": 0.75177001953125,
+      "finite": true
+    },
+    "svarah_06613": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 92800,
+      "subtype": "PCM_16",
+      "duration_seconds": 5.8,
+      "peak": 0.124481201171875,
+      "finite": true
+    },
+    "svarah_06614": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 30908,
+      "subtype": "PCM_16",
+      "duration_seconds": 1.93175,
+      "peak": 0.473785400390625,
+      "finite": true
+    },
+    "svarah_06615": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 139842,
+      "subtype": "PCM_16",
+      "duration_seconds": 8.740125,
+      "peak": 0.13421630859375,
+      "finite": true
+    },
+    "svarah_06616": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 75200,
+      "subtype": "PCM_16",
+      "duration_seconds": 4.7,
+      "peak": 0.651947021484375,
+      "finite": true
+    },
+    "svarah_06617": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 63542,
+      "subtype": "PCM_16",
+      "duration_seconds": 3.971375,
+      "peak": 0.465545654296875,
+      "finite": true
+    },
+    "svarah_06618": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 338880,
+      "subtype": "PCM_16",
+      "duration_seconds": 21.18,
+      "peak": 0.973541259765625,
+      "finite": true
+    },
+    "svarah_06619": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 49861,
+      "subtype": "PCM_16",
+      "duration_seconds": 3.1163125,
+      "peak": 0.394561767578125,
+      "finite": true
+    },
+    "svarah_06620": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 69022,
+      "subtype": "PCM_16",
+      "duration_seconds": 4.313875,
+      "peak": 0.818817138671875,
+      "finite": true
+    },
+    "svarah_06621": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 71442,
+      "subtype": "PCM_16",
+      "duration_seconds": 4.465125,
+      "peak": 0.246856689453125,
+      "finite": true
+    },
+    "svarah_06622": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 7377,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.4610625,
+      "peak": 0.757415771484375,
+      "finite": true
+    },
+    "svarah_06623": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 9208,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.5755,
+      "peak": 0.4674072265625,
+      "finite": true
+    },
+    "svarah_06624": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 78560,
+      "subtype": "PCM_16",
+      "duration_seconds": 4.91,
+      "peak": 0.376312255859375,
+      "finite": true
+    },
+    "svarah_06625": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 117162,
+      "subtype": "PCM_16",
+      "duration_seconds": 7.322625,
+      "peak": 0.730133056640625,
+      "finite": true
+    },
+    "svarah_06626": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 96085,
+      "subtype": "PCM_16",
+      "duration_seconds": 6.0053125,
+      "peak": 0.698760986328125,
+      "finite": true
+    },
+    "svarah_06627": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 35840,
+      "subtype": "PCM_16",
+      "duration_seconds": 2.24,
+      "peak": 0.86761474609375,
+      "finite": true
+    },
+    "svarah_06628": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 80326,
+      "subtype": "PCM_16",
+      "duration_seconds": 5.020375,
+      "peak": 0.536041259765625,
+      "finite": true
+    },
+    "svarah_06629": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 44743,
+      "subtype": "PCM_16",
+      "duration_seconds": 2.7964375,
+      "peak": 0.582000732421875,
+      "finite": true
+    },
+    "svarah_06630": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 3922,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.245125,
+      "peak": 0.279937744140625,
+      "finite": true
+    },
+    "svarah_06631": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 83608,
+      "subtype": "PCM_16",
+      "duration_seconds": 5.2255,
+      "peak": 0.551788330078125,
+      "finite": true
+    },
+    "svarah_06632": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 94259,
+      "subtype": "PCM_16",
+      "duration_seconds": 5.8911875,
+      "peak": 0.443756103515625,
+      "finite": true
+    },
+    "svarah_06633": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 48654,
+      "subtype": "PCM_16",
+      "duration_seconds": 3.040875,
+      "peak": 0.241485595703125,
+      "finite": true
+    },
+    "svarah_06634": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 81920,
+      "subtype": "PCM_16",
+      "duration_seconds": 5.12,
+      "peak": 0.128692626953125,
+      "finite": true
+    },
+    "svarah_06635": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 116479,
+      "subtype": "PCM_16",
+      "duration_seconds": 7.2799375,
+      "peak": 0.83837890625,
+      "finite": true
+    },
+    "svarah_06636": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 127367,
+      "subtype": "PCM_16",
+      "duration_seconds": 7.9604375,
+      "peak": 0.498291015625,
+      "finite": true
+    },
+    "svarah_06637": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 8409,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.5255625,
+      "peak": 0.1114501953125,
+      "finite": true
+    },
+    "svarah_06638": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 59891,
+      "subtype": "PCM_16",
+      "duration_seconds": 3.7431875,
+      "peak": 0.30401611328125,
+      "finite": true
+    },
+    "svarah_06639": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 51504,
+      "subtype": "PCM_16",
+      "duration_seconds": 3.219,
+      "peak": 0.399200439453125,
+      "finite": true
+    },
+    "svarah_06640": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 132186,
+      "subtype": "PCM_16",
+      "duration_seconds": 8.261625,
+      "peak": 0.06390380859375,
+      "finite": true
+    },
+    "svarah_06641": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 10458,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.653625,
+      "peak": 0.995849609375,
+      "finite": true
+    },
+    "svarah_06642": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 49772,
+      "subtype": "PCM_16",
+      "duration_seconds": 3.11075,
+      "peak": 0.016448974609375,
+      "finite": true
+    },
+    "svarah_06643": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 34268,
+      "subtype": "PCM_16",
+      "duration_seconds": 2.14175,
+      "peak": 0.303558349609375,
+      "finite": true
+    },
+    "svarah_06644": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 117607,
+      "subtype": "PCM_16",
+      "duration_seconds": 7.3504375,
+      "peak": 0.596466064453125,
+      "finite": true
+    },
+    "svarah_06645": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 88802,
+      "subtype": "PCM_16",
+      "duration_seconds": 5.550125,
+      "peak": 0.32843017578125,
+      "finite": true
+    },
+    "svarah_06646": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 204544,
+      "subtype": "PCM_16",
+      "duration_seconds": 12.784,
+      "peak": 0.21759033203125,
+      "finite": true
+    },
+    "svarah_06647": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 54755,
+      "subtype": "PCM_16",
+      "duration_seconds": 3.4221875,
+      "peak": 0.579132080078125,
+      "finite": true
+    },
+    "svarah_06648": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 48083,
+      "subtype": "PCM_16",
+      "duration_seconds": 3.0051875,
+      "peak": 0.336761474609375,
+      "finite": true
+    },
+    "svarah_06649": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 95609,
+      "subtype": "PCM_16",
+      "duration_seconds": 5.9755625,
+      "peak": 0.621826171875,
+      "finite": true
+    },
+    "svarah_06650": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 8061,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.5038125,
+      "peak": 0.47125244140625,
+      "finite": true
+    },
+    "svarah_06651": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 6487,
+      "subtype": "PCM_16",
+      "duration_seconds": 0.4054375,
+      "peak": 0.999969482421875,
+      "finite": true
+    },
+    "svarah_06652": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 78661,
+      "subtype": "PCM_16",
+      "duration_seconds": 4.9163125,
+      "peak": 0.363006591796875,
+      "finite": true
+    },
+    "svarah_06653": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 57920,
+      "subtype": "PCM_16",
+      "duration_seconds": 3.62,
+      "peak": 0.66497802734375,
+      "finite": true
+    },
+    "svarah_06654": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 72642,
+      "subtype": "PCM_16",
+      "duration_seconds": 4.540125,
+      "peak": 0.349609375,
+      "finite": true
+    },
+    "svarah_06655": {
+      "sample_rate": 16000,
+      "channels": 1,
+      "frames": 58292,
+      "subtype": "PCM_16",
+      "duration_seconds": 3.64325,
+      "peak": 0.251068115234375,
+      "finite": true
+    }
+  },
+  "packages": {
+    "torch": "2.8.0+cu128",
+    "torchaudio": "2.8.0+cu128",
+    "fairseq2": "0.6",
+    "omnilingual-asr": "0.2.0",
+    "numpy": "1.26.4",
+    "scipy": "1.15.3",
+    "soundfile": "0.13.1",
+    "jiwer": "4.0.0",
+    "huggingface-hub": "0.36.2"
+  },
+  "platform": "Linux-6.12.100-125.179.amzn2023.x86_64-x86_64-with-glibc2.35",
+  "python": "3.11.13",
+  "device": "cuda",
+  "gpu": "NVIDIA A100-SXM4-80GB",
+  "cuda": "12.8",
+  "dtype": "bfloat16",
+  "model_load_seconds": 39.90097586903721,
+  "ctc_termination": true,
+  "full_waveform": true,
+  "cloud_cost_usd": null
+}

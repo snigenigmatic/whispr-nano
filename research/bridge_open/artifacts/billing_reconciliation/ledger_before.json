@@ -1,0 +1,106 @@
+{
+  "created_at": "2026-09-22T07:48:17.804001+00:00",
+  "hard_cap_usd": 15.0,
+  "reservations": {
+    "hindi-qwen3-asr-0-6b-v1": {
+      "config_hash": "e6281b7b3d546cbf9a03c92665d2d70b06a7a5cf0c42c6ac70fa990af528e729",
+      "estimated_resource_usd": 0.14245924961869436,
+      "job_id": "hindi-qwen3-asr-0-6b-v1",
+      "receipt_hash": "454884a78be7312badd0f0ff2308db97337cb99f54f6fe7d5f40653974ef263a",
+      "recorded_at": "2026-09-22T08:30:25.882527+00:00",
+      "reserved_at": "2026-09-22T08:27:53.737560+00:00",
+      "reserved_usd": 1.5,
+      "status": "completed"
+    },
+    "hindi-qwen3-asr-1-7b-v1": {
+      "config_hash": "fc837183cdc306760295f201e7287cf9317a785c21b03f582a677d21320fbaa9",
+      "estimated_resource_usd": 0.13747918560095196,
+      "job_id": "hindi-qwen3-asr-1-7b-v1",
+      "receipt_hash": "468b1ef366b312444b821fa4371e29098fefa2a90dc16e19ab24dbc833306831",
+      "recorded_at": "2026-09-22T07:59:51.912489+00:00",
+      "reserved_at": "2026-09-22T07:57:05.217765+00:00",
+      "reserved_usd": 1.5,
+      "status": "completed"
+    },
+    "hindi-turbo-cuda-beam5-v1": {
+      "config_hash": "3205ade4c7a09592e6fd88b0150bcfa5202d55f57f69c77d678c3db5724617d0",
+      "estimated_resource_usd": 0.0674644776688199,
+      "job_id": "hindi-turbo-cuda-beam5-v1",
+      "receipt_hash": "f24a2fe2608716f0328006db665188db40885f15c176a0fd08862b13acb02133",
+      "recorded_at": "2026-09-22T07:53:15.780851+00:00",
+      "reserved_at": "2026-09-22T07:52:01.126853+00:00",
+      "reserved_usd": 1.5,
+      "status": "completed"
+    },
+    "hindi-turbo-cuda-greedy-v1": {
+      "config_hash": "5b18de735986866df3582f8d547099bcc6d09504665ea3e1caf37b55954de3d4",
+      "estimated_resource_usd": 0.08578361006960977,
+      "job_id": "hindi-turbo-cuda-greedy-v1",
+      "receipt_hash": "873e5edd36263c63d0e686af8d5914eb591b2c30d50bdf60df0183c40a9d1a2a",
+      "recorded_at": "2026-09-22T07:51:48.548803+00:00",
+      "reserved_at": "2026-09-22T07:48:17.805454+00:00",
+      "reserved_usd": 1.5,
+      "status": "completed"
+    },
+    "hindi-turbo-cuda-timestamps-v1": {
+      "config_hash": "6241012c49dacc7071036476a1628dd6a00e35a0662dc01b8133f78dc27dbe7f",
+      "estimated_resource_usd": 0.06795315320038434,
+      "job_id": "hindi-turbo-cuda-timestamps-v1",
+      "receipt_hash": "1adf019da8137a1e58a1791a5e18d1acbc5d91c22f87d5b50a6a5eba7b15d9cc",
+      "recorded_at": "2026-09-22T07:53:19.739170+00:00",
+      "reserved_at": "2026-09-22T07:52:02.614482+00:00",
+      "reserved_usd": 1.5,
+      "status": "completed"
+    },
+    "hindi-whisper-large-v3-beam5-v1": {
+      "config_hash": "ca35a745a8072c70c1baf770a3f762eaed0c3390ce9a19de0c9f09d36f6d0560",
+      "estimated_resource_usd": 0.46754258920504915,
+      "job_id": "hindi-whisper-large-v3-beam5-v1",
+      "receipt_hash": "cd09ca808ace2aa836965110d8a5abcc13271758be6ea4945d6ede59d862179d",
+      "recorded_at": "2026-09-22T08:34:53.591083+00:00",
+      "reserved_at": "2026-09-22T08:27:55.004666+00:00",
+      "reserved_usd": 1.5,
+      "status": "completed"
+    },
+    "omni-ctc-1b-multilingual-v1": {
+      "config_hash": "c35c94b1b6da36a3980aee1ee2cc31037fcf1744628174f8e4baf97ca46bf79d",
+      "estimated_resource_usd": null,
+      "job_id": "omni-ctc-1b-multilingual-v1",
+      "receipt_hash": null,
+      "reserved_at": "2026-09-22T08:32:36.606811+00:00",
+      "reserved_usd": 1.5,
+      "status": "reserved"
+    },
+    "omni-ctc-1b-multilingual-v2": {
+      "config_hash": "28faac80d432bfe58377a003348fde3bd32269a2c97e5a523e52f2bebe9c3be0",
+      "estimated_resource_usd": 0.08192398029770988,
+      "job_id": "omni-ctc-1b-multilingual-v2",
+      "receipt_hash": "a51f1503e978767022020ccff99cd2d9695ad21abb59560f9e7fc57672b7f269",
+      "recorded_at": "2026-09-22T08:41:46.022106+00:00",
+      "reserved_at": "2026-09-22T08:39:21.922190+00:00",
+      "reserved_usd": 1.5,
+      "status": "completed"
+    },
+    "small-multilingual-beam5-v1": {
+      "config_hash": "91e368ff057e1df9d2cbd85a46b5182d16cfa3a7b2d8b072e73d5214f570f09e",
+      "estimated_resource_usd": 0.8753249819092398,
+      "job_id": "small-multilingual-beam5-v1",
+      "receipt_hash": "a499c586fb3e36b8fef6035bf953948756ae37a06c36597b5846baa540967b64",
+      "recorded_at": "2026-09-22T08:40:23.498794+00:00",
+      "reserved_at": "2026-09-22T08:27:39.928496+00:00",
+      "reserved_usd": 1.5,
+      "status": "completed"
+    },
+    "turbo-multilingual-beam5-v1": {
+      "config_hash": "b5a73a8b4e9836bab8c737ed8341c36e268d19b6fc62071278679938caf45ddf",
+      "estimated_resource_usd": 0.44477052727244587,
+      "job_id": "turbo-multilingual-beam5-v1",
+      "receipt_hash": "6d8c39b81ebbb6c3adf575123c039e5425b0dd320bd5c922897fc800e4326ccc",
+      "recorded_at": "2026-09-22T08:34:02.589918+00:00",
+      "reserved_at": "2026-09-22T08:26:59.261917+00:00",
+      "reserved_usd": 1.5,
+      "status": "completed"
+    }
+  },
+  "schema_version": 1
+}

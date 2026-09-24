@@ -1,0 +1,148 @@
+{
+  "checked_at_utc": "2026-09-09T06:40:28.831900+00:00",
+  "hub_source": "https://huggingface.co/api/datasets/ai4bharat/Svarah",
+  "dataset_id": "ai4bharat/Svarah",
+  "sha": "ebbf7777fe771490696a3f7b007097606fa8c924",
+  "lastModified": "2025-03-10T04:29:23.000Z",
+  "gated": "auto",
+  "cardData": {
+    "dataset_info": {
+      "features": [
+        {
+          "name": "audio_filepath",
+          "dtype": "audio"
+        },
+        {
+          "name": "duration",
+          "dtype": "float64"
+        },
+        {
+          "name": "text",
+          "dtype": "string"
+        },
+        {
+          "name": "gender",
+          "dtype": "string"
+        },
+        {
+          "name": "age-group",
+          "dtype": "string"
+        },
+        {
+          "name": "primary_language",
+          "dtype": "string"
+        },
+        {
+          "name": "native_place_state",
+          "dtype": "string"
+        },
+        {
+          "name": "native_place_district",
+          "dtype": "string"
+        },
+        {
+          "name": "highest_qualification",
+          "dtype": "string"
+        },
+        {
+          "name": "job_category",
+          "dtype": "string"
+        },
+        {
+          "name": "occupation_domain",
+          "dtype": "string"
+        }
+      ],
+      "splits": [
+        {
+          "name": "test",
+          "num_bytes": 1088823937.104,
+          "num_examples": 6656
+        }
+      ],
+      "download_size": 1094998590,
+      "dataset_size": 1088823937.104
+    },
+    "configs": [
+      {
+        "config_name": "default",
+        "data_files": [
+          {
+            "split": "test",
+            "path": "data/test-*"
+          }
+        ]
+      }
+    ]
+  },
+  "files": [
+    ".gitattributes",
+    "README.md",
+    "data/test-00000-of-00003.parquet",
+    "data/test-00001-of-00003.parquet",
+    "data/test-00002-of-00003.parquet"
+  ],
+  "original_release_readme_commit": "074065ee3addaadfe07739a2bb150f61eb763a28",
+  "original_archive_url": "https://indic-asr-public.objectstore.e2enetworks.net/svarah.tar",
+  "original_archive_head_http_status": 403,
+  "official_missing_speaker_ids_issue": "https://github.com/AI4Bharat/Svarah/issues/4",
+  "license_source": "https://huggingface.co/datasets/ai4bharat/Svarah/blob/main/README.md",
+  "license_card_statement": "CC BY 4.0",
+  "cached_original_artifact_checks": [
+    {
+      "file": "original_meta_speaker_stats.csv",
+      "sha256": "e2daa48863581eb41befd1826b7b14cd80e05f3a1bab9b72d08e7814248f1f94",
+      "n_verified_by_basename": 6656,
+      "fields": [
+        "audio_filepath",
+        "duration",
+        "text",
+        "gender",
+        "age-group",
+        "primary_language",
+        "native_place_state",
+        "native_place_district",
+        "highest_qualification",
+        "job_category",
+        "occupation_domain"
+      ],
+      "speaker_id_present": false
+    },
+    {
+      "file": "original_profile_meta_speaker_stats.csv",
+      "sha256": "e2daa48863581eb41befd1826b7b14cd80e05f3a1bab9b72d08e7814248f1f94",
+      "n_verified_by_basename": 6656,
+      "fields": [
+        "audio_filepath",
+        "duration",
+        "text",
+        "gender",
+        "age-group",
+        "primary_language",
+        "native_place_state",
+        "native_place_district",
+        "highest_qualification",
+        "job_category",
+        "occupation_domain"
+      ],
+      "speaker_id_present": false
+    },
+    {
+      "file": "original_svarah_manifest.jsonl",
+      "sha256": "0e859ea406e8129db84a6ad90b5a3aad9261417976253e7a6fe172bbaa7c63e4",
+      "n_verified_by_basename": 6656,
+      "fields": [
+        "audio_filepath",
+        "duration",
+        "text"
+      ],
+      "speaker_id_present": false
+    }
+  ],
+  "cached_volume_sources": [
+    "ast-asr-data/fr_cispo/source/meta_speaker_stats.csv",
+    "ast-asr-data/fr_cispo_profile/raw/Svarah/meta_speaker_stats.csv",
+    "ast-asr-data/fr_cispo_profile/raw/Svarah/svarah_manifest.json"
+  ],
+  "cached_artifact_acquisition": "Read-only Modal volume downloads; no new compute launched by metadata agent."
+}

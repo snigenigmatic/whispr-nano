@@ -1,0 +1,82 @@
+[
+  {
+    "app_id": "ap-hwoqXfJkM9faII600NPIc1",
+    "description": "whispr-bridge-omni-ctc-pilot",
+    "state": "stopped",
+    "tasks": "0",
+    "created_at": "2026-09-22 14:09:25+05:30",
+    "stopped_at": "2026-09-22 14:11:48+05:30"
+  },
+  {
+    "app_id": "ap-zwB4dubTASG1bMVkVO2GHm",
+    "description": "whispr-bridge-open-repair",
+    "state": "stopped",
+    "tasks": "0",
+    "created_at": "2026-09-22 13:57:42+05:30",
+    "stopped_at": "2026-09-22 14:10:25+05:30"
+  },
+  {
+    "app_id": "ap-uyJ4puuJ6J1F1sOsnNWxKB",
+    "description": "whispr-bridge-omni-ctc-pilot",
+    "state": "stopped",
+    "tasks": "0",
+    "created_at": "2026-09-22 14:02:53+05:30",
+    "stopped_at": "2026-09-22 14:06:12+05:30"
+  },
+  {
+    "app_id": "ap-CT79CmFy7QNujIRxAPkoFB",
+    "description": "whispr-bridge-open-repair",
+    "state": "stopped",
+    "tasks": "0",
+    "created_at": "2026-09-22 13:57:58+05:30",
+    "stopped_at": "2026-09-22 14:05:00+05:30"
+  },
+  {
+    "app_id": "ap-EEEHiOT25quO2IfxFPb1d5",
+    "description": "whispr-bridge-open-repair",
+    "state": "stopped",
+    "tasks": "0",
+    "created_at": "2026-09-22 13:57:29+05:30",
+    "stopped_at": "2026-09-22 14:04:04+05:30"
+  },
+  {
+    "app_id": "ap-0QGWU0OMwelDl1gnQnPXFu",
+    "description": "whispr-bridge-qwen-pilot",
+    "state": "stopped",
+    "tasks": "0",
+    "created_at": "2026-09-22 13:57:55+05:30",
+    "stopped_at": "2026-09-22 14:00:28+05:30"
+  },
+  {
+    "app_id": "ap-flb9AnKn1zmZEmfjZuIQYw",
+    "description": "whispr-bridge-qwen-pilot",
+    "state": "stopped",
+    "tasks": "0",
+    "created_at": "2026-09-22 13:27:07+05:30",
+    "stopped_at": "2026-09-22 13:29:53+05:30"
+  },
+  {
+    "app_id": "ap-EwQlEudx1HstUiNQS430Tc",
+    "description": "whispr-bridge-open-repair",
+    "state": "stopped",
+    "tasks": "0",
+    "created_at": "2026-09-22 13:22:05+05:30",
+    "stopped_at": "2026-09-22 13:23:21+05:30"
+  },
+  {
+    "app_id": "ap-1FkioMroE1wgDHuOJzZArp",
+    "description": "whispr-bridge-open-repair",
+    "state": "stopped",
+    "tasks": "0",
+    "created_at": "2026-09-22 13:22:03+05:30",
+    "stopped_at": "2026-09-22 13:23:17+05:30"
+  },
+  {
+    "app_id": "ap-djGVrN5UWZ8DKxD9t3GlJB",
+    "description": "whispr-bridge-open-repair",
+    "state": "stopped",
+    "tasks": "0",
+    "created_at": "2026-09-22 13:18:31+05:30",
+    "stopped_at": "2026-09-22 13:21:51+05:30"
+  }
+]

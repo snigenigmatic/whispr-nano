@@ -1,0 +1,10 @@
+{"preserved": "full_gold-seed1"}
+{"preserved": "full_gold-seed2"}
+{"preserved": "full_gold-seed0"}
+{"preserved": "filtered10_gold-seed0"}
+{"preserved": "filtered10_gold-seed1"}
+{"preserved": "filtered10_gold-seed2"}
+{"preserved": "random_matched_gold-seed1"}
+{"preserved": "random_matched_gold-seed2"}
+{"preserved": "random_matched_gold-seed0"}
+{"path": "/Users/prateekraj/whispr-nano/output/h100/trained_checkpoints.zip", "bytes": 1395121123, "sha256": "6685316195805b6ac23f1de794e8cccd022bdb38870dca9267c65304731b2d25", "completed_runs": 9, "crc_verified": true}

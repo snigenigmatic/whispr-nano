@@ -1,0 +1,104 @@
+{
+  "status": "post_hoc_descriptive_examples_no_causal_attribution",
+  "inputs": [
+    {
+      "path": "/Users/prateekraj/whispr-nano/audit/svarah_fairness_audit/results_Qwen3-ASR-0.6B-hf_svarah_clean.csv",
+      "sha256": "473860f8328b6b4bfaf2a494cb25995a04b5474fc3a5c361988bb030a248d19c",
+      "rows": 2500
+    },
+    {
+      "path": "/Users/prateekraj/whispr-nano/audit/svarah_fairness_audit/results_distil-large-v3_svarah_clean.csv",
+      "sha256": "599fe82cc8ca710ea4c6c662b617cb614f8b791d1bcd749459690156f3aa35c8",
+      "rows": 2500
+    },
+    {
+      "path": "/Users/prateekraj/whispr-nano/audit/svarah_fairness_audit/results_saarasv3_svarah_clean.csv",
+      "sha256": "3dbc4ab50af01729227f3d0cb3470ec0b0d9e78ba2fdd61851d998c31e429741",
+      "rows": 450
+    },
+    {
+      "path": "/Users/prateekraj/whispr-nano/audit/svarah_fairness_audit/results_whisper-large-v3_svarah_clean.csv",
+      "sha256": "3fdc744178592f86ec66c3b8e20383d83e0f0e8172d5e9c094bf830e0d496f42",
+      "rows": 2500
+    },
+    {
+      "path": "/Users/prateekraj/whispr-nano/audit/svarah_fairness_audit/results_whisper-small_svarah_clean.csv",
+      "sha256": "5cb642dcb121e6d22b40bc81862137f193be730ba9aef00e05dd36fff90556e2",
+      "rows": 2500
+    },
+    {
+      "path": "/Users/prateekraj/whispr-nano/audit/svarah_fairness_audit/results_whisper-tiny_svarah_clean.csv",
+      "sha256": "979943e3f4446eafd3716a9f9a46da407efe09f47692e92f5df1c1cc5ab74c0b",
+      "rows": 2500
+    }
+  ],
+  "spelling_map_sha256": "bf1c507dc8724ca9cf9903640dacfb69dae2f00edee4f21ceba106a7392f26dd",
+  "systems": [
+    {
+      "system": "Qwen3-ASR-0.6B-hf",
+      "n_utterances": 2500,
+      "fewer_error_rows": 358,
+      "more_error_rows": 24,
+      "unchanged_error_rows": 2118,
+      "minimal_total_errors": 4067,
+      "english_total_errors": 2669,
+      "minimal_total_reference_words": 26262,
+      "english_total_reference_words": 26397
+    },
+    {
+      "system": "distil-large-v3",
+      "n_utterances": 2500,
+      "fewer_error_rows": 153,
+      "more_error_rows": 36,
+      "unchanged_error_rows": 2311,
+      "minimal_total_errors": 2634,
+      "english_total_errors": 2450,
+      "minimal_total_reference_words": 26262,
+      "english_total_reference_words": 26397
+    },
+    {
+      "system": "saarasv3",
+      "n_utterances": 450,
+      "fewer_error_rows": 23,
+      "more_error_rows": 2,
+      "unchanged_error_rows": 425,
+      "minimal_total_errors": 271,
+      "english_total_errors": 238,
+      "minimal_total_reference_words": 4667,
+      "english_total_reference_words": 4687
+    },
+    {
+      "system": "whisper-large-v3",
+      "n_utterances": 2500,
+      "fewer_error_rows": 134,
+      "more_error_rows": 36,
+      "unchanged_error_rows": 2330,
+      "minimal_total_errors": 1849,
+      "english_total_errors": 1702,
+      "minimal_total_reference_words": 26262,
+      "english_total_reference_words": 26397
+    },
+    {
+      "system": "whisper-small",
+      "n_utterances": 2500,
+      "fewer_error_rows": 153,
+      "more_error_rows": 37,
+      "unchanged_error_rows": 2310,
+      "minimal_total_errors": 2856,
+      "english_total_errors": 2682,
+      "minimal_total_reference_words": 26262,
+      "english_total_reference_words": 26397
+    },
+    {
+      "system": "whisper-tiny",
+      "n_utterances": 2500,
+      "fewer_error_rows": 162,
+      "more_error_rows": 91,
+      "unchanged_error_rows": 2247,
+      "minimal_total_errors": 5411,
+      "english_total_errors": 5090,
+      "minimal_total_reference_words": 26262,
+      "english_total_reference_words": 26397
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+✓ Initialized. View run at 
+https://modal.com/apps/snigenigmatic/main/ap-tIydMVzXzRCVUrn6IG3Kol
+✓ Created objects.
+├── 🔨 Created mount 
+│   /Users/prateekraj/whispr-nano/research/pilot/modal_runner.py
+├── 🔨 Created mount 
+│   /Users/prateekraj/whispr-nano/paper/data/whisper_normalizer.json
+├── 🔨 Created mount 
+│   /Users/prateekraj/whispr-nano/research/pilot/feature_cache.py
+├── 🔨 Created mount 
+│   /Users/prateekraj/whispr-nano/research/pilot/frozen_english_normalizer.py
+├── 🔨 Created mount 
+│   /Users/prateekraj/whispr-nano/research/pilot/test_training.py
+├── 🔨 Created mount /Users/prateekraj/whispr-nano/research/pilot/training.py
+├── 🔨 Created function prepare_speaker.
+├── 🔨 Created function teacher_speaker.
+├── 🔨 Created function train_model.
+└── 🔨 Created function prepare_features.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Cached ABA: 790 feature arrays
+Cached SKA: 147 feature arrays
+Cached HJK: 791 feature arrays
+Cached EBVS: 152 feature arrays
+Cached ASI: 169 feature arrays
+Cached YDCK: 169 feature arrays
+Cached SVBI: 792 feature arrays
+Cached BWC: 168 feature arrays
+Cached TLV: 169 feature arrays
+Cached TXHC: 792 feature arrays
+Cached YBAA: 790 feature arrays
+Cached MBMPS: 792 feature arrays
+Cached RRBI: 790 feature arrays
+Cached NCC: 791 feature arrays
+Cached HQTV: 792 feature arrays
+Cached PNV: 792 feature arrays
+Cached HKK: 791 feature arrays
+Cached ERMS: 792 feature arrays
+All frozen training/development features prepared; no inference performed.
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/snigenigmatic/main/ap-tIydMVzXzRCVUrn6IG3Kol

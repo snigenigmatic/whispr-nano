@@ -1,0 +1,14 @@
+{
+  "run_id": "bea416b1-6a05-486e-862a-464ab536688f",
+  "status": "cancelled",
+  "commit": "4dc9350c53282b5a56c08c863f3e2bb441373fa0",
+  "provider": {
+    "jobId": "6ab3979b51992417dfcd6910",
+    "url": "https://huggingface.co/jobs/snigenigmatic/6ab3979b51992417dfcd6910",
+    "sourceDigest": "cd602e96463bff0daf55d9014a4a99ae7315c9173f63d76dad8aba57502988db"
+  },
+  "reason": "Cancelled during dependency installation because preparation and independent-check receipts were from the earlier 12-item selection; 518 manifest/audio/reference contents were already correct. No experiment outcome.",
+  "log_sha256": "1fb74c229246a0a27a54552dfa09ec95788396d2d3666d122c1e5ea4b37d2cdd",
+  "cost_usd": null,
+  "provider_bill_verified": false
+}

@@ -1,0 +1,989 @@
+{
+  "schema_version": "1.0",
+  "status": "corpus_acquired; individual model runtimes require validation",
+  "corpus": "humyn-labs/Indic-High-Fidelity-MultiSpeaker-ASR",
+  "corpus_revision": "2e4879d569bd57f675c227a41fecf4a2e56f467c",
+  "weights_downloaded": false,
+  "compute_authorization": "No cloud launch; existing cap unchanged. Profile smoke runs before estimating full cost.",
+  "prerequisites": [
+    "freeze audio/reference hashes and QC manifest",
+    "verify gated account access without submitting personal information automatically",
+    "pin and smoke-test each runtime and dependency lock",
+    "freeze audio-only segmentation and stitching",
+    "freeze normalizer and scorer",
+    "profile cost and respect remaining authorized cap"
+  ],
+  "model_language_cells": [
+    {
+      "model_id": "openai/whisper-tiny",
+      "model_revision": "169d4a4341b33bc18d8881c4b69c2e104e1cc0af",
+      "language": "as",
+      "expected_public_conversations": 2,
+      "stage": "expanded",
+      "status": "planned",
+      "structurally_eligible_conversations": 2
+    },
+    {
+      "model_id": "openai/whisper-tiny",
+      "model_revision": "169d4a4341b33bc18d8881c4b69c2e104e1cc0af",
+      "language": "bn",
+      "expected_public_conversations": 3,
+      "stage": "expanded",
+      "status": "planned",
+      "structurally_eligible_conversations": 3
+    },
+    {
+      "model_id": "openai/whisper-tiny",
+      "model_revision": "169d4a4341b33bc18d8881c4b69c2e104e1cc0af",
+      "language": "gu",
+      "expected_public_conversations": 3,
+      "stage": "expanded",
+      "status": "planned",
+      "structurally_eligible_conversations": 3
+    },
+    {
+      "model_id": "openai/whisper-tiny",
+      "model_revision": "169d4a4341b33bc18d8881c4b69c2e104e1cc0af",
+      "language": "hi",
+      "expected_public_conversations": 3,
+      "stage": "expanded",
+      "status": "planned",
+      "structurally_eligible_conversations": 3
+    },
+    {
+      "model_id": "openai/whisper-tiny",
+      "model_revision": "169d4a4341b33bc18d8881c4b69c2e104e1cc0af",
+      "language": "kn",
+      "expected_public_conversations": 3,
+      "stage": "expanded",
+      "status": "planned",
+      "structurally_eligible_conversations": 3
+    },
+    {
+      "model_id": "openai/whisper-tiny",
+      "model_revision": "169d4a4341b33bc18d8881c4b69c2e104e1cc0af",
+      "language": "ml",
+      "expected_public_conversations": 2,
+      "stage": "expanded",
+      "status": "planned",
+      "structurally_eligible_conversations": 2
+    },
+    {
+      "model_id": "openai/whisper-tiny",
+      "model_revision": "169d4a4341b33bc18d8881c4b69c2e104e1cc0af",
+      "language": "mr",
+      "expected_public_conversations": 3,
+      "stage": "expanded",
+      "status": "planned",
+      "structurally_eligible_conversations": 1
+    },
+    {
+      "model_id": "openai/whisper-tiny",
+      "model_revision": "169d4a4341b33bc18d8881c4b69c2e104e1cc0af",
+      "language": "pa",
+      "expected_public_conversations": 3,
+      "stage": "expanded",
+      "status": "blocked_reference_qc",
+      "structurally_eligible_conversations": 0
+    },
+    {
+      "model_id": "openai/whisper-tiny",
+      "model_revision": "169d4a4341b33bc18d8881c4b69c2e104e1cc0af",
+      "language": "ta",
+      "expected_public_conversations": 3,
+      "stage": "expanded",
+      "status": "planned",
+      "structurally_eligible_conversations": 2
+    },
+    {
+      "model_id": "openai/whisper-tiny",
+      "model_revision": "169d4a4341b33bc18d8881c4b69c2e104e1cc0af",
+      "language": "te",
+      "expected_public_conversations": 3,
+      "stage": "expanded",
+      "status": "planned",
+      "structurally_eligible_conversations": 3
+    },
+    {
+      "model_id": "openai/whisper-small",
+      "model_revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+      "language": "as",
+      "expected_public_conversations": 2,
+      "stage": "first_batch",
+      "status": "planned",
+      "structurally_eligible_conversations": 2
+    },
+    {
+      "model_id": "openai/whisper-small",
+      "model_revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+      "language": "bn",
+      "expected_public_conversations": 3,
+      "stage": "first_batch",
+      "status": "planned",
+      "structurally_eligible_conversations": 3
+    },
+    {
+      "model_id": "openai/whisper-small",
+      "model_revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+      "language": "gu",
+      "expected_public_conversations": 3,
+      "stage": "first_batch",
+      "status": "planned",
+      "structurally_eligible_conversations": 3
+    },
+    {
+      "model_id": "openai/whisper-small",
+      "model_revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+      "language": "hi",
+      "expected_public_conversations": 3,
+      "stage": "first_batch",
+      "status": "planned",
+      "structurally_eligible_conversations": 3
+    },
+    {
+      "model_id": "openai/whisper-small",
+      "model_revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+      "language": "kn",
+      "expected_public_conversations": 3,
+      "stage": "first_batch",
+      "status": "planned",
+      "structurally_eligible_conversations": 3
+    },
+    {
+      "model_id": "openai/whisper-small",
+      "model_revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+      "language": "ml",
+      "expected_public_conversations": 2,
+      "stage": "first_batch",
+      "status": "planned",
+      "structurally_eligible_conversations": 2
+    },
+    {
+      "model_id": "openai/whisper-small",
+      "model_revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+      "language": "mr",
+      "expected_public_conversations": 3,
+      "stage": "first_batch",
+      "status": "planned",
+      "structurally_eligible_conversations": 1
+    },
+    {
+      "model_id": "openai/whisper-small",
+      "model_revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+      "language": "pa",
+      "expected_public_conversations": 3,
+      "stage": "first_batch",
+      "status": "blocked_reference_qc",
+      "structurally_eligible_conversations": 0
+    },
+    {
+      "model_id": "openai/whisper-small",
+      "model_revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+      "language": "ta",
+      "expected_public_conversations": 3,
+      "stage": "first_batch",
+      "status": "planned",
+      "structurally_eligible_conversations": 2
+    },
+    {
+      "model_id": "openai/whisper-small",
+      "model_revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+      "language": "te",
+      "expected_public_conversations": 3,
+      "stage": "first_batch",
+      "status": "planned",
+      "structurally_eligible_conversations": 3
+    },
+    {
+      "model_id": "openai/whisper-large-v3",
+      "model_revision": "06f233fe06e710322aca913c1bc4249a0d71fce1",
+      "language": "as",
+      "expected_public_conversations": 2,
+      "stage": "first_batch",
+      "status": "planned",
+      "structurally_eligible_conversations": 2
+    },
+    {
+      "model_id": "openai/whisper-large-v3",
+      "model_revision": "06f233fe06e710322aca913c1bc4249a0d71fce1",
+      "language": "bn",
+      "expected_public_conversations": 3,
+      "stage": "first_batch",
+      "status": "planned",
+      "structurally_eligible_conversations": 3
+    },
+    {
+      "model_id": "openai/whisper-large-v3",
+      "model_revision": "06f233fe06e710322aca913c1bc4249a0d71fce1",
+      "language": "gu",
+      "expected_public_conversations": 3,
+      "stage": "first_batch",
+      "status": "planned",
+      "structurally_eligible_conversations": 3
+    },
+    {
+      "model_id": "openai/whisper-large-v3",
+      "model_revision": "06f233fe06e710322aca913c1bc4249a0d71fce1",
+      "language": "hi",
+      "expected_public_conversations": 3,
+      "stage": "first_batch",
+      "status": "planned",
+      "structurally_eligible_conversations": 3
+    },
+    {
+      "model_id": "openai/whisper-large-v3",
+      "model_revision": "06f233fe06e710322aca913c1bc4249a0d71fce1",
+      "language": "kn",
+      "expected_public_conversations": 3,
+      "stage": "first_batch",
+      "status": "planned",
+      "structurally_eligible_conversations": 3
+    },
+    {
+      "model_id": "openai/whisper-large-v3",
+      "model_revision": "06f233fe06e710322aca913c1bc4249a0d71fce1",
+      "language": "ml",
+      "expected_public_conversations": 2,
+      "stage": "first_batch",
+      "status": "planned",
+      "structurally_eligible_conversations": 2
+    },
+    {
+      "model_id": "openai/whisper-large-v3",
+      "model_revision": "06f233fe06e710322aca913c1bc4249a0d71fce1",
+      "language": "mr",
+      "expected_public_conversations": 3,
+      "stage": "first_batch",
+      "status": "planned",
+      "structurally_eligible_conversations": 1
+    },
+    {
+      "model_id": "openai/whisper-large-v3",
+      "model_revision": "06f233fe06e710322aca913c1bc4249a0d71fce1",
+      "language": "pa",
+      "expected_public_conversations": 3,
+      "stage": "first_batch",
+      "status": "blocked_reference_qc",
+      "structurally_eligible_conversations": 0
+    },
+    {
+      "model_id": "openai/whisper-large-v3",
+      "model_revision": "06f233fe06e710322aca913c1bc4249a0d71fce1",
+      "language": "ta",
+      "expected_public_conversations": 3,
+      "stage": "first_batch",
+      "status": "planned",
+      "structurally_eligible_conversations": 2
+    },
+    {
+      "model_id": "openai/whisper-large-v3",
+      "model_revision": "06f233fe06e710322aca913c1bc4249a0d71fce1",
+      "language": "te",
+      "expected_public_conversations": 3,
+      "stage": "first_batch",
+      "status": "planned",
+      "structurally_eligible_conversations": 3
+    },
+    {
+      "model_id": "openai/whisper-large-v3-turbo",
+      "model_revision": "41f01f3fe87f28c78e2fbf8b568835947dd65ed9",
+      "language": "as",
+      "expected_public_conversations": 2,
+      "stage": "first_batch",
+      "status": "planned",
+      "structurally_eligible_conversations": 2
+    },
+    {
+      "model_id": "openai/whisper-large-v3-turbo",
+      "model_revision": "41f01f3fe87f28c78e2fbf8b568835947dd65ed9",
+      "language": "bn",
+      "expected_public_conversations": 3,
+      "stage": "first_batch",
+      "status": "planned",
+      "structurally_eligible_conversations": 3
+    },
+    {
+      "model_id": "openai/whisper-large-v3-turbo",
+      "model_revision": "41f01f3fe87f28c78e2fbf8b568835947dd65ed9",
+      "language": "gu",
+      "expected_public_conversations": 3,
+      "stage": "first_batch",
+      "status": "planned",
+      "structurally_eligible_conversations": 3
+    },
+    {
+      "model_id": "openai/whisper-large-v3-turbo",
+      "model_revision": "41f01f3fe87f28c78e2fbf8b568835947dd65ed9",
+      "language": "hi",
+      "expected_public_conversations": 3,
+      "stage": "first_batch",
+      "status": "planned",
+      "structurally_eligible_conversations": 3
+    },
+    {
+      "model_id": "openai/whisper-large-v3-turbo",
+      "model_revision": "41f01f3fe87f28c78e2fbf8b568835947dd65ed9",
+      "language": "kn",
+      "expected_public_conversations": 3,
+      "stage": "first_batch",
+      "status": "planned",
+      "structurally_eligible_conversations": 3
+    },
+    {
+      "model_id": "openai/whisper-large-v3-turbo",
+      "model_revision": "41f01f3fe87f28c78e2fbf8b568835947dd65ed9",
+      "language": "ml",
+      "expected_public_conversations": 2,
+      "stage": "first_batch",
+      "status": "planned",
+      "structurally_eligible_conversations": 2
+    },
+    {
+      "model_id": "openai/whisper-large-v3-turbo",
+      "model_revision": "41f01f3fe87f28c78e2fbf8b568835947dd65ed9",
+      "language": "mr",
+      "expected_public_conversations": 3,
+      "stage": "first_batch",
+      "status": "planned",
+      "structurally_eligible_conversations": 1
+    },
+    {
+      "model_id": "openai/whisper-large-v3-turbo",
+      "model_revision": "41f01f3fe87f28c78e2fbf8b568835947dd65ed9",
+      "language": "pa",
+      "expected_public_conversations": 3,
+      "stage": "first_batch",
+      "status": "blocked_reference_qc",
+      "structurally_eligible_conversations": 0
+    },
+    {
+      "model_id": "openai/whisper-large-v3-turbo",
+      "model_revision": "41f01f3fe87f28c78e2fbf8b568835947dd65ed9",
+      "language": "ta",
+      "expected_public_conversations": 3,
+      "stage": "first_batch",
+      "status": "planned",
+      "structurally_eligible_conversations": 2
+    },
+    {
+      "model_id": "openai/whisper-large-v3-turbo",
+      "model_revision": "41f01f3fe87f28c78e2fbf8b568835947dd65ed9",
+      "language": "te",
+      "expected_public_conversations": 3,
+      "stage": "first_batch",
+      "status": "planned",
+      "structurally_eligible_conversations": 3
+    },
+    {
+      "model_id": "Qwen/Qwen3-ASR-0.6B",
+      "model_revision": "5eb144179a02acc5e5ba31e748d22b0cf3e303b0",
+      "language": "hi",
+      "expected_public_conversations": 3,
+      "stage": "first_batch",
+      "status": "planned",
+      "structurally_eligible_conversations": 3
+    },
+    {
+      "model_id": "Qwen/Qwen3-ASR-1.7B",
+      "model_revision": "7278e1e70fe206f11671096ffdd38061171dd6e5",
+      "language": "hi",
+      "expected_public_conversations": 3,
+      "stage": "first_batch",
+      "status": "planned",
+      "structurally_eligible_conversations": 3
+    },
+    {
+      "model_id": "ai4bharat/indic-conformer-600m-multilingual",
+      "model_revision": "e9b71b369c048e2c6b634d4c131061c34e441179",
+      "language": "as",
+      "expected_public_conversations": 2,
+      "stage": "first_batch_after_access",
+      "status": "planned",
+      "structurally_eligible_conversations": 2
+    },
+    {
+      "model_id": "ai4bharat/indic-conformer-600m-multilingual",
+      "model_revision": "e9b71b369c048e2c6b634d4c131061c34e441179",
+      "language": "bn",
+      "expected_public_conversations": 3,
+      "stage": "first_batch_after_access",
+      "status": "planned",
+      "structurally_eligible_conversations": 3
+    },
+    {
+      "model_id": "ai4bharat/indic-conformer-600m-multilingual",
+      "model_revision": "e9b71b369c048e2c6b634d4c131061c34e441179",
+      "language": "gu",
+      "expected_public_conversations": 3,
+      "stage": "first_batch_after_access",
+      "status": "planned",
+      "structurally_eligible_conversations": 3
+    },
+    {
+      "model_id": "ai4bharat/indic-conformer-600m-multilingual",
+      "model_revision": "e9b71b369c048e2c6b634d4c131061c34e441179",
+      "language": "hi",
+      "expected_public_conversations": 3,
+      "stage": "first_batch_after_access",
+      "status": "planned",
+      "structurally_eligible_conversations": 3
+    },
+    {
+      "model_id": "ai4bharat/indic-conformer-600m-multilingual",
+      "model_revision": "e9b71b369c048e2c6b634d4c131061c34e441179",
+      "language": "kn",
+      "expected_public_conversations": 3,
+      "stage": "first_batch_after_access",
+      "status": "planned",
+      "structurally_eligible_conversations": 3
+    },
+    {
+      "model_id": "ai4bharat/indic-conformer-600m-multilingual",
+      "model_revision": "e9b71b369c048e2c6b634d4c131061c34e441179",
+      "language": "ml",
+      "expected_public_conversations": 2,
+      "stage": "first_batch_after_access",
+      "status": "planned",
+      "structurally_eligible_conversations": 2
+    },
+    {
+      "model_id": "ai4bharat/indic-conformer-600m-multilingual",
+      "model_revision": "e9b71b369c048e2c6b634d4c131061c34e441179",
+      "language": "mr",
+      "expected_public_conversations": 3,
+      "stage": "first_batch_after_access",
+      "status": "planned",
+      "structurally_eligible_conversations": 1
+    },
+    {
+      "model_id": "ai4bharat/indic-conformer-600m-multilingual",
+      "model_revision": "e9b71b369c048e2c6b634d4c131061c34e441179",
+      "language": "pa",
+      "expected_public_conversations": 3,
+      "stage": "first_batch_after_access",
+      "status": "blocked_reference_qc",
+      "structurally_eligible_conversations": 0
+    },
+    {
+      "model_id": "ai4bharat/indic-conformer-600m-multilingual",
+      "model_revision": "e9b71b369c048e2c6b634d4c131061c34e441179",
+      "language": "ta",
+      "expected_public_conversations": 3,
+      "stage": "first_batch_after_access",
+      "status": "planned",
+      "structurally_eligible_conversations": 2
+    },
+    {
+      "model_id": "ai4bharat/indic-conformer-600m-multilingual",
+      "model_revision": "e9b71b369c048e2c6b634d4c131061c34e441179",
+      "language": "te",
+      "expected_public_conversations": 3,
+      "stage": "first_batch_after_access",
+      "status": "planned",
+      "structurally_eligible_conversations": 3
+    },
+    {
+      "model_id": "bodhan-ai/indic-transcribe-core",
+      "model_revision": "e083ab7dfeeddcb5c0b4a2d7df53f53e7b0f1537",
+      "language": "as",
+      "expected_public_conversations": 2,
+      "stage": "first_batch_after_access",
+      "status": "planned",
+      "structurally_eligible_conversations": 2
+    },
+    {
+      "model_id": "bodhan-ai/indic-transcribe-core",
+      "model_revision": "e083ab7dfeeddcb5c0b4a2d7df53f53e7b0f1537",
+      "language": "bn",
+      "expected_public_conversations": 3,
+      "stage": "first_batch_after_access",
+      "status": "planned",
+      "structurally_eligible_conversations": 3
+    },
+    {
+      "model_id": "bodhan-ai/indic-transcribe-core",
+      "model_revision": "e083ab7dfeeddcb5c0b4a2d7df53f53e7b0f1537",
+      "language": "bho",
+      "expected_public_conversations": 3,
+      "stage": "first_batch_after_access",
+      "status": "planned",
+      "structurally_eligible_conversations": 2
+    },
+    {
+      "model_id": "bodhan-ai/indic-transcribe-core",
+      "model_revision": "e083ab7dfeeddcb5c0b4a2d7df53f53e7b0f1537",
+      "language": "gu",
+      "expected_public_conversations": 3,
+      "stage": "first_batch_after_access",
+      "status": "planned",
+      "structurally_eligible_conversations": 3
+    },
+    {
+      "model_id": "bodhan-ai/indic-transcribe-core",
+      "model_revision": "e083ab7dfeeddcb5c0b4a2d7df53f53e7b0f1537",
+      "language": "hi",
+      "expected_public_conversations": 3,
+      "stage": "first_batch_after_access",
+      "status": "planned",
+      "structurally_eligible_conversations": 3
+    },
+    {
+      "model_id": "bodhan-ai/indic-transcribe-core",
+      "model_revision": "e083ab7dfeeddcb5c0b4a2d7df53f53e7b0f1537",
+      "language": "kn",
+      "expected_public_conversations": 3,
+      "stage": "first_batch_after_access",
+      "status": "planned",
+      "structurally_eligible_conversations": 3
+    },
+    {
+      "model_id": "bodhan-ai/indic-transcribe-core",
+      "model_revision": "e083ab7dfeeddcb5c0b4a2d7df53f53e7b0f1537",
+      "language": "ml",
+      "expected_public_conversations": 2,
+      "stage": "first_batch_after_access",
+      "status": "planned",
+      "structurally_eligible_conversations": 2
+    },
+    {
+      "model_id": "bodhan-ai/indic-transcribe-core",
+      "model_revision": "e083ab7dfeeddcb5c0b4a2d7df53f53e7b0f1537",
+      "language": "mr",
+      "expected_public_conversations": 3,
+      "stage": "first_batch_after_access",
+      "status": "planned",
+      "structurally_eligible_conversations": 1
+    },
+    {
+      "model_id": "bodhan-ai/indic-transcribe-core",
+      "model_revision": "e083ab7dfeeddcb5c0b4a2d7df53f53e7b0f1537",
+      "language": "pa",
+      "expected_public_conversations": 3,
+      "stage": "first_batch_after_access",
+      "status": "blocked_reference_qc",
+      "structurally_eligible_conversations": 0
+    },
+    {
+      "model_id": "bodhan-ai/indic-transcribe-core",
+      "model_revision": "e083ab7dfeeddcb5c0b4a2d7df53f53e7b0f1537",
+      "language": "ta",
+      "expected_public_conversations": 3,
+      "stage": "first_batch_after_access",
+      "status": "planned",
+      "structurally_eligible_conversations": 2
+    },
+    {
+      "model_id": "bodhan-ai/indic-transcribe-core",
+      "model_revision": "e083ab7dfeeddcb5c0b4a2d7df53f53e7b0f1537",
+      "language": "te",
+      "expected_public_conversations": 3,
+      "stage": "first_batch_after_access",
+      "status": "planned",
+      "structurally_eligible_conversations": 3
+    },
+    {
+      "model_id": "bodhan-ai/indic-transcribe-flex",
+      "model_revision": "c0db6b2b05409fee7317f193fb207db332a0f14b",
+      "language": "as",
+      "expected_public_conversations": 2,
+      "stage": "first_batch_after_access",
+      "status": "planned",
+      "structurally_eligible_conversations": 2
+    },
+    {
+      "model_id": "bodhan-ai/indic-transcribe-flex",
+      "model_revision": "c0db6b2b05409fee7317f193fb207db332a0f14b",
+      "language": "bn",
+      "expected_public_conversations": 3,
+      "stage": "first_batch_after_access",
+      "status": "planned",
+      "structurally_eligible_conversations": 3
+    },
+    {
+      "model_id": "bodhan-ai/indic-transcribe-flex",
+      "model_revision": "c0db6b2b05409fee7317f193fb207db332a0f14b",
+      "language": "bho",
+      "expected_public_conversations": 3,
+      "stage": "first_batch_after_access",
+      "status": "planned",
+      "structurally_eligible_conversations": 2
+    },
+    {
+      "model_id": "bodhan-ai/indic-transcribe-flex",
+      "model_revision": "c0db6b2b05409fee7317f193fb207db332a0f14b",
+      "language": "hne",
+      "expected_public_conversations": 3,
+      "stage": "first_batch_after_access",
+      "status": "planned",
+      "structurally_eligible_conversations": 3
+    },
+    {
+      "model_id": "bodhan-ai/indic-transcribe-flex",
+      "model_revision": "c0db6b2b05409fee7317f193fb207db332a0f14b",
+      "language": "gu",
+      "expected_public_conversations": 3,
+      "stage": "first_batch_after_access",
+      "status": "planned",
+      "structurally_eligible_conversations": 3
+    },
+    {
+      "model_id": "bodhan-ai/indic-transcribe-flex",
+      "model_revision": "c0db6b2b05409fee7317f193fb207db332a0f14b",
+      "language": "bgc",
+      "expected_public_conversations": 3,
+      "stage": "first_batch_after_access",
+      "status": "planned",
+      "structurally_eligible_conversations": 3
+    },
+    {
+      "model_id": "bodhan-ai/indic-transcribe-flex",
+      "model_revision": "c0db6b2b05409fee7317f193fb207db332a0f14b",
+      "language": "hi",
+      "expected_public_conversations": 3,
+      "stage": "first_batch_after_access",
+      "status": "planned",
+      "structurally_eligible_conversations": 3
+    },
+    {
+      "model_id": "bodhan-ai/indic-transcribe-flex",
+      "model_revision": "c0db6b2b05409fee7317f193fb207db332a0f14b",
+      "language": "kn",
+      "expected_public_conversations": 3,
+      "stage": "first_batch_after_access",
+      "status": "planned",
+      "structurally_eligible_conversations": 3
+    },
+    {
+      "model_id": "bodhan-ai/indic-transcribe-flex",
+      "model_revision": "c0db6b2b05409fee7317f193fb207db332a0f14b",
+      "language": "ml",
+      "expected_public_conversations": 2,
+      "stage": "first_batch_after_access",
+      "status": "planned",
+      "structurally_eligible_conversations": 2
+    },
+    {
+      "model_id": "bodhan-ai/indic-transcribe-flex",
+      "model_revision": "c0db6b2b05409fee7317f193fb207db332a0f14b",
+      "language": "mr",
+      "expected_public_conversations": 3,
+      "stage": "first_batch_after_access",
+      "status": "planned",
+      "structurally_eligible_conversations": 1
+    },
+    {
+      "model_id": "bodhan-ai/indic-transcribe-flex",
+      "model_revision": "c0db6b2b05409fee7317f193fb207db332a0f14b",
+      "language": "pa",
+      "expected_public_conversations": 3,
+      "stage": "first_batch_after_access",
+      "status": "blocked_reference_qc",
+      "structurally_eligible_conversations": 0
+    },
+    {
+      "model_id": "bodhan-ai/indic-transcribe-flex",
+      "model_revision": "c0db6b2b05409fee7317f193fb207db332a0f14b",
+      "language": "ta",
+      "expected_public_conversations": 3,
+      "stage": "first_batch_after_access",
+      "status": "planned",
+      "structurally_eligible_conversations": 2
+    },
+    {
+      "model_id": "bodhan-ai/indic-transcribe-flex",
+      "model_revision": "c0db6b2b05409fee7317f193fb207db332a0f14b",
+      "language": "te",
+      "expected_public_conversations": 3,
+      "stage": "first_batch_after_access",
+      "status": "planned",
+      "structurally_eligible_conversations": 3
+    },
+    {
+      "model_id": "facebook/omniASR-CTC-1B",
+      "model_revision": "8c22e3ffdaa4aab6431b128b84b991a7d9c2515c",
+      "language": "as",
+      "expected_public_conversations": 2,
+      "stage": "first_batch",
+      "status": "planned",
+      "structurally_eligible_conversations": 2
+    },
+    {
+      "model_id": "facebook/omniASR-CTC-1B",
+      "model_revision": "8c22e3ffdaa4aab6431b128b84b991a7d9c2515c",
+      "language": "bn",
+      "expected_public_conversations": 3,
+      "stage": "first_batch",
+      "status": "planned",
+      "structurally_eligible_conversations": 3
+    },
+    {
+      "model_id": "facebook/omniASR-CTC-1B",
+      "model_revision": "8c22e3ffdaa4aab6431b128b84b991a7d9c2515c",
+      "language": "bho",
+      "expected_public_conversations": 3,
+      "stage": "first_batch",
+      "status": "planned",
+      "structurally_eligible_conversations": 2
+    },
+    {
+      "model_id": "facebook/omniASR-CTC-1B",
+      "model_revision": "8c22e3ffdaa4aab6431b128b84b991a7d9c2515c",
+      "language": "hne",
+      "expected_public_conversations": 3,
+      "stage": "first_batch",
+      "status": "planned",
+      "structurally_eligible_conversations": 3
+    },
+    {
+      "model_id": "facebook/omniASR-CTC-1B",
+      "model_revision": "8c22e3ffdaa4aab6431b128b84b991a7d9c2515c",
+      "language": "gu",
+      "expected_public_conversations": 3,
+      "stage": "first_batch",
+      "status": "planned",
+      "structurally_eligible_conversations": 3
+    },
+    {
+      "model_id": "facebook/omniASR-CTC-1B",
+      "model_revision": "8c22e3ffdaa4aab6431b128b84b991a7d9c2515c",
+      "language": "bgc",
+      "expected_public_conversations": 3,
+      "stage": "first_batch",
+      "status": "planned",
+      "structurally_eligible_conversations": 3
+    },
+    {
+      "model_id": "facebook/omniASR-CTC-1B",
+      "model_revision": "8c22e3ffdaa4aab6431b128b84b991a7d9c2515c",
+      "language": "hi",
+      "expected_public_conversations": 3,
+      "stage": "first_batch",
+      "status": "planned",
+      "structurally_eligible_conversations": 3
+    },
+    {
+      "model_id": "facebook/omniASR-CTC-1B",
+      "model_revision": "8c22e3ffdaa4aab6431b128b84b991a7d9c2515c",
+      "language": "kn",
+      "expected_public_conversations": 3,
+      "stage": "first_batch",
+      "status": "planned",
+      "structurally_eligible_conversations": 3
+    },
+    {
+      "model_id": "facebook/omniASR-CTC-1B",
+      "model_revision": "8c22e3ffdaa4aab6431b128b84b991a7d9c2515c",
+      "language": "ml",
+      "expected_public_conversations": 2,
+      "stage": "first_batch",
+      "status": "planned",
+      "structurally_eligible_conversations": 2
+    },
+    {
+      "model_id": "facebook/omniASR-CTC-1B",
+      "model_revision": "8c22e3ffdaa4aab6431b128b84b991a7d9c2515c",
+      "language": "mr",
+      "expected_public_conversations": 3,
+      "stage": "first_batch",
+      "status": "planned",
+      "structurally_eligible_conversations": 1
+    },
+    {
+      "model_id": "facebook/omniASR-CTC-1B",
+      "model_revision": "8c22e3ffdaa4aab6431b128b84b991a7d9c2515c",
+      "language": "pa",
+      "expected_public_conversations": 3,
+      "stage": "first_batch",
+      "status": "blocked_reference_qc",
+      "structurally_eligible_conversations": 0
+    },
+    {
+      "model_id": "facebook/omniASR-CTC-1B",
+      "model_revision": "8c22e3ffdaa4aab6431b128b84b991a7d9c2515c",
+      "language": "ta",
+      "expected_public_conversations": 3,
+      "stage": "first_batch",
+      "status": "planned",
+      "structurally_eligible_conversations": 2
+    },
+    {
+      "model_id": "facebook/omniASR-CTC-1B",
+      "model_revision": "8c22e3ffdaa4aab6431b128b84b991a7d9c2515c",
+      "language": "te",
+      "expected_public_conversations": 3,
+      "stage": "first_batch",
+      "status": "planned",
+      "structurally_eligible_conversations": 3
+    },
+    {
+      "model_id": "facebook/omniASR-LLM-7B",
+      "model_revision": "4b0bada258b398cb7e6c5b3a6ed5448fb914385b",
+      "language": "as",
+      "expected_public_conversations": 2,
+      "stage": "expanded",
+      "status": "planned",
+      "structurally_eligible_conversations": 2
+    },
+    {
+      "model_id": "facebook/omniASR-LLM-7B",
+      "model_revision": "4b0bada258b398cb7e6c5b3a6ed5448fb914385b",
+      "language": "bn",
+      "expected_public_conversations": 3,
+      "stage": "expanded",
+      "status": "planned",
+      "structurally_eligible_conversations": 3
+    },
+    {
+      "model_id": "facebook/omniASR-LLM-7B",
+      "model_revision": "4b0bada258b398cb7e6c5b3a6ed5448fb914385b",
+      "language": "bho",
+      "expected_public_conversations": 3,
+      "stage": "expanded",
+      "status": "planned",
+      "structurally_eligible_conversations": 2
+    },
+    {
+      "model_id": "facebook/omniASR-LLM-7B",
+      "model_revision": "4b0bada258b398cb7e6c5b3a6ed5448fb914385b",
+      "language": "hne",
+      "expected_public_conversations": 3,
+      "stage": "expanded",
+      "status": "planned",
+      "structurally_eligible_conversations": 3
+    },
+    {
+      "model_id": "facebook/omniASR-LLM-7B",
+      "model_revision": "4b0bada258b398cb7e6c5b3a6ed5448fb914385b",
+      "language": "gu",
+      "expected_public_conversations": 3,
+      "stage": "expanded",
+      "status": "planned",
+      "structurally_eligible_conversations": 3
+    },
+    {
+      "model_id": "facebook/omniASR-LLM-7B",
+      "model_revision": "4b0bada258b398cb7e6c5b3a6ed5448fb914385b",
+      "language": "bgc",
+      "expected_public_conversations": 3,
+      "stage": "expanded",
+      "status": "planned",
+      "structurally_eligible_conversations": 3
+    },
+    {
+      "model_id": "facebook/omniASR-LLM-7B",
+      "model_revision": "4b0bada258b398cb7e6c5b3a6ed5448fb914385b",
+      "language": "hi",
+      "expected_public_conversations": 3,
+      "stage": "expanded",
+      "status": "planned",
+      "structurally_eligible_conversations": 3
+    },
+    {
+      "model_id": "facebook/omniASR-LLM-7B",
+      "model_revision": "4b0bada258b398cb7e6c5b3a6ed5448fb914385b",
+      "language": "kn",
+      "expected_public_conversations": 3,
+      "stage": "expanded",
+      "status": "planned",
+      "structurally_eligible_conversations": 3
+    },
+    {
+      "model_id": "facebook/omniASR-LLM-7B",
+      "model_revision": "4b0bada258b398cb7e6c5b3a6ed5448fb914385b",
+      "language": "ml",
+      "expected_public_conversations": 2,
+      "stage": "expanded",
+      "status": "planned",
+      "structurally_eligible_conversations": 2
+    },
+    {
+      "model_id": "facebook/omniASR-LLM-7B",
+      "model_revision": "4b0bada258b398cb7e6c5b3a6ed5448fb914385b",
+      "language": "mr",
+      "expected_public_conversations": 3,
+      "stage": "expanded",
+      "status": "planned",
+      "structurally_eligible_conversations": 1
+    },
+    {
+      "model_id": "facebook/omniASR-LLM-7B",
+      "model_revision": "4b0bada258b398cb7e6c5b3a6ed5448fb914385b",
+      "language": "pa",
+      "expected_public_conversations": 3,
+      "stage": "expanded",
+      "status": "blocked_reference_qc",
+      "structurally_eligible_conversations": 0
+    },
+    {
+      "model_id": "facebook/omniASR-LLM-7B",
+      "model_revision": "4b0bada258b398cb7e6c5b3a6ed5448fb914385b",
+      "language": "ta",
+      "expected_public_conversations": 3,
+      "stage": "expanded",
+      "status": "planned",
+      "structurally_eligible_conversations": 2
+    },
+    {
+      "model_id": "facebook/omniASR-LLM-7B",
+      "model_revision": "4b0bada258b398cb7e6c5b3a6ed5448fb914385b",
+      "language": "te",
+      "expected_public_conversations": 3,
+      "stage": "expanded",
+      "status": "planned",
+      "structurally_eligible_conversations": 3
+    },
+    {
+      "model_id": "microsoft/VibeVoice-ASR",
+      "model_revision": "d0c9efdb8d614685062c04425d91e01b6f37d944",
+      "language": "hi",
+      "expected_public_conversations": 3,
+      "stage": "expanded",
+      "status": "planned",
+      "structurally_eligible_conversations": 3
+    },
+    {
+      "model_id": "nvidia/nemotron-3.5-asr-streaming-0.6b",
+      "model_revision": "ea30d66debe3740a08b573244286791d423d6b3e",
+      "language": "hi",
+      "expected_public_conversations": 3,
+      "stage": "first_batch",
+      "status": "planned",
+      "structurally_eligible_conversations": 3
+    },
+    {
+      "model_id": "mistralai/Voxtral-Mini-4B-Realtime-2602",
+      "model_revision": "2769294da9567371363522aac9bbcfdd19447add",
+      "language": "hi",
+      "expected_public_conversations": 3,
+      "stage": "first_batch",
+      "status": "planned",
+      "structurally_eligible_conversations": 3
+    },
+    {
+      "model_id": "mistralai/Voxtral-Mini-3B-2507",
+      "model_revision": "3060fe34b35ba5d44202ce9ff3c097642914f8f3",
+      "language": "hi",
+      "expected_public_conversations": 3,
+      "stage": "expanded",
+      "status": "planned",
+      "structurally_eligible_conversations": 3
+    },
+    {
+      "model_id": "FunAudioLLM/Fun-ASR-MLT-Nano-2512",
+      "model_revision": "2c088f535108689beff7e11cdc3d792af7d56552",
+      "language": "hi",
+      "expected_public_conversations": 3,
+      "stage": "expanded",
+      "status": "planned",
+      "structurally_eligible_conversations": 3
+    }
+  ],
+  "manifest_sha256": "e6992a043c9448a9974d1707186ee8cbfda87154b1d4aad940c8546c4054aa78",
+  "model_weights_cached": [
+    "openai/whisper-small",
+    "openai/whisper-large-v3-turbo"
+  ],
+  "qc_passing_conversations": 30,
+  "reference_suspect_conversations": 7,
+  "pilot_status_file": "artifacts/execution_status.json"
+}

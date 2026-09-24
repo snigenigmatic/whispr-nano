@@ -1,0 +1,570 @@
+{
+  "schema_version": 1,
+  "files": [
+    {
+      "path": "research/bridge_open/BENCHMARK_COMPLETION.md",
+      "bytes": 6607,
+      "sha256": "fc4407307ab4ff97a36302f0368884d14c6773de55c70f5c3ef3cd29a4a90b6b"
+    },
+    {
+      "path": "research/bridge_open/EXPANDED_STUDY_20260923.md",
+      "bytes": 6559,
+      "sha256": "a24af7e4d620db20d5ca0b7d3d9463c239c498067d304713633830b2b24adc70"
+    },
+    {
+      "path": "research/bridge_open/OMNI_RUNTIME_CONTRACT.md",
+      "bytes": 4614,
+      "sha256": "bdc442fa9a4e030ed813d04119972470558aacbc5291db64dfb0b2ee97b7ce5c"
+    },
+    {
+      "path": "research/bridge_open/analyze_language_conditioning.py",
+      "bytes": 7978,
+      "sha256": "0b1ff2e3c8cfbbeb653bf73e1d86a8593661c3d5b3e50ea2d1b111d6b7f747f6"
+    },
+    {
+      "path": "research/bridge_open/analyze_omni_extension.py",
+      "bytes": 8728,
+      "sha256": "1c5f04ce593947faa787ebf210e7777b6c87eddf0c782004740342f9a1ae9be1"
+    },
+    {
+      "path": "research/bridge_open/artifacts/benchmark_review_v2/build_receipt.json",
+      "bytes": 159,
+      "sha256": "e93968b4bd0c32c2afe391273b5b28158a4f440e2798457274107211c531c0af"
+    },
+    {
+      "path": "research/bridge_open/artifacts/benchmark_review_v2/human_review_queue.json",
+      "bytes": 7063,
+      "sha256": "09ea4893c6e6eacb19e9dbf4de98d8049e0ccd708e3979624731efe6761a36bd"
+    },
+    {
+      "path": "research/bridge_open/artifacts/benchmark_review_v2/index.html",
+      "bytes": 5376728,
+      "sha256": "78a05dea263ecf1e0914b59634f3e7812b8f1b2167251da4f526da325a89d6ae"
+    },
+    {
+      "path": "research/bridge_open/artifacts/benchmark_review_v2/script_diagnostics.json",
+      "bytes": 1734,
+      "sha256": "08993dd91ece9493d9a9eb361cdd1a293571fe61c9c0c2e1e5c38a8bf7042929"
+    },
+    {
+      "path": "research/bridge_open/artifacts/expanded_study_v1/PRIOR_ART.md",
+      "bytes": 1764,
+      "sha256": "7d81ba398293470948c809c211f77a1c4ee462dea26864f524842e4fe3816b5a"
+    },
+    {
+      "path": "research/bridge_open/artifacts/expanded_study_v1/REPRODUCTION.md",
+      "bytes": 2593,
+      "sha256": "d616c75be1ef0a437b01a2ab8772996d32fc42ad9008c4ceb3f31814d3f5c2a7"
+    },
+    {
+      "path": "research/bridge_open/artifacts/expanded_study_v1/RESULTS.md",
+      "bytes": 6509,
+      "sha256": "7b1ba3f170c0c3e8ae65861c0b16be2b8a7bf61a6938b1df574d409c54a3fc1b"
+    },
+    {
+      "path": "research/bridge_open/artifacts/expanded_study_v1/hf_reservation_receipt.json",
+      "bytes": 12467,
+      "sha256": "6071596cb40a50024bf93bf7b508fd4986081d994eda49847f95ce8365fbd716"
+    },
+    {
+      "path": "research/bridge_open/artifacts/expanded_study_v1/negative_validation_checks.json",
+      "bytes": 551,
+      "sha256": "ab7deb789af0feb86bfd044361f31624be47cd692a52db4d6588f68a428c5f15"
+    },
+    {
+      "path": "research/bridge_open/artifacts/expanded_study_v1/prior_art_search.json",
+      "bytes": 20884,
+      "sha256": "2e3a23aed4e9116a40aa193f5658d7916237d4d1258231d9448a09d81601fad2"
+    },
+    {
+      "path": "research/bridge_open/artifacts/expanded_study_v1/study_summary.json",
+      "bytes": 8869,
+      "sha256": "5c434894db6eb9ed856691d943142292548f921aea462ceb2e4dc79eb7da7948"
+    },
+    {
+      "path": "research/bridge_open/artifacts/fleurs_omni_comparison_v1/RESULTS.md",
+      "bytes": 1381,
+      "sha256": "c304222fc20b5698f9a3aa8e0d86c230da560859062db3ffb832215d95f6908b"
+    },
+    {
+      "path": "research/bridge_open/artifacts/fleurs_omni_comparison_v1/comparison.json",
+      "bytes": 7389,
+      "sha256": "ea84bd626f9871a4b3af2811d892f37547556859a3e2d6ace6ea782f20f7f3e3"
+    },
+    {
+      "path": "research/bridge_open/artifacts/fleurs_omni_comparison_v1/figures/CAPTION.md",
+      "bytes": 439,
+      "sha256": "18f02d43c062cae964b6acc5be5e7cfbbf1d6a1a6a033c2450ec7a9e79fb820d"
+    },
+    {
+      "path": "research/bridge_open/artifacts/fleurs_omni_comparison_v1/figures/orx_figstyle.py",
+      "bytes": 21867,
+      "sha256": "9372d4ebbc32c9fdbb364adf76fdcf2b0708a4c50490fc639f06c9af360a61d9"
+    },
+    {
+      "path": "research/bridge_open/artifacts/fleurs_omni_comparison_v1/figures/plot_expanded_benchmark.py",
+      "bytes": 3500,
+      "sha256": "686ea4e9b34f05d100a47901a234e7552a37291a112068d672bee21868dfc0fa"
+    },
+    {
+      "path": "research/bridge_open/artifacts/fleurs_omni_comparison_v1/figures/system_comparison.pdf",
+      "bytes": 30457,
+      "sha256": "50b4601aaa5cee6d30580cacf52d7cca55f49e5f28b54a7506ea28fb91fde051"
+    },
+    {
+      "path": "research/bridge_open/artifacts/fleurs_omni_comparison_v1/figures/system_comparison.svg",
+      "bytes": 87291,
+      "sha256": "0c7f2bb74b088b9d1be6167427a2a521f0367929855db96506ffdfc6158cbad5"
+    },
+    {
+      "path": "research/bridge_open/artifacts/fleurs_omni_comparison_v1/figures/system_comparison_preview.png",
+      "bytes": 50143,
+      "sha256": "16360b063230b11a72b083043278d0a3a19e186cbc4b8b545658fd100e914c08"
+    },
+    {
+      "path": "research/bridge_open/artifacts/fleurs_omni_comparison_v1/figures/values.csv",
+      "bytes": 413,
+      "sha256": "6912d8c1b88a89603c0b99e59c64179abd380ed61861075d3cb50388613215c7"
+    },
+    {
+      "path": "research/bridge_open/artifacts/fleurs_omni_comparison_v1/predictions.jsonl",
+      "bytes": 13273578,
+      "sha256": "3b00dd8c035aace576c50cd1d921c717b920d2688457a2b748742bbdef17e9e7"
+    },
+    {
+      "path": "research/bridge_open/artifacts/language_conditioning_analysis_v1/RESULTS.md",
+      "bytes": 1573,
+      "sha256": "c30c7dea4f5848d370116d77cd88586c393ec45b1beb3ac5d7fba54e20dd381c"
+    },
+    {
+      "path": "research/bridge_open/artifacts/language_conditioning_analysis_v1/analysis.json",
+      "bytes": 6719,
+      "sha256": "259844ce28816b302b2bd713483b287e1b5be86ca8e789fe7b97134059074ce2"
+    },
+    {
+      "path": "research/bridge_open/artifacts/language_conditioning_analysis_v1/paired_transcripts.json",
+      "bytes": 41225,
+      "sha256": "cf925110f3a4780cb1bfaa24dc58c58ca0b548e6e12ad0c6ed61a4a5e15be317"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_fleurs_acceptance_v1/committed_run_config.json",
+      "bytes": 1645,
+      "sha256": "532343d0fb796d579bd3608412420d7c2cb9cb09bc7ace1d6ab4edbed316c800"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_fleurs_acceptance_v1/config.json",
+      "bytes": 1677,
+      "sha256": "d89e53b24f31e41488e20338451779542bed5c946e474f7882fb97c0529b89f3"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_fleurs_acceptance_v1/environment.json",
+      "bytes": 4260,
+      "sha256": "135b82ca3a33b401527b4db4a8da8f92ce776a583ebcec4d11598e5c7561acf9"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_fleurs_acceptance_v1/executed_entrypoint.sh",
+      "bytes": 606,
+      "sha256": "bee5e6421d705af72bf6ff9d939de4925f3cbd5a582f1e5d9846787f223e9b85"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_fleurs_acceptance_v1/executed_hf_run.py",
+      "bytes": 4374,
+      "sha256": "c11cd9073129ececdbd5f0ce6cca9df109383e3cc361ee287f5c75572defdb5c"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_fleurs_acceptance_v1/hf_receipt.json",
+      "bytes": 368,
+      "sha256": "68cf261627140de7dec0799be47cd8afa499930ee8e9190453a5b496eb061236"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_fleurs_acceptance_v1/local_independent_acceptance.json",
+      "bytes": 827,
+      "sha256": "5e5153dbde7ab905e8ef00b1d61f151bdcaebce99bf094c30e8a7faa007f69c1"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_fleurs_acceptance_v1/orx_source_receipt.json",
+      "bytes": 696,
+      "sha256": "39499e35dc8717aeaefb71602649afd198a5785e6ae3bed881c70c45d6220507"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_fleurs_acceptance_v1/predictions.jsonl",
+      "bytes": 71873,
+      "sha256": "32229989049fbc2bd053c18902db0e3d4dee1dc0cf507c26d15c583baf651473"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_fleurs_acceptance_v1/remote_validation.json",
+      "bytes": 134,
+      "sha256": "807675edf03e44cf72d7e7d236ba667e4778965bd1d6ce7f42c8d35bd7623de5"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_fleurs_acceptance_v1/source_snapshot.tar.gz",
+      "bytes": 8994390,
+      "sha256": "7a6ac05f1e71b27ffcec076ab774fd63b97f47dd173a21642c3f40358260a2dd"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_fleurs_acceptance_v1/summary.json",
+      "bytes": 7739,
+      "sha256": "61021ac16f432e4a20147fb5e136ed4a8ab8178971e0ff21a30c62ae55e1bb16"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_fleurs_acceptance_v1/transport_receipt.json",
+      "bytes": 256,
+      "sha256": "112485a3d19f9869e56f82e835696d8cfeb0185055d9451a83d1ba21ed94700f"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_fleurs_full_as_v1/committed_run_config.json",
+      "bytes": 46482,
+      "sha256": "0c3463f0db3cf22dfcdcc4f66756e732d09456d3590eedc9cd55d850c8870dac"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_fleurs_full_as_v1/config.json",
+      "bytes": 46468,
+      "sha256": "bac3bdf6d4676796efc198810cdb56a15cd71c513aa1c246071681a021d175df"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_fleurs_full_as_v1/environment.json",
+      "bytes": 239428,
+      "sha256": "d444590eec35505496e12b539f33da4319a44260c844a4bc3e15931f397bc8d0"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_fleurs_full_as_v1/executed_entrypoint.sh",
+      "bytes": 606,
+      "sha256": "bee5e6421d705af72bf6ff9d939de4925f3cbd5a582f1e5d9846787f223e9b85"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_fleurs_full_as_v1/executed_hf_run.py",
+      "bytes": 7017,
+      "sha256": "59d6fd376df1591d0000a09209c5ad03d1cd5668d96690c9619cb0592e211276"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_fleurs_full_as_v1/hf_receipt.json",
+      "bytes": 969,
+      "sha256": "4f7e4a7477857c26ee007b09598603392225528d0370c95b0bafb8c460e72361"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_fleurs_full_as_v1/local_independent_acceptance.json",
+      "bytes": 830,
+      "sha256": "4e529b7ae0a8d7de8c4ef4bf419b3dcd0915f1c311ab17494d9a34534007d07e"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_fleurs_full_as_v1/orx_source_receipt.json",
+      "bytes": 696,
+      "sha256": "79b8ee31c68a87ff86742b227eb6c22453ce0dd7de5ee00a9fae3503bec91d96"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_fleurs_full_as_v1/predictions.jsonl",
+      "bytes": 5536279,
+      "sha256": "9efbff33960ae89c24bd1244d9293a30453d7e626fd93e73b4e0a7c903c65c7c"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_fleurs_full_as_v1/remote_validation.json",
+      "bytes": 133,
+      "sha256": "c7c84c744832a4d79f85b8126c19267b1ea1c58294e4b94dcbfbad54c16a76b3"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_fleurs_full_as_v1/source_snapshot.tar.gz",
+      "bytes": 9656281,
+      "sha256": "6befcf1342cd95596f00543b735bfd2203e4bedc5313748818a93c1fc1c567e0"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_fleurs_full_as_v1/summary.json",
+      "bytes": 637436,
+      "sha256": "8f756fb91d3328c3f5d8a353bd96ef5dfd96152c8ee769b21aa76113fd12ec69"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_fleurs_full_as_v1/transport_receipt.json",
+      "bytes": 258,
+      "sha256": "5b9344fa21eed73ce063f1a6f9333302dbf06130c146acf0c83a7017f367f7d3"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_fleurs_full_bn_v1/committed_run_config.json",
+      "bytes": 43583,
+      "sha256": "ccd52263a7ed803045dbf56d5a72316394030b274095459fcfb44dc3b4bd0894"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_fleurs_full_bn_v1/config.json",
+      "bytes": 43569,
+      "sha256": "6a0955fbf11af16043fdc84ca82eac6e0df2cc83348d80eb42b272fb8e637d19"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_fleurs_full_bn_v1/environment.json",
+      "bytes": 224085,
+      "sha256": "b48bae6cc6a8c0d05a9e9b677e69c7d88b3995a3f047e576d6ef5622a9b630a0"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_fleurs_full_bn_v1/executed_entrypoint.sh",
+      "bytes": 606,
+      "sha256": "bee5e6421d705af72bf6ff9d939de4925f3cbd5a582f1e5d9846787f223e9b85"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_fleurs_full_bn_v1/executed_hf_run.py",
+      "bytes": 7017,
+      "sha256": "59d6fd376df1591d0000a09209c5ad03d1cd5668d96690c9619cb0592e211276"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_fleurs_full_bn_v1/hf_receipt.json",
+      "bytes": 969,
+      "sha256": "fb0811ea789afc403e357383a98bf6c8af32d19d258f5eea3b798de9cf561291"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_fleurs_full_bn_v1/local_independent_acceptance.json",
+      "bytes": 830,
+      "sha256": "71ca982d9101a4d9d2b470acc757de7ea6239347de7d2399c2dc3173efbf89e8"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_fleurs_full_bn_v1/orx_source_receipt.json",
+      "bytes": 696,
+      "sha256": "1e3d7487fd14476683a4919db2d635c4ce55df699e41949a2e7d4d1485998038"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_fleurs_full_bn_v1/predictions.jsonl",
+      "bytes": 5303472,
+      "sha256": "ef3518e532de14611ce73388971fc0b1bf0b7bb7ef3f889ca9d71707a25527ed"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_fleurs_full_bn_v1/remote_validation.json",
+      "bytes": 133,
+      "sha256": "a2861931ab85c17cff7973b9d31f6f78b377ad32537ed7bd6490047b9f167b0e"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_fleurs_full_bn_v1/source_snapshot.tar.gz",
+      "bytes": 9655504,
+      "sha256": "d7cea43ab8c657126f62463dad7b7f3398a510a9ce4c6ab96a25223525ee0ab5"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_fleurs_full_bn_v1/summary.json",
+      "bytes": 596125,
+      "sha256": "d5fccbd6fb33f79da4ec321b25b1e2513015769fff456309a219f9d2b83a3c5d"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_fleurs_full_bn_v1/transport_receipt.json",
+      "bytes": 258,
+      "sha256": "8c9b0471ec50e4deb437edb850d4c85b8ac76441a2b5fe9963b9c9f27b17424a"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_fleurs_full_hi_v1/committed_run_config.json",
+      "bytes": 20828,
+      "sha256": "e056f215b453b6bbb24dcb40b1a687cae5d62f344f47b7e788fddf5d965bdb03"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_fleurs_full_hi_v1/config.json",
+      "bytes": 20814,
+      "sha256": "d4f23caff4d5db5a531b80b752daf50e2d60a60f4ee49610a3738ce58a468f39"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_fleurs_full_hi_v1/environment.json",
+      "bytes": 102817,
+      "sha256": "67127805382572f7cce9b7eba1a93a761b672ee6588091700f6252f19e77122a"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_fleurs_full_hi_v1/executed_entrypoint.sh",
+      "bytes": 606,
+      "sha256": "bee5e6421d705af72bf6ff9d939de4925f3cbd5a582f1e5d9846787f223e9b85"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_fleurs_full_hi_v1/executed_hf_run.py",
+      "bytes": 7017,
+      "sha256": "59d6fd376df1591d0000a09209c5ad03d1cd5668d96690c9619cb0592e211276"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_fleurs_full_hi_v1/hf_receipt.json",
+      "bytes": 969,
+      "sha256": "4da9af50d4b83ecff0a1a3d1c8936508dd6510fc3cfdd14de1ddfb11e97c0dfe"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_fleurs_full_hi_v1/local_independent_acceptance.json",
+      "bytes": 829,
+      "sha256": "ef229f2e2f88f5545b364bb7f56acda1bd084bbc30717028082bb35dc0050581"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_fleurs_full_hi_v1/orx_source_receipt.json",
+      "bytes": 696,
+      "sha256": "68e0c82f830289b841e2a409893bebc81c82aea674b83bee8484cce860cbffc5"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_fleurs_full_hi_v1/predictions.jsonl",
+      "bytes": 2245762,
+      "sha256": "0f0dab16366a0db78621bad328f46c3bf352e1c3cc4efc47dce2235ba068be76"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_fleurs_full_hi_v1/remote_validation.json",
+      "bytes": 133,
+      "sha256": "3316cfaa362ff8444edf66d2d8ea15241e8faef85cb48cd477afd2a3f2c17251"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_fleurs_full_hi_v1/source_snapshot.tar.gz",
+      "bytes": 9649512,
+      "sha256": "73efc3b52d03a41984d11f6347f90f49f929893ba614785d62c4c9a079c05bd3"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_fleurs_full_hi_v1/summary.json",
+      "bytes": 271080,
+      "sha256": "add744e0592210400a7ae11670e897bdac7c4a53c778b00315fd4684491be506"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_fleurs_full_hi_v1/transport_receipt.json",
+      "bytes": 258,
+      "sha256": "1b96feaceb70df9f563d71e9f0c63a4aff29db95da43c710fa41784d9c282dec"
+    },
+    {
+      "path": "research/bridge_open/artifacts/whisper_language_conditioning_v1/CORRECTION_PROTOCOL.md",
+      "bytes": 1944,
+      "sha256": "307c746e13e91482f4c7525a0de2e32a15fa67a1e5c322365afd7b454cca9344"
+    },
+    {
+      "path": "research/bridge_open/artifacts/whisper_language_conditioning_v1/cohort.json",
+      "bytes": 89070,
+      "sha256": "0c27e96ead4f9e3d92ef28a45cf9e1f66ec9c170c43e45dc99141e1a6181cbda"
+    },
+    {
+      "path": "research/bridge_open/artifacts/whisper_language_conditioning_v1/config.json",
+      "bytes": 1250,
+      "sha256": "858ecafb0d5e2869e5324d05379e1b8b72b6631b9c01488cd5056d9cddbce4e6"
+    },
+    {
+      "path": "research/bridge_open/artifacts/whisper_language_conditioning_v1/diagnostic_v1.py",
+      "bytes": 13103,
+      "sha256": "84ef76b2c0892491e2250c98250ad1677db607401cabafad112ec72a08bd6594"
+    },
+    {
+      "path": "research/bridge_open/artifacts/whisper_language_conditioning_v1/environment.json",
+      "bytes": 1316,
+      "sha256": "65651015638b95dedccf34f5a92d5e09f6f246d4feaee848684eaabb16dbac9a"
+    },
+    {
+      "path": "research/bridge_open/artifacts/whisper_language_conditioning_v1/executed_audit.py",
+      "bytes": 7582,
+      "sha256": "aadea61e90b01430c59946c5faf8cb29406186e5abff2e48fc29ff3a5492960b"
+    },
+    {
+      "path": "research/bridge_open/artifacts/whisper_language_conditioning_v1/executed_entrypoint.sh",
+      "bytes": 332,
+      "sha256": "2b64248136f41605764231a84867396fc96e7219a5759f5589a59acf7b6a45d5"
+    },
+    {
+      "path": "research/bridge_open/artifacts/whisper_language_conditioning_v1/executed_scoring.py",
+      "bytes": 2732,
+      "sha256": "a63c0fdce68e33810bf233c813a5ebad0f3692e6718aad2828a802b2e776ff3c"
+    },
+    {
+      "path": "research/bridge_open/artifacts/whisper_language_conditioning_v1/native_source_receipt.json",
+      "bytes": 233,
+      "sha256": "0845299dae3578287112bdafeb70aa7a786253ad5d4fcb96020f86f05d7d517a"
+    },
+    {
+      "path": "research/bridge_open/artifacts/whisper_language_conditioning_v1/orx_source_receipt.json",
+      "bytes": 696,
+      "sha256": "142111b0466992b7abe710d526b8b1a719035642d236eea662d1154a73ae39eb"
+    },
+    {
+      "path": "research/bridge_open/artifacts/whisper_language_conditioning_v1/predictions.jsonl",
+      "bytes": 991122,
+      "sha256": "dbf1bb022513e23968f2ebb98b34897ae2188c27d215e25b63138bb6e706c276"
+    },
+    {
+      "path": "research/bridge_open/artifacts/whisper_language_conditioning_v1/source_snapshot.tar.gz",
+      "bytes": 58127745,
+      "sha256": "b24be39a9b28c92c01c747d2f253b2271e6b650166096e89a452999f32198696"
+    },
+    {
+      "path": "research/bridge_open/artifacts/whisper_language_conditioning_v1/summary.json",
+      "bytes": 1303,
+      "sha256": "84e2a6d795c5f11725dda0af84c0ec670ba343a0f817bb017f064dc7d8355cdb"
+    },
+    {
+      "path": "research/bridge_open/artifacts/whisper_language_conditioning_v1/transport_receipt.json",
+      "bytes": 257,
+      "sha256": "b493b2edf12e4ce2452088acad11a010125a06971534d3886e1da137b8456355"
+    },
+    {
+      "path": "research/bridge_open/build_evidence_viewer.py",
+      "bytes": 11417,
+      "sha256": "cd4dc8be8fffe74e955dfbd72e303cec486880741e5b0a40c7ec628ba7e5cccb"
+    },
+    {
+      "path": "research/bridge_open/check_extension_negative_cases.py",
+      "bytes": 2522,
+      "sha256": "858a691c6c9c4e4cc232d92e0751ff7d1b0feaed1aaef16d4d127740009921a3"
+    },
+    {
+      "path": "research/bridge_open/listening_review/README.md",
+      "bytes": 2772,
+      "sha256": "b13ac28636c57e8d2c7d8a3a2ada83fe253d50870cf32f3c3fd2222b5c3f7ea4"
+    },
+    {
+      "path": "research/bridge_open/listening_review/build_packet.py",
+      "bytes": 5703,
+      "sha256": "48de3a40400ad2650f3dd344538bf4545c95950af0e00aa9eea657842d3f82d8"
+    },
+    {
+      "path": "research/bridge_open/listening_review/index.html",
+      "bytes": 8007,
+      "sha256": "67b3517dda2525aafa30910a379855dbd929521f5d5a851a5001469cdae55b88"
+    },
+    {
+      "path": "research/bridge_open/listening_review/packet_metadata.json",
+      "bytes": 2169,
+      "sha256": "f3205da6fa9ce983584a05f0775d72e9f28933b4d7d13aa8c02421c0b7f6ebf4"
+    },
+    {
+      "path": "research/bridge_open/listening_review/review_items.json",
+      "bytes": 109208,
+      "sha256": "04d2f9b27b3693cda0ba5462da3a0ef1667af9f5598f73169d31ed7b0d44a27c"
+    },
+    {
+      "path": "research/bridge_open/listening_review/review_items.jsonl",
+      "bytes": 99775,
+      "sha256": "47c5b15ccb6764af30c1510e3bd56a709bc6e6af72019bef30f2aee4c1aa0378"
+    },
+    {
+      "path": "research/bridge_open/listening_review/review_responses.csv",
+      "bytes": 6777,
+      "sha256": "61790a34f3a52c96256e7faa41320a618996f24d5a1a8364087b4ab9b110ed01"
+    },
+    {
+      "path": "research/bridge_open/listening_review/sealed_mapping.json",
+      "bytes": 68369,
+      "sha256": "96d3a36dd5d4c0819a07465fd75312bb1a9b83691406edc63d53e8fe37e0d132"
+    },
+    {
+      "path": "research/bridge_open/omni_extension/README.md",
+      "bytes": 2705,
+      "sha256": "0862d62930c14811a59ea08c699dff7cdc359b7a6bcfc94534c242b2a9ac8e0b"
+    },
+    {
+      "path": "research/bridge_open/omni_extension/__init__.py",
+      "bytes": 65,
+      "sha256": "585c52c001f1f7b6c839804bac751344a7089749f5b4430fff6a11f68b10408e"
+    },
+    {
+      "path": "research/bridge_open/omni_extension/artifact_transport.py",
+      "bytes": 2212,
+      "sha256": "3b0c0484f4a14260cb5dd2d75f05d0b818dacffd708156e0cd8fe8e040c555f8"
+    },
+    {
+      "path": "research/bridge_open/omni_extension/run_omni_full.py",
+      "bytes": 18776,
+      "sha256": "40ab977d1beaae0b9bc63ea08cf87680146a5c0ac1f1dcdb0d598e75c3bb99f0"
+    },
+    {
+      "path": "research/bridge_open/omni_extension/scoring.py",
+      "bytes": 2732,
+      "sha256": "a63c0fdce68e33810bf233c813a5ebad0f3692e6718aad2828a802b2e776ff3c"
+    },
+    {
+      "path": "research/bridge_open/omni_extension/validate_run.py",
+      "bytes": 19436,
+      "sha256": "145fdf994410dcc2e04bcabd41a85efecd039ad759b68fcf2bbcfec62f6d83ae"
+    },
+    {
+      "path": "research/bridge_open/plot_expanded_benchmark.py",
+      "bytes": 3500,
+      "sha256": "686ea4e9b34f05d100a47901a234e7552a37291a112068d672bee21868dfc0fa"
+    },
+    {
+      "path": "research/bridge_open/write_expanded_study.py",
+      "bytes": 9634,
+      "sha256": "b117e7cad5bfb0dd41f6e0058128aa453ffdb412767f4745d3fbe18a437567a7"
+    }
+  ]
+}

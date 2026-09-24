@@ -1,0 +1,8 @@
+{
+  "valid": false,
+  "output_dir": "/Users/prateekraj/whispr-nano/research/bridge_open/artifacts/hf-fleurs-test-turbo-as-short-0-end-v2",
+  "conversation_count": 980,
+  "errors": [
+    "fleurs-as_in-test-9437161079844375131: generation_limit has empty normalized text"
+  ]
+}

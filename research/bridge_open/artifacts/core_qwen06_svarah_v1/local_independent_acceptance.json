@@ -1,0 +1,30 @@
+{
+  "valid": true,
+  "track": "svarah",
+  "model": "Qwen/Qwen3-ASR-0.6B",
+  "revision": "5eb144179a02acc5e5ba31e748d22b0cf3e303b0",
+  "n": 518,
+  "word_errors": 883,
+  "reference_words": 5389,
+  "micro_wer": 0.16385229170532567,
+  "character_errors": 2588,
+  "reference_chars": 25231,
+  "micro_cer": 0.10257223257104356,
+  "receipt": {
+    "run_id": "a640aca5-5300-458f-802a-5ea285aa0554",
+    "commit": "91257030585090522739144688e4c1b99fcf68ef",
+    "provider_status": "done",
+    "jobId": "6ab4c38c52d0dbd7f1d89832",
+    "namespace": "snigenigmatic",
+    "url": "https://huggingface.co/jobs/snigenigmatic/6ab4c38c52d0dbd7f1d89832",
+    "sourceDigest": "f12100b07b89af0ea3e2cd28a6fd6762e203b194ce548a9d9d01d1e1bf62d74a",
+    "sourcePath": "/Users/prateekraj/.local/share/openresearch/source-snapshots/f12100b07b89af0ea3e2cd28a6fd6762e203b194ce548a9d9d01d1e1bf62d74a.tar",
+    "sourceSize": 94361600,
+    "portable_archive": "source_snapshot.tar.gz",
+    "portable_archive_sha256": "bbe97d2059ef8504f4202f8f8dac7df026966e5fd5677660eb25b2c46badd243"
+  },
+  "weight_sha256": {
+    "model.safetensors": "79d6cbd4c98c7bbffe9db2edac07f56cd6637d0d5944b27f6c2b8353840323ea"
+  },
+  "scope": "Fixed public cohort; source/runtime acceptance, no held-out method or speaker-population inference"
+}

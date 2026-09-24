@@ -1,0 +1,207 @@
+{
+  "models": {
+    "openai/whisper-large-v3-turbo": 2322,
+    "openai/whisper-large-v3": 2322
+  },
+  "all_ids_exactly_once_per_model": true,
+  "common_inference_code_sha256": {
+    "research/bridge_open/run_whisper_batched.py": "e1c369c1f231906c816670f6bc497ad56bb722ed821fa589e3d7e531381c99e4",
+    "research/bridge_open/run_whisper.py": "f3bb7c655ffd61e4850ab8b08723ddc2bd233c9bffd3fbea9ad81852bace0954",
+    "research/bridge_open/scoring.py": "a63c0fdce68e33810bf233c813a5ebad0f3692e6718aad2828a802b2e776ff3c",
+    "research/bridge_open/generation_output.py": "f0b913e48db8a86e91acbd13fc2b03913d4a82edda9024137a28ec291644da29"
+  },
+  "jobs": [
+    {
+      "job": "hf-fleurs-test-turbo-hi-short-v2",
+      "commit": "33a032ec2c79cfeeb9d4217cd3425c9f3f70729c",
+      "clips": 417,
+      "inference_code_matches_baseline": {
+        "research/bridge_open/run_whisper_batched.py": true,
+        "research/bridge_open/run_whisper.py": true,
+        "research/bridge_open/scoring.py": true,
+        "research/bridge_open/generation_output.py": true
+      },
+      "original_batch_membership_preserved": true
+    },
+    {
+      "job": "hf-fleurs-test-large-hi-short-0-208-v2",
+      "commit": "5ccad7f53d97da7c6605bd460844a95629533809",
+      "clips": 208,
+      "inference_code_matches_baseline": {
+        "research/bridge_open/run_whisper_batched.py": true,
+        "research/bridge_open/run_whisper.py": true,
+        "research/bridge_open/scoring.py": true,
+        "research/bridge_open/generation_output.py": true
+      },
+      "original_batch_membership_preserved": true
+    },
+    {
+      "job": "hf-fleurs-test-turbo-bn-short-0-end-v2",
+      "commit": "52c30923a574aa6a011e97669a8e0c1a07e6ef8a",
+      "clips": 911,
+      "inference_code_matches_baseline": {
+        "research/bridge_open/run_whisper_batched.py": true,
+        "research/bridge_open/run_whisper.py": true,
+        "research/bridge_open/scoring.py": true,
+        "research/bridge_open/generation_output.py": true
+      },
+      "original_batch_membership_preserved": true
+    },
+    {
+      "job": "hf-fleurs-test-turbo-as-short-0-end-v2",
+      "commit": "356ced6415ecc611b6df6cd7d30c0b24c5d2bf7f",
+      "clips": 980,
+      "inference_code_matches_baseline": {
+        "research/bridge_open/run_whisper_batched.py": true,
+        "research/bridge_open/run_whisper.py": true,
+        "research/bridge_open/scoring.py": true,
+        "research/bridge_open/generation_output.py": true
+      },
+      "original_batch_membership_preserved": true
+    },
+    {
+      "job": "hf-fleurs-test-turbo-all-long-0-end-v2",
+      "commit": "220ff514feff3a2e78c5f336560766ffbc171b57",
+      "clips": 14,
+      "inference_code_matches_baseline": {
+        "research/bridge_open/run_whisper_batched.py": true,
+        "research/bridge_open/run_whisper.py": true,
+        "research/bridge_open/scoring.py": true,
+        "research/bridge_open/generation_output.py": true
+      },
+      "original_batch_membership_preserved": true
+    },
+    {
+      "job": "hf-fleurs-test-large-hi-short-208-end-v2",
+      "commit": "5e5fb45612d97312c9a6a38e351fa9942087a7ad",
+      "clips": 209,
+      "inference_code_matches_baseline": {
+        "research/bridge_open/run_whisper_batched.py": true,
+        "research/bridge_open/run_whisper.py": true,
+        "research/bridge_open/scoring.py": true,
+        "research/bridge_open/generation_output.py": true
+      },
+      "original_batch_membership_preserved": true
+    },
+    {
+      "job": "hf-fleurs-test-large-bn-short-0-304-v2",
+      "commit": "e30a62686b9ab6a3a2f65b5245f41c156338fdd3",
+      "clips": 304,
+      "inference_code_matches_baseline": {
+        "research/bridge_open/run_whisper_batched.py": true,
+        "research/bridge_open/run_whisper.py": true,
+        "research/bridge_open/scoring.py": true,
+        "research/bridge_open/generation_output.py": true
+      },
+      "original_batch_membership_preserved": true
+    },
+    {
+      "job": "hf-fleurs-test-large-bn-short-304-608-v2",
+      "commit": "e0fb833953ea6764db10c61b9be99abc44e40f87",
+      "clips": 304,
+      "inference_code_matches_baseline": {
+        "research/bridge_open/run_whisper_batched.py": true,
+        "research/bridge_open/run_whisper.py": true,
+        "research/bridge_open/scoring.py": true,
+        "research/bridge_open/generation_output.py": true
+      },
+      "original_batch_membership_preserved": true
+    },
+    {
+      "job": "hf-fleurs-test-large-as-short-0-192-v2",
+      "commit": "f625468fb79875be352c6921e4c7662bdcd62e81",
+      "clips": 192,
+      "inference_code_matches_baseline": {
+        "research/bridge_open/run_whisper_batched.py": true,
+        "research/bridge_open/run_whisper.py": true,
+        "research/bridge_open/scoring.py": true,
+        "research/bridge_open/generation_output.py": true
+      },
+      "original_batch_membership_preserved": true
+    },
+    {
+      "job": "hf-fleurs-test-large-all-long-0-end-v2",
+      "commit": "25041dfa1f76f33b50fd761535e5c3374bccd500",
+      "clips": 14,
+      "inference_code_matches_baseline": {
+        "research/bridge_open/run_whisper_batched.py": true,
+        "research/bridge_open/run_whisper.py": true,
+        "research/bridge_open/scoring.py": true,
+        "research/bridge_open/generation_output.py": true
+      },
+      "original_batch_membership_preserved": true
+    },
+    {
+      "job": "hf-fleurs-test-large-bn-short-608-760-v2",
+      "commit": "706c04835d1d8c4807dff475ef658416b73e250b",
+      "clips": 152,
+      "inference_code_matches_baseline": {
+        "research/bridge_open/run_whisper_batched.py": true,
+        "research/bridge_open/run_whisper.py": true,
+        "research/bridge_open/scoring.py": true,
+        "research/bridge_open/generation_output.py": true
+      },
+      "original_batch_membership_preserved": true
+    },
+    {
+      "job": "hf-fleurs-test-large-as-short-192-384-v2",
+      "commit": "aa30e617ed8f504f9f30a9758c47622b6dfc714e",
+      "clips": 192,
+      "inference_code_matches_baseline": {
+        "research/bridge_open/run_whisper_batched.py": true,
+        "research/bridge_open/run_whisper.py": true,
+        "research/bridge_open/scoring.py": true,
+        "research/bridge_open/generation_output.py": true
+      },
+      "original_batch_membership_preserved": true
+    },
+    {
+      "job": "hf-fleurs-test-large-bn-short-760-end-v2",
+      "commit": "7bfcdac57aaf4f41904d31e559f211747a3217fc",
+      "clips": 151,
+      "inference_code_matches_baseline": {
+        "research/bridge_open/run_whisper_batched.py": true,
+        "research/bridge_open/run_whisper.py": true,
+        "research/bridge_open/scoring.py": true,
+        "research/bridge_open/generation_output.py": true
+      },
+      "original_batch_membership_preserved": true
+    },
+    {
+      "job": "hf-fleurs-test-large-as-short-384-576-v2",
+      "commit": "da97f5b877300ddb53fb142d97ed5caef3591413",
+      "clips": 192,
+      "inference_code_matches_baseline": {
+        "research/bridge_open/run_whisper_batched.py": true,
+        "research/bridge_open/run_whisper.py": true,
+        "research/bridge_open/scoring.py": true,
+        "research/bridge_open/generation_output.py": true
+      },
+      "original_batch_membership_preserved": true
+    },
+    {
+      "job": "hf-fleurs-test-large-as-short-576-768-v2",
+      "commit": "b984423e278da2ff8603e9e5243ddd897c821eb9",
+      "clips": 192,
+      "inference_code_matches_baseline": {
+        "research/bridge_open/run_whisper_batched.py": true,
+        "research/bridge_open/run_whisper.py": true,
+        "research/bridge_open/scoring.py": true,
+        "research/bridge_open/generation_output.py": true
+      },
+      "original_batch_membership_preserved": true
+    },
+    {
+      "job": "hf-fleurs-test-large-as-short-768-end-v2",
+      "commit": "5d94067ae35badbd4c1e2fc10d610f7ba398efac",
+      "clips": 212,
+      "inference_code_matches_baseline": {
+        "research/bridge_open/run_whisper_batched.py": true,
+        "research/bridge_open/run_whisper.py": true,
+        "research/bridge_open/scoring.py": true,
+        "research/bridge_open/generation_output.py": true
+      },
+      "original_batch_membership_preserved": true
+    }
+  ]
+}

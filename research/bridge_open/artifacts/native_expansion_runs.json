@@ -1,0 +1,147 @@
+{
+  "study": "native_multilingual_expansion",
+  "budget_cap_usd": 15.0,
+  "runs": [
+    {
+      "shard": 1,
+      "experiment_id": "382e5677-9313-42c1-b71e-c10dae5e1e30",
+      "run_id": "6ee369c7-c49a-43d0-bb99-73cd87da8677",
+      "job_id": "turbo-native-multilingual-shard1-v1",
+      "modal_app_id": "ap-JBXAIkZW7T17v0FICpfUBJ",
+      "status": "completed_with_quality_flags",
+      "exit_code": 0,
+      "estimated_function_resource_usd": 0.31591518474158065,
+      "validation": {
+        "valid": true,
+        "path": "research/bridge_open/artifacts/turbo-native-multilingual-shard1-v1/independent_validation.json"
+      },
+      "metrics": {
+        "humyn-01-01": {
+          "language": "bn",
+          "wer": 0.9827586206896551
+        },
+        "humyn-16-00": {
+          "language": "kn",
+          "wer": 0.7352185089974294
+        },
+        "humyn-00-01": {
+          "language": "as",
+          "wer": 0.9979919678714859
+        },
+        "humyn-09-00": {
+          "language": "te",
+          "wer": 0.952769428939459
+        }
+      }
+    },
+    {
+      "shard": 2,
+      "experiment_id": "c9074687-4e5e-45b7-bb78-b5d96e3663c3",
+      "run_id": "790f2b79-38e2-4478-8e6f-f8c52e126534",
+      "job_id": "turbo-native-multilingual-shard2-v1",
+      "modal_app_id": "ap-2Acs8crktqj0i9cwQBDXDL",
+      "status": "completed_with_quality_flags",
+      "exit_code": 0,
+      "estimated_function_resource_usd": 0.4480204937939901,
+      "validation": {
+        "valid": true,
+        "path": "research/bridge_open/artifacts/turbo-native-multilingual-shard2-v1/independent_validation.json"
+      },
+      "metrics": {
+        "humyn-09-01": {
+          "language": "te",
+          "wer": 0.9267515923566879
+        },
+        "humyn-19-00": {
+          "language": "ta",
+          "wer": 0.9865871833084948
+        },
+        "humyn-02-00": {
+          "language": "bn",
+          "wer": 0.9834528405956977
+        },
+        "humyn-15-00": {
+          "language": "kn",
+          "wer": 0.7526881720430108
+        },
+        "humyn-10-00": {
+          "language": "gu",
+          "wer": 0.819060773480663
+        }
+      }
+    },
+    {
+      "shard": 3,
+      "experiment_id": "f39bfbe1-53c4-4b0c-9823-76fa064e38e1",
+      "run_id": "a32e9881-787d-4ed5-baf8-15d0a050edf9",
+      "job_id": "turbo-native-multilingual-shard3-v1",
+      "modal_app_id": "ap-IK2FcCFhavtpWkKvXwkw9Z",
+      "status": "completed_with_quality_flags",
+      "exit_code": 0,
+      "estimated_function_resource_usd": 0.34614901265335907,
+      "validation": {
+        "valid": true,
+        "path": "research/bridge_open/artifacts/turbo-native-multilingual-shard3-v1/independent_validation.json"
+      },
+      "metrics": {
+        "humyn-08-01": {
+          "language": "te",
+          "wer": 0.9250799451804477
+        },
+        "humyn-20-00": {
+          "language": "ml",
+          "wer": 1.0
+        },
+        "humyn-17-00": {
+          "language": "ta",
+          "wer": 0.8849512069851053
+        },
+        "humyn-11-00": {
+          "language": "gu",
+          "wer": 0.9287819253438114
+        },
+        "humyn-00-00": {
+          "language": "as",
+          "wer": 0.9955156950672646
+        }
+      }
+    },
+    {
+      "shard": 4,
+      "experiment_id": "c6879101-b99d-4722-a9aa-a0d0248e6d7d",
+      "run_id": "ecb38d60-35b0-4e22-abfd-4bdc20446b5a",
+      "job_id": "turbo-native-multilingual-shard4-v1",
+      "modal_app_id": "ap-7YAD5mA5TtIKgOLAzgQqLg",
+      "status": "completed_with_quality_flags",
+      "exit_code": 0,
+      "estimated_function_resource_usd": 0.429832939416251,
+      "validation": {
+        "valid": true,
+        "path": "research/bridge_open/artifacts/turbo-native-multilingual-shard4-v1/independent_validation.json"
+      },
+      "metrics": {
+        "humyn-21-00": {
+          "language": "ml",
+          "wer": 0.9982025164769323
+        },
+        "humyn-01-00": {
+          "language": "bn",
+          "wer": 0.9848668280871671
+        },
+        "humyn-14-01": {
+          "language": "kn",
+          "wer": 1.351313969571231
+        },
+        "humyn-10-01": {
+          "language": "gu",
+          "wer": 0.8152804642166345
+        },
+        "humyn-07-00": {
+          "language": "mr",
+          "wer": 0.8535353535353535
+        }
+      },
+      "provider_app_verified_by": "provider_logs/native-shard4-provider.log"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "accepted_utterances": 5214,
+  "artifact_kind": "spire_sies_validation_preparation",
+  "corpus_role": "evaluation_only_never_trained_on",
+  "declared_val_speakers": 198,
+  "duration_filter_seconds": [
+    1.0,
+    30.0
+  ],
+  "families": [
+    "Dravidian",
+    "Indo-Aryan"
+  ],
+  "hours_by_family": {
+    "Dravidian": 7.2961,
+    "Indo-Aryan": 8.0231
+  },
+  "identity_note": "SPIRE-SIES ships real speaker identifiers and a speaker-disjoint split, unlike the Svarah folds which use demographic profile clusters. Grouping here is a genuine speaker.",
+  "manifest_path": "/spire/val/manifest.csv",
+  "manifest_sha256": "7a7c0021d1a9c0c395a274cad40212d47630c80c9e442267010f6d185358b39f",
+  "mode": "materialized",
+  "observed_val_speakers": 198,
+  "repo_id": "VectorSigma389/spire-sies",
+  "scanned_rows": 35299,
+  "skipped_rows": 30085,
+  "speaker_disjoint_split": true,
+  "speaker_identity_mode": "corpus_provided_speaker",
+  "splits_sha256": "3d0404574b1e886989211be9b4e52782f0be644fa1e7083e31368aeefa5bb991",
+  "target_sample_rate": 16000,
+  "total_hours": 15.3192,
+  "utterances_by_language": {
+    "Bengali": 642,
+    "Hindi": 831,
+    "Kannada": 547,
+    "Kashmiri": 2,
+    "Konkani": 78,
+    "Malayalam": 303,
+    "Marathi": 767,
+    "Nepali": 34,
+    "Odia": 120,
+    "Punjabi": 50,
+    "Tamil": 546,
+    "Telugu": 1164,
+    "Urdu": 130
+  }
+}

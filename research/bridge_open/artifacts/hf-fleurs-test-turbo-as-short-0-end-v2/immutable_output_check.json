@@ -1,0 +1,22 @@
+{
+  "sha256": "7a1dfde42f52e8afc49b35e917149f83d8bd529ff30123d3f78cf7c4e84ee694",
+  "files": [
+    "batch_inference.jsonl",
+    "config.json",
+    "environment.json",
+    "hf_receipt.json",
+    "predictions.jsonl",
+    "remote_validation.json",
+    "summary.json"
+  ],
+  "chunks": 407,
+  "original_files_unchanged": {
+    "batch_inference.jsonl": true,
+    "config.json": true,
+    "environment.json": true,
+    "hf_receipt.json": true,
+    "predictions.jsonl": true,
+    "remote_validation.json": true,
+    "summary.json": true
+  }
+}

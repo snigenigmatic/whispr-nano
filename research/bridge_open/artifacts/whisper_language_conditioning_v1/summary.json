@@ -1,0 +1,62 @@
+{
+  "status": "completed",
+  "records": 88,
+  "total_wall_seconds": 699.7221087329963,
+  "measured_cost_usd": null,
+  "groups": [
+    {
+      "language": "hi",
+      "arm": "forced",
+      "n": 11,
+      "word_errors": 107,
+      "ref_words": 308,
+      "micro_wer": 0.3474025974025974,
+      "script_mismatches": 0
+    },
+    {
+      "language": "hi",
+      "arm": "automatic",
+      "n": 11,
+      "word_errors": 182,
+      "ref_words": 308,
+      "micro_wer": 0.5909090909090909,
+      "script_mismatches": 4
+    },
+    {
+      "language": "bn",
+      "arm": "forced",
+      "n": 19,
+      "word_errors": 504,
+      "ref_words": 616,
+      "micro_wer": 0.8181818181818182,
+      "script_mismatches": 0
+    },
+    {
+      "language": "bn",
+      "arm": "automatic",
+      "n": 19,
+      "word_errors": 504,
+      "ref_words": 616,
+      "micro_wer": 0.8181818181818182,
+      "script_mismatches": 0
+    },
+    {
+      "language": "as",
+      "arm": "forced",
+      "n": 14,
+      "word_errors": 362,
+      "ref_words": 335,
+      "micro_wer": 1.0805970149253732,
+      "script_mismatches": 14
+    },
+    {
+      "language": "as",
+      "arm": "automatic",
+      "n": 14,
+      "word_errors": 316,
+      "ref_words": 335,
+      "micro_wer": 0.9432835820895522,
+      "script_mismatches": 0
+    }
+  ]
+}

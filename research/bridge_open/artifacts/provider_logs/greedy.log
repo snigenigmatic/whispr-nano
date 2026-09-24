@@ -1,0 +1,224 @@
+Building image im-fx0zk3BUQ4ocZ1bVd92k8L
+
+=> Step 0: FROM base
+
+=> Step 1: RUN python -m pip install huggingface-hub==0.36.2 jiwer==4.0.0 numpy==2.2.6 scipy==1.15.3 soundfile==0.13.1 torch==2.8.0 transformers==4.57.6
+Looking in indexes: http://pypi-mirror.modal.local:5555/simple
+Collecting huggingface-hub==0.36.2
+  Downloading http://pypi-mirror.modal.local:5555/simple/huggingface-hub/huggingface_hub-0.36.2-py3-none-any.whl.metadata (15 kB)
+Collecting jiwer==4.0.0
+  Downloading http://pypi-mirror.modal.local:5555/simple/jiwer/jiwer-4.0.0-py3-none-any.whl.metadata (3.3 kB)
+Collecting numpy==2.2.6
+  Downloading http://pypi-mirror.modal.local:5555/simple/numpy/numpy-2.2.6-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (62 kB)
+Collecting scipy==1.15.3
+  Downloading http://pypi-mirror.modal.local:5555/simple/scipy/scipy-1.15.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (61 kB)
+Collecting soundfile==0.13.1
+  Downloading http://pypi-mirror.modal.local:5555/simple/soundfile/soundfile-0.13.1-py2.py3-none-manylinux_2_28_x86_64.whl.metadata (16 kB)
+Collecting torch==2.8.0
+  Downloading http://pypi-mirror.modal.local:5555/simple/torch/torch-2.8.0-cp312-cp312-manylinux_2_28_x86_64.whl.metadata (30 kB)
+Collecting transformers==4.57.6
+  Downloading http://pypi-mirror.modal.local:5555/simple/transformers/transformers-4.57.6-py3-none-any.whl.metadata (43 kB)
+Collecting filelock (from huggingface-hub==0.36.2)
+  Downloading http://pypi-mirror.modal.local:5555/simple/filelock/filelock-4.0.1-py3-none-any.whl.metadata (2.0 kB)
+Collecting fsspec>=2023.5.0 (from huggingface-hub==0.36.2)
+  Downloading http://pypi-mirror.modal.local:5555/simple/fsspec/fsspec-2026.9.0-py3-none-any.whl.metadata (10 kB)
+Collecting hf-xet<2.0.0,>=1.1.3 (from huggingface-hub==0.36.2)
+  Downloading http://pypi-mirror.modal.local:5555/simple/hf-xet/hf_xet-1.6.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (4.9 kB)
+Collecting packaging>=20.9 (from huggingface-hub==0.36.2)
+  Downloading http://pypi-mirror.modal.local:5555/simple/packaging/packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+Collecting pyyaml>=5.1 (from huggingface-hub==0.36.2)
+  Downloading http://pypi-mirror.modal.local:5555/simple/pyyaml/pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)
+Collecting requests (from huggingface-hub==0.36.2)
+  Downloading http://pypi-mirror.modal.local:5555/simple/requests/requests-2.34.2-py3-none-any.whl.metadata (4.8 kB)
+Collecting tqdm>=4.42.1 (from huggingface-hub==0.36.2)
+  Downloading http://pypi-mirror.modal.local:5555/simple/tqdm/tqdm-4.70.1-py3-none-any.whl.metadata (57 kB)
+Collecting typing-extensions>=3.7.4.3 (from huggingface-hub==0.36.2)
+  Downloading http://pypi-mirror.modal.local:5555/simple/typing-extensions/typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+Collecting click>=8.1.8 (from jiwer==4.0.0)
+  Downloading http://pypi-mirror.modal.local:5555/simple/click/click-8.5.0-py3-none-any.whl.metadata (2.6 kB)
+Collecting rapidfuzz>=3.9.7 (from jiwer==4.0.0)
+  Downloading http://pypi-mirror.modal.local:5555/simple/rapidfuzz/rapidfuzz-3.14.6-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (12 kB)
+Collecting cffi>=1.0 (from soundfile==0.13.1)
+  Downloading http://pypi-mirror.modal.local:5555/simple/cffi/cffi-2.1.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.5 kB)
+Collecting setuptools (from torch==2.8.0)
+  Downloading http://pypi-mirror.modal.local:5555/simple/setuptools/setuptools-84.0.0-py3-none-any.whl.metadata (6.6 kB)
+Collecting sympy>=1.13.3 (from torch==2.8.0)
+  Downloading http://pypi-mirror.modal.local:5555/simple/sympy/sympy-1.14.0-py3-none-any.whl.metadata (12 kB)
+Collecting networkx (from torch==2.8.0)
+  Downloading http://pypi-mirror.modal.local:5555/simple/networkx/networkx-3.7-py3-none-any.whl.metadata (6.7 kB)
+Collecting jinja2 (from torch==2.8.0)
+  Downloading http://pypi-mirror.modal.local:5555/simple/jinja2/jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+Collecting nvidia-cuda-nvrtc-cu12==12.8.93 (from torch==2.8.0)
+  Downloading http://pypi-mirror.modal.local:5555/simple/nvidia-cuda-nvrtc-cu12/nvidia_cuda_nvrtc_cu12-12.8.93-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl.metadata (1.7 kB)
+Collecting nvidia-cuda-runtime-cu12==12.8.90 (from torch==2.8.0)
+  Downloading http://pypi-mirror.modal.local:5555/simple/nvidia-cuda-runtime-cu12/nvidia_cuda_runtime_cu12-12.8.90-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.7 kB)
+Collecting nvidia-cuda-cupti-cu12==12.8.90 (from torch==2.8.0)
+  Downloading http://pypi-mirror.modal.local:5555/simple/nvidia-cuda-cupti-cu12/nvidia_cuda_cupti_cu12-12.8.90-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.7 kB)
+Collecting nvidia-cudnn-cu12==9.10.2.21 (from torch==2.8.0)
+  Downloading http://pypi-mirror.modal.local:5555/simple/nvidia-cudnn-cu12/nvidia_cudnn_cu12-9.10.2.21-py3-none-manylinux_2_27_x86_64.whl.metadata (1.8 kB)
+Collecting nvidia-cublas-cu12==12.8.4.1 (from torch==2.8.0)
+  Downloading http://pypi-mirror.modal.local:5555/simple/nvidia-cublas-cu12/nvidia_cublas_cu12-12.8.4.1-py3-none-manylinux_2_27_x86_64.whl.metadata (1.7 kB)
+Collecting nvidia-cufft-cu12==11.3.3.83 (from torch==2.8.0)
+  Downloading http://pypi-mirror.modal.local:5555/simple/nvidia-cufft-cu12/nvidia_cufft_cu12-11.3.3.83-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.7 kB)
+Collecting nvidia-curand-cu12==10.3.9.90 (from torch==2.8.0)
+  Downloading http://pypi-mirror.modal.local:5555/simple/nvidia-curand-cu12/nvidia_curand_cu12-10.3.9.90-py3-none-manylinux_2_27_x86_64.whl.metadata (1.7 kB)
+Collecting nvidia-cusolver-cu12==11.7.3.90 (from torch==2.8.0)
+  Downloading http://pypi-mirror.modal.local:5555/simple/nvidia-cusolver-cu12/nvidia_cusolver_cu12-11.7.3.90-py3-none-manylinux_2_27_x86_64.whl.metadata (1.8 kB)
+Collecting nvidia-cusparse-cu12==12.5.8.93 (from torch==2.8.0)
+  Downloading http://pypi-mirror.modal.local:5555/simple/nvidia-cusparse-cu12/nvidia_cusparse_cu12-12.5.8.93-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.8 kB)
+Collecting nvidia-cusparselt-cu12==0.7.1 (from torch==2.8.0)
+  Downloading http://pypi-mirror.modal.local:5555/simple/nvidia-cusparselt-cu12/nvidia_cusparselt_cu12-0.7.1-py3-none-manylinux2014_x86_64.whl.metadata (7.0 kB)
+Collecting nvidia-nccl-cu12==2.27.3 (from torch==2.8.0)
+  Downloading http://pypi-mirror.modal.local:5555/simple/nvidia-nccl-cu12/nvidia_nccl_cu12-2.27.3-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.0 kB)
+Collecting nvidia-nvtx-cu12==12.8.90 (from torch==2.8.0)
+  Downloading http://pypi-mirror.modal.local:5555/simple/nvidia-nvtx-cu12/nvidia_nvtx_cu12-12.8.90-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.8 kB)
+Collecting nvidia-nvjitlink-cu12==12.8.93 (from torch==2.8.0)
+  Downloading http://pypi-mirror.modal.local:5555/simple/nvidia-nvjitlink-cu12/nvidia_nvjitlink_cu12-12.8.93-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl.metadata (1.7 kB)
+Collecting nvidia-cufile-cu12==1.13.1.3 (from torch==2.8.0)
+  Downloading http://pypi-mirror.modal.local:5555/simple/nvidia-cufile-cu12/nvidia_cufile_cu12-1.13.1.3-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.7 kB)
+Collecting triton==3.4.0 (from torch==2.8.0)
+  Downloading http://pypi-mirror.modal.local:5555/simple/triton/triton-3.4.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (1.7 kB)
+Collecting regex!=2019.12.17 (from transformers==4.57.6)
+  Downloading http://pypi-mirror.modal.local:5555/simple/regex/regex-2026.9.10-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (40 kB)
+Collecting tokenizers<=0.23.0,>=0.22.0 (from transformers==4.57.6)
+  Downloading http://pypi-mirror.modal.local:5555/simple/tokenizers/tokenizers-0.22.2-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (7.3 kB)
+Collecting safetensors>=0.4.3 (from transformers==4.57.6)
+  Downloading http://pypi-mirror.modal.local:5555/simple/safetensors/safetensors-0.8.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.2 kB)
+Collecting pycparser (from cffi>=1.0->soundfile==0.13.1)
+  Downloading http://pypi-mirror.modal.local:5555/simple/pycparser/pycparser-3.0-py3-none-any.whl.metadata (8.2 kB)
+Collecting mpmath<1.4,>=1.1.0 (from sympy>=1.13.3->torch==2.8.0)
+  Downloading http://pypi-mirror.modal.local:5555/simple/mpmath/mpmath-1.3.0-py3-none-any.whl.metadata (8.6 kB)
+Collecting MarkupSafe>=2.0 (from jinja2->torch==2.8.0)
+  Downloading http://pypi-mirror.modal.local:5555/simple/markupsafe/markupsafe-3.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.7 kB)
+Collecting charset_normalizer<4,>=2 (from requests->huggingface-hub==0.36.2)
+  Downloading http://pypi-mirror.modal.local:5555/simple/charset-normalizer/charset_normalizer-3.5.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (45 kB)
+Collecting idna<4,>=2.5 (from requests->huggingface-hub==0.36.2)
+  Downloading http://pypi-mirror.modal.local:5555/simple/idna/idna-3.20-py3-none-any.whl.metadata (7.2 kB)
+Collecting urllib3<3,>=1.26 (from requests->huggingface-hub==0.36.2)
+  Downloading http://pypi-mirror.modal.local:5555/simple/urllib3/urllib3-2.8.0-py3-none-any.whl.metadata (7.4 kB)
+Collecting certifi>=2023.5.7 (from requests->huggingface-hub==0.36.2)
+  Downloading http://pypi-mirror.modal.local:5555/simple/certifi/certifi-2026.7.22-py3-none-any.whl.metadata (2.5 kB)
+Downloading http://pypi-mirror.modal.local:5555/simple/huggingface-hub/huggingface_hub-0.36.2-py3-none-any.whl (566 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 566.4/566.4 kB 882.0 MB/s eta 0:00:00
+Downloading http://pypi-mirror.modal.local:5555/simple/jiwer/jiwer-4.0.0-py3-none-any.whl (23 kB)
+Downloading http://pypi-mirror.modal.local:5555/simple/numpy/numpy-2.2.6-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (16.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.5/16.5 MB 711.7 MB/s eta 0:00:00
+Downloading http://pypi-mirror.modal.local:5555/simple/scipy/scipy-1.15.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (37.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 37.3/37.3 MB 246.0 MB/s eta 0:00:00
+Downloading http://pypi-mirror.modal.local:5555/simple/soundfile/soundfile-0.13.1-py2.py3-none-manylinux_2_28_x86_64.whl (1.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 1.0 GB/s eta 0:00:00
+Downloading http://pypi-mirror.modal.local:5555/simple/torch/torch-2.8.0-cp312-cp312-manylinux_2_28_x86_64.whl (887.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 887.9/887.9 MB 691.2 MB/s eta 0:00:00
+Downloading http://pypi-mirror.modal.local:5555/simple/transformers/transformers-4.57.6-py3-none-any.whl (12.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.0/12.0 MB 824.0 MB/s eta 0:00:00
+Downloading http://pypi-mirror.modal.local:5555/simple/nvidia-cublas-cu12/nvidia_cublas_cu12-12.8.4.1-py3-none-manylinux_2_27_x86_64.whl (594.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 594.3/594.3 MB 708.1 MB/s eta 0:00:00
+Downloading http://pypi-mirror.modal.local:5555/simple/nvidia-cuda-cupti-cu12/nvidia_cuda_cupti_cu12-12.8.90-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (10.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.2/10.2 MB 726.8 MB/s eta 0:00:00
+Downloading http://pypi-mirror.modal.local:5555/simple/nvidia-cuda-nvrtc-cu12/nvidia_cuda_nvrtc_cu12-12.8.93-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl (88.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 88.0/88.0 MB 684.6 MB/s eta 0:00:00
+Downloading http://pypi-mirror.modal.local:5555/simple/nvidia-cuda-runtime-cu12/nvidia_cuda_runtime_cu12-12.8.90-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (954 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 954.8/954.8 kB 1.3 GB/s eta 0:00:00
+Downloading http://pypi-mirror.modal.local:5555/simple/nvidia-cudnn-cu12/nvidia_cudnn_cu12-9.10.2.21-py3-none-manylinux_2_27_x86_64.whl (706.8 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 706.8/706.8 MB 741.7 MB/s eta 0:00:00
+Downloading http://pypi-mirror.modal.local:5555/simple/nvidia-cufft-cu12/nvidia_cufft_cu12-11.3.3.83-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (193.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 193.1/193.1 MB 765.4 MB/s eta 0:00:00
+Downloading http://pypi-mirror.modal.local:5555/simple/nvidia-cufile-cu12/nvidia_cufile_cu12-1.13.1.3-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (1.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 845.3 MB/s eta 0:00:00
+Downloading http://pypi-mirror.modal.local:5555/simple/nvidia-curand-cu12/nvidia_curand_cu12-10.3.9.90-py3-none-manylinux_2_27_x86_64.whl (63.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 63.6/63.6 MB 739.0 MB/s eta 0:00:00
+Downloading http://pypi-mirror.modal.local:5555/simple/nvidia-cusolver-cu12/nvidia_cusolver_cu12-11.7.3.90-py3-none-manylinux_2_27_x86_64.whl (267.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 267.5/267.5 MB 787.8 MB/s eta 0:00:00
+Downloading http://pypi-mirror.modal.local:5555/simple/nvidia-cusparse-cu12/nvidia_cusparse_cu12-12.5.8.93-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (288.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 288.2/288.2 MB 586.6 MB/s eta 0:00:00
+Downloading http://pypi-mirror.modal.local:5555/simple/nvidia-cusparselt-cu12/nvidia_cusparselt_cu12-0.7.1-py3-none-manylinux2014_x86_64.whl (287.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 287.2/287.2 MB 763.8 MB/s eta 0:00:00
+Downloading http://pypi-mirror.modal.local:5555/simple/nvidia-nccl-cu12/nvidia_nccl_cu12-2.27.3-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (322.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 322.4/322.4 MB 639.5 MB/s eta 0:00:00
+Downloading http://pypi-mirror.modal.local:5555/simple/nvidia-nvjitlink-cu12/nvidia_nvjitlink_cu12-12.8.93-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl (39.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 39.3/39.3 MB 719.9 MB/s eta 0:00:00
+Downloading http://pypi-mirror.modal.local:5555/simple/nvidia-nvtx-cu12/nvidia_nvtx_cu12-12.8.90-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (89 kB)
+Downloading http://pypi-mirror.modal.local:5555/simple/triton/triton-3.4.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (155.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 155.6/155.6 MB 715.9 MB/s eta 0:00:00
+Downloading http://pypi-mirror.modal.local:5555/simple/hf-xet/hf_xet-1.6.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (4.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.5/4.5 MB 746.0 MB/s eta 0:00:00
+Downloading http://pypi-mirror.modal.local:5555/simple/tokenizers/tokenizers-0.22.2-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.3/3.3 MB 845.5 MB/s eta 0:00:00
+Downloading http://pypi-mirror.modal.local:5555/simple/cffi/cffi-2.1.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (221 kB)
+Downloading http://pypi-mirror.modal.local:5555/simple/click/click-8.5.0-py3-none-any.whl (125 kB)
+Downloading http://pypi-mirror.modal.local:5555/simple/fsspec/fsspec-2026.9.0-py3-none-any.whl (221 kB)
+Downloading http://pypi-mirror.modal.local:5555/simple/packaging/packaging-26.3-py3-none-any.whl (129 kB)
+Downloading http://pypi-mirror.modal.local:5555/simple/pyyaml/pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (807 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 807.9/807.9 kB 819.3 MB/s eta 0:00:00
+Downloading http://pypi-mirror.modal.local:5555/simple/rapidfuzz/rapidfuzz-3.14.6-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (3.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.2/3.2 MB 486.5 MB/s eta 0:00:00
+Downloading http://pypi-mirror.modal.local:5555/simple/regex/regex-2026.9.10-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (804 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 804.6/804.6 kB 769.9 MB/s eta 0:00:00
+Downloading http://pypi-mirror.modal.local:5555/simple/safetensors/safetensors-0.8.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (516 kB)
+Downloading http://pypi-mirror.modal.local:5555/simple/setuptools/setuptools-84.0.0-py3-none-any.whl (818 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 818.2/818.2 kB 762.9 MB/s eta 0:00:00
+Downloading http://pypi-mirror.modal.local:5555/simple/sympy/sympy-1.14.0-py3-none-any.whl (6.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.3/6.3 MB 727.4 MB/s eta 0:00:00
+Downloading http://pypi-mirror.modal.local:5555/simple/mpmath/mpmath-1.3.0-py3-none-any.whl (536 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 536.2/536.2 kB 750.8 MB/s eta 0:00:00
+Downloading http://pypi-mirror.modal.local:5555/simple/tqdm/tqdm-4.70.1-py3-none-any.whl (80 kB)
+Downloading http://pypi-mirror.modal.local:5555/simple/typing-extensions/typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+Downloading http://pypi-mirror.modal.local:5555/simple/filelock/filelock-4.0.1-py3-none-any.whl (106 kB)
+Downloading http://pypi-mirror.modal.local:5555/simple/jinja2/jinja2-3.1.6-py3-none-any.whl (134 kB)
+Downloading http://pypi-mirror.modal.local:5555/simple/markupsafe/markupsafe-3.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (22 kB)
+Downloading http://pypi-mirror.modal.local:5555/simple/networkx/networkx-3.7-py3-none-any.whl (2.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 710.2 MB/s eta 0:00:00
+Downloading http://pypi-mirror.modal.local:5555/simple/pycparser/pycparser-3.0-py3-none-any.whl (48 kB)
+Downloading http://pypi-mirror.modal.local:5555/simple/requests/requests-2.34.2-py3-none-any.whl (73 kB)
+Downloading http://pypi-mirror.modal.local:5555/simple/charset-normalizer/charset_normalizer-3.5.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (248 kB)
+Downloading http://pypi-mirror.modal.local:5555/simple/idna/idna-3.20-py3-none-any.whl (69 kB)
+Downloading http://pypi-mirror.modal.local:5555/simple/urllib3/urllib3-2.8.0-py3-none-any.whl (135 kB)
+Downloading http://pypi-mirror.modal.local:5555/simple/certifi/certifi-2026.7.22-py3-none-any.whl (136 kB)
+Installing collected packages: nvidia-cusparselt-cu12, mpmath, urllib3, typing-extensions, tqdm, sympy, setuptools, safetensors, regex, rapidfuzz, pyyaml, pycparser, packaging, nvidia-nvtx-cu12, nvidia-nvjitlink-cu12, nvidia-nccl-cu12, nvidia-curand-cu12, nvidia-cufile-cu12, nvidia-cuda-runtime-cu12, nvidia-cuda-nvrtc-cu12, nvidia-cuda-cupti-cu12, nvidia-cublas-cu12, numpy, networkx, MarkupSafe, idna, hf-xet, fsspec, filelock, click, charset_normalizer, certifi, triton, scipy, requests, nvidia-cusparse-cu12, nvidia-cufft-cu12, nvidia-cudnn-cu12, jiwer, jinja2, cffi, soundfile, nvidia-cusolver-cu12, huggingface-hub, torch, tokenizers, transformers
+
+Successfully installed MarkupSafe-3.0.3 certifi-2026.7.22 cffi-2.1.1 charset_normalizer-3.5.1 click-8.5.0 filelock-4.0.1 fsspec-2026.9.0 hf-xet-1.6.0 huggingface-hub-0.36.2 idna-3.20 jinja2-3.1.6 jiwer-4.0.0 mpmath-1.3.0 networkx-3.7 numpy-2.2.6 nvidia-cublas-cu12-12.8.4.1 nvidia-cuda-cupti-cu12-12.8.90 nvidia-cuda-nvrtc-cu12-12.8.93 nvidia-cuda-runtime-cu12-12.8.90 nvidia-cudnn-cu12-9.10.2.21 nvidia-cufft-cu12-11.3.3.83 nvidia-cufile-cu12-1.13.1.3 nvidia-curand-cu12-10.3.9.90 nvidia-cusolver-cu12-11.7.3.90 nvidia-cusparse-cu12-12.5.8.93 nvidia-cusparselt-cu12-0.7.1 nvidia-nccl-cu12-2.27.3 nvidia-nvjitlink-cu12-12.8.93 nvidia-nvtx-cu12-12.8.90 packaging-26.3 pycparser-3.0 pyyaml-6.0.3 rapidfuzz-3.14.6 regex-2026.9.10 requests-2.34.2 safetensors-0.8.0 scipy-1.15.3 setuptools-84.0.0 soundfile-0.13.1 sympy-1.14.0 tokenizers-0.22.2 torch-2.8.0 tqdm-4.70.1 transformers-4.57.6 triton-3.4.0 typing-extensions-4.16.0 urllib3-2.8.0
+
+[notice] A new release of pip is available: 25.1.1 -> 26.2.1
+[notice] To update, run: pip install --upgrade pip
+Saving image...
+Image saved, took 3.46s
+
+Built image im-fx0zk3BUQ4ocZ1bVd92k8L in 90.99s
+
+
+Building image im-l7PBCMQKZvETNUKX0mzcE6
+
+=> Step 0: FROM base
+
+=> Step 1: ENV HF_HOME=/cache/huggingface
+
+=> Step 2: ENV TOKENIZERS_PARALLELISM=false
+Saving image...
+Image saved, took 1.89s
+
+Built image im-l7PBCMQKZvETNUKX0mzcE6 in 2.96s
+
+
+
+[1AFetching 11 files:   0%|          | 0/11 [00:00<?, ?it/s]
+[1AFetching 11 files:  73%|███████▎  | 8/11 [00:01<00:00,  4.65it/s]Fetching 11 files: 100%|██████████| 11/11 [00:11<00:00,  1.03s/it]
+`torch_dtype` is deprecated! Use `dtype` instead!
+{"event": "run_started", "config": {"model_id": "openai/whisper-large-v3-turbo", "model_revision": "41f01f3fe87f28c78e2fbf8b568835947dd65ed9", "manifest_path": "/Users/prateekraj/whispr-nano/data/bridge_open/humyn_public_v1/corpus-v1.jsonl", "manifest_sha256": "e6992a043c9448a9974d1707186ee8cbfda87154b1d4aad940c8546c4054aa78", "conversation_ids": ["humyn-13-00", "humyn-13-01", "humyn-14-00"], "supported_languages": ["as", "bn", "gu", "hi", "kn", "ml", "mr", "pa", "ta", "te"], "device": "cuda", "seed": 12, "chunk_seconds": 30, "batch_size": 8, "max_new_tokens": 440, "max_wall_seconds": 780, "output_dir": "/tmp/hindi-turbo-cuda-greedy-v1", "metric_protocol": "NFC casefold Unicode punctuation to spaces; whitespace words; whitespace-free Unicode codepoint CER; no numeral conversion; JiWER 4.0.0", "purpose": "public-data engineering pilot, not held-out model ranking", "executor": "modal", "cloud_job_id": "hindi-turbo-cuda-greedy-v1", "num_beams": 1, "return_timestamps": false, "condition_id": "audio_only_fixed_30s_no_overlap_cuda_greedy"}, "environment": {"started_at": "2026-09-22T07:51:15.934499+00:00", "config_sha256": "ac35c62de5d16303cec76e63b2264a1bc314b7cba41ef26cf0cf9d24cb55c75f", "manifest_sha256": "e6992a043c9448a9974d1707186ee8cbfda87154b1d4aad940c8546c4054aa78", "weight_sha256": {"model.safetensors": "542566a422ae4f3fd23f1ba11add198fca01bbf82e66e6a2857b3f608b1eb9d1"}, "auxiliary_file_sha256": {"added_tokens.json": "3c51f66c4c21f9e126970078f11ae77a78c74aee8df606ee9daba86e467108e0", "config.json": "c5b526b3e3cd64cd8940dabb45e8ba726629e22d8ed389c29b552f9140daf04a", "generation_config.json": "cce11bfe3aaa6ae9e072ea2637caaec8795e68d9b67e655a5af16ee509681a4c", "merges.txt": "2df2990a395e35e8dfbc7511e08c12d56018d8d04691e0133e5d63b21e154dc6", "normalizer.json": "bf1c507dc8724ca9cf9903640dacfb69dae2f00edee4f21ceba106a7392f26dd", "preprocessor_config.json": "7ccc62c6f2765af1f3b46c00c9b5894426835a05021c8b9c01eecb6dfb542711", "special_tokens_map.json": "baea4ea09372eb4fca86b4e4346139fd73cb807d5087e9de0948e971739c3e74", "tokenizer.json": "297b13372ac43916285644fb9687add3cc62ee2a1adb60da3dc25cc94c1871fd", "tokenizer_config.json": "844b642c73a91359722f47b35705f7174686df33d252695d8572cf9ac03a6389", "vocab.json": "e2aa043ef015641d363d8288e7c241c85e36a5c761fb303598e0710233344387"}, "code_sha256": {"run_whisper.py": "107eaddf5a423ce412b923cc19452fc282662cd77a098e6168e453554c1424ff", "scoring.py": "a63c0fdce68e33810bf233c813a5ebad0f3692e6718aad2828a802b2e776ff3c", "generation_output.py": "f0b913e48db8a86e91acbd13fc2b03913d4a82edda9024137a28ec291644da29"}, "packages": {"torch": "2.8.0", "transformers": "4.57.6", "numpy": "2.2.6", "scipy": "1.15.3", "soundfile": "0.13.1", "jiwer": "4.0.0", "huggingface-hub": "0.36.2"}, "platform": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36", "device": "cuda", "dtype": "float32", "imported_transformers": "4.57.6", "imported_torch": "2.8.0+cu128", "model_load_seconds": 15.448270608999998, "cloud_cost_usd": null}}
+{"event": "batch_done", "conversation_id": "humyn-13-00", "chunks_done": 8, "chunks_total": 29}
+{"event": "batch_done", "conversation_id": "humyn-13-00", "chunks_done": 16, "chunks_total": 29}
+{"event": "batch_done", "conversation_id": "humyn-13-00", "chunks_done": 24, "chunks_total": 29}
+{"event": "batch_done", "conversation_id": "humyn-13-00", "chunks_done": 29, "chunks_total": 29}
+{"event": "conversation_done", "record_type": "conversation_prediction", "schema_version": "1.0", "conversation_id": "humyn-13-00", "language": "hi", "model_id": "openai/whisper-large-v3-turbo", "model_revision": "41f01f3fe87f28c78e2fbf8b568835947dd65ed9", "condition_id": "audio_only_fixed_30s_no_overlap_cuda_greedy", "attempt": 1, "audio_sha256": "7bd13585c48b4b6a82ce14dacd58f9fb3daf1a8ac19d8d3d167457445ecf95df", "reference_sha256": "98287d1163ffe0858f2457ee3ea5bd1fb5b9f829bf570c8a096c7c13eb86d2af", "started_at": "2026-09-22T07:51:15.960173+00:00", "status": "generation_limit", "failure": {"type": "generation_truncated", "message": "All audio processed; at least one chunk reached generation cap without EOS. Retain bounded-output errors in pilot scores."}, "sampled_max_mps_driver_bytes": null, "peak_cuda_allocated_bytes": 5286824448, "duration_seconds": 863.125, "metrics": {"wer": 0.7198979591836735, "cer": 0.5784196348398684, "wil": 0.8957450904890258, "hits": 570, "substitutions": 999, "deletions": 391, "insertions": 21, "ref_words": 1960, "ref_chars": 6682, "hyp_words": 1590, "character_errors": 3865}, "ended_at": "2026-09-22T07:51:26.217490+00:00", "wall_seconds": 10.257326525000003, "real_time_factor": 0.011883940941346854}
+{"event": "batch_done", "conversation_id": "humyn-13-01", "chunks_done": 8, "chunks_total": 29}
+{"event": "batch_done", "conversation_id": "humyn-13-01", "chunks_done": 16, "chunks_total": 29}
+{"event": "batch_done", "conversation_id": "humyn-13-01", "chunks_done": 24, "chunks_total": 29}
+{"event": "batch_done", "conversation_id": "humyn-13-01", "chunks_done": 29, "chunks_total": 29}
+{"event": "conversation_done", "record_type": "conversation_prediction", "schema_version": "1.0", "conversation_id": "humyn-13-01", "language": "hi", "model_id": "openai/whisper-large-v3-turbo", "model_revision": "41f01f3fe87f28c78e2fbf8b568835947dd65ed9", "condition_id": "audio_only_fixed_30s_no_overlap_cuda_greedy", "attempt": 1, "audio_sha256": "4cf56a04362720b4c183b9497a2a0395090cd3a759360019b6931d22acd386f4", "reference_sha256": "6623733b1ab3135b9ca281a5bc9a55e3224e1add4878ab46f29627ea2cae4879", "started_at": "2026-09-22T07:51:26.220206+00:00", "status": "generation_limit", "failure": {"type": "generation_truncated", "message": "All audio processed; at least one chunk reached generation cap without EOS. Retain bounded-output errors in pilot scores."}, "sampled_max_mps_driver_bytes": null, "peak_cuda_allocated_bytes": 5286824448, "duration_seconds": 865.833375, "metrics": {"wer": 0.6334755808440019, "cer": 0.4583100167879127, "wil": 0.7858180536031844, "hits": 959, "substitutions": 891, "deletions": 259, "insertions": 186, "ref_words": 2109, "ref_chars": 7148, "hyp_words": 2036, "character_errors": 3276}, "ended_at": "2026-09-22T07:51:34.820238+00:00", "wall_seconds": 8.600028997999999, "real_time_factor": 0.009932660539910463}
+{"event": "batch_done", "conversation_id": "humyn-14-00", "chunks_done": 8, "chunks_total": 31}
+{"event": "batch_done", "conversation_id": "humyn-14-00", "chunks_done": 16, "chunks_total": 31}
+{"event": "batch_done", "conversation_id": "humyn-14-00", "chunks_done": 24, "chunks_total": 31}
+{"event": "batch_done", "conversation_id": "humyn-14-00", "chunks_done": 31, "chunks_total": 31}
+{"event": "conversation_done", "record_type": "conversation_prediction", "schema_version": "1.0", "conversation_id": "humyn-14-00", "language": "hi", "model_id": "openai/whisper-large-v3-turbo", "model_revision": "41f01f3fe87f28c78e2fbf8b568835947dd65ed9", "condition_id": "audio_only_fixed_30s_no_overlap_cuda_greedy", "attempt": 1, "audio_sha256": "b611f7c1cf604d2f2f99f1e7c7acda70e31d5a95e45af7fb774cd6bafbafb3c8", "reference_sha256": "6a2342e7683ac439792ebc77dfee677ba6f7b460d5bd6ef68fd200dd1d74835a", "started_at": "2026-09-22T07:51:34.822721+00:00", "status": "generation_limit", "failure": {"type": "generation_truncated", "message": "All audio processed; at least one chunk reached generation cap without EOS. Retain bounded-output errors in pilot scores."}, "sampled_max_mps_driver_bytes": null, "peak_cuda_allocated_bytes": 5286824448, "duration_seconds": 906.0416875, "metrics": {"wer": 0.6610517666392769, "cer": 0.6035292769565715, "wil": 0.8292165771523942, "hits": 849, "substitutions": 861, "deletions": 724, "insertions": 24, "ref_words": 2434, "ref_chars": 8727, "hyp_words": 1734, "character_errors": 5267}, "ended_at": "2026-09-22T07:51:43.406978+00:00", "wall_seconds": 8.584258372000008, "real_time_factor": 0.009474462919787019}
+{"event": "final_summary", "status": "completed_with_quality_flags", "scope": "engineering/public-data pilot; not BRIDGE-matched or population evidence", "attempted": 3, "successful": 0, "scored": 3, "conversation_ids": ["humyn-13-00", "humyn-13-01", "humyn-14-00"], "per_language": {"hi": {"estimand": "all fully processed conversations including empty/capped text; runtime failures reported separately", "conversation_ids": ["humyn-13-00", "humyn-13-01", "humyn-14-00"], "scored_count": 3, "attempted_count": 3, "clean_completion_count": 0, "generation_limit_count": 3, "word_errors": 4356, "ref_words": 6503, "character_errors": 12408, "ref_chars": 22557, "micro_wer": 0.6698446870675073, "micro_cer": 0.5500731480250033, "mean_conversation_wer": 0.6714751022223174, "mean_conversation_wil": 0.8369265737482015}}, "results": [{"conversation_id": "humyn-13-00", "language": "hi", "status": "generation_limit", "metrics": {"wer": 0.7198979591836735, "cer": 0.5784196348398684, "wil": 0.8957450904890258, "hits": 570, "substitutions": 999, "deletions": 391, "insertions": 21, "ref_words": 1960, "ref_chars": 6682, "hyp_words": 1590, "character_errors": 3865}, "wall_seconds": 10.257326525000003, "real_time_factor": 0.011883940941346854}, {"conversation_id": "humyn-13-01", "language": "hi", "status": "generation_limit", "metrics": {"wer": 0.6334755808440019, "cer": 0.4583100167879127, "wil": 0.7858180536031844, "hits": 959, "substitutions": 891, "deletions": 259, "insertions": 186, "ref_words": 2109, "ref_chars": 7148, "hyp_words": 2036, "character_errors": 3276}, "wall_seconds": 8.600028997999999, "real_time_factor": 0.009932660539910463}, {"conversation_id": "humyn-14-00", "language": "hi", "status": "generation_limit", "metrics": {"wer": 0.6610517666392769, "cer": 0.6035292769565715, "wil": 0.8292165771523942, "hits": 849, "substitutions": 861, "deletions": 724, "insertions": 24, "ref_words": 2434, "ref_chars": 8727, "hyp_words": 1734, "character_errors": 5267}, "wall_seconds": 8.584258372000008, "real_time_factor": 0.009474462919787019}], "total_wall_seconds": 42.898670291, "cloud_cost_usd": null}
+{"event": "cloud_receipt", "exit_code": 0, "function_wall_seconds": 72.39611962800001, "estimated_function_resource_usd": 0.08578361006960977, "gpu": "NVIDIA H100 80GB HBM3", "cpu_limit": 4, "memory_limit_gib": 16, "timeout_seconds": 900, "pricing_source": "https://modal.com/pricing", "provider_bill_verified": false}
+Stopping app - local entrypoint completed.

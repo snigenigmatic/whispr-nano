@@ -1,0 +1,122 @@
+[
+  {
+    "source": "alphaxiv",
+    "id": "2609.24199",
+    "title": "Vimarsha: Faithful ASR Evaluation for Indian Languages with Demographic Diversity, In-the-Wild Audio and Spelling Variations",
+    "abstract": "Evaluation benchmarks for Indian language automatic speech recognition (ASR) suffer from two systematic biases: optimistic scores from clean, controlled audio conditions, and pessimistic scores from overly rigid transcription standards that penalize valid linguistic variations. We introduce Vimarsha, a 100-hour benchmark spanning all 22 scheduled Indian languages, designed to address both distortions. Vimarsha combines demographically diverse on-field recordings with carefully mined in-the-wild audio selected for acoustic difficulty, alongside a lattice of variations framework that encodes multiple valid transcriptions per utterance. Evaluations of 10 state-of-the-art ASR models reveal substantial shifts in model rankings under realistic conditions, geographic and demographic performance disparities, and systematic failure modes across speaking rates and acoustic environments.",
+    "publicationDate": "2026-09-21T07:14:46.000Z",
+    "votes": 1
+  },
+  {
+    "source": "alphaxiv",
+    "id": "2609.15758",
+    "title": "Sequential Adapter Stacking for Cross-Lingual Low-Resource ASR",
+    "abstract": "Extending large-scale multilingual automatic speech recognition (ASR) models to low-resource languages remains challenging. Model performance is skewed toward high-resource languages and degrades sharply for languages with limited labeled data and pre-training exposure. To address this, we investigate parameter-efficient approaches for transferring knowledge from resource-rich source languages to low-resource target languages on Whisper. Alongside warm initialization and attention-based fusion, we propose Sequential Adapter Stacking, which places a trainable target-language adapter on top of a frozen source-language adapter. Under controlled experiments, these approaches are evaluated on three target languages unsupported by Whisper -- Asturian, Assamese, and Xhosa -- using source languages with varying degrees of relatedness. Sequential Adapter Stacking with the closest related source consistently and significantly outperforms full fine-tuning across the three targets, with 5--8\\% relative WER reductions. These gains largely persist with only one hour of target training data.",
+    "publicationDate": "2026-09-14T15:43:41.000Z",
+    "votes": 2
+  },
+  {
+    "source": "alphaxiv",
+    "id": "2608.28645",
+    "title": "Cross Lingual Transfer in Tulu Legal Comprehension: Script-Dependent Improvement and RAG-Induced Knowledge Conflict",
+    "abstract": "Low-resource languages without an adequate training corpus often use a related, higher-resource language as a scaffold for comprehension. Still, there is a need to develop rigorous evaluation methods to identify when models fail in cross lingual low-resource environments. Using the legal domain as a backdrop, three models (Llama3, Hex-1, Sarvam) were tested on the ability to classify legal complaints written in a low resource Dravidian language (Tulu). Transliterating queries across Dravidian scripts allowed models to gain a preliminary understanding of speakers' complaints without the use of wide scale training, though the level of comprehension was heavily script dependent (with Kannada - another relatively low-resource language - producing the strongest positive trend). Retrieving from a corpus of Kannada legal papers across a RAG framework caused mixed results. Some models had a weak positive trend in comprehension under certain conditions, but when models failed, it was often across two axes: fact substitution (fixating on specific passage excerpts that skewed reasoning) and confabulation (hallucination that had no basis in either query or corpus). Within low resource domains, results identify the model's parsing of information and subsequent reasoning as the source of reasoning failure, rather than corpus contents. Script-dependent comprehension and RAG robustness also seem to travel together. This is further supported by the reasoning-trace analysis and a statistical-honesty framework deployed - techniques that are more broadly applicable to low-resource multilingual RAG evaluation.",
+    "publicationDate": "2026-08-13T17:55:45.000Z",
+    "votes": 0
+  },
+  {
+    "source": "alphaxiv",
+    "id": "2608.10670",
+    "title": "Seeds Before Objectives: Rethinking Evaluation for Low-Resource Garhwali ASR",
+    "abstract": "At corpus sizes typical of low-resource dialects, single-run comparisons can yield gains that do not replicate. We show this for Garhwali, an under-resourced Indo-Aryan language of the central Himalaya, building the first reproducible multi-seed ASR benchmark on the official VAANI splits, with per-seed outputs and significance testing. Re-examining plausible gains, we find them fragile: neither Focal CTC nor a matra-weighted objective beats standard CTC under seed-level testing, the matra objective fails to cut even its targeted errors, and Hindi-to-Garhwali transfer gives no gain over direct fine-tuning. What holds up is mundane: w2v-BERT 2.0 with standard CTC reaches 47.0% WER over five seeds, beating the larger MMS-1B and comparable models; pretraining design, not parameter count, drives performance, and speed augmentation gives a small, largely consistent gain. Multi-seed evaluation on official splits separates real gains from seed noise.",
+    "publicationDate": "2026-08-11T08:51:57.000Z",
+    "votes": 1
+  },
+  {
+    "source": "alphaxiv",
+    "id": "2607.09598",
+    "title": "Tokenizer Transplantation: Mitigating Autoregressive Collapse in Edge-Efficient Bengali ASR",
+    "abstract": "Lightweight speech recognition models are critical for edge deployment, yet highly optimized architectures like Moonshine often fail on morphologically rich, non-Latin languages such as Bengali. This study identifies the root cause of this failure as the model's English-centric byte-level tokenizer, which fragments Bengali words into high-fertility byte chains and triggers catastrophic autoregressive collapse during inference. To resolve this, a novel vocabulary transplantation pipeline is proposed to replace the decoder vocabulary with the native-script BanglaBERT WordPiece vocabulary and resize the corresponding token embedding matrix. Experimental results demonstrate a reduction in token fertility from 9.16 to 1.30. By decreasing autoregressive sequence length by 85.8%, decoding instability is entirely mitigated. When evaluated on the 882-hour Lipi-Ghor dataset, the modified architecture achieves a competitive 21.54% Word Error Rate (WER) and a Real-Time Factor (RTF) of 0.0053. Ultimately, this research provides a scalable, reproducible blueprint for cross-script adaptation of compact ASR models without the need for resource-intensive pre-training.",
+    "publicationDate": "2026-07-10T16:54:38.000Z",
+    "votes": 4
+  },
+  {
+    "source": "alphaxiv",
+    "id": "2606.09317",
+    "title": "A Comparative Study of Pre-trained Speech Encoders and Training Objectives for Large-Scale Indic Spoken Language Identification",
+    "abstract": "Spoken language identification (LID) for Indian languages is a challenging problem due to the large number of languages, significant phonetic overlap among related varieties, and the scarcity of labeled data for many low-resource languages. In this work, we present a systematic comparative study of two pre-trained speech encoders -- Whisper and FastConformer -- combined with a linear classifier for large-scale Indic LID spanning 42 languages across four linguistic families. We evaluate both encoders in frozen (linear probing) and fine-tuned settings, and compare three training objectives: cross-entropy (CE), supervised contrastive loss with cross entropy (CE + supCon), and hierarchical softmax (HSM). Models are trained on the Vaani dataset and evaluated in a cross-corpus setting on Vaani-Test (held-out), FLEURS, and Kathbath, providing insights into domain generalization. The frozen FastConformer encoder achieves over 90\\% macro accuracy on FLEURS and Kathbath without any task-specific adaptation, substantially outperforming Whisper on out-of-domain benchmarks, while fine-tuned Whisper yields stronger in-domain performance. HSM consistently outperforms CE and CE+SupCon for both encoders across all benchmarks, with the largest gains on out-of-domain test sets. CE+SupCon degrades FastConformer's cross-corpus generalization, suggesting that the contrastive objective over-specializes representations to in-domain conditions. Per-family analysis shows that Central Indo-Aryan varieties are the hardest to discriminate, with Hindi--Urdu and the Sadri--Chhattisgarhi--Surgujia cluster being the dominant confusion pairs.",
+    "publicationDate": "2026-06-08T10:27:33.000Z",
+    "votes": 5
+  },
+  {
+    "source": "alphaxiv",
+    "id": "2606.17820",
+    "title": "Improving low-resource ASR using bilingual fine-tuning with language identification: a cross-linguistic evaluation",
+    "abstract": "This study explores how bilingual fine-tuning affects automatic speech recognition (ASR) in low-resource languages. We evaluate this method across nine linguistically and geographically diverse language pairs, covering a range of language families and writing systems. To distinguish the two languages, during training, we pre-pend each input text with a language identification token. At inference, the model jointly predicts both the language and transcription from the speech input alone. As texts for which the language is incorrectly determined show low ASR performance, we also conduct a follow-up experiment in which the language identification token is provided both during training and inference. Our results show that bilingual fine-tuning can be beneficial when language identification accuracy is high, and that in cases where language identification performance is low, including the language identification token at inference helps to improve ASR performance.",
+    "publicationDate": "2026-06-16T11:48:36.000Z",
+    "votes": 2
+  },
+  {
+    "source": "alphaxiv",
+    "id": "2606.09535",
+    "title": "Overcoming Decoder Inconsistencies in Whisper for Dravidian and Low-Resource Languages",
+    "abstract": "Multilingual ASR models such as Whisper perform well on high-resource languages but exhibit substantially higher Word Error Rates (WER) for Dravidian languages compared to Indo-Aryan ones. Through linguistic and dataset analysis, we show that Dravidian languages have longer words, higher vocabulary diversity, and lower repetition, resulting in sparse token distributions and frequent character-level substitution errors. Baseline fine-tuning further reveals decoder imbalance between self-attention (linguistic context) and cross-attention (acoustic cues). Although synthetic token-repetition experiments indicate potential gains, they are impractical. Motivated by these observations, we introduce two decoder-level enhancements: Weighted-Attention, which adaptively balances attention sources, and Self-Conditioning, which reinjects intermediate predictions to improve token consistency. Experiments demonstrate consistent WER reductions for low-resource and agglutinative languages.",
+    "publicationDate": "2026-06-08T14:18:51.000Z",
+    "votes": 1
+  },
+  {
+    "source": "alphaxiv",
+    "id": "2606.06088",
+    "title": "CHALIS: A Challenge Dataset for Language Identification in Difficult Scenarios",
+    "abstract": "We present CHALIS (Challenging Language Identification Samples), a new benchmark dataset explicitly designed to address difficult cases in language identification: cousin languages and orthographic noise. Our dataset has two parts: First, we collected sentences shared across mutually intelligible language pairs (Czech/Slovak, Spanish/Catalan, Portuguese/Galician, Danish/Norwegian). The second part tests for orthography noise: we transliterate text across multiple scripts, remove diacritics, simulate homoglyph attacks, and use Internet slang. We evaluate four widely used language identification systems on CHALIS and demonstrate that all struggle substantially in these scenarios, especially on lower-resource languages within cousin pairs and on transliterated input. The resource is publicly available at this https URL.",
+    "publicationDate": "2026-06-04T12:26:19.000Z",
+    "votes": 4
+  },
+  {
+    "source": "alphaxiv",
+    "id": "2605.13087",
+    "title": "Vividh-ASR: A Complexity-Tiered Benchmark and Optimization Dynamics for Robust Indic Speech Recognition",
+    "abstract": "Fine-tuning multilingual ASR models like Whisper for low-resource languages often improves read speech but degrades spontaneous audio performance, a phenomenon we term studio-bias. To diagnose this mismatch, we introduce Vividh-ASR, a complexity-stratified benchmark for Hindi and Malayalam across four tiers: studio, broadcast, spontaneous, and synthetic noise. Through a controlled study of learning-rate timing and curriculum ordering, we find that early large parameter updates improve global WER by 12 absolute points, while a hard-to-easy curriculum adds gains for spontaneous speech. These findings motivate reverse multi-stage fine-tuning (R-MFT), a training recipe that enables a parameter-efficient 244M Whisper model to match or exceed conventionally fine-tuned 769M counterparts. Representational analysis via CKA and SVD reveals effective schedules concentrate adaptation in the decoder, preserving the pre-trained encoder's acoustic geometry. We release the benchmark and models.",
+    "publicationDate": "2026-05-13T06:55:55.000Z",
+    "votes": 2
+  },
+  {
+    "source": "alphaxiv",
+    "id": "2604.08786",
+    "title": "Script collapse in multilingual ASR: A reference-free metric and 100-pair benchmark",
+    "abstract": "Word error rate (WER) is the dominant metric for automatic speech recognition, yet it cannot detect a systematic failure mode: models that produce fluent output in the wrong writing system. We define Script Fidelity Rate (SFR), the fraction of hypothesis characters in the target script block, computable without reference transcriptions, and report a systematic measurement of script collapse across ten languages spanning six writing systems and ten models (seven Whisper sizes, MMS-1B, SeamlessM4T-v2, and Gemma 4 E2B) on FLEURS test sets. Across 100 evaluated model-language pairs, 21 (21%; 95% Wilson CI: 14-30%) exhibit script collapse (SFR less than 10%): 20 involve Whisper and one involves Gemma 4 E2B on Urdu under a generic transcription prompt. In a ten-language Gemma 4 probe, script-aware prompting raises mean SFR from 71.2% to 97.7%, fixes Urdu collapse (6.5% to 97.0%), and recovers 5.9 chrF on downstream NLLB translation for the six languages whose baseline SFR is below 90%. We identify four collapse patterns: Latin phonetic substitution, Arabic substitution for Somali, Devanagari substitution for Bengali/Malayalam, and unique-script Latin collapse for Georgian.",
+    "publicationDate": "2026-04-09T21:49:41.000Z",
+    "votes": 1
+  },
+  {
+    "source": "alphaxiv",
+    "id": "2602.21183",
+    "title": "823-OLT @ BUET DL Sprint 4.0: Context-Aware Windowing for ASR and Fine-Tuned Speaker Diarization in Bengali Long Form Audio",
+    "abstract": "Bengali, despite being one of the most widely spoken languages globally, remains underrepresented in long form speech technology, particularly in systems addressing transcription and speaker attribution. We present frameworks for long form Bengali speech intelligence that address automatic speech recognition using a Whisper Medium based model and speaker diarization using a finetuned segmentation model. The ASR pipeline incorporates vocal separation, voice activity detection, and a gap aware windowing strategy to construct context preserving segments for stable decoding. For diarization, a pretrained speaker segmentation model is finetuned on the official competition dataset (provided as part of the DL Sprint 4.0 competition organized under BUET CSE Fest), to better capture Bengali conversational patterns. The resulting systems deliver both efficient transcription of long form audio and speaker aware transcription to provide scalable speech technology solutions for low resource languages.",
+    "publicationDate": "2026-02-24T18:34:14.000Z",
+    "votes": 2
+  },
+  {
+    "source": "alphaxiv",
+    "id": "2603.07554",
+    "title": "Nwāchā Munā: A Devanagari Speech Corpus and Proximal Transfer Benchmark for Nepal Bhasha ASR",
+    "abstract": "Nepal Bhasha (Newari), an endangered language of the Kathmandu Valley, remains digitally marginalized due to the severe scarcity of annotated speech resources. In this work, we introduce Nwāchā Munā, a newly curated 5.39-hour manually transcribed Devanagari speech corpus for Nepal Bhasha, and establish the first benchmark using script-preserving acoustic modeling. We investigate whether proximal cross-lingual transfer from a geographically and linguistically adjacent language (Nepali) can rival large-scale multilingual pretraining in an ultra-low-resource Automatic Speech Recognition (ASR) setting. Fine-tuning a Nepali Conformer model reduces the Character Error Rate (CER) from a 52.54% zero-shot baseline to 17.59% with data augmentation, effectively matching the performance of the multilingual Whisper-Small model despite utilizing significantly fewer parameters. Our findings demonstrate that proximal transfer within South Asian language clusters serves as a computationally efficient alternative to massive multilingual models. We openly release the dataset and benchmarks to digitally enable the Newari community and foster further research in Nepal Bhasha.",
+    "publicationDate": "2026-03-08T09:35:05.000Z",
+    "votes": 0
+  },
+  {
+    "source": "alphaxiv",
+    "id": "2603.03158",
+    "title": "An Investigation Into Various Approaches For Bengali Long-Form Speech Transcription and Bengali Speaker Diarization",
+    "abstract": "Bengali remains a low-resource language in speech technology, especially for complex tasks like long-form transcription and speaker diarization. This paper presents a multistage approach developed for the \"DL Sprint 4.0 - Bengali Long-Form Speech Recognition\" and \"DL Sprint 4.0 - Bengali Speaker Diarization\" competitions on Kaggle, addressing the challenge of \"who spoke when/what\" in hour-long recordings. We implemented Whisper Medium fine-tuned on Bengali data (bengaliAI/tugstugi bengaliai-asr whisper-medium) for transcription and integrated pyannote/speaker-diarization-community-1 with our custom-trained segmentation model to handle diverse and noisy acoustic environments. Using a two-pass method with hyperparameter tuning, we achieved a DER of 0.27 on the private leaderboard and 0.19 on the public leaderboard. For transcription, chunking, background noise cleaning, and algorithmic post-processing yielded a WER of 0.38 on the private leaderboard. These results show that targeted tuning and strategic data utilization can significantly improve AI inclusivity for South Asian languages. All relevant code is available at: this https URL\nIndex Terms: Bengali speech recognition, speaker diarization, Whisper, ASR, low-resource languages, pyannote, voice activity detection",
+    "publicationDate": "2026-03-03T17:00:42.000Z",
+    "votes": 0
+  },
+  {
+    "source": "alphaxiv",
+    "id": "2603.13238",
+    "title": "KazakhOCR: A Synthetic Benchmark for Evaluating Multimodal Models in Low-Resource Kazakh Script OCR",
+    "abstract": "Kazakh is a Turkic language using the Arabic, Cyrillic, and Latin scripts, making it unique in terms of optical character recognition (OCR). Work on OCR for low-resource Kazakh scripts is very scarce, and no OCR benchmarks or images exist for the Arabic and Latin scripts. We construct a synthetic OCR dataset of 7,219 images for all three scripts with font, color, and noise variations to imitate real OCR tasks. We evaluated three multimodal large language models (MLLMs) on a subset of the benchmark for OCR and language identification: Gemma-3-12B-it, Qwen2.5-VL-7B-Instruct, and Llama-3.2-11B-Vision-Instruct. All models are unsuccessful with Latin and Arabic script OCR, and fail to recognize the Arabic script as Kazakh text, misclassifying it as Arabic, Farsi, and Kurdish. We further compare MLLMs with a classical OCR baseline and find that while traditional OCR has lower character error rates, MLLMs fail to match this performance. These findings show significant gaps in current MLLM capabilities to process low-resource Abjad-based scripts and demonstrate the need for inclusive models and benchmarks supporting low-resource scripts and languages.",
+    "publicationDate": "2026-02-17T14:24:49.000Z",
+    "votes": 0
+  }
+]

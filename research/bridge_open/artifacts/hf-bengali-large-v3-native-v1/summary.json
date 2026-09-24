@@ -1,0 +1,54 @@
+{
+  "status": "completed_with_quality_flags",
+  "scope": "engineering/public-data pilot; not BRIDGE-matched or population evidence",
+  "attempted": 1,
+  "successful": 0,
+  "scored": 1,
+  "conversation_ids": [
+    "humyn-01-01"
+  ],
+  "per_language": {
+    "bn": {
+      "estimand": "all fully processed conversations including empty/capped text; runtime failures reported separately",
+      "conversation_ids": [
+        "humyn-01-01"
+      ],
+      "scored_count": 1,
+      "attempted_count": 1,
+      "clean_completion_count": 0,
+      "generation_limit_count": 1,
+      "word_errors": 1753,
+      "ref_words": 1798,
+      "character_errors": 6567,
+      "ref_chars": 8459,
+      "micro_wer": 0.974972191323693,
+      "micro_cer": 0.776332899869961,
+      "mean_conversation_wer": 0.974972191323693,
+      "mean_conversation_wil": 0.9985855009839993
+    }
+  },
+  "results": [
+    {
+      "conversation_id": "humyn-01-01",
+      "language": "bn",
+      "status": "generation_limit",
+      "metrics": {
+        "wer": 0.974972191323693,
+        "cer": 0.776332899869961,
+        "wil": 0.9985855009839993,
+        "hits": 46,
+        "substitutions": 785,
+        "deletions": 967,
+        "insertions": 1,
+        "ref_words": 1798,
+        "ref_chars": 8459,
+        "hyp_words": 832,
+        "character_errors": 6567
+      },
+      "wall_seconds": 447.1967606449907,
+      "real_time_factor": 0.49521037806019497
+    }
+  ],
+  "total_wall_seconds": 483.5947614559991,
+  "cloud_cost_usd": null
+}

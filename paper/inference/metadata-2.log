@@ -1,0 +1,13 @@
+✓ Initialized. View run at 
+https://modal.com/apps/snigenigmatic/main/ap-bzPlBPuaaoTfwpj6PRs4rf
+✓ Created objects.
+├── 🔨 Created mount 
+│   /Users/prateekraj/whispr-nano/paper/inference/modal_metadata.py
+├── 🔨 Created mount 
+│   /Users/prateekraj/whispr-nano/paper/metadata/extract_svarah_metadata.py
+└── 🔨 Created function extract.
+Exported 6656 metadata records; no audio bytes. Runtime 5.9s.
+Candidate original speaker metadata: ['/legacy_data/fr_cispo/source/meta_speaker_stats.csv', '/legacy_data/fr_cispo_profile/raw/Svarah/meta_speaker_stats.csv']
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/snigenigmatic/main/ap-bzPlBPuaaoTfwpj6PRs4rf

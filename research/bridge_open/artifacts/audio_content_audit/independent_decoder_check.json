@@ -1,0 +1,10 @@
+{
+  "decoder": "scipy.io.wavfile.read (independent of libsndfile)",
+  "conversation_id": "humyn-01-01",
+  "source_sample_rate": 16000,
+  "source_dtype": "int16",
+  "source_zero_fraction": 0.9385689540044561,
+  "prepared_zero_fraction": 0.9385689540044561,
+  "zero_mask_equal": true,
+  "first_30_seconds_all_zero": true
+}

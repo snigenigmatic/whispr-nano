@@ -1,0 +1,3487 @@
+{
+  "contract": "unicode_script_audit_v1",
+  "unicodedata_version": "15.0.0",
+  "scope": "script diagnostic only; not language identification, semantic correctness, or a score",
+  "counting_rule": "Unicode letters and combining marks assigned to the named Indic, Arabic, or Latin ranges; digits, punctuation, symbols, whitespace, and unassigned scripts excluded",
+  "runs": [
+    "turbo-multilingual-beam5-v1",
+    "small-multilingual-beam5-v1",
+    "hindi-qwen3-asr-0-6b-v1",
+    "hindi-whisper-large-v3-beam5-v1",
+    "omni-ctc-1b-multilingual-v2",
+    "hindi-turbo-cuda-beam5-v1",
+    "hindi-qwen3-asr-1-7b-v1"
+  ],
+  "conversation_count": 83,
+  "rows": [
+    {
+      "run": "turbo-multilingual-beam5-v1",
+      "model_id": "openai/whisper-large-v3-turbo",
+      "model_revision": "41f01f3fe87f28c78e2fbf8b568835947dd65ed9",
+      "condition_id": "audio_only_fixed_30s_no_overlap_cuda_beam5",
+      "conversation_id": "humyn-00-00",
+      "language": "as",
+      "status": "generation_limit",
+      "reference_sha256": "101456d11cb2a1ab0435bae1eed6e90c8044308394b6ceb52051fcc3f3ea8c9e",
+      "audio_sha256": "0225f3848ef4bd63fbed6593c1d7c1e6d314757be9d52fbd484b58ce45b98d97",
+      "reference_text_sha256": "eaa99fb2c2c3a1240b8118a192d6762a7cf2b009a0c27ad57ac40eaf2be039a9",
+      "hypothesis_text_sha256": "2a48d75cbdcb96b532abaa2a329cd8df4cc8f1dcbc4aa57ce27e91e54c12a1af",
+      "reference_distribution": {
+        "counts": {
+          "Bengali": 2319
+        },
+        "assigned_count": 2319,
+        "letter_mark_count": 2319,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Bengali",
+        "dominant_count": 2319,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 2850
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Bengali": 96,
+          "Devanagari": 359,
+          "Latin": 653
+        },
+        "assigned_count": 1108,
+        "letter_mark_count": 1108,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Latin",
+        "dominant_count": 653,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 1668
+      },
+      "dominant_script_mismatch": true
+    },
+    {
+      "run": "turbo-multilingual-beam5-v1",
+      "model_id": "openai/whisper-large-v3-turbo",
+      "model_revision": "41f01f3fe87f28c78e2fbf8b568835947dd65ed9",
+      "condition_id": "audio_only_fixed_30s_no_overlap_cuda_beam5",
+      "conversation_id": "humyn-00-01",
+      "language": "as",
+      "status": "generation_limit",
+      "reference_sha256": "29f0bcfb960e1d083d34e764da957698cf354da11a9af49be0651b4923a26f81",
+      "audio_sha256": "add03d8fc7e8e7a96b3bafab72369641935f0889893e398f0ee34e1341b5750a",
+      "reference_text_sha256": "d0dfbaaeac9b8f4db487a8d548bcbe195edda407565ecf410958881eefb0eeee",
+      "hypothesis_text_sha256": "06b94cd21f18f82e32af963bbccda99aa1cbfaa94905904daf8e3e606a4958c9",
+      "reference_distribution": {
+        "counts": {
+          "Bengali": 7184
+        },
+        "assigned_count": 7184,
+        "letter_mark_count": 7184,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Bengali",
+        "dominant_count": 7184,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 8936
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Devanagari": 752,
+          "Gujarati": 95,
+          "Latin": 3322
+        },
+        "assigned_count": 4169,
+        "letter_mark_count": 4169,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Latin",
+        "dominant_count": 3322,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 17857
+      },
+      "dominant_script_mismatch": true
+    },
+    {
+      "run": "turbo-multilingual-beam5-v1",
+      "model_id": "openai/whisper-large-v3-turbo",
+      "model_revision": "41f01f3fe87f28c78e2fbf8b568835947dd65ed9",
+      "condition_id": "audio_only_fixed_30s_no_overlap_cuda_beam5",
+      "conversation_id": "humyn-01-00",
+      "language": "bn",
+      "status": "generation_limit",
+      "reference_sha256": "62449a089a69ca7fcbfea531d41a2c5266f2d46fc193aa7df95ba16b9a72fb03",
+      "audio_sha256": "8770322f30d1e07585f6ea56a8d77114ff3cddb27a7114a3af5eb6e201eefaa1",
+      "reference_text_sha256": "b371e5b976d585afcf29be3970bc829fe399b1218680e63f0f57df6232d65420",
+      "hypothesis_text_sha256": "271b954f002470237821370b108dc13ac1d43203be67b9a1ffa16879f8c58ce2",
+      "reference_distribution": {
+        "counts": {
+          "Bengali": 7831
+        },
+        "assigned_count": 7831,
+        "letter_mark_count": 7831,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Bengali",
+        "dominant_count": 7831,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 9832
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Bengali": 5758,
+          "Devanagari": 22,
+          "Latin": 2
+        },
+        "assigned_count": 5782,
+        "letter_mark_count": 5782,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Bengali",
+        "dominant_count": 5758,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 6144
+      },
+      "dominant_script_mismatch": false
+    },
+    {
+      "run": "turbo-multilingual-beam5-v1",
+      "model_id": "openai/whisper-large-v3-turbo",
+      "model_revision": "41f01f3fe87f28c78e2fbf8b568835947dd65ed9",
+      "condition_id": "audio_only_fixed_30s_no_overlap_cuda_beam5",
+      "conversation_id": "humyn-01-01",
+      "language": "bn",
+      "status": "generation_limit",
+      "reference_sha256": "653729e2b3b29c327345219b825a32f420f442cb396f4398de20e08015789f38",
+      "audio_sha256": "fcdbe553e410138523bc06adf733feb7f98e53fd178283bdc7585c01daedb194",
+      "reference_text_sha256": "c75037c85d1522eb80f570c8aafb9a200c5d9507aca7d3a72c3061ffd6d4de19",
+      "hypothesis_text_sha256": "2c153d6a48a9fc57d74e80bee34d87f26ae44da55bd2ce415c52a70120620a56",
+      "reference_distribution": {
+        "counts": {
+          "Bengali": 8453,
+          "Latin": 6
+        },
+        "assigned_count": 8459,
+        "letter_mark_count": 8459,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Bengali",
+        "dominant_count": 8453,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 10605
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Bengali": 5934,
+          "Devanagari": 394
+        },
+        "assigned_count": 6328,
+        "letter_mark_count": 6328,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Bengali",
+        "dominant_count": 5934,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 6485
+      },
+      "dominant_script_mismatch": false
+    },
+    {
+      "run": "turbo-multilingual-beam5-v1",
+      "model_id": "openai/whisper-large-v3-turbo",
+      "model_revision": "41f01f3fe87f28c78e2fbf8b568835947dd65ed9",
+      "condition_id": "audio_only_fixed_30s_no_overlap_cuda_beam5",
+      "conversation_id": "humyn-02-00",
+      "language": "bn",
+      "status": "generation_limit",
+      "reference_sha256": "f5b37dcfba42d427c1ea5a6b2cafa013670dc5dddd7adc07f01b55239fece74c",
+      "audio_sha256": "47c21724ce504b5bf4e0d181cbaa200937ecf3b5138b5f9f0c2c636110706e5f",
+      "reference_text_sha256": "dd0f44c2141ae03b28fbf4d6d95a1a0d45e734f5a60696b6180f450d3cd911f7",
+      "hypothesis_text_sha256": "e03d73ac33900e187060ae9c1778be346b1ce0a26147f8615fedafd47cb9e785",
+      "reference_distribution": {
+        "counts": {
+          "Bengali": 8458
+        },
+        "assigned_count": 8458,
+        "letter_mark_count": 8458,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Bengali",
+        "dominant_count": 8458,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 10626
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Bengali": 4650,
+          "Devanagari": 106,
+          "Latin": 85
+        },
+        "assigned_count": 4841,
+        "letter_mark_count": 4841,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Bengali",
+        "dominant_count": 4650,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 5120
+      },
+      "dominant_script_mismatch": false
+    },
+    {
+      "run": "turbo-multilingual-beam5-v1",
+      "model_id": "openai/whisper-large-v3-turbo",
+      "model_revision": "41f01f3fe87f28c78e2fbf8b568835947dd65ed9",
+      "condition_id": "audio_only_fixed_30s_no_overlap_cuda_beam5",
+      "conversation_id": "humyn-07-00",
+      "language": "mr",
+      "status": "success",
+      "reference_sha256": "fe857e0e5dcbc6028fdf333313102be9fc349791ba6ce794f8b1f93015149e02",
+      "audio_sha256": "00d5e1cfc90e506c4901b21314bc0e24703f2c528707e32ad2bfc7536c2fa790",
+      "reference_text_sha256": "dba6c1a6a81f7150905fd2e73626f259026cffaadbb4f8d8086393baa9e27aa0",
+      "hypothesis_text_sha256": "d37f0a4876c5026c784b6a1b7b07bbd2cc233a2a5e79d1630cd92dc7f7d7bf59",
+      "reference_distribution": {
+        "counts": {
+          "Devanagari": 9052
+        },
+        "assigned_count": 9052,
+        "letter_mark_count": 9052,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Devanagari",
+        "dominant_count": 9052,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 11354
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Devanagari": 3593
+        },
+        "assigned_count": 3593,
+        "letter_mark_count": 3593,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Devanagari",
+        "dominant_count": 3593,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 4564
+      },
+      "dominant_script_mismatch": false
+    },
+    {
+      "run": "turbo-multilingual-beam5-v1",
+      "model_id": "openai/whisper-large-v3-turbo",
+      "model_revision": "41f01f3fe87f28c78e2fbf8b568835947dd65ed9",
+      "condition_id": "audio_only_fixed_30s_no_overlap_cuda_beam5",
+      "conversation_id": "humyn-08-01",
+      "language": "te",
+      "status": "generation_limit",
+      "reference_sha256": "b103cf3228fe6b6733fee709074ae6d241e50a14303ed51569b98b9b3767e2fb",
+      "audio_sha256": "67293a8f3dc59e2b7042d4114b88dc3c2a3418ce1d5b5aac98c4ddfe08aec757",
+      "reference_text_sha256": "480a0764a12e4f6459b8bb195077184e23c21f6b2b79a6d089075f2b6d00222d",
+      "hypothesis_text_sha256": "7058326fc26122d8f088f9f5185df4e84d73b6c72d921d652391bfab33217c2c",
+      "reference_distribution": {
+        "counts": {
+          "Telugu": 12558
+        },
+        "assigned_count": 12558,
+        "letter_mark_count": 12558,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Telugu",
+        "dominant_count": 12558,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 15142
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Devanagari": 1,
+          "Latin": 48,
+          "Telugu": 4122
+        },
+        "assigned_count": 4171,
+        "letter_mark_count": 4316,
+        "unassigned_letter_mark_count": 145,
+        "assigned_fraction_of_letters_marks": 0.9664040778498609,
+        "dominant_script": "Telugu",
+        "dominant_count": 4122,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 4967
+      },
+      "dominant_script_mismatch": false
+    },
+    {
+      "run": "turbo-multilingual-beam5-v1",
+      "model_id": "openai/whisper-large-v3-turbo",
+      "model_revision": "41f01f3fe87f28c78e2fbf8b568835947dd65ed9",
+      "condition_id": "audio_only_fixed_30s_no_overlap_cuda_beam5",
+      "conversation_id": "humyn-09-00",
+      "language": "te",
+      "status": "generation_limit",
+      "reference_sha256": "8634735cab515d8f1f8b178cedab38d8289118f752df6efc89c7b53013466416",
+      "audio_sha256": "58858a7b6c167a0e2964134129ed5251bdbabe91b7bd9d5cd12a15335e414a81",
+      "reference_text_sha256": "7588363be3a7ac25f5a5ebd00a48ccb792d9661a1f6bb0c132e936a436be6068",
+      "hypothesis_text_sha256": "18bb52b76e9a1784938c0d7f05c13046a71bd844823304fbd2ff593f790dc9c7",
+      "reference_distribution": {
+        "counts": {
+          "Telugu": 13943
+        },
+        "assigned_count": 13943,
+        "letter_mark_count": 13943,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Telugu",
+        "dominant_count": 13943,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 16700
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Devanagari": 79,
+          "Latin": 177,
+          "Telugu": 4605
+        },
+        "assigned_count": 4861,
+        "letter_mark_count": 4861,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Telugu",
+        "dominant_count": 4605,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 5910
+      },
+      "dominant_script_mismatch": false
+    },
+    {
+      "run": "turbo-multilingual-beam5-v1",
+      "model_id": "openai/whisper-large-v3-turbo",
+      "model_revision": "41f01f3fe87f28c78e2fbf8b568835947dd65ed9",
+      "condition_id": "audio_only_fixed_30s_no_overlap_cuda_beam5",
+      "conversation_id": "humyn-09-01",
+      "language": "te",
+      "status": "generation_limit",
+      "reference_sha256": "91c346272ca060b731158b03249464bd96aeac9ab265a7f2a52be1900783fdf1",
+      "audio_sha256": "5e64021b80adf1c916b77a38f785b87c2e41bfcdc1a6b1745eff07eb15a3d732",
+      "reference_text_sha256": "4f63b0de7ff22dcd12ea4af34039f68d46e5969190ece4cba2e03c73cd9f3ff2",
+      "hypothesis_text_sha256": "7b3c8cd0f70642dc9af1c52ce87f07e42d66891826cd853e03958bba7e5f75db",
+      "reference_distribution": {
+        "counts": {
+          "Telugu": 13086
+        },
+        "assigned_count": 13086,
+        "letter_mark_count": 13086,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Telugu",
+        "dominant_count": 13086,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 15648
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Devanagari": 508,
+          "Latin": 71,
+          "Telugu": 4321
+        },
+        "assigned_count": 4900,
+        "letter_mark_count": 4901,
+        "unassigned_letter_mark_count": 1,
+        "assigned_fraction_of_letters_marks": 0.9997959600081616,
+        "dominant_script": "Telugu",
+        "dominant_count": 4321,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 5646
+      },
+      "dominant_script_mismatch": false
+    },
+    {
+      "run": "turbo-multilingual-beam5-v1",
+      "model_id": "openai/whisper-large-v3-turbo",
+      "model_revision": "41f01f3fe87f28c78e2fbf8b568835947dd65ed9",
+      "condition_id": "audio_only_fixed_30s_no_overlap_cuda_beam5",
+      "conversation_id": "humyn-10-00",
+      "language": "gu",
+      "status": "generation_limit",
+      "reference_sha256": "cf534ce972fe1544d1018c798ba8de87854f3f18f6c1fa7c92e48cd2af50070f",
+      "audio_sha256": "3ad31b0b24e7c21a071ecc3e03696915cbd872273d24f65b77c45118d037b9c0",
+      "reference_text_sha256": "c26789656c761372333ac42979f8daf1dde93fcba3625c75f35b1adb54ab295a",
+      "hypothesis_text_sha256": "e0e839be8decbeb6a942236cf5d477662a49e3368722a526425381cef2f32b1a",
+      "reference_distribution": {
+        "counts": {
+          "Gujarati": 5757
+        },
+        "assigned_count": 5757,
+        "letter_mark_count": 5757,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Gujarati",
+        "dominant_count": 5757,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 7367
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Gujarati": 2130,
+          "Latin": 1430
+        },
+        "assigned_count": 3560,
+        "letter_mark_count": 3560,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Gujarati",
+        "dominant_count": 2130,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 4835
+      },
+      "dominant_script_mismatch": false
+    },
+    {
+      "run": "turbo-multilingual-beam5-v1",
+      "model_id": "openai/whisper-large-v3-turbo",
+      "model_revision": "41f01f3fe87f28c78e2fbf8b568835947dd65ed9",
+      "condition_id": "audio_only_fixed_30s_no_overlap_cuda_beam5",
+      "conversation_id": "humyn-10-01",
+      "language": "gu",
+      "status": "generation_limit",
+      "reference_sha256": "168f2aa4903830c4d35991e9039e3f53665ec14a070d62b2d16d315cb82d7171",
+      "audio_sha256": "ce766f802af9f2ab5d53fb9c1367b92e61e1442e3ff80420e9911e0ce5bb0e36",
+      "reference_text_sha256": "42d646338e47fbf65cf3a0da4c21ccb30c34fe07a442235c8ebf1f39540247b6",
+      "hypothesis_text_sha256": "ddccf826224c33bfb3863c65e21689bdd1f80249c0cd679cb2a3a3773389b452",
+      "reference_distribution": {
+        "counts": {
+          "Gujarati": 7976
+        },
+        "assigned_count": 7976,
+        "letter_mark_count": 7976,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Gujarati",
+        "dominant_count": 7976,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 10228
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Gujarati": 2743,
+          "Latin": 1088
+        },
+        "assigned_count": 3831,
+        "letter_mark_count": 3831,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Gujarati",
+        "dominant_count": 2743,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 5260
+      },
+      "dominant_script_mismatch": false
+    },
+    {
+      "run": "turbo-multilingual-beam5-v1",
+      "model_id": "openai/whisper-large-v3-turbo",
+      "model_revision": "41f01f3fe87f28c78e2fbf8b568835947dd65ed9",
+      "condition_id": "audio_only_fixed_30s_no_overlap_cuda_beam5",
+      "conversation_id": "humyn-11-00",
+      "language": "gu",
+      "status": "generation_limit",
+      "reference_sha256": "725bf1136b391fd7d0e4604769c869d1876d659868aca3d6775b44d660a051b8",
+      "audio_sha256": "5e3a3c48587a171ccb1cb87ea3a83387dbb1effaa9bfecde7e3725dd6d0bb565",
+      "reference_text_sha256": "78e35cf4389c890b0f971250b703107ec297a809ab4f1bd6dd314cd1245d757d",
+      "hypothesis_text_sha256": "b33b1bb04591e2323171c6dc562468de18caf3885b1f4eb1e7e85210f1c3ade2",
+      "reference_distribution": {
+        "counts": {
+          "Gujarati": 8353
+        },
+        "assigned_count": 8353,
+        "letter_mark_count": 8353,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Gujarati",
+        "dominant_count": 8353,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 10584
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Gujarati": 1766,
+          "Latin": 405
+        },
+        "assigned_count": 2171,
+        "letter_mark_count": 2171,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Gujarati",
+        "dominant_count": 1766,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 3111
+      },
+      "dominant_script_mismatch": false
+    },
+    {
+      "run": "turbo-multilingual-beam5-v1",
+      "model_id": "openai/whisper-large-v3-turbo",
+      "model_revision": "41f01f3fe87f28c78e2fbf8b568835947dd65ed9",
+      "condition_id": "audio_only_fixed_30s_no_overlap_cuda_beam5",
+      "conversation_id": "humyn-14-01",
+      "language": "kn",
+      "status": "generation_limit",
+      "reference_sha256": "ebdd210bb381826ba00a209f447812870d71cebed7a6e1d91294a8eaa775adf3",
+      "audio_sha256": "9d9b0780aa50c9319c06bd348328a10927450544934a4e62d2a9b2a5adf3fdcc",
+      "reference_text_sha256": "f61d872010482fae6fc488e9c065266bf6fe2885a0a3842d8862101669b3be34",
+      "hypothesis_text_sha256": "307d2f811eeb481cf387bc6cf9823f8f1f11248880c7077470224b0d50cfed7b",
+      "reference_distribution": {
+        "counts": {
+          "Kannada": 2568,
+          "Latin": 1031
+        },
+        "assigned_count": 3599,
+        "letter_mark_count": 3599,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Kannada",
+        "dominant_count": 2568,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 4532
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Kannada": 4592,
+          "Latin": 124
+        },
+        "assigned_count": 4716,
+        "letter_mark_count": 4716,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Kannada",
+        "dominant_count": 4592,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 5608
+      },
+      "dominant_script_mismatch": false
+    },
+    {
+      "run": "turbo-multilingual-beam5-v1",
+      "model_id": "openai/whisper-large-v3-turbo",
+      "model_revision": "41f01f3fe87f28c78e2fbf8b568835947dd65ed9",
+      "condition_id": "audio_only_fixed_30s_no_overlap_cuda_beam5",
+      "conversation_id": "humyn-15-00",
+      "language": "kn",
+      "status": "generation_limit",
+      "reference_sha256": "9a1f3d032913915290cbedc0000a51607c33126e2f23abb8e1757eb035bb940e",
+      "audio_sha256": "b4f0e88eee8d8063072df95321bf0558792dbf21e333315aacab440c852b1dcf",
+      "reference_text_sha256": "f747f04923dea44e0677235a967a23deb8632e281aed7c95c759c69b8e9f4c58",
+      "hypothesis_text_sha256": "c520a0bea6fef78786685255075a33fc2f81061d77a414101b7d98b5c75029d5",
+      "reference_distribution": {
+        "counts": {
+          "Kannada": 7550,
+          "Latin": 179
+        },
+        "assigned_count": 7729,
+        "letter_mark_count": 7729,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Kannada",
+        "dominant_count": 7550,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 9037
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Kannada": 5378
+        },
+        "assigned_count": 5378,
+        "letter_mark_count": 5378,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Kannada",
+        "dominant_count": 5378,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 6203
+      },
+      "dominant_script_mismatch": false
+    },
+    {
+      "run": "turbo-multilingual-beam5-v1",
+      "model_id": "openai/whisper-large-v3-turbo",
+      "model_revision": "41f01f3fe87f28c78e2fbf8b568835947dd65ed9",
+      "condition_id": "audio_only_fixed_30s_no_overlap_cuda_beam5",
+      "conversation_id": "humyn-16-00",
+      "language": "kn",
+      "status": "generation_limit",
+      "reference_sha256": "cfab92ed1f69bc8834aa27abafa877ea58d32d72e366387d06522d0efa5545a4",
+      "audio_sha256": "ec37ca92a3d2af4470ebae33701e178c75ca6b81fe58a46ffb5aeffaa120382a",
+      "reference_text_sha256": "a9abb1248d4b4f710cdd541d54af1193183fa3c733d08c504e06e21f5970191e",
+      "hypothesis_text_sha256": "f1334173e8e76f49a7f52ca42f39159364112ffbaf0fe8332f7f6b34b4e93eac",
+      "reference_distribution": {
+        "counts": {
+          "Kannada": 7777,
+          "Latin": 331
+        },
+        "assigned_count": 8108,
+        "letter_mark_count": 8108,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Kannada",
+        "dominant_count": 7777,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 9444
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Kannada": 4770
+        },
+        "assigned_count": 4770,
+        "letter_mark_count": 4770,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Kannada",
+        "dominant_count": 4770,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 5505
+      },
+      "dominant_script_mismatch": false
+    },
+    {
+      "run": "turbo-multilingual-beam5-v1",
+      "model_id": "openai/whisper-large-v3-turbo",
+      "model_revision": "41f01f3fe87f28c78e2fbf8b568835947dd65ed9",
+      "condition_id": "audio_only_fixed_30s_no_overlap_cuda_beam5",
+      "conversation_id": "humyn-17-00",
+      "language": "ta",
+      "status": "generation_limit",
+      "reference_sha256": "1183bd14af09f11950e34d9762fa55c834270060ed8ad14c2a8b95ec58619b41",
+      "audio_sha256": "4428c51cf8d2939eab20a42b6047c1781c007ead64df95cff6d33b79172ef23e",
+      "reference_text_sha256": "129d13964442aa424292bb9fa24ad893929a4a023b17abaa0aff9b1f17e70d42",
+      "hypothesis_text_sha256": "2f64749b18764a7b9d0dfd397f15e1ce8f43b4b24afa8a08da74fe3552ceafb3",
+      "reference_distribution": {
+        "counts": {
+          "Latin": 135,
+          "Tamil": 12490
+        },
+        "assigned_count": 12625,
+        "letter_mark_count": 12625,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Tamil",
+        "dominant_count": 12490,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 14962
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Latin": 3,
+          "Tamil": 4272
+        },
+        "assigned_count": 4275,
+        "letter_mark_count": 4275,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Tamil",
+        "dominant_count": 4272,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 4816
+      },
+      "dominant_script_mismatch": false
+    },
+    {
+      "run": "turbo-multilingual-beam5-v1",
+      "model_id": "openai/whisper-large-v3-turbo",
+      "model_revision": "41f01f3fe87f28c78e2fbf8b568835947dd65ed9",
+      "condition_id": "audio_only_fixed_30s_no_overlap_cuda_beam5",
+      "conversation_id": "humyn-19-00",
+      "language": "ta",
+      "status": "generation_limit",
+      "reference_sha256": "bdbdaa72d775396a4d7242c16c5a05958e0c9e74ff5dd0d7287fbcf8f5036b2c",
+      "audio_sha256": "6a5ebc1ddf53c129ac36497c02fc98db84cc33a06f6489b17c8f9f6e5cedc73c",
+      "reference_text_sha256": "4039e0693461a19c3c88b3de770385173ed721e4867c1ddb3d66ee5b6185e520",
+      "hypothesis_text_sha256": "02924b6e5adcf9f48fd681fac84df027af1d52b55ba95ed93f8d3c55303b3f0e",
+      "reference_distribution": {
+        "counts": {
+          "Latin": 164,
+          "Tamil": 12748
+        },
+        "assigned_count": 12912,
+        "letter_mark_count": 12912,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Tamil",
+        "dominant_count": 12748,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 15365
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Latin": 3047,
+          "Tamil": 6713
+        },
+        "assigned_count": 9760,
+        "letter_mark_count": 9760,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Tamil",
+        "dominant_count": 6713,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 12465
+      },
+      "dominant_script_mismatch": false
+    },
+    {
+      "run": "turbo-multilingual-beam5-v1",
+      "model_id": "openai/whisper-large-v3-turbo",
+      "model_revision": "41f01f3fe87f28c78e2fbf8b568835947dd65ed9",
+      "condition_id": "audio_only_fixed_30s_no_overlap_cuda_beam5",
+      "conversation_id": "humyn-20-00",
+      "language": "ml",
+      "status": "generation_limit",
+      "reference_sha256": "c6e188231f86d6acbf3938e0bcc58389a6baf99a7205d7430033892bfb149ab8",
+      "audio_sha256": "490a65932fdb35c2dd9a59eda8a761c3775d2746ec432346985e5d920b0ab732",
+      "reference_text_sha256": "d7cc1ecb7b96b4147f3ad21f55e3737dbf0e17579fda2ecfb0812fe0343b09f6",
+      "hypothesis_text_sha256": "8aebc51f9979bff64a82c23055f0aaca5bf7ab158c6b2ff312b36625d30a481c",
+      "reference_distribution": {
+        "counts": {
+          "Malayalam": 12879
+        },
+        "assigned_count": 12879,
+        "letter_mark_count": 12879,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Malayalam",
+        "dominant_count": 12879,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 14887
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Devanagari": 4026,
+          "Latin": 1725
+        },
+        "assigned_count": 5751,
+        "letter_mark_count": 7211,
+        "unassigned_letter_mark_count": 1460,
+        "assigned_fraction_of_letters_marks": 0.797531549022327,
+        "dominant_script": "Devanagari",
+        "dominant_count": 4026,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 8480
+      },
+      "dominant_script_mismatch": true
+    },
+    {
+      "run": "turbo-multilingual-beam5-v1",
+      "model_id": "openai/whisper-large-v3-turbo",
+      "model_revision": "41f01f3fe87f28c78e2fbf8b568835947dd65ed9",
+      "condition_id": "audio_only_fixed_30s_no_overlap_cuda_beam5",
+      "conversation_id": "humyn-21-00",
+      "language": "ml",
+      "status": "generation_limit",
+      "reference_sha256": "18b7fa4b39719550088ac08d2251bce7e245ea057c6eb9c1251ce19ae0782365",
+      "audio_sha256": "309018d3dd373dc24930b5200cf34c55b0c248325c3b181807fbaaba236127ea",
+      "reference_text_sha256": "ed080c932e6847a995af7d459e46d2b2c331a5e7b525638367c465bb2c602b8c",
+      "hypothesis_text_sha256": "d5ca33642143bacaef99942533d3b300eba9bfbb457fc2117b235df6fabe5a12",
+      "reference_distribution": {
+        "counts": {
+          "Malayalam": 12361
+        },
+        "assigned_count": 12361,
+        "letter_mark_count": 12361,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Malayalam",
+        "dominant_count": 12361,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 14301
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Devanagari": 2855,
+          "Latin": 10955,
+          "Malayalam": 284
+        },
+        "assigned_count": 14094,
+        "letter_mark_count": 14956,
+        "unassigned_letter_mark_count": 862,
+        "assigned_fraction_of_letters_marks": 0.9423642685209949,
+        "dominant_script": "Latin",
+        "dominant_count": 10955,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 19268
+      },
+      "dominant_script_mismatch": true
+    },
+    {
+      "run": "small-multilingual-beam5-v1",
+      "model_id": "openai/whisper-small",
+      "model_revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+      "condition_id": "audio_only_fixed_30s_no_overlap_cuda_beam5",
+      "conversation_id": "humyn-00-00",
+      "language": "as",
+      "status": "generation_limit",
+      "reference_sha256": "101456d11cb2a1ab0435bae1eed6e90c8044308394b6ceb52051fcc3f3ea8c9e",
+      "audio_sha256": "0225f3848ef4bd63fbed6593c1d7c1e6d314757be9d52fbd484b58ce45b98d97",
+      "reference_text_sha256": "eaa99fb2c2c3a1240b8118a192d6762a7cf2b009a0c27ad57ac40eaf2be039a9",
+      "hypothesis_text_sha256": "f24a385a7215d7fe8a1279103ad44583567345bf458d59e23cefa2e773a8018b",
+      "reference_distribution": {
+        "counts": {
+          "Bengali": 2319
+        },
+        "assigned_count": 2319,
+        "letter_mark_count": 2319,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Bengali",
+        "dominant_count": 2319,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 2850
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Devanagari": 938
+        },
+        "assigned_count": 938,
+        "letter_mark_count": 1084,
+        "unassigned_letter_mark_count": 146,
+        "assigned_fraction_of_letters_marks": 0.8653136531365314,
+        "dominant_script": "Devanagari",
+        "dominant_count": 938,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 1327
+      },
+      "dominant_script_mismatch": true
+    },
+    {
+      "run": "small-multilingual-beam5-v1",
+      "model_id": "openai/whisper-small",
+      "model_revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+      "condition_id": "audio_only_fixed_30s_no_overlap_cuda_beam5",
+      "conversation_id": "humyn-00-01",
+      "language": "as",
+      "status": "generation_limit",
+      "reference_sha256": "29f0bcfb960e1d083d34e764da957698cf354da11a9af49be0651b4923a26f81",
+      "audio_sha256": "add03d8fc7e8e7a96b3bafab72369641935f0889893e398f0ee34e1341b5750a",
+      "reference_text_sha256": "d0dfbaaeac9b8f4db487a8d548bcbe195edda407565ecf410958881eefb0eeee",
+      "hypothesis_text_sha256": "6c37eea13bdb3fc7fa0731de50155942b4572197dd7a8418f9c06e48986ced71",
+      "reference_distribution": {
+        "counts": {
+          "Bengali": 7184
+        },
+        "assigned_count": 7184,
+        "letter_mark_count": 7184,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Bengali",
+        "dominant_count": 7184,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 8936
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Devanagari": 4356,
+          "Kannada": 220
+        },
+        "assigned_count": 4576,
+        "letter_mark_count": 4576,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Devanagari",
+        "dominant_count": 4356,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 6928
+      },
+      "dominant_script_mismatch": true
+    },
+    {
+      "run": "small-multilingual-beam5-v1",
+      "model_id": "openai/whisper-small",
+      "model_revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+      "condition_id": "audio_only_fixed_30s_no_overlap_cuda_beam5",
+      "conversation_id": "humyn-01-00",
+      "language": "bn",
+      "status": "generation_limit",
+      "reference_sha256": "62449a089a69ca7fcbfea531d41a2c5266f2d46fc193aa7df95ba16b9a72fb03",
+      "audio_sha256": "8770322f30d1e07585f6ea56a8d77114ff3cddb27a7114a3af5eb6e201eefaa1",
+      "reference_text_sha256": "b371e5b976d585afcf29be3970bc829fe399b1218680e63f0f57df6232d65420",
+      "hypothesis_text_sha256": "ff9e061e59a380884279cf38a85dabca622724b909cbed4190ca1abc4d3ba6d9",
+      "reference_distribution": {
+        "counts": {
+          "Bengali": 7831
+        },
+        "assigned_count": 7831,
+        "letter_mark_count": 7831,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Bengali",
+        "dominant_count": 7831,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 9832
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Devanagari": 952
+        },
+        "assigned_count": 952,
+        "letter_mark_count": 952,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Devanagari",
+        "dominant_count": 952,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 13990
+      },
+      "dominant_script_mismatch": true
+    },
+    {
+      "run": "small-multilingual-beam5-v1",
+      "model_id": "openai/whisper-small",
+      "model_revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+      "condition_id": "audio_only_fixed_30s_no_overlap_cuda_beam5",
+      "conversation_id": "humyn-01-01",
+      "language": "bn",
+      "status": "generation_limit",
+      "reference_sha256": "653729e2b3b29c327345219b825a32f420f442cb396f4398de20e08015789f38",
+      "audio_sha256": "fcdbe553e410138523bc06adf733feb7f98e53fd178283bdc7585c01daedb194",
+      "reference_text_sha256": "c75037c85d1522eb80f570c8aafb9a200c5d9507aca7d3a72c3061ffd6d4de19",
+      "hypothesis_text_sha256": "a2c257d2e3d7dd8d51c56937454bdec0d193cfc6bcee73e49b50cfea5aef5bdf",
+      "reference_distribution": {
+        "counts": {
+          "Bengali": 8453,
+          "Latin": 6
+        },
+        "assigned_count": 8459,
+        "letter_mark_count": 8459,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Bengali",
+        "dominant_count": 8453,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 10605
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Devanagari": 34,
+          "Latin": 194
+        },
+        "assigned_count": 228,
+        "letter_mark_count": 228,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Latin",
+        "dominant_count": 194,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 13067
+      },
+      "dominant_script_mismatch": true
+    },
+    {
+      "run": "small-multilingual-beam5-v1",
+      "model_id": "openai/whisper-small",
+      "model_revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+      "condition_id": "audio_only_fixed_30s_no_overlap_cuda_beam5",
+      "conversation_id": "humyn-02-00",
+      "language": "bn",
+      "status": "generation_limit",
+      "reference_sha256": "f5b37dcfba42d427c1ea5a6b2cafa013670dc5dddd7adc07f01b55239fece74c",
+      "audio_sha256": "47c21724ce504b5bf4e0d181cbaa200937ecf3b5138b5f9f0c2c636110706e5f",
+      "reference_text_sha256": "dd0f44c2141ae03b28fbf4d6d95a1a0d45e734f5a60696b6180f450d3cd911f7",
+      "hypothesis_text_sha256": "5b5a1a26e1191254ef8d83eeca3cf68ae0e1c8d3711a5e5d550afe6ebc96ce63",
+      "reference_distribution": {
+        "counts": {
+          "Bengali": 8458
+        },
+        "assigned_count": 8458,
+        "letter_mark_count": 8458,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Bengali",
+        "dominant_count": 8458,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 10626
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Devanagari": 1018,
+          "Latin": 146
+        },
+        "assigned_count": 1164,
+        "letter_mark_count": 1164,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Devanagari",
+        "dominant_count": 1018,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 10849
+      },
+      "dominant_script_mismatch": true
+    },
+    {
+      "run": "small-multilingual-beam5-v1",
+      "model_id": "openai/whisper-small",
+      "model_revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+      "condition_id": "audio_only_fixed_30s_no_overlap_cuda_beam5",
+      "conversation_id": "humyn-07-00",
+      "language": "mr",
+      "status": "generation_limit",
+      "reference_sha256": "fe857e0e5dcbc6028fdf333313102be9fc349791ba6ce794f8b1f93015149e02",
+      "audio_sha256": "00d5e1cfc90e506c4901b21314bc0e24703f2c528707e32ad2bfc7536c2fa790",
+      "reference_text_sha256": "dba6c1a6a81f7150905fd2e73626f259026cffaadbb4f8d8086393baa9e27aa0",
+      "hypothesis_text_sha256": "6eefc48c9b32e29fda1ee467ef22bb5e4158e3273ccd4c0009e8705605b72b92",
+      "reference_distribution": {
+        "counts": {
+          "Devanagari": 9052
+        },
+        "assigned_count": 9052,
+        "letter_mark_count": 9052,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Devanagari",
+        "dominant_count": 9052,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 11354
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Devanagari": 4245,
+          "Latin": 16
+        },
+        "assigned_count": 4261,
+        "letter_mark_count": 4261,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Devanagari",
+        "dominant_count": 4245,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 6248
+      },
+      "dominant_script_mismatch": false
+    },
+    {
+      "run": "small-multilingual-beam5-v1",
+      "model_id": "openai/whisper-small",
+      "model_revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+      "condition_id": "audio_only_fixed_30s_no_overlap_cuda_beam5",
+      "conversation_id": "humyn-08-01",
+      "language": "te",
+      "status": "generation_limit",
+      "reference_sha256": "b103cf3228fe6b6733fee709074ae6d241e50a14303ed51569b98b9b3767e2fb",
+      "audio_sha256": "67293a8f3dc59e2b7042d4114b88dc3c2a3418ce1d5b5aac98c4ddfe08aec757",
+      "reference_text_sha256": "480a0764a12e4f6459b8bb195077184e23c21f6b2b79a6d089075f2b6d00222d",
+      "hypothesis_text_sha256": "d10a3fe5697e8cb4a1669ecd19577c222af13813dac4c73909c70477dfd47810",
+      "reference_distribution": {
+        "counts": {
+          "Telugu": 12558
+        },
+        "assigned_count": 12558,
+        "letter_mark_count": 12558,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Telugu",
+        "dominant_count": 12558,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 15142
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Devanagari": 1513,
+          "Kannada": 1976,
+          "Telugu": 195
+        },
+        "assigned_count": 3684,
+        "letter_mark_count": 3684,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Kannada",
+        "dominant_count": 1976,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 12794
+      },
+      "dominant_script_mismatch": true
+    },
+    {
+      "run": "small-multilingual-beam5-v1",
+      "model_id": "openai/whisper-small",
+      "model_revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+      "condition_id": "audio_only_fixed_30s_no_overlap_cuda_beam5",
+      "conversation_id": "humyn-09-00",
+      "language": "te",
+      "status": "generation_limit",
+      "reference_sha256": "8634735cab515d8f1f8b178cedab38d8289118f752df6efc89c7b53013466416",
+      "audio_sha256": "58858a7b6c167a0e2964134129ed5251bdbabe91b7bd9d5cd12a15335e414a81",
+      "reference_text_sha256": "7588363be3a7ac25f5a5ebd00a48ccb792d9661a1f6bb0c132e936a436be6068",
+      "hypothesis_text_sha256": "ffcc296b78b03c4229d54fa7c8bda1465b0cbc76e880023b9ca214f992e1ee28",
+      "reference_distribution": {
+        "counts": {
+          "Telugu": 13943
+        },
+        "assigned_count": 13943,
+        "letter_mark_count": 13943,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Telugu",
+        "dominant_count": 13943,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 16700
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Devanagari": 1894,
+          "Kannada": 2200,
+          "Latin": 1838,
+          "Telugu": 344
+        },
+        "assigned_count": 6276,
+        "letter_mark_count": 6860,
+        "unassigned_letter_mark_count": 584,
+        "assigned_fraction_of_letters_marks": 0.914868804664723,
+        "dominant_script": "Kannada",
+        "dominant_count": 2200,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 14090
+      },
+      "dominant_script_mismatch": true
+    },
+    {
+      "run": "small-multilingual-beam5-v1",
+      "model_id": "openai/whisper-small",
+      "model_revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+      "condition_id": "audio_only_fixed_30s_no_overlap_cuda_beam5",
+      "conversation_id": "humyn-09-01",
+      "language": "te",
+      "status": "generation_limit",
+      "reference_sha256": "91c346272ca060b731158b03249464bd96aeac9ab265a7f2a52be1900783fdf1",
+      "audio_sha256": "5e64021b80adf1c916b77a38f785b87c2e41bfcdc1a6b1745eff07eb15a3d732",
+      "reference_text_sha256": "4f63b0de7ff22dcd12ea4af34039f68d46e5969190ece4cba2e03c73cd9f3ff2",
+      "hypothesis_text_sha256": "10aae8364be692ad4139b628042a551931bb03c984db4a9ee7e9e5472bed453b",
+      "reference_distribution": {
+        "counts": {
+          "Telugu": 13086
+        },
+        "assigned_count": 13086,
+        "letter_mark_count": 13086,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Telugu",
+        "dominant_count": 13086,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 15648
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Devanagari": 1920,
+          "Kannada": 1760,
+          "Latin": 4209,
+          "Telugu": 633
+        },
+        "assigned_count": 8522,
+        "letter_mark_count": 8522,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Latin",
+        "dominant_count": 4209,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 16424
+      },
+      "dominant_script_mismatch": true
+    },
+    {
+      "run": "small-multilingual-beam5-v1",
+      "model_id": "openai/whisper-small",
+      "model_revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+      "condition_id": "audio_only_fixed_30s_no_overlap_cuda_beam5",
+      "conversation_id": "humyn-10-00",
+      "language": "gu",
+      "status": "generation_limit",
+      "reference_sha256": "cf534ce972fe1544d1018c798ba8de87854f3f18f6c1fa7c92e48cd2af50070f",
+      "audio_sha256": "3ad31b0b24e7c21a071ecc3e03696915cbd872273d24f65b77c45118d037b9c0",
+      "reference_text_sha256": "c26789656c761372333ac42979f8daf1dde93fcba3625c75f35b1adb54ab295a",
+      "hypothesis_text_sha256": "9490837f445056d8b0dabf1c6d0734e6a654ea4146b03cb3df36d5277af18fba",
+      "reference_distribution": {
+        "counts": {
+          "Gujarati": 5757
+        },
+        "assigned_count": 5757,
+        "letter_mark_count": 5757,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Gujarati",
+        "dominant_count": 5757,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 7367
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Devanagari": 2318
+        },
+        "assigned_count": 2318,
+        "letter_mark_count": 2318,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Devanagari",
+        "dominant_count": 2318,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 7320
+      },
+      "dominant_script_mismatch": true
+    },
+    {
+      "run": "small-multilingual-beam5-v1",
+      "model_id": "openai/whisper-small",
+      "model_revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+      "condition_id": "audio_only_fixed_30s_no_overlap_cuda_beam5",
+      "conversation_id": "humyn-10-01",
+      "language": "gu",
+      "status": "generation_limit",
+      "reference_sha256": "168f2aa4903830c4d35991e9039e3f53665ec14a070d62b2d16d315cb82d7171",
+      "audio_sha256": "ce766f802af9f2ab5d53fb9c1367b92e61e1442e3ff80420e9911e0ce5bb0e36",
+      "reference_text_sha256": "42d646338e47fbf65cf3a0da4c21ccb30c34fe07a442235c8ebf1f39540247b6",
+      "hypothesis_text_sha256": "bb55fa5217e51a845e8efb80f616e0347b22384905f914fd01e9c9a4ca3323a0",
+      "reference_distribution": {
+        "counts": {
+          "Gujarati": 7976
+        },
+        "assigned_count": 7976,
+        "letter_mark_count": 7976,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Gujarati",
+        "dominant_count": 7976,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 10228
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Devanagari": 4898
+        },
+        "assigned_count": 4898,
+        "letter_mark_count": 4898,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Devanagari",
+        "dominant_count": 4898,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 11274
+      },
+      "dominant_script_mismatch": true
+    },
+    {
+      "run": "small-multilingual-beam5-v1",
+      "model_id": "openai/whisper-small",
+      "model_revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+      "condition_id": "audio_only_fixed_30s_no_overlap_cuda_beam5",
+      "conversation_id": "humyn-11-00",
+      "language": "gu",
+      "status": "generation_limit",
+      "reference_sha256": "725bf1136b391fd7d0e4604769c869d1876d659868aca3d6775b44d660a051b8",
+      "audio_sha256": "5e3a3c48587a171ccb1cb87ea3a83387dbb1effaa9bfecde7e3725dd6d0bb565",
+      "reference_text_sha256": "78e35cf4389c890b0f971250b703107ec297a809ab4f1bd6dd314cd1245d757d",
+      "hypothesis_text_sha256": "295b1a724b1cdbd8f93db6f9f4229118e7e0855d953d0ed5d4a0153e9522d6c0",
+      "reference_distribution": {
+        "counts": {
+          "Gujarati": 8353
+        },
+        "assigned_count": 8353,
+        "letter_mark_count": 8353,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Gujarati",
+        "dominant_count": 8353,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 10584
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Devanagari": 2809
+        },
+        "assigned_count": 2809,
+        "letter_mark_count": 2809,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Devanagari",
+        "dominant_count": 2809,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 11451
+      },
+      "dominant_script_mismatch": true
+    },
+    {
+      "run": "small-multilingual-beam5-v1",
+      "model_id": "openai/whisper-small",
+      "model_revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+      "condition_id": "audio_only_fixed_30s_no_overlap_cuda_beam5",
+      "conversation_id": "humyn-13-00",
+      "language": "hi",
+      "status": "generation_limit",
+      "reference_sha256": "98287d1163ffe0858f2457ee3ea5bd1fb5b9f829bf570c8a096c7c13eb86d2af",
+      "audio_sha256": "7bd13585c48b4b6a82ce14dacd58f9fb3daf1a8ac19d8d3d167457445ecf95df",
+      "reference_text_sha256": "d51f93e4abb8ad65f39358763b8bda90c392f1682380f000229f0c353ce33d56",
+      "hypothesis_text_sha256": "db8263f609558b28f6b5c9a9dffda86f9782e9941ef4bd7242a3a121ef523ec1",
+      "reference_distribution": {
+        "counts": {
+          "Devanagari": 6612,
+          "Latin": 69
+        },
+        "assigned_count": 6681,
+        "letter_mark_count": 6681,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Devanagari",
+        "dominant_count": 6612,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 9051
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Devanagari": 6996
+        },
+        "assigned_count": 6996,
+        "letter_mark_count": 6996,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Devanagari",
+        "dominant_count": 6996,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 9610
+      },
+      "dominant_script_mismatch": false
+    },
+    {
+      "run": "small-multilingual-beam5-v1",
+      "model_id": "openai/whisper-small",
+      "model_revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+      "condition_id": "audio_only_fixed_30s_no_overlap_cuda_beam5",
+      "conversation_id": "humyn-13-01",
+      "language": "hi",
+      "status": "generation_limit",
+      "reference_sha256": "6623733b1ab3135b9ca281a5bc9a55e3224e1add4878ab46f29627ea2cae4879",
+      "audio_sha256": "4cf56a04362720b4c183b9497a2a0395090cd3a759360019b6931d22acd386f4",
+      "reference_text_sha256": "27d391a8ef2fa889b7afb00e085f603464d5382a61de6805cb6950862dbe228c",
+      "hypothesis_text_sha256": "c4c965829fe2a5613ede2743e9644e73bae8cd71baaca0b88e6cba807d5d1522",
+      "reference_distribution": {
+        "counts": {
+          "Devanagari": 7140,
+          "Latin": 6
+        },
+        "assigned_count": 7146,
+        "letter_mark_count": 7146,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Devanagari",
+        "dominant_count": 7140,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 9677
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Devanagari": 7168
+        },
+        "assigned_count": 7168,
+        "letter_mark_count": 7168,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Devanagari",
+        "dominant_count": 7168,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 9128
+      },
+      "dominant_script_mismatch": false
+    },
+    {
+      "run": "small-multilingual-beam5-v1",
+      "model_id": "openai/whisper-small",
+      "model_revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+      "condition_id": "audio_only_fixed_30s_no_overlap_cuda_beam5",
+      "conversation_id": "humyn-14-00",
+      "language": "hi",
+      "status": "generation_limit",
+      "reference_sha256": "6a2342e7683ac439792ebc77dfee677ba6f7b460d5bd6ef68fd200dd1d74835a",
+      "audio_sha256": "b611f7c1cf604d2f2f99f1e7c7acda70e31d5a95e45af7fb774cd6bafbafb3c8",
+      "reference_text_sha256": "102b24e532094ed6765bc1ccc6a08b32748ede12328a9d11327062ecbf4787c0",
+      "hypothesis_text_sha256": "3d1e2089421a1a1efb2b5458c2d1869d1fea1b7a8c66f73c7eef9664f7903b50",
+      "reference_distribution": {
+        "counts": {
+          "Devanagari": 6757,
+          "Latin": 1970
+        },
+        "assigned_count": 8727,
+        "letter_mark_count": 8727,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Devanagari",
+        "dominant_count": 6757,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 11568
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Devanagari": 7553
+        },
+        "assigned_count": 7553,
+        "letter_mark_count": 7553,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Devanagari",
+        "dominant_count": 7553,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 9828
+      },
+      "dominant_script_mismatch": false
+    },
+    {
+      "run": "small-multilingual-beam5-v1",
+      "model_id": "openai/whisper-small",
+      "model_revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+      "condition_id": "audio_only_fixed_30s_no_overlap_cuda_beam5",
+      "conversation_id": "humyn-14-01",
+      "language": "kn",
+      "status": "generation_limit",
+      "reference_sha256": "ebdd210bb381826ba00a209f447812870d71cebed7a6e1d91294a8eaa775adf3",
+      "audio_sha256": "9d9b0780aa50c9319c06bd348328a10927450544934a4e62d2a9b2a5adf3fdcc",
+      "reference_text_sha256": "f61d872010482fae6fc488e9c065266bf6fe2885a0a3842d8862101669b3be34",
+      "hypothesis_text_sha256": "4ff7c7335f103db0688f2a87833aa0df34745972960a020efd1db1010f38e535",
+      "reference_distribution": {
+        "counts": {
+          "Kannada": 2568,
+          "Latin": 1031
+        },
+        "assigned_count": 3599,
+        "letter_mark_count": 3599,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Kannada",
+        "dominant_count": 2568,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 4532
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Devanagari": 1086,
+          "Kannada": 5156,
+          "Latin": 119
+        },
+        "assigned_count": 6361,
+        "letter_mark_count": 6361,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Kannada",
+        "dominant_count": 5156,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 7350
+      },
+      "dominant_script_mismatch": false
+    },
+    {
+      "run": "small-multilingual-beam5-v1",
+      "model_id": "openai/whisper-small",
+      "model_revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+      "condition_id": "audio_only_fixed_30s_no_overlap_cuda_beam5",
+      "conversation_id": "humyn-15-00",
+      "language": "kn",
+      "status": "generation_limit",
+      "reference_sha256": "9a1f3d032913915290cbedc0000a51607c33126e2f23abb8e1757eb035bb940e",
+      "audio_sha256": "b4f0e88eee8d8063072df95321bf0558792dbf21e333315aacab440c852b1dcf",
+      "reference_text_sha256": "f747f04923dea44e0677235a967a23deb8632e281aed7c95c759c69b8e9f4c58",
+      "hypothesis_text_sha256": "a55e789bde59a6ccd1a648e290f573732230ea3b181af4b15bddf55d6529419f",
+      "reference_distribution": {
+        "counts": {
+          "Kannada": 7550,
+          "Latin": 179
+        },
+        "assigned_count": 7729,
+        "letter_mark_count": 7729,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Kannada",
+        "dominant_count": 7550,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 9037
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Kannada": 6656
+        },
+        "assigned_count": 6656,
+        "letter_mark_count": 6656,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Kannada",
+        "dominant_count": 6656,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 6793
+      },
+      "dominant_script_mismatch": false
+    },
+    {
+      "run": "small-multilingual-beam5-v1",
+      "model_id": "openai/whisper-small",
+      "model_revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+      "condition_id": "audio_only_fixed_30s_no_overlap_cuda_beam5",
+      "conversation_id": "humyn-16-00",
+      "language": "kn",
+      "status": "generation_limit",
+      "reference_sha256": "cfab92ed1f69bc8834aa27abafa877ea58d32d72e366387d06522d0efa5545a4",
+      "audio_sha256": "ec37ca92a3d2af4470ebae33701e178c75ca6b81fe58a46ffb5aeffaa120382a",
+      "reference_text_sha256": "a9abb1248d4b4f710cdd541d54af1193183fa3c733d08c504e06e21f5970191e",
+      "hypothesis_text_sha256": "a08f4e520fc83b84f554a21c328a0db5e4c1e2bfa83583e2a77f219d4a6e6f5b",
+      "reference_distribution": {
+        "counts": {
+          "Kannada": 7777,
+          "Latin": 331
+        },
+        "assigned_count": 8108,
+        "letter_mark_count": 8108,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Kannada",
+        "dominant_count": 7777,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 9444
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Kannada": 6800
+        },
+        "assigned_count": 6800,
+        "letter_mark_count": 6800,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Kannada",
+        "dominant_count": 6800,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 7046
+      },
+      "dominant_script_mismatch": false
+    },
+    {
+      "run": "small-multilingual-beam5-v1",
+      "model_id": "openai/whisper-small",
+      "model_revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+      "condition_id": "audio_only_fixed_30s_no_overlap_cuda_beam5",
+      "conversation_id": "humyn-17-00",
+      "language": "ta",
+      "status": "generation_limit",
+      "reference_sha256": "1183bd14af09f11950e34d9762fa55c834270060ed8ad14c2a8b95ec58619b41",
+      "audio_sha256": "4428c51cf8d2939eab20a42b6047c1781c007ead64df95cff6d33b79172ef23e",
+      "reference_text_sha256": "129d13964442aa424292bb9fa24ad893929a4a023b17abaa0aff9b1f17e70d42",
+      "hypothesis_text_sha256": "9d0713ee17aa59983c66be20e8a93b2f843f970dc8cc6504518fe8bace48759c",
+      "reference_distribution": {
+        "counts": {
+          "Latin": 135,
+          "Tamil": 12490
+        },
+        "assigned_count": 12625,
+        "letter_mark_count": 12625,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Tamil",
+        "dominant_count": 12490,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 14962
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Latin": 3,
+          "Tamil": 12463
+        },
+        "assigned_count": 12466,
+        "letter_mark_count": 12466,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Tamil",
+        "dominant_count": 12463,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 14218
+      },
+      "dominant_script_mismatch": false
+    },
+    {
+      "run": "small-multilingual-beam5-v1",
+      "model_id": "openai/whisper-small",
+      "model_revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+      "condition_id": "audio_only_fixed_30s_no_overlap_cuda_beam5",
+      "conversation_id": "humyn-19-00",
+      "language": "ta",
+      "status": "generation_limit",
+      "reference_sha256": "bdbdaa72d775396a4d7242c16c5a05958e0c9e74ff5dd0d7287fbcf8f5036b2c",
+      "audio_sha256": "6a5ebc1ddf53c129ac36497c02fc98db84cc33a06f6489b17c8f9f6e5cedc73c",
+      "reference_text_sha256": "4039e0693461a19c3c88b3de770385173ed721e4867c1ddb3d66ee5b6185e520",
+      "hypothesis_text_sha256": "1aa3a6527e19a25dc2832c0c4330159db5ba6de21e9649b98d5deede06c7dc62",
+      "reference_distribution": {
+        "counts": {
+          "Latin": 164,
+          "Tamil": 12748
+        },
+        "assigned_count": 12912,
+        "letter_mark_count": 12912,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Tamil",
+        "dominant_count": 12748,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 15365
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Tamil": 12410
+        },
+        "assigned_count": 12410,
+        "letter_mark_count": 12410,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Tamil",
+        "dominant_count": 12410,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 14804
+      },
+      "dominant_script_mismatch": false
+    },
+    {
+      "run": "small-multilingual-beam5-v1",
+      "model_id": "openai/whisper-small",
+      "model_revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+      "condition_id": "audio_only_fixed_30s_no_overlap_cuda_beam5",
+      "conversation_id": "humyn-20-00",
+      "language": "ml",
+      "status": "generation_limit",
+      "reference_sha256": "c6e188231f86d6acbf3938e0bcc58389a6baf99a7205d7430033892bfb149ab8",
+      "audio_sha256": "490a65932fdb35c2dd9a59eda8a761c3775d2746ec432346985e5d920b0ab732",
+      "reference_text_sha256": "d7cc1ecb7b96b4147f3ad21f55e3737dbf0e17579fda2ecfb0812fe0343b09f6",
+      "hypothesis_text_sha256": "51c4b36142f933f6888f86dc773b7bf9034a0fd66ea1576f7df06453eb91bec6",
+      "reference_distribution": {
+        "counts": {
+          "Malayalam": 12879
+        },
+        "assigned_count": 12879,
+        "letter_mark_count": 12879,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Malayalam",
+        "dominant_count": 12879,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 14887
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Devanagari": 1532,
+          "Latin": 3650
+        },
+        "assigned_count": 5182,
+        "letter_mark_count": 5328,
+        "unassigned_letter_mark_count": 146,
+        "assigned_fraction_of_letters_marks": 0.9725975975975976,
+        "dominant_script": "Latin",
+        "dominant_count": 3650,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 5768
+      },
+      "dominant_script_mismatch": true
+    },
+    {
+      "run": "small-multilingual-beam5-v1",
+      "model_id": "openai/whisper-small",
+      "model_revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+      "condition_id": "audio_only_fixed_30s_no_overlap_cuda_beam5",
+      "conversation_id": "humyn-21-00",
+      "language": "ml",
+      "status": "generation_limit",
+      "reference_sha256": "18b7fa4b39719550088ac08d2251bce7e245ea057c6eb9c1251ce19ae0782365",
+      "audio_sha256": "309018d3dd373dc24930b5200cf34c55b0c248325c3b181807fbaaba236127ea",
+      "reference_text_sha256": "ed080c932e6847a995af7d459e46d2b2c331a5e7b525638367c465bb2c602b8c",
+      "hypothesis_text_sha256": "896dfc78d9f03c6e60932e1a10ee08fb0660b3314c4678b320dc4ec3f1a0760c",
+      "reference_distribution": {
+        "counts": {
+          "Malayalam": 12361
+        },
+        "assigned_count": 12361,
+        "letter_mark_count": 12361,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Malayalam",
+        "dominant_count": 12361,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 14301
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Devanagari": 731,
+          "Latin": 4522
+        },
+        "assigned_count": 5253,
+        "letter_mark_count": 5836,
+        "unassigned_letter_mark_count": 583,
+        "assigned_fraction_of_letters_marks": 0.9001028101439342,
+        "dominant_script": "Latin",
+        "dominant_count": 4522,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 6535
+      },
+      "dominant_script_mismatch": true
+    },
+    {
+      "run": "hindi-qwen3-asr-0-6b-v1",
+      "model_id": "Qwen/Qwen3-ASR-0.6B",
+      "model_revision": "5eb144179a02acc5e5ba31e748d22b0cf3e303b0",
+      "condition_id": "audio_only_fixed_30s_no_overlap_qwen_greedy_bfloat16",
+      "conversation_id": "humyn-13-00",
+      "language": "hi",
+      "status": "success",
+      "reference_sha256": "98287d1163ffe0858f2457ee3ea5bd1fb5b9f829bf570c8a096c7c13eb86d2af",
+      "audio_sha256": "7bd13585c48b4b6a82ce14dacd58f9fb3daf1a8ac19d8d3d167457445ecf95df",
+      "reference_text_sha256": "d51f93e4abb8ad65f39358763b8bda90c392f1682380f000229f0c353ce33d56",
+      "hypothesis_text_sha256": "ab17c78c3157352a617bd7c45649e90bb31072cdc526e11617d30a7a0f5e60fb",
+      "reference_distribution": {
+        "counts": {
+          "Devanagari": 6612,
+          "Latin": 69
+        },
+        "assigned_count": 6681,
+        "letter_mark_count": 6681,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Devanagari",
+        "dominant_count": 6612,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 9051
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Devanagari": 5735,
+          "Latin": 591
+        },
+        "assigned_count": 6326,
+        "letter_mark_count": 6326,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Devanagari",
+        "dominant_count": 5735,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 8286
+      },
+      "dominant_script_mismatch": false
+    },
+    {
+      "run": "hindi-qwen3-asr-0-6b-v1",
+      "model_id": "Qwen/Qwen3-ASR-0.6B",
+      "model_revision": "5eb144179a02acc5e5ba31e748d22b0cf3e303b0",
+      "condition_id": "audio_only_fixed_30s_no_overlap_qwen_greedy_bfloat16",
+      "conversation_id": "humyn-13-01",
+      "language": "hi",
+      "status": "success",
+      "reference_sha256": "6623733b1ab3135b9ca281a5bc9a55e3224e1add4878ab46f29627ea2cae4879",
+      "audio_sha256": "4cf56a04362720b4c183b9497a2a0395090cd3a759360019b6931d22acd386f4",
+      "reference_text_sha256": "27d391a8ef2fa889b7afb00e085f603464d5382a61de6805cb6950862dbe228c",
+      "hypothesis_text_sha256": "9b238c50ff407dfdcec07549d7543ab90dfeb2152b4407db864644e89b1d90ba",
+      "reference_distribution": {
+        "counts": {
+          "Devanagari": 7140,
+          "Latin": 6
+        },
+        "assigned_count": 7146,
+        "letter_mark_count": 7146,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Devanagari",
+        "dominant_count": 7140,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 9677
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Devanagari": 6548,
+          "Latin": 332
+        },
+        "assigned_count": 6880,
+        "letter_mark_count": 6880,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Devanagari",
+        "dominant_count": 6548,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 9034
+      },
+      "dominant_script_mismatch": false
+    },
+    {
+      "run": "hindi-qwen3-asr-0-6b-v1",
+      "model_id": "Qwen/Qwen3-ASR-0.6B",
+      "model_revision": "5eb144179a02acc5e5ba31e748d22b0cf3e303b0",
+      "condition_id": "audio_only_fixed_30s_no_overlap_qwen_greedy_bfloat16",
+      "conversation_id": "humyn-14-00",
+      "language": "hi",
+      "status": "success",
+      "reference_sha256": "6a2342e7683ac439792ebc77dfee677ba6f7b460d5bd6ef68fd200dd1d74835a",
+      "audio_sha256": "b611f7c1cf604d2f2f99f1e7c7acda70e31d5a95e45af7fb774cd6bafbafb3c8",
+      "reference_text_sha256": "102b24e532094ed6765bc1ccc6a08b32748ede12328a9d11327062ecbf4787c0",
+      "hypothesis_text_sha256": "199c6e412d9a1e9f24db80a284ed757ba521d25142cc7f59406f30aea7e47690",
+      "reference_distribution": {
+        "counts": {
+          "Devanagari": 6757,
+          "Latin": 1970
+        },
+        "assigned_count": 8727,
+        "letter_mark_count": 8727,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Devanagari",
+        "dominant_count": 6757,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 11568
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Devanagari": 8131,
+          "Latin": 247
+        },
+        "assigned_count": 8378,
+        "letter_mark_count": 8378,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Devanagari",
+        "dominant_count": 8131,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 10753
+      },
+      "dominant_script_mismatch": false
+    },
+    {
+      "run": "hindi-whisper-large-v3-beam5-v1",
+      "model_id": "openai/whisper-large-v3",
+      "model_revision": "06f233fe06e710322aca913c1bc4249a0d71fce1",
+      "condition_id": "audio_only_fixed_30s_no_overlap_cuda_beam5",
+      "conversation_id": "humyn-13-00",
+      "language": "hi",
+      "status": "generation_limit",
+      "reference_sha256": "98287d1163ffe0858f2457ee3ea5bd1fb5b9f829bf570c8a096c7c13eb86d2af",
+      "audio_sha256": "7bd13585c48b4b6a82ce14dacd58f9fb3daf1a8ac19d8d3d167457445ecf95df",
+      "reference_text_sha256": "d51f93e4abb8ad65f39358763b8bda90c392f1682380f000229f0c353ce33d56",
+      "hypothesis_text_sha256": "3e8e21905da6f08e4accaf33dfde5b786a000361c5837e8c7b9e86e32a8545d3",
+      "reference_distribution": {
+        "counts": {
+          "Devanagari": 6612,
+          "Latin": 69
+        },
+        "assigned_count": 6681,
+        "letter_mark_count": 6681,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Devanagari",
+        "dominant_count": 6612,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 9051
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Devanagari": 5774,
+          "Latin": 124
+        },
+        "assigned_count": 5898,
+        "letter_mark_count": 5898,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Devanagari",
+        "dominant_count": 5774,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 7766
+      },
+      "dominant_script_mismatch": false
+    },
+    {
+      "run": "hindi-whisper-large-v3-beam5-v1",
+      "model_id": "openai/whisper-large-v3",
+      "model_revision": "06f233fe06e710322aca913c1bc4249a0d71fce1",
+      "condition_id": "audio_only_fixed_30s_no_overlap_cuda_beam5",
+      "conversation_id": "humyn-13-01",
+      "language": "hi",
+      "status": "generation_limit",
+      "reference_sha256": "6623733b1ab3135b9ca281a5bc9a55e3224e1add4878ab46f29627ea2cae4879",
+      "audio_sha256": "4cf56a04362720b4c183b9497a2a0395090cd3a759360019b6931d22acd386f4",
+      "reference_text_sha256": "27d391a8ef2fa889b7afb00e085f603464d5382a61de6805cb6950862dbe228c",
+      "hypothesis_text_sha256": "3648d6ff988dfe704449d51eaeefc9bff737770e94617fa02fde31c45c53d200",
+      "reference_distribution": {
+        "counts": {
+          "Devanagari": 7140,
+          "Latin": 6
+        },
+        "assigned_count": 7146,
+        "letter_mark_count": 7146,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Devanagari",
+        "dominant_count": 7140,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 9677
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Devanagari": 6134,
+          "Latin": 419
+        },
+        "assigned_count": 6553,
+        "letter_mark_count": 6553,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Devanagari",
+        "dominant_count": 6134,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 8441
+      },
+      "dominant_script_mismatch": false
+    },
+    {
+      "run": "hindi-whisper-large-v3-beam5-v1",
+      "model_id": "openai/whisper-large-v3",
+      "model_revision": "06f233fe06e710322aca913c1bc4249a0d71fce1",
+      "condition_id": "audio_only_fixed_30s_no_overlap_cuda_beam5",
+      "conversation_id": "humyn-14-00",
+      "language": "hi",
+      "status": "generation_limit",
+      "reference_sha256": "6a2342e7683ac439792ebc77dfee677ba6f7b460d5bd6ef68fd200dd1d74835a",
+      "audio_sha256": "b611f7c1cf604d2f2f99f1e7c7acda70e31d5a95e45af7fb774cd6bafbafb3c8",
+      "reference_text_sha256": "102b24e532094ed6765bc1ccc6a08b32748ede12328a9d11327062ecbf4787c0",
+      "hypothesis_text_sha256": "a9a431ed2989a95cd4552bcd9e5671974be4064645f67f798711d0c26ebcb950",
+      "reference_distribution": {
+        "counts": {
+          "Devanagari": 6757,
+          "Latin": 1970
+        },
+        "assigned_count": 8727,
+        "letter_mark_count": 8727,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Devanagari",
+        "dominant_count": 6757,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 11568
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Devanagari": 7222,
+          "Latin": 87
+        },
+        "assigned_count": 7309,
+        "letter_mark_count": 7309,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Devanagari",
+        "dominant_count": 7222,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 9368
+      },
+      "dominant_script_mismatch": false
+    },
+    {
+      "run": "omni-ctc-1b-multilingual-v2",
+      "model_id": "facebook/omniASR-CTC-1B",
+      "model_revision": "8c22e3ffdaa4aab6431b128b84b991a7d9c2515c",
+      "condition_id": "audio_only_fixed_30s_no_overlap_ctc_bfloat16",
+      "conversation_id": "humyn-00-00",
+      "language": "as",
+      "status": "success",
+      "reference_sha256": "101456d11cb2a1ab0435bae1eed6e90c8044308394b6ceb52051fcc3f3ea8c9e",
+      "audio_sha256": "0225f3848ef4bd63fbed6593c1d7c1e6d314757be9d52fbd484b58ce45b98d97",
+      "reference_text_sha256": "eaa99fb2c2c3a1240b8118a192d6762a7cf2b009a0c27ad57ac40eaf2be039a9",
+      "hypothesis_text_sha256": "cfa3bf5e94ec090a6961abdff197086bf7ed1cb5340f5ab28171353ceb65f44e",
+      "reference_distribution": {
+        "counts": {
+          "Bengali": 2319
+        },
+        "assigned_count": 2319,
+        "letter_mark_count": 2319,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Bengali",
+        "dominant_count": 2319,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 2850
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Bengali": 622,
+          "Devanagari": 370
+        },
+        "assigned_count": 992,
+        "letter_mark_count": 992,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Bengali",
+        "dominant_count": 622,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 1190
+      },
+      "dominant_script_mismatch": false
+    },
+    {
+      "run": "omni-ctc-1b-multilingual-v2",
+      "model_id": "facebook/omniASR-CTC-1B",
+      "model_revision": "8c22e3ffdaa4aab6431b128b84b991a7d9c2515c",
+      "condition_id": "audio_only_fixed_30s_no_overlap_ctc_bfloat16",
+      "conversation_id": "humyn-00-01",
+      "language": "as",
+      "status": "success",
+      "reference_sha256": "29f0bcfb960e1d083d34e764da957698cf354da11a9af49be0651b4923a26f81",
+      "audio_sha256": "add03d8fc7e8e7a96b3bafab72369641935f0889893e398f0ee34e1341b5750a",
+      "reference_text_sha256": "d0dfbaaeac9b8f4db487a8d548bcbe195edda407565ecf410958881eefb0eeee",
+      "hypothesis_text_sha256": "01f16295b603e080e3818c18ee246d35b97a43b01f5bc89e0fa3a9b6c7ea52a6",
+      "reference_distribution": {
+        "counts": {
+          "Bengali": 7184
+        },
+        "assigned_count": 7184,
+        "letter_mark_count": 7184,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Bengali",
+        "dominant_count": 7184,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 8936
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Bengali": 2038,
+          "Devanagari": 1450,
+          "Latin": 2
+        },
+        "assigned_count": 3490,
+        "letter_mark_count": 3490,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Bengali",
+        "dominant_count": 2038,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 4257
+      },
+      "dominant_script_mismatch": false
+    },
+    {
+      "run": "omni-ctc-1b-multilingual-v2",
+      "model_id": "facebook/omniASR-CTC-1B",
+      "model_revision": "8c22e3ffdaa4aab6431b128b84b991a7d9c2515c",
+      "condition_id": "audio_only_fixed_30s_no_overlap_ctc_bfloat16",
+      "conversation_id": "humyn-01-00",
+      "language": "bn",
+      "status": "success",
+      "reference_sha256": "62449a089a69ca7fcbfea531d41a2c5266f2d46fc193aa7df95ba16b9a72fb03",
+      "audio_sha256": "8770322f30d1e07585f6ea56a8d77114ff3cddb27a7114a3af5eb6e201eefaa1",
+      "reference_text_sha256": "b371e5b976d585afcf29be3970bc829fe399b1218680e63f0f57df6232d65420",
+      "hypothesis_text_sha256": "7eeba075be912ea43eab2277a873d554f33acb2f87431d701c4b5b76c06e0c5b",
+      "reference_distribution": {
+        "counts": {
+          "Bengali": 7831
+        },
+        "assigned_count": 7831,
+        "letter_mark_count": 7831,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Bengali",
+        "dominant_count": 7831,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 9832
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Bengali": 849,
+          "Devanagari": 43,
+          "Oriya": 13
+        },
+        "assigned_count": 905,
+        "letter_mark_count": 905,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Bengali",
+        "dominant_count": 849,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 1122
+      },
+      "dominant_script_mismatch": false
+    },
+    {
+      "run": "omni-ctc-1b-multilingual-v2",
+      "model_id": "facebook/omniASR-CTC-1B",
+      "model_revision": "8c22e3ffdaa4aab6431b128b84b991a7d9c2515c",
+      "condition_id": "audio_only_fixed_30s_no_overlap_ctc_bfloat16",
+      "conversation_id": "humyn-01-01",
+      "language": "bn",
+      "status": "success",
+      "reference_sha256": "653729e2b3b29c327345219b825a32f420f442cb396f4398de20e08015789f38",
+      "audio_sha256": "fcdbe553e410138523bc06adf733feb7f98e53fd178283bdc7585c01daedb194",
+      "reference_text_sha256": "c75037c85d1522eb80f570c8aafb9a200c5d9507aca7d3a72c3061ffd6d4de19",
+      "hypothesis_text_sha256": "165cf3a4ae397c5e03f641a2d44a4cd35add4cd29fec31fb053bd4b1da7d7567",
+      "reference_distribution": {
+        "counts": {
+          "Bengali": 8453,
+          "Latin": 6
+        },
+        "assigned_count": 8459,
+        "letter_mark_count": 8459,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Bengali",
+        "dominant_count": 8453,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 10605
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Bengali": 523,
+          "Devanagari": 27,
+          "Oriya": 1
+        },
+        "assigned_count": 551,
+        "letter_mark_count": 551,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Bengali",
+        "dominant_count": 523,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 690
+      },
+      "dominant_script_mismatch": false
+    },
+    {
+      "run": "omni-ctc-1b-multilingual-v2",
+      "model_id": "facebook/omniASR-CTC-1B",
+      "model_revision": "8c22e3ffdaa4aab6431b128b84b991a7d9c2515c",
+      "condition_id": "audio_only_fixed_30s_no_overlap_ctc_bfloat16",
+      "conversation_id": "humyn-02-00",
+      "language": "bn",
+      "status": "success",
+      "reference_sha256": "f5b37dcfba42d427c1ea5a6b2cafa013670dc5dddd7adc07f01b55239fece74c",
+      "audio_sha256": "47c21724ce504b5bf4e0d181cbaa200937ecf3b5138b5f9f0c2c636110706e5f",
+      "reference_text_sha256": "dd0f44c2141ae03b28fbf4d6d95a1a0d45e734f5a60696b6180f450d3cd911f7",
+      "hypothesis_text_sha256": "5497c117eb12f11ced0283b40b9c5881619a0309ba8cc0f0fc1716e249176f09",
+      "reference_distribution": {
+        "counts": {
+          "Bengali": 8458
+        },
+        "assigned_count": 8458,
+        "letter_mark_count": 8458,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Bengali",
+        "dominant_count": 8458,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 10626
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Bengali": 838,
+          "Devanagari": 143,
+          "Latin": 9,
+          "Oriya": 13
+        },
+        "assigned_count": 1003,
+        "letter_mark_count": 1003,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Bengali",
+        "dominant_count": 838,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 1228
+      },
+      "dominant_script_mismatch": false
+    },
+    {
+      "run": "omni-ctc-1b-multilingual-v2",
+      "model_id": "facebook/omniASR-CTC-1B",
+      "model_revision": "8c22e3ffdaa4aab6431b128b84b991a7d9c2515c",
+      "condition_id": "audio_only_fixed_30s_no_overlap_ctc_bfloat16",
+      "conversation_id": "humyn-02-01",
+      "language": "bho",
+      "status": "success",
+      "reference_sha256": "599cfd58890af6f1c3bbf8ea9d7c9184572947b2a5c1142c830868e7f4e39c57",
+      "audio_sha256": "781e0a8a440d9cc4137881e597eac857d56950e8ab288e2fea77cae01b0fdcbe",
+      "reference_text_sha256": "ec3d4058c0469e70c508c442d3c1d06b7df94f63681c9087814929494d8e8d9d",
+      "hypothesis_text_sha256": "d41e35231fa6c1f5667b64dbe40ced4962f96ff3db1c8ada93436cb524577739",
+      "reference_distribution": {
+        "counts": {
+          "Bengali": 5,
+          "Devanagari": 8609,
+          "Latin": 271
+        },
+        "assigned_count": 8885,
+        "letter_mark_count": 8885,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Devanagari",
+        "dominant_count": 8609,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 12124
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Devanagari": 4235
+        },
+        "assigned_count": 4235,
+        "letter_mark_count": 4235,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Devanagari",
+        "dominant_count": 4235,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 5315
+      },
+      "dominant_script_mismatch": false
+    },
+    {
+      "run": "omni-ctc-1b-multilingual-v2",
+      "model_id": "facebook/omniASR-CTC-1B",
+      "model_revision": "8c22e3ffdaa4aab6431b128b84b991a7d9c2515c",
+      "condition_id": "audio_only_fixed_30s_no_overlap_ctc_bfloat16",
+      "conversation_id": "humyn-03-01",
+      "language": "bho",
+      "status": "success",
+      "reference_sha256": "cf8e5eee333903d77158b42a5686e9fbd867082a1ca07224a6f74a13539cd360",
+      "audio_sha256": "a94ccb5b306f0fa2779e28d6bbf1ecb59cc89e6fc7e67c4d7bc2787cc06c4d20",
+      "reference_text_sha256": "fc6c715fac7b9d130227ebcd69fd04b3f7ca3463f558f1f673e2bee49fa268c5",
+      "hypothesis_text_sha256": "46eb53597b8534d9c452890229fce8ab6644026f62fea801663ad027c20e0074",
+      "reference_distribution": {
+        "counts": {
+          "Devanagari": 5719,
+          "Latin": 91
+        },
+        "assigned_count": 5810,
+        "letter_mark_count": 5810,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Devanagari",
+        "dominant_count": 5719,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 7939
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Devanagari": 3084
+        },
+        "assigned_count": 3084,
+        "letter_mark_count": 3084,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Devanagari",
+        "dominant_count": 3084,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 3768
+      },
+      "dominant_script_mismatch": false
+    },
+    {
+      "run": "omni-ctc-1b-multilingual-v2",
+      "model_id": "facebook/omniASR-CTC-1B",
+      "model_revision": "8c22e3ffdaa4aab6431b128b84b991a7d9c2515c",
+      "condition_id": "audio_only_fixed_30s_no_overlap_ctc_bfloat16",
+      "conversation_id": "humyn-04-00",
+      "language": "hne",
+      "status": "success",
+      "reference_sha256": "6a4c5a4d0dbf216590d2ab9708254794ff6a7de7fdaaa62f16e7725eb79fc8b9",
+      "audio_sha256": "077e51df5bc248d1796164a2c06549e6091d865268df6ddc28a61892a51f487c",
+      "reference_text_sha256": "7c72827bef7aebb9f0e669af9938fb3711c11b509f089fb16c88c7eb7302a938",
+      "hypothesis_text_sha256": "41c0b8c3a116bc44881e98f1af70304a5aefb97efc6920d937c8140f310eb8ca",
+      "reference_distribution": {
+        "counts": {
+          "Devanagari": 12794,
+          "Latin": 2605
+        },
+        "assigned_count": 15399,
+        "letter_mark_count": 15399,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Devanagari",
+        "dominant_count": 12794,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 20467
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Arabic": 108,
+          "Devanagari": 1435,
+          "Latin": 7
+        },
+        "assigned_count": 1550,
+        "letter_mark_count": 1550,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Devanagari",
+        "dominant_count": 1435,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 2451
+      },
+      "dominant_script_mismatch": false
+    },
+    {
+      "run": "omni-ctc-1b-multilingual-v2",
+      "model_id": "facebook/omniASR-CTC-1B",
+      "model_revision": "8c22e3ffdaa4aab6431b128b84b991a7d9c2515c",
+      "condition_id": "audio_only_fixed_30s_no_overlap_ctc_bfloat16",
+      "conversation_id": "humyn-04-01",
+      "language": "hne",
+      "status": "success",
+      "reference_sha256": "0f491f0b2dd1fd8ee6d645177efbbc5286312a23bf2afde98e175259ecc114a9",
+      "audio_sha256": "58542bbf49ef9ef6f70912bc221834d26cef449994b241bab6166b8695c704de",
+      "reference_text_sha256": "1f8bc8d2f85a421eae62ada06b08957c028b9e1b24d9cefd7cea064aa306b837",
+      "hypothesis_text_sha256": "9f0a23fe0454350ae927d0421e6f6fd8b0ae433f01b041f57dee0f5da91bf868",
+      "reference_distribution": {
+        "counts": {
+          "Devanagari": 12891,
+          "Latin": 2181
+        },
+        "assigned_count": 15072,
+        "letter_mark_count": 15072,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Devanagari",
+        "dominant_count": 12891,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 19862
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Arabic": 206,
+          "Devanagari": 1744
+        },
+        "assigned_count": 1950,
+        "letter_mark_count": 1950,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Devanagari",
+        "dominant_count": 1744,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 2943
+      },
+      "dominant_script_mismatch": false
+    },
+    {
+      "run": "omni-ctc-1b-multilingual-v2",
+      "model_id": "facebook/omniASR-CTC-1B",
+      "model_revision": "8c22e3ffdaa4aab6431b128b84b991a7d9c2515c",
+      "condition_id": "audio_only_fixed_30s_no_overlap_ctc_bfloat16",
+      "conversation_id": "humyn-05-00",
+      "language": "hne",
+      "status": "success",
+      "reference_sha256": "4b24d12a1c34f0b1fe19d0244598f2a6ebfc29b168ffbb2857e3562f01b94549",
+      "audio_sha256": "7c9291b43914bf171ea9719d45ed4571b534c2a41e1a7e4e01e1dfd1776f5936",
+      "reference_text_sha256": "f300928c3e30c34ef5be54f0f373f88efd0ecd87c19ef610287dcdbe54d01d22",
+      "hypothesis_text_sha256": "4101f580515ccdc2c2c0ad8a9b479449dd5f6387f4a011db9ab0bc2863ebd490",
+      "reference_distribution": {
+        "counts": {
+          "Devanagari": 9760,
+          "Latin": 1947
+        },
+        "assigned_count": 11707,
+        "letter_mark_count": 11707,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Devanagari",
+        "dominant_count": 9760,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 15585
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Arabic": 187,
+          "Devanagari": 994
+        },
+        "assigned_count": 1181,
+        "letter_mark_count": 1181,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Devanagari",
+        "dominant_count": 994,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 1816
+      },
+      "dominant_script_mismatch": false
+    },
+    {
+      "run": "omni-ctc-1b-multilingual-v2",
+      "model_id": "facebook/omniASR-CTC-1B",
+      "model_revision": "8c22e3ffdaa4aab6431b128b84b991a7d9c2515c",
+      "condition_id": "audio_only_fixed_30s_no_overlap_ctc_bfloat16",
+      "conversation_id": "humyn-05-01",
+      "language": "bgc",
+      "status": "success",
+      "reference_sha256": "e99ad37c6905a54936c4795005c56b16fb3adb0ef092812c5bd6dc93dedc4c24",
+      "audio_sha256": "afcad8c88978f52517848bdcbda0250437d201290c2a00e67912916f8b2f9340",
+      "reference_text_sha256": "6698b611fa2d7f1b6c4f481b7a13bb3d683357b64f707e7d75714fdece0bfb5f",
+      "hypothesis_text_sha256": "487458c91e75b2468955201a9c5a76a40854a31d0fb53a8495fac98a22cd3eca",
+      "reference_distribution": {
+        "counts": {
+          "Devanagari": 5882,
+          "Latin": 36
+        },
+        "assigned_count": 5918,
+        "letter_mark_count": 5918,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Devanagari",
+        "dominant_count": 5882,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 8091
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Arabic": 727,
+          "Devanagari": 8
+        },
+        "assigned_count": 735,
+        "letter_mark_count": 735,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Arabic",
+        "dominant_count": 727,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 1084
+      },
+      "dominant_script_mismatch": true
+    },
+    {
+      "run": "omni-ctc-1b-multilingual-v2",
+      "model_id": "facebook/omniASR-CTC-1B",
+      "model_revision": "8c22e3ffdaa4aab6431b128b84b991a7d9c2515c",
+      "condition_id": "audio_only_fixed_30s_no_overlap_ctc_bfloat16",
+      "conversation_id": "humyn-06-00",
+      "language": "bgc",
+      "status": "success",
+      "reference_sha256": "36d512c0243d2f15f156a8a252f02dd0273eeba12ba6f6680fb933fa58ab78ab",
+      "audio_sha256": "b804ebf0bbf2b113f774e2118808e74b18c79f2de6a630e210787349c780314b",
+      "reference_text_sha256": "14c317a0a5ead59eb533e0a0ce80184e9b26de05a0eb65705710178829e3279c",
+      "hypothesis_text_sha256": "adc3650f63d7cb109f56b952ce711ad9a9285020ba5a5d6dc51ab0f97ac500d1",
+      "reference_distribution": {
+        "counts": {
+          "Devanagari": 4055,
+          "Gurmukhi": 3,
+          "Latin": 15
+        },
+        "assigned_count": 4073,
+        "letter_mark_count": 4073,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Devanagari",
+        "dominant_count": 4055,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 5537
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Arabic": 479
+        },
+        "assigned_count": 479,
+        "letter_mark_count": 479,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Arabic",
+        "dominant_count": 479,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 671
+      },
+      "dominant_script_mismatch": true
+    },
+    {
+      "run": "omni-ctc-1b-multilingual-v2",
+      "model_id": "facebook/omniASR-CTC-1B",
+      "model_revision": "8c22e3ffdaa4aab6431b128b84b991a7d9c2515c",
+      "condition_id": "audio_only_fixed_30s_no_overlap_ctc_bfloat16",
+      "conversation_id": "humyn-06-01",
+      "language": "bgc",
+      "status": "success",
+      "reference_sha256": "c45c010009597753421fdddce0ec6cbd7aa2419bfde78e8346a8b130a14454ee",
+      "audio_sha256": "25b02d37b537534635ef26bb5824c00a8c2a2bcb018610ae605c1f9bd18c5923",
+      "reference_text_sha256": "c3ad31d3c7bcbd3dca65447e101ce316a1ccaa32b20403b1f37e22c2fe4e4cfc",
+      "hypothesis_text_sha256": "d607c0eecb4e3db8acf155cf28c9a6227f646a48578cd2d1c038cd4c2b004199",
+      "reference_distribution": {
+        "counts": {
+          "Devanagari": 10562,
+          "Latin": 571
+        },
+        "assigned_count": 11133,
+        "letter_mark_count": 11133,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Devanagari",
+        "dominant_count": 10562,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 15022
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Arabic": 945,
+          "Devanagari": 242
+        },
+        "assigned_count": 1187,
+        "letter_mark_count": 1187,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Arabic",
+        "dominant_count": 945,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 1715
+      },
+      "dominant_script_mismatch": true
+    },
+    {
+      "run": "omni-ctc-1b-multilingual-v2",
+      "model_id": "facebook/omniASR-CTC-1B",
+      "model_revision": "8c22e3ffdaa4aab6431b128b84b991a7d9c2515c",
+      "condition_id": "audio_only_fixed_30s_no_overlap_ctc_bfloat16",
+      "conversation_id": "humyn-07-00",
+      "language": "mr",
+      "status": "success",
+      "reference_sha256": "fe857e0e5dcbc6028fdf333313102be9fc349791ba6ce794f8b1f93015149e02",
+      "audio_sha256": "00d5e1cfc90e506c4901b21314bc0e24703f2c528707e32ad2bfc7536c2fa790",
+      "reference_text_sha256": "dba6c1a6a81f7150905fd2e73626f259026cffaadbb4f8d8086393baa9e27aa0",
+      "hypothesis_text_sha256": "0466e04e69d9580085bac5113bf16b356a72953b2659c099656bca98d7f14e64",
+      "reference_distribution": {
+        "counts": {
+          "Devanagari": 9052
+        },
+        "assigned_count": 9052,
+        "letter_mark_count": 9052,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Devanagari",
+        "dominant_count": 9052,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 11354
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Devanagari": 1852
+        },
+        "assigned_count": 1852,
+        "letter_mark_count": 1852,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Devanagari",
+        "dominant_count": 1852,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 2323
+      },
+      "dominant_script_mismatch": false
+    },
+    {
+      "run": "omni-ctc-1b-multilingual-v2",
+      "model_id": "facebook/omniASR-CTC-1B",
+      "model_revision": "8c22e3ffdaa4aab6431b128b84b991a7d9c2515c",
+      "condition_id": "audio_only_fixed_30s_no_overlap_ctc_bfloat16",
+      "conversation_id": "humyn-08-01",
+      "language": "te",
+      "status": "success",
+      "reference_sha256": "b103cf3228fe6b6733fee709074ae6d241e50a14303ed51569b98b9b3767e2fb",
+      "audio_sha256": "67293a8f3dc59e2b7042d4114b88dc3c2a3418ce1d5b5aac98c4ddfe08aec757",
+      "reference_text_sha256": "480a0764a12e4f6459b8bb195077184e23c21f6b2b79a6d089075f2b6d00222d",
+      "hypothesis_text_sha256": "31c07ec614978c0204140993d2f4ccc36536a30a924a6dc8c24fdc9f6c5a8313",
+      "reference_distribution": {
+        "counts": {
+          "Telugu": 12558
+        },
+        "assigned_count": 12558,
+        "letter_mark_count": 12558,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Telugu",
+        "dominant_count": 12558,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 15142
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Devanagari": 87,
+          "Latin": 7,
+          "Malayalam": 1416,
+          "Telugu": 4
+        },
+        "assigned_count": 1514,
+        "letter_mark_count": 1514,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Malayalam",
+        "dominant_count": 1416,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 1939
+      },
+      "dominant_script_mismatch": true
+    },
+    {
+      "run": "omni-ctc-1b-multilingual-v2",
+      "model_id": "facebook/omniASR-CTC-1B",
+      "model_revision": "8c22e3ffdaa4aab6431b128b84b991a7d9c2515c",
+      "condition_id": "audio_only_fixed_30s_no_overlap_ctc_bfloat16",
+      "conversation_id": "humyn-09-00",
+      "language": "te",
+      "status": "success",
+      "reference_sha256": "8634735cab515d8f1f8b178cedab38d8289118f752df6efc89c7b53013466416",
+      "audio_sha256": "58858a7b6c167a0e2964134129ed5251bdbabe91b7bd9d5cd12a15335e414a81",
+      "reference_text_sha256": "7588363be3a7ac25f5a5ebd00a48ccb792d9661a1f6bb0c132e936a436be6068",
+      "hypothesis_text_sha256": "a6e8444cbdf74c6fcd9c22664acc0e0f9b6e67bc58f77e23c87fff893ec84687",
+      "reference_distribution": {
+        "counts": {
+          "Telugu": 13943
+        },
+        "assigned_count": 13943,
+        "letter_mark_count": 13943,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Telugu",
+        "dominant_count": 13943,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 16700
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Devanagari": 101,
+          "Latin": 53,
+          "Malayalam": 1420,
+          "Telugu": 175
+        },
+        "assigned_count": 1749,
+        "letter_mark_count": 1749,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Malayalam",
+        "dominant_count": 1420,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 2182
+      },
+      "dominant_script_mismatch": true
+    },
+    {
+      "run": "omni-ctc-1b-multilingual-v2",
+      "model_id": "facebook/omniASR-CTC-1B",
+      "model_revision": "8c22e3ffdaa4aab6431b128b84b991a7d9c2515c",
+      "condition_id": "audio_only_fixed_30s_no_overlap_ctc_bfloat16",
+      "conversation_id": "humyn-09-01",
+      "language": "te",
+      "status": "success",
+      "reference_sha256": "91c346272ca060b731158b03249464bd96aeac9ab265a7f2a52be1900783fdf1",
+      "audio_sha256": "5e64021b80adf1c916b77a38f785b87c2e41bfcdc1a6b1745eff07eb15a3d732",
+      "reference_text_sha256": "4f63b0de7ff22dcd12ea4af34039f68d46e5969190ece4cba2e03c73cd9f3ff2",
+      "hypothesis_text_sha256": "5c5e698eb51cb0bd61656794bcb7b2b0bade490cf6864fcbb6070f822b316638",
+      "reference_distribution": {
+        "counts": {
+          "Telugu": 13086
+        },
+        "assigned_count": 13086,
+        "letter_mark_count": 13086,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Telugu",
+        "dominant_count": 13086,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 15648
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Devanagari": 120,
+          "Latin": 7,
+          "Malayalam": 1324,
+          "Oriya": 3,
+          "Tamil": 2,
+          "Telugu": 1447
+        },
+        "assigned_count": 2903,
+        "letter_mark_count": 2903,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Telugu",
+        "dominant_count": 1447,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 3542
+      },
+      "dominant_script_mismatch": false
+    },
+    {
+      "run": "omni-ctc-1b-multilingual-v2",
+      "model_id": "facebook/omniASR-CTC-1B",
+      "model_revision": "8c22e3ffdaa4aab6431b128b84b991a7d9c2515c",
+      "condition_id": "audio_only_fixed_30s_no_overlap_ctc_bfloat16",
+      "conversation_id": "humyn-10-00",
+      "language": "gu",
+      "status": "success",
+      "reference_sha256": "cf534ce972fe1544d1018c798ba8de87854f3f18f6c1fa7c92e48cd2af50070f",
+      "audio_sha256": "3ad31b0b24e7c21a071ecc3e03696915cbd872273d24f65b77c45118d037b9c0",
+      "reference_text_sha256": "c26789656c761372333ac42979f8daf1dde93fcba3625c75f35b1adb54ab295a",
+      "hypothesis_text_sha256": "604f4728e3a0292da5472a3e2b3259e341af1f91314cc12015745f0fcc8e47e7",
+      "reference_distribution": {
+        "counts": {
+          "Gujarati": 5757
+        },
+        "assigned_count": 5757,
+        "letter_mark_count": 5757,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Gujarati",
+        "dominant_count": 5757,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 7367
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Bengali": 1,
+          "Gujarati": 4411
+        },
+        "assigned_count": 4412,
+        "letter_mark_count": 4412,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Gujarati",
+        "dominant_count": 4411,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 5533
+      },
+      "dominant_script_mismatch": false
+    },
+    {
+      "run": "omni-ctc-1b-multilingual-v2",
+      "model_id": "facebook/omniASR-CTC-1B",
+      "model_revision": "8c22e3ffdaa4aab6431b128b84b991a7d9c2515c",
+      "condition_id": "audio_only_fixed_30s_no_overlap_ctc_bfloat16",
+      "conversation_id": "humyn-10-01",
+      "language": "gu",
+      "status": "success",
+      "reference_sha256": "168f2aa4903830c4d35991e9039e3f53665ec14a070d62b2d16d315cb82d7171",
+      "audio_sha256": "ce766f802af9f2ab5d53fb9c1367b92e61e1442e3ff80420e9911e0ce5bb0e36",
+      "reference_text_sha256": "42d646338e47fbf65cf3a0da4c21ccb30c34fe07a442235c8ebf1f39540247b6",
+      "hypothesis_text_sha256": "030448cfbc19ced910ad0bcf8576575e5ecb0d5cb8d8e3d4dd4b715b4381c88c",
+      "reference_distribution": {
+        "counts": {
+          "Gujarati": 7976
+        },
+        "assigned_count": 7976,
+        "letter_mark_count": 7976,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Gujarati",
+        "dominant_count": 7976,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 10228
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Arabic": 4,
+          "Devanagari": 1,
+          "Gujarati": 4033,
+          "Latin": 1
+        },
+        "assigned_count": 4039,
+        "letter_mark_count": 4039,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Gujarati",
+        "dominant_count": 4033,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 5199
+      },
+      "dominant_script_mismatch": false
+    },
+    {
+      "run": "omni-ctc-1b-multilingual-v2",
+      "model_id": "facebook/omniASR-CTC-1B",
+      "model_revision": "8c22e3ffdaa4aab6431b128b84b991a7d9c2515c",
+      "condition_id": "audio_only_fixed_30s_no_overlap_ctc_bfloat16",
+      "conversation_id": "humyn-11-00",
+      "language": "gu",
+      "status": "success",
+      "reference_sha256": "725bf1136b391fd7d0e4604769c869d1876d659868aca3d6775b44d660a051b8",
+      "audio_sha256": "5e3a3c48587a171ccb1cb87ea3a83387dbb1effaa9bfecde7e3725dd6d0bb565",
+      "reference_text_sha256": "78e35cf4389c890b0f971250b703107ec297a809ab4f1bd6dd314cd1245d757d",
+      "hypothesis_text_sha256": "9a7e2bac878ef7b66f4e52683348d66fe36d835bd4076d6a8cde7da3cfd9a711",
+      "reference_distribution": {
+        "counts": {
+          "Gujarati": 8353
+        },
+        "assigned_count": 8353,
+        "letter_mark_count": 8353,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Gujarati",
+        "dominant_count": 8353,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 10584
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Devanagari": 63,
+          "Gujarati": 2419
+        },
+        "assigned_count": 2482,
+        "letter_mark_count": 2482,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Gujarati",
+        "dominant_count": 2419,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 3166
+      },
+      "dominant_script_mismatch": false
+    },
+    {
+      "run": "omni-ctc-1b-multilingual-v2",
+      "model_id": "facebook/omniASR-CTC-1B",
+      "model_revision": "8c22e3ffdaa4aab6431b128b84b991a7d9c2515c",
+      "condition_id": "audio_only_fixed_30s_no_overlap_ctc_bfloat16",
+      "conversation_id": "humyn-13-00",
+      "language": "hi",
+      "status": "success",
+      "reference_sha256": "98287d1163ffe0858f2457ee3ea5bd1fb5b9f829bf570c8a096c7c13eb86d2af",
+      "audio_sha256": "7bd13585c48b4b6a82ce14dacd58f9fb3daf1a8ac19d8d3d167457445ecf95df",
+      "reference_text_sha256": "d51f93e4abb8ad65f39358763b8bda90c392f1682380f000229f0c353ce33d56",
+      "hypothesis_text_sha256": "b519cff65aa2de3fee4f6e4950a71e1a9b9296b92ec6eb0094c71ad234d88eb2",
+      "reference_distribution": {
+        "counts": {
+          "Devanagari": 6612,
+          "Latin": 69
+        },
+        "assigned_count": 6681,
+        "letter_mark_count": 6681,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Devanagari",
+        "dominant_count": 6612,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 9051
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Arabic": 2360,
+          "Bengali": 5,
+          "Devanagari": 1171,
+          "Latin": 3
+        },
+        "assigned_count": 3539,
+        "letter_mark_count": 3544,
+        "unassigned_letter_mark_count": 5,
+        "assigned_fraction_of_letters_marks": 0.998589164785553,
+        "dominant_script": "Arabic",
+        "dominant_count": 2360,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 4879
+      },
+      "dominant_script_mismatch": true
+    },
+    {
+      "run": "omni-ctc-1b-multilingual-v2",
+      "model_id": "facebook/omniASR-CTC-1B",
+      "model_revision": "8c22e3ffdaa4aab6431b128b84b991a7d9c2515c",
+      "condition_id": "audio_only_fixed_30s_no_overlap_ctc_bfloat16",
+      "conversation_id": "humyn-13-01",
+      "language": "hi",
+      "status": "success",
+      "reference_sha256": "6623733b1ab3135b9ca281a5bc9a55e3224e1add4878ab46f29627ea2cae4879",
+      "audio_sha256": "4cf56a04362720b4c183b9497a2a0395090cd3a759360019b6931d22acd386f4",
+      "reference_text_sha256": "27d391a8ef2fa889b7afb00e085f603464d5382a61de6805cb6950862dbe228c",
+      "hypothesis_text_sha256": "bbbaeed3811e3fafb77ca7a3a2d5fc148bba0b61e22ae4fb40dd03b754a1ce9f",
+      "reference_distribution": {
+        "counts": {
+          "Devanagari": 7140,
+          "Latin": 6
+        },
+        "assigned_count": 7146,
+        "letter_mark_count": 7146,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Devanagari",
+        "dominant_count": 7140,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 9677
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Arabic": 2177,
+          "Devanagari": 1050,
+          "Latin": 9
+        },
+        "assigned_count": 3236,
+        "letter_mark_count": 3236,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Arabic",
+        "dominant_count": 2177,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 4377
+      },
+      "dominant_script_mismatch": true
+    },
+    {
+      "run": "omni-ctc-1b-multilingual-v2",
+      "model_id": "facebook/omniASR-CTC-1B",
+      "model_revision": "8c22e3ffdaa4aab6431b128b84b991a7d9c2515c",
+      "condition_id": "audio_only_fixed_30s_no_overlap_ctc_bfloat16",
+      "conversation_id": "humyn-14-00",
+      "language": "hi",
+      "status": "success",
+      "reference_sha256": "6a2342e7683ac439792ebc77dfee677ba6f7b460d5bd6ef68fd200dd1d74835a",
+      "audio_sha256": "b611f7c1cf604d2f2f99f1e7c7acda70e31d5a95e45af7fb774cd6bafbafb3c8",
+      "reference_text_sha256": "102b24e532094ed6765bc1ccc6a08b32748ede12328a9d11327062ecbf4787c0",
+      "hypothesis_text_sha256": "957f701857cb13375f0dac9514781faaaada131953c99ed56c8d124be19b026e",
+      "reference_distribution": {
+        "counts": {
+          "Devanagari": 6757,
+          "Latin": 1970
+        },
+        "assigned_count": 8727,
+        "letter_mark_count": 8727,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Devanagari",
+        "dominant_count": 6757,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 11568
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Arabic": 1047,
+          "Bengali": 2,
+          "Devanagari": 5235,
+          "Latin": 271
+        },
+        "assigned_count": 6555,
+        "letter_mark_count": 6555,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Devanagari",
+        "dominant_count": 5235,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 8716
+      },
+      "dominant_script_mismatch": false
+    },
+    {
+      "run": "omni-ctc-1b-multilingual-v2",
+      "model_id": "facebook/omniASR-CTC-1B",
+      "model_revision": "8c22e3ffdaa4aab6431b128b84b991a7d9c2515c",
+      "condition_id": "audio_only_fixed_30s_no_overlap_ctc_bfloat16",
+      "conversation_id": "humyn-14-01",
+      "language": "kn",
+      "status": "success",
+      "reference_sha256": "ebdd210bb381826ba00a209f447812870d71cebed7a6e1d91294a8eaa775adf3",
+      "audio_sha256": "9d9b0780aa50c9319c06bd348328a10927450544934a4e62d2a9b2a5adf3fdcc",
+      "reference_text_sha256": "f61d872010482fae6fc488e9c065266bf6fe2885a0a3842d8862101669b3be34",
+      "hypothesis_text_sha256": "f68f24559a21d15134971d7706b623f88af5e931d665a0c875a61aac48f0a01b",
+      "reference_distribution": {
+        "counts": {
+          "Kannada": 2568,
+          "Latin": 1031
+        },
+        "assigned_count": 3599,
+        "letter_mark_count": 3599,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Kannada",
+        "dominant_count": 2568,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 4532
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Arabic": 274,
+          "Kannada": 676,
+          "Latin": 110,
+          "Tamil": 861,
+          "Telugu": 57
+        },
+        "assigned_count": 1978,
+        "letter_mark_count": 1978,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Tamil",
+        "dominant_count": 861,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 2601
+      },
+      "dominant_script_mismatch": true
+    },
+    {
+      "run": "omni-ctc-1b-multilingual-v2",
+      "model_id": "facebook/omniASR-CTC-1B",
+      "model_revision": "8c22e3ffdaa4aab6431b128b84b991a7d9c2515c",
+      "condition_id": "audio_only_fixed_30s_no_overlap_ctc_bfloat16",
+      "conversation_id": "humyn-15-00",
+      "language": "kn",
+      "status": "success",
+      "reference_sha256": "9a1f3d032913915290cbedc0000a51607c33126e2f23abb8e1757eb035bb940e",
+      "audio_sha256": "b4f0e88eee8d8063072df95321bf0558792dbf21e333315aacab440c852b1dcf",
+      "reference_text_sha256": "f747f04923dea44e0677235a967a23deb8632e281aed7c95c759c69b8e9f4c58",
+      "hypothesis_text_sha256": "26966e9802c941b7c779763cb651833578008dbf67aa5c69aa0c14a5b963f0f0",
+      "reference_distribution": {
+        "counts": {
+          "Kannada": 7550,
+          "Latin": 179
+        },
+        "assigned_count": 7729,
+        "letter_mark_count": 7729,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Kannada",
+        "dominant_count": 7550,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 9037
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Devanagari": 3,
+          "Kannada": 6213,
+          "Latin": 10
+        },
+        "assigned_count": 6226,
+        "letter_mark_count": 6226,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Kannada",
+        "dominant_count": 6213,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 7185
+      },
+      "dominant_script_mismatch": false
+    },
+    {
+      "run": "omni-ctc-1b-multilingual-v2",
+      "model_id": "facebook/omniASR-CTC-1B",
+      "model_revision": "8c22e3ffdaa4aab6431b128b84b991a7d9c2515c",
+      "condition_id": "audio_only_fixed_30s_no_overlap_ctc_bfloat16",
+      "conversation_id": "humyn-16-00",
+      "language": "kn",
+      "status": "success",
+      "reference_sha256": "cfab92ed1f69bc8834aa27abafa877ea58d32d72e366387d06522d0efa5545a4",
+      "audio_sha256": "ec37ca92a3d2af4470ebae33701e178c75ca6b81fe58a46ffb5aeffaa120382a",
+      "reference_text_sha256": "a9abb1248d4b4f710cdd541d54af1193183fa3c733d08c504e06e21f5970191e",
+      "hypothesis_text_sha256": "ebc3aac6ecdcd534e486b2acdfefc74ecfe560bfc7becb31320e006598f7e6a1",
+      "reference_distribution": {
+        "counts": {
+          "Kannada": 7777,
+          "Latin": 331
+        },
+        "assigned_count": 8108,
+        "letter_mark_count": 8108,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Kannada",
+        "dominant_count": 7777,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 9444
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Devanagari": 3,
+          "Kannada": 6650
+        },
+        "assigned_count": 6653,
+        "letter_mark_count": 6653,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Kannada",
+        "dominant_count": 6650,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 7634
+      },
+      "dominant_script_mismatch": false
+    },
+    {
+      "run": "omni-ctc-1b-multilingual-v2",
+      "model_id": "facebook/omniASR-CTC-1B",
+      "model_revision": "8c22e3ffdaa4aab6431b128b84b991a7d9c2515c",
+      "condition_id": "audio_only_fixed_30s_no_overlap_ctc_bfloat16",
+      "conversation_id": "humyn-17-00",
+      "language": "ta",
+      "status": "success",
+      "reference_sha256": "1183bd14af09f11950e34d9762fa55c834270060ed8ad14c2a8b95ec58619b41",
+      "audio_sha256": "4428c51cf8d2939eab20a42b6047c1781c007ead64df95cff6d33b79172ef23e",
+      "reference_text_sha256": "129d13964442aa424292bb9fa24ad893929a4a023b17abaa0aff9b1f17e70d42",
+      "hypothesis_text_sha256": "4d160b66fc7994bc99d57274e0ba7804d328602f1b021cf4241640178df685a4",
+      "reference_distribution": {
+        "counts": {
+          "Latin": 135,
+          "Tamil": 12490
+        },
+        "assigned_count": 12625,
+        "letter_mark_count": 12625,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Tamil",
+        "dominant_count": 12490,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 14962
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Latin": 1,
+          "Tamil": 9518
+        },
+        "assigned_count": 9519,
+        "letter_mark_count": 9519,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Tamil",
+        "dominant_count": 9518,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 10910
+      },
+      "dominant_script_mismatch": false
+    },
+    {
+      "run": "omni-ctc-1b-multilingual-v2",
+      "model_id": "facebook/omniASR-CTC-1B",
+      "model_revision": "8c22e3ffdaa4aab6431b128b84b991a7d9c2515c",
+      "condition_id": "audio_only_fixed_30s_no_overlap_ctc_bfloat16",
+      "conversation_id": "humyn-19-00",
+      "language": "ta",
+      "status": "success",
+      "reference_sha256": "bdbdaa72d775396a4d7242c16c5a05958e0c9e74ff5dd0d7287fbcf8f5036b2c",
+      "audio_sha256": "6a5ebc1ddf53c129ac36497c02fc98db84cc33a06f6489b17c8f9f6e5cedc73c",
+      "reference_text_sha256": "4039e0693461a19c3c88b3de770385173ed721e4867c1ddb3d66ee5b6185e520",
+      "hypothesis_text_sha256": "415ece69dabb31315b486d681a6420885e416d81bf8728ed4e2f9a4a4d0c3165",
+      "reference_distribution": {
+        "counts": {
+          "Latin": 164,
+          "Tamil": 12748
+        },
+        "assigned_count": 12912,
+        "letter_mark_count": 12912,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Tamil",
+        "dominant_count": 12748,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 15365
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Arabic": 10,
+          "Latin": 444,
+          "Tamil": 6069
+        },
+        "assigned_count": 6523,
+        "letter_mark_count": 6523,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Tamil",
+        "dominant_count": 6069,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 7431
+      },
+      "dominant_script_mismatch": false
+    },
+    {
+      "run": "omni-ctc-1b-multilingual-v2",
+      "model_id": "facebook/omniASR-CTC-1B",
+      "model_revision": "8c22e3ffdaa4aab6431b128b84b991a7d9c2515c",
+      "condition_id": "audio_only_fixed_30s_no_overlap_ctc_bfloat16",
+      "conversation_id": "humyn-20-00",
+      "language": "ml",
+      "status": "success",
+      "reference_sha256": "c6e188231f86d6acbf3938e0bcc58389a6baf99a7205d7430033892bfb149ab8",
+      "audio_sha256": "490a65932fdb35c2dd9a59eda8a761c3775d2746ec432346985e5d920b0ab732",
+      "reference_text_sha256": "d7cc1ecb7b96b4147f3ad21f55e3737dbf0e17579fda2ecfb0812fe0343b09f6",
+      "hypothesis_text_sha256": "472cbc1a0cec3fa702eccc622ea201ec850e30c6d6b56d18aab487e149e81921",
+      "reference_distribution": {
+        "counts": {
+          "Malayalam": 12879
+        },
+        "assigned_count": 12879,
+        "letter_mark_count": 12879,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Malayalam",
+        "dominant_count": 12879,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 14887
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Malayalam": 3411
+        },
+        "assigned_count": 3411,
+        "letter_mark_count": 3411,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Malayalam",
+        "dominant_count": 3411,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 3667
+      },
+      "dominant_script_mismatch": false
+    },
+    {
+      "run": "omni-ctc-1b-multilingual-v2",
+      "model_id": "facebook/omniASR-CTC-1B",
+      "model_revision": "8c22e3ffdaa4aab6431b128b84b991a7d9c2515c",
+      "condition_id": "audio_only_fixed_30s_no_overlap_ctc_bfloat16",
+      "conversation_id": "humyn-21-00",
+      "language": "ml",
+      "status": "success",
+      "reference_sha256": "18b7fa4b39719550088ac08d2251bce7e245ea057c6eb9c1251ce19ae0782365",
+      "audio_sha256": "309018d3dd373dc24930b5200cf34c55b0c248325c3b181807fbaaba236127ea",
+      "reference_text_sha256": "ed080c932e6847a995af7d459e46d2b2c331a5e7b525638367c465bb2c602b8c",
+      "hypothesis_text_sha256": "90da9e6abccb114c4feac8a22f0b007af5323d7013e300179011f03bd44f2841",
+      "reference_distribution": {
+        "counts": {
+          "Malayalam": 12361
+        },
+        "assigned_count": 12361,
+        "letter_mark_count": 12361,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Malayalam",
+        "dominant_count": 12361,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 14301
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Malayalam": 5722
+        },
+        "assigned_count": 5722,
+        "letter_mark_count": 5722,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Malayalam",
+        "dominant_count": 5722,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 6211
+      },
+      "dominant_script_mismatch": false
+    },
+    {
+      "run": "hindi-turbo-cuda-beam5-v1",
+      "model_id": "openai/whisper-large-v3-turbo",
+      "model_revision": "41f01f3fe87f28c78e2fbf8b568835947dd65ed9",
+      "condition_id": "audio_only_fixed_30s_no_overlap_cuda_beam5",
+      "conversation_id": "humyn-13-00",
+      "language": "hi",
+      "status": "generation_limit",
+      "reference_sha256": "98287d1163ffe0858f2457ee3ea5bd1fb5b9f829bf570c8a096c7c13eb86d2af",
+      "audio_sha256": "7bd13585c48b4b6a82ce14dacd58f9fb3daf1a8ac19d8d3d167457445ecf95df",
+      "reference_text_sha256": "d51f93e4abb8ad65f39358763b8bda90c392f1682380f000229f0c353ce33d56",
+      "hypothesis_text_sha256": "c17ca9c305cb9ccb03bd7fb3fa43668e016056ffca08ccc7859e81d5be5af104",
+      "reference_distribution": {
+        "counts": {
+          "Devanagari": 6612,
+          "Latin": 69
+        },
+        "assigned_count": 6681,
+        "letter_mark_count": 6681,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Devanagari",
+        "dominant_count": 6612,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 9051
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Devanagari": 5440,
+          "Latin": 36
+        },
+        "assigned_count": 5476,
+        "letter_mark_count": 5476,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Devanagari",
+        "dominant_count": 5440,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 7050
+      },
+      "dominant_script_mismatch": false
+    },
+    {
+      "run": "hindi-turbo-cuda-beam5-v1",
+      "model_id": "openai/whisper-large-v3-turbo",
+      "model_revision": "41f01f3fe87f28c78e2fbf8b568835947dd65ed9",
+      "condition_id": "audio_only_fixed_30s_no_overlap_cuda_beam5",
+      "conversation_id": "humyn-13-01",
+      "language": "hi",
+      "status": "generation_limit",
+      "reference_sha256": "6623733b1ab3135b9ca281a5bc9a55e3224e1add4878ab46f29627ea2cae4879",
+      "audio_sha256": "4cf56a04362720b4c183b9497a2a0395090cd3a759360019b6931d22acd386f4",
+      "reference_text_sha256": "27d391a8ef2fa889b7afb00e085f603464d5382a61de6805cb6950862dbe228c",
+      "hypothesis_text_sha256": "bb6dca573980280edee78e1b9e6f1fcd0f1964c62588bc4c320268c4fa1d5547",
+      "reference_distribution": {
+        "counts": {
+          "Devanagari": 7140,
+          "Latin": 6
+        },
+        "assigned_count": 7146,
+        "letter_mark_count": 7146,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Devanagari",
+        "dominant_count": 7140,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 9677
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Devanagari": 6033,
+          "Latin": 84
+        },
+        "assigned_count": 6117,
+        "letter_mark_count": 6117,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Devanagari",
+        "dominant_count": 6033,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 7838
+      },
+      "dominant_script_mismatch": false
+    },
+    {
+      "run": "hindi-turbo-cuda-beam5-v1",
+      "model_id": "openai/whisper-large-v3-turbo",
+      "model_revision": "41f01f3fe87f28c78e2fbf8b568835947dd65ed9",
+      "condition_id": "audio_only_fixed_30s_no_overlap_cuda_beam5",
+      "conversation_id": "humyn-14-00",
+      "language": "hi",
+      "status": "success",
+      "reference_sha256": "6a2342e7683ac439792ebc77dfee677ba6f7b460d5bd6ef68fd200dd1d74835a",
+      "audio_sha256": "b611f7c1cf604d2f2f99f1e7c7acda70e31d5a95e45af7fb774cd6bafbafb3c8",
+      "reference_text_sha256": "102b24e532094ed6765bc1ccc6a08b32748ede12328a9d11327062ecbf4787c0",
+      "hypothesis_text_sha256": "5e4df8a4c16358e41f0ceec363289f9d93b6119f2a9552c17bd24ab913ca6889",
+      "reference_distribution": {
+        "counts": {
+          "Devanagari": 6757,
+          "Latin": 1970
+        },
+        "assigned_count": 8727,
+        "letter_mark_count": 8727,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Devanagari",
+        "dominant_count": 6757,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 11568
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Devanagari": 5995,
+          "Latin": 8
+        },
+        "assigned_count": 6003,
+        "letter_mark_count": 6003,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Devanagari",
+        "dominant_count": 5995,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 7719
+      },
+      "dominant_script_mismatch": false
+    },
+    {
+      "run": "hindi-qwen3-asr-1-7b-v1",
+      "model_id": "Qwen/Qwen3-ASR-1.7B",
+      "model_revision": "7278e1e70fe206f11671096ffdd38061171dd6e5",
+      "condition_id": "audio_only_fixed_30s_no_overlap_qwen_greedy_bfloat16",
+      "conversation_id": "humyn-13-00",
+      "language": "hi",
+      "status": "success",
+      "reference_sha256": "98287d1163ffe0858f2457ee3ea5bd1fb5b9f829bf570c8a096c7c13eb86d2af",
+      "audio_sha256": "7bd13585c48b4b6a82ce14dacd58f9fb3daf1a8ac19d8d3d167457445ecf95df",
+      "reference_text_sha256": "d51f93e4abb8ad65f39358763b8bda90c392f1682380f000229f0c353ce33d56",
+      "hypothesis_text_sha256": "21200c867141e98f7b6d4904c4c371d5e53b1bece0d18ded4dd29bd1d31aa77b",
+      "reference_distribution": {
+        "counts": {
+          "Devanagari": 6612,
+          "Latin": 69
+        },
+        "assigned_count": 6681,
+        "letter_mark_count": 6681,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Devanagari",
+        "dominant_count": 6612,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 9051
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Devanagari": 6250,
+          "Latin": 116
+        },
+        "assigned_count": 6366,
+        "letter_mark_count": 6366,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Devanagari",
+        "dominant_count": 6250,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 8296
+      },
+      "dominant_script_mismatch": false
+    },
+    {
+      "run": "hindi-qwen3-asr-1-7b-v1",
+      "model_id": "Qwen/Qwen3-ASR-1.7B",
+      "model_revision": "7278e1e70fe206f11671096ffdd38061171dd6e5",
+      "condition_id": "audio_only_fixed_30s_no_overlap_qwen_greedy_bfloat16",
+      "conversation_id": "humyn-13-01",
+      "language": "hi",
+      "status": "success",
+      "reference_sha256": "6623733b1ab3135b9ca281a5bc9a55e3224e1add4878ab46f29627ea2cae4879",
+      "audio_sha256": "4cf56a04362720b4c183b9497a2a0395090cd3a759360019b6931d22acd386f4",
+      "reference_text_sha256": "27d391a8ef2fa889b7afb00e085f603464d5382a61de6805cb6950862dbe228c",
+      "hypothesis_text_sha256": "f3b4fcb090ae38dbd70b1950eeefeb9851a41d7f5cfb5e9ac1b4dd4baf6f2393",
+      "reference_distribution": {
+        "counts": {
+          "Devanagari": 7140,
+          "Latin": 6
+        },
+        "assigned_count": 7146,
+        "letter_mark_count": 7146,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Devanagari",
+        "dominant_count": 7140,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 9677
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Devanagari": 7039,
+          "Latin": 14
+        },
+        "assigned_count": 7053,
+        "letter_mark_count": 7053,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Devanagari",
+        "dominant_count": 7039,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 9160
+      },
+      "dominant_script_mismatch": false
+    },
+    {
+      "run": "hindi-qwen3-asr-1-7b-v1",
+      "model_id": "Qwen/Qwen3-ASR-1.7B",
+      "model_revision": "7278e1e70fe206f11671096ffdd38061171dd6e5",
+      "condition_id": "audio_only_fixed_30s_no_overlap_qwen_greedy_bfloat16",
+      "conversation_id": "humyn-14-00",
+      "language": "hi",
+      "status": "success",
+      "reference_sha256": "6a2342e7683ac439792ebc77dfee677ba6f7b460d5bd6ef68fd200dd1d74835a",
+      "audio_sha256": "b611f7c1cf604d2f2f99f1e7c7acda70e31d5a95e45af7fb774cd6bafbafb3c8",
+      "reference_text_sha256": "102b24e532094ed6765bc1ccc6a08b32748ede12328a9d11327062ecbf4787c0",
+      "hypothesis_text_sha256": "3e9e2b6fda046e7c629daf0c6cd4445648a73245e78b243e014167dba55ba8d4",
+      "reference_distribution": {
+        "counts": {
+          "Devanagari": 6757,
+          "Latin": 1970
+        },
+        "assigned_count": 8727,
+        "letter_mark_count": 8727,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Devanagari",
+        "dominant_count": 6757,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 11568
+      },
+      "hypothesis_distribution": {
+        "counts": {
+          "Devanagari": 8247,
+          "Latin": 127
+        },
+        "assigned_count": 8374,
+        "letter_mark_count": 8374,
+        "unassigned_letter_mark_count": 0,
+        "assigned_fraction_of_letters_marks": 1.0,
+        "dominant_script": "Devanagari",
+        "dominant_count": 8247,
+        "dominant_scope": "tracked Indic/Arabic/Latin scripts",
+        "text_length_codepoints": 10745
+      },
+      "dominant_script_mismatch": false
+    }
+  ]
+}

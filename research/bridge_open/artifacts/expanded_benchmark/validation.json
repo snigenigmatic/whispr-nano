@@ -1,0 +1,44 @@
+[
+  {
+    "valid": true,
+    "output_dir": "/Users/prateekraj/.local/share/openresearch/local-runs/2a088903-51bb-4409-8375-30f816f675e7/repo/research/bridge_open/artifacts/hindi-turbo-cuda-beam5-v1",
+    "conversation_count": 3,
+    "errors": []
+  },
+  {
+    "valid": true,
+    "output_dir": "/Users/prateekraj/.local/share/openresearch/local-runs/2a088903-51bb-4409-8375-30f816f675e7/repo/research/bridge_open/artifacts/turbo-multilingual-beam5-v1",
+    "conversation_count": 19,
+    "errors": []
+  },
+  {
+    "valid": true,
+    "output_dir": "/Users/prateekraj/.local/share/openresearch/local-runs/2a088903-51bb-4409-8375-30f816f675e7/repo/research/bridge_open/artifacts/small-multilingual-beam5-v1",
+    "conversation_count": 22,
+    "errors": []
+  },
+  {
+    "valid": true,
+    "output_dir": "/Users/prateekraj/.local/share/openresearch/local-runs/2a088903-51bb-4409-8375-30f816f675e7/repo/research/bridge_open/artifacts/hindi-qwen3-asr-0-6b-v1",
+    "conversation_count": 3,
+    "errors": []
+  },
+  {
+    "valid": true,
+    "output_dir": "/Users/prateekraj/.local/share/openresearch/local-runs/2a088903-51bb-4409-8375-30f816f675e7/repo/research/bridge_open/artifacts/hindi-qwen3-asr-1-7b-v1",
+    "conversation_count": 3,
+    "errors": []
+  },
+  {
+    "valid": true,
+    "output_dir": "/Users/prateekraj/.local/share/openresearch/local-runs/2a088903-51bb-4409-8375-30f816f675e7/repo/research/bridge_open/artifacts/hindi-whisper-large-v3-beam5-v1",
+    "conversation_count": 3,
+    "errors": []
+  },
+  {
+    "valid": true,
+    "output_dir": "/Users/prateekraj/.local/share/openresearch/local-runs/2a088903-51bb-4409-8375-30f816f675e7/repo/research/bridge_open/artifacts/omni-ctc-1b-multilingual-v2",
+    "conversation_count": 30,
+    "errors": []
+  }
+]

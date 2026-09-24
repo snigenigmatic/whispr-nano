@@ -1,0 +1,51 @@
+{
+  "turbo-multilingual-beam5-v1": {
+    "experiment": "aaa0f40e-b2aa-409b-bd28-673e52eeba59",
+    "run": "d8bfd0f8-8005-4bc0-baab-48891d8b98d6",
+    "commit": "7045fb4",
+    "app": "ap-EEEHiOT25quO2IfxFPb1d5",
+    "status": "completed_validated"
+  },
+  "small-multilingual-beam5-v1": {
+    "experiment": "fb657d8e-860f-44fd-b1cb-6d6ecda7e1af",
+    "run": "e166ba4b-bd49-4195-9377-3d7cb6de021d",
+    "commit": "5b098d5",
+    "app": "ap-zwB4dubTASG1bMVkVO2GHm",
+    "status": "completed_validated"
+  },
+  "hindi-qwen3-asr-0-6b-v1": {
+    "experiment": "454bc54c-2d53-42ae-834e-20b73b59cdf0",
+    "run": "de3d3eae-ca93-41e6-a8b7-13ea11b7974b",
+    "commit": "5f024b3",
+    "app": "ap-0QGWU0OMwelDl1gnQnPXFu",
+    "status": "completed_validated"
+  },
+  "hindi-whisper-large-v3-beam5-v1": {
+    "experiment": "971f73d8-ad56-4a8d-9434-7344c32a90a8",
+    "run": "3b0fcede-13e5-410b-82f8-7b03182375fc",
+    "commit": "2819b4a",
+    "app": "ap-CT79CmFy7QNujIRxAPkoFB",
+    "status": "completed_validated"
+  },
+  "omni-ctc-1b-multilingual-v1": {
+    "experiment": "9a699a94-e7e9-4fff-b9fb-0c8452ba2520",
+    "run": "e29469c3-5b88-4b78-a091-ece8aeace755",
+    "commit": "f041945",
+    "app": "ap-uyJ4puuJ6J1F1sOsnNWxKB",
+    "status": "failed_before_inference",
+    "failure": "fairseq2 checkpoint dispatch rejected extensionless resolved HF blob"
+  },
+  "omni-ctc-1b-multilingual-v2": {
+    "experiment": "9a699a94-e7e9-4fff-b9fb-0c8452ba2520",
+    "run": "508168ba-0ab7-4f7d-92b9-eba7006e2f81",
+    "commit": "e4236e7",
+    "app": "ap-hwoqXfJkM9faII600NPIc1",
+    "status": "completed_validated"
+  },
+  "cpu_expansion_replay": {
+    "experiment": "5810a2ad-8d46-484e-9429-9e9944034a63",
+    "run": "2a088903-51bb-4409-8375-30f816f675e7",
+    "commit": "b1f500d",
+    "status": "completed_validated"
+  }
+}

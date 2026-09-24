@@ -1,0 +1,6 @@
+{
+  "analysis_sha256": "a985756eb0120fc8fa4922882c5cd110fd62a2aefc2c783d3cac8b0cae6c29c6",
+  "manifest_sha256": "967d8dca02f9f729c1ed7548dce7283cf9dfc62623815a7c131f71acb13ce2c7",
+  "registry_sha256": "18ba3d1dff34eacc28b371258cbc32ec37edfcc709f2700a289d6de4a516ca59",
+  "note": "Local offline recomputation of preserved predictions; no inference or training."
+}

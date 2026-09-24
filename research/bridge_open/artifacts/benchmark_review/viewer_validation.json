@@ -1,0 +1,15 @@
+{
+  "viewer_loaded": true,
+  "hindi_count": 418,
+  "assamese_count": 984,
+  "assamese_model_cards": [
+    "Whisper Turbo",
+    "Whisper Large-v3"
+  ],
+  "long_hindi_recording_seconds": 31.44,
+  "long_hindi_three_model_cards_verified": true,
+  "audio_http_status": 200,
+  "audio_content_type": "audio/x-wav",
+  "figure_visual_check": "passed",
+  "scope": "UI and asset-path checks; no human semantic audio review"
+}

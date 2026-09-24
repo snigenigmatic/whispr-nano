@@ -1,0 +1,116 @@
+[
+  {
+    "experiment_id": "bbb5a7f1-dbc0-4022-acf5-cee01ec672e4",
+    "run_id": "3cf727ec-be97-4986-a038-bb2d857fb09f",
+    "job_id": "6ab2ac1a51992417dfcd3ad9",
+    "phase": "official_test",
+    "model_id": "openai/whisper-large-v3-turbo",
+    "model_revision": "41f01f3fe87f28c78e2fbf8b568835947dd65ed9",
+    "cloud_job_id": "hf-fleurs-test-turbo-hi-short-v2",
+    "output_dir": "/Users/prateekraj/whispr-nano/research/bridge_open/artifacts/hf-fleurs-test-turbo-hi-short-v2",
+    "conversation_count": 417,
+    "status": "done_validated",
+    "per_language": {
+      "hi": {
+        "scored_count": 417,
+        "micro_wer": 0.3101901511457825,
+        "micro_cer": 0.13360854783875667,
+        "generation_limit_count": 2
+      }
+    },
+    "scored_count": 417,
+    "runtime_failure_count": 0,
+    "validator_sha256": "9eabb882890eba14bd30e4ae7ff3202cda4e4b5a6a32776f6ba3c749b2b2e01a",
+    "provider_run_status": "done"
+  },
+  {
+    "experiment_id": "d83c5244-34a0-48da-9504-4d93c07d914f",
+    "branch": "orx/fleurs-test-turbo-bn-short-0-to-end",
+    "commit": "52c30923a574aa6a011e97669a8e0c1a07e6ef8a",
+    "cloud_job_id": "hf-fleurs-test-turbo-bn-short-0-end-v2",
+    "phase": "official_test",
+    "model_id": "openai/whisper-large-v3-turbo",
+    "model_revision": "41f01f3fe87f28c78e2fbf8b568835947dd65ed9",
+    "output_dir": "/Users/prateekraj/whispr-nano/research/bridge_open/artifacts/hf-fleurs-test-turbo-bn-short-0-end-v2",
+    "conversation_count": 911,
+    "status": "done_validated",
+    "run_id": "d2cfd016-3ad0-4130-8a1a-0de3ebaf27eb",
+    "job_id": "6ab2acb552d0dbd7f1d7f710",
+    "provider_run_status": "done",
+    "scored_count": 911,
+    "runtime_failure_count": 0,
+    "validator_sha256": "9eabb882890eba14bd30e4ae7ff3202cda4e4b5a6a32776f6ba3c749b2b2e01a",
+    "per_language": {
+      "bn": {
+        "scored_count": 911,
+        "micro_wer": 0.8578586649772505,
+        "micro_cer": 0.3509655575990637,
+        "generation_limit_count": 46
+      }
+    }
+  },
+  {
+    "experiment_id": "2b8d363b-3a80-41ac-9f28-bbfabaa3db7b",
+    "branch": "orx/fleurs-test-turbo-as-short-0-to-end",
+    "commit": "356ced6415ecc611b6df6cd7d30c0b24c5d2bf7f",
+    "cloud_job_id": "hf-fleurs-test-turbo-as-short-0-end-v2",
+    "phase": "official_test",
+    "model_id": "openai/whisper-large-v3-turbo",
+    "model_revision": "41f01f3fe87f28c78e2fbf8b568835947dd65ed9",
+    "output_dir": "/Users/prateekraj/whispr-nano/research/bridge_open/artifacts/hf-fleurs-test-turbo-as-short-0-end-v2",
+    "conversation_count": 980,
+    "status": "done_validated",
+    "run_id": "66145c4e-2b9d-4824-9b5a-9d714d4b79b9",
+    "job_id": "6ab2ace052d0dbd7f1d7f727",
+    "scored_count": 980,
+    "runtime_failure_count": 0,
+    "validator_sha256": "9eabb882890eba14bd30e4ae7ff3202cda4e4b5a6a32776f6ba3c749b2b2e01a",
+    "per_language": {
+      "as": {
+        "scored_count": 980,
+        "micro_wer": 1.3501896990800895,
+        "micro_cer": 1.1650794575336614,
+        "generation_limit_count": 62
+      }
+    },
+    "provider_run_status": "failed"
+  },
+  {
+    "experiment_id": "fc8f49e2-4428-40f0-8091-9512ce3acf96",
+    "branch": "orx/fleurs-test-turbo-all-long-0-to-end",
+    "commit": "220ff514feff3a2e78c5f336560766ffbc171b57",
+    "cloud_job_id": "hf-fleurs-test-turbo-all-long-0-end-v2",
+    "phase": "official_test",
+    "model_id": "openai/whisper-large-v3-turbo",
+    "model_revision": "41f01f3fe87f28c78e2fbf8b568835947dd65ed9",
+    "output_dir": "/Users/prateekraj/whispr-nano/research/bridge_open/artifacts/hf-fleurs-test-turbo-all-long-0-end-v2",
+    "conversation_count": 14,
+    "status": "done_validated",
+    "run_id": "ed993f43-d88b-4224-8b7e-06df5fe4602c",
+    "job_id": "6ab2ad7852d0dbd7f1d7f769",
+    "per_language": {
+      "as": {
+        "scored_count": 4,
+        "micro_wer": 3.3352601156069364,
+        "micro_cer": 1.867283950617284,
+        "generation_limit_count": 3
+      },
+      "bn": {
+        "scored_count": 9,
+        "micro_wer": 0.9600997506234414,
+        "micro_cer": 0.588356729975227,
+        "generation_limit_count": 7
+      },
+      "hi": {
+        "scored_count": 1,
+        "micro_wer": 2.6619718309859155,
+        "micro_cer": 1.1270358306188926,
+        "generation_limit_count": 1
+      }
+    },
+    "scored_count": 14,
+    "runtime_failure_count": 0,
+    "validator_sha256": "9eabb882890eba14bd30e4ae7ff3202cda4e4b5a6a32776f6ba3c749b2b2e01a",
+    "provider_run_status": "done"
+  }
+]

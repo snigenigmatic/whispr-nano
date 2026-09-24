@@ -1,0 +1,75 @@
+{
+  "dataset": "ai4bharat/Svarah",
+  "source_revision": "ebbf7777fe771490696a3f7b007097606fa8c924",
+  "cache_files": {
+    "svarah-test-00002-of-00003.arrow": {
+      "bytes": 86494400,
+      "sha256": "7f8ec2d10d827bb2329ff96164b332bb09352b62a5e9c8fa059415c6b1ffad11"
+    }
+  },
+  "prior_metadata": {
+    "path": "paper/data/svarah_metadata_raw.jsonl",
+    "sha256": "ae875faf9c12fecff64c765e2a116d413e897fc63c416f60f28f39adc9793d47",
+    "rows": 6656
+  },
+  "arrow_schema": {
+    "svarah-test-00002-of-00003.arrow": [
+      "audio_filepath",
+      "duration",
+      "text",
+      "gender",
+      "age-group",
+      "primary_language",
+      "native_place_state",
+      "native_place_district",
+      "highest_qualification",
+      "job_category",
+      "occupation_domain"
+    ]
+  },
+  "records": 518,
+  "dataset_coverage": "limited_svarah-test-00002-of-00003.arrow",
+  "structurally_eligible_le40": 502,
+  "flag_counts": {
+    "clipping": 16
+  },
+  "source_rate_counts": {
+    "16000": 518
+  },
+  "scipy_version": "1.18.1",
+  "partial_mapping_regression": {
+    "applicable": true,
+    "source_scan_index": 0,
+    "global_dataset_index": 6138,
+    "wrong_global_index_rejected": true
+  },
+  "exposure": {
+    "files": {
+      "results_Qwen3-ASR-0.6B-hf_svarah_clean.csv": 2500,
+      "results_distil-large-v3_svarah_clean.csv": 2500,
+      "results_saarasv3_svarah_clean.csv": 450,
+      "results_whisper-large-v3_svarah_clean.csv": 2500,
+      "results_whisper-small_svarah_clean.csv": 2500,
+      "results_whisper-tiny_svarah_clean.csv": 2500
+    },
+    "union_count": 2794,
+    "union_sha256": "cdbf3a822d926b511d66822f57e66b917b85b897cf5b6cf2043f091e3c33d5f2"
+  },
+  "smoke_ids": [
+    "svarah_06413",
+    "svarah_06648",
+    "svarah_06257",
+    "svarah_06387",
+    "svarah_06420",
+    "svarah_06341",
+    "svarah_06269",
+    "svarah_06271",
+    "svarah_06332",
+    "svarah_06284",
+    "svarah_06191",
+    "svarah_06522"
+  ],
+  "smoke_manifest_sha256": "14c08d00b5e585de77ee3af6b486b05980e0cc9e8a31139654437b2ed8082dac",
+  "selection": "longest structurally eligible <=40s, then 11 ascending SHA256('svarah-native-12:'+utt_id); no transcript, ASR, or exposure selection",
+  "scope": "preexposed_exploratory_limited_shard; not full Svarah; no speaker identities inferred"
+}

@@ -1,0 +1,429 @@
+{
+  "billing_note": "No total billing is inferred from elapsed resource measurements.",
+  "interpretation": {
+    "billing": "Measured provider billing is unknown; elapsed resource measurements do not establish a bill.",
+    "phone_or_edge": "No phone, edge, or mobile-device measurement or claim is represented by these results.",
+    "qwen_primary_batch8": "Qwen primary full-quality results use batch size 8. These batch-1 resource measurements are a separate condition and are not a matched full-WER/latency Pareto comparison.",
+    "resource_condition": "All six profiles use the fixed 12-item panel, batch size 1, one warmup, and three measured passes.",
+    "warmup_source_binding": "Warmup calls have no per-call audio hash; they are bound by the verified shared preloaded inputs, ordered IDs/durations, and archived harness. Timed calls carry the fixed-source audio hash."
+  },
+  "omni": {
+    "failure_calls": 0,
+    "median_clip_rtf": 0.004308936057726579,
+    "median_pass_wall_seconds": 0.32157853193348274,
+    "mixed_failure_ids": [],
+    "passes": [
+      {
+        "corpus_rtf": 0.00372273095908133,
+        "median_clip_rtf": 0.004098728401624275,
+        "pass_index": 1,
+        "peak_cuda_allocated_bytes": 2629861888,
+        "peak_cuda_reserved_bytes": 2931818496,
+        "wall_seconds": 0.31788934802170843
+      },
+      {
+        "corpus_rtf": 0.003765934165629695,
+        "median_clip_rtf": 0.004340625774607459,
+        "pass_index": 2,
+        "peak_cuda_allocated_bytes": 2629861888,
+        "peak_cuda_reserved_bytes": 2931818496,
+        "wall_seconds": 0.32157853193348274
+      },
+      {
+        "corpus_rtf": 0.00382360069834095,
+        "median_clip_rtf": 0.00454682707152481,
+        "pass_index": 3,
+        "peak_cuda_allocated_bytes": 2629861888,
+        "peak_cuda_reserved_bytes": 2931818496,
+        "wall_seconds": 0.3265027600573376
+      }
+    ],
+    "peak_cuda_allocated_bytes": 2629861888,
+    "peak_cuda_reserved_bytes": 2931818496,
+    "provider_receipt": {
+      "commit": "259f334195795db97812a8220cf793a988ece0de",
+      "jobId": "6ab4c4776b030d633f68d6f1",
+      "namespace": "snigenigmatic",
+      "portable_archive": "source_snapshot.tar.gz",
+      "portable_archive_sha256": "683b9fa0d91135280415ecebb63db4520ae94f30503e724fa576c2710676ea6f",
+      "provider_status": "done",
+      "run_id": "ae6ce853-45ab-42e3-8f57-ce5aea1a7f1b",
+      "sourceDigest": "4a656123e2f82c7f3ff70a9b73f648fe03fcc4e33a4ff9afeabe8eac9e4bc040",
+      "sourcePath": "/Users/prateekraj/.local/share/openresearch/source-snapshots/4a656123e2f82c7f3ff70a9b73f648fe03fcc4e33a4ff9afeabe8eac9e4bc040.tar",
+      "sourceSize": 107837440,
+      "url": "https://huggingface.co/jobs/snigenigmatic/6ab4c4776b030d633f68d6f1"
+    },
+    "quality": {
+      "pass3_micro_wer": 0.625,
+      "pass3_reference_words": 144,
+      "pass3_word_errors": 90,
+      "quality_records": 12
+    },
+    "repeat_different_ids": [],
+    "repeated_timing_note": "Three passes are repeated timing measurements, not 36 independent quality/reference observations.",
+    "warmup_source_binding": "verified shared preloaded inputs, no per-call warmup hash"
+  },
+  "panel_manifest_sha256": "14c08d00b5e585de77ee3af6b486b05980e0cc9e8a31139654437b2ed8082dac",
+  "suite": {
+    "models": {
+      "qwen_0_6b": {
+        "batch8_comparison": {
+          "different_ids": [
+            "svarah_06271"
+          ],
+          "matching_ids": [
+            "svarah_06191",
+            "svarah_06257",
+            "svarah_06269",
+            "svarah_06284",
+            "svarah_06332",
+            "svarah_06341",
+            "svarah_06387",
+            "svarah_06413",
+            "svarah_06420",
+            "svarah_06522",
+            "svarah_06648"
+          ],
+          "note": "Batch-1 resource texts are compared descriptively with existing batch-8 output; equality is not an acceptance requirement.",
+          "shared_ids": [
+            "svarah_06191",
+            "svarah_06257",
+            "svarah_06269",
+            "svarah_06271",
+            "svarah_06284",
+            "svarah_06332",
+            "svarah_06341",
+            "svarah_06387",
+            "svarah_06413",
+            "svarah_06420",
+            "svarah_06522",
+            "svarah_06648"
+          ],
+          "status": "descriptive_only"
+        },
+        "failure_calls": 0,
+        "median_clip_rtf": 0.09470951882987828,
+        "median_pass_wall_seconds": 6.853709112998331,
+        "mixed_failure_ids": [],
+        "passes": [
+          {
+            "corpus_rtf": 0.08022322771053177,
+            "median_clip_rtf": 0.09463432461663854,
+            "pass_index": 1,
+            "peak_cuda_allocated_bytes": 1801598464,
+            "peak_cuda_reserved_bytes": 1962934272,
+            "wall_seconds": 6.850376735092141
+          },
+          {
+            "corpus_rtf": 0.08062523171579432,
+            "median_clip_rtf": 0.09496451692702715,
+            "pass_index": 2,
+            "peak_cuda_allocated_bytes": 1801598464,
+            "peak_cuda_reserved_bytes": 1962934272,
+            "wall_seconds": 6.884704434982268
+          },
+          {
+            "corpus_rtf": 0.08026225244186025,
+            "median_clip_rtf": 0.09410680618556076,
+            "pass_index": 3,
+            "peak_cuda_allocated_bytes": 1801598464,
+            "peak_cuda_reserved_bytes": 1962934272,
+            "wall_seconds": 6.853709112998331
+          }
+        ],
+        "peak_cuda_allocated_bytes": 1801598464,
+        "peak_cuda_reserved_bytes": 1962934272,
+        "provider_receipt": {
+          "commit": "25c8ef200575327c4664f554c79c78d38309188f",
+          "jobId": "6ab4c5ae52d0dbd7f1d89895",
+          "namespace": "snigenigmatic",
+          "portable_archive": "source_snapshot.tar.gz",
+          "portable_archive_sha256": "c793cafe605b33e54bc8f2a31ad829839d8a26977deeb5d178c1f60fe9974068",
+          "provider_status": "done",
+          "run_id": "ab478b7f-56cf-4629-8c0e-04e0f8c82511",
+          "sourceDigest": "cfc4b3d653516e503ce71e8209541d234ab5d97375e4eb46b33f106a80a6021f",
+          "sourcePath": "/Users/prateekraj/.local/share/openresearch/source-snapshots/cfc4b3d653516e503ce71e8209541d234ab5d97375e4eb46b33f106a80a6021f.tar",
+          "sourceSize": 97136640,
+          "url": "https://huggingface.co/jobs/snigenigmatic/6ab4c5ae52d0dbd7f1d89895"
+        },
+        "quality": {
+          "pass3_micro_wer": 0.2638888888888889,
+          "pass3_reference_words": 144,
+          "pass3_word_errors": 38,
+          "quality_records": 12
+        },
+        "repeat_different_ids": [],
+        "repeated_timing_note": "Three passes are repeated timing measurements, not 36 independent quality/reference observations.",
+        "warmup_source_binding": "verified shared preloaded inputs, no per-call warmup hash"
+      },
+      "qwen_1_7b": {
+        "batch8_comparison": {
+          "different_ids": [
+            "svarah_06271",
+            "svarah_06341",
+            "svarah_06413",
+            "svarah_06420",
+            "svarah_06522"
+          ],
+          "matching_ids": [
+            "svarah_06191",
+            "svarah_06257",
+            "svarah_06269",
+            "svarah_06284",
+            "svarah_06332",
+            "svarah_06387",
+            "svarah_06648"
+          ],
+          "note": "Batch-1 resource texts are compared descriptively with existing batch-8 output; equality is not an acceptance requirement.",
+          "shared_ids": [
+            "svarah_06191",
+            "svarah_06257",
+            "svarah_06269",
+            "svarah_06271",
+            "svarah_06284",
+            "svarah_06332",
+            "svarah_06341",
+            "svarah_06387",
+            "svarah_06413",
+            "svarah_06420",
+            "svarah_06522",
+            "svarah_06648"
+          ],
+          "status": "descriptive_only"
+        },
+        "failure_calls": 0,
+        "median_clip_rtf": 0.11794445859281835,
+        "median_pass_wall_seconds": 8.421451042988338,
+        "mixed_failure_ids": [],
+        "passes": [
+          {
+            "corpus_rtf": 0.09007927517304702,
+            "median_clip_rtf": 0.09705984787522455,
+            "pass_index": 1,
+            "peak_cuda_allocated_bytes": 4314181120,
+            "peak_cuda_reserved_bytes": 4777312256,
+            "wall_seconds": 7.691998795984546
+          },
+          {
+            "corpus_rtf": 0.10691118047951702,
+            "median_clip_rtf": 0.12221349860254037,
+            "pass_index": 2,
+            "peak_cuda_allocated_bytes": 4314181120,
+            "peak_cuda_reserved_bytes": 4777312256,
+            "wall_seconds": 9.129299385967897
+          },
+          {
+            "corpus_rtf": 0.09862172706705327,
+            "median_clip_rtf": 0.11506064641082016,
+            "pass_index": 3,
+            "peak_cuda_allocated_bytes": 4314181120,
+            "peak_cuda_reserved_bytes": 4777312256,
+            "wall_seconds": 8.421451042988338
+          }
+        ],
+        "peak_cuda_allocated_bytes": 4314181120,
+        "peak_cuda_reserved_bytes": 4777312256,
+        "provider_receipt": {
+          "commit": "25c8ef200575327c4664f554c79c78d38309188f",
+          "jobId": "6ab4c5ae52d0dbd7f1d89895",
+          "namespace": "snigenigmatic",
+          "portable_archive": "source_snapshot.tar.gz",
+          "portable_archive_sha256": "c793cafe605b33e54bc8f2a31ad829839d8a26977deeb5d178c1f60fe9974068",
+          "provider_status": "done",
+          "run_id": "ab478b7f-56cf-4629-8c0e-04e0f8c82511",
+          "sourceDigest": "cfc4b3d653516e503ce71e8209541d234ab5d97375e4eb46b33f106a80a6021f",
+          "sourcePath": "/Users/prateekraj/.local/share/openresearch/source-snapshots/cfc4b3d653516e503ce71e8209541d234ab5d97375e4eb46b33f106a80a6021f.tar",
+          "sourceSize": 97136640,
+          "url": "https://huggingface.co/jobs/snigenigmatic/6ab4c5ae52d0dbd7f1d89895"
+        },
+        "quality": {
+          "pass3_micro_wer": 0.2708333333333333,
+          "pass3_reference_words": 144,
+          "pass3_word_errors": 39,
+          "quality_records": 12
+        },
+        "repeat_different_ids": [],
+        "repeated_timing_note": "Three passes are repeated timing measurements, not 36 independent quality/reference observations.",
+        "warmup_source_binding": "verified shared preloaded inputs, no per-call warmup hash"
+      },
+      "whisper_large_v3": {
+        "batch8_comparison": {
+          "status": "unavailable"
+        },
+        "failure_calls": 0,
+        "median_clip_rtf": 0.12348798487603141,
+        "median_pass_wall_seconds": 9.347594565013424,
+        "mixed_failure_ids": [],
+        "passes": [
+          {
+            "corpus_rtf": 0.10951515389375323,
+            "median_clip_rtf": 0.12378108581626904,
+            "pass_index": 1,
+            "peak_cuda_allocated_bytes": 8961069056,
+            "peak_cuda_reserved_bytes": 9395240960,
+            "wall_seconds": 9.35165641902131
+          },
+          {
+            "corpus_rtf": 0.10946758643117378,
+            "median_clip_rtf": 0.12317996659894681,
+            "pass_index": 2,
+            "peak_cuda_allocated_bytes": 8961069056,
+            "peak_cuda_reserved_bytes": 9395240960,
+            "wall_seconds": 9.347594565013424
+          },
+          {
+            "corpus_rtf": 0.1094041364518925,
+            "median_clip_rtf": 0.12372861659030095,
+            "pass_index": 3,
+            "peak_cuda_allocated_bytes": 8961069056,
+            "peak_cuda_reserved_bytes": 9395240960,
+            "wall_seconds": 9.342176480073249
+          }
+        ],
+        "peak_cuda_allocated_bytes": 8961069056,
+        "peak_cuda_reserved_bytes": 9395240960,
+        "provider_receipt": {
+          "commit": "25c8ef200575327c4664f554c79c78d38309188f",
+          "jobId": "6ab4c5ae52d0dbd7f1d89895",
+          "namespace": "snigenigmatic",
+          "portable_archive": "source_snapshot.tar.gz",
+          "portable_archive_sha256": "c793cafe605b33e54bc8f2a31ad829839d8a26977deeb5d178c1f60fe9974068",
+          "provider_status": "done",
+          "run_id": "ab478b7f-56cf-4629-8c0e-04e0f8c82511",
+          "sourceDigest": "cfc4b3d653516e503ce71e8209541d234ab5d97375e4eb46b33f106a80a6021f",
+          "sourcePath": "/Users/prateekraj/.local/share/openresearch/source-snapshots/cfc4b3d653516e503ce71e8209541d234ab5d97375e4eb46b33f106a80a6021f.tar",
+          "sourceSize": 97136640,
+          "url": "https://huggingface.co/jobs/snigenigmatic/6ab4c5ae52d0dbd7f1d89895"
+        },
+        "quality": {
+          "pass3_micro_wer": 0.1597222222222222,
+          "pass3_reference_words": 144,
+          "pass3_word_errors": 23,
+          "quality_records": 12
+        },
+        "repeat_different_ids": [],
+        "repeated_timing_note": "Three passes are repeated timing measurements, not 36 independent quality/reference observations.",
+        "warmup_source_binding": "verified shared preloaded inputs, no per-call warmup hash"
+      },
+      "whisper_small": {
+        "batch8_comparison": {
+          "status": "unavailable"
+        },
+        "failure_calls": 0,
+        "median_clip_rtf": 0.041502553058504435,
+        "median_pass_wall_seconds": 3.0869658089941368,
+        "mixed_failure_ids": [],
+        "passes": [
+          {
+            "corpus_rtf": 0.035136664995739315,
+            "median_clip_rtf": 0.03996849071058786,
+            "pass_index": 1,
+            "peak_cuda_allocated_bytes": 1604471808,
+            "peak_cuda_reserved_bytes": 1801453568,
+            "wall_seconds": 3.0003703329421114
+          },
+          {
+            "corpus_rtf": 0.03615076522156144,
+            "median_clip_rtf": 0.04042944950829842,
+            "pass_index": 2,
+            "peak_cuda_allocated_bytes": 1604471808,
+            "peak_cuda_reserved_bytes": 1801453568,
+            "wall_seconds": 3.0869658089941368
+          },
+          {
+            "corpus_rtf": 0.04142690273785675,
+            "median_clip_rtf": 0.04678698122988522,
+            "pass_index": 3,
+            "peak_cuda_allocated_bytes": 1604471808,
+            "peak_cuda_reserved_bytes": 1801453568,
+            "wall_seconds": 3.5375027759582736
+          }
+        ],
+        "peak_cuda_allocated_bytes": 1604471808,
+        "peak_cuda_reserved_bytes": 1801453568,
+        "provider_receipt": {
+          "commit": "25c8ef200575327c4664f554c79c78d38309188f",
+          "jobId": "6ab4c5ae52d0dbd7f1d89895",
+          "namespace": "snigenigmatic",
+          "portable_archive": "source_snapshot.tar.gz",
+          "portable_archive_sha256": "c793cafe605b33e54bc8f2a31ad829839d8a26977deeb5d178c1f60fe9974068",
+          "provider_status": "done",
+          "run_id": "ab478b7f-56cf-4629-8c0e-04e0f8c82511",
+          "sourceDigest": "cfc4b3d653516e503ce71e8209541d234ab5d97375e4eb46b33f106a80a6021f",
+          "sourcePath": "/Users/prateekraj/.local/share/openresearch/source-snapshots/cfc4b3d653516e503ce71e8209541d234ab5d97375e4eb46b33f106a80a6021f.tar",
+          "sourceSize": 97136640,
+          "url": "https://huggingface.co/jobs/snigenigmatic/6ab4c5ae52d0dbd7f1d89895"
+        },
+        "quality": {
+          "pass3_micro_wer": 0.09027777777777778,
+          "pass3_reference_words": 144,
+          "pass3_word_errors": 13,
+          "quality_records": 12
+        },
+        "repeat_different_ids": [],
+        "repeated_timing_note": "Three passes are repeated timing measurements, not 36 independent quality/reference observations.",
+        "warmup_source_binding": "verified shared preloaded inputs, no per-call warmup hash"
+      },
+      "whisper_turbo": {
+        "batch8_comparison": {
+          "status": "unavailable"
+        },
+        "failure_calls": 0,
+        "median_clip_rtf": 0.04554471553014522,
+        "median_pass_wall_seconds": 3.450140106928302,
+        "mixed_failure_ids": [],
+        "passes": [
+          {
+            "corpus_rtf": 0.040403818086893105,
+            "median_clip_rtf": 0.04550463800890095,
+            "pass_index": 1,
+            "peak_cuda_allocated_bytes": 3748625920,
+            "peak_cuda_reserved_bytes": 4001366016,
+            "wall_seconds": 3.450140106928302
+          },
+          {
+            "corpus_rtf": 0.04047532063159569,
+            "median_clip_rtf": 0.04547961102118642,
+            "pass_index": 2,
+            "peak_cuda_allocated_bytes": 3748625920,
+            "peak_cuda_reserved_bytes": 4001366016,
+            "wall_seconds": 3.4562458120053634
+          },
+          {
+            "corpus_rtf": 0.04038686784057662,
+            "median_clip_rtf": 0.04556421117852022,
+            "pass_index": 3,
+            "peak_cuda_allocated_bytes": 3748625920,
+            "peak_cuda_reserved_bytes": 4001366016,
+            "wall_seconds": 3.4486927010293584
+          }
+        ],
+        "peak_cuda_allocated_bytes": 3748625920,
+        "peak_cuda_reserved_bytes": 4001366016,
+        "provider_receipt": {
+          "commit": "25c8ef200575327c4664f554c79c78d38309188f",
+          "jobId": "6ab4c5ae52d0dbd7f1d89895",
+          "namespace": "snigenigmatic",
+          "portable_archive": "source_snapshot.tar.gz",
+          "portable_archive_sha256": "c793cafe605b33e54bc8f2a31ad829839d8a26977deeb5d178c1f60fe9974068",
+          "provider_status": "done",
+          "run_id": "ab478b7f-56cf-4629-8c0e-04e0f8c82511",
+          "sourceDigest": "cfc4b3d653516e503ce71e8209541d234ab5d97375e4eb46b33f106a80a6021f",
+          "sourcePath": "/Users/prateekraj/.local/share/openresearch/source-snapshots/cfc4b3d653516e503ce71e8209541d234ab5d97375e4eb46b33f106a80a6021f.tar",
+          "sourceSize": 97136640,
+          "url": "https://huggingface.co/jobs/snigenigmatic/6ab4c5ae52d0dbd7f1d89895"
+        },
+        "quality": {
+          "pass3_micro_wer": 0.125,
+          "pass3_reference_words": 144,
+          "pass3_word_errors": 18,
+          "quality_records": 12
+        },
+        "repeat_different_ids": [],
+        "repeated_timing_note": "Three passes are repeated timing measurements, not 36 independent quality/reference observations.",
+        "warmup_source_binding": "verified shared preloaded inputs, no per-call warmup hash"
+      }
+    }
+  },
+  "valid": true
+}

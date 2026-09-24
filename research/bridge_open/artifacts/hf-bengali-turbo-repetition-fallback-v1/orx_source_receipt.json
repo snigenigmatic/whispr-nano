@@ -1,0 +1,28 @@
+{
+  "run_id": "c1bed397-0d94-45c4-a0ad-ba4793c0821a",
+  "commit": "5396ff7e913383531591c8699f20d8371036b258",
+  "backend": {
+    "kind": "hf_job",
+    "namespace": "snigenigmatic",
+    "jobId": "6ab2921351992417dfcd366a",
+    "flavor": "a100-large",
+    "image": "pytorch/pytorch:2.8.0-cuda12.8-cudnn9-runtime",
+    "url": "https://huggingface.co/jobs/snigenigmatic/6ab2921351992417dfcd366a",
+    "sourceDigest": "dbc277e53f27cbb64c8ea6ef855c92ac3a772bceddc90f99cae82ad89c796e48",
+    "sourcePath": "/Users/prateekraj/.local/share/openresearch/source-snapshots/dbc277e53f27cbb64c8ea6ef855c92ac3a772bceddc90f99cae82ad89c796e48.tar",
+    "sourceSize": 58019840
+  },
+  "archive_hash_verified": true,
+  "artifact_transport": {
+    "sha256": "40ae957ea4cf8eb6ebe58ee94cc928f3ae3d48f5e288f01e5664a16f0549b154",
+    "files": [
+      "config.json",
+      "environment.json",
+      "hf_receipt.json",
+      "predictions.jsonl",
+      "remote_validation.json",
+      "summary.json"
+    ],
+    "chunks": 20
+  }
+}

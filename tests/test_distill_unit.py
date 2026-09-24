@@ -3,7 +3,13 @@ download, no network, fast enough to run on every change."""
 
 import torch
 
-from onpolicy_distill.distill import build_loss_mask, retarget_prefix, reverse_kl_loss
+from onpolicy_distill.distill import (
+    build_loss_mask,
+    masked_ce_loss,
+    mix_decoder_inputs,
+    retarget_prefix,
+    reverse_kl_loss,
+)
 
 
 def test_build_loss_mask_masks_prefix_and_post_eos_padding():
@@ -78,6 +84,32 @@ def test_reverse_kl_gradient_flows_only_through_student():
     loss.backward()
     assert student_logits.grad is not None
     assert torch.isfinite(student_logits.grad).all()
+
+
+def test_mix_decoder_inputs_keeps_prefix_and_is_gold_when_prob_zero():
+    gold = torch.tensor([[1, 2, 3, 4, 10, 11, 99]])
+    sampled = torch.tensor([[90, 91, 92, 93, 94, 95]])
+    mixed = mix_decoder_inputs(gold, sampled, prefix_len=4, mix_prob=0.0)
+    assert torch.equal(mixed, gold[:, :-1])
+
+
+def test_mix_decoder_inputs_uses_model_tokens_after_prefix_when_prob_one():
+    gold = torch.tensor([[1, 2, 3, 4, 10, 11, 99]])
+    sampled = torch.tensor([[90, 91, 92, 93, 94, 95]])
+    mixed = mix_decoder_inputs(gold, sampled, prefix_len=4, mix_prob=1.0)
+    assert torch.equal(mixed[:, :4], gold[:, :4])
+    # decoder[:, 4:] comes from sampled[:, 3:5]  (prefix_len-1 ..)
+    assert torch.equal(mixed[:, 4:], sampled[:, 3:5])
+
+
+def test_masked_ce_zero_when_logits_peak_on_target():
+    logits = torch.zeros(1, 2, 4)
+    logits[0, 0, 1] = 20.0
+    logits[0, 1, 2] = 20.0
+    targets = torch.tensor([[1, 2]])
+    mask = torch.ones(1, 2)
+    loss = masked_ce_loss(logits, targets, mask)
+    assert loss.item() < 1e-4
 
 
 def test_vocab_map_reindexes_teacher_logits_to_student_space():

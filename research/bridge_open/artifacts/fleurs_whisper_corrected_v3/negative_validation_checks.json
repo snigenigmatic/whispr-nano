@@ -1,0 +1,14 @@
+[
+  {
+    "case": "missing_prediction",
+    "rejected": true
+  },
+  {
+    "case": "duplicate_prediction",
+    "rejected": true
+  },
+  {
+    "case": "corrupt_metric",
+    "rejected": true
+  }
+]

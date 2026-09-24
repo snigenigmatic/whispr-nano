@@ -1,0 +1,271 @@
+{
+  "schema": "whispr_asr_review_packet_v1",
+  "upstream_config": false,
+  "inspected_upstream_commit": "9102d18a161037294d3d963b2799351aa724c58b",
+  "purpose": "Review existing evidence and specify one decoder control before any new run",
+  "mode": "local_index_only",
+  "input_root": "/Users/prateekraj/whispr-nano",
+  "inputs": [
+    {
+      "path": "research/bridge_open/FULL_STUDY_SPEC.md",
+      "bytes": 8898,
+      "sha256": "516bb0712a9db0e1de54cd34b7f7e257131815be713b5fc8289feb38a86a6b42"
+    },
+    {
+      "path": "research/bridge_open/PROTOCOL.md",
+      "bytes": 8475,
+      "sha256": "5be1ae09b9dd24f72b7e813739dd64bb4258705030058b9f40ca1a2b94e5f427"
+    },
+    {
+      "path": "research/bridge_open/metrics_contract.json",
+      "bytes": 5264,
+      "sha256": "f56f809a3d7395862202af8a5ee13414d8a7381a9e05ba9f04324198a94553cc"
+    },
+    {
+      "path": "research/bridge_open/scoring.py",
+      "bytes": 2732,
+      "sha256": "a63c0fdce68e33810bf233c813a5ebad0f3692e6718aad2828a802b2e776ff3c"
+    },
+    {
+      "path": "research/bridge_open/validate_run.py",
+      "bytes": 15272,
+      "sha256": "59ded9a927ea257d58405a07a95395983042750689838c40a65dbd493c23ce67"
+    },
+    {
+      "path": "research/bridge_open/analyze_benchmark.py",
+      "bytes": 12616,
+      "sha256": "eeb35a468103413fb9f440d4812d7881305d6585c21cca2f2d1740da1d93a052"
+    },
+    {
+      "path": "research/bridge_open/study_panels.py",
+      "bytes": 7648,
+      "sha256": "637b8ad352f03e948396f762ce23f727189f37b4f149814130c4101807c93a26"
+    },
+    {
+      "path": "research/bridge_open/EXPANDED_RESULTS_20260922.md",
+      "bytes": 10187,
+      "sha256": "acc0294fc6b1d0d658b0bccf746260c5d686cea250fb8480d6fb72f56228100b"
+    },
+    {
+      "path": "research/bridge_open/artifacts/corpus_manifest_v1.jsonl",
+      "bytes": 53416,
+      "sha256": "e6992a043c9448a9974d1707186ee8cbfda87154b1d4aad940c8546c4054aa78"
+    },
+    {
+      "path": "research/bridge_open/artifacts/expanded_benchmark/comparison.json",
+      "bytes": 116973,
+      "sha256": "2f711d3c1986df37e732cfc3d437305eca0e740a816087748eb20b6516ff4a3f"
+    },
+    {
+      "path": "research/bridge_open/artifacts/expanded_benchmark/validation.json",
+      "bytes": 1757,
+      "sha256": "19aef748298ef8e073432b75aca81a0c24b40fb2fdb38f75ef436c37ca008930"
+    },
+    {
+      "path": "research/bridge_open/artifacts/expanded_diagnostics/script_audit.json",
+      "bytes": 140038,
+      "sha256": "c5481b09403f3f285fa0fa7c8541493fc12703c9424ac17e83da2767e44d99ae"
+    },
+    {
+      "path": "research/bridge_open/artifacts/study_panels/panels.json",
+      "bytes": 40718,
+      "sha256": "5f4d7117da0de5a57792e64b778c84e9a06adcfff9a9e358aff770442917370a"
+    },
+    {
+      "path": "research/bridge_open/artifacts/budget_expansion_snapshot_20260922.json",
+      "bytes": 4901,
+      "sha256": "74729447d31c4965a7da6945def928eb853197c5c27fb922d8a9df78aec7236d"
+    },
+    {
+      "path": "research/bridge_open/orchestration/TASK_BRIEF.md",
+      "bytes": 4674,
+      "sha256": "54e523dcfaa5a14744edca9a9849cb455d675abe8e8b4199ca04051e2ad62623"
+    },
+    {
+      "path": "research/bridge_open/artifacts/hindi-turbo-cuda-beam5-v1/config.json",
+      "bytes": 1114,
+      "sha256": "99ea041a2fb815118a0c45072ebacc9a650789fa40e870d5f54af4cd4e09865a"
+    },
+    {
+      "path": "research/bridge_open/artifacts/hindi-turbo-cuda-beam5-v1/environment.json",
+      "bytes": 2045,
+      "sha256": "1b731e483188b551b10743c579fe47ab11f9be025eaf156ad2ae6b746e94a45b"
+    },
+    {
+      "path": "research/bridge_open/artifacts/hindi-turbo-cuda-beam5-v1/predictions.jsonl",
+      "bytes": 636501,
+      "sha256": "e6b6b8781b61928e09d43a90eb7b5b0393de3f1751643ed4514624a6eb784fa1"
+    },
+    {
+      "path": "research/bridge_open/artifacts/hindi-turbo-cuda-beam5-v1/summary.json",
+      "bytes": 2670,
+      "sha256": "895eb5e257729742679170e1a7e0d7ae18c6532fbf8fa98b83973b6ee5725c56"
+    },
+    {
+      "path": "research/bridge_open/artifacts/hindi-turbo-cuda-beam5-v1/cloud_receipt.json",
+      "bytes": 312,
+      "sha256": "f24a2fe2608716f0328006db665188db40885f15c176a0fd08862b13acb02133"
+    },
+    {
+      "path": "research/bridge_open/artifacts/turbo-multilingual-beam5-v1/config.json",
+      "bytes": 1429,
+      "sha256": "d9afed11087b319accf8540eeb87b2322d1929fc73418698c752b09dbf696880"
+    },
+    {
+      "path": "research/bridge_open/artifacts/turbo-multilingual-beam5-v1/environment.json",
+      "bytes": 2039,
+      "sha256": "e0a6dea36f0a976bd46dd47faf2854cc89f31d19907b2dea9a21fca5e9b57687"
+    },
+    {
+      "path": "research/bridge_open/artifacts/turbo-multilingual-beam5-v1/predictions.jsonl",
+      "bytes": 3913674,
+      "sha256": "d11c579e7d2473b86f05c3e540d02582488be90e9ac83c3dd20f9f90d8141be8"
+    },
+    {
+      "path": "research/bridge_open/artifacts/turbo-multilingual-beam5-v1/summary.json",
+      "bytes": 16137,
+      "sha256": "4db295fabcf42ec19abcb643afb5154bb9c282cb15e165d3d425aa44903345ef"
+    },
+    {
+      "path": "research/bridge_open/artifacts/turbo-multilingual-beam5-v1/cloud_receipt.json",
+      "bytes": 314,
+      "sha256": "6d8c39b81ebbb6c3adf575123c039e5425b0dd320bd5c922897fc800e4326ccc"
+    },
+    {
+      "path": "research/bridge_open/artifacts/small-multilingual-beam5-v1/config.json",
+      "bytes": 1472,
+      "sha256": "9540005a213e89319350335d46f5eb5b5e70081b763fbd75c4105cc51b5ea7c7"
+    },
+    {
+      "path": "research/bridge_open/artifacts/small-multilingual-beam5-v1/environment.json",
+      "bytes": 2046,
+      "sha256": "7b57a7056a390647793a5e5fdada89870b5b100b5bf3cbc8e87dd3b8b5186cb4"
+    },
+    {
+      "path": "research/bridge_open/artifacts/small-multilingual-beam5-v1/predictions.jsonl",
+      "bytes": 4810477,
+      "sha256": "20b09244c5ac22d599d71e43232f0ba792ff8d71d4b30f65bb2f61b2326cd2ca"
+    },
+    {
+      "path": "research/bridge_open/artifacts/small-multilingual-beam5-v1/summary.json",
+      "bytes": 17855,
+      "sha256": "cb221b3883efb93ae8dadd247ac31f22d431ce2b5ffe169e340bb149dec0aef9"
+    },
+    {
+      "path": "research/bridge_open/artifacts/small-multilingual-beam5-v1/cloud_receipt.json",
+      "bytes": 312,
+      "sha256": "a499c586fb3e36b8fef6035bf953948756ae37a06c36597b5846baa540967b64"
+    },
+    {
+      "path": "research/bridge_open/artifacts/hindi-qwen3-asr-0-6b-v1/config.json",
+      "bytes": 1184,
+      "sha256": "eeacc0e57cdd52f97bb9a580b110bf4725b09066d301447686ee979d4b54d767"
+    },
+    {
+      "path": "research/bridge_open/artifacts/hindi-qwen3-asr-0-6b-v1/environment.json",
+      "bytes": 1844,
+      "sha256": "58958c7e717cda6f0a0a8252bae4e5289d9105fdd1badc17e177bdd610dd2f1a"
+    },
+    {
+      "path": "research/bridge_open/artifacts/hindi-qwen3-asr-0-6b-v1/predictions.jsonl",
+      "bytes": 820110,
+      "sha256": "fc5d7edf43044f88350a43ea871078033f3e11e2af5aba55a5b8ec51e44408a9"
+    },
+    {
+      "path": "research/bridge_open/artifacts/hindi-qwen3-asr-0-6b-v1/summary.json",
+      "bytes": 2648,
+      "sha256": "2a6bb73d1df44d2b97b87da13bebe29802420c4f456ce1f0c8caaf422e7fa29f"
+    },
+    {
+      "path": "research/bridge_open/artifacts/hindi-qwen3-asr-0-6b-v1/cloud_receipt.json",
+      "bytes": 314,
+      "sha256": "454884a78be7312badd0f0ff2308db97337cb99f54f6fe7d5f40653974ef263a"
+    },
+    {
+      "path": "research/bridge_open/artifacts/hindi-qwen3-asr-1-7b-v1/config.json",
+      "bytes": 1184,
+      "sha256": "f5c3116f30e111d760421fb17b288728abffb4f2adb32e7e5bd58adb385a262c"
+    },
+    {
+      "path": "research/bridge_open/artifacts/hindi-qwen3-asr-1-7b-v1/environment.json",
+      "bytes": 2078,
+      "sha256": "72a374562d9aecfed5ecc6dde9aee3d672a34718972bec7b80c7d0b717e830eb"
+    },
+    {
+      "path": "research/bridge_open/artifacts/hindi-qwen3-asr-1-7b-v1/predictions.jsonl",
+      "bytes": 844297,
+      "sha256": "0a036ad8018740d10c0b7e8ed874d8f0dff4ef80705afcae1eacabbf74678a89"
+    },
+    {
+      "path": "research/bridge_open/artifacts/hindi-qwen3-asr-1-7b-v1/summary.json",
+      "bytes": 2652,
+      "sha256": "b668f791f9f6d2f05c3bd7b12860287779c015a1a924377ea84948063cfb3793"
+    },
+    {
+      "path": "research/bridge_open/artifacts/hindi-qwen3-asr-1-7b-v1/cloud_receipt.json",
+      "bytes": 314,
+      "sha256": "468b1ef366b312444b821fa4371e29098fefa2a90dc16e19ab24dbc833306831"
+    },
+    {
+      "path": "research/bridge_open/artifacts/hindi-whisper-large-v3-beam5-v1/config.json",
+      "bytes": 1120,
+      "sha256": "b4eaa79dd20b65cea63742a600c6e480d5a398c2c9b375353d85f1f5f10a2a30"
+    },
+    {
+      "path": "research/bridge_open/artifacts/hindi-whisper-large-v3-beam5-v1/environment.json",
+      "bytes": 2484,
+      "sha256": "113e8065b51af24dc17111339e1b6fac177d8ef6a3db799111f42a1db3ff137d"
+    },
+    {
+      "path": "research/bridge_open/artifacts/hindi-whisper-large-v3-beam5-v1/predictions.jsonl",
+      "bytes": 695775,
+      "sha256": "64ed48c26b53f1fbed821e2deac7cdaf13b9ab5a995d0bc1394347d9c0f21fe6"
+    },
+    {
+      "path": "research/bridge_open/artifacts/hindi-whisper-large-v3-beam5-v1/summary.json",
+      "bytes": 2689,
+      "sha256": "49313e123eb2e9b722bfc33550d0e7f68acbb7fcac57c8561f00efa60888998d"
+    },
+    {
+      "path": "research/bridge_open/artifacts/hindi-whisper-large-v3-beam5-v1/cloud_receipt.json",
+      "bytes": 309,
+      "sha256": "cd09ca808ace2aa836965110d8a5abcc13271758be6ea4945d6ede59d862179d"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni-ctc-1b-multilingual-v2/config.json",
+      "bytes": 1768,
+      "sha256": "b7bf37fc0f7c7a378f32a934c9fef61d647bc3df77241d1896535eee331a5bc6"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni-ctc-1b-multilingual-v2/environment.json",
+      "bytes": 1269,
+      "sha256": "1308352146666fc16068a9b819f6fc58cd4c03b6fc6e315631d6857fcd346c96"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni-ctc-1b-multilingual-v2/predictions.jsonl",
+      "bytes": 6124983,
+      "sha256": "53854d907fe0470fdebf11e79a38ab57d7df378297f8820adc6f810abb30a990"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni-ctc-1b-multilingual-v2/summary.json",
+      "bytes": 24048,
+      "sha256": "f6bc8c3d256a485be9fa38b7c60a85e6ed53435e8029636a5cd1c9eed0c36852"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni-ctc-1b-multilingual-v2/cloud_receipt.json",
+      "bytes": 413,
+      "sha256": "a51f1503e978767022020ccff99cd2d9695ad21abb59560f9e7fc57672b7f269"
+    }
+  ],
+  "execution_enabled": false,
+  "new_external_llm_api_budget_usd": 0,
+  "modal_cap_usd": 15,
+  "modal_reservations_usd": 15,
+  "budget_note": "Reservations are not charges; reconcile provider billing before reserving further jobs.",
+  "validation_note": "Hashes bind this review packet to file contents; this builder does not rerun scientific validation.",
+  "outputs_requested": [
+    "evidence-backed reviewer issues",
+    "one falsifiable experiment specification",
+    "claims supported and unsupported by current data"
+  ]
+}

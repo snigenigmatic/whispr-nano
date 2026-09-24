@@ -1,0 +1,46 @@
+{
+  "started_at": "2026-09-22T14:43:21.198830+00:00",
+  "config_sha256": "b6ff313c13d460b397ddcee7fc6f93aa828f010eac8a982d5f24c9df8fe38255",
+  "manifest_sha256": "e6992a043c9448a9974d1707186ee8cbfda87154b1d4aad940c8546c4054aa78",
+  "weight_sha256": {
+    "model.fp32-00001-of-00002.safetensors": "08e0005225b3dbaf55dd13ac62926cc7e02c1025d66fa375e6fb305ff79cd4f9",
+    "model.fp32-00002-of-00002.safetensors": "630ca774672856d2e0e39a702e590f635a1cfc5726a64b6578ab46dd367369a9",
+    "model.safetensors": "a8e94b85976e5864ba3e9525c7e6c83b2a1eca42d4b797a0c7c24d778e40fd95"
+  },
+  "auxiliary_file_sha256": {
+    "added_tokens.json": "3c51f66c4c21f9e126970078f11ae77a78c74aee8df606ee9daba86e467108e0",
+    "config.json": "ad0e8d1e46f4d01f7861a21509e5d0f977d6cc1f367a370603c92541d819807b",
+    "generation_config.json": "fbdfa70135de9b1d31553393f14e80aaeb1936ea36576b2ba864055943c09d23",
+    "merges.txt": "2df2990a395e35e8dfbc7511e08c12d56018d8d04691e0133e5d63b21e154dc6",
+    "model.safetensors.index.fp32.json": "bccecde4044933c7f3cbea731a5a4eb1e2dcbef1b9bc5f603d510b8361c45835",
+    "normalizer.json": "bf1c507dc8724ca9cf9903640dacfb69dae2f00edee4f21ceba106a7392f26dd",
+    "preprocessor_config.json": "7ccc62c6f2765af1f3b46c00c9b5894426835a05021c8b9c01eecb6dfb542711",
+    "pytorch_model.bin.index.fp32.json": "321c26ca640af6ad1f00a0cb3a53cb47265a41e66399ae713d7dbbf0cd923b69",
+    "special_tokens_map.json": "1c70773c078cb2ca96e0fcff113102f1d3e2b1504272c3bb63b035d4a6700d87",
+    "tokenizer.json": "6d8cbd7cd0d8d5815e478dac67b85a26bbe77c1f5e0c6d76d1ce2abc0e5f21ca",
+    "tokenizer_config.json": "844b642c73a91359722f47b35705f7174686df33d252695d8572cf9ac03a6389",
+    "vocab.json": "e2aa043ef015641d363d8288e7c241c85e36a5c761fb303598e0710233344387"
+  },
+  "code_sha256": {
+    "run_whisper.py": "f3bb7c655ffd61e4850ab8b08723ddc2bd233c9bffd3fbea9ad81852bace0954",
+    "scoring.py": "a63c0fdce68e33810bf233c813a5ebad0f3692e6718aad2828a802b2e776ff3c",
+    "generation_output.py": "f0b913e48db8a86e91acbd13fc2b03913d4a82edda9024137a28ec291644da29",
+    "native_whisper.py": "ed0e1b4d4110860b2ada814046a2b91752d738db3aeac1fd77268dbcc2ec2894"
+  },
+  "packages": {
+    "torch": "2.8.0+cu128",
+    "transformers": "4.57.6",
+    "numpy": "2.2.6",
+    "scipy": "1.15.3",
+    "soundfile": "0.13.1",
+    "jiwer": "4.0.0",
+    "huggingface-hub": "0.36.2"
+  },
+  "platform": "Linux-6.12.103-127.188.amzn2023.x86_64-x86_64-with-glibc2.35",
+  "device": "cuda",
+  "dtype": "float32",
+  "imported_transformers": "4.57.6",
+  "imported_torch": "2.8.0+cu128",
+  "model_load_seconds": 36.3881665939989,
+  "cloud_cost_usd": null
+}

@@ -1,0 +1,16 @@
+{
+  "sha256": "d6e824e5cdc3a446d6256c30ac52112b46a61af2bb534d23b4b322fcb53bca3b",
+  "files": [
+    "cohort.json",
+    "config.json",
+    "environment.json",
+    "large-v3-turbo_features.json",
+    "large-v3-turbo_weights.json",
+    "large-v3_features.json",
+    "large-v3_weights.json",
+    "native_source_receipt.json",
+    "predictions.jsonl",
+    "summary.json"
+  ],
+  "chunks": 55
+}

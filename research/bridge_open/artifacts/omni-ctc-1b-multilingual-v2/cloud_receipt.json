@@ -1,0 +1,13 @@
+{
+  "exit_code": 0,
+  "function_wall_seconds": 69.138828189,
+  "estimated_function_resource_usd": 0.08192398029770988,
+  "gpu": "NVIDIA H100 80GB HBM3",
+  "cpu_limit": 4,
+  "memory_limit_gib": 16,
+  "timeout_seconds": 900,
+  "pricing_source": "https://modal.com/pricing",
+  "provider_bill_verified": false,
+  "model_id": "facebook/omniASR-CTC-1B",
+  "model_revision": "8c22e3ffdaa4aab6431b128b84b991a7d9c2515c"
+}

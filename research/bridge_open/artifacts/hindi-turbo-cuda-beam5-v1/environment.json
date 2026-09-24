@@ -1,0 +1,41 @@
+{
+  "started_at": "2026-09-22T07:52:21.702867+00:00",
+  "config_sha256": "99ea041a2fb815118a0c45072ebacc9a650789fa40e870d5f54af4cd4e09865a",
+  "manifest_sha256": "e6992a043c9448a9974d1707186ee8cbfda87154b1d4aad940c8546c4054aa78",
+  "weight_sha256": {
+    "model.safetensors": "542566a422ae4f3fd23f1ba11add198fca01bbf82e66e6a2857b3f608b1eb9d1"
+  },
+  "auxiliary_file_sha256": {
+    "added_tokens.json": "3c51f66c4c21f9e126970078f11ae77a78c74aee8df606ee9daba86e467108e0",
+    "config.json": "c5b526b3e3cd64cd8940dabb45e8ba726629e22d8ed389c29b552f9140daf04a",
+    "generation_config.json": "cce11bfe3aaa6ae9e072ea2637caaec8795e68d9b67e655a5af16ee509681a4c",
+    "merges.txt": "2df2990a395e35e8dfbc7511e08c12d56018d8d04691e0133e5d63b21e154dc6",
+    "normalizer.json": "bf1c507dc8724ca9cf9903640dacfb69dae2f00edee4f21ceba106a7392f26dd",
+    "preprocessor_config.json": "7ccc62c6f2765af1f3b46c00c9b5894426835a05021c8b9c01eecb6dfb542711",
+    "special_tokens_map.json": "baea4ea09372eb4fca86b4e4346139fd73cb807d5087e9de0948e971739c3e74",
+    "tokenizer.json": "297b13372ac43916285644fb9687add3cc62ee2a1adb60da3dc25cc94c1871fd",
+    "tokenizer_config.json": "844b642c73a91359722f47b35705f7174686df33d252695d8572cf9ac03a6389",
+    "vocab.json": "e2aa043ef015641d363d8288e7c241c85e36a5c761fb303598e0710233344387"
+  },
+  "code_sha256": {
+    "run_whisper.py": "107eaddf5a423ce412b923cc19452fc282662cd77a098e6168e453554c1424ff",
+    "scoring.py": "a63c0fdce68e33810bf233c813a5ebad0f3692e6718aad2828a802b2e776ff3c",
+    "generation_output.py": "f0b913e48db8a86e91acbd13fc2b03913d4a82edda9024137a28ec291644da29"
+  },
+  "packages": {
+    "torch": "2.8.0",
+    "transformers": "4.57.6",
+    "numpy": "2.2.6",
+    "scipy": "1.15.3",
+    "soundfile": "0.13.1",
+    "jiwer": "4.0.0",
+    "huggingface-hub": "0.36.2"
+  },
+  "platform": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+  "device": "cuda",
+  "dtype": "float32",
+  "imported_transformers": "4.57.6",
+  "imported_torch": "2.8.0+cu128",
+  "model_load_seconds": 4.019829596000001,
+  "cloud_cost_usd": null
+}

@@ -1,0 +1,505 @@
+{
+  "schema_version": 1,
+  "experiment_id": "l2arctic_selection_h100_v1",
+  "max_jobs": 4,
+  "max_running": 3,
+  "max_dev_queries": 18,
+  "final_test_policy": "sealed",
+  "artifacts": {
+    "amendment_01_duration_matching_repair": {
+      "path": "/Users/prateekraj/whispr-nano/research/pilot/protocol_amendments/01_duration_matching_repair.json",
+      "role": "input"
+    },
+    "audio_headers": {
+      "path": "/Users/prateekraj/whispr-nano/research/pilot/data/audio_header_checks.json",
+      "role": "input"
+    },
+    "auditor": {
+      "path": "/Users/prateekraj/whispr-nano/research/pilot/evaluate_runs.py",
+      "role": "code"
+    },
+    "controller": {
+      "path": "/Users/prateekraj/whispr-nano/research/pilot/workflow.py",
+      "role": "code"
+    },
+    "development": {
+      "path": "/Users/prateekraj/whispr-nano/research/pilot/data/dev_ledger_manifest.jsonl",
+      "role": "development"
+    },
+    "feature_cache": {
+      "path": "/Users/prateekraj/whispr-nano/research/pilot/feature_cache.py",
+      "role": "code"
+    },
+    "feature_receipt": {
+      "path": "/Users/prateekraj/whispr-nano/research/pilot/feature_cache_receipt.json",
+      "role": "input"
+    },
+    "filtered10_gold": {
+      "path": "/Users/prateekraj/whispr-nano/research/pilot/selections/filtered10_gold.jsonl",
+      "role": "input"
+    },
+    "full_gold": {
+      "path": "/Users/prateekraj/whispr-nano/research/pilot/selections/full_gold.jsonl",
+      "role": "input"
+    },
+    "loop": {
+      "path": "/Users/prateekraj/whispr-nano/research/pilot/loop.py",
+      "role": "code"
+    },
+    "manifest": {
+      "path": "/Users/prateekraj/whispr-nano/research/pilot/data/manifest.jsonl",
+      "role": "input"
+    },
+    "normalizer": {
+      "path": "/Users/prateekraj/whispr-nano/research/pilot/frozen_english_normalizer.py",
+      "role": "evaluator"
+    },
+    "normalizer_map": {
+      "path": "/Users/prateekraj/whispr-nano/paper/data/whisper_normalizer.json",
+      "role": "evaluator"
+    },
+    "random_matched_gold": {
+      "path": "/Users/prateekraj/whispr-nano/research/pilot/selections/random_matched_gold.jsonl",
+      "role": "input"
+    },
+    "runner": {
+      "path": "/Users/prateekraj/whispr-nano/research/pilot/modal_runner.py",
+      "role": "code"
+    },
+    "schedule": {
+      "path": "/Users/prateekraj/whispr-nano/research/h100/schedule.json",
+      "role": "input"
+    },
+    "sealed_test": {
+      "path": "/Users/prateekraj/whispr-nano/research/pilot/data/test_ledger_manifest.jsonl",
+      "role": "sealed_test"
+    },
+    "selection": {
+      "path": "/Users/prateekraj/whispr-nano/research/pilot/selection.py",
+      "role": "code"
+    },
+    "selection_report": {
+      "path": "/Users/prateekraj/whispr-nano/research/pilot/selections/selection_report.json",
+      "role": "input"
+    },
+    "smoke_development": {
+      "path": "/Users/prateekraj/whispr-nano/research/pilot/data/smoke_dev_ledger_manifest.jsonl",
+      "role": "development"
+    },
+    "teacher_ABA.runtime": {
+      "path": "/Users/prateekraj/whispr-nano/research/pilot/teacher_predictions/ABA.runtime.json",
+      "role": "input"
+    },
+    "teacher_ERMS.runtime": {
+      "path": "/Users/prateekraj/whispr-nano/research/pilot/teacher_predictions/ERMS.runtime.json",
+      "role": "input"
+    },
+    "teacher_HJK.runtime": {
+      "path": "/Users/prateekraj/whispr-nano/research/pilot/teacher_predictions/HJK.runtime.json",
+      "role": "input"
+    },
+    "teacher_HKK.runtime": {
+      "path": "/Users/prateekraj/whispr-nano/research/pilot/teacher_predictions/HKK.runtime.json",
+      "role": "input"
+    },
+    "teacher_HQTV.runtime": {
+      "path": "/Users/prateekraj/whispr-nano/research/pilot/teacher_predictions/HQTV.runtime.json",
+      "role": "input"
+    },
+    "teacher_MBMPS.runtime": {
+      "path": "/Users/prateekraj/whispr-nano/research/pilot/teacher_predictions/MBMPS.runtime.json",
+      "role": "input"
+    },
+    "teacher_NCC.runtime": {
+      "path": "/Users/prateekraj/whispr-nano/research/pilot/teacher_predictions/NCC.runtime.json",
+      "role": "input"
+    },
+    "teacher_PNV.runtime": {
+      "path": "/Users/prateekraj/whispr-nano/research/pilot/teacher_predictions/PNV.runtime.json",
+      "role": "input"
+    },
+    "teacher_RRBI.runtime": {
+      "path": "/Users/prateekraj/whispr-nano/research/pilot/teacher_predictions/RRBI.runtime.json",
+      "role": "input"
+    },
+    "teacher_SVBI.runtime": {
+      "path": "/Users/prateekraj/whispr-nano/research/pilot/teacher_predictions/SVBI.runtime.json",
+      "role": "input"
+    },
+    "teacher_TXHC.runtime": {
+      "path": "/Users/prateekraj/whispr-nano/research/pilot/teacher_predictions/TXHC.runtime.json",
+      "role": "input"
+    },
+    "teacher_YBAA.runtime": {
+      "path": "/Users/prateekraj/whispr-nano/research/pilot/teacher_predictions/YBAA.runtime.json",
+      "role": "input"
+    },
+    "teacher_predictions": {
+      "path": "/Users/prateekraj/whispr-nano/research/pilot/teacher_predictions/all_train.jsonl",
+      "role": "input"
+    },
+    "training": {
+      "path": "/Users/prateekraj/whispr-nano/research/pilot/training.py",
+      "role": "evaluator"
+    },
+    "h100_runner": {
+      "path": "/Users/prateekraj/whispr-nano/research/h100/run.py",
+      "role": "code"
+    },
+    "h100_deadline": {
+      "path": "/Users/prateekraj/whispr-nano/research/h100/deadline.json",
+      "role": "input"
+    }
+  },
+  "jobs": {
+    "full_gold": {
+      "kind": "infrastructure",
+      "dependencies": [],
+      "parameters": {
+        "configs": [
+          {
+            "num_updates": 600,
+            "batch_size": 8,
+            "grad_accum_steps": 1,
+            "learning_rate": 1e-05,
+            "weight_decay": 0.01,
+            "max_grad_norm": 1.0,
+            "eval_every": 0,
+            "eval_batch_size": 8,
+            "max_new_tokens": 224,
+            "model_id": "openai/whisper-tiny",
+            "model_revision": "169d4a4341b33bc18d8881c4b69c2e104e1cc0af",
+            "arm_name": "full_gold",
+            "seed": 0,
+            "expected_initial_state_sha256": "30f47af0c6721669a9dec6b0a7934e4723ee2750a95aa3e627d5816a5934ba25",
+            "expected_dev_manifest_sha256": "6ac3cc1e58d8de15cc40d76c5689ae35d090894a9b18694a2eee8ad5bf516292"
+          },
+          {
+            "num_updates": 600,
+            "batch_size": 8,
+            "grad_accum_steps": 1,
+            "learning_rate": 1e-05,
+            "weight_decay": 0.01,
+            "max_grad_norm": 1.0,
+            "eval_every": 0,
+            "eval_batch_size": 8,
+            "max_new_tokens": 224,
+            "model_id": "openai/whisper-tiny",
+            "model_revision": "169d4a4341b33bc18d8881c4b69c2e104e1cc0af",
+            "arm_name": "full_gold",
+            "seed": 1,
+            "expected_initial_state_sha256": "30f47af0c6721669a9dec6b0a7934e4723ee2750a95aa3e627d5816a5934ba25",
+            "expected_dev_manifest_sha256": "6ac3cc1e58d8de15cc40d76c5689ae35d090894a9b18694a2eee8ad5bf516292"
+          },
+          {
+            "num_updates": 600,
+            "batch_size": 8,
+            "grad_accum_steps": 1,
+            "learning_rate": 1e-05,
+            "weight_decay": 0.01,
+            "max_grad_norm": 1.0,
+            "eval_every": 0,
+            "eval_batch_size": 8,
+            "max_new_tokens": 224,
+            "model_id": "openai/whisper-tiny",
+            "model_revision": "169d4a4341b33bc18d8881c4b69c2e104e1cc0af",
+            "arm_name": "full_gold",
+            "seed": 2,
+            "expected_initial_state_sha256": "30f47af0c6721669a9dec6b0a7934e4723ee2750a95aa3e627d5816a5934ba25",
+            "expected_dev_manifest_sha256": "6ac3cc1e58d8de15cc40d76c5689ae35d090894a9b18694a2eee8ad5bf516292"
+          }
+        ],
+        "plan_sha256": "6e4ecbdb07357dc4054657e2bf769fdddb8c1b8de3068cb72beb89ead986ae9e"
+      },
+      "required_evidence": [
+        "audit",
+        "receipt"
+      ],
+      "success_checks": [
+        {
+          "source": "receipt",
+          "pointer": "/audited_run_count",
+          "op": "eq",
+          "value": 3
+        }
+      ],
+      "dev_queries": {
+        "seed0_baseline": {
+          "dataset": "development",
+          "evaluator": "training",
+          "purpose": "Fixed H100 baseline/final, previously exposed development speakers"
+        },
+        "seed0_final": {
+          "dataset": "development",
+          "evaluator": "training",
+          "purpose": "Fixed H100 baseline/final, previously exposed development speakers"
+        },
+        "seed1_baseline": {
+          "dataset": "development",
+          "evaluator": "training",
+          "purpose": "Fixed H100 baseline/final, previously exposed development speakers"
+        },
+        "seed1_final": {
+          "dataset": "development",
+          "evaluator": "training",
+          "purpose": "Fixed H100 baseline/final, previously exposed development speakers"
+        },
+        "seed2_baseline": {
+          "dataset": "development",
+          "evaluator": "training",
+          "purpose": "Fixed H100 baseline/final, previously exposed development speakers"
+        },
+        "seed2_final": {
+          "dataset": "development",
+          "evaluator": "training",
+          "purpose": "Fixed H100 baseline/final, previously exposed development speakers"
+        }
+      }
+    },
+    "filtered10_gold": {
+      "kind": "infrastructure",
+      "dependencies": [],
+      "parameters": {
+        "configs": [
+          {
+            "num_updates": 600,
+            "batch_size": 8,
+            "grad_accum_steps": 1,
+            "learning_rate": 1e-05,
+            "weight_decay": 0.01,
+            "max_grad_norm": 1.0,
+            "eval_every": 0,
+            "eval_batch_size": 8,
+            "max_new_tokens": 224,
+            "model_id": "openai/whisper-tiny",
+            "model_revision": "169d4a4341b33bc18d8881c4b69c2e104e1cc0af",
+            "arm_name": "filtered10_gold",
+            "seed": 0,
+            "expected_initial_state_sha256": "30f47af0c6721669a9dec6b0a7934e4723ee2750a95aa3e627d5816a5934ba25",
+            "expected_dev_manifest_sha256": "6ac3cc1e58d8de15cc40d76c5689ae35d090894a9b18694a2eee8ad5bf516292"
+          },
+          {
+            "num_updates": 600,
+            "batch_size": 8,
+            "grad_accum_steps": 1,
+            "learning_rate": 1e-05,
+            "weight_decay": 0.01,
+            "max_grad_norm": 1.0,
+            "eval_every": 0,
+            "eval_batch_size": 8,
+            "max_new_tokens": 224,
+            "model_id": "openai/whisper-tiny",
+            "model_revision": "169d4a4341b33bc18d8881c4b69c2e104e1cc0af",
+            "arm_name": "filtered10_gold",
+            "seed": 1,
+            "expected_initial_state_sha256": "30f47af0c6721669a9dec6b0a7934e4723ee2750a95aa3e627d5816a5934ba25",
+            "expected_dev_manifest_sha256": "6ac3cc1e58d8de15cc40d76c5689ae35d090894a9b18694a2eee8ad5bf516292"
+          },
+          {
+            "num_updates": 600,
+            "batch_size": 8,
+            "grad_accum_steps": 1,
+            "learning_rate": 1e-05,
+            "weight_decay": 0.01,
+            "max_grad_norm": 1.0,
+            "eval_every": 0,
+            "eval_batch_size": 8,
+            "max_new_tokens": 224,
+            "model_id": "openai/whisper-tiny",
+            "model_revision": "169d4a4341b33bc18d8881c4b69c2e104e1cc0af",
+            "arm_name": "filtered10_gold",
+            "seed": 2,
+            "expected_initial_state_sha256": "30f47af0c6721669a9dec6b0a7934e4723ee2750a95aa3e627d5816a5934ba25",
+            "expected_dev_manifest_sha256": "6ac3cc1e58d8de15cc40d76c5689ae35d090894a9b18694a2eee8ad5bf516292"
+          }
+        ],
+        "plan_sha256": "bfff5955bf7057ca181513ea252762c01ee981b3649f35b2a3d1685563e33898"
+      },
+      "required_evidence": [
+        "audit",
+        "receipt"
+      ],
+      "success_checks": [
+        {
+          "source": "receipt",
+          "pointer": "/audited_run_count",
+          "op": "eq",
+          "value": 3
+        }
+      ],
+      "dev_queries": {
+        "seed0_baseline": {
+          "dataset": "development",
+          "evaluator": "training",
+          "purpose": "Fixed H100 baseline/final, previously exposed development speakers"
+        },
+        "seed0_final": {
+          "dataset": "development",
+          "evaluator": "training",
+          "purpose": "Fixed H100 baseline/final, previously exposed development speakers"
+        },
+        "seed1_baseline": {
+          "dataset": "development",
+          "evaluator": "training",
+          "purpose": "Fixed H100 baseline/final, previously exposed development speakers"
+        },
+        "seed1_final": {
+          "dataset": "development",
+          "evaluator": "training",
+          "purpose": "Fixed H100 baseline/final, previously exposed development speakers"
+        },
+        "seed2_baseline": {
+          "dataset": "development",
+          "evaluator": "training",
+          "purpose": "Fixed H100 baseline/final, previously exposed development speakers"
+        },
+        "seed2_final": {
+          "dataset": "development",
+          "evaluator": "training",
+          "purpose": "Fixed H100 baseline/final, previously exposed development speakers"
+        }
+      }
+    },
+    "random_matched_gold": {
+      "kind": "infrastructure",
+      "dependencies": [],
+      "parameters": {
+        "configs": [
+          {
+            "num_updates": 600,
+            "batch_size": 8,
+            "grad_accum_steps": 1,
+            "learning_rate": 1e-05,
+            "weight_decay": 0.01,
+            "max_grad_norm": 1.0,
+            "eval_every": 0,
+            "eval_batch_size": 8,
+            "max_new_tokens": 224,
+            "model_id": "openai/whisper-tiny",
+            "model_revision": "169d4a4341b33bc18d8881c4b69c2e104e1cc0af",
+            "arm_name": "random_matched_gold",
+            "seed": 0,
+            "expected_initial_state_sha256": "30f47af0c6721669a9dec6b0a7934e4723ee2750a95aa3e627d5816a5934ba25",
+            "expected_dev_manifest_sha256": "6ac3cc1e58d8de15cc40d76c5689ae35d090894a9b18694a2eee8ad5bf516292"
+          },
+          {
+            "num_updates": 600,
+            "batch_size": 8,
+            "grad_accum_steps": 1,
+            "learning_rate": 1e-05,
+            "weight_decay": 0.01,
+            "max_grad_norm": 1.0,
+            "eval_every": 0,
+            "eval_batch_size": 8,
+            "max_new_tokens": 224,
+            "model_id": "openai/whisper-tiny",
+            "model_revision": "169d4a4341b33bc18d8881c4b69c2e104e1cc0af",
+            "arm_name": "random_matched_gold",
+            "seed": 1,
+            "expected_initial_state_sha256": "30f47af0c6721669a9dec6b0a7934e4723ee2750a95aa3e627d5816a5934ba25",
+            "expected_dev_manifest_sha256": "6ac3cc1e58d8de15cc40d76c5689ae35d090894a9b18694a2eee8ad5bf516292"
+          },
+          {
+            "num_updates": 600,
+            "batch_size": 8,
+            "grad_accum_steps": 1,
+            "learning_rate": 1e-05,
+            "weight_decay": 0.01,
+            "max_grad_norm": 1.0,
+            "eval_every": 0,
+            "eval_batch_size": 8,
+            "max_new_tokens": 224,
+            "model_id": "openai/whisper-tiny",
+            "model_revision": "169d4a4341b33bc18d8881c4b69c2e104e1cc0af",
+            "arm_name": "random_matched_gold",
+            "seed": 2,
+            "expected_initial_state_sha256": "30f47af0c6721669a9dec6b0a7934e4723ee2750a95aa3e627d5816a5934ba25",
+            "expected_dev_manifest_sha256": "6ac3cc1e58d8de15cc40d76c5689ae35d090894a9b18694a2eee8ad5bf516292"
+          }
+        ],
+        "plan_sha256": "c1febddfb6c0109e392171665745ad64f1a106768949fb50d0e3f9f3650e3819"
+      },
+      "required_evidence": [
+        "audit",
+        "receipt"
+      ],
+      "success_checks": [
+        {
+          "source": "receipt",
+          "pointer": "/audited_run_count",
+          "op": "eq",
+          "value": 3
+        }
+      ],
+      "dev_queries": {
+        "seed0_baseline": {
+          "dataset": "development",
+          "evaluator": "training",
+          "purpose": "Fixed H100 baseline/final, previously exposed development speakers"
+        },
+        "seed0_final": {
+          "dataset": "development",
+          "evaluator": "training",
+          "purpose": "Fixed H100 baseline/final, previously exposed development speakers"
+        },
+        "seed1_baseline": {
+          "dataset": "development",
+          "evaluator": "training",
+          "purpose": "Fixed H100 baseline/final, previously exposed development speakers"
+        },
+        "seed1_final": {
+          "dataset": "development",
+          "evaluator": "training",
+          "purpose": "Fixed H100 baseline/final, previously exposed development speakers"
+        },
+        "seed2_baseline": {
+          "dataset": "development",
+          "evaluator": "training",
+          "purpose": "Fixed H100 baseline/final, previously exposed development speakers"
+        },
+        "seed2_final": {
+          "dataset": "development",
+          "evaluator": "training",
+          "purpose": "Fixed H100 baseline/final, previously exposed development speakers"
+        }
+      }
+    },
+    "assessment": {
+      "kind": "scientific",
+      "dependencies": [
+        "full_gold",
+        "filtered10_gold",
+        "random_matched_gold"
+      ],
+      "parameters": {},
+      "required_evidence": [
+        "audit",
+        "decision"
+      ],
+      "success_checks": [
+        {
+          "source": "audit",
+          "pointer": "/status",
+          "op": "eq",
+          "value": "valid_complete"
+        },
+        {
+          "source": "decision",
+          "pointer": "/pilot_positive",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "dev_queries": {}
+    }
+  },
+  "gates": {
+    "replication_ready": {
+      "required_jobs": [
+        "assessment"
+      ],
+      "checks": []
+    }
+  },
+  "registration_note": "New H100 execution; prior dev accesses actual=12, conservatively charged=14. All eighteen new accesses disclosed; not independent confirmation."
+}

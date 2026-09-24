@@ -1,0 +1,194 @@
+{
+  "scope": "Post-hoc descriptive analysis on exposed FLEURS; no causal or demographic claim",
+  "definitions": {
+    "wer_ge_1": "word edit count >= reference word count; not a semantic failure label",
+    "p95": "NumPy linear 0.95 quantile of recording-level WER; no confidence interval",
+    "pair_outcome": "Compare word-edit counts on exactly the same reference; equal count does not mean equal transcript"
+  },
+  "groups": [
+    {
+      "model": "Whisper Turbo",
+      "language": "as",
+      "n": 984,
+      "micro_wer": 1.347069125373442,
+      "macro_wer": 1.3284998259409642,
+      "median_utterance_wer": 1.0,
+      "p95_utterance_wer": 2.533928571428549,
+      "wer_ge_1_count": 965,
+      "zero_word_error_count": 0,
+      "normalized_empty_count": 1
+    },
+    {
+      "model": "Whisper Turbo",
+      "language": "bn",
+      "n": 920,
+      "micro_wer": 0.8585904075658636,
+      "macro_wer": 0.8653896515954438,
+      "median_utterance_wer": 0.8333333333333334,
+      "p95_utterance_wer": 1.1428571428571428,
+      "wer_ge_1_count": 200,
+      "zero_word_error_count": 0,
+      "normalized_empty_count": 0
+    },
+    {
+      "model": "Whisper Turbo",
+      "language": "hi",
+      "n": 418,
+      "micro_wer": 0.31348053457292274,
+      "macro_wer": 0.3198259570894912,
+      "median_utterance_wer": 0.2857142857142857,
+      "p95_utterance_wer": 0.5732142857142855,
+      "wer_ge_1_count": 2,
+      "zero_word_error_count": 2,
+      "normalized_empty_count": 0
+    },
+    {
+      "model": "Whisper Large-v3",
+      "language": "as",
+      "n": 984,
+      "micro_wer": 1.1330483156485012,
+      "macro_wer": 1.1315252281271146,
+      "median_utterance_wer": 1.0408333333333335,
+      "p95_utterance_wer": 1.3,
+      "wer_ge_1_count": 969,
+      "zero_word_error_count": 0,
+      "normalized_empty_count": 0
+    },
+    {
+      "model": "Whisper Large-v3",
+      "language": "bn",
+      "n": 920,
+      "micro_wer": 0.7470164377392479,
+      "macro_wer": 0.7510649851112655,
+      "median_utterance_wer": 0.7058823529411765,
+      "p95_utterance_wer": 1.0,
+      "wer_ge_1_count": 55,
+      "zero_word_error_count": 0,
+      "normalized_empty_count": 0
+    },
+    {
+      "model": "Whisper Large-v3",
+      "language": "hi",
+      "n": 418,
+      "micro_wer": 0.2821034282393957,
+      "macro_wer": 0.28932714021555095,
+      "median_utterance_wer": 0.26120857699805067,
+      "p95_utterance_wer": 0.5,
+      "wer_ge_1_count": 3,
+      "zero_word_error_count": 3,
+      "normalized_empty_count": 0
+    },
+    {
+      "model": "Qwen3-ASR-1.7B",
+      "language": "hi",
+      "n": 418,
+      "micro_wer": 0.13093162889792756,
+      "macro_wer": 0.13286090475537518,
+      "median_utterance_wer": 0.11764705882352941,
+      "p95_utterance_wer": 0.31663533834586455,
+      "wer_ge_1_count": 0,
+      "zero_word_error_count": 53,
+      "normalized_empty_count": 0
+    },
+    {
+      "model": "OmniASR CTC-1B",
+      "language": "as",
+      "n": 984,
+      "micro_wer": 0.337591428865767,
+      "macro_wer": 0.34394496063425023,
+      "median_utterance_wer": 0.3333333333333333,
+      "p95_utterance_wer": 0.6,
+      "wer_ge_1_count": 0,
+      "zero_word_error_count": 8,
+      "normalized_empty_count": 0
+    },
+    {
+      "model": "OmniASR CTC-1B",
+      "language": "bn",
+      "n": 920,
+      "micro_wer": 0.24515874802972304,
+      "macro_wer": 0.24781630688400247,
+      "median_utterance_wer": 0.23809523809523808,
+      "p95_utterance_wer": 0.4707430340557274,
+      "wer_ge_1_count": 0,
+      "zero_word_error_count": 26,
+      "normalized_empty_count": 0
+    },
+    {
+      "model": "OmniASR CTC-1B",
+      "language": "hi",
+      "n": 418,
+      "micro_wer": 0.21499128413712956,
+      "macro_wer": 0.22610317476724365,
+      "median_utterance_wer": 0.17267080745341615,
+      "p95_utterance_wer": 0.6332499999999988,
+      "wer_ge_1_count": 18,
+      "zero_word_error_count": 12,
+      "normalized_empty_count": 0
+    }
+  ],
+  "paired_counts": [
+    {
+      "comparator": "Whisper Turbo",
+      "language": "hi",
+      "n": 418,
+      "fewer": 326,
+      "equal": 32,
+      "more": 60
+    },
+    {
+      "comparator": "Whisper Turbo",
+      "language": "bn",
+      "n": 920,
+      "fewer": 918,
+      "equal": 2,
+      "more": 0
+    },
+    {
+      "comparator": "Whisper Turbo",
+      "language": "as",
+      "n": 984,
+      "fewer": 984,
+      "equal": 0,
+      "more": 0
+    },
+    {
+      "comparator": "Whisper Large-v3",
+      "language": "hi",
+      "n": 418,
+      "fewer": 294,
+      "equal": 53,
+      "more": 71
+    },
+    {
+      "comparator": "Whisper Large-v3",
+      "language": "bn",
+      "n": 920,
+      "fewer": 915,
+      "equal": 1,
+      "more": 4
+    },
+    {
+      "comparator": "Whisper Large-v3",
+      "language": "as",
+      "n": 984,
+      "fewer": 984,
+      "equal": 0,
+      "more": 0
+    },
+    {
+      "comparator": "Qwen3-ASR-1.7B",
+      "language": "hi",
+      "n": 418,
+      "fewer": 76,
+      "equal": 75,
+      "more": 267
+    }
+  ],
+  "source_hashes": {
+    "Whisper Turbo": "127c4ba4854100b964c40b61701457f4972cc0bc0ca684ce464ec1b6cec5b988",
+    "Whisper Large-v3": "a23d1fdfd2152e1f520a8527536b71abbc087cd4ee28c4f312423119ae02d82d",
+    "Qwen3-ASR-1.7B": "2ac059fd13ccd1ad5c4f92e824022144c91bdf5eca54c751f662b1f50641e5aa",
+    "OmniASR CTC-1B": "3b00dd8c035aace576c50cd1d921c717b920d2688457a2b748742bbdef17e9e7"
+  }
+}

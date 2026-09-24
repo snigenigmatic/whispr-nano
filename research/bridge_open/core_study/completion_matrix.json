@@ -1,0 +1,363 @@
+{
+  "schema": "core-asr-study/v1",
+  "frozen_date": "2026-09-24",
+  "owner": "C. Kaustubh",
+  "selection_basis": "Earlier committed core shortlist; finite completion after scope-drift review, not selected for observed rankings",
+  "models": [
+    "whisper-small",
+    "whisper-turbo",
+    "whisper-large-v3",
+    "qwen3-asr-0.6b",
+    "qwen3-asr-1.7b",
+    "omniasr-ctc-1b"
+  ],
+  "tracks": {
+    "fleurs-hi": 418,
+    "fleurs-bn": 920,
+    "fleurs-as": 984,
+    "svarah-recovered-en": 518
+  },
+  "cells": [
+    {
+      "model": "whisper-small",
+      "track": "fleurs-hi",
+      "recordings": 418,
+      "status": "accepted",
+      "experiment_id": "b762abd2-e3a9-481e-9d8f-e8aa5e737e91",
+      "run_id": "d54ce732-3bdd-4619-9bea-b7686e6cdbde",
+      "evidence": "../artifacts/core_whisper_small_hi_v1/local_independent_whisper_core_acceptance.json",
+      "job_url": "https://huggingface.co/jobs/snigenigmatic/6ab4c6586b030d633f68d741",
+      "quality_evidence": "quality_results.json",
+      "micro_wer": 0.5779585512299051,
+      "source_predictions_sha256": "9df54f6d1c546d276e94075b03b4899ec7403a5978ed008130bbe5f38280f083"
+    },
+    {
+      "model": "whisper-small",
+      "track": "fleurs-bn",
+      "recordings": 920,
+      "status": "accepted",
+      "experiment_id": "027f9bb6-9a41-4bb7-8b75-df9b897fabfb",
+      "run_id": "db4d854f-acef-4b4b-a476-f26e05a59b33",
+      "quality_evidence": "quality_results.json",
+      "evidence": "../artifacts/core_whisper_small_bn_v1/local_independent_whisper_core_acceptance.json",
+      "micro_wer": 1.9457892366584102,
+      "source_predictions_sha256": "16b30008955716b5fe2a779dd63ef676d424d61f6b9754c77a5ff55a8380f621",
+      "job_url": "https://huggingface.co/jobs/snigenigmatic/6ab4c9726b030d633f68d793"
+    },
+    {
+      "model": "whisper-small",
+      "track": "fleurs-as",
+      "recordings": 984,
+      "status": "accepted",
+      "experiment_id": "cf3baec7-f516-4311-99ed-c9792b87c0da",
+      "run_id": "5a91f1a3-1a17-4538-8900-865eccb07fd0",
+      "quality_evidence": "quality_results.json",
+      "evidence": "../artifacts/core_whisper_small_as_v1/local_independent_whisper_core_acceptance.json",
+      "micro_wer": 2.1449984547233956,
+      "source_predictions_sha256": "6999196058ddbb3060f541cff2ffde40a9ed36499852d7c8f76d555e712be6cd",
+      "job_url": "https://huggingface.co/jobs/snigenigmatic/6ab4c98452d0dbd7f1d89966"
+    },
+    {
+      "model": "whisper-small",
+      "track": "svarah-recovered-en",
+      "recordings": 518,
+      "status": "accepted",
+      "experiment_id": "93da0fa9-f140-4ea2-9eb4-531770843a41",
+      "run_id": "be042b3b-90de-4ecc-a50c-8ac333206e34",
+      "quality_evidence": "quality_results.json",
+      "evidence": "../artifacts/core_whisper_small_svarah_v1/local_independent_whisper_core_acceptance.json",
+      "micro_wer": 0.09686398218593431,
+      "source_predictions_sha256": "fe239646617069be68bb64b9368cde1f633fcd2d9e75becd6c0046d521f2994b"
+    },
+    {
+      "model": "whisper-turbo",
+      "track": "fleurs-hi",
+      "recordings": 418,
+      "status": "accepted",
+      "quality_evidence": "quality_results.json",
+      "evidence": "../artifacts/fleurs_whisper_corrected_v3/analysis_receipt.json",
+      "micro_wer": 0.31348053457292274,
+      "source_predictions_sha256": "127c4ba4854100b964c40b61701457f4972cc0bc0ca684ce464ec1b6cec5b988"
+    },
+    {
+      "model": "whisper-turbo",
+      "track": "fleurs-bn",
+      "recordings": 920,
+      "status": "accepted",
+      "quality_evidence": "quality_results.json",
+      "evidence": "../artifacts/fleurs_whisper_corrected_v3/analysis_receipt.json",
+      "micro_wer": 0.8585904075658636,
+      "source_predictions_sha256": "127c4ba4854100b964c40b61701457f4972cc0bc0ca684ce464ec1b6cec5b988"
+    },
+    {
+      "model": "whisper-turbo",
+      "track": "fleurs-as",
+      "recordings": 984,
+      "status": "accepted",
+      "quality_evidence": "quality_results.json",
+      "evidence": "../artifacts/fleurs_whisper_corrected_v3/analysis_receipt.json",
+      "micro_wer": 1.347069125373442,
+      "source_predictions_sha256": "127c4ba4854100b964c40b61701457f4972cc0bc0ca684ce464ec1b6cec5b988"
+    },
+    {
+      "model": "whisper-turbo",
+      "track": "svarah-recovered-en",
+      "recordings": 518,
+      "status": "accepted",
+      "experiment_id": "b3dce56e-7485-4a81-af13-f2ac14124186",
+      "run_id": "9d3e509c-6b69-4acf-90d9-0bf018f2ebd6",
+      "evidence": "../artifacts/core_whisper_turbo_svarah_v1/local_independent_whisper_core_acceptance.json",
+      "job_url": "https://huggingface.co/jobs/snigenigmatic/6ab4c86e6b030d633f68d766",
+      "quality_evidence": "quality_results.json",
+      "micro_wer": 0.12469845982557061,
+      "source_predictions_sha256": "3ab1d3bd17eb20907d850dddc56c35147e1c334d6baf0a2eb142d77f6135dc86"
+    },
+    {
+      "model": "whisper-large-v3",
+      "track": "fleurs-hi",
+      "recordings": 418,
+      "status": "accepted",
+      "quality_evidence": "quality_results.json",
+      "evidence": "../artifacts/fleurs_whisper_corrected_v3/analysis_receipt.json",
+      "micro_wer": 0.2821034282393957,
+      "source_predictions_sha256": "a23d1fdfd2152e1f520a8527536b71abbc087cd4ee28c4f312423119ae02d82d"
+    },
+    {
+      "model": "whisper-large-v3",
+      "track": "fleurs-bn",
+      "recordings": 920,
+      "status": "accepted",
+      "quality_evidence": "quality_results.json",
+      "evidence": "../artifacts/fleurs_whisper_corrected_v3/analysis_receipt.json",
+      "micro_wer": 0.7470164377392479,
+      "source_predictions_sha256": "a23d1fdfd2152e1f520a8527536b71abbc087cd4ee28c4f312423119ae02d82d"
+    },
+    {
+      "model": "whisper-large-v3",
+      "track": "fleurs-as",
+      "recordings": 984,
+      "status": "accepted",
+      "quality_evidence": "quality_results.json",
+      "evidence": "../artifacts/fleurs_whisper_corrected_v3/analysis_receipt.json",
+      "micro_wer": 1.1330483156485012,
+      "source_predictions_sha256": "a23d1fdfd2152e1f520a8527536b71abbc087cd4ee28c4f312423119ae02d82d"
+    },
+    {
+      "model": "whisper-large-v3",
+      "track": "svarah-recovered-en",
+      "recordings": 518,
+      "status": "accepted",
+      "experiment_id": "991f63a3-f06a-4753-aeb0-b6bfd2f6ab79",
+      "run_id": "ae2398b9-8b45-408e-8f91-6ac13751102f",
+      "quality_evidence": "quality_results.json",
+      "evidence": "../artifacts/core_whisper_large_svarah_v1/local_independent_whisper_core_acceptance.json",
+      "micro_wer": 0.08239005381332344,
+      "source_predictions_sha256": "f9247a92103f5d9ff01433955a70d5e7ddf74b1e3c48c439c00592ba79fda7f5"
+    },
+    {
+      "model": "qwen3-asr-0.6b",
+      "track": "fleurs-hi",
+      "recordings": 418,
+      "status": "accepted",
+      "experiment_id": "e474fbd0-ee15-4fe3-a54e-6bc505f2a777",
+      "run_id": "04965a3b-7e62-46f4-a6ee-e361b18eca20",
+      "evidence": "../artifacts/core_qwen06_hindi_v1/local_independent_acceptance.json",
+      "first_failed_run": "61219347-d8a4-438c-9cbc-9d0058d096b4",
+      "repair": "Select validated native API config; no model/decoder/source change",
+      "quality_evidence": "quality_results.json",
+      "micro_wer": 0.18496997869455742,
+      "source_predictions_sha256": "abc610d51e52de5fbc68adaacd985ae4d2b3e8c79dd5fafd6d9f55e136e99497"
+    },
+    {
+      "model": "qwen3-asr-0.6b",
+      "track": "fleurs-bn",
+      "recordings": 920,
+      "status": "unsupported"
+    },
+    {
+      "model": "qwen3-asr-0.6b",
+      "track": "fleurs-as",
+      "recordings": 984,
+      "status": "unsupported"
+    },
+    {
+      "model": "qwen3-asr-0.6b",
+      "track": "svarah-recovered-en",
+      "recordings": 518,
+      "status": "accepted",
+      "experiment_id": "90e41053-affc-4b93-9f9a-a82f6cf1a168",
+      "run_id": "a640aca5-5300-458f-802a-5ea285aa0554",
+      "job_url": "https://huggingface.co/jobs/snigenigmatic/6ab4c38c52d0dbd7f1d89832",
+      "evidence": "../artifacts/core_qwen06_svarah_v1/local_independent_acceptance.json",
+      "quality_evidence": "quality_results.json",
+      "micro_wer": 0.16385229170532567,
+      "source_predictions_sha256": "b9ce6209e4bf4c7fe1f029927a308aaa6e22d5b6edcec3b991c2a8ee1035a6ae"
+    },
+    {
+      "model": "qwen3-asr-1.7b",
+      "track": "fleurs-hi",
+      "recordings": 418,
+      "status": "accepted",
+      "quality_evidence": "quality_results.json",
+      "evidence": "../artifacts/qwen_native_full_hi_v1/independent_validation.json",
+      "micro_wer": 0.13093162889792756,
+      "source_predictions_sha256": "2ac059fd13ccd1ad5c4f92e824022144c91bdf5eca54c751f662b1f50641e5aa"
+    },
+    {
+      "model": "qwen3-asr-1.7b",
+      "track": "fleurs-bn",
+      "recordings": 920,
+      "status": "unsupported"
+    },
+    {
+      "model": "qwen3-asr-1.7b",
+      "track": "fleurs-as",
+      "recordings": 984,
+      "status": "unsupported"
+    },
+    {
+      "model": "qwen3-asr-1.7b",
+      "track": "svarah-recovered-en",
+      "recordings": 518,
+      "status": "accepted",
+      "quality_evidence": "quality_results.json",
+      "evidence": "../artifacts/qwen_svarah_full_v1/local_independent_acceptance.json",
+      "micro_wer": 0.13601781406568936,
+      "source_predictions_sha256": "f107e20946efdac2e05b4486f72c6b4c1242ad5ad5ca88caa86986a4ccf9e026"
+    },
+    {
+      "model": "omniasr-ctc-1b",
+      "track": "fleurs-hi",
+      "recordings": 418,
+      "status": "accepted",
+      "quality_evidence": "quality_results.json",
+      "evidence": "../artifacts/omni_fleurs_full_hi_v1/local_independent_acceptance.json",
+      "micro_wer": 0.21499128413712956,
+      "source_predictions_sha256": "3b00dd8c035aace576c50cd1d921c717b920d2688457a2b748742bbdef17e9e7"
+    },
+    {
+      "model": "omniasr-ctc-1b",
+      "track": "fleurs-bn",
+      "recordings": 920,
+      "status": "accepted",
+      "quality_evidence": "quality_results.json",
+      "evidence": "../artifacts/omni_fleurs_full_bn_v1/local_independent_acceptance.json",
+      "micro_wer": 0.24515874802972304,
+      "source_predictions_sha256": "3b00dd8c035aace576c50cd1d921c717b920d2688457a2b748742bbdef17e9e7"
+    },
+    {
+      "model": "omniasr-ctc-1b",
+      "track": "fleurs-as",
+      "recordings": 984,
+      "status": "accepted",
+      "quality_evidence": "quality_results.json",
+      "evidence": "../artifacts/omni_fleurs_full_as_v1/local_independent_acceptance.json",
+      "micro_wer": 0.337591428865767,
+      "source_predictions_sha256": "3b00dd8c035aace576c50cd1d921c717b920d2688457a2b748742bbdef17e9e7"
+    },
+    {
+      "model": "omniasr-ctc-1b",
+      "track": "svarah-recovered-en",
+      "recordings": 518,
+      "status": "accepted",
+      "quality_evidence": "quality_results.json",
+      "evidence": "../artifacts/omni_svarah_full_v1/local_independent_acceptance.json",
+      "micro_wer": 0.6463165707923548,
+      "source_predictions_sha256": "9eae45023c91eaf73dc0d935ae98415cb3dd4c76f213d7ad2a17d02d643ca435"
+    }
+  ],
+  "resource_conditions": [
+    {
+      "model": "whisper-small",
+      "status": "accepted",
+      "panel": "fixed_svarah12",
+      "batch_size": 1,
+      "warmup_passes": 1,
+      "timed_passes": 3,
+      "evidence": "resource_results.json"
+    },
+    {
+      "model": "whisper-turbo",
+      "status": "accepted",
+      "panel": "fixed_svarah12",
+      "batch_size": 1,
+      "warmup_passes": 1,
+      "timed_passes": 3,
+      "evidence": "resource_results.json"
+    },
+    {
+      "model": "whisper-large-v3",
+      "status": "accepted",
+      "panel": "fixed_svarah12",
+      "batch_size": 1,
+      "warmup_passes": 1,
+      "timed_passes": 3,
+      "evidence": "resource_results.json"
+    },
+    {
+      "model": "qwen3-asr-0.6b",
+      "status": "accepted",
+      "panel": "fixed_svarah12",
+      "batch_size": 1,
+      "warmup_passes": 1,
+      "timed_passes": 3,
+      "evidence": "resource_results.json"
+    },
+    {
+      "model": "qwen3-asr-1.7b",
+      "status": "accepted",
+      "panel": "fixed_svarah12",
+      "batch_size": 1,
+      "warmup_passes": 1,
+      "timed_passes": 3,
+      "evidence": "resource_results.json"
+    },
+    {
+      "model": "omniasr-ctc-1b",
+      "status": "accepted",
+      "panel": "fixed_svarah12",
+      "batch_size": 1,
+      "warmup_passes": 1,
+      "timed_passes": 3,
+      "evidence": "resource_results.json"
+    }
+  ],
+  "human_review": {
+    "status": "not_reviewed",
+    "existing_packet": "../listening_review_v2",
+    "reference_clips": 50,
+    "anonymous_model_cards": 168,
+    "english_extension": {
+      "status": "not_reviewed",
+      "packet": "../listening_review_core_en_v1",
+      "reference_clips": 12,
+      "anonymous_model_cards": 72,
+      "scope": "Pre-exposed batch-one resource panel; no new independent recordings"
+    }
+  },
+  "paper_status": "working_draft_pending_human_review_and_contribution_assessment",
+  "primary_metrics": [
+    "micro_WER",
+    "micro_CER",
+    "mean_utterance_WIL",
+    "coverage",
+    "empty_outputs",
+    "utterance_WER_ge_1"
+  ],
+  "prohibited_inferences": [
+    "demographic_fairness_without_speaker_metadata",
+    "phone_performance_from_GPU",
+    "BRIDGE_matched_comparison",
+    "new_ASR_method",
+    "publication_acceptance"
+  ],
+  "completion": {
+    "accepted_quality_cells": 20,
+    "pending_quality_cells": 0,
+    "unsupported_cells": 4,
+    "primary_predictions": 13232,
+    "unique_recordings": 2840,
+    "accepted_resource_conditions": 6,
+    "human_review_complete": false
+  }
+}

@@ -1,0 +1,374 @@
+{
+  "status": "completed_with_quality_flags",
+  "scope": "engineering/public-data pilot; not BRIDGE-matched or population evidence",
+  "attempted": 14,
+  "successful": 8,
+  "scored": 14,
+  "conversation_ids": [
+    "fleurs-hi_in-test-13003185437122223029",
+    "fleurs-bn_in-test-12869216347907550991",
+    "fleurs-bn_in-test-15809932415234744727",
+    "fleurs-bn_in-test-1591721392866410148",
+    "fleurs-bn_in-test-16169029267663360791",
+    "fleurs-bn_in-test-16686137517726416078",
+    "fleurs-bn_in-test-18340769766236638968",
+    "fleurs-bn_in-test-3111190722628836731",
+    "fleurs-bn_in-test-390639021197582383",
+    "fleurs-bn_in-test-8171667595821800892",
+    "fleurs-as_in-test-10189020253469894562",
+    "fleurs-as_in-test-14532926649110810993",
+    "fleurs-as_in-test-5798548483160658342",
+    "fleurs-as_in-test-8689472481838180123"
+  ],
+  "per_language": {
+    "as": {
+      "estimand": "all fully processed conversations including empty/capped text; runtime failures reported separately",
+      "conversation_ids": [
+        "fleurs-as_in-test-10189020253469894562",
+        "fleurs-as_in-test-14532926649110810993",
+        "fleurs-as_in-test-5798548483160658342",
+        "fleurs-as_in-test-8689472481838180123"
+      ],
+      "scored_count": 4,
+      "attempted_count": 4,
+      "clean_completion_count": 3,
+      "generation_limit_count": 1,
+      "word_errors": 346,
+      "ref_words": 173,
+      "character_errors": 2022,
+      "ref_chars": 972,
+      "micro_wer": 2.0,
+      "micro_cer": 2.080246913580247,
+      "mean_conversation_wer": 2.123803827751196,
+      "mean_conversation_wil": 1.0
+    },
+    "bn": {
+      "estimand": "all fully processed conversations including empty/capped text; runtime failures reported separately",
+      "conversation_ids": [
+        "fleurs-bn_in-test-12869216347907550991",
+        "fleurs-bn_in-test-15809932415234744727",
+        "fleurs-bn_in-test-1591721392866410148",
+        "fleurs-bn_in-test-16169029267663360791",
+        "fleurs-bn_in-test-16686137517726416078",
+        "fleurs-bn_in-test-18340769766236638968",
+        "fleurs-bn_in-test-3111190722628836731",
+        "fleurs-bn_in-test-390639021197582383",
+        "fleurs-bn_in-test-8171667595821800892"
+      ],
+      "scored_count": 9,
+      "attempted_count": 9,
+      "clean_completion_count": 4,
+      "generation_limit_count": 5,
+      "word_errors": 379,
+      "ref_words": 401,
+      "character_errors": 1528,
+      "ref_chars": 2422,
+      "micro_wer": 0.9451371571072319,
+      "micro_cer": 0.6308835672997523,
+      "mean_conversation_wer": 0.9638198457948509,
+      "mean_conversation_wil": 0.9310952797712757
+    },
+    "hi": {
+      "estimand": "all fully processed conversations including empty/capped text; runtime failures reported separately",
+      "conversation_ids": [
+        "fleurs-hi_in-test-13003185437122223029"
+      ],
+      "scored_count": 1,
+      "attempted_count": 1,
+      "clean_completion_count": 1,
+      "generation_limit_count": 0,
+      "word_errors": 37,
+      "ref_words": 71,
+      "character_errors": 141,
+      "ref_chars": 307,
+      "micro_wer": 0.5211267605633803,
+      "micro_cer": 0.4592833876221498,
+      "mean_conversation_wer": 0.5211267605633803,
+      "mean_conversation_wil": 0.6381846635367763
+    }
+  },
+  "results": [
+    {
+      "conversation_id": "fleurs-hi_in-test-13003185437122223029",
+      "language": "hi",
+      "status": "success",
+      "metrics": {
+        "wer": 0.5211267605633803,
+        "cer": 0.4592833876221498,
+        "wil": 0.6381846635367763,
+        "hits": 34,
+        "substitutions": 11,
+        "deletions": 26,
+        "insertions": 0,
+        "ref_words": 71,
+        "ref_chars": 307,
+        "hyp_words": 45,
+        "character_errors": 141
+      },
+      "wall_seconds": 9.059046952985227,
+      "real_time_factor": 0.28813762573108226
+    },
+    {
+      "conversation_id": "fleurs-bn_in-test-12869216347907550991",
+      "language": "bn",
+      "status": "generation_limit",
+      "metrics": {
+        "wer": 0.95,
+        "cer": 0.8846153846153846,
+        "wil": 0.9567567567567568,
+        "hits": 8,
+        "substitutions": 23,
+        "deletions": 9,
+        "insertions": 6,
+        "ref_words": 40,
+        "ref_chars": 260,
+        "hyp_words": 37,
+        "character_errors": 230
+      },
+      "wall_seconds": 28.39421978199971,
+      "real_time_factor": 0.9279156791503173
+    },
+    {
+      "conversation_id": "fleurs-bn_in-test-15809932415234744727",
+      "language": "bn",
+      "status": "success",
+      "metrics": {
+        "wer": 0.9302325581395349,
+        "cer": 0.6215277777777778,
+        "wil": 0.9900332225913622,
+        "hits": 3,
+        "substitutions": 18,
+        "deletions": 22,
+        "insertions": 0,
+        "ref_words": 43,
+        "ref_chars": 288,
+        "hyp_words": 21,
+        "character_errors": 179
+      },
+      "wall_seconds": 12.18148998299148,
+      "real_time_factor": 0.3852463625234497
+    },
+    {
+      "conversation_id": "fleurs-bn_in-test-1591721392866410148",
+      "language": "bn",
+      "status": "success",
+      "metrics": {
+        "wer": 0.6981132075471698,
+        "cer": 0.47808764940239046,
+        "wil": 0.8601838413159169,
+        "hits": 17,
+        "substitutions": 21,
+        "deletions": 15,
+        "insertions": 1,
+        "ref_words": 53,
+        "ref_chars": 251,
+        "hyp_words": 39,
+        "character_errors": 120
+      },
+      "wall_seconds": 14.374113094992936,
+      "real_time_factor": 0.43957532400590016
+    },
+    {
+      "conversation_id": "fleurs-bn_in-test-16169029267663360791",
+      "language": "bn",
+      "status": "generation_limit",
+      "metrics": {
+        "wer": 0.8048780487804879,
+        "cer": 0.4522058823529412,
+        "wil": 0.9340804218852999,
+        "hits": 10,
+        "substitutions": 25,
+        "deletions": 6,
+        "insertions": 2,
+        "ref_words": 41,
+        "ref_chars": 272,
+        "hyp_words": 37,
+        "character_errors": 123
+      },
+      "wall_seconds": 16.08035412701429,
+      "real_time_factor": 0.46528802450851525
+    },
+    {
+      "conversation_id": "fleurs-bn_in-test-16686137517726416078",
+      "language": "bn",
+      "status": "generation_limit",
+      "metrics": {
+        "wer": 2.097560975609756,
+        "cer": 0.9889705882352942,
+        "wil": 0.9641612742658039,
+        "hits": 12,
+        "substitutions": 29,
+        "deletions": 0,
+        "insertions": 57,
+        "ref_words": 41,
+        "ref_chars": 272,
+        "hyp_words": 98,
+        "character_errors": 269
+      },
+      "wall_seconds": 28.789710636017844,
+      "real_time_factor": 0.8788067959712407
+    },
+    {
+      "conversation_id": "fleurs-bn_in-test-18340769766236638968",
+      "language": "bn",
+      "status": "generation_limit",
+      "metrics": {
+        "wer": 0.7948717948717948,
+        "cer": 0.7969924812030075,
+        "wil": 0.9258241758241759,
+        "hits": 9,
+        "substitutions": 18,
+        "deletions": 12,
+        "insertions": 1,
+        "ref_words": 39,
+        "ref_chars": 266,
+        "hyp_words": 28,
+        "character_errors": 212
+      },
+      "wall_seconds": 27.659377461997792,
+      "real_time_factor": 0.9021323373123872
+    },
+    {
+      "conversation_id": "fleurs-bn_in-test-3111190722628836731",
+      "language": "bn",
+      "status": "success",
+      "metrics": {
+        "wer": 0.8125,
+        "cer": 0.4343065693430657,
+        "wil": 0.9119791666666667,
+        "hits": 13,
+        "substitutions": 23,
+        "deletions": 12,
+        "insertions": 4,
+        "ref_words": 48,
+        "ref_chars": 274,
+        "hyp_words": 40,
+        "character_errors": 119
+      },
+      "wall_seconds": 14.48347179798293,
+      "real_time_factor": 0.4279985755905121
+    },
+    {
+      "conversation_id": "fleurs-bn_in-test-390639021197582383",
+      "language": "bn",
+      "status": "success",
+      "metrics": {
+        "wer": 0.9069767441860465,
+        "cer": 0.5868055555555556,
+        "wil": 0.9757751937984496,
+        "hits": 5,
+        "substitutions": 18,
+        "deletions": 20,
+        "insertions": 1,
+        "ref_words": 43,
+        "ref_chars": 288,
+        "hyp_words": 24,
+        "character_errors": 169
+      },
+      "wall_seconds": 12.847119418991497,
+      "real_time_factor": 0.3943253351439993
+    },
+    {
+      "conversation_id": "fleurs-bn_in-test-8171667595821800892",
+      "language": "bn",
+      "status": "generation_limit",
+      "metrics": {
+        "wer": 0.6792452830188679,
+        "cer": 0.4262948207171315,
+        "wil": 0.8610634648370498,
+        "hits": 18,
+        "substitutions": 25,
+        "deletions": 10,
+        "insertions": 1,
+        "ref_words": 53,
+        "ref_chars": 251,
+        "hyp_words": 44,
+        "character_errors": 107
+      },
+      "wall_seconds": 15.334062617999734,
+      "real_time_factor": 0.4785912177902539
+    },
+    {
+      "conversation_id": "fleurs-as_in-test-10189020253469894562",
+      "language": "as",
+      "status": "generation_limit",
+      "metrics": {
+        "wer": 5.131578947368421,
+        "cer": 5.536697247706422,
+        "wil": 1.0,
+        "hits": 0,
+        "substitutions": 38,
+        "deletions": 0,
+        "insertions": 157,
+        "ref_words": 38,
+        "ref_chars": 218,
+        "hyp_words": 195,
+        "character_errors": 1207
+      },
+      "wall_seconds": 19.589982992998557,
+      "real_time_factor": 0.596891620749499
+    },
+    {
+      "conversation_id": "fleurs-as_in-test-14532926649110810993",
+      "language": "as",
+      "status": "success",
+      "metrics": {
+        "wer": 1.0,
+        "cer": 1.0,
+        "wil": 1.0,
+        "hits": 0,
+        "substitutions": 18,
+        "deletions": 22,
+        "insertions": 0,
+        "ref_words": 40,
+        "ref_chars": 241,
+        "hyp_words": 18,
+        "character_errors": 241
+      },
+      "wall_seconds": 4.652202884986764,
+      "real_time_factor": 0.13970579234194488
+    },
+    {
+      "conversation_id": "fleurs-as_in-test-5798548483160658342",
+      "language": "as",
+      "status": "success",
+      "metrics": {
+        "wer": 1.3636363636363635,
+        "cer": 1.261802575107296,
+        "wil": 1.0,
+        "hits": 0,
+        "substitutions": 44,
+        "deletions": 0,
+        "insertions": 16,
+        "ref_words": 44,
+        "ref_chars": 233,
+        "hyp_words": 60,
+        "character_errors": 294
+      },
+      "wall_seconds": 6.0850479579821695,
+      "real_time_factor": 0.17918280206072348
+    },
+    {
+      "conversation_id": "fleurs-as_in-test-8689472481838180123",
+      "language": "as",
+      "status": "success",
+      "metrics": {
+        "wer": 1.0,
+        "cer": 1.0,
+        "wil": 1.0,
+        "hits": 0,
+        "substitutions": 28,
+        "deletions": 23,
+        "insertions": 0,
+        "ref_words": 51,
+        "ref_chars": 280,
+        "hyp_words": 28,
+        "character_errors": 280
+      },
+      "wall_seconds": 6.64890185999684,
+      "real_time_factor": 0.21517481747562592
+    }
+  ],
+  "total_wall_seconds": 248.1827864430088,
+  "cloud_cost_usd": null
+}

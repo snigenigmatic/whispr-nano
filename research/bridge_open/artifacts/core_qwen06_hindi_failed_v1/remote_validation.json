@@ -1,0 +1,7 @@
+{
+  "valid": false,
+  "output_dir": "/workspace/repo/artifacts/qwen-svarah-core-0-6b-hindi-fleurs",
+  "errors": [
+    "preflight_or_worker_failure: ValueError: This runner requires the documented Qwen transcribe API"
+  ]
+}

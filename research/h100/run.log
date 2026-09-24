@@ -1,0 +1,130 @@
+✓ Initialized. View run at 
+https://modal.com/apps/snigenigmatic/main/ap-I61RHgMQ0quqvCubkCVtN8
+✓ Created objects.
+├── 🔨 Created mount /Users/prateekraj/whispr-nano/research/h100/run.py
+├── 🔨 Created mount 
+│   /Users/prateekraj/whispr-nano/paper/data/whisper_normalizer.json
+├── 🔨 Created mount 
+│   /Users/prateekraj/whispr-nano/research/pilot/feature_cache.py
+├── 🔨 Created mount 
+│   /Users/prateekraj/whispr-nano/research/pilot/frozen_english_normalizer.py
+├── 🔨 Created mount 
+│   /Users/prateekraj/whispr-nano/research/pilot/test_training.py
+├── 🔨 Created mount /Users/prateekraj/whispr-nano/research/pilot/training.py
+└── 🔨 Created function train_arm.
+{"stage": "input_staging", "arm": "filtered10_gold", "rows": 7544, "test_access": false}
+{"stage": "input_staging", "arm": "full_gold", "rows": 9315, "test_access": false}
+{"stage": "input_staging", "arm": "random_matched_gold", "rows": 7544, "test_access": false}
+{"arm": "filtered10_gold", "staging": {"status": "verified_local_copies", "rows": 7544, "utt_ids_sha256": "561a49560279b245afe127c943b0492c1f004284f35d07b336ba98e5639c7aa0", "seconds": 38.862412892, "model_calls": 0, "test_access": false}}
+{"arm": "random_matched_gold", "staging": {"status": "verified_local_copies", "rows": 7544, "utt_ids_sha256": "91a038ccea4839a640e4a66e0e5bee4cf37dfd9f76610f2a929168edf650f17d", "seconds": 39.678558331999994, "model_calls": 0, "test_access": false}}
+{"arm": "full_gold", "staging": {"status": "verified_local_copies", "rows": 9315, "utt_ids_sha256": "6368350dfc34bd5399feb68b95920469a64de2e746748a1735406ba60bf1d275", "seconds": 43.870238762999996, "model_calls": 0, "test_access": false}}
+
+[1ALoading weights:   0%|          | 0/167 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 167/167 [00:00<00:00, 1988.27it/s]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+[1ALoading weights:   0%|          | 0/167 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 167/167 [00:00<00:00, 3252.33it/s]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+[1ALoading weights:   0%|          | 0/167 [00:00<?, ?it/s]
+[1ALoading weights:  50%|█████     | 84/167 [00:00<00:00, 838.95it/s]Loading weights: 100%|██████████| 167/167 [00:00<00:00, 1530.75it/s]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+H100 filtered10_gold-seed0: 0/600 updates; worker elapsed 59s
+H100 random_matched_gold-seed0: 0/600 updates; worker elapsed 60s
+H100 full_gold-seed0: 0/600 updates; worker elapsed 64s
+H100 filtered10_gold-seed0: 193/600 updates; worker elapsed 79s
+H100 random_matched_gold-seed0: 175/600 updates; worker elapsed 80s
+H100 full_gold-seed0: 183/600 updates; worker elapsed 84s
+H100 filtered10_gold-seed0: 453/600 updates; worker elapsed 99s
+H100 random_matched_gold-seed0: 432/600 updates; worker elapsed 100s
+H100 full_gold-seed0: 450/600 updates; worker elapsed 104s
+H100 filtered10_gold-seed0: 600/600 updates; worker elapsed 119s
+
+H100 random_matched_gold-seed0: 600/600 updates; worker elapsed 120s
+[1AWriting model shards:   0%|          | 0/1 [00:00<?, ?it/s]
+[1AWriting model shards: 100%|██████████| 1/1 [00:00<00:00,  4.04it/s]
+[1AWriting model shards: 100%|██████████| 1/1 [00:00<00:00,  4.04it/s]
+
+[1AWriting model shards:   0%|          | 0/1 [00:00<?, ?it/s]
+[1AWriting model shards: 100%|██████████| 1/1 [00:00<00:00,  3.96it/s]
+[1AWriting model shards: 100%|██████████| 1/1 [00:00<00:00,  3.95it/s]
+H100 full_gold-seed0: 600/600 updates; worker elapsed 124s
+
+[1AWriting model shards:   0%|          | 0/1 [00:00<?, ?it/s]
+[1AWriting model shards: 100%|██████████| 1/1 [00:00<00:00,  3.93it/s]
+[1AWriting model shards: 100%|██████████| 1/1 [00:00<00:00,  3.92it/s]
+{"completed": "filtered10_gold-seed0", "macro_wer": 0.24858478262492104, "updates": 600, "checkpoint_sha256": "2f4ec5de22ef9a83a4d225348e50b26a221b7a8e2c7bc44ebddb489b55856cde"}
+
+[1ALoading weights:   0%|          | 0/167 [00:00<?, ?it/s]Loading weights: 100%|██████████| 167/167 [00:00<00:00, 4389.88it/s]
+{"completed": "random_matched_gold-seed0", "macro_wer": 0.24963684595294414, "updates": 600, "checkpoint_sha256": "be04577fd4d64b16e24448bd1d762fd4bf4e7c53d2e2204b5f5188c74c3cb3a8"}
+
+[1ALoading weights:   0%|          | 0/167 [00:00<?, ?it/s]Loading weights: 100%|██████████| 167/167 [00:00<00:00, 4576.57it/s]
+{"completed": "full_gold-seed0", "macro_wer": 0.2504033293510976, "updates": 600, "checkpoint_sha256": "da3fea88fbb2036cf3220112ccd342a9961aa6bf945e5a9a7ad0dc7407e9134b"}
+
+[1ALoading weights:   0%|          | 0/167 [00:00<?, ?it/s]
+[1ALoading weights: 100%|██████████| 167/167 [00:00<00:00, 4500.12it/s]
+H100 filtered10_gold-seed1: 66/600 updates; worker elapsed 147s
+H100 random_matched_gold-seed1: 74/600 updates; worker elapsed 147s
+H100 full_gold-seed1: 69/600 updates; worker elapsed 149s
+H100 filtered10_gold-seed1: 328/600 updates; worker elapsed 167s
+H100 random_matched_gold-seed1: 335/600 updates; worker elapsed 167s
+H100 full_gold-seed1: 321/600 updates; worker elapsed 169s
+H100 filtered10_gold-seed1: 590/600 updates; worker elapsed 187s
+H100 random_matched_gold-seed1: 584/600 updates; worker elapsed 187s
+H100 full_gold-seed1: 590/600 updates; worker elapsed 189s
+
+[1AWriting model shards:   0%|          | 0/1 [00:00<?, ?it/s]
+[1AWriting model shards: 100%|██████████| 1/1 [00:00<00:00,  4.08it/s]
+[1AWriting model shards: 100%|██████████| 1/1 [00:00<00:00,  4.07it/s]
+
+[1AWriting model shards:   0%|          | 0/1 [00:00<?, ?it/s]
+[1AWriting model shards:   0%|          | 0/1 [00:00<?, ?it/s]
+[1AWriting model shards: 100%|██████████| 1/1 [00:00<00:00,  3.79it/s]
+[1AWriting model shards: 100%|██████████| 1/1 [00:00<00:00,  3.78it/s]
+
+[1AWriting model shards: 100%|██████████| 1/1 [00:00<00:00,  4.01it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00,  4.00it/s]
+{"completed": "filtered10_gold-seed1", "macro_wer": 0.2535949373581898, "updates": 600, "checkpoint_sha256": "9f60b1b7b7a9adc134ec9c6f2de047c170379bedfaa85ca2fbd75c7a4789602e"}
+
+[1ALoading weights:   0%|          | 0/167 [00:00<?, ?it/s]Loading weights: 100%|██████████| 167/167 [00:00<00:00, 5938.32it/s]
+{"completed": "full_gold-seed1", "macro_wer": 0.24599609501002387, "updates": 600, "checkpoint_sha256": "ff8d0523c087276b8c2c5baaa24d38810d5c3150445ba0acf759807975a0fe5f"}
+
+[1ALoading weights:   0%|          | 0/167 [00:00<?, ?it/s]Loading weights: 100%|██████████| 167/167 [00:00<00:00, 4120.92it/s]
+{"completed": "random_matched_gold-seed1", "macro_wer": 0.2532513900370437, "updates": 600, "checkpoint_sha256": "0e76bbdc33aa1262fdf4b52e86628f3cdee2dae27d55d8ec62aeeb7c5f63dd73"}
+
+[1ALoading weights:   0%|          | 0/167 [00:00<?, ?it/s]Loading weights: 100%|██████████| 167/167 [00:00<00:00, 4221.78it/s]
+H100 filtered10_gold-seed2: 79/600 updates; worker elapsed 222s
+H100 full_gold-seed2: 83/600 updates; worker elapsed 223s
+H100 random_matched_gold-seed2: 66/600 updates; worker elapsed 224s
+H100 filtered10_gold-seed2: 348/600 updates; worker elapsed 242s
+H100 full_gold-seed2: 356/600 updates; worker elapsed 243s
+H100 random_matched_gold-seed2: 320/600 updates; worker elapsed 244s
+H100 filtered10_gold-seed2: 600/600 updates; worker elapsed 262s
+H100 full_gold-seed2: 600/600 updates; worker elapsed 263s
+H100 random_matched_gold-seed2: 574/600 updates; worker elapsed 264s
+
+[1AWriting model shards:   0%|          | 0/1 [00:00<?, ?it/s]
+[1AWriting model shards:   0%|          | 0/1 [00:00<?, ?it/s]
+[1AWriting model shards: 100%|██████████| 1/1 [00:00<00:00,  4.30it/s]
+[1AWriting model shards: 100%|██████████| 1/1 [00:00<00:00,  4.29it/s]
+
+[1AWriting model shards: 100%|██████████| 1/1 [00:00<00:00,  3.90it/s]
+[1AWriting model shards: 100%|██████████| 1/1 [00:00<00:00,  3.90it/s]
+{"completed": "filtered10_gold-seed2", "macro_wer": 0.24515260071282882, "updates": 600, "checkpoint_sha256": "aa990403bb9b0daf505ebbb36385a15da2dbf4ce79c91c3c48020b36820f276b"}
+{"completed": "full_gold-seed2", "macro_wer": 0.25636319440782956, "updates": 600, "checkpoint_sha256": "9608d7ec98f9f839358198af24fe0cb75ef79ca46adc58ea324984688c927f40"}
+
+[1AWriting model shards:   0%|          | 0/1 [00:00<?, ?it/s]
+[1AWriting model shards: 100%|██████████| 1/1 [00:00<00:00,  3.97it/s]
+[1AWriting model shards: 100%|██████████| 1/1 [00:00<00:00,  3.97it/s]
+{"completed": "random_matched_gold-seed2", "macro_wer": 0.24798118138709166, "updates": 600, "checkpoint_sha256": "4aef6f45e4415e2b23fde8a9188a159beac62f1b1e5ba11988e7e6a27a7594df"}
+{
+  "valid_complete": true,
+  "mean_english_contrast_pp": -0.1179032227046628,
+  "mean_minimal_contrast_pp": -0.1514895839476088,
+  "positive_seed_count": 1,
+  "scope": "Complete same-H100 exploratorypilot; same previously exposeddevelopment speakers; not independent confirmation.",
+  "pilot_positive": false
+}
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/snigenigmatic/main/ap-I61RHgMQ0quqvCubkCVtN8

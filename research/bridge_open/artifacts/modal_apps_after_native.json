@@ -1,0 +1,50 @@
+[
+  {
+    "app_id": "ap-7YAD5mA5TtIKgOLAzgQqLg",
+    "description": "whispr-bridge-open-repair",
+    "state": "stopped",
+    "tasks": "0",
+    "created_at": "2026-09-22 19:50:45+05:30",
+    "stopped_at": "2026-09-22 19:57:07+05:30"
+  },
+  {
+    "app_id": "ap-IK2FcCFhavtpWkKvXwkw9Z",
+    "description": "whispr-bridge-open-repair",
+    "state": "stopped",
+    "tasks": "0",
+    "created_at": "2026-09-22 19:45:11+05:30",
+    "stopped_at": "2026-09-22 19:50:23+05:30"
+  },
+  {
+    "app_id": "ap-2Acs8crktqj0i9cwQBDXDL",
+    "description": "whispr-bridge-open-repair",
+    "state": "stopped",
+    "tasks": "0",
+    "created_at": "2026-09-22 19:37:59+05:30",
+    "stopped_at": "2026-09-22 19:44:36+05:30"
+  },
+  {
+    "app_id": "ap-JBXAIkZW7T17v0FICpfUBJ",
+    "description": "whispr-bridge-open-repair",
+    "state": "stopped",
+    "tasks": "0",
+    "created_at": "2026-09-22 19:30:36+05:30",
+    "stopped_at": "2026-09-22 19:35:33+05:30"
+  },
+  {
+    "app_id": "ap-rDtBua6eAapaXF4h6PviKE",
+    "description": "whispr-bridge-open-repair",
+    "state": "stopped",
+    "tasks": "0",
+    "created_at": "2026-09-22 19:26:00+05:30",
+    "stopped_at": "2026-09-22 19:29:42+05:30"
+  },
+  {
+    "app_id": "ap-eSjmd3XW2sZ4ycphWiFl3c",
+    "description": "whispr-bridge-open-repair",
+    "state": "stopped",
+    "tasks": "0",
+    "created_at": "2026-09-22 19:21:14+05:30",
+    "stopped_at": "2026-09-22 19:23:26+05:30"
+  }
+]

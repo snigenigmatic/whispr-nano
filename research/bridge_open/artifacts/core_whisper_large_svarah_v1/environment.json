@@ -1,0 +1,39 @@
+{
+  "started_at": "2026-09-24T06:59:00.044493+00:00",
+  "platform": "Linux-6.12.103-127.188.amzn2023.x86_64-x86_64-with-glibc2.35",
+  "device": "NVIDIA A100-SXM4-80GB",
+  "dtype": "float32",
+  "packages": {
+    "torch": "2.8.0+cu128",
+    "transformers": "4.57.6",
+    "openai-whisper": "20250625",
+    "numpy": "2.2.6",
+    "scipy": "1.15.3",
+    "soundfile": "0.13.1",
+    "jiwer": "4.0.0",
+    "huggingface-hub": "0.36.2"
+  },
+  "model": {
+    "id": "openai/whisper-large-v3",
+    "revision": "06f233fe06e710322aca913c1bc4249a0d71fce1",
+    "hf_safetensors_sha256": {
+      "model.fp32-00001-of-00002.safetensors": "08e0005225b3dbaf55dd13ac62926cc7e02c1025d66fa375e6fb305ff79cd4f9",
+      "model.fp32-00002-of-00002.safetensors": "630ca774672856d2e0e39a702e590f635a1cfc5726a64b6578ab46dd367369a9",
+      "model.safetensors": "a8e94b85976e5864ba3e9525c7e6c83b2a1eca42d4b797a0c7c24d778e40fd95"
+    },
+    "native_model": "large-v3",
+    "native_checkpoint_sha256": "e5b1a55b89c1367dacf97e3e19bfd829a01529dbfdeefa8caeb59b3f1b81dadb",
+    "native_official_download_url": "https://openaipublic.azureedge.net/main/whisper/models/e5b1a55b89c1367dacf97e3e19bfd829a01529dbfdeefa8caeb59b3f1b81dadb/large-v3.pt",
+    "native_official_url_sha256": "e5b1a55b89c1367dacf97e3e19bfd829a01529dbfdeefa8caeb59b3f1b81dadb"
+  },
+  "code": {
+    "worker_sha256": "ee4b08d2bb6cfffb302c8eff652a2bc34f3da064cca894fc6e33809b1171c2b5",
+    "hf_key_source_sha256": "84ef76b2c0892491e2250c98250ad1677db607401cabafad112ec72a08bd6594",
+    "native_transcribe_signature": "(audio: Union[str, numpy.ndarray, torch.Tensor], *, verbose: Optional[bool] = None, temperature: Union[float, Tuple[float, ...]] = (0.0, 0.2, 0.4, 0.6, 0.8, 1.0), compression_ratio_threshold: Optional[float] = 2.4, logprob_threshold: Optional[float] = -1.0, no_speech_threshold: Optional[float] = 0.6, condition_on_previous_text: bool = True, initial_prompt: Optional[str] = None, carry_initial_prompt: bool = False, word_timestamps: bool = False, prepend_punctuations: str = '\"\\'“¿([{-', append_punctuations: str = '\"\\'.。,，!！?？:：”)]}、', clip_timestamps: Union[str, List[float]] = '0', hallucination_silence_threshold: Optional[float] = None, **decode_options)"
+  },
+  "validation": {
+    "weight_tensor_count": 1259,
+    "feature_count": 518,
+    "n_mels": 128
+  }
+}

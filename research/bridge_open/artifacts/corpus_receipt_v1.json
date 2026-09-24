@@ -1,0 +1,41 @@
+{
+  "source_repo": "humyn-labs/Indic-High-Fidelity-MultiSpeaker-ASR",
+  "source_revision": "2e4879d569bd57f675c227a41fecf4a2e56f467c",
+  "manifest_path": "/Users/prateekraj/whispr-nano/data/bridge_open/humyn_public_v1/corpus-v1.jsonl",
+  "manifest_sha256": "e6992a043c9448a9974d1707186ee8cbfda87154b1d4aad940c8546c4054aa78",
+  "conversations": 37,
+  "language_counts": {
+    "as": 2,
+    "bn": 3,
+    "bho": 3,
+    "hne": 3,
+    "bgc": 3,
+    "mr": 3,
+    "te": 3,
+    "gu": 3,
+    "pa": 3,
+    "hi": 3,
+    "kn": 3,
+    "ta": 3,
+    "ml": 2
+  },
+  "total_duration_seconds": 30042.383272675735,
+  "min_duration_seconds": 285.3260625,
+  "max_duration_seconds": 1203.6666875,
+  "qc_counts": {
+    "pass": 30,
+    "reference_suspect": 7
+  },
+  "reference_suspect_ids": [
+    "humyn-03-00",
+    "humyn-07-01",
+    "humyn-08-00",
+    "humyn-11-01",
+    "humyn-12-00",
+    "humyn-12-01",
+    "humyn-18-00"
+  ],
+  "bridge_membership": "unverified",
+  "cloud_cost_usd": 0,
+  "acquisition_code_sha256": "502826eb408e06d6b4a65002a597f844215b2405771d1885c30e540f8f20152c"
+}

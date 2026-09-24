@@ -1,0 +1,11 @@
+{
+  "exit_code": 0,
+  "function_wall_seconds": 378.101891937,
+  "estimated_function_resource_usd": 0.4480204937939901,
+  "gpu": "NVIDIA H100 80GB HBM3",
+  "cpu_limit": 4,
+  "memory_limit_gib": 16,
+  "timeout_seconds": 900,
+  "pricing_source": "https://modal.com/pricing",
+  "provider_bill_verified": false
+}

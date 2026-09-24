@@ -1,0 +1,158 @@
+data: {"data":"===== Job started at 2026-09-22 14:28:43 =====","timestamp":"2026-09-22T14:28:43Z"}
+
+data: {"data":"Collecting transformers==4.57.6","timestamp":"2026-09-22T14:28:48.164Z"}
+
+data: {"data":"  Downloading transformers-4.57.6-py3-none-any.whl.metadata (43 kB)","timestamp":"2026-09-22T14:28:48.187Z"}
+
+data: {"data":"Collecting numpy==2.2.6","timestamp":"2026-09-22T14:28:48.554Z"}
+
+data: {"data":"  Downloading numpy-2.2.6-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (62 kB)","timestamp":"2026-09-22T14:28:48.559Z"}
+
+data: {"data":"Collecting scipy==1.15.3","timestamp":"2026-09-22T14:28:48.707Z"}
+
+data: {"data":"  Downloading scipy-1.15.3-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (61 kB)","timestamp":"2026-09-22T14:28:48.712Z"}
+
+data: {"data":"Collecting soundfile==0.13.1","timestamp":"2026-09-22T14:28:48.738Z"}
+
+data: {"data":"  Downloading soundfile-0.13.1-py2.py3-none-manylinux_2_28_x86_64.whl.metadata (16 kB)","timestamp":"2026-09-22T14:28:48.744Z"}
+
+data: {"data":"Collecting jiwer==4.0.0","timestamp":"2026-09-22T14:28:48.756Z"}
+
+data: {"data":"  Downloading jiwer-4.0.0-py3-none-any.whl.metadata (3.3 kB)","timestamp":"2026-09-22T14:28:48.760Z"}
+
+data: {"data":"Collecting huggingface-hub==0.36.2","timestamp":"2026-09-22T14:28:48.836Z"}
+
+data: {"data":"  Downloading huggingface_hub-0.36.2-py3-none-any.whl.metadata (15 kB)","timestamp":"2026-09-22T14:28:48.840Z"}
+
+data: {"data":"Collecting pyarrow==21.0.0","timestamp":"2026-09-22T14:28:48.949Z"}
+
+data: {"data":"  Downloading pyarrow-21.0.0-cp311-cp311-manylinux_2_28_x86_64.whl.metadata (3.3 kB)","timestamp":"2026-09-22T14:28:48.954Z"}
+
+data: {"data":"Requirement already satisfied: filelock in /opt/conda/lib/python3.11/site-packages (from transformers==4.57.6) (3.18.0)","timestamp":"2026-09-22T14:28:48.958Z"}
+
+data: {"data":"Requirement already satisfied: packaging>=20.0 in /opt/conda/lib/python3.11/site-packages (from transformers==4.57.6) (25.0)","timestamp":"2026-09-22T14:28:48.978Z"}
+
+data: {"data":"Requirement already satisfied: pyyaml>=5.1 in /opt/conda/lib/python3.11/site-packages (from transformers==4.57.6) (6.0.2)","timestamp":"2026-09-22T14:28:48.979Z"}
+
+data: {"data":"Collecting regex!=2019.12.17 (from transformers==4.57.6)","timestamp":"2026-09-22T14:28:49.502Z"}
+
+data: {"data":"  Downloading regex-2026.9.10-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (40 kB)","timestamp":"2026-09-22T14:28:49.507Z"}
+
+data: {"data":"Requirement already satisfied: requests in /opt/conda/lib/python3.11/site-packages (from transformers==4.57.6) (2.32.4)","timestamp":"2026-09-22T14:28:49.515Z"}
+
+data: {"data":"Collecting tokenizers<=0.23.0,>=0.22.0 (from transformers==4.57.6)","timestamp":"2026-09-22T14:28:49.660Z"}
+
+data: {"data":"  Downloading tokenizers-0.22.2-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (7.3 kB)","timestamp":"2026-09-22T14:28:49.664Z"}
+
+data: {"data":"Collecting safetensors>=0.4.3 (from transformers==4.57.6)","timestamp":"2026-09-22T14:28:49.781Z"}
+
+data: {"data":"  Downloading safetensors-0.8.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.2 kB)","timestamp":"2026-09-22T14:28:49.785Z"}
+
+data: {"data":"Requirement already satisfied: tqdm>=4.27 in /opt/conda/lib/python3.11/site-packages (from transformers==4.57.6) (4.67.1)","timestamp":"2026-09-22T14:28:49.793Z"}
+
+data: {"data":"Requirement already satisfied: fsspec>=2023.5.0 in /opt/conda/lib/python3.11/site-packages (from huggingface-hub==0.36.2) (2025.7.0)","timestamp":"2026-09-22T14:28:49.798Z"}
+
+data: {"data":"Collecting hf-xet<2.0.0,>=1.1.3 (from huggingface-hub==0.36.2)","timestamp":"2026-09-22T14:28:49.891Z"}
+
+data: {"data":"  Downloading hf_xet-1.6.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (4.9 kB)","timestamp":"2026-09-22T14:28:49.897Z"}
+
+data: {"data":"Requirement already satisfied: typing-extensions>=3.7.4.3 in /opt/conda/lib/python3.11/site-packages (from huggingface-hub==0.36.2) (4.14.1)","timestamp":"2026-09-22T14:28:49.900Z"}
+
+data: {"data":"Requirement already satisfied: cffi>=1.0 in /opt/conda/lib/python3.11/site-packages (from soundfile==0.13.1) (1.17.1)","timestamp":"2026-09-22T14:28:49.912Z"}
+
+data: {"data":"Requirement already satisfied: click>=8.1.8 in /opt/conda/lib/python3.11/site-packages (from jiwer==4.0.0) (8.2.1)","timestamp":"2026-09-22T14:28:49.913Z"}
+
+data: {"data":"Collecting rapidfuzz>=3.9.7 (from jiwer==4.0.0)","timestamp":"2026-09-22T14:28:50.476Z"}
+
+data: {"data":"  Downloading rapidfuzz-3.14.6-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (12 kB)","timestamp":"2026-09-22T14:28:50.480Z"}
+
+data: {"data":"Requirement already satisfied: pycparser in /opt/conda/lib/python3.11/site-packages (from cffi>=1.0->soundfile==0.13.1) (2.22)","timestamp":"2026-09-22T14:28:50.500Z"}
+
+data: {"data":"Requirement already satisfied: charset_normalizer<4,>=2 in /opt/conda/lib/python3.11/site-packages (from requests->transformers==4.57.6) (3.4.2)","timestamp":"2026-09-22T14:28:50.516Z"}
+
+data: {"data":"Requirement already satisfied: idna<4,>=2.5 in /opt/conda/lib/python3.11/site-packages (from requests->transformers==4.57.6) (3.10)","timestamp":"2026-09-22T14:28:50.516Z"}
+
+data: {"data":"Requirement already satisfied: urllib3<3,>=1.21.1 in /opt/conda/lib/python3.11/site-packages (from requests->transformers==4.57.6) (2.5.0)","timestamp":"2026-09-22T14:28:50.517Z"}
+
+data: {"data":"Requirement already satisfied: certifi>=2017.4.17 in /opt/conda/lib/python3.11/site-packages (from requests->transformers==4.57.6) (2025.8.3)","timestamp":"2026-09-22T14:28:50.517Z"}
+
+data: {"data":"Downloading transformers-4.57.6-py3-none-any.whl (12.0 MB)","timestamp":"2026-09-22T14:28:50.526Z"}
+
+data: {"data":"   ââââââââââââââââââââââââââââââââââââââââ 12.0/12.0 MB 136.8 MB/s eta 0:00:00","timestamp":"2026-09-22T14:28:50.616Z"}
+
+data: {"data":"Downloading huggingface_hub-0.36.2-py3-none-any.whl (566 kB)","timestamp":"2026-09-22T14:28:50.619Z"}
+
+data: {"data":"   âââââââââââââââââââââââââââââââââââââââ 566.4/566.4 kB 119.6 MB/s eta 0:00:00","timestamp":"2026-09-22T14:28:50.624Z"}
+
+data: {"data":"Downloading numpy-2.2.6-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (16.8 MB)","timestamp":"2026-09-22T14:28:50.628Z"}
+
+data: {"data":"   ââââââââââââââââââââââââââââââââââââââââ 16.8/16.8 MB 190.8 MB/s eta 0:00:00","timestamp":"2026-09-22T14:28:50.718Z"}
+
+data: {"data":"Downloading scipy-1.15.3-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (37.7 MB)","timestamp":"2026-09-22T14:28:50.722Z"}
+
+data: {"data":"   ââââââââââââââââââââââââââââââââââââââââ 37.7/37.7 MB 167.1 MB/s eta 0:00:00","timestamp":"2026-09-22T14:28:50.949Z"}
+
+data: {"data":"Downloading soundfile-0.13.1-py2.py3-none-manylinux_2_28_x86_64.whl (1.3 MB)","timestamp":"2026-09-22T14:28:50.954Z"}
+
+data: {"data":"   ââââââââââââââââââââââââââââââââââââââââ 1.3/1.3 MB 175.7 MB/s eta 0:00:00","timestamp":"2026-09-22T14:28:50.964Z"}
+
+data: {"data":"Downloading jiwer-4.0.0-py3-none-any.whl (23 kB)","timestamp":"2026-09-22T14:28:50.968Z"}
+
+data: {"data":"Downloading pyarrow-21.0.0-cp311-cp311-manylinux_2_28_x86_64.whl (42.8 MB)","timestamp":"2026-09-22T14:28:50.973Z"}
+
+data: {"data":"   ââââââââââââââââââââââââââââââââââââââââ 42.8/42.8 MB 199.9 MB/s eta 0:00:00","timestamp":"2026-09-22T14:28:51.188Z"}
+
+data: {"data":"Downloading hf_xet-1.6.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (4.5 MB)","timestamp":"2026-09-22T14:28:51.193Z"}
+
+data: {"data":"   ââââââââââââââââââââââââââââââââââââââââ 4.5/4.5 MB 409.7 MB/s eta 0:00:00","timestamp":"2026-09-22T14:28:51.206Z"}
+
+data: {"data":"Downloading tokenizers-0.22.2-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.3 MB)","timestamp":"2026-09-22T14:28:51.209Z"}
+
+data: {"data":"   ââââââââââââââââââââââââââââââââââââââââ 3.3/3.3 MB 418.0 MB/s eta 0:00:00","timestamp":"2026-09-22T14:28:51.219Z"}
+
+data: {"data":"Downloading rapidfuzz-3.14.6-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (3.2 MB)","timestamp":"2026-09-22T14:28:51.223Z"}
+
+data: {"data":"   ââââââââââââââââââââââââââââââââââââââââ 3.2/3.2 MB 264.6 MB/s eta 0:00:00","timestamp":"2026-09-22T14:28:51.236Z"}
+
+data: {"data":"Downloading regex-2026.9.10-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (802 kB)","timestamp":"2026-09-22T14:28:51.239Z"}
+
+data: {"data":"   âââââââââââââââââââââââââââââââââââââââ 803.0/803.0 kB 185.4 MB/s eta 0:00:00","timestamp":"2026-09-22T14:28:51.244Z"}
+
+data: {"data":"Downloading safetensors-0.8.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (516 kB)","timestamp":"2026-09-22T14:28:51.248Z"}
+
+data: {"data":"Installing collected packages: safetensors, regex, rapidfuzz, pyarrow, numpy, hf-xet, soundfile, scipy, jiwer, huggingface-hub, tokenizers, transformers","timestamp":"2026-09-22T14:28:51.715Z"}
+
+data: {"data":"  Attempting uninstall: numpy","timestamp":"2026-09-22T14:28:52.952Z"}
+
+data: {"data":"    Found existing installation: numpy 2.3.2","timestamp":"2026-09-22T14:28:52.955Z"}
+
+data: {"data":"    Uninstalling numpy-2.3.2:","timestamp":"2026-09-22T14:28:53.005Z"}
+
+data: {"data":"      Successfully uninstalled numpy-2.3.2","timestamp":"2026-09-22T14:28:53.257Z"}
+
+data: {"data":"","timestamp":"2026-09-22T14:29:04.308Z"}
+
+data: {"data":"Successfully installed hf-xet-1.6.0 huggingface-hub-0.36.2 jiwer-4.0.0 numpy-2.2.6 pyarrow-21.0.0 rapidfuzz-3.14.6 regex-2026.9.10 safetensors-0.8.0 scipy-1.15.3 soundfile-0.13.1 tokenizers-0.22.2 transformers-4.57.6","timestamp":"2026-09-22T14:29:04.313Z"}
+
+data: {"data":"WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.","timestamp":"2026-09-22T14:29:04.313Z"}
+
+data: {"data":"","timestamp":"2026-09-22T14:29:09.216Z"}
+
+data: {"data":"\rdata/train-00001-of-00022.parquet:   0%|          | 0.00/58.1M [00:00<?, ?B/s]\u001b[A\rdata/train-00001-of-00022.parquet: 100%|ââââââââââ| 58.1M/58.1M [00:00<00:00, 82.7MB/s]","timestamp":"2026-09-22T14:29:09.919Z"}
+
+data: {"data":"{\"event\": \"acquired_shard\", \"shard\": 1, \"rows\": 2}","timestamp":"2026-09-22T14:29:10.990Z"}
+
+data: {"data":"Traceback (most recent call last):","timestamp":"2026-09-22T14:29:10.990Z"}
+
+data: {"data":"  File \"/workspace/repo/experiments/hf_run.py\", line 64, in <module>","timestamp":"2026-09-22T14:29:10.990Z"}
+
+data: {"data":"    raise SystemExit(main())","timestamp":"2026-09-22T14:29:10.990Z"}
+
+data: {"data":"                     ^^^^^^","timestamp":"2026-09-22T14:29:10.990Z"}
+
+data: {"data":"  File \"/workspace/repo/experiments/hf_run.py\", line 41, in main","timestamp":"2026-09-22T14:29:10.991Z"}
+
+data: {"data":"    raise ValueError(f'Data acquisition changed {key}')","timestamp":"2026-09-22T14:29:10.991Z"}
+
+data: {"data":"ValueError: Data acquisition changed audio_sha256","timestamp":"2026-09-22T14:29:10.991Z"}
+

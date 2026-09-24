@@ -1,0 +1,170 @@
+[
+  {
+    "model": "Whisper Turbo",
+    "language": "hi",
+    "selection": "lowest observed WER",
+    "conversation_id": "fleurs-hi_in-test-16476307123526686841",
+    "wer": 0.0,
+    "human_review_status": "not reviewed"
+  },
+  {
+    "model": "Whisper Turbo",
+    "language": "hi",
+    "selection": "middle observed WER",
+    "conversation_id": "fleurs-hi_in-test-7698875201475624229",
+    "wer": 0.2857142857142857,
+    "human_review_status": "not reviewed"
+  },
+  {
+    "model": "Whisper Turbo",
+    "language": "hi",
+    "selection": "highest observed WER",
+    "conversation_id": "fleurs-hi_in-test-5650107975346696997",
+    "wer": 7.6521739130434785,
+    "human_review_status": "not reviewed"
+  },
+  {
+    "model": "Whisper Turbo",
+    "language": "bn",
+    "selection": "lowest observed WER",
+    "conversation_id": "fleurs-bn_in-test-18061366965459815657",
+    "wer": 0.35294117647058826,
+    "human_review_status": "not reviewed"
+  },
+  {
+    "model": "Whisper Turbo",
+    "language": "bn",
+    "selection": "middle observed WER",
+    "conversation_id": "fleurs-bn_in-test-4308726374718768279",
+    "wer": 0.8333333333333334,
+    "human_review_status": "not reviewed"
+  },
+  {
+    "model": "Whisper Turbo",
+    "language": "bn",
+    "selection": "highest observed WER",
+    "conversation_id": "fleurs-bn_in-test-4665017918097861335",
+    "wer": 8.166666666666666,
+    "human_review_status": "not reviewed"
+  },
+  {
+    "model": "Whisper Turbo",
+    "language": "as",
+    "selection": "lowest observed WER",
+    "conversation_id": "fleurs-as_in-test-1365398098838132366",
+    "wer": 0.8888888888888888,
+    "human_review_status": "not reviewed"
+  },
+  {
+    "model": "Whisper Turbo",
+    "language": "as",
+    "selection": "middle observed WER",
+    "conversation_id": "fleurs-as_in-test-5301855462181395773",
+    "wer": 1.0,
+    "human_review_status": "not reviewed"
+  },
+  {
+    "model": "Whisper Turbo",
+    "language": "as",
+    "selection": "highest observed WER",
+    "conversation_id": "fleurs-as_in-test-11402580676458191170",
+    "wer": 14.23076923076923,
+    "human_review_status": "not reviewed"
+  },
+  {
+    "model": "Whisper Large-v3",
+    "language": "hi",
+    "selection": "lowest observed WER",
+    "conversation_id": "fleurs-hi_in-test-16715413603857130243",
+    "wer": 0.0,
+    "human_review_status": "not reviewed"
+  },
+  {
+    "model": "Whisper Large-v3",
+    "language": "hi",
+    "selection": "middle observed WER",
+    "conversation_id": "fleurs-hi_in-test-11299735708347263843",
+    "wer": 0.2631578947368421,
+    "human_review_status": "not reviewed"
+  },
+  {
+    "model": "Whisper Large-v3",
+    "language": "hi",
+    "selection": "highest observed WER",
+    "conversation_id": "fleurs-hi_in-test-5650107975346696997",
+    "wer": 7.6521739130434785,
+    "human_review_status": "not reviewed"
+  },
+  {
+    "model": "Whisper Large-v3",
+    "language": "bn",
+    "selection": "lowest observed WER",
+    "conversation_id": "fleurs-bn_in-test-9224335727798518362",
+    "wer": 0.3125,
+    "human_review_status": "not reviewed"
+  },
+  {
+    "model": "Whisper Large-v3",
+    "language": "bn",
+    "selection": "middle observed WER",
+    "conversation_id": "fleurs-bn_in-test-715492863364296527",
+    "wer": 0.7058823529411765,
+    "human_review_status": "not reviewed"
+  },
+  {
+    "model": "Whisper Large-v3",
+    "language": "bn",
+    "selection": "highest observed WER",
+    "conversation_id": "fleurs-bn_in-test-14689279487133783768",
+    "wer": 12.222222222222221,
+    "human_review_status": "not reviewed"
+  },
+  {
+    "model": "Whisper Large-v3",
+    "language": "as",
+    "selection": "lowest observed WER",
+    "conversation_id": "fleurs-as_in-test-12725733973968448439",
+    "wer": 0.8947368421052632,
+    "human_review_status": "not reviewed"
+  },
+  {
+    "model": "Whisper Large-v3",
+    "language": "as",
+    "selection": "middle observed WER",
+    "conversation_id": "fleurs-as_in-test-1492271985016362382",
+    "wer": 1.0416666666666667,
+    "human_review_status": "not reviewed"
+  },
+  {
+    "model": "Whisper Large-v3",
+    "language": "as",
+    "selection": "highest observed WER",
+    "conversation_id": "fleurs-as_in-test-10267297760022598156",
+    "wer": 20.80952380952381,
+    "human_review_status": "not reviewed"
+  },
+  {
+    "model": "Qwen3-ASR-1.7B",
+    "language": "hi",
+    "selection": "lowest observed WER",
+    "conversation_id": "fleurs-hi_in-test-10027305580492162464",
+    "wer": 0.0,
+    "human_review_status": "not reviewed"
+  },
+  {
+    "model": "Qwen3-ASR-1.7B",
+    "language": "hi",
+    "selection": "middle observed WER",
+    "conversation_id": "fleurs-hi_in-test-13109433266350566952",
+    "wer": 0.11764705882352941,
+    "human_review_status": "not reviewed"
+  },
+  {
+    "model": "Qwen3-ASR-1.7B",
+    "language": "hi",
+    "selection": "highest observed WER",
+    "conversation_id": "fleurs-hi_in-test-17757682103941428900",
+    "wer": 0.75,
+    "human_review_status": "not reviewed"
+  }
+]

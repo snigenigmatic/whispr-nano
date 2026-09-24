@@ -1,0 +1,24 @@
+{
+  "schema": "public-export-validation/v1",
+  "date": "2026-09-24",
+  "source_evidence_commit": "7aa169b61e01c4abb0b240011f00bdf600b194ff",
+  "original_local_suite_passed": 52,
+  "public_without_original_audio_or_archives": {
+    "passed": 50,
+    "deselected": 2,
+    "deselected_tests": [
+      "test_real_completed_svarah",
+      "test_preload_reads_the_verified_bundle_not_the_source_relative_path"
+    ],
+    "reason": "Explicit integration tests require deliberately undistributed original audio/execution archives. Validators and original hashes unchanged."
+  },
+  "result_files_match_original": {
+    "core_audit.pdf": "859b4970489fc405eb5279b6e614bd4cd5ae625a110b378fc6ccf06744340d4c",
+    "core_audit.tex": "e4e0b2e4fe051ad0beeba391e9727ea49b67a0ec93eb7982a73ee888ddb6e00e",
+    "research/bridge_open/core_study/quality_results.json": "0b9c40454b226028dfcad688f03e2efee8bbb2bb99be2b3110bb24b962a77cfe",
+    "research/bridge_open/core_study/resource_results.json": "25a7442aca027911ee069ee64adf90462a942540328edda8e0f825d70a7b896f",
+    "research/bridge_open/core_study/completion_matrix.json": "b196b27a7f3a8ea97af6ec130ef97fa1241d464431737fbe576fa10288dc46fa"
+  },
+  "derived_archives": 24,
+  "omitted_files": 28
+}

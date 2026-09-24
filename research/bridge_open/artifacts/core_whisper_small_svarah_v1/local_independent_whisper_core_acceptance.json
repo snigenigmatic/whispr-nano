@@ -1,0 +1,26 @@
+{
+  "valid": true,
+  "trusted_commit": "31904891563d5953195dae3d4e7e5451570f421a",
+  "condition_id": "small-svarah-en-shard02",
+  "records": 518,
+  "model_id": "openai/whisper-small",
+  "model_revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+  "n_mels": 80,
+  "word_errors": 522,
+  "reference_words": 5389,
+  "micro_wer": 0.09686398218593431,
+  "provider_receipt": {
+    "run_id": "be042b3b-90de-4ecc-a50c-8ac333206e34",
+    "commit": "31904891563d5953195dae3d4e7e5451570f421a",
+    "provider_status": "done",
+    "jobId": "6ab4c9986b030d633f68d799",
+    "namespace": "snigenigmatic",
+    "url": "https://huggingface.co/jobs/snigenigmatic/6ab4c9986b030d633f68d799",
+    "sourceDigest": "977246b873a962751ae242fa67943e8fd3fb0dfac348e9626dc79ec32489e47d",
+    "sourcePath": "/Users/prateekraj/.local/share/openresearch/source-snapshots/977246b873a962751ae242fa67943e8fd3fb0dfac348e9626dc79ec32489e47d.tar",
+    "sourceSize": 142848000,
+    "portable_archive": "source_snapshot.tar.gz",
+    "portable_archive_sha256": "f1baaf329a69e089ed12a21a425dcb786ed5c5ca29598d6cf5b934ece36fcf0e"
+  },
+  "scope": "Fixed public cohort acceptance; no held-out or population-generalization claim."
+}

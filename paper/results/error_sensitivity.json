@@ -1,0 +1,383 @@
+{
+  "status": "exploratory_post_hoc_descriptive_no_inference",
+  "scope": "This analysis was chosen after observing the historical Qwen/small normalization ranking change.",
+  "caveat": "Digit presence is only a raw-reference partition; differences are not causally attributed to numeral handling alone.",
+  "spelling_map_sha256": "bf1c507dc8724ca9cf9903640dacfb69dae2f00edee4f21ceba106a7392f26dd",
+  "cohorts": {
+    "historical": {
+      "n_paired_utterances": 2500,
+      "partitions": {
+        "all": {
+          "systems": {
+            "Qwen3-ASR-0.6B-hf": {
+              "n_utterances": 2500,
+              "minimal_errors": 4067,
+              "english_errors": 2669,
+              "minimal_reference_words": 26262,
+              "english_reference_words": 26397,
+              "minimal_wer_pct": 15.486253902977687,
+              "english_wer_pct": 10.110997461832785,
+              "change_pp": -5.375256441144902,
+              "error_numerator_component_pp": -5.323280785926434,
+              "reference_denominator_component_pp": -0.05197565521846847,
+              "decomposition_order": "replace error count first at minimal reference length, then replace reference length"
+            },
+            "whisper-small": {
+              "n_utterances": 2500,
+              "minimal_errors": 2856,
+              "english_errors": 2682,
+              "minimal_reference_words": 26262,
+              "english_reference_words": 26397,
+              "minimal_wer_pct": 10.875028558373314,
+              "english_wer_pct": 10.160245482441187,
+              "change_pp": -0.714783075932127,
+              "error_numerator_component_pp": -0.6625542609092986,
+              "reference_denominator_component_pp": -0.05222881502282969,
+              "decomposition_order": "replace error count first at minimal reference length, then replace reference length"
+            }
+          },
+          "Qwen_minus_small": {
+            "minimal_errors": 1211,
+            "english_errors": -13,
+            "minimal_reference_words": 26262,
+            "english_reference_words": 26397,
+            "change_pp": -4.6604733652127734,
+            "error_numerator_component_pp": -4.660726525017135,
+            "reference_denominator_component_pp": 0.0002531598043612177,
+            "decomposition_order": "replace error count first at minimal reference length, then replace reference length",
+            "minimal_difference_pp": 4.611225344604371,
+            "english_difference_pp": -0.04924802060840247
+          }
+        },
+        "raw_reference_contains_digit": {
+          "systems": {
+            "Qwen3-ASR-0.6B-hf": {
+              "n_utterances": 275,
+              "minimal_errors": 1816,
+              "english_errors": 525,
+              "minimal_reference_words": 3534,
+              "english_reference_words": 3539,
+              "minimal_wer_pct": 51.386530843237125,
+              "english_wer_pct": 14.834699067533201,
+              "change_pp": -36.551831775703924,
+              "error_numerator_component_pp": -36.53084323712507,
+              "reference_denominator_component_pp": -0.020988538578853223,
+              "decomposition_order": "replace error count first at minimal reference length, then replace reference length"
+            },
+            "whisper-small": {
+              "n_utterances": 275,
+              "minimal_errors": 639,
+              "english_errors": 565,
+              "minimal_reference_words": 3534,
+              "english_reference_words": 3539,
+              "minimal_wer_pct": 18.081494057724957,
+              "english_wer_pct": 15.96496185363097,
+              "change_pp": -2.1165322040939873,
+              "error_numerator_component_pp": -2.0939445387662707,
+              "reference_denominator_component_pp": -0.02258766532771823,
+              "decomposition_order": "replace error count first at minimal reference length, then replace reference length"
+            }
+          },
+          "Qwen_minus_small": {
+            "minimal_errors": 1177,
+            "english_errors": -40,
+            "minimal_reference_words": 3534,
+            "english_reference_words": 3539,
+            "change_pp": -34.43529957160993,
+            "error_numerator_component_pp": -34.4368986983588,
+            "reference_denominator_component_pp": 0.0015991267488650075,
+            "decomposition_order": "replace error count first at minimal reference length, then replace reference length",
+            "minimal_difference_pp": 33.305036785512165,
+            "english_difference_pp": -1.1302627860977676
+          }
+        },
+        "raw_reference_has_no_digit": {
+          "systems": {
+            "Qwen3-ASR-0.6B-hf": {
+              "n_utterances": 2225,
+              "minimal_errors": 2251,
+              "english_errors": 2144,
+              "minimal_reference_words": 22728,
+              "english_reference_words": 22858,
+              "minimal_wer_pct": 9.90408306934178,
+              "english_wer_pct": 9.37964826319013,
+              "change_pp": -0.5244348061516497,
+              "error_numerator_component_pp": -0.4707849348820838,
+              "reference_denominator_component_pp": -0.05364987126956673,
+              "decomposition_order": "replace error count first at minimal reference length, then replace reference length"
+            },
+            "whisper-small": {
+              "n_utterances": 2225,
+              "minimal_errors": 2217,
+              "english_errors": 2117,
+              "minimal_reference_words": 22728,
+              "english_reference_words": 22858,
+              "minimal_wer_pct": 9.754487856388595,
+              "english_wer_pct": 9.261527692711523,
+              "change_pp": -0.49296016367707196,
+              "error_numerator_component_pp": -0.4399859204505456,
+              "reference_denominator_component_pp": -0.052974243226526475,
+              "decomposition_order": "replace error count first at minimal reference length, then replace reference length"
+            }
+          },
+          "Qwen_minus_small": {
+            "minimal_errors": 34,
+            "english_errors": 27,
+            "minimal_reference_words": 22728,
+            "english_reference_words": 22858,
+            "change_pp": -0.03147464247457846,
+            "error_numerator_component_pp": -0.03079901443153819,
+            "reference_denominator_component_pp": -0.0006756280430402526,
+            "decomposition_order": "replace error count first at minimal reference length, then replace reference length",
+            "minimal_difference_pp": 0.1495952129531855,
+            "english_difference_pp": 0.11812057047860705
+          }
+        }
+      },
+      "examples": [
+        {
+          "system": "Qwen3-ASR-0.6B-hf",
+          "utt_id": "svarah_01674",
+          "reference_text": "Friends which was a sitcom that aired between 1994 and 2004",
+          "hypothesis_text": "Friends, which was a sitcom, that aired between nineteen ninety four and two thousand four.",
+          "reference_has_digit": true,
+          "primary_language": "Hindi",
+          "minimal_errors": 6,
+          "minimal_reference_words": 11,
+          "english_errors": 0,
+          "english_reference_words": 11,
+          "minimal_reference": "friends which was a sitcom that aired between 1994 and 2004",
+          "minimal_hypothesis": "friends which was a sitcom that aired between nineteen ninety four and two thousand four",
+          "english_reference": "friends which was a sitcom that aired between 1994 and 2004",
+          "english_hypothesis": "friends which was a sitcom that aired between 1994 and 2004"
+        },
+        {
+          "system": "Qwen3-ASR-0.6B-hf",
+          "utt_id": "svarah_01925",
+          "reference_text": "7123",
+          "hypothesis_text": "Seven thousand one hundred and twenty-three.",
+          "reference_has_digit": true,
+          "primary_language": "Malayalam",
+          "minimal_errors": 7,
+          "minimal_reference_words": 1,
+          "english_errors": 0,
+          "english_reference_words": 1,
+          "minimal_reference": "7123",
+          "minimal_hypothesis": "seven thousand one hundred and twenty three",
+          "english_reference": "7123",
+          "english_hypothesis": "7123"
+        },
+        {
+          "system": "Qwen3-ASR-0.6B-hf",
+          "utt_id": "svarah_05634",
+          "reference_text": "2021 - 2022",
+          "hypothesis_text": "Two thousand twenty-one, two thousand twenty-two.",
+          "reference_has_digit": true,
+          "primary_language": "Urdu",
+          "minimal_errors": 8,
+          "minimal_reference_words": 2,
+          "english_errors": 2,
+          "english_reference_words": 2,
+          "minimal_reference": "2021 2022",
+          "minimal_hypothesis": "two thousand twenty one two thousand twenty two",
+          "english_reference": "2021 2022",
+          "english_hypothesis": "20212022"
+        }
+      ]
+    },
+    "matched": {
+      "n_paired_utterances": 450,
+      "partitions": {
+        "all": {
+          "systems": {
+            "Qwen3-ASR-0.6B-hf": {
+              "n_utterances": 450,
+              "minimal_errors": 698,
+              "english_errors": 471,
+              "minimal_reference_words": 4667,
+              "english_reference_words": 4687,
+              "minimal_wer_pct": 14.956074566102421,
+              "english_wer_pct": 10.049071901002774,
+              "change_pp": -4.907002665099647,
+              "error_numerator_component_pp": -4.863938290122134,
+              "reference_denominator_component_pp": -0.043064374977512504,
+              "decomposition_order": "replace error count first at minimal reference length, then replace reference length"
+            },
+            "whisper-small": {
+              "n_utterances": 450,
+              "minimal_errors": 621,
+              "english_errors": 610,
+              "minimal_reference_words": 4667,
+              "english_reference_words": 4687,
+              "minimal_wer_pct": 13.306192414827512,
+              "english_wer_pct": 13.014721570300832,
+              "change_pp": -0.29147084452668004,
+              "error_numerator_component_pp": -0.23569745018212984,
+              "reference_denominator_component_pp": -0.0557733943445491,
+              "decomposition_order": "replace error count first at minimal reference length, then replace reference length"
+            }
+          },
+          "Qwen_minus_small": {
+            "minimal_errors": 77,
+            "english_errors": -139,
+            "minimal_reference_words": 4667,
+            "english_reference_words": 4687,
+            "change_pp": -4.615531820572967,
+            "error_numerator_component_pp": -4.628240839940005,
+            "reference_denominator_component_pp": 0.0127090193670366,
+            "decomposition_order": "replace error count first at minimal reference length, then replace reference length",
+            "minimal_difference_pp": 1.649882151274909,
+            "english_difference_pp": -2.9656496692980583
+          }
+        },
+        "raw_reference_contains_digit": {
+          "systems": {
+            "Qwen3-ASR-0.6B-hf": {
+              "n_utterances": 50,
+              "minimal_errors": 323,
+              "english_errors": 109,
+              "minimal_reference_words": 608,
+              "english_reference_words": 607,
+              "minimal_wer_pct": 53.125,
+              "english_wer_pct": 17.957166392092258,
+              "change_pp": -35.16783360790774,
+              "error_numerator_component_pp": -35.19736842105263,
+              "reference_denominator_component_pp": 0.029534813144889815,
+              "decomposition_order": "replace error count first at minimal reference length, then replace reference length"
+            },
+            "whisper-small": {
+              "n_utterances": 50,
+              "minimal_errors": 72,
+              "english_errors": 69,
+              "minimal_reference_words": 608,
+              "english_reference_words": 607,
+              "minimal_wer_pct": 11.842105263157896,
+              "english_wer_pct": 11.367380560131796,
+              "change_pp": -0.4747247030260997,
+              "error_numerator_component_pp": -0.4934210526315789,
+              "reference_denominator_component_pp": 0.018696349605480708,
+              "decomposition_order": "replace error count first at minimal reference length, then replace reference length"
+            }
+          },
+          "Qwen_minus_small": {
+            "minimal_errors": 251,
+            "english_errors": 40,
+            "minimal_reference_words": 608,
+            "english_reference_words": 607,
+            "change_pp": -34.69310890488164,
+            "error_numerator_component_pp": -34.703947368421055,
+            "reference_denominator_component_pp": 0.010838463539409107,
+            "decomposition_order": "replace error count first at minimal reference length, then replace reference length",
+            "minimal_difference_pp": 41.2828947368421,
+            "english_difference_pp": 6.589785831960461
+          }
+        },
+        "raw_reference_has_no_digit": {
+          "systems": {
+            "Qwen3-ASR-0.6B-hf": {
+              "n_utterances": 400,
+              "minimal_errors": 375,
+              "english_errors": 362,
+              "minimal_reference_words": 4059,
+              "english_reference_words": 4080,
+              "minimal_wer_pct": 9.238728750923872,
+              "english_wer_pct": 8.872549019607844,
+              "change_pp": -0.3661797313160289,
+              "error_numerator_component_pp": -0.3202759300320276,
+              "reference_denominator_component_pp": -0.04590380128400226,
+              "decomposition_order": "replace error count first at minimal reference length, then replace reference length"
+            },
+            "whisper-small": {
+              "n_utterances": 400,
+              "minimal_errors": 549,
+              "english_errors": 541,
+              "minimal_reference_words": 4059,
+              "english_reference_words": 4080,
+              "minimal_wer_pct": 13.52549889135255,
+              "english_wer_pct": 13.259803921568627,
+              "change_pp": -0.2656949697839224,
+              "error_numerator_component_pp": -0.1970928800197093,
+              "reference_denominator_component_pp": -0.06860208976421332,
+              "decomposition_order": "replace error count first at minimal reference length, then replace reference length"
+            }
+          },
+          "Qwen_minus_small": {
+            "minimal_errors": -174,
+            "english_errors": -179,
+            "minimal_reference_words": 4059,
+            "english_reference_words": 4080,
+            "change_pp": -0.10048476153210739,
+            "error_numerator_component_pp": -0.1231830500123183,
+            "reference_denominator_component_pp": 0.022698288480211062,
+            "decomposition_order": "replace error count first at minimal reference length, then replace reference length",
+            "minimal_difference_pp": -4.286770140428677,
+            "english_difference_pp": -4.387254901960785
+          }
+        }
+      },
+      "examples": []
+    }
+  },
+  "inputs": [
+    {
+      "path": "/Users/prateekraj/whispr-nano/audit/svarah_fairness_audit/results_Qwen3-ASR-0.6B-hf_svarah_clean.csv",
+      "sha256": "473860f8328b6b4bfaf2a494cb25995a04b5474fc3a5c361988bb030a248d19c",
+      "rows": 2500
+    },
+    {
+      "path": "/Users/prateekraj/whispr-nano/audit/svarah_fairness_audit/results_distil-large-v3_svarah_clean.csv",
+      "sha256": "599fe82cc8ca710ea4c6c662b617cb614f8b791d1bcd749459690156f3aa35c8",
+      "rows": 2500
+    },
+    {
+      "path": "/Users/prateekraj/whispr-nano/audit/svarah_fairness_audit/results_saarasv3_svarah_clean.csv",
+      "sha256": "3dbc4ab50af01729227f3d0cb3470ec0b0d9e78ba2fdd61851d998c31e429741",
+      "rows": 450
+    },
+    {
+      "path": "/Users/prateekraj/whispr-nano/audit/svarah_fairness_audit/results_whisper-large-v3_svarah_clean.csv",
+      "sha256": "3fdc744178592f86ec66c3b8e20383d83e0f0e8172d5e9c094bf830e0d496f42",
+      "rows": 2500
+    },
+    {
+      "path": "/Users/prateekraj/whispr-nano/audit/svarah_fairness_audit/results_whisper-small_svarah_clean.csv",
+      "sha256": "5cb642dcb121e6d22b40bc81862137f193be730ba9aef00e05dd36fff90556e2",
+      "rows": 2500
+    },
+    {
+      "path": "/Users/prateekraj/whispr-nano/audit/svarah_fairness_audit/results_whisper-tiny_svarah_clean.csv",
+      "sha256": "979943e3f4446eafd3716a9f9a46da407efe09f47692e92f5df1c1cc5ab74c0b",
+      "rows": 2500
+    },
+    {
+      "path": "/Users/prateekraj/whispr-nano/paper/data/matched_predictions/results_Qwen3-ASR-0.6B-hf_svarah_clean.csv",
+      "sha256": "a9b82bccd99a90cdae1e6c040adbeee9df8624e394186a630f1ebd82d4c13196",
+      "rows": 450
+    },
+    {
+      "path": "/Users/prateekraj/whispr-nano/paper/data/matched_predictions/results_distil-large-v3_svarah_clean.csv",
+      "sha256": "7d8b842e1b7ccf4bc941cc5d69f90a14a8f807f04087ceca539bc76efff89923",
+      "rows": 450
+    },
+    {
+      "path": "/Users/prateekraj/whispr-nano/paper/data/matched_predictions/results_saarasv3_svarah_clean.csv",
+      "sha256": "3dbc4ab50af01729227f3d0cb3470ec0b0d9e78ba2fdd61851d998c31e429741",
+      "rows": 450
+    },
+    {
+      "path": "/Users/prateekraj/whispr-nano/paper/data/matched_predictions/results_whisper-large-v3_svarah_clean.csv",
+      "sha256": "b13a4f7118dc68f4386615905ed181d4dac2aae4b25021f9e23de78a82cda1d1",
+      "rows": 450
+    },
+    {
+      "path": "/Users/prateekraj/whispr-nano/paper/data/matched_predictions/results_whisper-small_svarah_clean.csv",
+      "sha256": "3a5b575e0e22c08c4d90a23002a2b19588af98fbbd6f97236e20d70121fd4e09",
+      "rows": 450
+    },
+    {
+      "path": "/Users/prateekraj/whispr-nano/paper/data/matched_predictions/results_whisper-tiny_svarah_clean.csv",
+      "sha256": "f0e6279ce09c673c52bee8ed24ff07166fa570ba492d763dd8259093b88622d9",
+      "rows": 450
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "actual_model_dtype": "torch.float32",
+  "model": {
+    "dtype": "float32",
+    "family": "whisper",
+    "key": "whisper_small",
+    "model_id": "openai/whisper-small",
+    "num_beams": 5,
+    "revision": "973afd24965f72e36ca33b3055d56a652f456b4d"
+  },
+  "model_eval": true,
+  "model_file_sha256": {
+    "added_tokens.json": "9715fd2243b6f06a5858b5e32950d2853f73dd5bc201aafcf76f5082a2d8acd1",
+    "config.json": "e6a2b489da1b5aed65a8eb8d1e7466fa867ad5643a8bc138ba708bd56b2875c4",
+    "generation_config.json": "71565b8ef50d0bf7a1193ed4bbed195b94e70c18894d81bba2f1233dcec3ab53",
+    "merges.txt": "2df2990a395e35e8dfbc7511e08c12d56018d8d04691e0133e5d63b21e154dc6",
+    "model.safetensors": "1d7734884874f1a1513ed9aa760a4f8e97aaa02fd6d93a3a85d27b2ae9ca596b",
+    "normalizer.json": "bf1c507dc8724ca9cf9903640dacfb69dae2f00edee4f21ceba106a7392f26dd",
+    "preprocessor_config.json": "9b5cd03a36fbb8a627c64d98a5b5b126ead95a77720723944487311f0110b666",
+    "special_tokens_map.json": "e67ae3a0aaa99abcd9f187138e12db1f65c16a14761c50ef10eef2c174a7a691",
+    "tokenizer.json": "27fc476bfe7f17299480be2273fc0608e4d5a99aba2ab5dec5374b4482d1a566",
+    "tokenizer_config.json": "2a4c4281cf9f51ac6ccc406fdc711a087afe6530f671fa7b80953edc498275ce",
+    "vocab.json": "8f680bba319e01a653d2e8a5dbc17a9157179e0576e6ce74ce0c06356c6e24f9"
+  },
+  "packages": {
+    "jiwer": "4.0.0",
+    "numpy": "2.2.6",
+    "qwen-asr": "0.0.6",
+    "soundfile": "0.13.1",
+    "torch": "2.8.0+cu128",
+    "transformers": "4.57.6"
+  },
+  "parameter_count": 241734912,
+  "quality_scope": "Pass 3 is scored after timing; repeated timing outputs are retained but are not additional reference observations.",
+  "resource_environment": {
+    "cuda_version": "12.8",
+    "device_index": 0,
+    "device_properties": {
+      "compute_capability": "8.0",
+      "multi_processor_count": 108,
+      "name": "NVIDIA A100-SXM4-80GB",
+      "total_memory_bytes": 85093777408
+    },
+    "gpu_name": "NVIDIA A100-SXM4-80GB",
+    "platform": "Linux-6.12.103-127.188.amzn2023.x86_64-x86_64-with-glibc2.35",
+    "python_version": "3.11.13",
+    "torch_version": "2.8.0+cu128"
+  },
+  "source_sha256": {
+    "research/bridge_open/core_study/resource_profile.py": "aeb16dffecd15b393044751ecc7309189325ce25e81ee750625d0c7c2ab5486f",
+    "research/bridge_open/core_study/run_resource_suite.py": "a8667e870e976f79d5ef22cdc964147318d2e2c17815d0b3c2e68b77981c57e0",
+    "research/bridge_open/model_roster.json": "01c0f8a13f0677bb1ee7a6ee21347c215564a64cb55c210d60c72010c4e1bbe2",
+    "research/bridge_open/scoring.py": "a63c0fdce68e33810bf233c813a5ebad0f3692e6718aad2828a802b2e776ff3c"
+  }
+}

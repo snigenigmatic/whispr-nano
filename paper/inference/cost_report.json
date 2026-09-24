@@ -1,0 +1,57 @@
+{
+  "invoiced_cost_verified": false,
+  "completed_function_resource_estimate_usd": 0.33328917167426514,
+  "all_slots_active_app_duration_resource_estimate_usd": 1.085227,
+  "caveat": "Resource estimate using every configured slot for each entire app duration. Not an invoice; excludes separately billed image builds, storage and network. Earlier jobs had requested resources rather than hard CPU/memory limits. All app states verified stopped.",
+  "apps": [
+    {
+      "app_id": "ap-DiNluaCVNo1xQiS1CIEIEh",
+      "elapsed_seconds": 114.0,
+      "configured_max_containers": 10,
+      "all_slots_active_resource_estimate_usd": 0.2573208,
+      "state": "stopped"
+    },
+    {
+      "app_id": "ap-B7WjHfBi2FKRwbEYiwy2vM",
+      "elapsed_seconds": 603.0,
+      "configured_max_containers": 5,
+      "all_slots_active_resource_estimate_usd": 0.6805458,
+      "state": "stopped"
+    },
+    {
+      "app_id": "ap-Vk02VvuzDbfauPOhSLV9xA",
+      "elapsed_seconds": 58.0,
+      "configured_max_containers": 5,
+      "all_slots_active_resource_estimate_usd": 0.0654588,
+      "state": "stopped"
+    },
+    {
+      "app_id": "ap-3SrNNEM295breCcKgXWKU1",
+      "elapsed_seconds": 64.0,
+      "configured_max_containers": 5,
+      "all_slots_active_resource_estimate_usd": 0.0722304,
+      "state": "stopped"
+    },
+    {
+      "app_id": "ap-HgpdmiuQ0D9WtZVPUOOMHl",
+      "elapsed_seconds": 189.0,
+      "configured_max_containers": 1,
+      "all_slots_active_resource_estimate_usd": 0.00830844,
+      "state": "stopped"
+    },
+    {
+      "app_id": "ap-bzPlBPuaaoTfwpj6PRs4rf",
+      "elapsed_seconds": 15.0,
+      "configured_max_containers": 1,
+      "all_slots_active_resource_estimate_usd": 0.0006594,
+      "state": "stopped"
+    },
+    {
+      "app_id": "ap-yVrdecT8Qzw8u2BhFcTuxw",
+      "elapsed_seconds": 16.0,
+      "configured_max_containers": 1,
+      "all_slots_active_resource_estimate_usd": 0.00070336,
+      "state": "stopped"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "source_worktree_commit": "5d5bb9c",
+  "prior_orx_project_id": "80b2278f-eb4f-4e1e-959a-10160f06ce7d",
+  "source_files": {
+    "run_whisper.py": "39de1adb526f3f03ed47783592c53efc0d3f656aacd1a5c5449bb3ff1f209942",
+    "native_whisper.py": "ed0e1b4d4110860b2ada814046a2b91752d738db3aeac1fd77268dbcc2ec2894",
+    "generation_output.py": "f0b913e48db8a86e91acbd13fc2b03913d4a82edda9024137a28ec291644da29",
+    "scoring.py": "a63c0fdce68e33810bf233c813a5ebad0f3692e6718aad2828a802b2e776ff3c",
+    "validate_run.py": "955d313e8c41c4e8ba7382cf2ebe617cf7c0eec15dac33f71b624c4d92704ceb",
+    "acquire.py": "502826eb408e06d6b4a65002a597f844215b2405771d1885c30e540f8f20152c"
+  },
+  "reason": "Separate portable HF execution contract; previous experiment commands and results remain immutable."
+}

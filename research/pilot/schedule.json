@@ -1,0 +1,89 @@
+{
+  "experiment_id": "l2arctic_selection_v1",
+  "registered_at": "2026-09-09T07:39:56.872011+00:00",
+  "registration_timing": "After 3-update infrastructure smoke on 16 train/12 dev clips; before any full-development training result. Smoke counts as two disclosed dev accesses. Teacher train inference already running.",
+  "runs": [
+    {
+      "arm_name": "full_gold",
+      "seed": 0
+    },
+    {
+      "arm_name": "filtered10_gold",
+      "seed": 0
+    },
+    {
+      "arm_name": "random_matched_gold",
+      "seed": 0
+    },
+    {
+      "arm_name": "full_gold",
+      "seed": 1
+    },
+    {
+      "arm_name": "filtered10_gold",
+      "seed": 1
+    },
+    {
+      "arm_name": "random_matched_gold",
+      "seed": 1
+    },
+    {
+      "arm_name": "full_gold",
+      "seed": 2
+    },
+    {
+      "arm_name": "filtered10_gold",
+      "seed": 2
+    },
+    {
+      "arm_name": "random_matched_gold",
+      "seed": 2
+    }
+  ],
+  "fixed_config": {
+    "num_updates": 600,
+    "batch_size": 8,
+    "grad_accum_steps": 1,
+    "learning_rate": 1e-05,
+    "weight_decay": 0.01,
+    "max_grad_norm": 1.0,
+    "eval_every": 0,
+    "eval_batch_size": 8,
+    "max_new_tokens": 224,
+    "model_id": "openai/whisper-tiny",
+    "model_revision": "169d4a4341b33bc18d8881c4b69c2e104e1cc0af"
+  },
+  "expected_initial_state_sha256": "30f47af0c6721669a9dec6b0a7934e4723ee2750a95aa3e627d5816a5934ba25",
+  "frozen_inputs": {
+    "research/pilot/data/manifest.jsonl": "9849d5d0d1214f7129c42fe8006a4ca0b79b36c84e8c80406e228077438931e7",
+    "research/pilot/training.py": "2f409cbf3c0bd9c8f9c84cbb589c9320cb32d33987f845fb750c7f2bdd226f79",
+    "research/pilot/selection.py": "e060ccc8cb4ed6832c6b11790add28afd9d385b2829672e1c973c0c15f1bb212",
+    "research/pilot/frozen_english_normalizer.py": "1a6a81b72bc69eccf61d7a24b16015bb6c31249254725abe092747e348cfe758",
+    "paper/data/whisper_normalizer.json": "bf1c507dc8724ca9cf9903640dacfb69dae2f00edee4f21ceba106a7392f26dd"
+  },
+  "primary_metric": "English-normalized L1-macro WER on 974 development utterances, one unseen speaker per L1",
+  "primary_contrast": "filtered10_gold minus random_matched_gold; positive means matched random is better",
+  "normalization_sensitivity": "Minimal-normalized same contrast, always reported",
+  "pilot_positive_gate": {
+    "mean_primary_contrast_at_least": 0.005,
+    "positive_paired_seeds_at_least": 2,
+    "mean_minimal_contrast_at_least": 0.0,
+    "all_nine_valid_runs_required": true
+  },
+  "outcome_scope": "Exploratory evidence to justify replication; no publication or confirmatory significance claim. Otherwise inconclusive or hypothesis not supported under this protocol.",
+  "secondary_metrics": [
+    "All six L1 WERs",
+    "Worst-L1 WER",
+    "Micro WER",
+    "Full-reference arm versus both subsets",
+    "Unique and repeated training exposures"
+  ],
+  "selection_seed": 20260909,
+  "teacher_filter_max_wer_percent": 10,
+  "selection_duration_tolerance_fraction": 0.005,
+  "test_access": "sealed; no test inference allowed",
+  "training_budget_reason": "600 fixed updates = 4800 example exposures per arm/seed. Chosen using three-update throughput and conservative cold-feature runtime, before full dev outcomes; hard run timeout 3600s. Not convergence evidence.",
+  "protocol_amendments": [
+    "research/pilot/protocol_amendments/01_duration_matching_repair.json"
+  ]
+}

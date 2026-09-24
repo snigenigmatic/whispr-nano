@@ -1,0 +1,14 @@
+{
+  "schema_version": "container-receipt/v1",
+  "command": "bash experiments/hf_entrypoint.sh",
+  "image": "pytorch/pytorch:2.8.0-cuda12.8-cudnn9-runtime",
+  "gpu_flavor": "a100-large",
+  "timeout_seconds": 1800,
+  "worker_failure": null,
+  "validation": {
+    "valid": true,
+    "errors": [],
+    "timed_calls": 36,
+    "quality_records": 12
+  }
+}

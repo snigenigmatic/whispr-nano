@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0",
+  "contract_id": "bridge-open-metrics-contract-v1",
+  "checked_at": "2026-09-22",
+  "scope": "Independent open conversational-ASR extension; not a BRIDGE ASR 2.0 metric replication.",
+  "source_status": {
+    "bridge_page": "https://humynlabs.ai/bridge/ASR/2.0",
+    "metrics_reference": "linked from the BRIDGE page; HTTP 404 when checked",
+    "humyn_score_methodology": "linked from the BRIDGE page; HTTP 404 when checked",
+    "public_gap": "No authoritative BRIDGE manifest, normalizer, scorer, per-file predictions, or model configuration was verified."
+  },
+  "comparison_rule": "No open result may be labelled BRIDGE-matched, compared numerically to the BRIDGE leaderboard, or claimed equal/different until corpus, reference, normalizer, scorer, and inference configuration are authoritatively matched and rerun.",
+  "metrics": {
+    "WER": {
+      "bridge_page_status": "named and described as Word Error Rate",
+      "exact_bridge_match": "blocked",
+      "open_protocol_status": "reportable_after_freeze",
+      "open_definition": "Token Levenshtein edit distance (S+D+I) divided by reference-token count, using the published open normalizer/tokenizer.",
+      "blockers": ["BRIDGE cleanup", "BRIDGE tokenization/scorer", "exact BRIDGE references and manifest"]
+    },
+    "CER": {
+      "bridge_page_status": "named and described as Character Error Rate",
+      "exact_bridge_match": "blocked",
+      "open_protocol_status": "reportable_after_freeze",
+      "open_definition": "Character Levenshtein edit distance divided by reference-character count after the published open normalizer; Unicode unit convention must be frozen with fixtures.",
+      "blockers": ["BRIDGE cleanup", "character unit convention", "BRIDGE scorer and references"]
+    },
+    "SemSim": {
+      "bridge_page_status": "named as Semantic Similarity/SemanticSim; the page says it asks whether meaning survived",
+      "exact_bridge_match": "blocked",
+      "open_protocol_status": "preparable_after_design_freeze",
+      "open_definition": "An independent semantic-similarity metric may be defined after pinning an encoder and immutable revision, input normalization, language policy, similarity function, and conversation/language aggregation. It must be labelled open_protocol_v1.",
+      "blockers": ["independent encoder/version and aggregation design are not yet frozen", "BRIDGE implementation"]
+    },
+    "CSF1": {
+      "bridge_page_status": "named as Code-Switch F1/CS F1; page describes English vocabulary in Indic speech and transliteration",
+      "exact_bridge_match": "blocked",
+      "open_protocol_status": "blocked_pending_annotation_and_scorer",
+      "open_definition": null,
+      "blockers": ["versioned code-switch spans", "token/script rules", "transliteration policy", "precision/recall matching", "BRIDGE implementation"]
+    },
+    "PIER": {
+      "bridge_page_status": "named as Phoneme-Informed ER and grouped with code-switch measures",
+      "exact_bridge_match": "blocked",
+      "open_protocol_status": "blocked",
+      "open_definition": null,
+      "blockers": ["phoneme conversion/lexicon", "language/code-switch handling", "alignment rule", "BRIDGE implementation"]
+    },
+    "WIL": {
+      "bridge_page_status": "named as Word Information Lost; page calls it a bounded variant alongside WER/CER",
+      "exact_bridge_match": "blocked",
+      "open_protocol_status": "reportable_after_freeze",
+      "open_definition": "Independent standard WIL is preparable with a pinned JiWER release and the published normalizer/tokenizer, using its process_words output. It must be labelled open_protocol_v1 rather than BRIDGE WIL.",
+      "blockers": ["pinned JiWER/scorer release", "published normalization/tokenization", "BRIDGE normalization/scorer for exact compatibility"]
+    },
+    "lwWER": {
+      "bridge_page_status": "page says it separates local-script rendering of recognized English from real transcription error",
+      "exact_bridge_match": "blocked",
+      "open_protocol_status": "blocked",
+      "open_definition": null,
+      "blockers": ["script/language detection", "transliteration equivalence", "script-penalty decomposition", "code-switch annotation", "BRIDGE implementation"]
+    },
+    "HumynScore": {
+      "bridge_page_status": "displayed on leaderboard; page says higher is better",
+      "exact_bridge_match": "blocked",
+      "open_protocol_status": "blocked",
+      "open_definition": null,
+      "blockers": ["formula", "weights", "normalization", "missing-data rule", "aggregation", "official methodology"]
+    }
+  },
+  "publication_requirements": {
+    "per_language": ["attempted_count", "scored_count", "unsupported_count", "failure_count", "duration", "WER", "CER"],
+    "common_cohort": "Every aggregate comparison names a frozen manifest of conversations scored by every compared model for that language.",
+    "macro": "Mean of per-language conversation means on the named common cohort.",
+    "micro": "Pooled edit numerator/denominator on that same named common cohort; supplemental to per-language reporting.",
+    "uncertainty": "Conversation-cluster bootstrap, stratified by language; chunks, segments, words, and file-local speaker labels are never independent units."
+  }
+}

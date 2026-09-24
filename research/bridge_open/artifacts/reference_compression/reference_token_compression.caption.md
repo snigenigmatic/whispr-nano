@@ -1,0 +1,1 @@
+The token-byte compression cutoff also triggers on released reference text. Points and bars show medians and interquartile ranges of nonoverlapping 200-token windows, with window counts shown. These dependent text windows are not audio-aligned model outputs; bars are descriptive, not confidence intervals or detector false-positive rates.

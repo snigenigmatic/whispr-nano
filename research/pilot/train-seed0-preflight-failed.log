@@ -1,0 +1,34 @@
+✓ Initialized. View run at 
+https://modal.com/apps/snigenigmatic/main/ap-4vWqnYloWOJr9VyIqVoJLp
+✓ Created objects.
+├── 🔨 Created mount 
+│   /Users/prateekraj/whispr-nano/research/pilot/modal_runner.py
+├── 🔨 Created mount 
+│   /Users/prateekraj/whispr-nano/paper/data/whisper_normalizer.json
+├── 🔨 Created mount 
+│   /Users/prateekraj/whispr-nano/research/pilot/feature_cache.py
+├── 🔨 Created mount 
+│   /Users/prateekraj/whispr-nano/research/pilot/frozen_english_normalizer.py
+├── 🔨 Created mount 
+│   /Users/prateekraj/whispr-nano/research/pilot/test_training.py
+├── 🔨 Created mount /Users/prateekraj/whispr-nano/research/pilot/training.py
+├── 🔨 Created function prepare_speaker.
+├── 🔨 Created function teacher_speaker.
+├── 🔨 Created function train_model.
+└── 🔨 Created function prepare_features.
+Stopping app - uncaught exception raised locally: ValueError('Selected control fails the frozen duration balance tolerance').
+╭───────────────────── Traceback (most recent call last) ──────────────────────╮
+│ /Users/prateekraj/whispr-nano/research/pilot/modal_runner.py:347 in          │
+│ train_registered                                                             │
+│                                                                              │
+│   346 │   │   raise RuntimeError('Less than ten minutes remain before the ha │
+│ ❱ 347 │   workflow.initialize()                                              │
+│   348 │   schedule = json.loads((ROOT / 'research/pilot/schedule.json').read │
+│                                                                              │
+│ /Users/prateekraj/whispr-nano/research/pilot/workflow.py:74 in initialize    │
+│                                                                              │
+│    73 │   if not all(r['duration_match_within_tolerance'] for r in report['s │
+│ ❱  74 │   │   raise ValueError('Selected control fails the frozen duration b │
+│    75 │   artifacts = {}                                                     │
+╰──────────────────────────────────────────────────────────────────────────────╯
+ValueError: Selected control fails the frozen duration balance tolerance

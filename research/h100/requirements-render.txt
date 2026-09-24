@@ -1,0 +1,2 @@
+-r ../pilot/requirements-control.txt
+pdfrw==0.4

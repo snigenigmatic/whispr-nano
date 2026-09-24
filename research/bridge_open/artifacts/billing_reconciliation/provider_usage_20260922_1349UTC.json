@@ -1,0 +1,250 @@
+[
+  {
+    "object_id": "ap-0QGWU0OMwelDl1gnQnPXFu",
+    "description": "whispr-bridge-qwen-pilot",
+    "environment": "main",
+    "interval_start": "2026-09-22T08:00:00",
+    "resource": "Memory",
+    "cost": "0.00476445"
+  },
+  {
+    "object_id": "ap-0QGWU0OMwelDl1gnQnPXFu",
+    "description": "whispr-bridge-qwen-pilot",
+    "environment": "main",
+    "interval_start": "2026-09-22T08:00:00",
+    "resource": "CPU",
+    "cost": "0.00704245"
+  },
+  {
+    "object_id": "ap-0QGWU0OMwelDl1gnQnPXFu",
+    "description": "whispr-bridge-qwen-pilot",
+    "environment": "main",
+    "interval_start": "2026-09-22T08:00:00",
+    "resource": "H100",
+    "cost": "0.14702793"
+  },
+  {
+    "object_id": "ap-1FkioMroE1wgDHuOJzZArp",
+    "description": "whispr-bridge-open-repair",
+    "environment": "main",
+    "interval_start": "2026-09-22T07:00:00",
+    "resource": "Memory",
+    "cost": "0.00238202"
+  },
+  {
+    "object_id": "ap-1FkioMroE1wgDHuOJzZArp",
+    "description": "whispr-bridge-open-repair",
+    "environment": "main",
+    "interval_start": "2026-09-22T07:00:00",
+    "resource": "CPU",
+    "cost": "0.00352092"
+  },
+  {
+    "object_id": "ap-1FkioMroE1wgDHuOJzZArp",
+    "description": "whispr-bridge-open-repair",
+    "environment": "main",
+    "interval_start": "2026-09-22T07:00:00",
+    "resource": "H100",
+    "cost": "0.07350754"
+  },
+  {
+    "object_id": "ap-CT79CmFy7QNujIRxAPkoFB",
+    "description": "whispr-bridge-open-repair",
+    "environment": "main",
+    "interval_start": "2026-09-22T08:00:00",
+    "resource": "Memory",
+    "cost": "0.01462837"
+  },
+  {
+    "object_id": "ap-CT79CmFy7QNujIRxAPkoFB",
+    "description": "whispr-bridge-open-repair",
+    "environment": "main",
+    "interval_start": "2026-09-22T08:00:00",
+    "resource": "CPU",
+    "cost": "0.02162255"
+  },
+  {
+    "object_id": "ap-CT79CmFy7QNujIRxAPkoFB",
+    "description": "whispr-bridge-open-repair",
+    "environment": "main",
+    "interval_start": "2026-09-22T08:00:00",
+    "resource": "H100",
+    "cost": "0.45142221"
+  },
+  {
+    "object_id": "ap-EEEHiOT25quO2IfxFPb1d5",
+    "description": "whispr-bridge-open-repair",
+    "environment": "main",
+    "interval_start": "2026-09-22T08:00:00",
+    "resource": "Memory",
+    "cost": "0.01372445"
+  },
+  {
+    "object_id": "ap-EEEHiOT25quO2IfxFPb1d5",
+    "description": "whispr-bridge-open-repair",
+    "environment": "main",
+    "interval_start": "2026-09-22T08:00:00",
+    "resource": "CPU",
+    "cost": "0.02028645"
+  },
+  {
+    "object_id": "ap-EEEHiOT25quO2IfxFPb1d5",
+    "description": "whispr-bridge-open-repair",
+    "environment": "main",
+    "interval_start": "2026-09-22T08:00:00",
+    "resource": "H100",
+    "cost": "0.42352792"
+  },
+  {
+    "object_id": "ap-EwQlEudx1HstUiNQS430Tc",
+    "description": "whispr-bridge-open-repair",
+    "environment": "main",
+    "interval_start": "2026-09-22T07:00:00",
+    "resource": "Memory",
+    "cost": "0.00246521"
+  },
+  {
+    "object_id": "ap-EwQlEudx1HstUiNQS430Tc",
+    "description": "whispr-bridge-open-repair",
+    "environment": "main",
+    "interval_start": "2026-09-22T07:00:00",
+    "resource": "CPU",
+    "cost": "0.00364388"
+  },
+  {
+    "object_id": "ap-EwQlEudx1HstUiNQS430Tc",
+    "description": "whispr-bridge-open-repair",
+    "environment": "main",
+    "interval_start": "2026-09-22T07:00:00",
+    "resource": "H100",
+    "cost": "0.07607469"
+  },
+  {
+    "object_id": "ap-djGVrN5UWZ8DKxD9t3GlJB",
+    "description": "whispr-bridge-open-repair",
+    "environment": "main",
+    "interval_start": "2026-09-22T07:00:00",
+    "resource": "H100",
+    "cost": "0.09655540"
+  },
+  {
+    "object_id": "ap-djGVrN5UWZ8DKxD9t3GlJB",
+    "description": "whispr-bridge-open-repair",
+    "environment": "main",
+    "interval_start": "2026-09-22T07:00:00",
+    "resource": "Memory",
+    "cost": "0.00321375"
+  },
+  {
+    "object_id": "ap-djGVrN5UWZ8DKxD9t3GlJB",
+    "description": "whispr-bridge-open-repair",
+    "environment": "main",
+    "interval_start": "2026-09-22T07:00:00",
+    "resource": "CPU",
+    "cost": "0.00856175"
+  },
+  {
+    "object_id": "ap-djGVrN5UWZ8DKxD9t3GlJB",
+    "description": "whispr-bridge-open-repair",
+    "environment": "main",
+    "interval_start": "2026-09-22T07:00:00",
+    "resource": "A10G",
+    "cost": "0E-8"
+  },
+  {
+    "object_id": "ap-flb9AnKn1zmZEmfjZuIQYw",
+    "description": "whispr-bridge-qwen-pilot",
+    "environment": "main",
+    "interval_start": "2026-09-22T07:00:00",
+    "resource": "Memory",
+    "cost": "0.00464362"
+  },
+  {
+    "object_id": "ap-flb9AnKn1zmZEmfjZuIQYw",
+    "description": "whispr-bridge-qwen-pilot",
+    "environment": "main",
+    "interval_start": "2026-09-22T07:00:00",
+    "resource": "CPU",
+    "cost": "0.00762784"
+  },
+  {
+    "object_id": "ap-flb9AnKn1zmZEmfjZuIQYw",
+    "description": "whispr-bridge-qwen-pilot",
+    "environment": "main",
+    "interval_start": "2026-09-22T07:00:00",
+    "resource": "H100",
+    "cost": "0.14263934"
+  },
+  {
+    "object_id": "ap-hwoqXfJkM9faII600NPIc1",
+    "description": "whispr-bridge-omni-ctc-pilot",
+    "environment": "main",
+    "interval_start": "2026-09-22T08:00:00",
+    "resource": "Memory",
+    "cost": "0.00469334"
+  },
+  {
+    "object_id": "ap-hwoqXfJkM9faII600NPIc1",
+    "description": "whispr-bridge-omni-ctc-pilot",
+    "environment": "main",
+    "interval_start": "2026-09-22T08:00:00",
+    "resource": "CPU",
+    "cost": "0.00693734"
+  },
+  {
+    "object_id": "ap-hwoqXfJkM9faII600NPIc1",
+    "description": "whispr-bridge-omni-ctc-pilot",
+    "environment": "main",
+    "interval_start": "2026-09-22T08:00:00",
+    "resource": "H100",
+    "cost": "0.14483354"
+  },
+  {
+    "object_id": "ap-uyJ4puuJ6J1F1sOsnNWxKB",
+    "description": "whispr-bridge-omni-ctc-pilot",
+    "environment": "main",
+    "interval_start": "2026-09-22T08:00:00",
+    "resource": "Memory",
+    "cost": "0.00160995"
+  },
+  {
+    "object_id": "ap-uyJ4puuJ6J1F1sOsnNWxKB",
+    "description": "whispr-bridge-omni-ctc-pilot",
+    "environment": "main",
+    "interval_start": "2026-09-22T08:00:00",
+    "resource": "CPU",
+    "cost": "0.00791299"
+  },
+  {
+    "object_id": "ap-uyJ4puuJ6J1F1sOsnNWxKB",
+    "description": "whispr-bridge-omni-ctc-pilot",
+    "environment": "main",
+    "interval_start": "2026-09-22T08:00:00",
+    "resource": "H100",
+    "cost": "0.04423792"
+  },
+  {
+    "object_id": "ap-zwB4dubTASG1bMVkVO2GHm",
+    "description": "whispr-bridge-open-repair",
+    "environment": "main",
+    "interval_start": "2026-09-22T08:00:00",
+    "resource": "Memory",
+    "cost": "0.02680882"
+  },
+  {
+    "object_id": "ap-zwB4dubTASG1bMVkVO2GHm",
+    "description": "whispr-bridge-open-repair",
+    "environment": "main",
+    "interval_start": "2026-09-22T08:00:00",
+    "resource": "CPU",
+    "cost": "0.03962679"
+  },
+  {
+    "object_id": "ap-zwB4dubTASG1bMVkVO2GHm",
+    "description": "whispr-bridge-open-repair",
+    "environment": "main",
+    "interval_start": "2026-09-22T08:00:00",
+    "resource": "H100",
+    "cost": "0.82730352"
+  }
+]

@@ -1,0 +1,53 @@
+{
+  "actual_model_dtype": "torch.bfloat16",
+  "model": {
+    "dtype": "bfloat16",
+    "family": "qwen",
+    "key": "qwen_0_6b",
+    "language": "English",
+    "model_id": "Qwen/Qwen3-ASR-0.6B",
+    "num_beams": 1,
+    "revision": "5eb144179a02acc5e5ba31e748d22b0cf3e303b0"
+  },
+  "model_eval": true,
+  "model_file_sha256": {
+    "chat_template.json": "75a8cfca24f00de72d796fbfed6858fc9614ef3dabd8696684cc3bc03a9c58ff",
+    "config.json": "76d3ae4601ce939830b2517f4a6cadb86cc51316c3900af6b020b051c21a478c",
+    "generation_config.json": "1da527824d81e07118facff437e03f2e24a23311e3bdeb2368973fe77e5f275c",
+    "merges.txt": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5",
+    "model.safetensors": "79d6cbd4c98c7bbffe9db2edac07f56cd6637d0d5944b27f6c2b8353840323ea",
+    "preprocessor_config.json": "45e120a4eda2c20c5d7f2ea9354e63536bf35e27aa573fb7cdf78017b378770d",
+    "tokenizer_config.json": "4942d005604266809309cabc9f4e9cb89ce855d59b14681fdc0e1cc62ea26c4c",
+    "vocab.json": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+  },
+  "packages": {
+    "jiwer": "4.0.0",
+    "numpy": "2.2.6",
+    "qwen-asr": "0.0.6",
+    "soundfile": "0.13.1",
+    "torch": "2.8.0+cu128",
+    "transformers": "4.57.6"
+  },
+  "parameter_count": 782426112,
+  "quality_scope": "Pass 3 is scored after timing; repeated timing outputs are retained but are not additional reference observations.",
+  "resource_environment": {
+    "cuda_version": "12.8",
+    "device_index": 0,
+    "device_properties": {
+      "compute_capability": "8.0",
+      "multi_processor_count": 108,
+      "name": "NVIDIA A100-SXM4-80GB",
+      "total_memory_bytes": 85093777408
+    },
+    "gpu_name": "NVIDIA A100-SXM4-80GB",
+    "platform": "Linux-6.12.103-127.188.amzn2023.x86_64-x86_64-with-glibc2.35",
+    "python_version": "3.11.13",
+    "torch_version": "2.8.0+cu128"
+  },
+  "source_sha256": {
+    "research/bridge_open/core_study/resource_profile.py": "aeb16dffecd15b393044751ecc7309189325ce25e81ee750625d0c7c2ab5486f",
+    "research/bridge_open/core_study/run_resource_suite.py": "a8667e870e976f79d5ef22cdc964147318d2e2c17815d0b3c2e68b77981c57e0",
+    "research/bridge_open/model_roster.json": "01c0f8a13f0677bb1ee7a6ee21347c215564a64cb55c210d60c72010c4e1bbe2",
+    "research/bridge_open/scoring.py": "a63c0fdce68e33810bf233c813a5ebad0f3692e6718aad2828a802b2e776ff3c"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "source_sha256": {
+    "research/bridge_open/finalize_fleurs_batch.py": "fb2cab619fcb0d513849551403c8bf809ee8dc193f9040f4227df6c5940c389c",
+    "research/bridge_open/analyze_fleurs.py": "a985756eb0120fc8fa4922882c5cd110fd62a2aefc2c783d3cac8b0cae6c29c6",
+    "research/bridge_open/validate_run.py": "9eabb882890eba14bd30e4ae7ff3202cda4e4b5a6a32776f6ba3c749b2b2e01a",
+    "research/bridge_open/scoring.py": "a63c0fdce68e33810bf233c813a5ebad0f3692e6718aad2828a802b2e776ff3c"
+  },
+  "registry_sha256": "5db23f934391ac18fa6a175d9f5d7aadda76ca8694fbc403fa56204255acc2a3",
+  "manifest_sha256": "967d8dca02f9f729c1ed7548dce7283cf9dfc62623815a7c131f71acb13ce2c7",
+  "run_ids": [
+    "1145ba64-7b86-4cd5-83eb-405b37c16c9d",
+    "20bc2dcb-6fa2-43f9-918a-168c9217c4cb",
+    "3cf727ec-be97-4986-a038-bb2d857fb09f",
+    "66145c4e-2b9d-4824-9b5a-9d714d4b79b9",
+    "773f3465-ea3a-4227-9436-e849251eecb5",
+    "819279db-719e-487d-ab50-33f937c9e7e6",
+    "bbc62605-e0b6-4a96-babe-1c34562e6cf5",
+    "cbd7f0cf-2d00-446f-b68b-28d4e48fe19c",
+    "d0b8f76c-55c3-46e3-b8c0-f6c3d9f5c2a5",
+    "d2cfd016-3ad0-4130-8a1a-0de3ebaf27eb",
+    "d9271cd0-3b78-41ce-8851-aaa24869f9b4",
+    "e0faf836-8902-4938-a8c8-cbff18f8ada9",
+    "e4b9290d-088c-4a13-aaa6-6c7a9e77b9d2",
+    "ed993f43-d88b-4224-8b7e-06df5fe4602c",
+    "fa82d3d6-b554-4b82-8fea-68ddc9cc0b29",
+    "fedbb046-929d-4c11-b4aa-58dadeb62f48"
+  ],
+  "note": "Offline recomputation only. All 2,322 recordings required per model."
+}

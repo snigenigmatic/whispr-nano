@@ -1,109 +1,91 @@
+# Current open-ASR audit — 24 September 2026
+
+The completed fixed study contains **20 supported model–dataset comparisons**, **six matched resource profiles**, and **13,232 primary predictions over 2,840 recordings**. Human listening review remains pending, and the paper is a working draft.
+
+- **[Kaustubh: remaining tasks and proposed dates](KAUSTUBH_TASKS.md)**
+- [Study status](research/bridge_open/CURRENT_STATUS.md)
+- [Quality results](research/bridge_open/core_study/QUALITY_RESULTS.md) · [Resource results](research/bridge_open/core_study/RESOURCE_RESULTS.md)
+- [Paper PDF](core_audit.pdf) · [LaTeX](core_audit.tex)
+- [Review readiness](research/bridge_open/core_study/REVIEW_READINESS.md) · [Listening handoff](research/bridge_open/core_study/REVIEW_HANDOFF.md)
+- **[Public export and reproduction limits](PUBLIC_EXPORT.md)**
+
+This branch publishes code, predictions, derived results and source-code archive copies. Original execution archives containing dataset audio and sealed review mappings remain in the local evidence snapshot. The inspection pages require the verified audio assets and a local HTTP server; GitHub file previews are not a hosted demonstration.
+
+---
+
+## Earlier project documentation
+
 # PW25_BJD_05 — Whose Indian Accent?
 
-**A significance-tested subgroup audit of Indian and frontier ASR systems**,
-plus the on-policy-distillation side-quest that led to it. This repo is the
-working home for the Phase 3 pivot of PW25_BJD_05, a PES University
-capstone project.
+This repository is the working home of a PES University capstone on
+Indian-English automatic speech recognition.
 
 | | |
 |---|---|
 | **Project ID** | PW25_BJD_05 |
 | **Guide** | Dr. Bhaskarjyoti Das |
 | **Team** | Aditya Sharma, Adithya V Holla, C Kaustubh, Aditi Mangala Udaya |
-| **Course repo** | [`snigenigmatic/ast-asr`](https://github.com/snigenigmatic/ast-asr) (`fair-cispo-work` branch) — the original Phase 1/2 codebase (fairness-training pipeline, LoRA/GRPO experiments). **This repo, not that one, is where the Phase 3 pivot's audit, deck, and results now live and get pushed from** — see [why](#relationship-to-ast-asr) below. |
+| **Active study** | Pseudo-label correction transfer across Indian-English speaker groups |
 
-## The one-paragraph pivot
+## Active research question
 
-Phase 2 built an evaluation protocol for Indian-accented ASR: per-family
-(Indo-Aryan / Dravidian / Sino-Tibetan) WER on the [Svarah](https://huggingface.co/datasets/ai4bharat/svarah)
-benchmark, with a Poisson significance test so a gap is only reported as
-real if it clears p < 0.05. In August, Sarvam's flagship Saaras V3 was
-evaluated on that exact benchmark by its own team — with only an aggregate
-number, no subgroup breakdown, no significance test. Rather than keep
-competing on a training result against a funded lab, Phase 3 points our own
-protocol at every ASR system we can reach. Full story: [`docs/TEAM_BRIEF.md`](docs/TEAM_BRIEF.md).
+> When do corrections learned from a teacher's pseudo-label errors transfer to
+> Indian-English speakers, and when do they fail?
 
-## The headline result: six systems, six structural gaps
+The publication study uses L2-ARCTIC as the labeled source, untranscribed
+SPIRE-SIES training audio as the target adaptation pool, and the speaker-disjoint
+SPIRE-SIES validation cohort as a final evaluation set. The closest method is
+[Pseudo2Real](https://aclanthology.org/2026.findings-acl.59/). The planned
+extension retains its source correction bank and conditions the mixture on
+unlabeled target-speaker embeddings.
 
-| System | Overall WER | Worst family | ΔDP (pp) | Poisson p | n | Cost |
-|---|---|---|---|---|---|---|
-| whisper-tiny | 20.60% | Sino-Tibetan | 14.19 | 3.3e-24 | 2,500 | $0.034 |
-| whisper-small | 10.88% | Sino-Tibetan | 3.18 | 0.0045 | 2,500 | $0.095 |
-| whisper-large-v3 | 7.04% | Sino-Tibetan | 2.38 | 0.0152 | 2,500 | $0.411 |
-| distil-large-v3 | 10.03% | Sino-Tibetan | 4.02 | 0.00025 | 2,500 | $0.285 |
-| **Saaras V3** | **5.81%** (best overall) | Sino-Tibetan | 3.45 | 0.00023 | 450 | $0.226 |
-| Qwen3-ASR-0.6B | 15.49% | Sino-Tibetan | 3.57 | 0.0013 | 2,500 | $0.142 |
+The final test set stays closed until the method, checkpoints, normalizers, and
+claims are frozen. Negative results are retained; seeds are never selected by
+test performance.
 
-Every system shows a statistically significant per-family gap, and
-Sino-Tibetan is the worst-performing family in all six — including Sarvam's
-own flagship (best overall WER, but doesn't close the fairness gap) and
-Qwen3-ASR (general-ASR SOTA elsewhere, but *worse* on this set than several
-Whisper variants). Total cost across all six systems: **$1.193**. Full
-writeup, per-family breakdown, and reproduction steps:
-[`audit/svarah_fairness_audit/README.md`](audit/svarah_fairness_audit/README.md).
+## Preserved evidence
 
-These numbers aren't just claimed — `audit/svarah_fairness_audit/assemble.py`
-independently recomputes every one of them straight from the per-utterance
-CSVs and cross-checks against each run's summary JSON (9/9 tests green, zero
-mismatches):
+- [START_HERE.md](START_HERE.md) indexes the completed nine-run H100 pilot.
+- [research/pilot](research/pilot/README.md) contains the original experiment
+  contract, ledgers, manifests, predictions, and independent checks.
+- [research/h100](research/h100/README.md) contains the focused H100 extension.
+- [paper](paper/README.md) preserves the matched-panel reliability report.
+- [docs/AUTORESEARCH_LOOP_REVIEW.md](docs/AUTORESEARCH_LOOP_REVIEW.md) records
+  the evidence and run-control rules adapted from AutoResearch.
+
+The H100 pilot found no supported advantage for teacher-filtered selection over
+matched-random selection under reference-label training. It did not test
+pseudo-label correction transfer and is not presented as evidence that a new
+method improves Indian-English ASR.
+
+## Historical audit limitations
+
+The earlier six-system Svarah audit is exploratory. Saaras and the open models
+used unequal cohorts, Svarah does not expose authoritative public speaker IDs,
+and Bodo is the audit's only Sino-Tibetan language. Historical Poisson p-values
+do not establish population-level disparities. See
+[audit/svarah_fairness_audit](audit/svarah_fairness_audit/README.md) and the
+[matched-panel report](paper/README.md) for the corrected interpretation.
+
+## Current components
+
+```text
+data/research_reset/          frozen audit inputs and contracts
+src/research_reset/           sampling, scoring, pairing, and stop rules
+listen/                       blinded listening and reconciliation lab
+research/pilot/               verified L2-ARCTIC manifests and H100 evidence
+research/h100/                completed H100 extension
+paper/                        historical matched-panel technical report
+experiments/                  fixed-command OpenResearch runner
+```
+
+## Existing checks
 
 ```bash
-cd audit/svarah_fairness_audit
-python assemble.py                     # writes master_audit_table.{csv,md}
-python -m pytest test_assemble.py -v   # schema hard-fail + math regression
+PYTHONPATH=src python -m pytest tests/test_research_reset.py tests/test_experiment_runner.py -v
+cd listen && npm ci && npm run lint && npm run build
 ```
 
-## Repository layout
-
-```
-docs/
-  ONPOLICY_DISTILLATION.md    # the OPD side-quest's full research writeup (was this repo's README)
-  TEAM_BRIEF.md               # the pivot story, for teammates, start here for context
-  WEEKEND_PLAN.md             # the execution plan with per-person agent-task briefs
-  MONDAY_REVIEW.md            # the scoped-down solo plan that produced the audit below
-  RESULTS_BRIEF.md            # what the audit found, where each number came from
-  RECEIPTS_PACK.md / .pdf     # verified quotes backing the deck's literature claims
-  PW25_BJD_05_Phase3_Review1.pptx   # the review deck, built on the official template
-  deck_assets/                # the deck's python-pptx generator + figures (reproducible)
-audit/
-  svarah_fairness_audit/      # the six-system audit: scripts, results, assembler, tests
-  opd_bias_extension/         # earlier, single-model Svarah bias check from the OPD side-quest
-src/onpolicy_distill/         # the on-policy distillation implementation (see docs/ONPOLICY_DISTILLATION.md)
-tests/                        # OPD unit + CPU integration tests
-modal_app.py                  # the OPD PoC's Modal App (image, GPU function, CLI entrypoints)
-results/                      # OPD PoC metrics/plots from the reported Modal runs
-PROPOSAL.md                   # the Modal-credits pitch built on the OPD PoC's results
-references.bib                # citations for the OPD writeup
-```
-
-## The on-policy distillation side-quest
-
-While researching for the pivot, this repo's original project took shape:
-a proof of concept that **on-policy distillation** — the technique behind
-recent LLM post-training recipes — transfers to autoregressive ASR.
-`whisper-tiny` learns from `whisper-large-v3` by having the teacher score
-the *student's own sampled transcripts*, on a single Modal T4, for **$0.16**.
-Parked as a future direction (two 2026 papers already did OPD for ASR at
-scale) rather than this cycle's contribution, but built and validated with
-real numbers. Full writeup: [`docs/ONPOLICY_DISTILLATION.md`](docs/ONPOLICY_DISTILLATION.md).
-Modal-credits pitch built on it: [`PROPOSAL.md`](PROPOSAL.md).
-
-## Relationship to `ast-asr`
-
-The capstone's Phase 1/2 code — the fairness-training pipeline, the LoRA and
-GRPO experiments, `ast_asr.taxonomy` / `ast_asr.metrics` (the scoring
-convention this audit reuses) — lives in
+Phase 1/2 code remains in
 [`snigenigmatic/ast-asr`](https://github.com/snigenigmatic/ast-asr) on the
-`fair-cispo-work` branch. The audit, the report-bug fixes, and the receipts
-pack were also committed there, locally. But that checkout has had
-persistent GitHub push-credential problems in this working environment, so
-those commits haven't reliably landed on GitHub.
-
-Rather than keep the Phase 3 deliverables blocked on that, this repo is now
-the one that actually gets pushed and presented from — it has push access
-that works, and it already had the Modal skeleton (image, volumes, cost
-guardrails) this audit's Whisper-family systems reuse directly. If/when the
-`ast-asr` push access is fixed, the identical audit files can be copied
-back over (exact file map + the two report-bug patches that only exist in
-`ast-asr`: [`docs/AST_ASR_PUSH_HANDOFF.md`](docs/AST_ASR_PUSH_HANDOFF.md));
-until then, treat **this repo as authoritative** for anything Phase 3.
+`fair-cispo-work` branch.

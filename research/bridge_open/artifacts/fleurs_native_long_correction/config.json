@@ -1,0 +1,41 @@
+{
+  "purpose": "All-long native route correction plus Turbo independent parity; post-result audit, not held-out improvement.",
+  "seed": 12,
+  "max_wall_seconds": 1450,
+  "native_transcribe": {
+    "verbose": null,
+    "temperature": [
+      0.0,
+      0.2,
+      0.4,
+      0.6,
+      0.8,
+      1.0
+    ],
+    "compression_ratio_threshold": 2.4,
+    "logprob_threshold": -1.0,
+    "no_speech_threshold": 0.6,
+    "condition_on_previous_text": true,
+    "initial_prompt": null,
+    "carry_initial_prompt": false,
+    "word_timestamps": false,
+    "clip_timestamps": "0",
+    "hallucination_silence_threshold": null,
+    "fp16": false,
+    "task": "transcribe"
+  },
+  "models": [
+    {
+      "model_id": "openai/whisper-large-v3-turbo",
+      "model_revision": "41f01f3fe87f28c78e2fbf8b568835947dd65ed9",
+      "native_model": "large-v3-turbo",
+      "short_parity": true
+    },
+    {
+      "model_id": "openai/whisper-large-v3",
+      "model_revision": "06f233fe06e710322aca913c1bc4249a0d71fce1",
+      "native_model": "large-v3",
+      "short_parity": false
+    }
+  ]
+}

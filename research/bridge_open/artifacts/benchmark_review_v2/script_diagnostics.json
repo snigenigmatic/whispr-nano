@@ -1,0 +1,75 @@
+{
+  "scope": "Unicode dominant-script diagnostic; not language identification or human semantic review",
+  "groups": [
+    {
+      "model": "Whisper Turbo",
+      "language": "hi",
+      "n": 418,
+      "dominant_script_mismatches": 0,
+      "unknown_dominant_script": 0
+    },
+    {
+      "model": "Whisper Large-v3",
+      "language": "hi",
+      "n": 418,
+      "dominant_script_mismatches": 0,
+      "unknown_dominant_script": 0
+    },
+    {
+      "model": "Qwen3-ASR-1.7B",
+      "language": "hi",
+      "n": 418,
+      "dominant_script_mismatches": 0,
+      "unknown_dominant_script": 0
+    },
+    {
+      "model": "OmniASR CTC-1B",
+      "language": "hi",
+      "n": 418,
+      "dominant_script_mismatches": 17,
+      "unknown_dominant_script": 0
+    },
+    {
+      "model": "Whisper Turbo",
+      "language": "bn",
+      "n": 920,
+      "dominant_script_mismatches": 30,
+      "unknown_dominant_script": 0
+    },
+    {
+      "model": "Whisper Large-v3",
+      "language": "bn",
+      "n": 920,
+      "dominant_script_mismatches": 1,
+      "unknown_dominant_script": 3
+    },
+    {
+      "model": "OmniASR CTC-1B",
+      "language": "bn",
+      "n": 920,
+      "dominant_script_mismatches": 0,
+      "unknown_dominant_script": 0
+    },
+    {
+      "model": "Whisper Turbo",
+      "language": "as",
+      "n": 984,
+      "dominant_script_mismatches": 948,
+      "unknown_dominant_script": 22
+    },
+    {
+      "model": "Whisper Large-v3",
+      "language": "as",
+      "n": 984,
+      "dominant_script_mismatches": 983,
+      "unknown_dominant_script": 1
+    },
+    {
+      "model": "OmniASR CTC-1B",
+      "language": "as",
+      "n": 984,
+      "dominant_script_mismatches": 0,
+      "unknown_dominant_script": 0
+    }
+  ]
+}

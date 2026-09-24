@@ -1,0 +1,10 @@
+{
+  "manifest_path": "/Users/prateekraj/whispr-nano/data/bridge_open/fleurs_test_v1/corpus-v2.jsonl",
+  "manifest_sha256": "967d8dca02f9f729c1ed7548dce7283cf9dfc62623815a7c131f71acb13ce2c7",
+  "previous_manifest_sha256": "e1716a6d59d88adbabadf89016e62cd94c7de0685550bdf9ace09170cc25b010",
+  "protocol_v2_sha256": "6dbf110a26e3093f681ff51c610b4e4b54251a8fa41622e9860f6ecde71d5a9f",
+  "rows": 2322,
+  "overlong": 14,
+  "test_predictions_seen": false,
+  "routing_is_audio_length_only": true
+}

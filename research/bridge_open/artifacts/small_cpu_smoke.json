@@ -1,0 +1,12 @@
+{
+  "scope": "30-second CPU eager diagnostic",
+  "seconds": 7.671936667058617,
+  "model_revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+  "audio_id": "humyn-13-00",
+  "token_count": 440,
+  "eos_present": false,
+  "text": " अलो अलो अलो अलो बिस्चिष्ट्य साँल ज़ासे तूर ता मारा इस बार भी मरा तूर का जो है ना उ प्लैन करने थे किया ना मेरा बास अब आद तो रायना भी ना आद तो क्या सुचे का ता आप याना है इसले बाज या ना लिग बाता ना इसले बाज या ना इसले बाज या आद या आद या आद या आद या आद या आद या आद या आद या आद या आद या आद या आद या आद या आद या आद या आद या आद या आद या आद या आद या आद या आद या आद या आद या आद या आद या आद या आद या आद या आद या आ�",
+  "acceptance": "rejected: mixed shared Python environment; not accepted as model evidence",
+  "imported_transformers_version": "5.16.1",
+  "metadata_transformers_version": "4.57.6"
+}

@@ -1,0 +1,93 @@
+{
+  "valid": true,
+  "records": 12,
+  "source_records": 518,
+  "scope": "limited recovered shard; structural not human validation",
+  "manifest_sha256": "14c08d00b5e585de77ee3af6b486b05980e0cc9e8a31139654437b2ed8082dac",
+  "checks": [
+    {
+      "conversation_id": "svarah_06413",
+      "source_shard": "svarah-test-00002-of-00003.arrow",
+      "source_row": 275,
+      "global_dataset_index": 6413,
+      "source_audio_and_reference_match": true
+    },
+    {
+      "conversation_id": "svarah_06648",
+      "source_shard": "svarah-test-00002-of-00003.arrow",
+      "source_row": 510,
+      "global_dataset_index": 6648,
+      "source_audio_and_reference_match": true
+    },
+    {
+      "conversation_id": "svarah_06257",
+      "source_shard": "svarah-test-00002-of-00003.arrow",
+      "source_row": 119,
+      "global_dataset_index": 6257,
+      "source_audio_and_reference_match": true
+    },
+    {
+      "conversation_id": "svarah_06387",
+      "source_shard": "svarah-test-00002-of-00003.arrow",
+      "source_row": 249,
+      "global_dataset_index": 6387,
+      "source_audio_and_reference_match": true
+    },
+    {
+      "conversation_id": "svarah_06420",
+      "source_shard": "svarah-test-00002-of-00003.arrow",
+      "source_row": 282,
+      "global_dataset_index": 6420,
+      "source_audio_and_reference_match": true
+    },
+    {
+      "conversation_id": "svarah_06341",
+      "source_shard": "svarah-test-00002-of-00003.arrow",
+      "source_row": 203,
+      "global_dataset_index": 6341,
+      "source_audio_and_reference_match": true
+    },
+    {
+      "conversation_id": "svarah_06269",
+      "source_shard": "svarah-test-00002-of-00003.arrow",
+      "source_row": 131,
+      "global_dataset_index": 6269,
+      "source_audio_and_reference_match": true
+    },
+    {
+      "conversation_id": "svarah_06271",
+      "source_shard": "svarah-test-00002-of-00003.arrow",
+      "source_row": 133,
+      "global_dataset_index": 6271,
+      "source_audio_and_reference_match": true
+    },
+    {
+      "conversation_id": "svarah_06332",
+      "source_shard": "svarah-test-00002-of-00003.arrow",
+      "source_row": 194,
+      "global_dataset_index": 6332,
+      "source_audio_and_reference_match": true
+    },
+    {
+      "conversation_id": "svarah_06284",
+      "source_shard": "svarah-test-00002-of-00003.arrow",
+      "source_row": 146,
+      "global_dataset_index": 6284,
+      "source_audio_and_reference_match": true
+    },
+    {
+      "conversation_id": "svarah_06191",
+      "source_shard": "svarah-test-00002-of-00003.arrow",
+      "source_row": 53,
+      "global_dataset_index": 6191,
+      "source_audio_and_reference_match": true
+    },
+    {
+      "conversation_id": "svarah_06522",
+      "source_shard": "svarah-test-00002-of-00003.arrow",
+      "source_row": 384,
+      "global_dataset_index": 6522,
+      "source_audio_and_reference_match": true
+    }
+  ]
+}

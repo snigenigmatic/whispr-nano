@@ -1,0 +1,41 @@
+{
+  "cohort_role": "previously_exposed_exploratory",
+  "parts": [
+    [
+      "humyn-09-00",
+      "humyn-01-01",
+      "humyn-16-00",
+      "humyn-00-01"
+    ],
+    [
+      "humyn-09-01",
+      "humyn-19-00",
+      "humyn-02-00",
+      "humyn-15-00",
+      "humyn-10-00"
+    ],
+    [
+      "humyn-08-01",
+      "humyn-20-00",
+      "humyn-17-00",
+      "humyn-11-00",
+      "humyn-00-00"
+    ],
+    [
+      "humyn-21-00",
+      "humyn-01-00",
+      "humyn-14-01",
+      "humyn-10-01",
+      "humyn-07-00"
+    ]
+  ],
+  "audio_seconds": [
+    3753.4783125,
+    4309.3425,
+    3996.059907171202,
+    4393.258615504535
+  ],
+  "count": 19,
+  "selection": "all QC-pass supported nonHindi rows; longest-duration-first into least-loaded shard; no predictions used",
+  "parent_commit": "33f2fa9"
+}

@@ -1,0 +1,42 @@
+{
+  "purpose": "Paired language-conditioning diagnostic on exposed FLEURS official test; no held-out improvement claim",
+  "selection": "SHA256(language-audit-12:conversation_id) first 10 short recordings per language plus all 14 long recordings; independent of WER",
+  "seed": 12,
+  "models": [
+    {
+      "model_id": "openai/whisper-large-v3",
+      "model_revision": "06f233fe06e710322aca913c1bc4249a0d71fce1",
+      "native_model": "large-v3",
+      "expected_native_checkpoint_sha256": "e5b1a55b89c1367dacf97e3e19bfd829a01529dbfdeefa8caeb59b3f1b81dadb"
+    }
+  ],
+  "arms": [
+    "forced",
+    "automatic"
+  ],
+  "native_transcribe": {
+    "verbose": null,
+    "temperature": [
+      0.0,
+      0.2,
+      0.4,
+      0.6,
+      0.8,
+      1.0
+    ],
+    "compression_ratio_threshold": 2.4,
+    "logprob_threshold": -1.0,
+    "no_speech_threshold": 0.6,
+    "condition_on_previous_text": true,
+    "initial_prompt": null,
+    "carry_initial_prompt": false,
+    "word_timestamps": false,
+    "clip_timestamps": "0",
+    "hallucination_silence_threshold": null,
+    "fp16": false,
+    "task": "transcribe"
+  },
+  "max_wall_seconds": 1450,
+  "cohort_sha256": "0c27e96ead4f9e3d92ef28a45cf9e1f66ec9c170c43e45dc99141e1a6181cbda",
+  "expected_n": 44
+}

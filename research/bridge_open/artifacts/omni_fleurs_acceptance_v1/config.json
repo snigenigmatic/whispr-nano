@@ -1,0 +1,41 @@
+{
+  "model_id": "facebook/omniASR-CTC-1B",
+  "model_revision": "8c22e3ffdaa4aab6431b128b84b991a7d9c2515c",
+  "manifest_path": "/workspace/repo/frozen_manifest.jsonl",
+  "manifest_sha256": "b6c9c47a570e10b819c80af6f7bda4bb0f62b373f56810a19feacf01299e29d0",
+  "supported_languages": [
+    "as",
+    "bn",
+    "hi"
+  ],
+  "device": "cuda",
+  "seed": 12,
+  "full_waveform": true,
+  "max_audio_seconds": 40,
+  "batch_size": 1,
+  "termination_semantics": "ctc_no_eos",
+  "model_family": "omni_ctc",
+  "dtype": "bfloat16",
+  "metric_protocol": "NFC casefold Unicode punctuation to spaces; whitespace words; whitespace-free Unicode codepoint CER; no numeral conversion; JiWER 4.0.0",
+  "executor": "hf",
+  "input_transport": "bundled_exact_fleurs_subset",
+  "inference_mode": "acceptance",
+  "conversation_ids": [
+    "fleurs-as_in-test-10007973808011083086",
+    "fleurs-as_in-test-10025377740714651614",
+    "fleurs-as_in-test-5798548483160658342",
+    "fleurs-bn_in-test-10012315972427481934",
+    "fleurs-bn_in-test-10025278611427771211",
+    "fleurs-bn_in-test-16169029267663360791",
+    "fleurs-hi_in-test-10011266027513218401",
+    "fleurs-hi_in-test-10014385262415025488",
+    "fleurs-hi_in-test-13003185437122223029"
+  ],
+  "max_wall_seconds": 900,
+  "output_dir": "/workspace/repo/artifacts/omni-fleurs-acceptance-v1",
+  "cloud_job_id": "omni-fleurs-acceptance-v1",
+  "condition_id": "audio_only_full_waveform_native_ctc_api_token_acceptance",
+  "decoding_mode": "full_waveform_ctc",
+  "source_manifest_sha256": "967d8dca02f9f729c1ed7548dce7283cf9dfc62623815a7c131f71acb13ce2c7",
+  "frozen_cohort_sha256": "b6c9c47a570e10b819c80af6f7bda4bb0f62b373f56810a19feacf01299e29d0"
+}

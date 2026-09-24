@@ -1,0 +1,13 @@
+{
+  "sha256": "045007d1c20f935e79fbfeb83b5e70fe8b71c9914f2470b2b04672cbc90232e1",
+  "files": [
+    "batch_inference.jsonl",
+    "config.json",
+    "environment.json",
+    "hf_receipt.json",
+    "predictions.jsonl",
+    "remote_validation.json",
+    "summary.json"
+  ],
+  "chunks": 138
+}

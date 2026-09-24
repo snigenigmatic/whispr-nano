@@ -1,0 +1,928 @@
+{
+  "created_at": "2026-09-24T06:44:00.883564+00:00",
+  "environment": {
+    "cuda_version": "12.8",
+    "device_index": 0,
+    "device_properties": {
+      "compute_capability": "8.0",
+      "multi_processor_count": 108,
+      "name": "NVIDIA A100-SXM4-80GB",
+      "total_memory_bytes": 85093777408
+    },
+    "gpu_name": "NVIDIA A100-SXM4-80GB",
+    "platform": "Linux-6.12.103-127.188.amzn2023.x86_64-x86_64-with-glibc2.35",
+    "python_version": "3.11.13",
+    "torch_version": "2.8.0+cu128"
+  },
+  "model_residency": {
+    "declared_precision": "bfloat16",
+    "declared_search": {
+      "do_sample": false,
+      "language": "English",
+      "max_new_tokens": 512,
+      "num_beams": 1
+    },
+    "model_hashes": {
+      "chat_template.json": "75a8cfca24f00de72d796fbfed6858fc9614ef3dabd8696684cc3bc03a9c58ff",
+      "config.json": "2e74a751548b8ad7d7526d29365ad8144c345d8b412b1152d25dc6698452712f",
+      "generation_config.json": "1da527824d81e07118facff437e03f2e24a23311e3bdeb2368973fe77e5f275c",
+      "merges.txt": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5",
+      "model-00001-of-00002.safetensors": "a4cd1f1a04d90b757dc7f7dd26254e69a013b19e80efe590a83c6a3bde8608d6",
+      "model-00002-of-00002.safetensors": "6e0b9d9e09e2e0238e7ef3cc8a484ab387e91b90f1900bedf88bc92d7929ccfc",
+      "model.safetensors.index.json": "f994739fe38e5210b9e3e8ce6c6307315e2ceac3cb630e7b7414d69dce520f60",
+      "preprocessor_config.json": "45e120a4eda2c20c5d7f2ea9354e63536bf35e27aa573fb7cdf78017b378770d",
+      "tokenizer_config.json": "4942d005604266809309cabc9f4e9cb89ce855d59b14681fdc0e1cc62ea26c4c",
+      "vocab.json": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+    },
+    "model_id": "Qwen/Qwen3-ASR-1.7B",
+    "model_revision": "7278e1e70fe206f11671096ffdd38061171dd6e5",
+    "parameter_count": 2038052480,
+    "resident_before_measurement": true
+  },
+  "pipeline_configuration": {
+    "batch_size": 1,
+    "decoder": "Qwen3ASRModel.transcribe",
+    "frontend": "inside public API timed callable",
+    "public_api_calls_per_input_per_phase": 1
+  },
+  "schema_version": "core-resource-profile/v1",
+  "study": {
+    "clock_scope": "per-call end-to-end inference: callable feature preparation, transfer, decoding, and text postprocessing; CUDA synchronized immediately before and after the callable; excludes model load, setup, audio file I/O, reference loading, and scoring",
+    "comparability_note": "This batch-1 resource condition is separate from the primary full-quality Qwen batch-8 condition. It is not a direct full-WER/latency Pareto comparison without matched decoding and parity qualification.",
+    "condition": {
+      "audio_loaded_before_timing": true,
+      "batch_size": 1,
+      "fixed_order": true
+    },
+    "conversation_ids": [
+      "svarah_06413",
+      "svarah_06648",
+      "svarah_06257",
+      "svarah_06387",
+      "svarah_06420",
+      "svarah_06341",
+      "svarah_06269",
+      "svarah_06271",
+      "svarah_06332",
+      "svarah_06284",
+      "svarah_06191",
+      "svarah_06522"
+    ],
+    "panel_manifest_sha256": "14c08d00b5e585de77ee3af6b486b05980e0cc9e8a31139654437b2ed8082dac",
+    "panel_name": "svarah_native_shard02_v2_fixed_12",
+    "timed_complete_passes": 3,
+    "warmup_passes": 1
+  },
+  "summary": {
+    "expected_timed_calls": 36,
+    "expected_warmup_calls": 12,
+    "failed_calls_including_warmup": 0,
+    "observed_timed_calls": 36,
+    "observed_warmup_calls": 12,
+    "timed_failed_calls": 0
+  },
+  "timed_calls": [
+    {
+      "audio_sha256": "5c2a1c0bdbbec34e37580b89f80ee1f46192c531ec0c12b1bd524da02db189d9",
+      "conversation_id": "svarah_06413",
+      "duration_seconds": 27.8063125,
+      "end_to_end_inference_seconds": 1.9850591979920864,
+      "failure": null,
+      "ordinal": 0,
+      "pass_index": 1,
+      "peak_cuda_allocated_bytes": 4314181120,
+      "peak_cuda_reserved_bytes": 4777312256,
+      "phase": "timed",
+      "real_time_factor": 0.07138879698601124,
+      "resident_baseline_memory_bytes": {
+        "allocated_bytes": 4091439616,
+        "reserved_bytes": 4777312256
+      },
+      "status": "success",
+      "text": "The government and people arrange and celebrate different festivals associated with environment. For example, for lions, Asiatic lions, we have Lions Day celebrated near the Gir Forest. Some cultural programs are arranged at historical places such as Tana Riri Festival, music festival at Modera Sun Temple.",
+      "text_sha256": "fa10fdadd749a9b949daee05663d69b25a2e9b00c6974f27368a61e5117a1dcf"
+    },
+    {
+      "audio_sha256": "04997bbb4151302266a868f90ae773b1151448e9eb62c4b66f5f73e78a45f46a",
+      "conversation_id": "svarah_06648",
+      "duration_seconds": 3.0051875,
+      "end_to_end_inference_seconds": 0.29072776398970746,
+      "failure": null,
+      "ordinal": 1,
+      "pass_index": 1,
+      "peak_cuda_allocated_bytes": 4119022592,
+      "peak_cuda_reserved_bytes": 4777312256,
+      "phase": "timed",
+      "real_time_factor": 0.09674197167055548,
+      "resident_baseline_memory_bytes": {
+        "allocated_bytes": 4091439616,
+        "reserved_bytes": 4777312256
+      },
+      "status": "success",
+      "text": "Government offers a number of scholarships.",
+      "text_sha256": "b6f30607b0a9fda53d845e1bc4d0505131b6ae66322b2bd97eb88f5897c0262a"
+    },
+    {
+      "audio_sha256": "b1b461189068d35521519d2252c600cd893f47399e44792d740f7cb271ac4084",
+      "conversation_id": "svarah_06257",
+      "duration_seconds": 0.6155625,
+      "end_to_end_inference_seconds": 0.13253879998228513,
+      "failure": null,
+      "ordinal": 2,
+      "pass_index": 1,
+      "peak_cuda_allocated_bytes": 4102953472,
+      "peak_cuda_reserved_bytes": 4777312256,
+      "phase": "timed",
+      "real_time_factor": 0.21531331096726186,
+      "resident_baseline_memory_bytes": {
+        "allocated_bytes": 4091439616,
+        "reserved_bytes": 4777312256
+      },
+      "status": "success",
+      "text": "Visual.",
+      "text_sha256": "80671ed2f8146535eb9ace1a4d9d5e270a7b2309d0579bd4ff16baeb1e14e654"
+    },
+    {
+      "audio_sha256": "334db011a77b5989302b37ce391af16b4b829b3db4d0b865a236f68fc8909cbb",
+      "conversation_id": "svarah_06387",
+      "duration_seconds": 6.4724375,
+      "end_to_end_inference_seconds": 0.39842221897561103,
+      "failure": null,
+      "ordinal": 3,
+      "pass_index": 1,
+      "peak_cuda_allocated_bytes": 4150121984,
+      "peak_cuda_reserved_bytes": 4777312256,
+      "phase": "timed",
+      "real_time_factor": 0.061556750293164056,
+      "resident_baseline_memory_bytes": {
+        "allocated_bytes": 4091439616,
+        "reserved_bytes": 4777312256
+      },
+      "status": "success",
+      "text": "Give a new direction to tourism industry of Goa.",
+      "text_sha256": "2c8371d89a56f53841a6ca256501ec52b9ea8b74a59f790143a1a4b2cea6c3ec"
+    },
+    {
+      "audio_sha256": "3174e2f4de05591524f84043a7f362fab1f4ddde2f77c9d12937a0ebf75b2336",
+      "conversation_id": "svarah_06420",
+      "duration_seconds": 6.7508125,
+      "end_to_end_inference_seconds": 0.4981879749975633,
+      "failure": null,
+      "ordinal": 4,
+      "pass_index": 1,
+      "peak_cuda_allocated_bytes": 4150145536,
+      "peak_cuda_reserved_bytes": 4777312256,
+      "phase": "timed",
+      "real_time_factor": 0.07379674298427978,
+      "resident_baseline_memory_bytes": {
+        "allocated_bytes": 4091439616,
+        "reserved_bytes": 4777312256
+      },
+      "status": "success",
+      "text": "That meetwear or that yarns are like it troubles in.",
+      "text_sha256": "6d093c8223c1a6dd34cfc4b8275ac37ae69af5840a7b9b6159f29668aba456ba"
+    },
+    {
+      "audio_sha256": "9e068e98065da5b0e3989695d8d321b23d62e838c39a8581c9eb3b3c56aa5fe2",
+      "conversation_id": "svarah_06341",
+      "duration_seconds": 4.7454375,
+      "end_to_end_inference_seconds": 0.5647562300146092,
+      "failure": null,
+      "ordinal": 5,
+      "pass_index": 1,
+      "peak_cuda_allocated_bytes": 4134575104,
+      "peak_cuda_reserved_bytes": 4777312256,
+      "phase": "timed",
+      "real_time_factor": 0.11901036100772776,
+      "resident_baseline_memory_bytes": {
+        "allocated_bytes": 4091439616,
+        "reserved_bytes": 4777312256
+      },
+      "status": "success",
+      "text": "Why is there no E S I C centers in area with pin code?",
+      "text_sha256": "7c0992112b15ac8841a50814385ee1ef4f5a5f5574d431b5fadeb8f706f600ce"
+    },
+    {
+      "audio_sha256": "43c35013e103f471a308ff2027a7c7d9072f40a524f10f2a1c2d004daa146331",
+      "conversation_id": "svarah_06269",
+      "duration_seconds": 5.8951875,
+      "end_to_end_inference_seconds": 0.5653229680028744,
+      "failure": null,
+      "ordinal": 6,
+      "pass_index": 1,
+      "peak_cuda_allocated_bytes": 4142372352,
+      "peak_cuda_reserved_bytes": 4777312256,
+      "phase": "timed",
+      "real_time_factor": 0.09589567219072752,
+      "resident_baseline_memory_bytes": {
+        "allocated_bytes": 4091439616,
+        "reserved_bytes": 4777312256
+      },
+      "status": "success",
+      "text": "Karnatic music itself developed around musical works or compositions of phenomenal composers.",
+      "text_sha256": "c77e1911ec866807e592e9ba89a8c624d2d686cf0c29e9e53d57ae873f80a291"
+    },
+    {
+      "audio_sha256": "3e36305247d0e240fdfaab1319788a3eab10f32dcb99cdd54d9225bd5a63e9b7",
+      "conversation_id": "svarah_06271",
+      "duration_seconds": 9.5593125,
+      "end_to_end_inference_seconds": 0.9308640950184781,
+      "failure": null,
+      "ordinal": 7,
+      "pass_index": 1,
+      "peak_cuda_allocated_bytes": 4173484544,
+      "peak_cuda_reserved_bytes": 4777312256,
+      "phase": "timed",
+      "real_time_factor": 0.09737772407989362,
+      "resident_baseline_memory_bytes": {
+        "allocated_bytes": 4091439616,
+        "reserved_bytes": 4777312256
+      },
+      "status": "success",
+      "text": "Can you please use that for mobile number six nine seven eight zero five four nine four eight two to log into Covin portal.",
+      "text_sha256": "32f9ee38c91d1352e6d082e40d8fa9a8b1f9d96c37bb772217d7f26d1140dd02"
+    },
+    {
+      "audio_sha256": "8bcc60567b907f9542333cb9491a5097389023ff06fec911380028203f627aa4",
+      "conversation_id": "svarah_06332",
+      "duration_seconds": 3.44975,
+      "end_to_end_inference_seconds": 0.4259913520072587,
+      "failure": null,
+      "ordinal": 8,
+      "pass_index": 1,
+      "peak_cuda_allocated_bytes": 4126764032,
+      "peak_cuda_reserved_bytes": 4777312256,
+      "phase": "timed",
+      "real_time_factor": 0.12348470237184106,
+      "resident_baseline_memory_bytes": {
+        "allocated_bytes": 4091439616,
+        "reserved_bytes": 4777312256
+      },
+      "status": "success",
+      "text": "So there are so so many bodies who are working.",
+      "text_sha256": "86cb17df961f546bd7bc99e7d12d113858d7983ecd489888f3e51c02e3f4c941"
+    },
+    {
+      "audio_sha256": "5be6d44dc519a075699304832c5b4706b12b48a0f80da1b80c6833cf634177bd",
+      "conversation_id": "svarah_06284",
+      "duration_seconds": 1.5501875,
+      "end_to_end_inference_seconds": 0.19808867000392638,
+      "failure": null,
+      "ordinal": 9,
+      "pass_index": 1,
+      "peak_cuda_allocated_bytes": 4111762944,
+      "peak_cuda_reserved_bytes": 4777312256,
+      "phase": "timed",
+      "real_time_factor": 0.127783684234279,
+      "resident_baseline_memory_bytes": {
+        "allocated_bytes": 4091439616,
+        "reserved_bytes": 4777312256
+      },
+      "status": "success",
+      "text": "Six fifty kilometers.",
+      "text_sha256": "9a859aa595306ed4e98fb8b62291d8e9b6c55e037f1e9e31646902da8c6cafed"
+    },
+    {
+      "audio_sha256": "bc974cff0b29dd24ae1c14e8f9eb73698a44ac01987d50a02dc51ae5ac033293",
+      "conversation_id": "svarah_06191",
+      "duration_seconds": 8.510875,
+      "end_to_end_inference_seconds": 0.7052034790103789,
+      "failure": null,
+      "ordinal": 10,
+      "pass_index": 1,
+      "peak_cuda_allocated_bytes": 4165698560,
+      "peak_cuda_reserved_bytes": 4777312256,
+      "phase": "timed",
+      "real_time_factor": 0.08285910426488216,
+      "resident_baseline_memory_bytes": {
+        "allocated_bytes": 4091439616,
+        "reserved_bytes": 4777312256
+      },
+      "status": "success",
+      "text": "That to have a round-shaped roti was an impossible task for me.",
+      "text_sha256": "5487ad70f091536be54c5f418f692cc6e268a8a95606feb91b1c12c6c2fa2140"
+    },
+    {
+      "audio_sha256": "e16aa896e50ffe4fdb487432d2573eebcee364c52e809ecd8b640613194e2501",
+      "conversation_id": "svarah_06522",
+      "duration_seconds": 7.030375,
+      "end_to_end_inference_seconds": 0.9968360459897667,
+      "failure": null,
+      "ordinal": 11,
+      "pass_index": 1,
+      "peak_cuda_allocated_bytes": 4157874688,
+      "peak_cuda_reserved_bytes": 4777312256,
+      "phase": "timed",
+      "real_time_factor": 0.1417898826150478,
+      "resident_baseline_memory_bytes": {
+        "allocated_bytes": 4091439616,
+        "reserved_bytes": 4777312256
+      },
+      "status": "success",
+      "text": "Please use mobile number eight two five six two eight four eight one four zero to register on Co Win platform.",
+      "text_sha256": "07d570d2d07f9f880a23439acc95ea7d825bd51531b81fb94193cc80e1cd8127"
+    },
+    {
+      "audio_sha256": "5c2a1c0bdbbec34e37580b89f80ee1f46192c531ec0c12b1bd524da02db189d9",
+      "conversation_id": "svarah_06413",
+      "duration_seconds": 27.8063125,
+      "end_to_end_inference_seconds": 2.492201068002032,
+      "failure": null,
+      "ordinal": 0,
+      "pass_index": 2,
+      "peak_cuda_allocated_bytes": 4314181120,
+      "peak_cuda_reserved_bytes": 4777312256,
+      "phase": "timed",
+      "real_time_factor": 0.0896271689387808,
+      "resident_baseline_memory_bytes": {
+        "allocated_bytes": 4091439616,
+        "reserved_bytes": 4777312256
+      },
+      "status": "success",
+      "text": "The government and people arrange and celebrate different festivals associated with environment. For example, for lions, Asiatic lions, we have Lions Day celebrated near the Gir Forest. Some cultural programs are arranged at historical places such as Tana Riri Festival, music festival at Modera Sun Temple.",
+      "text_sha256": "fa10fdadd749a9b949daee05663d69b25a2e9b00c6974f27368a61e5117a1dcf"
+    },
+    {
+      "audio_sha256": "04997bbb4151302266a868f90ae773b1151448e9eb62c4b66f5f73e78a45f46a",
+      "conversation_id": "svarah_06648",
+      "duration_seconds": 3.0051875,
+      "end_to_end_inference_seconds": 0.36727422301191837,
+      "failure": null,
+      "ordinal": 1,
+      "pass_index": 2,
+      "peak_cuda_allocated_bytes": 4119022592,
+      "peak_cuda_reserved_bytes": 4777312256,
+      "phase": "timed",
+      "real_time_factor": 0.12221341364288198,
+      "resident_baseline_memory_bytes": {
+        "allocated_bytes": 4091439616,
+        "reserved_bytes": 4777312256
+      },
+      "status": "success",
+      "text": "Government offers a number of scholarships.",
+      "text_sha256": "b6f30607b0a9fda53d845e1bc4d0505131b6ae66322b2bd97eb88f5897c0262a"
+    },
+    {
+      "audio_sha256": "b1b461189068d35521519d2252c600cd893f47399e44792d740f7cb271ac4084",
+      "conversation_id": "svarah_06257",
+      "duration_seconds": 0.6155625,
+      "end_to_end_inference_seconds": 0.15048588998615742,
+      "failure": null,
+      "ordinal": 2,
+      "pass_index": 2,
+      "peak_cuda_allocated_bytes": 4102953472,
+      "peak_cuda_reserved_bytes": 4777312256,
+      "phase": "timed",
+      "real_time_factor": 0.2444689044348176,
+      "resident_baseline_memory_bytes": {
+        "allocated_bytes": 4091439616,
+        "reserved_bytes": 4777312256
+      },
+      "status": "success",
+      "text": "Visual.",
+      "text_sha256": "80671ed2f8146535eb9ace1a4d9d5e270a7b2309d0579bd4ff16baeb1e14e654"
+    },
+    {
+      "audio_sha256": "334db011a77b5989302b37ce391af16b4b829b3db4d0b865a236f68fc8909cbb",
+      "conversation_id": "svarah_06387",
+      "duration_seconds": 6.4724375,
+      "end_to_end_inference_seconds": 0.4937503300025128,
+      "failure": null,
+      "ordinal": 3,
+      "pass_index": 2,
+      "peak_cuda_allocated_bytes": 4150121984,
+      "peak_cuda_reserved_bytes": 4777312256,
+      "phase": "timed",
+      "real_time_factor": 0.07628506725673485,
+      "resident_baseline_memory_bytes": {
+        "allocated_bytes": 4091439616,
+        "reserved_bytes": 4777312256
+      },
+      "status": "success",
+      "text": "Give a new direction to tourism industry of Goa.",
+      "text_sha256": "2c8371d89a56f53841a6ca256501ec52b9ea8b74a59f790143a1a4b2cea6c3ec"
+    },
+    {
+      "audio_sha256": "3174e2f4de05591524f84043a7f362fab1f4ddde2f77c9d12937a0ebf75b2336",
+      "conversation_id": "svarah_06420",
+      "duration_seconds": 6.7508125,
+      "end_to_end_inference_seconds": 0.6155154450098053,
+      "failure": null,
+      "ordinal": 4,
+      "pass_index": 2,
+      "peak_cuda_allocated_bytes": 4150145536,
+      "peak_cuda_reserved_bytes": 4777312256,
+      "phase": "timed",
+      "real_time_factor": 0.09117649838590618,
+      "resident_baseline_memory_bytes": {
+        "allocated_bytes": 4091439616,
+        "reserved_bytes": 4777312256
+      },
+      "status": "success",
+      "text": "That meetwear or that yarns are like it troubles in.",
+      "text_sha256": "6d093c8223c1a6dd34cfc4b8275ac37ae69af5840a7b9b6159f29668aba456ba"
+    },
+    {
+      "audio_sha256": "9e068e98065da5b0e3989695d8d321b23d62e838c39a8581c9eb3b3c56aa5fe2",
+      "conversation_id": "svarah_06341",
+      "duration_seconds": 4.7454375,
+      "end_to_end_inference_seconds": 0.7042982399871107,
+      "failure": null,
+      "ordinal": 5,
+      "pass_index": 2,
+      "peak_cuda_allocated_bytes": 4134575104,
+      "peak_cuda_reserved_bytes": 4777312256,
+      "phase": "timed",
+      "real_time_factor": 0.14841587103130335,
+      "resident_baseline_memory_bytes": {
+        "allocated_bytes": 4091439616,
+        "reserved_bytes": 4777312256
+      },
+      "status": "success",
+      "text": "Why is there no E S I C centers in area with pin code?",
+      "text_sha256": "7c0992112b15ac8841a50814385ee1ef4f5a5f5574d431b5fadeb8f706f600ce"
+    },
+    {
+      "audio_sha256": "43c35013e103f471a308ff2027a7c7d9072f40a524f10f2a1c2d004daa146331",
+      "conversation_id": "svarah_06269",
+      "duration_seconds": 5.8951875,
+      "end_to_end_inference_seconds": 0.699357377976412,
+      "failure": null,
+      "ordinal": 6,
+      "pass_index": 2,
+      "peak_cuda_allocated_bytes": 4142372352,
+      "peak_cuda_reserved_bytes": 4777312256,
+      "phase": "timed",
+      "real_time_factor": 0.11863191424808998,
+      "resident_baseline_memory_bytes": {
+        "allocated_bytes": 4091439616,
+        "reserved_bytes": 4777312256
+      },
+      "status": "success",
+      "text": "Karnatic music itself developed around musical works or compositions of phenomenal composers.",
+      "text_sha256": "c77e1911ec866807e592e9ba89a8c624d2d686cf0c29e9e53d57ae873f80a291"
+    },
+    {
+      "audio_sha256": "3e36305247d0e240fdfaab1319788a3eab10f32dcb99cdd54d9225bd5a63e9b7",
+      "conversation_id": "svarah_06271",
+      "duration_seconds": 9.5593125,
+      "end_to_end_inference_seconds": 1.1682778370159212,
+      "failure": null,
+      "ordinal": 7,
+      "pass_index": 2,
+      "peak_cuda_allocated_bytes": 4173484544,
+      "peak_cuda_reserved_bytes": 4777312256,
+      "phase": "timed",
+      "real_time_factor": 0.12221358356219876,
+      "resident_baseline_memory_bytes": {
+        "allocated_bytes": 4091439616,
+        "reserved_bytes": 4777312256
+      },
+      "status": "success",
+      "text": "Can you please use that for mobile number six nine seven eight zero five four nine four eight two to log into Covin portal.",
+      "text_sha256": "32f9ee38c91d1352e6d082e40d8fa9a8b1f9d96c37bb772217d7f26d1140dd02"
+    },
+    {
+      "audio_sha256": "8bcc60567b907f9542333cb9491a5097389023ff06fec911380028203f627aa4",
+      "conversation_id": "svarah_06332",
+      "duration_seconds": 3.44975,
+      "end_to_end_inference_seconds": 0.5279043110203929,
+      "failure": null,
+      "ordinal": 8,
+      "pass_index": 2,
+      "peak_cuda_allocated_bytes": 4126764032,
+      "peak_cuda_reserved_bytes": 4777312256,
+      "phase": "timed",
+      "real_time_factor": 0.153026831225565,
+      "resident_baseline_memory_bytes": {
+        "allocated_bytes": 4091439616,
+        "reserved_bytes": 4777312256
+      },
+      "status": "success",
+      "text": "So there are so so many bodies who are working.",
+      "text_sha256": "86cb17df961f546bd7bc99e7d12d113858d7983ecd489888f3e51c02e3f4c941"
+    },
+    {
+      "audio_sha256": "5be6d44dc519a075699304832c5b4706b12b48a0f80da1b80c6833cf634177bd",
+      "conversation_id": "svarah_06284",
+      "duration_seconds": 1.5501875,
+      "end_to_end_inference_seconds": 0.23445160000119358,
+      "failure": null,
+      "ordinal": 9,
+      "pass_index": 2,
+      "peak_cuda_allocated_bytes": 4111762944,
+      "peak_cuda_reserved_bytes": 4777312256,
+      "phase": "timed",
+      "real_time_factor": 0.1512408015167156,
+      "resident_baseline_memory_bytes": {
+        "allocated_bytes": 4091439616,
+        "reserved_bytes": 4777312256
+      },
+      "status": "success",
+      "text": "Six fifty kilometers.",
+      "text_sha256": "9a859aa595306ed4e98fb8b62291d8e9b6c55e037f1e9e31646902da8c6cafed"
+    },
+    {
+      "audio_sha256": "bc974cff0b29dd24ae1c14e8f9eb73698a44ac01987d50a02dc51ae5ac033293",
+      "conversation_id": "svarah_06191",
+      "duration_seconds": 8.510875,
+      "end_to_end_inference_seconds": 0.6970446609775536,
+      "failure": null,
+      "ordinal": 10,
+      "pass_index": 2,
+      "peak_cuda_allocated_bytes": 4165698560,
+      "peak_cuda_reserved_bytes": 4777312256,
+      "phase": "timed",
+      "real_time_factor": 0.08190046980804601,
+      "resident_baseline_memory_bytes": {
+        "allocated_bytes": 4091439616,
+        "reserved_bytes": 4777312256
+      },
+      "status": "success",
+      "text": "That to have a round-shaped roti was an impossible task for me.",
+      "text_sha256": "5487ad70f091536be54c5f418f692cc6e268a8a95606feb91b1c12c6c2fa2140"
+    },
+    {
+      "audio_sha256": "e16aa896e50ffe4fdb487432d2573eebcee364c52e809ecd8b640613194e2501",
+      "conversation_id": "svarah_06522",
+      "duration_seconds": 7.030375,
+      "end_to_end_inference_seconds": 0.9787384029768873,
+      "failure": null,
+      "ordinal": 11,
+      "pass_index": 2,
+      "peak_cuda_allocated_bytes": 4157874688,
+      "peak_cuda_reserved_bytes": 4777312256,
+      "phase": "timed",
+      "real_time_factor": 0.1392156752629678,
+      "resident_baseline_memory_bytes": {
+        "allocated_bytes": 4091439616,
+        "reserved_bytes": 4777312256
+      },
+      "status": "success",
+      "text": "Please use mobile number eight two five six two eight four eight one four zero to register on Co Win platform.",
+      "text_sha256": "07d570d2d07f9f880a23439acc95ea7d825bd51531b81fb94193cc80e1cd8127"
+    },
+    {
+      "audio_sha256": "5c2a1c0bdbbec34e37580b89f80ee1f46192c531ec0c12b1bd524da02db189d9",
+      "conversation_id": "svarah_06413",
+      "duration_seconds": 27.8063125,
+      "end_to_end_inference_seconds": 2.4414592850080226,
+      "failure": null,
+      "ordinal": 0,
+      "pass_index": 3,
+      "peak_cuda_allocated_bytes": 4314181120,
+      "peak_cuda_reserved_bytes": 4777312256,
+      "phase": "timed",
+      "real_time_factor": 0.08780233930723545,
+      "resident_baseline_memory_bytes": {
+        "allocated_bytes": 4091439616,
+        "reserved_bytes": 4777312256
+      },
+      "status": "success",
+      "text": "The government and people arrange and celebrate different festivals associated with environment. For example, for lions, Asiatic lions, we have Lions Day celebrated near the Gir Forest. Some cultural programs are arranged at historical places such as Tana Riri Festival, music festival at Modera Sun Temple.",
+      "text_sha256": "fa10fdadd749a9b949daee05663d69b25a2e9b00c6974f27368a61e5117a1dcf"
+    },
+    {
+      "audio_sha256": "04997bbb4151302266a868f90ae773b1151448e9eb62c4b66f5f73e78a45f46a",
+      "conversation_id": "svarah_06648",
+      "duration_seconds": 3.0051875,
+      "end_to_end_inference_seconds": 0.30046233200118877,
+      "failure": null,
+      "ordinal": 1,
+      "pass_index": 3,
+      "peak_cuda_allocated_bytes": 4119022592,
+      "peak_cuda_reserved_bytes": 4777312256,
+      "phase": "timed",
+      "real_time_factor": 0.09998122646297071,
+      "resident_baseline_memory_bytes": {
+        "allocated_bytes": 4091439616,
+        "reserved_bytes": 4777312256
+      },
+      "status": "success",
+      "text": "Government offers a number of scholarships.",
+      "text_sha256": "b6f30607b0a9fda53d845e1bc4d0505131b6ae66322b2bd97eb88f5897c0262a"
+    },
+    {
+      "audio_sha256": "b1b461189068d35521519d2252c600cd893f47399e44792d740f7cb271ac4084",
+      "conversation_id": "svarah_06257",
+      "duration_seconds": 0.6155625,
+      "end_to_end_inference_seconds": 0.1241113510041032,
+      "failure": null,
+      "ordinal": 2,
+      "pass_index": 3,
+      "peak_cuda_allocated_bytes": 4102953472,
+      "peak_cuda_reserved_bytes": 4777312256,
+      "phase": "timed",
+      "real_time_factor": 0.20162266383040423,
+      "resident_baseline_memory_bytes": {
+        "allocated_bytes": 4091439616,
+        "reserved_bytes": 4777312256
+      },
+      "status": "success",
+      "text": "Visual.",
+      "text_sha256": "80671ed2f8146535eb9ace1a4d9d5e270a7b2309d0579bd4ff16baeb1e14e654"
+    },
+    {
+      "audio_sha256": "334db011a77b5989302b37ce391af16b4b829b3db4d0b865a236f68fc8909cbb",
+      "conversation_id": "svarah_06387",
+      "duration_seconds": 6.4724375,
+      "end_to_end_inference_seconds": 0.39257419301429763,
+      "failure": null,
+      "ordinal": 3,
+      "pass_index": 3,
+      "peak_cuda_allocated_bytes": 4150121984,
+      "peak_cuda_reserved_bytes": 4777312256,
+      "phase": "timed",
+      "real_time_factor": 0.0606532226868622,
+      "resident_baseline_memory_bytes": {
+        "allocated_bytes": 4091439616,
+        "reserved_bytes": 4777312256
+      },
+      "status": "success",
+      "text": "Give a new direction to tourism industry of Goa.",
+      "text_sha256": "2c8371d89a56f53841a6ca256501ec52b9ea8b74a59f790143a1a4b2cea6c3ec"
+    },
+    {
+      "audio_sha256": "3174e2f4de05591524f84043a7f362fab1f4ddde2f77c9d12937a0ebf75b2336",
+      "conversation_id": "svarah_06420",
+      "duration_seconds": 6.7508125,
+      "end_to_end_inference_seconds": 0.497321735980222,
+      "failure": null,
+      "ordinal": 4,
+      "pass_index": 3,
+      "peak_cuda_allocated_bytes": 4150145536,
+      "peak_cuda_reserved_bytes": 4777312256,
+      "phase": "timed",
+      "real_time_factor": 0.07366842672348284,
+      "resident_baseline_memory_bytes": {
+        "allocated_bytes": 4091439616,
+        "reserved_bytes": 4777312256
+      },
+      "status": "success",
+      "text": "That meetwear or that yarns are like it troubles in.",
+      "text_sha256": "6d093c8223c1a6dd34cfc4b8275ac37ae69af5840a7b9b6159f29668aba456ba"
+    },
+    {
+      "audio_sha256": "9e068e98065da5b0e3989695d8d321b23d62e838c39a8581c9eb3b3c56aa5fe2",
+      "conversation_id": "svarah_06341",
+      "duration_seconds": 4.7454375,
+      "end_to_end_inference_seconds": 0.653532536001876,
+      "failure": null,
+      "ordinal": 5,
+      "pass_index": 3,
+      "peak_cuda_allocated_bytes": 4134575104,
+      "peak_cuda_reserved_bytes": 4777312256,
+      "phase": "timed",
+      "real_time_factor": 0.13771807889196222,
+      "resident_baseline_memory_bytes": {
+        "allocated_bytes": 4091439616,
+        "reserved_bytes": 4777312256
+      },
+      "status": "success",
+      "text": "Why is there no E S I C centers in area with pin code?",
+      "text_sha256": "7c0992112b15ac8841a50814385ee1ef4f5a5f5574d431b5fadeb8f706f600ce"
+    },
+    {
+      "audio_sha256": "43c35013e103f471a308ff2027a7c7d9072f40a524f10f2a1c2d004daa146331",
+      "conversation_id": "svarah_06269",
+      "duration_seconds": 5.8951875,
+      "end_to_end_inference_seconds": 0.6912520180048887,
+      "failure": null,
+      "ordinal": 6,
+      "pass_index": 3,
+      "peak_cuda_allocated_bytes": 4142372352,
+      "peak_cuda_reserved_bytes": 4777312256,
+      "phase": "timed",
+      "real_time_factor": 0.11725700293754672,
+      "resident_baseline_memory_bytes": {
+        "allocated_bytes": 4091439616,
+        "reserved_bytes": 4777312256
+      },
+      "status": "success",
+      "text": "Karnatic music itself developed around musical works or compositions of phenomenal composers.",
+      "text_sha256": "c77e1911ec866807e592e9ba89a8c624d2d686cf0c29e9e53d57ae873f80a291"
+    },
+    {
+      "audio_sha256": "3e36305247d0e240fdfaab1319788a3eab10f32dcb99cdd54d9225bd5a63e9b7",
+      "conversation_id": "svarah_06271",
+      "duration_seconds": 9.5593125,
+      "end_to_end_inference_seconds": 1.1650119829864707,
+      "failure": null,
+      "ordinal": 7,
+      "pass_index": 3,
+      "peak_cuda_allocated_bytes": 4173484544,
+      "peak_cuda_reserved_bytes": 4777312256,
+      "phase": "timed",
+      "real_time_factor": 0.12187194246306632,
+      "resident_baseline_memory_bytes": {
+        "allocated_bytes": 4091439616,
+        "reserved_bytes": 4777312256
+      },
+      "status": "success",
+      "text": "Can you please use that for mobile number six nine seven eight zero five four nine four eight two to log into Covin portal.",
+      "text_sha256": "32f9ee38c91d1352e6d082e40d8fa9a8b1f9d96c37bb772217d7f26d1140dd02"
+    },
+    {
+      "audio_sha256": "8bcc60567b907f9542333cb9491a5097389023ff06fec911380028203f627aa4",
+      "conversation_id": "svarah_06332",
+      "duration_seconds": 3.44975,
+      "end_to_end_inference_seconds": 0.529500486998586,
+      "failure": null,
+      "ordinal": 8,
+      "pass_index": 3,
+      "peak_cuda_allocated_bytes": 4126764032,
+      "peak_cuda_reserved_bytes": 4777312256,
+      "phase": "timed",
+      "real_time_factor": 0.1534895244578842,
+      "resident_baseline_memory_bytes": {
+        "allocated_bytes": 4091439616,
+        "reserved_bytes": 4777312256
+      },
+      "status": "success",
+      "text": "So there are so so many bodies who are working.",
+      "text_sha256": "86cb17df961f546bd7bc99e7d12d113858d7983ecd489888f3e51c02e3f4c941"
+    },
+    {
+      "audio_sha256": "5be6d44dc519a075699304832c5b4706b12b48a0f80da1b80c6833cf634177bd",
+      "conversation_id": "svarah_06284",
+      "duration_seconds": 1.5501875,
+      "end_to_end_inference_seconds": 0.23497105299611576,
+      "failure": null,
+      "ordinal": 9,
+      "pass_index": 3,
+      "peak_cuda_allocated_bytes": 4111762944,
+      "peak_cuda_reserved_bytes": 4777312256,
+      "phase": "timed",
+      "real_time_factor": 0.15157589194604895,
+      "resident_baseline_memory_bytes": {
+        "allocated_bytes": 4091439616,
+        "reserved_bytes": 4777312256
+      },
+      "status": "success",
+      "text": "Six fifty kilometers.",
+      "text_sha256": "9a859aa595306ed4e98fb8b62291d8e9b6c55e037f1e9e31646902da8c6cafed"
+    },
+    {
+      "audio_sha256": "bc974cff0b29dd24ae1c14e8f9eb73698a44ac01987d50a02dc51ae5ac033293",
+      "conversation_id": "svarah_06191",
+      "duration_seconds": 8.510875,
+      "end_to_end_inference_seconds": 0.5977757869986817,
+      "failure": null,
+      "ordinal": 10,
+      "pass_index": 3,
+      "peak_cuda_allocated_bytes": 4165698560,
+      "peak_cuda_reserved_bytes": 4777312256,
+      "phase": "timed",
+      "real_time_factor": 0.07023670151408423,
+      "resident_baseline_memory_bytes": {
+        "allocated_bytes": 4091439616,
+        "reserved_bytes": 4777312256
+      },
+      "status": "success",
+      "text": "That to have a round-shaped roti was an impossible task for me.",
+      "text_sha256": "5487ad70f091536be54c5f418f692cc6e268a8a95606feb91b1c12c6c2fa2140"
+    },
+    {
+      "audio_sha256": "e16aa896e50ffe4fdb487432d2573eebcee364c52e809ecd8b640613194e2501",
+      "conversation_id": "svarah_06522",
+      "duration_seconds": 7.030375,
+      "end_to_end_inference_seconds": 0.7934782819938846,
+      "failure": null,
+      "ordinal": 11,
+      "pass_index": 3,
+      "peak_cuda_allocated_bytes": 4157874688,
+      "peak_cuda_reserved_bytes": 4777312256,
+      "phase": "timed",
+      "real_time_factor": 0.1128642898840936,
+      "resident_baseline_memory_bytes": {
+        "allocated_bytes": 4091439616,
+        "reserved_bytes": 4777312256
+      },
+      "status": "success",
+      "text": "Please use mobile number eight two five six two eight four eight one four zero to register on Co Win platform.",
+      "text_sha256": "07d570d2d07f9f880a23439acc95ea7d825bd51531b81fb94193cc80e1cd8127"
+    }
+  ],
+  "warmup_calls": [
+    {
+      "conversation_id": "svarah_06413",
+      "duration_seconds": 27.8063125,
+      "failure": null,
+      "ordinal": 0,
+      "phase": "warmup",
+      "status": "success",
+      "text": "The government and people arrange and celebrate different festivals associated with environment. For example, for lions, Asiatic lions, we have Lions Day celebrated near the Gir Forest. Some cultural programs are arranged at historical places such as Tana Riri Festival, music festival at Modera Sun Temple.",
+      "text_sha256": "fa10fdadd749a9b949daee05663d69b25a2e9b00c6974f27368a61e5117a1dcf"
+    },
+    {
+      "conversation_id": "svarah_06648",
+      "duration_seconds": 3.0051875,
+      "failure": null,
+      "ordinal": 1,
+      "phase": "warmup",
+      "status": "success",
+      "text": "Government offers a number of scholarships.",
+      "text_sha256": "b6f30607b0a9fda53d845e1bc4d0505131b6ae66322b2bd97eb88f5897c0262a"
+    },
+    {
+      "conversation_id": "svarah_06257",
+      "duration_seconds": 0.6155625,
+      "failure": null,
+      "ordinal": 2,
+      "phase": "warmup",
+      "status": "success",
+      "text": "Visual.",
+      "text_sha256": "80671ed2f8146535eb9ace1a4d9d5e270a7b2309d0579bd4ff16baeb1e14e654"
+    },
+    {
+      "conversation_id": "svarah_06387",
+      "duration_seconds": 6.4724375,
+      "failure": null,
+      "ordinal": 3,
+      "phase": "warmup",
+      "status": "success",
+      "text": "Give a new direction to tourism industry of Goa.",
+      "text_sha256": "2c8371d89a56f53841a6ca256501ec52b9ea8b74a59f790143a1a4b2cea6c3ec"
+    },
+    {
+      "conversation_id": "svarah_06420",
+      "duration_seconds": 6.7508125,
+      "failure": null,
+      "ordinal": 4,
+      "phase": "warmup",
+      "status": "success",
+      "text": "That meetwear or that yarns are like it troubles in.",
+      "text_sha256": "6d093c8223c1a6dd34cfc4b8275ac37ae69af5840a7b9b6159f29668aba456ba"
+    },
+    {
+      "conversation_id": "svarah_06341",
+      "duration_seconds": 4.7454375,
+      "failure": null,
+      "ordinal": 5,
+      "phase": "warmup",
+      "status": "success",
+      "text": "Why is there no E S I C centers in area with pin code?",
+      "text_sha256": "7c0992112b15ac8841a50814385ee1ef4f5a5f5574d431b5fadeb8f706f600ce"
+    },
+    {
+      "conversation_id": "svarah_06269",
+      "duration_seconds": 5.8951875,
+      "failure": null,
+      "ordinal": 6,
+      "phase": "warmup",
+      "status": "success",
+      "text": "Karnatic music itself developed around musical works or compositions of phenomenal composers.",
+      "text_sha256": "c77e1911ec866807e592e9ba89a8c624d2d686cf0c29e9e53d57ae873f80a291"
+    },
+    {
+      "conversation_id": "svarah_06271",
+      "duration_seconds": 9.5593125,
+      "failure": null,
+      "ordinal": 7,
+      "phase": "warmup",
+      "status": "success",
+      "text": "Can you please use that for mobile number six nine seven eight zero five four nine four eight two to log into Covin portal.",
+      "text_sha256": "32f9ee38c91d1352e6d082e40d8fa9a8b1f9d96c37bb772217d7f26d1140dd02"
+    },
+    {
+      "conversation_id": "svarah_06332",
+      "duration_seconds": 3.44975,
+      "failure": null,
+      "ordinal": 8,
+      "phase": "warmup",
+      "status": "success",
+      "text": "So there are so so many bodies who are working.",
+      "text_sha256": "86cb17df961f546bd7bc99e7d12d113858d7983ecd489888f3e51c02e3f4c941"
+    },
+    {
+      "conversation_id": "svarah_06284",
+      "duration_seconds": 1.5501875,
+      "failure": null,
+      "ordinal": 9,
+      "phase": "warmup",
+      "status": "success",
+      "text": "Six fifty kilometers.",
+      "text_sha256": "9a859aa595306ed4e98fb8b62291d8e9b6c55e037f1e9e31646902da8c6cafed"
+    },
+    {
+      "conversation_id": "svarah_06191",
+      "duration_seconds": 8.510875,
+      "failure": null,
+      "ordinal": 10,
+      "phase": "warmup",
+      "status": "success",
+      "text": "That to have a round-shaped roti was an impossible task for me.",
+      "text_sha256": "5487ad70f091536be54c5f418f692cc6e268a8a95606feb91b1c12c6c2fa2140"
+    },
+    {
+      "conversation_id": "svarah_06522",
+      "duration_seconds": 7.030375,
+      "failure": null,
+      "ordinal": 11,
+      "phase": "warmup",
+      "status": "success",
+      "text": "Please use mobile number eight two five six two eight four eight one four zero to register on Co Win platform.",
+      "text_sha256": "07d570d2d07f9f880a23439acc95ea7d825bd51531b81fb94193cc80e1cd8127"
+    }
+  ]
+}

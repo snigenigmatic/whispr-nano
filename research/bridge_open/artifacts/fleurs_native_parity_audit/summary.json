@@ -1,0 +1,127 @@
+{
+  "arms": {
+    "hf_original_batch": {
+      "hi": {
+        "n": 8,
+        "word_errors": 53,
+        "ref_words": 208,
+        "wer": 0.2548076923076923
+      },
+      "bn": {
+        "n": 8,
+        "word_errors": 103,
+        "ref_words": 152,
+        "wer": 0.6776315789473685
+      },
+      "as": {
+        "n": 8,
+        "word_errors": 159,
+        "ref_words": 151,
+        "wer": 1.0529801324503312
+      }
+    },
+    "hf_original_fixed30": {
+      "hi": {
+        "n": 1,
+        "word_errors": 37,
+        "ref_words": 71,
+        "wer": 0.5211267605633803
+      },
+      "bn": {
+        "n": 1,
+        "word_errors": 38,
+        "ref_words": 40,
+        "wer": 0.95
+      },
+      "as": {
+        "n": 1,
+        "word_errors": 195,
+        "ref_words": 38,
+        "wer": 5.131578947368421
+      }
+    },
+    "hf_pipeline": {
+      "hi": {
+        "n": 8,
+        "word_errors": 53,
+        "ref_words": 208,
+        "wer": 0.2548076923076923
+      },
+      "bn": {
+        "n": 8,
+        "word_errors": 103,
+        "ref_words": 152,
+        "wer": 0.6776315789473685
+      },
+      "as": {
+        "n": 8,
+        "word_errors": 159,
+        "ref_words": 151,
+        "wer": 1.0529801324503312
+      }
+    },
+    "hf_single": {
+      "hi": {
+        "n": 8,
+        "word_errors": 53,
+        "ref_words": 208,
+        "wer": 0.2548076923076923
+      },
+      "bn": {
+        "n": 8,
+        "word_errors": 103,
+        "ref_words": 152,
+        "wer": 0.6776315789473685
+      },
+      "as": {
+        "n": 8,
+        "word_errors": 159,
+        "ref_words": 151,
+        "wer": 1.0529801324503312
+      }
+    },
+    "native_decode_matched": {
+      "hi": {
+        "n": 8,
+        "word_errors": 52,
+        "ref_words": 208,
+        "wer": 0.25
+      },
+      "bn": {
+        "n": 8,
+        "word_errors": 102,
+        "ref_words": 152,
+        "wer": 0.6710526315789473
+      },
+      "as": {
+        "n": 8,
+        "word_errors": 159,
+        "ref_words": 151,
+        "wer": 1.0529801324503312
+      }
+    },
+    "native_transcribe_default": {
+      "hi": {
+        "n": 9,
+        "word_errors": 93,
+        "ref_words": 279,
+        "wer": 0.3333333333333333
+      },
+      "bn": {
+        "n": 9,
+        "word_errors": 139,
+        "ref_words": 192,
+        "wer": 0.7239583333333334
+      },
+      "as": {
+        "n": 9,
+        "word_errors": 204,
+        "ref_words": 189,
+        "wer": 1.0793650793650793
+      }
+    }
+  },
+  "total_wall_seconds": 822.2127600489985,
+  "purpose": "Post-result diagnostic only. Not a held-out improvement or new benchmark score.",
+  "cost_usd": null
+}

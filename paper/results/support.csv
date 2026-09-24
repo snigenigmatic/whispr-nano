@@ -1,0 +1,91 @@
+cohort,level,group,n_utterances,n_clusters,cluster_kind,n_native_languages,gender_counts,duration_seconds
+historical_open_2500,overall,all,2500,1473,recording,19,"{""Female"": 1356, ""Male"": 1144}",13053.935875
+historical_open_2500,group,Bodo,139,71,recording,1,"{""Female"": 59, ""Male"": 80}",725.142375
+historical_open_2500,group,Dravidian,688,435,recording,4,"{""Female"": 456, ""Male"": 232}",3263.8920625
+historical_open_2500,group,Indo-Aryan,1673,967,recording,14,"{""Female"": 841, ""Male"": 832}",9064.9014375
+historical_open_2500,language,Assamese,74,61,recording,1,"{""Female"": 22, ""Male"": 52}",305.9894375
+historical_open_2500,language,Bengali,118,85,recording,1,"{""Female"": 63, ""Male"": 55}",469.359875
+historical_open_2500,language,Bodo,139,71,recording,1,"{""Female"": 59, ""Male"": 80}",725.142375
+historical_open_2500,language,Dogri,99,65,recording,1,"{""Female"": 43, ""Male"": 56}",686.488625
+historical_open_2500,language,Gujarati,94,53,recording,1,"{""Female"": 37, ""Male"": 57}",533.927125
+historical_open_2500,language,Hindi,93,43,recording,1,"{""Female"": 53, ""Male"": 40}",466.8565625
+historical_open_2500,language,Kannada,207,109,recording,1,"{""Female"": 135, ""Male"": 72}",993.64725
+historical_open_2500,language,Kashmiri,115,57,recording,1,"{""Female"": 71, ""Male"": 44}",551.87225
+historical_open_2500,language,Konkani,115,83,recording,1,"{""Female"": 47, ""Male"": 68}",721.2223125
+historical_open_2500,language,Maithili,184,103,recording,1,"{""Female"": 89, ""Male"": 95}",1093.35375
+historical_open_2500,language,Malayalam,203,111,recording,1,"{""Female"": 106, ""Male"": 97}",952.4561874999999
+historical_open_2500,language,Marathi,79,51,recording,1,"{""Female"": 40, ""Male"": 39}",401.3900625
+historical_open_2500,language,Nepali,218,88,recording,1,"{""Female"": 131, ""Male"": 87}",1552.337875
+historical_open_2500,language,Odia,169,91,recording,1,"{""Female"": 83, ""Male"": 86}",837.44825
+historical_open_2500,language,Punjabi,79,66,recording,1,"{""Female"": 47, ""Male"": 32}",425.8556875
+historical_open_2500,language,Sindhi,58,31,recording,1,"{""Female"": 28, ""Male"": 30}",251.3621875
+historical_open_2500,language,Tamil,151,113,recording,1,"{""Female"": 116, ""Male"": 35}",645.6210625
+historical_open_2500,language,Telugu,127,102,recording,1,"{""Female"": 99, ""Male"": 28}",672.1675625
+historical_open_2500,language,Urdu,178,90,recording,1,"{""Female"": 87, ""Male"": 91}",767.4374375
+historical_six_overlap_provisional,overall,all,156,128,recording,17,"{""Female"": 80, ""Male"": 76}",843.4406875
+historical_six_overlap_provisional,group,Bodo,57,35,recording,1,"{""Female"": 23, ""Male"": 34}",334.3229375
+historical_six_overlap_provisional,group,Dravidian,55,52,recording,4,"{""Female"": 35, ""Male"": 20}",250.360125
+historical_six_overlap_provisional,group,Indo-Aryan,44,41,recording,12,"{""Female"": 22, ""Male"": 22}",258.757625
+historical_six_overlap_provisional,language,Assamese,3,3,recording,1,"{""Male"": 3}",8.02525
+historical_six_overlap_provisional,language,Bodo,57,35,recording,1,"{""Female"": 23, ""Male"": 34}",334.3229375
+historical_six_overlap_provisional,language,Dogri,1,1,recording,1,"{""Female"": 1}",1.92625
+historical_six_overlap_provisional,language,Gujarati,1,1,recording,1,"{""Male"": 1}",15.5116875
+historical_six_overlap_provisional,language,Hindi,3,3,recording,1,"{""Male"": 3}",26.7689375
+historical_six_overlap_provisional,language,Kannada,16,15,recording,1,"{""Female"": 10, ""Male"": 6}",58.000625
+historical_six_overlap_provisional,language,Kashmiri,6,6,recording,1,"{""Female"": 5, ""Male"": 1}",16.7208125
+historical_six_overlap_provisional,language,Maithili,9,8,recording,1,"{""Female"": 3, ""Male"": 6}",56.157875
+historical_six_overlap_provisional,language,Malayalam,14,12,recording,1,"{""Female"": 8, ""Male"": 6}",64.92525
+historical_six_overlap_provisional,language,Marathi,3,3,recording,1,"{""Female"": 1, ""Male"": 2}",16.8078125
+historical_six_overlap_provisional,language,Nepali,6,5,recording,1,"{""Female"": 4, ""Male"": 2}",59.7574375
+historical_six_overlap_provisional,language,Odia,4,3,recording,1,"{""Female"": 4}",15.585749999999999
+historical_six_overlap_provisional,language,Punjabi,2,2,recording,1,"{""Female"": 2}",16.7645625
+historical_six_overlap_provisional,language,Sindhi,1,1,recording,1,"{""Female"": 1}",3.9833125
+historical_six_overlap_provisional,language,Tamil,15,15,recording,1,"{""Female"": 10, ""Male"": 5}",79.096125
+historical_six_overlap_provisional,language,Telugu,10,10,recording,1,"{""Female"": 7, ""Male"": 3}",48.338125
+historical_six_overlap_provisional,language,Urdu,5,5,recording,1,"{""Female"": 1, ""Male"": 4}",20.7479375
+historical_saaras_450,overall,all,450,326,recording,19,"{""Female"": 233, ""Male"": 217}",2360.56425
+historical_saaras_450,group,Bodo,150,65,recording,1,"{""Female"": 62, ""Male"": 88}",858.2916875
+historical_saaras_450,group,Dravidian,150,127,recording,4,"{""Female"": 90, ""Male"": 60}",703.3955
+historical_saaras_450,group,Indo-Aryan,150,134,recording,14,"{""Female"": 81, ""Male"": 69}",798.8770625
+historical_saaras_450,language,Assamese,11,11,recording,1,"{""Female"": 3, ""Male"": 8}",43.847
+historical_saaras_450,language,Bengali,9,7,recording,1,"{""Female"": 4, ""Male"": 5}",29.621375
+historical_saaras_450,language,Bodo,150,65,recording,1,"{""Female"": 62, ""Male"": 88}",858.2916875
+historical_saaras_450,language,Dogri,4,4,recording,1,"{""Female"": 3, ""Male"": 1}",13.5855625
+historical_saaras_450,language,Gujarati,4,3,recording,1,"{""Male"": 4}",32.263375
+historical_saaras_450,language,Hindi,14,12,recording,1,"{""Female"": 6, ""Male"": 8}",89.6216875
+historical_saaras_450,language,Kannada,43,34,recording,1,"{""Female"": 20, ""Male"": 23}",187.6330625
+historical_saaras_450,language,Kashmiri,14,14,recording,1,"{""Female"": 9, ""Male"": 5}",62.061
+historical_saaras_450,language,Konkani,2,2,recording,1,"{""Male"": 2}",13.374875
+historical_saaras_450,language,Maithili,19,16,recording,1,"{""Female"": 9, ""Male"": 10}",106.3666875
+historical_saaras_450,language,Malayalam,44,35,recording,1,"{""Female"": 25, ""Male"": 19}",223.6209375
+historical_saaras_450,language,Marathi,10,9,recording,1,"{""Female"": 6, ""Male"": 4}",35.8191875
+historical_saaras_450,language,Nepali,23,19,recording,1,"{""Female"": 17, ""Male"": 6}",178.41925
+historical_saaras_450,language,Odia,16,14,recording,1,"{""Female"": 11, ""Male"": 5}",70.0681875
+historical_saaras_450,language,Punjabi,6,6,recording,1,"{""Female"": 5, ""Male"": 1}",34.9413125
+historical_saaras_450,language,Sindhi,4,4,recording,1,"{""Female"": 2, ""Male"": 2}",16.0870625
+historical_saaras_450,language,Tamil,36,33,recording,1,"{""Female"": 26, ""Male"": 10}",153.775125
+historical_saaras_450,language,Telugu,27,25,recording,1,"{""Female"": 19, ""Male"": 8}",138.366375
+historical_saaras_450,language,Urdu,14,13,recording,1,"{""Female"": 6, ""Male"": 8}",72.8005
+matched_six_450,overall,all,450,326,recording,19,"{""Female"": 233, ""Male"": 217}",2360.56425
+matched_six_450,group,Bodo,150,65,recording,1,"{""Female"": 62, ""Male"": 88}",858.2916875
+matched_six_450,group,Dravidian,150,127,recording,4,"{""Female"": 90, ""Male"": 60}",703.3955
+matched_six_450,group,Indo-Aryan,150,134,recording,14,"{""Female"": 81, ""Male"": 69}",798.8770625
+matched_six_450,language,Assamese,11,11,recording,1,"{""Female"": 3, ""Male"": 8}",43.847
+matched_six_450,language,Bengali,9,7,recording,1,"{""Female"": 4, ""Male"": 5}",29.621375
+matched_six_450,language,Bodo,150,65,recording,1,"{""Female"": 62, ""Male"": 88}",858.2916875
+matched_six_450,language,Dogri,4,4,recording,1,"{""Female"": 3, ""Male"": 1}",13.5855625
+matched_six_450,language,Gujarati,4,3,recording,1,"{""Male"": 4}",32.263375
+matched_six_450,language,Hindi,14,12,recording,1,"{""Female"": 6, ""Male"": 8}",89.6216875
+matched_six_450,language,Kannada,43,34,recording,1,"{""Female"": 20, ""Male"": 23}",187.6330625
+matched_six_450,language,Kashmiri,14,14,recording,1,"{""Female"": 9, ""Male"": 5}",62.061
+matched_six_450,language,Konkani,2,2,recording,1,"{""Male"": 2}",13.374875
+matched_six_450,language,Maithili,19,16,recording,1,"{""Female"": 9, ""Male"": 10}",106.3666875
+matched_six_450,language,Malayalam,44,35,recording,1,"{""Female"": 25, ""Male"": 19}",223.6209375
+matched_six_450,language,Marathi,10,9,recording,1,"{""Female"": 6, ""Male"": 4}",35.8191875
+matched_six_450,language,Nepali,23,19,recording,1,"{""Female"": 17, ""Male"": 6}",178.41925
+matched_six_450,language,Odia,16,14,recording,1,"{""Female"": 11, ""Male"": 5}",70.0681875
+matched_six_450,language,Punjabi,6,6,recording,1,"{""Female"": 5, ""Male"": 1}",34.9413125
+matched_six_450,language,Sindhi,4,4,recording,1,"{""Female"": 2, ""Male"": 2}",16.0870625
+matched_six_450,language,Tamil,36,33,recording,1,"{""Female"": 26, ""Male"": 10}",153.775125
+matched_six_450,language,Telugu,27,25,recording,1,"{""Female"": 19, ""Male"": 8}",138.366375
+matched_six_450,language,Urdu,14,13,recording,1,"{""Female"": 6, ""Male"": 8}",72.8005

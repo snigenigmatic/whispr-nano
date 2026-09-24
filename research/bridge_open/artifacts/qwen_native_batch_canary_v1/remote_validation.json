@@ -1,0 +1,6 @@
+{
+  "valid": true,
+  "output_dir": "/workspace/repo/artifacts/qwen3-asr-1-7b-native-batch-canary",
+  "conversation_count": 3,
+  "errors": []
+}

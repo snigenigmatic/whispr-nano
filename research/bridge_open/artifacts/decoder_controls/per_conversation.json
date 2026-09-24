@@ -1,0 +1,56 @@
+[
+  {
+    "recipe": "Fixed30s, beam5",
+    "conversation_id": "humyn-13-00",
+    "wer_percent": 53.11224489795918,
+    "cer_percent": 39.77850942831488
+  },
+  {
+    "recipe": "Fixed30s, beam5",
+    "conversation_id": "humyn-13-01",
+    "wer_percent": 48.269321953532476,
+    "cer_percent": 37.50699496362619
+  },
+  {
+    "recipe": "Fixed30s, beam5",
+    "conversation_id": "humyn-14-00",
+    "wer_percent": 54.39605587510271,
+    "cer_percent": 50.55574653374585
+  },
+  {
+    "recipe": "Fixed15s, beam5",
+    "conversation_id": "humyn-13-00",
+    "wer_percent": 70.05102040816327,
+    "cer_percent": 55.82161029631847
+  },
+  {
+    "recipe": "Fixed15s, beam5",
+    "conversation_id": "humyn-13-01",
+    "wer_percent": 51.778093883357045,
+    "cer_percent": 35.352546166759936
+  },
+  {
+    "recipe": "Fixed15s, beam5",
+    "conversation_id": "humyn-14-00",
+    "wer_percent": 50.4519309778143,
+    "cer_percent": 48.75673198120774
+  },
+  {
+    "recipe": "Native longform, beam5",
+    "conversation_id": "humyn-13-00",
+    "wer_percent": 51.4795918367347,
+    "cer_percent": 33.79227776114936
+  },
+  {
+    "recipe": "Native longform, beam5",
+    "conversation_id": "humyn-13-01",
+    "wer_percent": 42.91133238501659,
+    "cer_percent": 28.18970341354225
+  },
+  {
+    "recipe": "Native longform, beam5",
+    "conversation_id": "humyn-14-00",
+    "wer_percent": 44.49465899753492,
+    "cer_percent": 39.807493984187005
+  }
+]

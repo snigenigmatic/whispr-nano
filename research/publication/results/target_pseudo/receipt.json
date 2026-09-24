@@ -1,0 +1,292 @@
+{
+  "artifacts": {
+    "baseline_dev_metrics.json": "6a77c9e7d5ec6dd102040d7aaa9e6f48a443c71e07cb877b41c4cf40f0e1e799",
+    "baseline_dev_predictions.jsonl": "b1045f6cbece4f84beb86992e4be0fc10aa2105489c1808dbd098152d3760e52",
+    "checkpoint_last/model.safetensors": "4e7745a7975a3aa5ca7ed051edd2ec2748ac73e796aadff32b6cd15926ca3eb6",
+    "checkpoint_last/training_state.pt": "33a2eb589e4f03bfd698e9e8a4cdb29c55b1a8f6ecb95d2e3d5455461cd2a3c0",
+    "final_dev_metrics.json": "cbf7ca9206a09c8dfd50939bac6561e6fa739178ea521533c14b2329fc6fa66e",
+    "final_dev_predictions.jsonl": "ac8fe41ce53d16b7d1c4d7541e8b2a253cb43abf4fbbd9827d19c4ce0b071fd8",
+    "history.jsonl": "0f007204a10c04a290381e5b0cf5d092d3143be50b790e8c1bd6bf585243d605",
+    "manifest.json": "cabc6ea3220754952d0a928548d6d5a396b0ce2deb09545b8bbdc16a66f07589",
+    "provenance.json": "e1b713516ee052bc066c86d8ff4006c7492e74f7a6d7c4ef5c3600db9acbeead",
+    "summary.json": "5a6fbc3d901faaf5732c8c90b7b2d3aa61282e8de0d12aa44b13832fb0a39052"
+  },
+  "baseline_dev_metrics": {
+    "english": {
+      "groups": {
+        "language:Arabic": {
+          "errors": 529,
+          "reference_words": 1339,
+          "speakers": 1,
+          "utterances": 147,
+          "wer": 0.3950709484690067
+        },
+        "language:Hindi": {
+          "errors": 187,
+          "reference_words": 1540,
+          "speakers": 1,
+          "utterances": 169,
+          "wer": 0.12142857142857143
+        },
+        "language:Korean": {
+          "errors": 286,
+          "reference_words": 1540,
+          "speakers": 1,
+          "utterances": 169,
+          "wer": 0.18571428571428572
+        },
+        "language:Mandarin": {
+          "errors": 420,
+          "reference_words": 1525,
+          "speakers": 1,
+          "utterances": 168,
+          "wer": 0.2754098360655738
+        },
+        "language:Spanish": {
+          "errors": 488,
+          "reference_words": 1382,
+          "speakers": 1,
+          "utterances": 152,
+          "wer": 0.35311143270622286
+        },
+        "language:Vietnamese": {
+          "errors": 645,
+          "reference_words": 1540,
+          "speakers": 1,
+          "utterances": 169,
+          "wer": 0.41883116883116883
+        },
+        "overall": {
+          "errors": 2555,
+          "reference_words": 8866,
+          "speakers": 6,
+          "utterances": 974,
+          "wer": 0.28817956237311076
+        },
+        "split:dev": {
+          "errors": 2555,
+          "reference_words": 8866,
+          "speakers": 6,
+          "utterances": 974,
+          "wer": 0.28817956237311076
+        }
+      },
+      "macro_language_wer": 0.2915943738691382,
+      "micro_wer": 0.28817956237311076,
+      "worst_language_wer": 0.41883116883116883
+    },
+    "minimal": {
+      "groups": {
+        "language:Arabic": {
+          "errors": 542,
+          "reference_words": 1343,
+          "speakers": 1,
+          "utterances": 147,
+          "wer": 0.4035740878629933
+        },
+        "language:Hindi": {
+          "errors": 205,
+          "reference_words": 1544,
+          "speakers": 1,
+          "utterances": 169,
+          "wer": 0.1327720207253886
+        },
+        "language:Korean": {
+          "errors": 300,
+          "reference_words": 1544,
+          "speakers": 1,
+          "utterances": 169,
+          "wer": 0.19430051813471502
+        },
+        "language:Mandarin": {
+          "errors": 434,
+          "reference_words": 1529,
+          "speakers": 1,
+          "utterances": 168,
+          "wer": 0.2838456507521256
+        },
+        "language:Spanish": {
+          "errors": 501,
+          "reference_words": 1386,
+          "speakers": 1,
+          "utterances": 152,
+          "wer": 0.36147186147186144
+        },
+        "language:Vietnamese": {
+          "errors": 655,
+          "reference_words": 1544,
+          "speakers": 1,
+          "utterances": 169,
+          "wer": 0.42422279792746115
+        },
+        "overall": {
+          "errors": 2637,
+          "reference_words": 8890,
+          "speakers": 6,
+          "utterances": 974,
+          "wer": 0.2966254218222722
+        },
+        "split:dev": {
+          "errors": 2637,
+          "reference_words": 8890,
+          "speakers": 6,
+          "utterances": 974,
+          "wer": 0.2966254218222722
+        }
+      },
+      "macro_language_wer": 0.30003115614575754,
+      "micro_wer": 0.2966254218222722,
+      "worst_language_wer": 0.42422279792746115
+    }
+  },
+  "checkpoint_sha256": "4e7745a7975a3aa5ca7ed051edd2ec2748ac73e796aadff32b6cd15926ca3eb6",
+  "completed_updates": 600,
+  "dev_utterances": 974,
+  "estimated_resource_cost_usd": 0.4925512000000001,
+  "final_dev_metrics": {
+    "english": {
+      "groups": {
+        "language:Arabic": {
+          "errors": 522,
+          "reference_words": 1339,
+          "speakers": 1,
+          "utterances": 147,
+          "wer": 0.3898431665421957
+        },
+        "language:Hindi": {
+          "errors": 218,
+          "reference_words": 1540,
+          "speakers": 1,
+          "utterances": 169,
+          "wer": 0.14155844155844155
+        },
+        "language:Korean": {
+          "errors": 320,
+          "reference_words": 1540,
+          "speakers": 1,
+          "utterances": 169,
+          "wer": 0.2077922077922078
+        },
+        "language:Mandarin": {
+          "errors": 449,
+          "reference_words": 1525,
+          "speakers": 1,
+          "utterances": 168,
+          "wer": 0.29442622950819675
+        },
+        "language:Spanish": {
+          "errors": 548,
+          "reference_words": 1382,
+          "speakers": 1,
+          "utterances": 152,
+          "wer": 0.39652677279305354
+        },
+        "language:Vietnamese": {
+          "errors": 708,
+          "reference_words": 1540,
+          "speakers": 1,
+          "utterances": 169,
+          "wer": 0.4597402597402597
+        },
+        "overall": {
+          "errors": 2765,
+          "reference_words": 8866,
+          "speakers": 6,
+          "utterances": 974,
+          "wer": 0.3118655538010377
+        },
+        "split:dev": {
+          "errors": 2765,
+          "reference_words": 8866,
+          "speakers": 6,
+          "utterances": 974,
+          "wer": 0.3118655538010377
+        }
+      },
+      "macro_language_wer": 0.31498117965572586,
+      "micro_wer": 0.3118655538010377,
+      "worst_language_wer": 0.4597402597402597
+    },
+    "minimal": {
+      "groups": {
+        "language:Arabic": {
+          "errors": 529,
+          "reference_words": 1343,
+          "speakers": 1,
+          "utterances": 147,
+          "wer": 0.39389426656738646
+        },
+        "language:Hindi": {
+          "errors": 230,
+          "reference_words": 1544,
+          "speakers": 1,
+          "utterances": 169,
+          "wer": 0.1489637305699482
+        },
+        "language:Korean": {
+          "errors": 334,
+          "reference_words": 1544,
+          "speakers": 1,
+          "utterances": 169,
+          "wer": 0.21632124352331605
+        },
+        "language:Mandarin": {
+          "errors": 463,
+          "reference_words": 1529,
+          "speakers": 1,
+          "utterances": 168,
+          "wer": 0.302812295618051
+        },
+        "language:Spanish": {
+          "errors": 558,
+          "reference_words": 1386,
+          "speakers": 1,
+          "utterances": 152,
+          "wer": 0.4025974025974026
+        },
+        "language:Vietnamese": {
+          "errors": 717,
+          "reference_words": 1544,
+          "speakers": 1,
+          "utterances": 169,
+          "wer": 0.4643782383419689
+        },
+        "overall": {
+          "errors": 2831,
+          "reference_words": 8890,
+          "speakers": 6,
+          "utterances": 974,
+          "wer": 0.31844769403824524
+        },
+        "split:dev": {
+          "errors": 2831,
+          "reference_words": 8890,
+          "speakers": 6,
+          "utterances": 974,
+          "wer": 0.31844769403824524
+        }
+      },
+      "macro_language_wer": 0.32149452953634555,
+      "micro_wer": 0.31844769403824524,
+      "worst_language_wer": 0.4643782383419689
+    }
+  },
+  "gpu": "NVIDIA H100 80GB HBM3",
+  "initial_state_sha256": "30f47af0c6721669a9dec6b0a7934e4723ee2750a95aa3e627d5816a5934ba25",
+  "label_source": "target_pseudo",
+  "original_app_wall_seconds": 340.0,
+  "original_modal_app_id": "ap-GdSTVOGf4LxtKbVGAQvb6q",
+  "receipt_sha256": "4c7a8eee107447a61cb1fcaba9b9b4112c2ab6b10bccec974be12caf14a182f6",
+  "recovered_after_receipt_exception": true,
+  "recovery_plan_sha256": "b52adf1385014d87285a156a0913a0c804e4c034f71a285c09ef8e89cf83df82",
+  "recovery_validation_wall_seconds": 3.773950383,
+  "run_id": "train-target-pseudo-seed12-v1",
+  "selection": "all",
+  "status": "completed",
+  "target_feature_receipt_sha256": "09f325ab1208e27043f1e6f161641d6694a60ad06124b288b0a0553fdba6043e",
+  "target_features_created": 4800,
+  "total_training_exposures": 4800,
+  "train_pool_utterances": 4800,
+  "unique_training_utterances_seen": 4800,
+  "validation_examples_read": 0
+}

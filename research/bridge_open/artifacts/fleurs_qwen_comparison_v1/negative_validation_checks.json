@@ -1,0 +1,9 @@
+{
+  "scope": "Intentional in-memory corruptions; original artifacts unchanged",
+  "checks": {
+    "missing_prediction": "rejected",
+    "duplicate_id": "rejected",
+    "wrong_wer": "rejected",
+    "false_cap_flag": "rejected"
+  }
+}

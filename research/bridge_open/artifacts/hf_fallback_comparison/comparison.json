@@ -1,0 +1,93 @@
+{
+  "scope": "One exposed Bengali development conversation, seed12; no population or significance inference.",
+  "baseline": {
+    "name": "hf-bengali-turbo-native-portability-v1",
+    "metrics": {
+      "wer": 0.9827586206896551,
+      "cer": 0.7673483863340821,
+      "wil": 0.9963391591875296,
+      "hits": 31,
+      "substitutions": 115,
+      "deletions": 1652,
+      "insertions": 0,
+      "ref_words": 1798,
+      "ref_chars": 8459,
+      "hyp_words": 146,
+      "character_errors": 6491
+    },
+    "inference_seconds": 95.01780582399806,
+    "selected_calls": 31,
+    "selected_without_eos": 25,
+    "total_attempts": 31,
+    "attempt_temperatures": {
+      "0.0": 31
+    },
+    "effective_beams": {
+      "5": 31
+    },
+    "exhausted_schedules": 0,
+    "artifact_hashes": {
+      "summary.json": "b6cb43d68803c64d04923eda89cfeee339f00df81ea5a45892008caac6ea7b90",
+      "predictions.jsonl": "c3ebb5448285d56cc035beb3638a3780891c54ce3233f6a728013b9ccc5aa18b",
+      "config.json": "318f21dc7b3b1e9fe84b335c6fcb1379da2aa493741ec645954ffd225fec90fb",
+      "independent_validation.json": "4831456d4a122a0a1d0227db1444ee888fdbf40d300c25f31cac9c60071ba7aa",
+      "hf_receipt.json": "11737fc8309a851330c06316a770ad58bf2c6337636ce936c27560ba46b73512",
+      "provider_comparison.json": "61598cc332a2c2e936ab2f0d925c14261b3f61e52157f6a18df97af13323c5a3",
+      "remote_validation.json": "2c3ed219cdaf9bbc9b397f92f11420a8cc14c0520d10143e8044a71145768ff3",
+      "environment.json": "2c5f39b20148684f7b3426deaac855ebfc848c46ca16d2afd4b70b35bb71e8a7",
+      "orx_source_receipt.json": "1f2ac388505371d03582a65b53df0c5c26dce95256761070d1fee3f988c13ef7"
+    }
+  },
+  "fallback": {
+    "name": "hf-bengali-turbo-repetition-fallback-v1",
+    "metrics": {
+      "wer": 0.9983314794215795,
+      "cer": 0.8951412696536234,
+      "wil": 0.9999727958601344,
+      "hits": 3,
+      "substitutions": 181,
+      "deletions": 1614,
+      "insertions": 0,
+      "ref_words": 1798,
+      "ref_chars": 8459,
+      "hyp_words": 184,
+      "character_errors": 7572
+    },
+    "inference_seconds": 271.94136831900687,
+    "selected_calls": 31,
+    "selected_without_eos": 2,
+    "total_attempts": 176,
+    "attempt_temperatures": {
+      "0.0": 31,
+      "0.2": 31,
+      "0.4": 30,
+      "0.6": 29,
+      "0.8": 29,
+      "1.0": 26
+    },
+    "effective_beams": {
+      "5": 1,
+      "1": 175
+    },
+    "exhausted_schedules": 24,
+    "artifact_hashes": {
+      "summary.json": "cd795ee15c3c539bee97971333ff7debaab366457f924b3233fa62dfe6bcb969",
+      "predictions.jsonl": "9903be78db4ef7e853553309a98f8cfca7d215836662be3f6b0b6e963a41363d",
+      "config.json": "9f51c528cfd9f925292cd7c10f336a001e51553da630923b3790d8d2953188cc",
+      "independent_validation.json": "832663fd2f038c3c142601b76c2188b8107de8bdc7ec7dcea04aeeee109b1272",
+      "hf_receipt.json": "9c39aa5c93f890a7461cc392ee38d8586dc560c7d068dd27c3d31712abd361df",
+      "remote_validation.json": "cab2bab36807a31a68bd08b8fee2c4e90e399ea1536480d7212421f880e5a05f",
+      "environment.json": "8dd354de4773462b3c7e8a87836b67edc9fd9f5c03d19d4e5843073eeb6f21ee",
+      "orx_source_receipt.json": "2c18da1d61f665da3c557f98f8b4f2231196ba4f219bea6c473a383b93d0fc95"
+    }
+  },
+  "changed_config_keys": [
+    "cloud_job_id",
+    "compression_ratio_threshold",
+    "condition_id",
+    "output_dir",
+    "temperature"
+  ],
+  "delta_wer_points": 1.5572858731924377,
+  "delta_cer_points": 12.779288331954131
+}

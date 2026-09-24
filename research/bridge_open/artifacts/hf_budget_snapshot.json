@@ -1,0 +1,42 @@
+{
+  "provider": "huggingface",
+  "cap_usd": 50.0,
+  "reservations": {
+    "a142465c-b45c-43a8-9929-1aae62c38fe2": {
+      "reserved_usd": 1.5,
+      "commit": "9c1a52d28a82798828b839982071a6f9c7e43acd",
+      "reserved_at": "2026-09-22T14:28:33.257842+00:00",
+      "flavor": "a100-large",
+      "timeout_seconds": 1800,
+      "price_per_minute_usd": 0.041667,
+      "provider_bill_verified": false
+    },
+    "a142465c-b45c-43a8-9929-1aae62c38fe2:586c629e01e5464fb5de54fd7517ac9aedea1363": {
+      "reserved_usd": 1.5,
+      "commit": "586c629e01e5464fb5de54fd7517ac9aedea1363",
+      "reserved_at": "2026-09-22T14:31:21.191475+00:00",
+      "flavor": "a100-large",
+      "timeout_seconds": 1800,
+      "price_per_minute_usd": 0.041667,
+      "provider_bill_verified": false
+    },
+    "b01b8562-1615-436d-b347-68d14f6075a9:5396ff7e913383531591c8699f20d8371036b258": {
+      "reserved_usd": 1.5,
+      "commit": "5396ff7e913383531591c8699f20d8371036b258",
+      "reserved_at": "2026-09-22T14:34:54.001374+00:00",
+      "flavor": "a100-large",
+      "timeout_seconds": 1800,
+      "price_per_minute_usd": 0.041667,
+      "provider_bill_verified": false
+    },
+    "6c158ead-dcb3-4b56-8e9b-e38f2b97f679:68d3524fe7df2ddf1b29e6a298d94eefeb0a59e6": {
+      "reserved_usd": 1.5,
+      "commit": "68d3524fe7df2ddf1b29e6a298d94eefeb0a59e6",
+      "reserved_at": "2026-09-22T14:42:10.933383+00:00",
+      "flavor": "a100-large",
+      "timeout_seconds": 1800,
+      "price_per_minute_usd": 0.041667,
+      "provider_bill_verified": false
+    }
+  }
+}

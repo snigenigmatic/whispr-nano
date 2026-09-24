@@ -1,0 +1,11 @@
+{
+  "scope": "20-second engineering smoke",
+  "seconds": 6.849469083012082,
+  "model_revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+  "token_count": 440,
+  "eos_present": false,
+  "text": " अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो अलो",
+  "acceptance": "rejected: mixed shared Python environment; not accepted as model evidence",
+  "imported_transformers_version": "5.16.1",
+  "metadata_transformers_version": "4.57.6"
+}

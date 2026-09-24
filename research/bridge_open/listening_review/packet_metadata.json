@@ -1,0 +1,52 @@
+{
+  "packet_status": "UNREVIEWED",
+  "random_seed": 20260923,
+  "random_per_language": 10,
+  "targeted_source_entry_count": 21,
+  "targeted_distinct_count": 20,
+  "selected_deduplicated_count": 50,
+  "counts_by_language": {
+    "as": 16,
+    "bn": 16,
+    "hi": 18
+  },
+  "targeted_ids": [
+    "fleurs-as_in-test-10267297760022598156",
+    "fleurs-as_in-test-11402580676458191170",
+    "fleurs-as_in-test-12725733973968448439",
+    "fleurs-as_in-test-1365398098838132366",
+    "fleurs-as_in-test-1492271985016362382",
+    "fleurs-as_in-test-5301855462181395773",
+    "fleurs-bn_in-test-14689279487133783768",
+    "fleurs-bn_in-test-18061366965459815657",
+    "fleurs-bn_in-test-4308726374718768279",
+    "fleurs-bn_in-test-4665017918097861335",
+    "fleurs-bn_in-test-715492863364296527",
+    "fleurs-bn_in-test-9224335727798518362",
+    "fleurs-hi_in-test-10027305580492162464",
+    "fleurs-hi_in-test-11299735708347263843",
+    "fleurs-hi_in-test-13109433266350566952",
+    "fleurs-hi_in-test-16476307123526686841",
+    "fleurs-hi_in-test-16715413603857130243",
+    "fleurs-hi_in-test-17757682103941428900",
+    "fleurs-hi_in-test-5650107975346696997",
+    "fleurs-hi_in-test-7698875201475624229"
+  ],
+  "reviewer_view_excludes_true_system_names": true,
+  "audio_server_root": "/Users/prateekraj/whispr-nano",
+  "source_manifest_sha256": "967d8dca02f9f729c1ed7548dce7283cf9dfc62623815a7c131f71acb13ce2c7",
+  "source_prediction_files": {
+    "Whisper Turbo": {
+      "path": "/Users/prateekraj/whispr-nano/research/bridge_open/artifacts/fleurs_whisper_corrected_v3/turbo_predictions.jsonl",
+      "sha256": "127c4ba4854100b964c40b61701457f4972cc0bc0ca684ce464ec1b6cec5b988"
+    },
+    "Whisper Large-v3": {
+      "path": "/Users/prateekraj/whispr-nano/research/bridge_open/artifacts/fleurs_whisper_corrected_v3/large-v3_predictions.jsonl",
+      "sha256": "a23d1fdfd2152e1f520a8527536b71abbc087cd4ee28c4f312423119ae02d82d"
+    },
+    "Qwen3-ASR-1.7B": {
+      "path": "/Users/prateekraj/whispr-nano/research/bridge_open/artifacts/qwen_native_full_hi_v1/predictions.jsonl",
+      "sha256": "2ac059fd13ccd1ad5c4f92e824022144c91bdf5eca54c751f662b1f50641e5aa"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "model_state_passed": true,
+  "learned_tensor_equality_passed": true,
+  "corresponding_tensors": 1259,
+  "features_compared": 27,
+  "max_feature_abs_delta": 2.384185791015625e-07,
+  "executed_script_sha256_verified": true,
+  "orx_source_archive_verified": true,
+  "full_study_performance_claims_cleared": false
+}

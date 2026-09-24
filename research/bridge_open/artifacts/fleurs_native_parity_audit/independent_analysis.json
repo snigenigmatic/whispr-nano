@@ -1,0 +1,238 @@
+{
+  "artifact_and_metric_checks_passed": true,
+  "full_study_performance_claims_cleared": false,
+  "purpose": "Post-result diagnostic, not held-out performance",
+  "records": 126,
+  "original_batch_reproduced": 24,
+  "short_n": 24,
+  "short_scores": {
+    "hf_original_batch": {
+      "hi": {
+        "n": 8,
+        "word_errors": 53,
+        "ref_words": 208,
+        "wer": 0.2548076923076923,
+        "cer": 0.09988385598141696
+      },
+      "bn": {
+        "n": 8,
+        "word_errors": 103,
+        "ref_words": 152,
+        "wer": 0.6776315789473685,
+        "cer": 0.2622169249106079
+      },
+      "as": {
+        "n": 8,
+        "word_errors": 159,
+        "ref_words": 151,
+        "wer": 1.0529801324503312,
+        "cer": 1.0
+      }
+    },
+    "hf_single": {
+      "hi": {
+        "n": 8,
+        "word_errors": 53,
+        "ref_words": 208,
+        "wer": 0.2548076923076923,
+        "cer": 0.09988385598141696
+      },
+      "bn": {
+        "n": 8,
+        "word_errors": 103,
+        "ref_words": 152,
+        "wer": 0.6776315789473685,
+        "cer": 0.2622169249106079
+      },
+      "as": {
+        "n": 8,
+        "word_errors": 159,
+        "ref_words": 151,
+        "wer": 1.0529801324503312,
+        "cer": 1.0
+      }
+    },
+    "hf_pipeline": {
+      "hi": {
+        "n": 8,
+        "word_errors": 53,
+        "ref_words": 208,
+        "wer": 0.2548076923076923,
+        "cer": 0.09988385598141696
+      },
+      "bn": {
+        "n": 8,
+        "word_errors": 103,
+        "ref_words": 152,
+        "wer": 0.6776315789473685,
+        "cer": 0.2622169249106079
+      },
+      "as": {
+        "n": 8,
+        "word_errors": 159,
+        "ref_words": 151,
+        "wer": 1.0529801324503312,
+        "cer": 1.0
+      }
+    },
+    "native_decode_matched": {
+      "hi": {
+        "n": 8,
+        "word_errors": 52,
+        "ref_words": 208,
+        "wer": 0.25,
+        "cer": 0.09523809523809523
+      },
+      "bn": {
+        "n": 8,
+        "word_errors": 102,
+        "ref_words": 152,
+        "wer": 0.6710526315789473,
+        "cer": 0.26102502979737785
+      },
+      "as": {
+        "n": 8,
+        "word_errors": 159,
+        "ref_words": 151,
+        "wer": 1.0529801324503312,
+        "cer": 1.0
+      }
+    },
+    "native_transcribe_default": {
+      "hi": {
+        "n": 8,
+        "word_errors": 55,
+        "ref_words": 208,
+        "wer": 0.2644230769230769,
+        "cer": 0.1440185830429733
+      },
+      "bn": {
+        "n": 8,
+        "word_errors": 101,
+        "ref_words": 152,
+        "wer": 0.6644736842105263,
+        "cer": 0.2896305125148987
+      },
+      "as": {
+        "n": 8,
+        "word_errors": 161,
+        "ref_words": 151,
+        "wer": 1.0662251655629138,
+        "cer": 0.9987389659520807
+      }
+    }
+  },
+  "text_matches_to_original_batch": {
+    "hf_original_batch": {
+      "hi": 8,
+      "bn": 8,
+      "as": 8
+    },
+    "hf_single": {
+      "hi": 8,
+      "bn": 8,
+      "as": 8
+    },
+    "hf_pipeline": {
+      "hi": 8,
+      "bn": 8,
+      "as": 8
+    },
+    "native_decode_matched": {
+      "hi": 7,
+      "bn": 6,
+      "as": 8
+    },
+    "native_transcribe_default": {
+      "hi": 3,
+      "bn": 0,
+      "as": 0
+    }
+  },
+  "long_examples": {
+    "fleurs-as_in-test-10189020253469894562": {
+      "hf_original_fixed30": {
+        "wer": 5.131578947368421,
+        "cer": 5.536697247706422,
+        "wil": 1.0,
+        "hits": 0,
+        "substitutions": 38,
+        "deletions": 0,
+        "insertions": 157,
+        "ref_words": 38,
+        "ref_chars": 218,
+        "hyp_words": 195,
+        "character_errors": 1207
+      },
+      "native_transcribe_default": {
+        "wer": 1.131578947368421,
+        "cer": 1.0,
+        "wil": 1.0,
+        "hits": 0,
+        "substitutions": 38,
+        "deletions": 0,
+        "insertions": 5,
+        "ref_words": 38,
+        "ref_chars": 218,
+        "hyp_words": 43,
+        "character_errors": 218
+      }
+    },
+    "fleurs-bn_in-test-12869216347907550991": {
+      "hf_original_fixed30": {
+        "wer": 0.95,
+        "cer": 0.8846153846153846,
+        "wil": 0.9567567567567568,
+        "hits": 8,
+        "substitutions": 23,
+        "deletions": 9,
+        "insertions": 6,
+        "ref_words": 40,
+        "ref_chars": 260,
+        "hyp_words": 37,
+        "character_errors": 230
+      },
+      "native_transcribe_default": {
+        "wer": 0.95,
+        "cer": 0.6423076923076924,
+        "wil": 0.996551724137931,
+        "hits": 2,
+        "substitutions": 27,
+        "deletions": 11,
+        "insertions": 0,
+        "ref_words": 40,
+        "ref_chars": 260,
+        "hyp_words": 29,
+        "character_errors": 167
+      }
+    },
+    "fleurs-hi_in-test-13003185437122223029": {
+      "hf_original_fixed30": {
+        "wer": 0.5211267605633803,
+        "cer": 0.4592833876221498,
+        "wil": 0.6381846635367763,
+        "hits": 34,
+        "substitutions": 11,
+        "deletions": 26,
+        "insertions": 0,
+        "ref_words": 71,
+        "ref_chars": 307,
+        "hyp_words": 45,
+        "character_errors": 141
+      },
+      "native_transcribe_default": {
+        "wer": 0.5352112676056338,
+        "cer": 0.4755700325732899,
+        "wil": 0.6514084507042254,
+        "hits": 33,
+        "substitutions": 11,
+        "deletions": 27,
+        "insertions": 0,
+        "ref_words": 71,
+        "ref_chars": 307,
+        "hyp_words": 44,
+        "character_errors": 146
+      }
+    }
+  }
+}

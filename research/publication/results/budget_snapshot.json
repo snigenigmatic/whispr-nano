@@ -1,0 +1,269 @@
+{
+  "captured_at": "2026-09-16T15:07:00+05:30",
+  "gross_reservations_usd": 23.35,
+  "guarded_total_usd": 11.975643839196175,
+  "ledger": {
+    "credit_note": "Live ledger. The first inspection was cancelled after audio decode was detected.",
+    "hard_cap_usd": 12.0,
+    "jobs": [
+      {
+        "config_sha256": "575c2528ffaec2ab001c1db8f4404fa2370435ac3f0fe98cb58c15aa67e34669",
+        "job_id": "inspect-spire-train-v1",
+        "measured_usd": 0.1,
+        "reason": "metadata iterator decoded audio; run and Modal app explicitly stopped",
+        "reserved_usd": 0.1,
+        "status": "cancelled"
+      },
+      {
+        "config_sha256": "2ab586457ca7c76d5ff0dcc6ff21718b31c32876df6d58026504cabf7659e645",
+        "job_id": "inspect-spire-train-v2",
+        "measured_usd": 0.1,
+        "reason": "HF_HOME was set after datasets import; cache was bypassed; run and app stopped",
+        "reserved_usd": 0.1,
+        "status": "cancelled"
+      },
+      {
+        "config_sha256": "93f44fd553733d7d733fe0da9b145b1d1f49d49ec1e2545a38dac01e03f255ac",
+        "job_id": "inspect-spire-train-v3",
+        "measured_usd": 0.0359735321617,
+        "receipt_sha256": "f8915eb39fe4f0c906b3e41ad9fc1a706b68fbb245ba12d3355a9853b9a8754b",
+        "reserved_usd": 0.1,
+        "status": "completed"
+      },
+      {
+        "config_sha256": "271dd502ee0445fd0c808d3ed6ee2993738dbdb50842a6b196c79b1a19d8cf09",
+        "job_id": "prepare-spire-target-v1",
+        "measured_usd": 0.5,
+        "receipt_sha256": "9ccd86ea75f49a9cdfe6dd05fea0e218c807937b9746b1a750881514ecd10473",
+        "reserved_usd": 0.5,
+        "status": "completed"
+      },
+      {
+        "config_sha256": "7b37589f92d850904a5ea86db113ec20cd09792d0af5b59550b018583739c5ab",
+        "job_id": "smoke-source-pseudo-seed12-v1",
+        "measured_usd": 0.12335655689774329,
+        "receipt_sha256": "b6dd74c68f3741bf1ebfb38644d0d0da11be0d147e98e2d6249b08c73a025558",
+        "reserved_usd": 0.5,
+        "status": "completed"
+      },
+      {
+        "config_sha256": "20db2b1b29d59a5e59341ef22a17ed9051eedbfde798f8ca20b0775dc1d7c000",
+        "job_id": "source-endpoints-seed12-v1/source_real",
+        "measured_usd": 0.36530728736803797,
+        "receipt_sha256": "e9a39bc6314f37dc741eecc058eb4f2104c273539e83d5142b05fa20f699c299",
+        "reserved_usd": 0.65,
+        "status": "completed"
+      },
+      {
+        "config_sha256": "5878976159c7daa330311e87981d5987b9fb2735d4af0b01f403fe1a887fd34f",
+        "job_id": "source-endpoints-seed12-v1/source_pseudo",
+        "measured_usd": 0.36780282764330235,
+        "receipt_sha256": "1924a48f83e5d83679b9d6797fc7f46cda98c10ca6fd2fe6def91cab6f0858db",
+        "reserved_usd": 0.65,
+        "status": "completed"
+      },
+      {
+        "config_sha256": "32c220583c360ecfa7eef41368eae9ef76da747bb220398910ecb4974fcdf09f",
+        "job_id": "label-spire-target-large-v3-seed12-v1",
+        "measured_usd": 1.25,
+        "reason": "batch-4 throughput projected too close to hard timeout; app stopped after 200 decoded clips",
+        "reserved_usd": 1.25,
+        "status": "cancelled"
+      },
+      {
+        "config_sha256": "73de194c4a90a3ef6b7d8bcb3d61063f8febd980519c7618711f400a720d492d",
+        "job_id": "label-spire-target-large-v3-seed12-v2",
+        "measured_usd": 1.25,
+        "reason": "GPU utilization showed serial 48kHz resampling bottleneck; app stopped before any accepted artifact",
+        "reserved_usd": 1.25,
+        "status": "cancelled"
+      },
+      {
+        "config_sha256": "a85c006b4a8c0bc525b281eac688bc70c61ee67574d72b0c5d4f68c5a61c0dde",
+        "job_id": "label-spire-target-large-v3-seed12-v3",
+        "measured_usd": 0.6287829600000001,
+        "reason": "app ap-Wq4hi1jZkgtlgAGOr52xtr stopped after float32 throughput could not meet the hard timeout",
+        "reserved_usd": 1.25,
+        "status": "cancelled"
+      },
+      {
+        "config_sha256": "21c082bcc00fddbd2d9edc4c8e59c067f67896e54d1f73773840913c1e0824e1",
+        "job_id": "label-spire-target-large-v3-seed12-v4",
+        "measured_usd": 0.12982968,
+        "reason": "app ap-YaRkBumdrNdidTe3AoWiIr failed on float32 input versus float16 model dtype mismatch",
+        "reserved_usd": 1.25,
+        "status": "cancelled"
+      },
+      {
+        "config_sha256": "6e30a6f152d6426a444a64e40371ba62548d60dff7c974b4b6bc20cd2e0a1bd5",
+        "job_id": "label-spire-target-large-v3-seed12-v5",
+        "measured_usd": 0.48622488,
+        "reason": "app ap-2Pq7Ky4FltmVLAu00pLEC5 stopped after single-shard slope projected beyond timeout",
+        "reserved_usd": 1.25,
+        "status": "cancelled"
+      },
+      {
+        "config_sha256": "f6ed7d5c205eedee878e70cdb247def46a1fef2e19a6c24369efe1c6c109f04c",
+        "job_id": "label-spire-target-large-v3-seed12-v6",
+        "measured_usd": 1.1789998678942706,
+        "receipt_sha256": "39994a1369c353bbadcfba0e7b2640c3a2c192af092c91be7c8f298782d3cafb",
+        "reserved_usd": 1.3,
+        "status": "completed"
+      },
+      {
+        "config_sha256": "c33285725d24089928eb460a195681416aeaf661706389e945fdae2f30457747",
+        "job_id": "train-target-pseudo-seed12-v1",
+        "measured_usd": 0.4925512000000001,
+        "receipt_sha256": "4c7a8eee107447a61cb1fcaba9b9b4112c2ab6b10bccec974be12caf14a182f6",
+        "reserved_usd": 1.2,
+        "status": "completed"
+      },
+      {
+        "config_sha256": "0d382988a80968e7412bc16648bfb8b6acea6cb68f4f7035a1ee8559559403c4",
+        "job_id": "train-target-pseudo-seed12-v2",
+        "measured_usd": 0.07,
+        "reason": "stopped after 44 seconds when the complete v1 artifact set was found on the result volume",
+        "reserved_usd": 0.55,
+        "status": "cancelled"
+      },
+      {
+        "config_sha256": "b52adf1385014d87285a156a0913a0c804e4c034f71a285c09ef8e89cf83df82",
+        "job_id": "recover-target-pseudo-seed12-v1",
+        "measured_usd": 0.05,
+        "receipt_sha256": "4c7a8eee107447a61cb1fcaba9b9b4112c2ab6b10bccec974be12caf14a182f6",
+        "reserved_usd": 0.05,
+        "status": "completed"
+      },
+      {
+        "config_sha256": "c43802feff601cf1ce58f532646723e61861dde8dee7f2421210248262349c68",
+        "job_id": "global-pseudo2real-seed12-lambda1-v1",
+        "measured_usd": 0.028978248141705965,
+        "receipt_sha256": "a20645bc53ebaa86176d20cb26943bc4e0b6e4314055de576cfbd1991f8a6136",
+        "reserved_usd": 0.5,
+        "status": "completed"
+      },
+      {
+        "config_sha256": "95b790e742c3cb9321becb3a86f34ab45e00b83b892abe97db49a3646c64e131",
+        "job_id": "global-pseudo2real-seed12-source-dev-grid-v1",
+        "measured_usd": 0.04200372,
+        "reason": "app ap-Ytd7jqEnspzILuEvGo6dUW failed before evaluation on the documented tied projection key",
+        "reserved_usd": 0.5,
+        "status": "cancelled"
+      },
+      {
+        "config_sha256": "c6738c7c4335bb57c237f9413f118ce10acce39a0e221eba0d14235637f6b5cf",
+        "job_id": "global-pseudo2real-seed12-source-dev-grid-v2",
+        "measured_usd": 0.036912360000000005,
+        "reason": "app ap-yGl94nMN4Jbndhdp40ND7H refused the preserved partial output path before evaluation",
+        "reserved_usd": 0.5,
+        "status": "cancelled"
+      },
+      {
+        "config_sha256": "188c2084a1624947f372f57917e8ed0a945585a15c0b1e4ba3d323c8790b1123",
+        "job_id": "global-pseudo2real-seed12-source-dev-grid-v3",
+        "measured_usd": 0.13118914944330493,
+        "receipt_sha256": "cb6a2d82e1c25a112522c00ed03626685bbe2254a8b8177c8676cb1921a63afe",
+        "reserved_usd": 0.5,
+        "status": "completed"
+      },
+      {
+        "config_sha256": "aa5fc9f30e02da35ca23a3caac63495b8e1c3825621bca0cdda5b6cfd3865abf",
+        "job_id": "train-target-pseudo-conf50-seed12-v1",
+        "measured_usd": 0.36827747616551665,
+        "receipt_sha256": "58a01f2dd443bcc07a1f598aac4eed647e1eed037314f21afa825c0c4fb55a48",
+        "reserved_usd": 0.65,
+        "status": "completed"
+      },
+      {
+        "config_sha256": "8a27be064d7da48d807c0dbf87faed3468e35c069f1d27f9fd2b5cdab17c9a50",
+        "job_id": "build-ecapa-c2-seed12-v1",
+        "measured_usd": 0.0,
+        "reason": "Modal dependency image failed to build before app or GPU worker startup",
+        "reserved_usd": 0.85,
+        "status": "cancelled"
+      },
+      {
+        "config_sha256": "4914d3b79530193f11d00dc6cb1ea846038339c7939c10f6ae959e0ca6d671c6",
+        "job_id": "build-ecapa-c2-seed12-v2",
+        "measured_usd": 0.05,
+        "reason": "ECAPA worker stopped at SpeechBrain import before model or audio loading; conservative H100 startup allowance",
+        "reserved_usd": 0.85,
+        "status": "cancelled"
+      },
+      {
+        "config_sha256": "bef89060396e9d9fb1668c5bace38c6ded3c19ea953b179f8c8ac626d9aa0951",
+        "job_id": "build-ecapa-c2-seed12-v3",
+        "measured_usd": 0.05,
+        "reason": "ECAPA worker stopped on missing SpeechBrain requests dependency before model or audio loading; conservative H100 startup allowance",
+        "reserved_usd": 0.85,
+        "status": "cancelled"
+      },
+      {
+        "config_sha256": "c2ffe406f36fe337a1d28374370281e12ef3976a64b89076d3bff441a860ed73",
+        "job_id": "build-ecapa-c2-seed12-v4",
+        "measured_usd": 0.05,
+        "reason": "ECAPA worker stopped while SpeechBrain tried to refetch pinned checkpoint components; no audio embedded; conservative H100 startup allowance",
+        "reserved_usd": 0.85,
+        "status": "cancelled"
+      },
+      {
+        "config_sha256": "1514935478d364bdf68cf2b5a9e6f54773c1bd959abc83bd74ad0666e0a64f4c",
+        "job_id": "build-ecapa-c2-seed12-v5",
+        "measured_usd": 0.47,
+        "reason": "stopped after measured timeout projection; Modal container required direct stop after local orx cancellation, so 0.47 USD conservatively covers all remote runtime",
+        "reserved_usd": 0.85,
+        "status": "cancelled"
+      },
+      {
+        "config_sha256": "8276dee617a1bf2c188bcd211398ce89f48e0dead5ee7581f071ad9b6aa78ec8",
+        "job_id": "build-ecapa-c2-seed12-v6",
+        "measured_usd": 0.25,
+        "reason": "directly stopped after 129 seconds when batch 128 failed to complete the first reporting block; no persisted embeddings",
+        "reserved_usd": 0.85,
+        "status": "cancelled"
+      },
+      {
+        "config_sha256": "b10b2660176c5d887b52142eec7a38714e8d204aef1b925f7434c7e44adcfa75",
+        "job_id": "build-ecapa-c2-seed12-v7",
+        "measured_usd": 1.5600035745360066,
+        "reason": "three verified shards completed; shard 2 hit its 540-second H100 timeout; exact completed-shard wall costs plus full timeout charged",
+        "reserved_usd": 1.3,
+        "status": "cancelled"
+      },
+      {
+        "config_sha256": "8f67d869ed7599a147da027078a9dce3222c14e8256586dc8d39f26003025d62",
+        "job_id": "recover-ecapa-c2-shard2-seed12-v1",
+        "measured_usd": 0.3839083189445871,
+        "receipt_sha256": "f0c20ffaf469ecf5374c2f5c6e3239e42e72b4724437c4e9cc75a0e0669ae1a0",
+        "reserved_usd": 0.5,
+        "status": "completed"
+      },
+      {
+        "config_sha256": "e94f7eb3acf4115ef64f34d96f2c3405f8a725bb0f87f655c1d1880c4fb614f4",
+        "job_id": "train-source-sc-c2-seed12-v1",
+        "measured_usd": 0.832991,
+        "reason": "directly stopped after 575 seconds: verified feature staging left insufficient time for training; only incomplete baseline artifacts were removed",
+        "reserved_usd": 0.75,
+        "status": "cancelled"
+      },
+      {
+        "config_sha256": "82f21a462f009ac5afae390eb0b026b2799b070d6fda1d203e8b7e71198d63b9",
+        "job_id": "train-source-sc-c2-seed12-v2",
+        "measured_usd": 0.1,
+        "reason": "failed before training updates because legacy feature receipts omitted the verified mono channel count",
+        "reserved_usd": 0.6,
+        "status": "cancelled"
+      },
+      {
+        "config_sha256": "cd9c21e36fed237b5d46c02af4d22949931e76792764a62c470c7921ae0cce49",
+        "job_id": "train-source-sc-c2-seed12-v3",
+        "measured_usd": 0.4925512000000001,
+        "reason": "four-arm H100 batch reached its enforced 340-second timeout before all final artifacts completed; partial artifacts rejected",
+        "reserved_usd": 0.5,
+        "status": "cancelled"
+      }
+    ],
+    "schema_version": 1
+  },
+  "remaining_under_hard_cap_usd": 0.024356160803824523
+}

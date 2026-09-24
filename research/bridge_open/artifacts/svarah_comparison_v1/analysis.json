@@ -1,0 +1,89 @@
+{
+  "scope": "All 518 available shard02 recordings of 6656 Svarah; availability-selected and preexposed exploratory",
+  "manifest_sha256": "dbddbaeef3a1f78ff85d0cd741e85d86daf7c868b39ee8d4c48f67a21bfafedd",
+  "models": {
+    "Qwen3-ASR-1.7B": {
+      "n": 518,
+      "word_errors": 733,
+      "reference_words": 5389,
+      "wer": 0.13601781406568936,
+      "char_errors": 2325,
+      "reference_chars": 25231,
+      "cer": 0.09214854742182237,
+      "empty_outputs": 0,
+      "wer_ge_1": 41
+    },
+    "OmniASR-CTC-1B": {
+      "n": 518,
+      "word_errors": 3483,
+      "reference_words": 5389,
+      "wer": 0.6463165707923548,
+      "char_errors": 13303,
+      "reference_chars": 25231,
+      "cer": 0.5272482263881733,
+      "empty_outputs": 26,
+      "wer_ge_1": 315
+    }
+  },
+  "paired_recording_counts": {
+    "qwen_fewer": 412,
+    "equal": 93,
+    "omni_fewer": 13
+  },
+  "input_qc": "structural, not human adjudication",
+  "speaker_mapping": "unavailable",
+  "uncertainty": "No speaker-level interval or p-value; dependence mapping unavailable",
+  "costs": "Unverified provider billing; reservations and worker runtimes are not measured cost",
+  "acceptance": {
+    "Qwen3-ASR-1.7B": {
+      "valid": true,
+      "model": "Qwen/Qwen3-ASR-1.7B",
+      "n": 518,
+      "word_errors": 733,
+      "reference_words": 5389,
+      "micro_wer": 0.13601781406568936,
+      "source_cohort": "518 items from one recovered 518-record shard; not full Svarah",
+      "api_agreements": null,
+      "eos_completed": 518,
+      "interpretation": "Descriptive comparison on all 518 available shard02 items; includes preexposed data; not full Svarah or independent confirmation",
+      "receipt": {
+        "run_id": "e5f19c1e-4479-4334-a087-5229eb433b80",
+        "commit": "80ec0e80bf994e8528bd0032efe0cf64fb612e2f",
+        "provider_status": "done",
+        "jobId": "6ab397f751992417dfcd6930",
+        "namespace": "snigenigmatic",
+        "url": "https://huggingface.co/jobs/snigenigmatic/6ab397f751992417dfcd6930",
+        "sourceDigest": "e8b2ad4967f36c16dd9d2e30b5191336fcc02e9db717ca3637d44ae3e36e65dd",
+        "sourcePath": "/Users/prateekraj/.local/share/openresearch/source-snapshots/e8b2ad4967f36c16dd9d2e30b5191336fcc02e9db717ca3637d44ae3e36e65dd.tar",
+        "sourceSize": 94300160,
+        "portable_archive": "source_snapshot.tar.gz",
+        "portable_archive_sha256": "0dcf8e4a0cce17c0d1a0f19e72d57cac214032aa80b8ad8e0727c03c9e1042f4"
+      }
+    },
+    "OmniASR-CTC-1B": {
+      "valid": true,
+      "model": "facebook/omniASR-CTC-1B",
+      "n": 518,
+      "word_errors": 3483,
+      "reference_words": 5389,
+      "micro_wer": 0.6463165707923548,
+      "source_cohort": "518 items from one recovered 518-record shard; not full Svarah",
+      "api_agreements": 518,
+      "eos_completed": null,
+      "interpretation": "Descriptive comparison on all 518 available shard02 items; includes preexposed data; not full Svarah or independent confirmation",
+      "receipt": {
+        "run_id": "c086b84f-e5ed-4ef8-91a1-397b1c155676",
+        "commit": "e737d114e374fa303124fed59375673809fd8fbd",
+        "provider_status": "done",
+        "jobId": "6ab3971052d0dbd7f1d83bb2",
+        "namespace": "snigenigmatic",
+        "url": "https://huggingface.co/jobs/snigenigmatic/6ab3971052d0dbd7f1d83bb2",
+        "sourceDigest": "104ee20b0b6f927a0da2d5b7a681186abed32fd38cbfcb84adb374447f529525",
+        "sourcePath": "/Users/prateekraj/.local/share/openresearch/source-snapshots/104ee20b0b6f927a0da2d5b7a681186abed32fd38cbfcb84adb374447f529525.tar",
+        "sourceSize": 105021440,
+        "portable_archive": "source_snapshot.tar.gz",
+        "portable_archive_sha256": "0a23eeb04d411d8ac876156453f6d93587d37c9ced30288e4a50559a4e26b3f1"
+      }
+    }
+  }
+}

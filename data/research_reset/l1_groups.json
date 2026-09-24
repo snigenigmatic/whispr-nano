@@ -1,0 +1,13 @@
+{
+  "groups": [
+    "Hindi",
+    "Bengali",
+    "Marathi",
+    "Tamil",
+    "Telugu",
+    "Bodo"
+  ],
+  "n": 6,
+  "seed": 20260909,
+  "teacher": "whisper-large-v3"
+}

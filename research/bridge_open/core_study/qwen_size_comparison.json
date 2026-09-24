@@ -1,0 +1,15 @@
+{
+  "hindi_qwen06_minus17": {
+    "metric": "micro_wer",
+    "difference": 0.05403834979662986,
+    "ci_95": [
+      0.04608795925585584,
+      0.06200957081066994
+    ],
+    "draws": 2000,
+    "seed": 12,
+    "cluster_count": 265,
+    "interpretation": "sentence-cluster bootstrap only; not speaker or population fairness inference"
+  },
+  "scope": "post-result descriptive sentence-cluster resampling; no speaker or population inference"
+}

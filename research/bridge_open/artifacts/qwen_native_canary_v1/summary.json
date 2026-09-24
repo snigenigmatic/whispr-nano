@@ -1,0 +1,99 @@
+{
+  "status": "completed",
+  "scope": "engineering/public-data pilot; not BRIDGE-matched or population evidence",
+  "attempted": 3,
+  "successful": 3,
+  "scored": 3,
+  "conversation_ids": [
+    "fleurs-hi_in-test-10011266027513218401",
+    "fleurs-hi_in-test-10014385262415025488",
+    "fleurs-hi_in-test-13003185437122223029"
+  ],
+  "per_language": {
+    "hi": {
+      "estimand": "all fully processed conversations; runtime failures reported separately",
+      "conversation_ids": [
+        "fleurs-hi_in-test-10011266027513218401",
+        "fleurs-hi_in-test-10014385262415025488",
+        "fleurs-hi_in-test-13003185437122223029"
+      ],
+      "scored_count": 3,
+      "attempted_count": 3,
+      "clean_completion_count": 3,
+      "generation_limit_count": null,
+      "generation_limit_observable": false,
+      "word_errors": 19,
+      "ref_words": 135,
+      "character_errors": 63,
+      "ref_chars": 559,
+      "micro_wer": 0.14074074074074075,
+      "micro_cer": 0.11270125223613596,
+      "mean_conversation_wer": 0.12386541471048512,
+      "mean_conversation_wil": 0.2209416764016546
+    }
+  },
+  "results": [
+    {
+      "conversation_id": "fleurs-hi_in-test-10011266027513218401",
+      "language": "hi",
+      "status": "success",
+      "metrics": {
+        "wer": 0.041666666666666664,
+        "cer": 0.053763440860215055,
+        "wil": 0.0815972222222221,
+        "hits": 23,
+        "substitutions": 1,
+        "deletions": 0,
+        "insertions": 0,
+        "ref_words": 24,
+        "ref_chars": 93,
+        "hyp_words": 24,
+        "character_errors": 5
+      },
+      "wall_seconds": 4.2822961481288075,
+      "real_time_factor": 0.46955001624219384
+    },
+    {
+      "conversation_id": "fleurs-hi_in-test-10014385262415025488",
+      "language": "hi",
+      "status": "success",
+      "metrics": {
+        "wer": 0.175,
+        "cer": 0.2893081761006289,
+        "wil": 0.3193750000000001,
+        "hits": 33,
+        "substitutions": 7,
+        "deletions": 0,
+        "insertions": 0,
+        "ref_words": 40,
+        "ref_chars": 159,
+        "hyp_words": 40,
+        "character_errors": 46
+      },
+      "wall_seconds": 4.513484142720699,
+      "real_time_factor": 0.32706406831309415
+    },
+    {
+      "conversation_id": "fleurs-hi_in-test-13003185437122223029",
+      "language": "hi",
+      "status": "success",
+      "metrics": {
+        "wer": 0.15492957746478872,
+        "cer": 0.03908794788273615,
+        "wil": 0.2618528069827416,
+        "hits": 61,
+        "substitutions": 9,
+        "deletions": 1,
+        "insertions": 1,
+        "ref_words": 71,
+        "ref_chars": 307,
+        "hyp_words": 71,
+        "character_errors": 12
+      },
+      "wall_seconds": 11.252654070965946,
+      "real_time_factor": 0.3579088444963723
+    }
+  ],
+  "total_wall_seconds": 38.65689152292907,
+  "cloud_cost_usd": null
+}

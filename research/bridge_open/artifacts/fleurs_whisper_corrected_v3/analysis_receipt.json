@@ -1,0 +1,19 @@
+{
+  "manifest_sha256": "967d8dca02f9f729c1ed7548dce7283cf9dfc62623815a7c131f71acb13ce2c7",
+  "correction_transport_sha256": "d6e824e5cdc3a446d6256c30ac52112b46a61af2bb534d23b4b322fcb53bca3b",
+  "correction_run": {
+    "run_id": "50c79c2f-8053-4ff1-99f6-a60a75aeb853",
+    "commit": "4eb3cdafc6eb4d519bd1a8faeaf285cc6b9375a6",
+    "provider_status": "done",
+    "jobId": "6ab2c32252d0dbd7f1d7fc83",
+    "namespace": "snigenigmatic",
+    "url": "https://huggingface.co/jobs/snigenigmatic/6ab2c32252d0dbd7f1d7fc83",
+    "sourceDigest": "cc08fcf58958711c7fe112ce9e2bc5647feadf577a25004f725441e91f54b587",
+    "sourcePath": "/Users/prateekraj/.local/share/openresearch/source-snapshots/cc08fcf58958711c7fe112ce9e2bc5647feadf577a25004f725441e91f54b587.tar",
+    "sourceSize": 48158720
+  },
+  "analysis_sha256": "91421ce3f2ca527f83bfe5fd30163b4634b8bb044e8e9d57ce744902247bb083",
+  "scorer_sha256": "a63c0fdce68e33810bf233c813a5ebad0f3692e6718aad2828a802b2e776ff3c",
+  "original_registry_sha256": "5db23f934391ac18fa6a175d9f5d7aadda76ca8694fbc403fa56204255acc2a3",
+  "scored_predictions": 4644
+}

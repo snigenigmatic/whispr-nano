@@ -1,0 +1,155 @@
+{
+  "scope": "Reference-free diagnostic; model language probabilities are not calibrated human adjudication.",
+  "config": {
+    "executor": "audio_language_check",
+    "model_id": "openai/whisper-small",
+    "model_revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+    "manifest_path": "/Users/prateekraj/whispr-nano/data/bridge_open/humyn_public_v1/corpus-v1.jsonl",
+    "manifest_sha256": "e6992a043c9448a9974d1707186ee8cbfda87154b1d4aad940c8546c4054aa78",
+    "conversation_ids": [
+      "humyn-13-00",
+      "humyn-01-01"
+    ],
+    "analysis_output": "research/bridge_open/artifacts/audio_language_check"
+  },
+  "model_weight_sha256": {
+    "model.safetensors": "1d7734884874f1a1513ed9aa760a4f8e97aaa02fd6d93a3a85d27b2ae9ca596b"
+  },
+  "code_sha256": "a22b22740e76b906ab2d1eb6b1b2e061de56756f60445ff81037cbdc3a3abec7",
+  "torch_version": "2.8.0",
+  "cloud_cost_usd": 0,
+  "rows": [
+    {
+      "conversation_id": "humyn-13-00",
+      "released_language": "hi",
+      "window": "first",
+      "start_seconds": 0.0,
+      "duration_seconds": 30.0,
+      "rms": 0.056143365219155125,
+      "absolute_peak": 0.7938232421875,
+      "clipped_fraction": 0.0,
+      "top5_language_token_probabilities": [
+        {
+          "language": "<|hi|>",
+          "probability": 0.8462562561035156
+        },
+        {
+          "language": "<|ur|>",
+          "probability": 0.09387480467557907
+        },
+        {
+          "language": "<|en|>",
+          "probability": 0.03213397413492203
+        },
+        {
+          "language": "<|zh|>",
+          "probability": 0.0028332220390439034
+        },
+        {
+          "language": "<|te|>",
+          "probability": 0.002215472748503089
+        }
+      ],
+      "audio_sha256": "7bd13585c48b4b6a82ce14dacd58f9fb3daf1a8ac19d8d3d167457445ecf95df"
+    },
+    {
+      "conversation_id": "humyn-13-00",
+      "released_language": "hi",
+      "window": "middle",
+      "start_seconds": 431.5625,
+      "duration_seconds": 30.0,
+      "rms": 0.018398685491193847,
+      "absolute_peak": 0.695831298828125,
+      "clipped_fraction": 0.0,
+      "top5_language_token_probabilities": [
+        {
+          "language": "<|hi|>",
+          "probability": 0.6822831630706787
+        },
+        {
+          "language": "<|ur|>",
+          "probability": 0.2609935700893402
+        },
+        {
+          "language": "<|en|>",
+          "probability": 0.03577141836285591
+        },
+        {
+          "language": "<|tr|>",
+          "probability": 0.004647502675652504
+        },
+        {
+          "language": "<|bn|>",
+          "probability": 0.0030490143690258265
+        }
+      ],
+      "audio_sha256": "7bd13585c48b4b6a82ce14dacd58f9fb3daf1a8ac19d8d3d167457445ecf95df"
+    },
+    {
+      "conversation_id": "humyn-01-01",
+      "released_language": "bn",
+      "window": "first",
+      "start_seconds": 0.0,
+      "duration_seconds": 30.0,
+      "rms": 0.0,
+      "absolute_peak": 0.0,
+      "clipped_fraction": 0.0,
+      "top5_language_token_probabilities": [
+        {
+          "language": "<|en|>",
+          "probability": 0.3485333025455475
+        },
+        {
+          "language": "<|cy|>",
+          "probability": 0.26949676871299744
+        },
+        {
+          "language": "<|zh|>",
+          "probability": 0.11829152703285217
+        },
+        {
+          "language": "<|nn|>",
+          "probability": 0.054912544786930084
+        },
+        {
+          "language": "<|ko|>",
+          "probability": 0.032354772090911865
+        }
+      ],
+      "audio_sha256": "fcdbe553e410138523bc06adf733feb7f98e53fd178283bdc7585c01daedb194"
+    },
+    {
+      "conversation_id": "humyn-01-01",
+      "released_language": "bn",
+      "window": "middle",
+      "start_seconds": 451.522,
+      "duration_seconds": 30.0,
+      "rms": 0.0,
+      "absolute_peak": 0.0,
+      "clipped_fraction": 0.0,
+      "top5_language_token_probabilities": [
+        {
+          "language": "<|en|>",
+          "probability": 0.3485333025455475
+        },
+        {
+          "language": "<|cy|>",
+          "probability": 0.26949676871299744
+        },
+        {
+          "language": "<|zh|>",
+          "probability": 0.11829152703285217
+        },
+        {
+          "language": "<|nn|>",
+          "probability": 0.054912544786930084
+        },
+        {
+          "language": "<|ko|>",
+          "probability": 0.032354772090911865
+        }
+      ],
+      "audio_sha256": "fcdbe553e410138523bc06adf733feb7f98e53fd178283bdc7585c01daedb194"
+    }
+  ]
+}

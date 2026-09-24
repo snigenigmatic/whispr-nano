@@ -1,0 +1,10 @@
+{
+  "run_id": "819279db-719e-487d-ab50-33f937c9e7e6",
+  "commit": "f625468fb79875be352c6921e4c7662bdcd62e81",
+  "jobId": "6ab2af8a51992417dfcd3bab",
+  "namespace": "snigenigmatic",
+  "url": "https://huggingface.co/jobs/snigenigmatic/6ab2af8a51992417dfcd3bab",
+  "sourceDigest": "879ce759fe1ed6afd88811bdebbfe790e2bddf54a9e3c95a500f7dccdabd0b7d",
+  "sourcePath": "/Users/prateekraj/.local/share/openresearch/source-snapshots/879ce759fe1ed6afd88811bdebbfe790e2bddf54a9e3c95a500f7dccdabd0b7d.tar",
+  "sourceSize": 92620800
+}

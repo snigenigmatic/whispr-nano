@@ -1,0 +1,7 @@
+{
+  "valid": true,
+  "output_dir": "/Users/prateekraj/whispr-nano/research/bridge_open/artifacts/hf-fleurs-test-turbo-hi-short-v2",
+  "conversation_count": 417,
+  "errors": [],
+  "validator_sha256": "9eabb882890eba14bd30e4ae7ff3202cda4e4b5a6a32776f6ba3c749b2b2e01a"
+}

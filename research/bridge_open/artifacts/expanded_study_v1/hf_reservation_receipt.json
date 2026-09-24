@@ -1,0 +1,303 @@
+{
+  "provider": "huggingface",
+  "cap_usd": null,
+  "reservations": {
+    "a142465c-b45c-43a8-9929-1aae62c38fe2": {
+      "reserved_usd": 1.5,
+      "commit": "9c1a52d28a82798828b839982071a6f9c7e43acd",
+      "reserved_at": "2026-09-22T14:28:33.257842+00:00",
+      "flavor": "a100-large",
+      "timeout_seconds": 1800,
+      "price_per_minute_usd": 0.041667,
+      "provider_bill_verified": false
+    },
+    "a142465c-b45c-43a8-9929-1aae62c38fe2:586c629e01e5464fb5de54fd7517ac9aedea1363": {
+      "reserved_usd": 1.5,
+      "commit": "586c629e01e5464fb5de54fd7517ac9aedea1363",
+      "reserved_at": "2026-09-22T14:31:21.191475+00:00",
+      "flavor": "a100-large",
+      "timeout_seconds": 1800,
+      "price_per_minute_usd": 0.041667,
+      "provider_bill_verified": false
+    },
+    "b01b8562-1615-436d-b347-68d14f6075a9:5396ff7e913383531591c8699f20d8371036b258": {
+      "reserved_usd": 1.5,
+      "commit": "5396ff7e913383531591c8699f20d8371036b258",
+      "reserved_at": "2026-09-22T14:34:54.001374+00:00",
+      "flavor": "a100-large",
+      "timeout_seconds": 1800,
+      "price_per_minute_usd": 0.041667,
+      "provider_bill_verified": false
+    },
+    "6c158ead-dcb3-4b56-8e9b-e38f2b97f679:68d3524fe7df2ddf1b29e6a298d94eefeb0a59e6": {
+      "reserved_usd": 1.5,
+      "commit": "68d3524fe7df2ddf1b29e6a298d94eefeb0a59e6",
+      "reserved_at": "2026-09-22T14:42:10.933383+00:00",
+      "flavor": "a100-large",
+      "timeout_seconds": 1800,
+      "price_per_minute_usd": 0.041667,
+      "provider_bill_verified": false
+    },
+    "1d653ac7-06cf-4bf2-9c46-ae192dcf0d8b:7cb83df5239366609048aeb2c8b63cb352cbe0c4": {
+      "reserved_usd": 1.5,
+      "commit": "7cb83df5239366609048aeb2c8b63cb352cbe0c4",
+      "reserved_at": "2026-09-22T16:16:58.782352+00:00",
+      "flavor": "a100-large",
+      "timeout_seconds": 1800,
+      "price_per_minute_usd": 0.041667,
+      "provider_bill_verified": false
+    },
+    "07866a77-ea10-44ab-ab3d-9e74fa85c539:a043e437f17dd290668d206e7ea2282348a63e71": {
+      "reserved_usd": 1.5,
+      "commit": "a043e437f17dd290668d206e7ea2282348a63e71",
+      "reserved_at": "2026-09-22T16:21:08.149769+00:00",
+      "flavor": "a100-large",
+      "timeout_seconds": 1800,
+      "price_per_minute_usd": 0.041667,
+      "provider_bill_verified": false
+    },
+    "bbb5a7f1-dbc0-4022-acf5-cee01ec672e4:33a032ec2c79cfeeb9d4217cd3425c9f3f70729c": {
+      "reserved_usd": 1.5,
+      "commit": "33a032ec2c79cfeeb9d4217cd3425c9f3f70729c",
+      "reserved_at": "2026-09-22T16:25:54.901455+00:00",
+      "flavor": "a100-large",
+      "timeout_seconds": 1800,
+      "price_per_minute_usd": 0.041667,
+      "provider_bill_verified": false
+    },
+    "61ce0877-467e-4222-bf1b-fd30841f70bb:5ccad7f53d97da7c6605bd460844a95629533809": {
+      "reserved_usd": 1.5,
+      "commit": "5ccad7f53d97da7c6605bd460844a95629533809",
+      "reserved_at": "2026-09-22T16:27:59.607347+00:00",
+      "flavor": "a100-large",
+      "timeout_seconds": 1800,
+      "price_per_minute_usd": 0.041667,
+      "provider_bill_verified": false
+    },
+    "d83c5244-34a0-48da-9504-4d93c07d914f:52c30923a574aa6a011e97669a8e0c1a07e6ef8a": {
+      "reserved_usd": 1.5,
+      "commit": "52c30923a574aa6a011e97669a8e0c1a07e6ef8a",
+      "reserved_at": "2026-09-22T16:28:31.220486+00:00",
+      "flavor": "a100-large",
+      "timeout_seconds": 1800,
+      "price_per_minute_usd": 0.041667,
+      "provider_bill_verified": false
+    },
+    "2b8d363b-3a80-41ac-9f28-bbfabaa3db7b:356ced6415ecc611b6df6cd7d30c0b24c5d2bf7f": {
+      "reserved_usd": 1.5,
+      "commit": "356ced6415ecc611b6df6cd7d30c0b24c5d2bf7f",
+      "reserved_at": "2026-09-22T16:29:13.144862+00:00",
+      "flavor": "a100-large",
+      "timeout_seconds": 1800,
+      "price_per_minute_usd": 0.041667,
+      "provider_bill_verified": false
+    },
+    "fc8f49e2-4428-40f0-8091-9512ce3acf96:220ff514feff3a2e78c5f336560766ffbc171b57": {
+      "reserved_usd": 1.5,
+      "commit": "220ff514feff3a2e78c5f336560766ffbc171b57",
+      "reserved_at": "2026-09-22T16:31:45.247082+00:00",
+      "flavor": "a100-large",
+      "timeout_seconds": 1800,
+      "price_per_minute_usd": 0.041667,
+      "provider_bill_verified": false
+    },
+    "5a0e7988-51dc-4eb1-88c7-c2a990bcdd21:5e5fb45612d97312c9a6a38e351fa9942087a7ad": {
+      "reserved_usd": 1.5,
+      "commit": "5e5fb45612d97312c9a6a38e351fa9942087a7ad",
+      "reserved_at": "2026-09-22T16:32:49.503404+00:00",
+      "flavor": "a100-large",
+      "timeout_seconds": 1800,
+      "price_per_minute_usd": 0.041667,
+      "provider_bill_verified": false
+    },
+    "ca931e1f-af89-49a2-99ec-7d94b4b9b491:e30a62686b9ab6a3a2f65b5245f41c156338fdd3": {
+      "reserved_usd": 1.5,
+      "commit": "e30a62686b9ab6a3a2f65b5245f41c156338fdd3",
+      "reserved_at": "2026-09-22T16:32:57.100845+00:00",
+      "flavor": "a100-large",
+      "timeout_seconds": 1800,
+      "price_per_minute_usd": 0.041667,
+      "provider_bill_verified": false
+    },
+    "1af97f47-7d59-4394-a9ee-19497c71721d:e0fb833953ea6764db10c61b9be99abc44e40f87": {
+      "reserved_usd": 1.5,
+      "commit": "e0fb833953ea6764db10c61b9be99abc44e40f87",
+      "reserved_at": "2026-09-22T16:37:21.860753+00:00",
+      "flavor": "a100-large",
+      "timeout_seconds": 1800,
+      "price_per_minute_usd": 0.041667,
+      "provider_bill_verified": false
+    },
+    "3ffd1c17-6fc5-4613-9120-e4ba1a364214:f625468fb79875be352c6921e4c7662bdcd62e81": {
+      "reserved_usd": 1.5,
+      "commit": "f625468fb79875be352c6921e4c7662bdcd62e81",
+      "reserved_at": "2026-09-22T16:40:35.971081+00:00",
+      "flavor": "a100-large",
+      "timeout_seconds": 1800,
+      "price_per_minute_usd": 0.041667,
+      "provider_bill_verified": false
+    },
+    "50c6e877-3de8-47e2-9616-f1805d516beb:25041dfa1f76f33b50fd761535e5c3374bccd500": {
+      "reserved_usd": 1.5,
+      "commit": "25041dfa1f76f33b50fd761535e5c3374bccd500",
+      "reserved_at": "2026-09-22T16:40:59.100752+00:00",
+      "flavor": "a100-large",
+      "timeout_seconds": 1800,
+      "price_per_minute_usd": 0.041667,
+      "provider_bill_verified": false
+    },
+    "7e15266e-e132-4d6b-8bf4-97782fabd7b6:706c04835d1d8c4807dff475ef658416b73e250b": {
+      "reserved_usd": 1.5,
+      "commit": "706c04835d1d8c4807dff475ef658416b73e250b",
+      "reserved_at": "2026-09-22T16:42:25.933776+00:00",
+      "flavor": "a100-large",
+      "timeout_seconds": 1800,
+      "price_per_minute_usd": 0.041667,
+      "provider_bill_verified": false
+    },
+    "da9a2250-d3db-4ac5-9722-2a2220dd92f7:aa30e617ed8f504f9f30a9758c47622b6dfc714e": {
+      "reserved_usd": 1.5,
+      "commit": "aa30e617ed8f504f9f30a9758c47622b6dfc714e",
+      "reserved_at": "2026-09-22T16:43:25.162240+00:00",
+      "flavor": "a100-large",
+      "timeout_seconds": 1800,
+      "price_per_minute_usd": 0.041667,
+      "provider_bill_verified": false
+    },
+    "687933bc-0ccb-442b-a02f-7a4c1dc80f1f:7bfcdac57aaf4f41904d31e559f211747a3217fc": {
+      "reserved_usd": 1.5,
+      "commit": "7bfcdac57aaf4f41904d31e559f211747a3217fc",
+      "reserved_at": "2026-09-22T16:45:08.979521+00:00",
+      "flavor": "a100-large",
+      "timeout_seconds": 1800,
+      "price_per_minute_usd": 0.041667,
+      "provider_bill_verified": false
+    },
+    "1cd28010-8772-4d55-b138-3a812e4f9f8f:da97f5b877300ddb53fb142d97ed5caef3591413": {
+      "reserved_usd": 1.5,
+      "commit": "da97f5b877300ddb53fb142d97ed5caef3591413",
+      "reserved_at": "2026-09-22T16:45:24.820476+00:00",
+      "flavor": "a100-large",
+      "timeout_seconds": 1800,
+      "price_per_minute_usd": 0.041667,
+      "provider_bill_verified": false
+    },
+    "73850428-a5ae-40f0-bd0b-dfcf915a01b8:b984423e278da2ff8603e9e5243ddd897c821eb9": {
+      "reserved_usd": 1.5,
+      "commit": "b984423e278da2ff8603e9e5243ddd897c821eb9",
+      "reserved_at": "2026-09-22T16:46:25.421745+00:00",
+      "flavor": "a100-large",
+      "timeout_seconds": 1800,
+      "price_per_minute_usd": 0.041667,
+      "provider_bill_verified": false
+    },
+    "a7480e60-1991-4000-8f63-07f58e789606:5d94067ae35badbd4c1e2fc10d610f7ba398efac": {
+      "reserved_usd": 1.5,
+      "commit": "5d94067ae35badbd4c1e2fc10d610f7ba398efac",
+      "reserved_at": "2026-09-22T16:46:49.702147+00:00",
+      "flavor": "a100-large",
+      "timeout_seconds": 1800,
+      "price_per_minute_usd": 0.041667,
+      "provider_bill_verified": false
+    },
+    "08a72a60-d306-4960-a3e6-d0d957643926:e8a0cacabc97b472ead46275da2e6b4586e35fe2": {
+      "reserved_usd": 1.5,
+      "commit": "e8a0cacabc97b472ead46275da2e6b4586e35fe2",
+      "reserved_at": "2026-09-22T17:33:35.510777+00:00",
+      "flavor": "a100-large",
+      "timeout_seconds": 1800,
+      "price_per_minute_usd": 0.041667,
+      "provider_bill_verified": false
+    },
+    "1f53daaa-9e6c-4464-a99b-a1c7810cbe34:4eb3cdafc6eb4d519bd1a8faeaf285cc6b9375a6": {
+      "reserved_usd": 1.5,
+      "commit": "4eb3cdafc6eb4d519bd1a8faeaf285cc6b9375a6",
+      "reserved_at": "2026-09-22T18:04:09.889343+00:00",
+      "flavor": "a100-large",
+      "timeout_seconds": 1800,
+      "price_per_minute_usd": 0.041667,
+      "provider_bill_verified": false
+    },
+    "5d465065-1d45-46e1-a8c9-7a08cbc9396e:a15755acaac36fb0b7f1a5ec6410507ab6be73bc": {
+      "reserved_usd": 1.5,
+      "commit": "a15755acaac36fb0b7f1a5ec6410507ab6be73bc",
+      "reserved_at": "2026-09-22T18:12:00.934550+00:00",
+      "flavor": "a100-large",
+      "timeout_seconds": 1800,
+      "price_per_minute_usd": 0.041667,
+      "provider_bill_verified": false
+    },
+    "04b05f49-6212-4d60-80c6-dd0b1430e06b:60fb572f7dd3437f07b77bad052d33f121c2ca43": {
+      "reserved_usd": 1.5,
+      "commit": "60fb572f7dd3437f07b77bad052d33f121c2ca43",
+      "reserved_at": "2026-09-22T18:21:08.775925+00:00",
+      "flavor": "a100-large",
+      "timeout_seconds": 1800,
+      "price_per_minute_usd": 0.041667,
+      "provider_bill_verified": false
+    },
+    "50255852-3f2e-449e-ad58-53c73bb6ce6a:6df7cc65424f2108c33a8354d37262e679b9f6b8": {
+      "reserved_usd": 1.5,
+      "commit": "6df7cc65424f2108c33a8354d37262e679b9f6b8",
+      "reserved_at": "2026-09-22T18:23:35.205451+00:00",
+      "flavor": "a100-large",
+      "timeout_seconds": 1800,
+      "price_per_minute_usd": 0.041667,
+      "provider_bill_verified": false
+    },
+    "4cc55c69-a171-401c-bf1d-627fe00f5705:58f1cc80640d3aa5c68e75d64b2e70f5e41df010": {
+      "reserved_usd": 1.5,
+      "commit": "58f1cc80640d3aa5c68e75d64b2e70f5e41df010",
+      "reserved_at": "2026-09-23T07:19:50.094381+00:00",
+      "flavor": "a100-large",
+      "timeout_seconds": 1800,
+      "price_per_minute_usd": 0.041667,
+      "provider_bill_verified": false
+    },
+    "ced2fc24-f426-44e2-9da5-080098770bf1:79bb18b3c49eefd6efa6f31821ec2fe0db7d70f5": {
+      "reserved_usd": 1.5,
+      "commit": "79bb18b3c49eefd6efa6f31821ec2fe0db7d70f5",
+      "reserved_at": "2026-09-23T07:23:23.512668+00:00",
+      "flavor": "a100-large",
+      "timeout_seconds": 1800,
+      "price_per_minute_usd": 0.041667,
+      "provider_bill_verified": false
+    },
+    "962fe16d-c074-4faf-81c5-847277cc1b7f:3012771c213b1a9853b0b6214c48577342f1c9f4": {
+      "reserved_usd": 1.5,
+      "commit": "3012771c213b1a9853b0b6214c48577342f1c9f4",
+      "reserved_at": "2026-09-23T07:28:26.820199+00:00",
+      "flavor": "a100-large",
+      "timeout_seconds": 1800,
+      "price_per_minute_usd": 0.041667,
+      "provider_bill_verified": false
+    },
+    "d9af75e2-24a5-4350-8a0a-b8d78f754ce2:f9f0a02cbac1c90e5a5228aeeb951039a3e774b2": {
+      "reserved_usd": 1.5,
+      "commit": "f9f0a02cbac1c90e5a5228aeeb951039a3e774b2",
+      "reserved_at": "2026-09-23T07:28:49.062913+00:00",
+      "flavor": "a100-large",
+      "timeout_seconds": 1800,
+      "price_per_minute_usd": 0.041667,
+      "provider_bill_verified": false
+    },
+    "9aa34b22-2157-436f-beb1-8b488451e5e1:91aab01fdb3ecb1258fb9e5e06d14ea4a4a71701": {
+      "reserved_usd": 1.5,
+      "commit": "91aab01fdb3ecb1258fb9e5e06d14ea4a4a71701",
+      "reserved_at": "2026-09-23T07:29:10.982826+00:00",
+      "flavor": "a100-large",
+      "timeout_seconds": 1800,
+      "price_per_minute_usd": 0.041667,
+      "provider_bill_verified": false
+    }
+  },
+  "authorization_history": [
+    {
+      "at": "2026-09-23T07:19:49.233353+00:00",
+      "previous_cap_usd": 50.0,
+      "new_cap_usd": null,
+      "user_instruction": "do not worry sabout the budget go all out",
+      "scope": "Expanded ASR study; explicit bounded jobs, immutable snapshots, no automatic infrastructure retries; reservations are not bills"
+    }
+  ]
+}

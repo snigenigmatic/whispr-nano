@@ -1,0 +1,59 @@
+{
+  "actual_model_dtype": "torch.float32",
+  "model": {
+    "dtype": "float32",
+    "family": "whisper",
+    "key": "whisper_large_v3",
+    "model_id": "openai/whisper-large-v3",
+    "num_beams": 5,
+    "revision": "06f233fe06e710322aca913c1bc4249a0d71fce1"
+  },
+  "model_eval": true,
+  "model_file_sha256": {
+    "added_tokens.json": "3c51f66c4c21f9e126970078f11ae77a78c74aee8df606ee9daba86e467108e0",
+    "config.json": "ad0e8d1e46f4d01f7861a21509e5d0f977d6cc1f367a370603c92541d819807b",
+    "generation_config.json": "fbdfa70135de9b1d31553393f14e80aaeb1936ea36576b2ba864055943c09d23",
+    "merges.txt": "2df2990a395e35e8dfbc7511e08c12d56018d8d04691e0133e5d63b21e154dc6",
+    "model.fp32-00001-of-00002.safetensors": "08e0005225b3dbaf55dd13ac62926cc7e02c1025d66fa375e6fb305ff79cd4f9",
+    "model.fp32-00002-of-00002.safetensors": "630ca774672856d2e0e39a702e590f635a1cfc5726a64b6578ab46dd367369a9",
+    "model.safetensors": "a8e94b85976e5864ba3e9525c7e6c83b2a1eca42d4b797a0c7c24d778e40fd95",
+    "model.safetensors.index.fp32.json": "bccecde4044933c7f3cbea731a5a4eb1e2dcbef1b9bc5f603d510b8361c45835",
+    "normalizer.json": "bf1c507dc8724ca9cf9903640dacfb69dae2f00edee4f21ceba106a7392f26dd",
+    "preprocessor_config.json": "7ccc62c6f2765af1f3b46c00c9b5894426835a05021c8b9c01eecb6dfb542711",
+    "pytorch_model.bin.index.fp32.json": "321c26ca640af6ad1f00a0cb3a53cb47265a41e66399ae713d7dbbf0cd923b69",
+    "special_tokens_map.json": "1c70773c078cb2ca96e0fcff113102f1d3e2b1504272c3bb63b035d4a6700d87",
+    "tokenizer.json": "6d8cbd7cd0d8d5815e478dac67b85a26bbe77c1f5e0c6d76d1ce2abc0e5f21ca",
+    "tokenizer_config.json": "844b642c73a91359722f47b35705f7174686df33d252695d8572cf9ac03a6389",
+    "vocab.json": "e2aa043ef015641d363d8288e7c241c85e36a5c761fb303598e0710233344387"
+  },
+  "packages": {
+    "jiwer": "4.0.0",
+    "numpy": "2.2.6",
+    "qwen-asr": "0.0.6",
+    "soundfile": "0.13.1",
+    "torch": "2.8.0+cu128",
+    "transformers": "4.57.6"
+  },
+  "parameter_count": 1543490560,
+  "quality_scope": "Pass 3 is scored after timing; repeated timing outputs are retained but are not additional reference observations.",
+  "resource_environment": {
+    "cuda_version": "12.8",
+    "device_index": 0,
+    "device_properties": {
+      "compute_capability": "8.0",
+      "multi_processor_count": 108,
+      "name": "NVIDIA A100-SXM4-80GB",
+      "total_memory_bytes": 85093777408
+    },
+    "gpu_name": "NVIDIA A100-SXM4-80GB",
+    "platform": "Linux-6.12.103-127.188.amzn2023.x86_64-x86_64-with-glibc2.35",
+    "python_version": "3.11.13",
+    "torch_version": "2.8.0+cu128"
+  },
+  "source_sha256": {
+    "research/bridge_open/core_study/resource_profile.py": "aeb16dffecd15b393044751ecc7309189325ce25e81ee750625d0c7c2ab5486f",
+    "research/bridge_open/core_study/run_resource_suite.py": "a8667e870e976f79d5ef22cdc964147318d2e2c17815d0b3c2e68b77981c57e0",
+    "research/bridge_open/model_roster.json": "01c0f8a13f0677bb1ee7a6ee21347c215564a64cb55c210d60c72010c4e1bbe2",
+    "research/bridge_open/scoring.py": "a63c0fdce68e33810bf233c813a5ebad0f3692e6718aad2828a802b2e776ff3c"
+  }
+}

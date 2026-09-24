@@ -1,0 +1,30 @@
+{
+  "valid": true,
+  "cases": [
+    {
+      "case": "missing_record",
+      "rejected": true,
+      "reason": "Expected exactly 518 unique recordings"
+    },
+    {
+      "case": "wrong_global_id",
+      "rejected": true,
+      "reason": "Complete recovered-shard cohort is missing or replacing global IDs"
+    },
+    {
+      "case": "wrong_source_row",
+      "rejected": true,
+      "reason": "Source audio basename does not match claimed global ID"
+    },
+    {
+      "case": "wrong_audio_hash",
+      "rejected": true,
+      "reason": "Original or bundled audio hash mismatch"
+    },
+    {
+      "case": "wrong_reference",
+      "rejected": true,
+      "reason": "svarah_06138: bundled reference differs from exact source Arrow row"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "provider": "huggingface",
+  "status": "failed",
+  "elapsed_seconds": 6.243653098936193,
+  "cloud_cost_usd": null,
+  "provider_bill_verified": false
+}

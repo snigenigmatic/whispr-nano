@@ -1,0 +1,126 @@
+{
+  "scope": "three-conversation public Hindi engineering pilot; no held-out or significance claim",
+  "cohort_manifest_sha256": "e6992a043c9448a9974d1707186ee8cbfda87154b1d4aad940c8546c4054aa78",
+  "runs": [
+    {
+      "run": "hindi_small_v1",
+      "model": "openai/whisper-small",
+      "device": "mps",
+      "beams": 1,
+      "timestamps": false,
+      "batch_size": 1,
+      "wer_percent": 106.45855758880516,
+      "cer_percent": 84.58571618566299,
+      "capped_chunks": 69,
+      "total_chunks": 89,
+      "per_conversation_wer": {
+        "humyn-13-00": 1.0887755102040817,
+        "humyn-13-01": 1.0360360360360361,
+        "humyn-14-00": 1.0698438783894824
+      },
+      "wall_seconds": 567.742581749917,
+      "estimated_function_resource_usd": 0,
+      "provider_bill_verified": null
+    },
+    {
+      "run": "hindi_turbo_v1",
+      "model": "openai/whisper-large-v3-turbo",
+      "device": "mps",
+      "beams": 1,
+      "timestamps": false,
+      "batch_size": 1,
+      "wer_percent": 66.98446870675073,
+      "cer_percent": 55.00731480250033,
+      "capped_chunks": 15,
+      "total_chunks": 89,
+      "per_conversation_wer": {
+        "humyn-13-00": 0.7198979591836735,
+        "humyn-13-01": 0.6334755808440019,
+        "humyn-14-00": 0.6610517666392769
+      },
+      "wall_seconds": 495.9056015840033,
+      "estimated_function_resource_usd": 0,
+      "provider_bill_verified": null
+    },
+    {
+      "run": "hindi-turbo-cuda-greedy-v1",
+      "model": "openai/whisper-large-v3-turbo",
+      "device": "cuda",
+      "beams": 1,
+      "timestamps": false,
+      "batch_size": 8,
+      "wer_percent": 66.98446870675073,
+      "cer_percent": 55.00731480250033,
+      "capped_chunks": 15,
+      "total_chunks": 89,
+      "per_conversation_wer": {
+        "humyn-13-00": 0.7198979591836735,
+        "humyn-13-01": 0.6334755808440019,
+        "humyn-14-00": 0.6610517666392769
+      },
+      "wall_seconds": 42.898670291,
+      "estimated_function_resource_usd": 0.08578361006960977,
+      "provider_bill_verified": false
+    },
+    {
+      "run": "hindi-turbo-cuda-beam5-v1",
+      "model": "openai/whisper-large-v3-turbo",
+      "device": "cuda",
+      "beams": 5,
+      "timestamps": false,
+      "batch_size": 8,
+      "wer_percent": 52.02214362601876,
+      "cer_percent": 43.22826617014674,
+      "capped_chunks": 4,
+      "total_chunks": 89,
+      "per_conversation_wer": {
+        "humyn-13-00": 0.5311224489795918,
+        "humyn-13-01": 0.4826932195353248,
+        "humyn-14-00": 0.5439605587510271
+      },
+      "wall_seconds": 56.573414055,
+      "estimated_function_resource_usd": 0.0674644776688199,
+      "provider_bill_verified": false
+    },
+    {
+      "run": "hindi-turbo-cuda-timestamps-v1",
+      "model": "openai/whisper-large-v3-turbo",
+      "device": "cuda",
+      "beams": 1,
+      "timestamps": true,
+      "batch_size": 8,
+      "wer_percent": 64.09349530985699,
+      "cer_percent": 50.410072261382275,
+      "capped_chunks": 21,
+      "total_chunks": 89,
+      "per_conversation_wer": {
+        "humyn-13-00": 0.6698979591836735,
+        "humyn-13-01": 0.6311047889995258,
+        "humyn-14-00": 0.6261298274445357
+      },
+      "wall_seconds": 57.01887264300001,
+      "estimated_function_resource_usd": 0.06795315320038434,
+      "provider_bill_verified": false
+    },
+    {
+      "run": "hindi-qwen3-asr-1-7b-v1",
+      "model": "Qwen/Qwen3-ASR-1.7B",
+      "device": "cuda",
+      "beams": 1,
+      "timestamps": false,
+      "batch_size": 8,
+      "wer_percent": 24.588651391665387,
+      "cer_percent": 20.233187037283326,
+      "capped_chunks": 0,
+      "total_chunks": 89,
+      "per_conversation_wer": {
+        "humyn-13-00": 0.26224489795918365,
+        "humyn-13-01": 0.18255097202465623,
+        "humyn-14-00": 0.2875924404272802
+      },
+      "wall_seconds": 115.051200652,
+      "estimated_function_resource_usd": 0.13747918560095196,
+      "provider_bill_verified": false
+    }
+  ]
+}

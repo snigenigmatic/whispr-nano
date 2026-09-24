@@ -1,0 +1,157 @@
+{
+  "source_dirs": [
+    "/Users/prateekraj/whispr-nano/research/bridge_open/artifacts/hf-fleurs-test-large-all-long-0-end-v2",
+    "/Users/prateekraj/whispr-nano/research/bridge_open/artifacts/hf-fleurs-test-large-as-short-0-192-v2",
+    "/Users/prateekraj/whispr-nano/research/bridge_open/artifacts/hf-fleurs-test-large-as-short-192-384-v2",
+    "/Users/prateekraj/whispr-nano/research/bridge_open/artifacts/hf-fleurs-test-large-as-short-384-576-v2",
+    "/Users/prateekraj/whispr-nano/research/bridge_open/artifacts/hf-fleurs-test-large-as-short-576-768-v2",
+    "/Users/prateekraj/whispr-nano/research/bridge_open/artifacts/hf-fleurs-test-large-as-short-768-end-v2",
+    "/Users/prateekraj/whispr-nano/research/bridge_open/artifacts/hf-fleurs-test-large-bn-short-0-304-v2",
+    "/Users/prateekraj/whispr-nano/research/bridge_open/artifacts/hf-fleurs-test-large-bn-short-304-608-v2",
+    "/Users/prateekraj/whispr-nano/research/bridge_open/artifacts/hf-fleurs-test-large-bn-short-608-760-v2",
+    "/Users/prateekraj/whispr-nano/research/bridge_open/artifacts/hf-fleurs-test-large-bn-short-760-end-v2",
+    "/Users/prateekraj/whispr-nano/research/bridge_open/artifacts/hf-fleurs-test-large-hi-short-0-208-v2",
+    "/Users/prateekraj/whispr-nano/research/bridge_open/artifacts/hf-fleurs-test-large-hi-short-208-end-v2",
+    "/Users/prateekraj/whispr-nano/research/bridge_open/artifacts/hf-fleurs-test-turbo-all-long-0-end-v2",
+    "/Users/prateekraj/whispr-nano/research/bridge_open/artifacts/hf-fleurs-test-turbo-as-short-0-end-v2",
+    "/Users/prateekraj/whispr-nano/research/bridge_open/artifacts/hf-fleurs-test-turbo-bn-short-0-end-v2",
+    "/Users/prateekraj/whispr-nano/research/bridge_open/artifacts/hf-fleurs-test-turbo-hi-short-v2"
+  ],
+  "models": {
+    "openai/whisper-large-v3": {
+      "count": 2322,
+      "languages": {
+        "as": {
+          "n": 984,
+          "generation_limit": 29,
+          "wer_over_1": 520,
+          "wer_equal_1": 449,
+          "script_mismatch": 984,
+          "script_mismatch_rate": 1.0,
+          "exact_repeated_hypothesis_excess": 1,
+          "repeated_trigram_excess_total": 2083,
+          "utterances_with_repeated_trigram": 44,
+          "max_same_trigram_count": 144,
+          "mean_wer": 1.135959817927558,
+          "micro_wer": 1.1417018646337695,
+          "mean_cer": 1.0793299950060036,
+          "micro_cer": 1.0924093361414846,
+          "mean_basic_normalizer_wer": 1.092785617889132,
+          "basic_minus_study_mean_wer": -0.04317420003842609
+        },
+        "bn": {
+          "n": 920,
+          "generation_limit": 26,
+          "wer_over_1": 29,
+          "wer_equal_1": 27,
+          "script_mismatch": 7,
+          "script_mismatch_rate": 0.007608695652173913,
+          "exact_repeated_hypothesis_excess": 1,
+          "repeated_trigram_excess_total": 85,
+          "utterances_with_repeated_trigram": 21,
+          "max_same_trigram_count": 31,
+          "mean_wer": 0.751805827701498,
+          "micro_wer": 0.7484237784282819,
+          "mean_cer": 0.2700446668912303,
+          "micro_cer": 0.2778796958763937,
+          "mean_basic_normalizer_wer": 0.42891831307560646,
+          "basic_minus_study_mean_wer": -0.3228875146258915
+        },
+        "hi": {
+          "n": 418,
+          "generation_limit": 1,
+          "wer_over_1": 2,
+          "wer_equal_1": 1,
+          "script_mismatch": 0,
+          "script_mismatch_rate": 0.0,
+          "exact_repeated_hypothesis_excess": 3,
+          "repeated_trigram_excess_total": 205,
+          "utterances_with_repeated_trigram": 11,
+          "max_same_trigram_count": 87,
+          "mean_wer": 0.2892934452226269,
+          "micro_wer": 0.2820065853186132,
+          "mean_cer": 0.117407776767991,
+          "micro_cer": 0.11704871405500518,
+          "mean_basic_normalizer_wer": 0.17097337023106374,
+          "basic_minus_study_mean_wer": -0.11832007499156316
+        }
+      },
+      "all": {
+        "generation_limit": 56,
+        "wer_over_1": 551,
+        "script_mismatch": 991
+      }
+    },
+    "openai/whisper-large-v3-turbo": {
+      "count": 2322,
+      "languages": {
+        "as": {
+          "n": 984,
+          "generation_limit": 65,
+          "wer_over_1": 311,
+          "wer_equal_1": 654,
+          "script_mismatch": 972,
+          "script_mismatch_rate": 0.9878048780487805,
+          "exact_repeated_hypothesis_excess": 1,
+          "repeated_trigram_excess_total": 3257,
+          "utterances_with_repeated_trigram": 102,
+          "max_same_trigram_count": 217,
+          "mean_wer": 1.3370386137282229,
+          "micro_wer": 1.3678788503142063,
+          "mean_cer": 1.1871942173998833,
+          "micro_cer": 1.1716434417164343,
+          "mean_basic_normalizer_wer": 1.13986690943142,
+          "basic_minus_study_mean_wer": -0.19717170429680286
+        },
+        "bn": {
+          "n": 920,
+          "generation_limit": 53,
+          "wer_over_1": 107,
+          "wer_equal_1": 92,
+          "script_mismatch": 36,
+          "script_mismatch_rate": 0.0391304347826087,
+          "exact_repeated_hypothesis_excess": 1,
+          "repeated_trigram_excess_total": 668,
+          "utterances_with_repeated_trigram": 33,
+          "max_same_trigram_count": 143,
+          "mean_wer": 0.8661432523467278,
+          "micro_wer": 0.8601666291375816,
+          "mean_cer": 0.3523874967911745,
+          "micro_cer": 0.3568254550643103,
+          "mean_basic_normalizer_wer": 0.5278384030912477,
+          "basic_minus_study_mean_wer": -0.3383048492554801
+        },
+        "hi": {
+          "n": 418,
+          "generation_limit": 3,
+          "wer_over_1": 2,
+          "wer_equal_1": 1,
+          "script_mismatch": 1,
+          "script_mismatch_rate": 0.0023923444976076554,
+          "exact_repeated_hypothesis_excess": 1,
+          "repeated_trigram_excess_total": 377,
+          "utterances_with_repeated_trigram": 12,
+          "max_same_trigram_count": 87,
+          "mean_wer": 0.32430739114838997,
+          "micro_wer": 0.32636064303699397,
+          "mean_cer": 0.14191345319071974,
+          "micro_cer": 0.1409598187384,
+          "mean_basic_normalizer_wer": 0.19937432344984438,
+          "basic_minus_study_mean_wer": -0.12493306769854559
+        }
+      },
+      "all": {
+        "generation_limit": 121,
+        "wer_over_1": 420,
+        "script_mismatch": 1009
+      }
+    }
+  },
+  "normalizer_diagnostic": {
+    "source": "https://github.com/openai/whisper/blob/86098128c0b4f24f0e2aa2994de830614b474227/whisper/normalizers/basic.py",
+    "source_commit": "86098128c0b4f24f0e2aa2994de830614b474227",
+    "source_sha256": "4742eaa040e0657fa1247a1361e0d856c62317a43326ea59a40c2e9edd8d2c38",
+    "settings": "remove_diacritics=False, split_letters=False",
+    "interpretation": "secondary diagnostic only; Indic scores remain the study scorer's NFC/casefold/punctuation convention"
+  }
+}

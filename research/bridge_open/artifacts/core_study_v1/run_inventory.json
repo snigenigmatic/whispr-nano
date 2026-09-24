@@ -1,0 +1,106 @@
+{
+  "schema": "core-study-run-inventory/v1",
+  "date": "2026-09-24",
+  "scope": "New completion-batch dispatches only; earlier accepted runs remain in their original evidence directories.",
+  "runs": [
+    {
+      "artifact": "research/bridge_open/artifacts/core_qwen06_hindi_failed_v1",
+      "run_id": "61219347-d8a4-438c-9cbc-9d0058d096b4",
+      "commit": "539c5930c5da8c1169bb9d8bd775dc0a20c6390d",
+      "provider_status": "failed",
+      "jobId": "6ab4c4826b030d633f68d6f3",
+      "url": "https://huggingface.co/jobs/snigenigmatic/6ab4c4826b030d633f68d6f3",
+      "sourceDigest": "8f828c94732665c47c9bdf5ea962c5983c706f5356fcab315131ee1a0a78069e"
+    },
+    {
+      "artifact": "research/bridge_open/artifacts/core_qwen06_hindi_v1",
+      "run_id": "04965a3b-7e62-46f4-a6ee-e361b18eca20",
+      "commit": "9886373a37a01a41bad3eb15eb546ced3a7391b5",
+      "provider_status": "done",
+      "jobId": "6ab4c55c52d0dbd7f1d8988d",
+      "url": "https://huggingface.co/jobs/snigenigmatic/6ab4c55c52d0dbd7f1d8988d",
+      "sourceDigest": "6fb291e0414adc821aa4640b84e561d1195f163a282e598a42ae3398131abf6e"
+    },
+    {
+      "artifact": "research/bridge_open/artifacts/core_qwen06_svarah_v1",
+      "run_id": "a640aca5-5300-458f-802a-5ea285aa0554",
+      "commit": "91257030585090522739144688e4c1b99fcf68ef",
+      "provider_status": "done",
+      "jobId": "6ab4c38c52d0dbd7f1d89832",
+      "url": "https://huggingface.co/jobs/snigenigmatic/6ab4c38c52d0dbd7f1d89832",
+      "sourceDigest": "f12100b07b89af0ea3e2cd28a6fd6762e203b194ce548a9d9d01d1e1bf62d74a"
+    },
+    {
+      "artifact": "research/bridge_open/artifacts/core_resource_omni_v1",
+      "run_id": "ae6ce853-45ab-42e3-8f57-ce5aea1a7f1b",
+      "commit": "259f334195795db97812a8220cf793a988ece0de",
+      "provider_status": "done",
+      "jobId": "6ab4c4776b030d633f68d6f1",
+      "url": "https://huggingface.co/jobs/snigenigmatic/6ab4c4776b030d633f68d6f1",
+      "sourceDigest": "4a656123e2f82c7f3ff70a9b73f648fe03fcc4e33a4ff9afeabe8eac9e4bc040"
+    },
+    {
+      "artifact": "research/bridge_open/artifacts/core_resource_whisper_qwen_v1",
+      "run_id": "ab478b7f-56cf-4629-8c0e-04e0f8c82511",
+      "commit": "25c8ef200575327c4664f554c79c78d38309188f",
+      "provider_status": "done",
+      "jobId": "6ab4c5ae52d0dbd7f1d89895",
+      "url": "https://huggingface.co/jobs/snigenigmatic/6ab4c5ae52d0dbd7f1d89895",
+      "sourceDigest": "cfc4b3d653516e503ce71e8209541d234ab5d97375e4eb46b33f106a80a6021f"
+    },
+    {
+      "artifact": "research/bridge_open/artifacts/core_whisper_large_svarah_v1",
+      "run_id": "ae2398b9-8b45-408e-8f91-6ac13751102f",
+      "commit": "0cbbecdb2f3a3ef37dc963ef57d3378ad8f73295",
+      "provider_status": "done",
+      "jobId": "6ab4c9b352d0dbd7f1d8996c",
+      "url": "https://huggingface.co/jobs/snigenigmatic/6ab4c9b352d0dbd7f1d8996c",
+      "sourceDigest": "377eb94554474c2771aae052c18a181f42e9e3ecb30e6f7b9f5d4cc1ff8c6c7d"
+    },
+    {
+      "artifact": "research/bridge_open/artifacts/core_whisper_small_as_v1",
+      "run_id": "5a91f1a3-1a17-4538-8900-865eccb07fd0",
+      "commit": "d1051672a100f4791bdfb9448d90db42bb3e2e8e",
+      "provider_status": "done",
+      "jobId": "6ab4c98452d0dbd7f1d89966",
+      "url": "https://huggingface.co/jobs/snigenigmatic/6ab4c98452d0dbd7f1d89966",
+      "sourceDigest": "e99976a687c9328876ebc4b3784029201257bcff1cc82eafd4a2d4bb12f02975"
+    },
+    {
+      "artifact": "research/bridge_open/artifacts/core_whisper_small_bn_v1",
+      "run_id": "db4d854f-acef-4b4b-a476-f26e05a59b33",
+      "commit": "792092deb896ea96f1a576e536255fc91fa45955",
+      "provider_status": "done",
+      "jobId": "6ab4c9726b030d633f68d793",
+      "url": "https://huggingface.co/jobs/snigenigmatic/6ab4c9726b030d633f68d793",
+      "sourceDigest": "b91ce2d5e81d8a44ed6c5ca02b3d362d24bf43bd75052d5a503b8a58360146f5"
+    },
+    {
+      "artifact": "research/bridge_open/artifacts/core_whisper_small_hi_v1",
+      "run_id": "d54ce732-3bdd-4619-9bea-b7686e6cdbde",
+      "commit": "949a23078e4b15745aa752a373982f74634997e0",
+      "provider_status": "done",
+      "jobId": "6ab4c6586b030d633f68d741",
+      "url": "https://huggingface.co/jobs/snigenigmatic/6ab4c6586b030d633f68d741",
+      "sourceDigest": "5536d3f9a54f25cf787c4d43ef85d7e5b26b4a7fa49b9374bb0c0a6a1113be74"
+    },
+    {
+      "artifact": "research/bridge_open/artifacts/core_whisper_small_svarah_v1",
+      "run_id": "be042b3b-90de-4ecc-a50c-8ac333206e34",
+      "commit": "31904891563d5953195dae3d4e7e5451570f421a",
+      "provider_status": "done",
+      "jobId": "6ab4c9986b030d633f68d799",
+      "url": "https://huggingface.co/jobs/snigenigmatic/6ab4c9986b030d633f68d799",
+      "sourceDigest": "977246b873a962751ae242fa67943e8fd3fb0dfac348e9626dc79ec32489e47d"
+    },
+    {
+      "artifact": "research/bridge_open/artifacts/core_whisper_turbo_svarah_v1",
+      "run_id": "9d3e509c-6b69-4acf-90d9-0bf018f2ebd6",
+      "commit": "ca7021949517f031dd75e3dfb35cb627cd4a6232",
+      "provider_status": "done",
+      "jobId": "6ab4c86e6b030d633f68d766",
+      "url": "https://huggingface.co/jobs/snigenigmatic/6ab4c86e6b030d633f68d766",
+      "sourceDigest": "583301b1b73957301bb53a14ce25eb387462c3d85312cfa6802749e18fb84a2a"
+    }
+  ]
+}

@@ -1,0 +1,185 @@
+{
+  "config": {
+    "model_id": "openai/whisper-large-v3-turbo",
+    "model_revision": "41f01f3fe87f28c78e2fbf8b568835947dd65ed9",
+    "manifest_path": "/Users/prateekraj/whispr-nano/data/bridge_open/humyn_public_v1/corpus-v1.jsonl",
+    "manifest_sha256": "e6992a043c9448a9974d1707186ee8cbfda87154b1d4aad940c8546c4054aa78",
+    "executor": "reference_compression",
+    "languages": [
+      "hi",
+      "as",
+      "bn",
+      "gu",
+      "kn",
+      "ml",
+      "mr",
+      "ta",
+      "te"
+    ],
+    "window_tokens": [
+      200,
+      400
+    ]
+  },
+  "tokenizer_files": {
+    "added_tokens.json": "3c51f66c4c21f9e126970078f11ae77a78c74aee8df606ee9daba86e467108e0",
+    "tokenizer_config.json": "844b642c73a91359722f47b35705f7174686df33d252695d8572cf9ac03a6389",
+    "special_tokens_map.json": "baea4ea09372eb4fca86b4e4346139fd73cb807d5087e9de0948e971739c3e74",
+    "config.json": "c5b526b3e3cd64cd8940dabb45e8ba726629e22d8ed389c29b552f9140daf04a",
+    "tokenizer.json": "297b13372ac43916285644fb9687add3cc62ee2a1adb60da3dc25cc94c1871fd",
+    "generation_config.json": "cce11bfe3aaa6ae9e072ea2637caaec8795e68d9b67e655a5af16ee509681a4c",
+    "normalizer.json": "bf1c507dc8724ca9cf9903640dacfb69dae2f00edee4f21ceba106a7392f26dd",
+    "merges.txt": "2df2990a395e35e8dfbc7511e08c12d56018d8d04691e0133e5d63b21e154dc6",
+    "vocab.json": "e2aa043ef015641d363d8288e7c241c85e36a5c761fb303598e0710233344387",
+    "preprocessor_config.json": "7ccc62c6f2765af1f3b46c00c9b5894426835a05021c8b9c01eecb6dfb542711"
+  },
+  "token_byte_width": 2,
+  "zlib_version": "1.2.12",
+  "scope": "Reference-text sensitivity diagnostic; arbitrary fixed tokenizer windows, not audio-aligned hypotheses or measured detector false-positive rate",
+  "summary": [
+    {
+      "language": "as",
+      "window_tokens": 200,
+      "windows": 116,
+      "median_ratio": 2.2535390084428366,
+      "fraction_over_1_35": 1.0,
+      "fraction_over_2_4": 0.1896551724137931
+    },
+    {
+      "language": "as",
+      "window_tokens": 400,
+      "windows": 58,
+      "median_ratio": 2.867383512544803,
+      "fraction_over_1_35": 1.0,
+      "fraction_over_2_4": 1.0
+    },
+    {
+      "language": "bn",
+      "window_tokens": 200,
+      "windows": 301,
+      "median_ratio": 2.2988505747126435,
+      "fraction_over_1_35": 1.0,
+      "fraction_over_2_4": 0.28903654485049834
+    },
+    {
+      "language": "bn",
+      "window_tokens": 400,
+      "windows": 149,
+      "median_ratio": 2.93040293040293,
+      "fraction_over_1_35": 1.0,
+      "fraction_over_2_4": 1.0
+    },
+    {
+      "language": "gu",
+      "window_tokens": 200,
+      "windows": 353,
+      "median_ratio": 2.816901408450704,
+      "fraction_over_1_35": 1.0,
+      "fraction_over_2_4": 1.0
+    },
+    {
+      "language": "gu",
+      "window_tokens": 400,
+      "windows": 176,
+      "median_ratio": 3.5398230088495577,
+      "fraction_over_1_35": 1.0,
+      "fraction_over_2_4": 1.0
+    },
+    {
+      "language": "hi",
+      "window_tokens": 200,
+      "windows": 145,
+      "median_ratio": 1.4814814814814814,
+      "fraction_over_1_35": 0.9448275862068966,
+      "fraction_over_2_4": 0.0
+    },
+    {
+      "language": "hi",
+      "window_tokens": 400,
+      "windows": 71,
+      "median_ratio": 1.8475750577367205,
+      "fraction_over_1_35": 1.0,
+      "fraction_over_2_4": 0.0
+    },
+    {
+      "language": "kn",
+      "window_tokens": 200,
+      "windows": 174,
+      "median_ratio": 2.1739130434782608,
+      "fraction_over_1_35": 1.0,
+      "fraction_over_2_4": 0.040229885057471264
+    },
+    {
+      "language": "kn",
+      "window_tokens": 400,
+      "windows": 86,
+      "median_ratio": 2.763393389810285,
+      "fraction_over_1_35": 1.0,
+      "fraction_over_2_4": 0.9651162790697675
+    },
+    {
+      "language": "ml",
+      "window_tokens": 200,
+      "windows": 310,
+      "median_ratio": 2.4691358024691357,
+      "fraction_over_1_35": 1.0,
+      "fraction_over_2_4": 0.7354838709677419
+    },
+    {
+      "language": "ml",
+      "window_tokens": 400,
+      "windows": 155,
+      "median_ratio": 3.1620553359683794,
+      "fraction_over_1_35": 1.0,
+      "fraction_over_2_4": 1.0
+    },
+    {
+      "language": "mr",
+      "window_tokens": 200,
+      "windows": 62,
+      "median_ratio": 1.4414461210814742,
+      "fraction_over_1_35": 1.0,
+      "fraction_over_2_4": 0.0
+    },
+    {
+      "language": "mr",
+      "window_tokens": 400,
+      "windows": 31,
+      "median_ratio": 1.8140589569160999,
+      "fraction_over_1_35": 1.0,
+      "fraction_over_2_4": 0.0
+    },
+    {
+      "language": "ta",
+      "window_tokens": 200,
+      "windows": 127,
+      "median_ratio": 1.4388489208633093,
+      "fraction_over_1_35": 0.8661417322834646,
+      "fraction_over_2_4": 0.0
+    },
+    {
+      "language": "ta",
+      "window_tokens": 400,
+      "windows": 63,
+      "median_ratio": 1.78173719376392,
+      "fraction_over_1_35": 1.0,
+      "fraction_over_2_4": 0.0
+    },
+    {
+      "language": "te",
+      "window_tokens": 200,
+      "windows": 434,
+      "median_ratio": 2.2857142857142856,
+      "fraction_over_1_35": 1.0,
+      "fraction_over_2_4": 0.1175115207373272
+    },
+    {
+      "language": "te",
+      "window_tokens": 400,
+      "windows": 216,
+      "median_ratio": 2.8368794326241136,
+      "fraction_over_1_35": 1.0,
+      "fraction_over_2_4": 1.0
+    }
+  ]
+}

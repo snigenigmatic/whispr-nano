@@ -1,0 +1,43 @@
+{
+  "model_id": "Qwen/Qwen3-ASR-1.7B",
+  "model_revision": "7278e1e70fe206f11671096ffdd38061171dd6e5",
+  "source_manifest": "research/bridge_open/frozen_corpus_v2.jsonl",
+  "source_manifest_sha256": "967d8dca02f9f729c1ed7548dce7283cf9dfc62623815a7c131f71acb13ce2c7",
+  "manifest_path": "/Users/prateekraj/whispr-nano/data/bridge_open/fleurs_test_v1/corpus-v2.jsonl",
+  "manifest_sha256": "967d8dca02f9f729c1ed7548dce7283cf9dfc62623815a7c131f71acb13ce2c7",
+  "conversation_ids": [
+    "fleurs-hi_in-test-10011266027513218401",
+    "fleurs-hi_in-test-10014385262415025488",
+    "fleurs-hi_in-test-13003185437122223029"
+  ],
+  "supported_languages": [
+    "hi"
+  ],
+  "device": "cuda",
+  "seed": 12,
+  "chunk_seconds": 30,
+  "batch_size": 8,
+  "max_new_tokens": 512,
+  "max_wall_seconds": 1500,
+  "output_dir": "/workspace/repo/artifacts/qwen3-asr-1-7b-hi-fleurs-native-canary-3",
+  "metric_protocol": "NFC casefold Unicode punctuation to spaces; whitespace words; whitespace-free Unicode codepoint CER; no numeral conversion; JiWER 4.0.0",
+  "purpose": "descriptive public FLEURS official-test engineering benchmark; not a population or fairness claim",
+  "executor": "hf",
+  "cloud_job_id": "qwen3-asr-1-7b-hi-fleurs-native-canary-3",
+  "num_beams": 1,
+  "return_timestamps": false,
+  "condition_id": "qwen_native_transcribe",
+  "model_family": "qwen3_asr",
+  "eos_token_ids": [
+    151643,
+    151645
+  ],
+  "qwen_postprocessing": "raw text primary; official repetition cleanup secondary",
+  "input_transport": "public_fleurs_archive",
+  "inference_api": "Qwen3ASRModel.transcribe",
+  "termination_semantics": "qwen_transcribe_api",
+  "torch_dtype": "bfloat16",
+  "device_map": "cuda:0",
+  "native_max_audio_seconds": 1200,
+  "canary": true
+}

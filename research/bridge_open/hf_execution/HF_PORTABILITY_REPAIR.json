@@ -1,0 +1,11 @@
+{
+  "cause": "HF sync_job_volume printed a human sync summary on stdout before the JSON job id expected by ORX. Job was created despite ORX marking submission failed.",
+  "local_dependency": "/Users/prateekraj/.config/openresearch/envs/huggingface/lib/python3.14/site-packages/huggingface_hub/hf_api.py",
+  "backup_path": "/Users/prateekraj/.config/openresearch/envs/huggingface/lib/python3.14/site-packages/huggingface_hub/hf_api.py.orx-stdout-backup",
+  "before_sha256": "6443425343fa9a1c38062235a04ba4690971ae2c0050db7a6774188ca4831012",
+  "after_sha256": "02f88dba64ca388a656626172197ccd04b2b73702d2b951403844aae8106a368",
+  "change": "Use the supported quiet=True parameter on the internal sync_bucket call; no inference code or provider request semantics changed.",
+  "attempt1_job": "6ab2909a52d0dbd7f1d7efa0",
+  "attempt1_run": "21d2ee9d-9675-484f-9a57-9dfd6a0c0f32",
+  "job_failure": "Audio container SHA differed when re-encoding on Linux; repair stages exact frozen WAV and reference bytes. Existing FLOAT WAV has a timestamp-bearing PEAK header."
+}

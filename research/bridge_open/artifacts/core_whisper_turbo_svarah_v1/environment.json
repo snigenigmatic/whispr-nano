@@ -1,0 +1,37 @@
+{
+  "started_at": "2026-09-24T06:52:38.159695+00:00",
+  "platform": "Linux-6.12.103-127.188.amzn2023.x86_64-x86_64-with-glibc2.35",
+  "device": "NVIDIA A100-SXM4-80GB",
+  "dtype": "float32",
+  "packages": {
+    "torch": "2.8.0+cu128",
+    "transformers": "4.57.6",
+    "openai-whisper": "20250625",
+    "numpy": "2.2.6",
+    "scipy": "1.15.3",
+    "soundfile": "0.13.1",
+    "jiwer": "4.0.0",
+    "huggingface-hub": "0.36.2"
+  },
+  "model": {
+    "id": "openai/whisper-large-v3-turbo",
+    "revision": "41f01f3fe87f28c78e2fbf8b568835947dd65ed9",
+    "hf_safetensors_sha256": {
+      "model.safetensors": "542566a422ae4f3fd23f1ba11add198fca01bbf82e66e6a2857b3f608b1eb9d1"
+    },
+    "native_model": "large-v3-turbo",
+    "native_checkpoint_sha256": "aff26ae408abcba5fbf8813c21e62b0941638c5f6eebfb145be0c9839262a19a",
+    "native_official_download_url": "https://openaipublic.azureedge.net/main/whisper/models/aff26ae408abcba5fbf8813c21e62b0941638c5f6eebfb145be0c9839262a19a/large-v3-turbo.pt",
+    "native_official_url_sha256": "aff26ae408abcba5fbf8813c21e62b0941638c5f6eebfb145be0c9839262a19a"
+  },
+  "code": {
+    "worker_sha256": "ee4b08d2bb6cfffb302c8eff652a2bc34f3da064cca894fc6e33809b1171c2b5",
+    "hf_key_source_sha256": "84ef76b2c0892491e2250c98250ad1677db607401cabafad112ec72a08bd6594",
+    "native_transcribe_signature": "(audio: Union[str, numpy.ndarray, torch.Tensor], *, verbose: Optional[bool] = None, temperature: Union[float, Tuple[float, ...]] = (0.0, 0.2, 0.4, 0.6, 0.8, 1.0), compression_ratio_threshold: Optional[float] = 2.4, logprob_threshold: Optional[float] = -1.0, no_speech_threshold: Optional[float] = 0.6, condition_on_previous_text: bool = True, initial_prompt: Optional[str] = None, carry_initial_prompt: bool = False, word_timestamps: bool = False, prepend_punctuations: str = '\"\\'“¿([{-', append_punctuations: str = '\"\\'.。,，!！?？:：”)]}、', clip_timestamps: Union[str, List[float]] = '0', hallucination_silence_threshold: Optional[float] = None, **decode_options)"
+  },
+  "validation": {
+    "weight_tensor_count": 587,
+    "feature_count": 518,
+    "n_mels": 128
+  }
+}

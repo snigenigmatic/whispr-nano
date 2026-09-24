@@ -1,0 +1,26 @@
+{
+  "sha256": "b09f59ca7345be5b4b84a80a6dcb53d3a129c486b2ef160b9bb84f9d2d7a3136",
+  "files": [
+    "artifact_transport.json",
+    "container_receipt.json",
+    "overall_summary.json",
+    "qwen_0_6b_environment.json",
+    "qwen_0_6b_quality_predictions.jsonl",
+    "qwen_0_6b_resource_profile.json",
+    "qwen_1_7b_environment.json",
+    "qwen_1_7b_quality_predictions.jsonl",
+    "qwen_1_7b_resource_profile.json",
+    "remote_validation.json",
+    "suite_config.json",
+    "whisper_large_v3_environment.json",
+    "whisper_large_v3_quality_predictions.jsonl",
+    "whisper_large_v3_resource_profile.json",
+    "whisper_small_environment.json",
+    "whisper_small_quality_predictions.jsonl",
+    "whisper_small_resource_profile.json",
+    "whisper_turbo_environment.json",
+    "whisper_turbo_quality_predictions.jsonl",
+    "whisper_turbo_resource_profile.json"
+  ],
+  "chunks": 24
+}

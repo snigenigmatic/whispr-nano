@@ -1,0 +1,34 @@
+[
+  {
+    "case": "omni_missing_record",
+    "rejected": true
+  },
+  {
+    "case": "omni_wrong_source_hash",
+    "rejected": true
+  },
+  {
+    "case": "omni_corrupt_ctc_collapse",
+    "rejected": true
+  },
+  {
+    "case": "omni_training_mode",
+    "rejected": true
+  },
+  {
+    "case": "language_missing_pair",
+    "rejected": true
+  },
+  {
+    "case": "language_wrong_arm_options",
+    "rejected": true
+  },
+  {
+    "case": "language_fabricated_score",
+    "rejected": true
+  },
+  {
+    "case": "language_wrong_precision",
+    "rejected": true
+  }
+]

@@ -1,0 +1,43 @@
+{
+  "packet_name": "listening_review_v2",
+  "packet_status": "UNREVIEWED",
+  "random_seed": 20260924,
+  "fixed_cohort_source": "../listening_review/review_items.json",
+  "fixed_cohort_count": 50,
+  "counts_by_language": {
+    "as": 16,
+    "bn": 16,
+    "hi": 18
+  },
+  "selection_flag_counts": {
+    "random_stratified": 30,
+    "targeted_review_queue": 20
+  },
+  "targeted_distinct_count": 20,
+  "reviewer_view_excludes_true_system_names_and_scores": true,
+  "source_manifest_sha256": "967d8dca02f9f729c1ed7548dce7283cf9dfc62623815a7c131f71acb13ce2c7",
+  "source_prediction_files": {
+    "Whisper Turbo": {
+      "path": "/Users/prateekraj/whispr-nano/research/bridge_open/artifacts/fleurs_whisper_corrected_v3/turbo_predictions.jsonl",
+      "sha256": "127c4ba4854100b964c40b61701457f4972cc0bc0ca684ce464ec1b6cec5b988"
+    },
+    "Whisper Large-v3": {
+      "path": "/Users/prateekraj/whispr-nano/research/bridge_open/artifacts/fleurs_whisper_corrected_v3/large-v3_predictions.jsonl",
+      "sha256": "a23d1fdfd2152e1f520a8527536b71abbc087cd4ee28c4f312423119ae02d82d"
+    },
+    "Qwen3-ASR-1.7B": {
+      "path": "/Users/prateekraj/whispr-nano/research/bridge_open/artifacts/qwen_native_full_hi_v1/predictions.jsonl",
+      "sha256": "2ac059fd13ccd1ad5c4f92e824022144c91bdf5eca54c751f662b1f50641e5aa"
+    },
+    "OmniASR CTC 1B": {
+      "path": "/Users/prateekraj/whispr-nano/research/bridge_open/artifacts/fleurs_omni_comparison_v1/predictions.jsonl",
+      "sha256": "3b00dd8c035aace576c50cd1d921c717b920d2688457a2b748742bbdef17e9e7"
+    }
+  },
+  "available_prediction_card_counts": {
+    "Whisper Turbo": 50,
+    "Whisper Large-v3": 50,
+    "Qwen3-ASR-1.7B": 18,
+    "OmniASR CTC 1B": 50
+  }
+}

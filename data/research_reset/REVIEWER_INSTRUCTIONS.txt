@@ -1,0 +1,23 @@
+You are transcribing Indian-English speech.
+
+Rules:
+1. Listen with headphones. Play the clip as many times as you need.
+2. Type what was said, including disfluencies you can clearly hear.
+3. Do not look at any existing transcript — not the dataset reference, not
+   the teacher hypothesis, not the other reviewer's notes.
+4. Do not discuss a clip with the other reviewer until both of you have
+   submitted that clip.
+5. If a stretch is unintelligible, mark it [inaudible]. If you are unsure
+   of a word, transcribe your best guess and mark it [uncertain: word].
+6. Keep spoken numbers as you hear them (digits vs words). Do not
+   "correct" Indian-English grammar or lexical choice.
+
+After both reviewers finish, reconcile. For each disagreement, assign one
+primary label:
+
+- teacher_mistake — the recording matches the reference, not the teacher
+- reference_mistake — the recording matches the teacher, not the reference
+- both_wrong — neither transcript matches what was said
+- normalization — same words; punctuation, casing, numerals, or spelling
+- genuine_variation — both are plausible hearings of the same audio
+- other — say what

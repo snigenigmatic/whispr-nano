@@ -1,0 +1,23 @@
+{
+  "attempted": 12,
+  "conversation_ids": [
+    "svarah_06413",
+    "svarah_06648",
+    "svarah_06257",
+    "svarah_06387",
+    "svarah_06420",
+    "svarah_06341",
+    "svarah_06269",
+    "svarah_06271",
+    "svarah_06332",
+    "svarah_06284",
+    "svarah_06191",
+    "svarah_06522"
+  ],
+  "estimand": "one final timed pass per fixed-panel utterance; no repeat averaging",
+  "micro_wer": 0.625,
+  "reference_words": 144,
+  "runtime_failures": 0,
+  "scored": 12,
+  "word_errors": 90
+}

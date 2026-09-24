@@ -1,0 +1,11 @@
+# Core resource-profile protocol
+
+`resource_profile.py` measures one adapter on the exact ordered 12-item English Svarah acceptance manifest at `data/bridge_open/svarah_native_shard02_v2/bundle/manifest.jsonl`. Its embedded SHA-256 protects the panel. Every input is an original mono 16 kHz WAV shorter than 28 seconds.
+
+Construct and place the model first. Then call `preload_fixed_panel()` (or construct equivalent `PreloadedAudio` values) before `measure_resource_profile()`. File I/O and audio decoding are outside the clock. The integration surface is `measure_resource_profile(inputs, transcribe_one, model_residency, pipeline_configuration)` followed by `export_standard_artifact(result, "core_resource_model_v1")`.
+
+`model_residency` must declare `model_id`, nonempty `model_hashes`, positive `parameter_count`, `declared_precision`, `declared_search`, and `resident_before_measurement=True`; pipeline configuration must declare `batch_size=1`. The callable accepts `(array, sample_rate)` and returns text. It is invoked exactly once for every row of the warm-up and every timed attempt, and must include feature preparation, transfer, decoding, and text postprocessing. Do not perform a second public-API, token-validation, parity, or trace call inside it. References are intentionally absent; scoring follows profiling.
+
+The harness runs one full 12-item warm-up and three complete timed passes in manifest order at batch size one. For each timed call it synchronizes CUDA, records resident allocated/reserved memory, resets peak statistics, starts `perf_counter`, calls the adapter once, synchronizes CUDA, then records elapsed seconds, RTF, peaks, text, and text SHA-256. Callback failures remain records while later rows run. The clock excludes model loading/setup, audio I/O, references, and scoring.
+
+The default receipt is `research/bridge_open/artifacts/<run_name>/resource_profile.json`; export is create-only. It records GPU name/properties, PyTorch/CUDA versions, declared precision/search, parameter count, model hashes, pipeline configuration, and clock scope. This batch-one resource condition is separate from primary full-quality Qwen batch-eight results, so it is not a direct full-WER/latency Pareto result without matched decoding and parity qualification.

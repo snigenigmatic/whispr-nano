@@ -1,0 +1,22 @@
+{
+  "stop_epoch": 1788941939.937084,
+  "reason": "User said time should be up; stopped immediately without launching seed2.",
+  "apps": [
+    {
+      "app_id": "ap-OfEIyxOkd2jBlpjrZDW8hg",
+      "returncode": 1,
+      "output": "App is already stopped. (Finished at 2026-09-09 13:40:29+05:30).\n"
+    },
+    {
+      "app_id": "ap-vk7ZFakR2tPsj9eruy3oD3",
+      "returncode": 1,
+      "output": "Are you sure you want to stop App 'ap-vk7ZFakR2tPsj9eruy3oD3'? This will immediately terminate 2 running containers. [y/N]: \nAborted: no interactive terminal detected. Rerun with --yes (-y) to skip confirmation.\n"
+    }
+  ],
+  "watchdog_cancelled": true,
+  "controller_cancelled": true,
+  "stop_confirmation_retry": "Modal CLI required --yes; explicit user stop authorizes immediate termination.",
+  "stop_confirmed_epoch": 1788942032.4895418,
+  "remaining_pilot_containers": [],
+  "stop_command_with_yes_returncode": 0
+}

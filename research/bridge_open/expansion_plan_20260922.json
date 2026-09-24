@@ -1,0 +1,166 @@
+{
+  "date": "2026-09-22",
+  "manifest_sha256": "e6992a043c9448a9974d1707186ee8cbfda87154b1d4aad940c8546c4054aa78",
+  "budget_cap_total_usd": 15,
+  "already_reserved_usd": 6,
+  "new_jobs_reserved_upper_bound_usd": 7.5,
+  "repair_allowance_usd": 1.5,
+  "data_policy": "all structurally eligible public conversations in supported languages; Hindi is development; no score-dependent exclusion",
+  "scoring": "same frozen lexical NFC/casefold/punctuation scorer; micro WER/CER, macro language WER, no lexical or number normalization changes",
+  "jobs": [
+    {
+      "name": "turbo-multilingual-beam5-v1",
+      "model_id": "openai/whisper-large-v3-turbo",
+      "revision": "41f01f3fe87f28c78e2fbf8b568835947dd65ed9",
+      "ids": [
+        "humyn-00-00",
+        "humyn-00-01",
+        "humyn-01-00",
+        "humyn-01-01",
+        "humyn-02-00",
+        "humyn-07-00",
+        "humyn-08-01",
+        "humyn-09-00",
+        "humyn-09-01",
+        "humyn-10-00",
+        "humyn-10-01",
+        "humyn-11-00",
+        "humyn-14-01",
+        "humyn-15-00",
+        "humyn-16-00",
+        "humyn-17-00",
+        "humyn-19-00",
+        "humyn-20-00",
+        "humyn-21-00"
+      ],
+      "recipe": "float32 beam5 batch8 max440 30s; merge with existing Hindi beam5 result"
+    },
+    {
+      "name": "small-multilingual-beam5-v1",
+      "model_id": "openai/whisper-small",
+      "revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+      "ids": [
+        "humyn-00-00",
+        "humyn-00-01",
+        "humyn-01-00",
+        "humyn-01-01",
+        "humyn-02-00",
+        "humyn-07-00",
+        "humyn-08-01",
+        "humyn-09-00",
+        "humyn-09-01",
+        "humyn-10-00",
+        "humyn-10-01",
+        "humyn-11-00",
+        "humyn-13-00",
+        "humyn-13-01",
+        "humyn-14-00",
+        "humyn-14-01",
+        "humyn-15-00",
+        "humyn-16-00",
+        "humyn-17-00",
+        "humyn-19-00",
+        "humyn-20-00",
+        "humyn-21-00"
+      ],
+      "recipe": "float32 beam5 batch8 max440 30s"
+    },
+    {
+      "name": "hindi-qwen3-asr-0-6b-v1",
+      "model_id": "Qwen/Qwen3-ASR-0.6B",
+      "revision": "5eb144179a02acc5e5ba31e748d22b0cf3e303b0",
+      "ids": [
+        "humyn-13-00",
+        "humyn-13-01",
+        "humyn-14-00"
+      ],
+      "recipe": "BF16 greedy batch8 max512 30s, raw output primary; official cleanup secondary"
+    },
+    {
+      "name": "hindi-whisper-large-v3-beam5-v1",
+      "model_id": "openai/whisper-large-v3",
+      "revision": "06f233fe06e710322aca913c1bc4249a0d71fce1",
+      "ids": [
+        "humyn-13-00",
+        "humyn-13-01",
+        "humyn-14-00"
+      ],
+      "recipe": "float32 beam5 batch8 max440 30s"
+    },
+    {
+      "name": "omni-ctc-1b-multilingual-v1",
+      "model_id": "facebook/omniASR-CTC-1B",
+      "revision": "8c22e3ffdaa4aab6431b128b84b991a7d9c2515c",
+      "ids": [
+        "humyn-00-00",
+        "humyn-00-01",
+        "humyn-01-00",
+        "humyn-01-01",
+        "humyn-02-00",
+        "humyn-02-01",
+        "humyn-03-01",
+        "humyn-04-00",
+        "humyn-04-01",
+        "humyn-05-00",
+        "humyn-05-01",
+        "humyn-06-00",
+        "humyn-06-01",
+        "humyn-07-00",
+        "humyn-08-01",
+        "humyn-09-00",
+        "humyn-09-01",
+        "humyn-10-00",
+        "humyn-10-01",
+        "humyn-11-00",
+        "humyn-13-00",
+        "humyn-13-01",
+        "humyn-14-00",
+        "humyn-14-01",
+        "humyn-15-00",
+        "humyn-16-00",
+        "humyn-17-00",
+        "humyn-19-00",
+        "humyn-20-00",
+        "humyn-21-00"
+      ],
+      "recipe": "official CTC runtime; separate implementation freeze required before launch"
+    }
+  ],
+  "exclusions": [
+    {
+      "id": "humyn-03-00",
+      "language": "bho",
+      "reason": "reference_suspect"
+    },
+    {
+      "id": "humyn-07-01",
+      "language": "mr",
+      "reason": "reference_suspect"
+    },
+    {
+      "id": "humyn-08-00",
+      "language": "mr",
+      "reason": "reference_suspect"
+    },
+    {
+      "id": "humyn-11-01",
+      "language": "pa",
+      "reason": "reference_suspect"
+    },
+    {
+      "id": "humyn-12-00",
+      "language": "pa",
+      "reason": "reference_suspect"
+    },
+    {
+      "id": "humyn-12-01",
+      "language": "pa",
+      "reason": "reference_suspect"
+    },
+    {
+      "id": "humyn-18-00",
+      "language": "ta",
+      "reason": "reference_suspect"
+    }
+  ]
+}

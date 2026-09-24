@@ -1,0 +1,149 @@
+✓ Initialized. View run at 
+https://modal.com/apps/snigenigmatic/main/ap-kWYiRtRKzBoYJCesO69Sov
+✓ Created objects.
+├── 🔨 Created mount 
+│   /Users/prateekraj/whispr-nano/research/pilot/modal_runner.py
+├── 🔨 Created mount 
+│   /Users/prateekraj/whispr-nano/paper/data/whisper_normalizer.json
+├── 🔨 Created mount 
+│   /Users/prateekraj/whispr-nano/research/pilot/frozen_english_normalizer.py
+├── 🔨 Created mount 
+│   /Users/prateekraj/whispr-nano/research/pilot/test_training.py
+├── 🔨 Created mount /Users/prateekraj/whispr-nano/research/pilot/training.py
+├── 🔨 Created function prepare_speaker.
+├── 🔨 Created function teacher_speaker.
+└── 🔨 Created function train_model.
+..........................                                               [100%]
+26 passed in 11.81s
+
+[1ALoading weights:   0%|          | 0/167 [00:00<?, ?it/s]
+[1ALoading weights:  91%|█████████ | 152/167 [00:00<00:00, 1515.91it/s]
+[1ALoading weights: 100%|██████████| 167/167 [00:00<00:00, 1611.21it/s]
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/logging/__init__.py", line 1163, in emit
+    stream.write(msg + self.terminator)
+ValueError: I/O operation on closed file.
+Call stack:
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/pkg/modal/_container_entrypoint.py", line 492, in <module>
+    main(container_args, client)
+  File "/pkg/modal/_container_entrypoint.py", line 474, in main
+    run_function(container_args, client)
+  File "/pkg/modal/_container_entrypoint.py", line 467, in run_function
+    call_function(event_loop, container_io_manager, finalized_functions, batch_max_size, batch_wait_ms)
+  File "/pkg/modal/_container_entrypoint.py", line 264, in call_function
+    run_input_sync(io_context)
+  File "/pkg/modal/_container_entrypoint.py", line 189, in run_input_sync
+    values = io_context.call_function_sync()
+  File "/pkg/modal/_runtime/container_io_manager.py", line 266, in call_function_sync
+    expected_value_or_values = self.finalized_function.callable(*args, **kwargs)
+  File "/root/modal_runner.py", line 270, in train_model
+    summary = module.train(train_config, rows, '/data/l2arctic', folder)
+  File "/root/research/pilot/training.py", line 282, in train
+    processor = WhisperProcessor.from_pretrained(cfg.model_id, revision=cfg.model_revision,
+  File "/usr/local/lib/python3.12/site-packages/transformers/processing_utils.py", line 1734, in from_pretrained
+    processor_dict, instantiation_kwargs = cls.get_processor_dict(pretrained_model_name_or_path, **kwargs)
+  File "/usr/local/lib/python3.12/site-packages/transformers/processing_utils.py", line 1298, in get_processor_dict
+    resolved_processor_file = cached_file(
+  File "/usr/local/lib/python3.12/site-packages/transformers/utils/hub.py", line 294, in cached_file
+    file = cached_files(path_or_repo_id=path_or_repo_id, filenames=[filename], **kwargs)
+  File "/usr/local/lib/python3.12/site-packages/transformers/utils/hub.py", line 438, in cached_files
+    hf_hub_download(
+  File "/usr/local/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 88, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/usr/local/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1027, in hf_hub_download
+    return _hf_hub_download_to_cache_dir(
+  File "/usr/local/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1097, in _hf_hub_download_to_cache_dir
+    (url_to_download, etag, commit_hash, expected_size, xet_file_data, head_call_error) = _get_metadata_or_catch_error(
+  File "/usr/local/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1722, in _get_metadata_or_catch_error
+    metadata = get_hf_file_metadata(
+  File "/usr/local/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 88, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/usr/local/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1629, in get_hf_file_metadata
+    response = _httpx_follow_relative_redirects_with_backoff(
+  File "/usr/local/lib/python3.12/site-packages/huggingface_hub/utils/_http.py", line 729, in _httpx_follow_relative_redirects_with_backoff
+    hf_raise_for_status(response)
+  File "/usr/local/lib/python3.12/site-packages/huggingface_hub/utils/_http.py", line 792, in hf_raise_for_status
+    _warn_on_warning_headers(response)
+  File "/usr/local/lib/python3.12/site-packages/huggingface_hub/utils/_http.py", line 955, in _warn_on_warning_headers
+    logger.warning(message)
+Message: 'Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.'
+Arguments: ()
+
+[1AWriting model shards:   0%|          | 0/1 [00:00<?, ?it/s]
+[1AWriting model shards: 100%|██████████| 1/1 [00:00<00:00,  3.14it/s]
+[1AWriting model shards: 100%|██████████| 1/1 [00:00<00:00,  3.13it/s]
+Stopping app - uncaught exception raised locally: DeserializationError("Deserialization failed because the 'torch' module is not available in the local environment.").
+╭───────────────────── Traceback (most recent call last) ──────────────────────╮
+│ /Users/prateekraj/whispr-nano/.venv/lib/python3.12/site-packages/modal/_seri │
+│ alization.py:117 in deserialize                                              │
+│                                                                              │
+│   116 │   try:                                                               │
+│ ❱ 117 │   │   return Unpickler(client, io.BytesIO(s)).load()                 │
+│   118 │   except AttributeError as exc:                                      │
+╰──────────────────────────────────────────────────────────────────────────────╯
+ModuleNotFoundError: No module named 'torch'
+
+The above exception was the direct cause of the following exception:
+
+╭───────────────────── Traceback (most recent call last) ──────────────────────╮
+│ /Users/prateekraj/whispr-nano/research/pilot/modal_runner.py:292 in          │
+│ train_smoke                                                                  │
+│                                                                              │
+│   291 │   small = [r for r in candidates if r['split'] == 'train'][:16] + [r │
+│ ❱ 292 │   if not any(r['split'] == 'dev' for r in small):                    │
+│   293 │   │   raise ValueError('No verified development speaker audio yet')  │
+│                                                                              │
+│ /Users/prateekraj/whispr-nano/.venv/lib/python3.12/site-packages/modal/_obje │
+│ ct.py:46 in wrapped                                                          │
+│                                                                              │
+│    45 │   │   await self.hydrate()                                           │
+│ ❱  46 │   │   return await method(self, *args, **kwargs)                     │
+│    47                                                                        │
+│                                                                              │
+│ /Users/prateekraj/whispr-nano/.venv/lib/python3.12/site-packages/modal/_func │
+│ tions.py:1893 in remote                                                      │
+│                                                                              │
+│   1892 │   │                                                                 │
+│ ❱ 1893 │   │   return await self._call_function(args, kwargs)                │
+│   1894                                                                       │
+│                                                                              │
+│ /Users/prateekraj/whispr-nano/.venv/lib/python3.12/site-packages/modal/_func │
+│ tions.py:1830 in _call_function                                              │
+│                                                                              │
+│   1829 │   │                                                                 │
+│ ❱ 1830 │   │   return await invocation.run_function()                        │
+│   1831                                                                       │
+│                                                                              │
+│ /Users/prateekraj/whispr-nano/.venv/lib/python3.12/site-packages/modal/_func │
+│ tions.py:484 in run_function                                                 │
+│                                                                              │
+│    483 │   │   │   if await_response.output.result.status in TERMINAL_STATUS │
+│ ❱  484 │   │   │   │   return await _process_result(                         │
+│    485 │   │   │   │   │   await_response.output.result, await_response.outp │
+│                                                                              │
+│ /Users/prateekraj/whispr-nano/.venv/lib/python3.12/site-packages/modal/_util │
+│ s/function_utils.py:577 in _process_result                                   │
+│                                                                              │
+│   576 │   try:                                                               │
+│ ❱ 577 │   │   return deserialize_data_format(data, data_format, client)      │
+│   578 │   except ModuleNotFoundError as deser_exc:                           │
+│                                                                              │
+│ /Users/prateekraj/whispr-nano/.venv/lib/python3.12/site-packages/modal/_seri │
+│ alization.py:397 in deserialize_data_format                                  │
+│                                                                              │
+│   396 │   if data_format == api_pb2.DATA_FORMAT_PICKLE:                      │
+│ ❱ 397 │   │   return deserialize(s, client)                                  │
+│   398 │   elif data_format == api_pb2.DATA_FORMAT_ASGI:                      │
+│                                                                              │
+│ /Users/prateekraj/whispr-nano/.venv/lib/python3.12/site-packages/modal/_seri │
+│ alization.py:134 in deserialize                                              │
+│                                                                              │
+│   133 │   except ModuleNotFoundError as exc:                                 │
+│ ❱ 134 │   │   raise DeserializationError(                                    │
+│   135 │   │   │   f"Deserialization failed because the '{exc.name}' module i │
+╰──────────────────────────────────────────────────────────────────────────────╯
+DeserializationError: Deserialization failed because the 'torch' module is not 
+available in the local environment.

@@ -1,0 +1,25 @@
+{
+  "valid": true,
+  "model": "facebook/omniASR-CTC-1B",
+  "n": 12,
+  "word_errors": 90,
+  "reference_words": 144,
+  "micro_wer": 0.625,
+  "source_cohort": "12 items from one recovered 518-record shard; not full Svarah",
+  "api_agreements": 12,
+  "eos_completed": null,
+  "interpretation": "Runtime/source-acceptance result only; no model ranking or generalization claim",
+  "receipt": {
+    "run_id": "b647d90b-5cb2-4edd-9061-92347f769fd0",
+    "commit": "736e94dc4d74a54809210ca7aade09af5a64fffc",
+    "provider_status": "done",
+    "jobId": "6ab394d651992417dfcd682b",
+    "namespace": "snigenigmatic",
+    "url": "https://huggingface.co/jobs/snigenigmatic/6ab394d651992417dfcd682b",
+    "sourceDigest": "cbe0fcb41f8b7b6cdc3c0eac33df489d172c502128947860c5e813f66d1c120e",
+    "sourcePath": "/Users/prateekraj/.local/share/openresearch/source-snapshots/cbe0fcb41f8b7b6cdc3c0eac33df489d172c502128947860c5e813f66d1c120e.tar",
+    "sourceSize": 19722240,
+    "portable_archive": "source_snapshot.tar.gz",
+    "portable_archive_sha256": "ded8e458bcc61fe47491524fa727e0aa6ff75a175025e7cda5526e50e987f08a"
+  }
+}

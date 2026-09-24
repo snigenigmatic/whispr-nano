@@ -1,0 +1,71 @@
+{
+  "hi": {
+    "pilot": [
+      {
+        "conversation_id": "fleurs-hi_in-test-10011266027513218401",
+        "trimmed_exact_match": true,
+        "normalized_exact_match": true,
+        "native_error": false
+      },
+      {
+        "conversation_id": "fleurs-hi_in-test-10014385262415025488",
+        "trimmed_exact_match": true,
+        "normalized_exact_match": true,
+        "native_error": false
+      },
+      {
+        "conversation_id": "fleurs-hi_in-test-10015817292782645020",
+        "trimmed_exact_match": true,
+        "normalized_exact_match": true,
+        "native_error": false
+      }
+    ],
+    "scope": "First three short files only; same weights/features but decoder implementations and termination can differ. No all-cohort transcript parity claim."
+  },
+  "bn": {
+    "pilot": [
+      {
+        "conversation_id": "fleurs-bn_in-test-10012315972427481934",
+        "trimmed_exact_match": true,
+        "normalized_exact_match": true,
+        "native_error": false
+      },
+      {
+        "conversation_id": "fleurs-bn_in-test-10025278611427771211",
+        "trimmed_exact_match": true,
+        "normalized_exact_match": true,
+        "native_error": false
+      },
+      {
+        "conversation_id": "fleurs-bn_in-test-10059008353469041076",
+        "trimmed_exact_match": false,
+        "normalized_exact_match": false,
+        "native_error": false
+      }
+    ],
+    "scope": "First three short files only; same weights/features but decoder implementations and termination can differ. No all-cohort transcript parity claim."
+  },
+  "as": {
+    "pilot": [
+      {
+        "conversation_id": "fleurs-as_in-test-10007973808011083086",
+        "trimmed_exact_match": true,
+        "normalized_exact_match": true,
+        "native_error": false
+      },
+      {
+        "conversation_id": "fleurs-as_in-test-10025377740714651614",
+        "trimmed_exact_match": true,
+        "normalized_exact_match": true,
+        "native_error": false
+      },
+      {
+        "conversation_id": "fleurs-as_in-test-1003211011223090716",
+        "trimmed_exact_match": false,
+        "normalized_exact_match": true,
+        "native_error": false
+      }
+    ],
+    "scope": "First three short files only; same weights/features but decoder implementations and termination can differ. No all-cohort transcript parity claim."
+  }
+}

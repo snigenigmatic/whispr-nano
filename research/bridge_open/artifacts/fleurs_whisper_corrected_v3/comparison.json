@@ -1,0 +1,639 @@
+{
+  "scope": "Descriptive duration-routed Whisper systems on public FLEURS official test. Post-result protocol correction.",
+  "inference_acceptance": "accepted for the declared routes; no universal best-model, held-out improvement, population or fairness claim",
+  "models": {
+    "Turbo": {
+      "model_id": "openai/whisper-large-v3-turbo",
+      "revision": "41f01f3fe87f28c78e2fbf8b568835947dd65ed9",
+      "languages": {
+        "hi": {
+          "pooled_duration_routed": {
+            "n": 418,
+            "word_errors": 3237,
+            "ref_words": 10326,
+            "micro_wer": 0.31348053457292274,
+            "micro_cer": 0.1362113433123629,
+            "known_short_generation_limits": 2,
+            "native_termination_not_observed": 1,
+            "normalized_empty": 0
+          },
+          "strata": {
+            "hf_short_beam5": {
+              "n": 417,
+              "word_errors": 3181,
+              "ref_words": 10255,
+              "micro_wer": 0.3101901511457825,
+              "micro_cer": 0.13360854783875667,
+              "known_short_generation_limits": 2,
+              "native_termination_not_observed": 0,
+              "normalized_empty": 0
+            },
+            "native_longform": {
+              "n": 1,
+              "word_errors": 56,
+              "ref_words": 71,
+              "micro_wer": 0.7887323943661971,
+              "micro_cer": 0.48534201954397393,
+              "known_short_generation_limits": 0,
+              "native_termination_not_observed": 1,
+              "normalized_empty": 0
+            }
+          },
+          "old_fixed_recipe": {
+            "n": 418,
+            "word_errors": 3370,
+            "ref_words": 10326,
+            "micro_wer": 0.32636064303699397,
+            "micro_cer": 0.1409598187384,
+            "known_short_generation_limits": 3,
+            "native_termination_not_observed": 0,
+            "normalized_empty": 0
+          }
+        },
+        "bn": {
+          "pooled_duration_routed": {
+            "n": 920,
+            "word_errors": 15252,
+            "ref_words": 17764,
+            "micro_wer": 0.8585904075658636,
+            "micro_cer": 0.3560712611345523,
+            "known_short_generation_limits": 46,
+            "native_termination_not_observed": 9,
+            "normalized_empty": 0
+          },
+          "strata": {
+            "hf_short_beam5": {
+              "n": 911,
+              "word_errors": 14895,
+              "ref_words": 17363,
+              "micro_wer": 0.8578586649772505,
+              "micro_cer": 0.3509655575990637,
+              "known_short_generation_limits": 46,
+              "native_termination_not_observed": 0,
+              "normalized_empty": 0
+            },
+            "native_longform": {
+              "n": 9,
+              "word_errors": 357,
+              "ref_words": 401,
+              "micro_wer": 0.8902743142144638,
+              "micro_cer": 0.5578034682080925,
+              "known_short_generation_limits": 0,
+              "native_termination_not_observed": 9,
+              "normalized_empty": 0
+            }
+          },
+          "old_fixed_recipe": {
+            "n": 920,
+            "word_errors": 15280,
+            "ref_words": 17764,
+            "micro_wer": 0.8601666291375816,
+            "micro_cer": 0.3568254550643103,
+            "known_short_generation_limits": 53,
+            "native_termination_not_observed": 0,
+            "normalized_empty": 0
+          }
+        },
+        "as": {
+          "pooled_duration_routed": {
+            "n": 984,
+            "word_errors": 26152,
+            "ref_words": 19414,
+            "micro_wer": 1.347069125373442,
+            "micro_cer": 1.1635074964176837,
+            "known_short_generation_limits": 62,
+            "native_termination_not_observed": 4,
+            "normalized_empty": 1
+          },
+          "strata": {
+            "hf_short_beam5": {
+              "n": 980,
+              "word_errors": 25979,
+              "ref_words": 19241,
+              "micro_wer": 1.3501896990800895,
+              "micro_cer": 1.1650794575336614,
+              "known_short_generation_limits": 62,
+              "native_termination_not_observed": 0,
+              "normalized_empty": 1
+            },
+            "native_longform": {
+              "n": 4,
+              "word_errors": 173,
+              "ref_words": 173,
+              "micro_wer": 1.0,
+              "micro_cer": 0.9969135802469136,
+              "known_short_generation_limits": 0,
+              "native_termination_not_observed": 4,
+              "normalized_empty": 0
+            }
+          },
+          "old_fixed_recipe": {
+            "n": 984,
+            "word_errors": 26556,
+            "ref_words": 19414,
+            "micro_wer": 1.3678788503142063,
+            "micro_cer": 1.1716434417164343,
+            "known_short_generation_limits": 65,
+            "native_termination_not_observed": 0,
+            "normalized_empty": 1
+          }
+        }
+      }
+    },
+    "Large-v3": {
+      "model_id": "openai/whisper-large-v3",
+      "revision": "06f233fe06e710322aca913c1bc4249a0d71fce1",
+      "languages": {
+        "hi": {
+          "pooled_duration_routed": {
+            "n": 418,
+            "word_errors": 2913,
+            "ref_words": 10326,
+            "micro_wer": 0.2821034282393957,
+            "micro_cer": 0.11716923373586907,
+            "known_short_generation_limits": 1,
+            "native_termination_not_observed": 1,
+            "normalized_empty": 0
+          },
+          "strata": {
+            "hf_short_beam5": {
+              "n": 417,
+              "word_errors": 2875,
+              "ref_words": 10255,
+              "micro_wer": 0.280351048269137,
+              "micro_cer": 0.11449732880038854,
+              "known_short_generation_limits": 1,
+              "native_termination_not_observed": 0,
+              "normalized_empty": 0
+            },
+            "native_longform": {
+              "n": 1,
+              "word_errors": 38,
+              "ref_words": 71,
+              "micro_wer": 0.5352112676056338,
+              "micro_cer": 0.4755700325732899,
+              "known_short_generation_limits": 0,
+              "native_termination_not_observed": 1,
+              "normalized_empty": 0
+            }
+          },
+          "old_fixed_recipe": {
+            "n": 418,
+            "word_errors": 2912,
+            "ref_words": 10326,
+            "micro_wer": 0.2820065853186132,
+            "micro_cer": 0.11704871405500518,
+            "known_short_generation_limits": 1,
+            "native_termination_not_observed": 0,
+            "normalized_empty": 0
+          }
+        },
+        "bn": {
+          "pooled_duration_routed": {
+            "n": 920,
+            "word_errors": 13270,
+            "ref_words": 17764,
+            "micro_wer": 0.7470164377392479,
+            "micro_cer": 0.2785829307568438,
+            "known_short_generation_limits": 21,
+            "native_termination_not_observed": 9,
+            "normalized_empty": 0
+          },
+          "strata": {
+            "hf_short_beam5": {
+              "n": 911,
+              "word_errors": 12916,
+              "ref_words": 17363,
+              "micro_wer": 0.7438806657835627,
+              "micro_cer": 0.2689454104664772,
+              "known_short_generation_limits": 21,
+              "native_termination_not_observed": 0,
+              "normalized_empty": 0
+            },
+            "native_longform": {
+              "n": 9,
+              "word_errors": 354,
+              "ref_words": 401,
+              "micro_wer": 0.8827930174563591,
+              "micro_cer": 0.6593724194880264,
+              "known_short_generation_limits": 0,
+              "native_termination_not_observed": 9,
+              "normalized_empty": 0
+            }
+          },
+          "old_fixed_recipe": {
+            "n": 920,
+            "word_errors": 13295,
+            "ref_words": 17764,
+            "micro_wer": 0.7484237784282819,
+            "micro_cer": 0.2778796958763937,
+            "known_short_generation_limits": 26,
+            "native_termination_not_observed": 0,
+            "normalized_empty": 0
+          }
+        },
+        "as": {
+          "pooled_duration_routed": {
+            "n": 984,
+            "word_errors": 21997,
+            "ref_words": 19414,
+            "micro_wer": 1.1330483156485012,
+            "micro_cer": 1.0823115316926806,
+            "known_short_generation_limits": 28,
+            "native_termination_not_observed": 4,
+            "normalized_empty": 0
+          },
+          "strata": {
+            "hf_short_beam5": {
+              "n": 980,
+              "word_errors": 21819,
+              "ref_words": 19241,
+              "micro_wer": 1.1339847201288915,
+              "micro_cer": 1.083088213880071,
+              "known_short_generation_limits": 28,
+              "native_termination_not_observed": 0,
+              "normalized_empty": 0
+            },
+            "native_longform": {
+              "n": 4,
+              "word_errors": 178,
+              "ref_words": 173,
+              "micro_wer": 1.0289017341040463,
+              "micro_cer": 1.0,
+              "known_short_generation_limits": 0,
+              "native_termination_not_observed": 4,
+              "normalized_empty": 0
+            }
+          },
+          "old_fixed_recipe": {
+            "n": 984,
+            "word_errors": 22165,
+            "ref_words": 19414,
+            "micro_wer": 1.1417018646337695,
+            "micro_cer": 1.0924093361414846,
+            "known_short_generation_limits": 29,
+            "native_termination_not_observed": 0,
+            "normalized_empty": 0
+          }
+        }
+      }
+    }
+  },
+  "turbo_parity": {
+    "hf_batch": {
+      "n": 24,
+      "texts_matching_original": 24,
+      "wers_matching_original": 24
+    },
+    "hf_single": {
+      "n": 24,
+      "texts_matching_original": 24,
+      "wers_matching_original": 24
+    },
+    "hf_pipeline": {
+      "n": 24,
+      "texts_matching_original": 24,
+      "wers_matching_original": 24
+    },
+    "native_decode_matched": {
+      "n": 24,
+      "texts_matching_original": 22,
+      "wers_matching_original": 24
+    }
+  },
+  "paired_differences": [
+    {
+      "language": "hi",
+      "left": "Turbo",
+      "right": "Large-v3",
+      "metric": "micro_wer",
+      "difference": 0.03137710633352703,
+      "ci_95": [
+        0.023714518638257052,
+        0.03878185194731321
+      ],
+      "draws": 2000,
+      "seed": 12,
+      "cluster_count": 265,
+      "interpretation": "sentence-cluster bootstrap only; not speaker or population fairness inference"
+    },
+    {
+      "language": "bn",
+      "left": "Turbo",
+      "right": "Large-v3",
+      "metric": "micro_wer",
+      "difference": 0.11157396982661572,
+      "ci_95": [
+        0.045718195559182745,
+        0.16070872084035756
+      ],
+      "draws": 2000,
+      "seed": 12,
+      "cluster_count": 349,
+      "interpretation": "sentence-cluster bootstrap only; not speaker or population fairness inference"
+    },
+    {
+      "language": "as",
+      "left": "Turbo",
+      "right": "Large-v3",
+      "metric": "micro_wer",
+      "difference": 0.21402080972494075,
+      "ci_95": [
+        0.09573690625557564,
+        0.3358322980718078
+      ],
+      "draws": 2000,
+      "seed": 12,
+      "cluster_count": 349,
+      "interpretation": "sentence-cluster bootstrap only; not speaker or population fairness inference"
+    }
+  ],
+  "long_sensitivity": [
+    {
+      "model": "Turbo",
+      "id": "fleurs-hi_in-test-13003185437122223029",
+      "language": "hi",
+      "duration": 31.44,
+      "old_wer": 2.6619718309859155,
+      "native_wer": 0.7887323943661971,
+      "old_insertions": 150,
+      "native_insertions": 15
+    },
+    {
+      "model": "Turbo",
+      "id": "fleurs-bn_in-test-12869216347907550991",
+      "language": "bn",
+      "duration": 30.6,
+      "old_wer": 0.9,
+      "native_wer": 1.0,
+      "old_insertions": 4,
+      "native_insertions": 0
+    },
+    {
+      "model": "Turbo",
+      "id": "fleurs-bn_in-test-15809932415234744727",
+      "language": "bn",
+      "duration": 31.62,
+      "old_wer": 0.9069767441860465,
+      "native_wer": 0.9302325581395349,
+      "old_insertions": 0,
+      "native_insertions": 0
+    },
+    {
+      "model": "Turbo",
+      "id": "fleurs-bn_in-test-1591721392866410148",
+      "language": "bn",
+      "duration": 32.7,
+      "old_wer": 0.8113207547169812,
+      "native_wer": 0.7547169811320755,
+      "old_insertions": 1,
+      "native_insertions": 2
+    },
+    {
+      "model": "Turbo",
+      "id": "fleurs-bn_in-test-16169029267663360791",
+      "language": "bn",
+      "duration": 34.56,
+      "old_wer": 0.926829268292683,
+      "native_wer": 0.8780487804878049,
+      "old_insertions": 4,
+      "native_insertions": 1
+    },
+    {
+      "model": "Turbo",
+      "id": "fleurs-bn_in-test-16686137517726416078",
+      "language": "bn",
+      "duration": 32.76,
+      "old_wer": 0.9024390243902439,
+      "native_wer": 0.8780487804878049,
+      "old_insertions": 5,
+      "native_insertions": 2
+    },
+    {
+      "model": "Turbo",
+      "id": "fleurs-bn_in-test-18340769766236638968",
+      "language": "bn",
+      "duration": 30.66,
+      "old_wer": 1.7435897435897436,
+      "native_wer": 1.0,
+      "old_insertions": 36,
+      "native_insertions": 3
+    },
+    {
+      "model": "Turbo",
+      "id": "fleurs-bn_in-test-3111190722628836731",
+      "language": "bn",
+      "duration": 33.84,
+      "old_wer": 0.8125,
+      "native_wer": 0.875,
+      "old_insertions": 3,
+      "native_insertions": 1
+    },
+    {
+      "model": "Turbo",
+      "id": "fleurs-bn_in-test-390639021197582383",
+      "language": "bn",
+      "duration": 32.58,
+      "old_wer": 0.9069767441860465,
+      "native_wer": 0.9767441860465116,
+      "old_insertions": 0,
+      "native_insertions": 0
+    },
+    {
+      "model": "Turbo",
+      "id": "fleurs-bn_in-test-8171667595821800892",
+      "language": "bn",
+      "duration": 32.04,
+      "old_wer": 0.8679245283018868,
+      "native_wer": 0.7924528301886793,
+      "old_insertions": 2,
+      "native_insertions": 0
+    },
+    {
+      "model": "Turbo",
+      "id": "fleurs-as_in-test-10189020253469894562",
+      "language": "as",
+      "duration": 32.82,
+      "old_wer": 2.6315789473684212,
+      "native_wer": 1.0,
+      "old_insertions": 62,
+      "native_insertions": 0
+    },
+    {
+      "model": "Turbo",
+      "id": "fleurs-as_in-test-14532926649110810993",
+      "language": "as",
+      "duration": 33.3,
+      "old_wer": 1.3,
+      "native_wer": 1.0,
+      "old_insertions": 12,
+      "native_insertions": 0
+    },
+    {
+      "model": "Turbo",
+      "id": "fleurs-as_in-test-5798548483160658342",
+      "language": "as",
+      "duration": 33.96,
+      "old_wer": 1.0,
+      "native_wer": 1.0,
+      "old_insertions": 0,
+      "native_insertions": 0
+    },
+    {
+      "model": "Turbo",
+      "id": "fleurs-as_in-test-8689472481838180123",
+      "language": "as",
+      "duration": 30.9,
+      "old_wer": 7.470588235294118,
+      "native_wer": 1.0,
+      "old_insertions": 330,
+      "native_insertions": 0
+    },
+    {
+      "model": "Large-v3",
+      "id": "fleurs-hi_in-test-13003185437122223029",
+      "language": "hi",
+      "duration": 31.44,
+      "old_wer": 0.5211267605633803,
+      "native_wer": 0.5352112676056338,
+      "old_insertions": 0,
+      "native_insertions": 0
+    },
+    {
+      "model": "Large-v3",
+      "id": "fleurs-bn_in-test-12869216347907550991",
+      "language": "bn",
+      "duration": 30.6,
+      "old_wer": 0.95,
+      "native_wer": 0.95,
+      "old_insertions": 6,
+      "native_insertions": 0
+    },
+    {
+      "model": "Large-v3",
+      "id": "fleurs-bn_in-test-15809932415234744727",
+      "language": "bn",
+      "duration": 31.62,
+      "old_wer": 0.9302325581395349,
+      "native_wer": 0.9069767441860465,
+      "old_insertions": 0,
+      "native_insertions": 1
+    },
+    {
+      "model": "Large-v3",
+      "id": "fleurs-bn_in-test-1591721392866410148",
+      "language": "bn",
+      "duration": 32.7,
+      "old_wer": 0.6981132075471698,
+      "native_wer": 0.8301886792452831,
+      "old_insertions": 1,
+      "native_insertions": 1
+    },
+    {
+      "model": "Large-v3",
+      "id": "fleurs-bn_in-test-16169029267663360791",
+      "language": "bn",
+      "duration": 34.56,
+      "old_wer": 0.8048780487804879,
+      "native_wer": 0.9024390243902439,
+      "old_insertions": 2,
+      "native_insertions": 1
+    },
+    {
+      "model": "Large-v3",
+      "id": "fleurs-bn_in-test-16686137517726416078",
+      "language": "bn",
+      "duration": 32.76,
+      "old_wer": 2.097560975609756,
+      "native_wer": 0.8780487804878049,
+      "old_insertions": 57,
+      "native_insertions": 0
+    },
+    {
+      "model": "Large-v3",
+      "id": "fleurs-bn_in-test-18340769766236638968",
+      "language": "bn",
+      "duration": 30.66,
+      "old_wer": 0.7948717948717948,
+      "native_wer": 0.9230769230769231,
+      "old_insertions": 1,
+      "native_insertions": 1
+    },
+    {
+      "model": "Large-v3",
+      "id": "fleurs-bn_in-test-3111190722628836731",
+      "language": "bn",
+      "duration": 33.84,
+      "old_wer": 0.8125,
+      "native_wer": 0.875,
+      "old_insertions": 4,
+      "native_insertions": 3
+    },
+    {
+      "model": "Large-v3",
+      "id": "fleurs-bn_in-test-390639021197582383",
+      "language": "bn",
+      "duration": 32.58,
+      "old_wer": 0.9069767441860465,
+      "native_wer": 0.9534883720930233,
+      "old_insertions": 1,
+      "native_insertions": 1
+    },
+    {
+      "model": "Large-v3",
+      "id": "fleurs-bn_in-test-8171667595821800892",
+      "language": "bn",
+      "duration": 32.04,
+      "old_wer": 0.6792452830188679,
+      "native_wer": 0.7735849056603774,
+      "old_insertions": 1,
+      "native_insertions": 2
+    },
+    {
+      "model": "Large-v3",
+      "id": "fleurs-as_in-test-10189020253469894562",
+      "language": "as",
+      "duration": 32.82,
+      "old_wer": 5.131578947368421,
+      "native_wer": 1.131578947368421,
+      "old_insertions": 157,
+      "native_insertions": 5
+    },
+    {
+      "model": "Large-v3",
+      "id": "fleurs-as_in-test-14532926649110810993",
+      "language": "as",
+      "duration": 33.3,
+      "old_wer": 1.0,
+      "native_wer": 1.0,
+      "old_insertions": 0,
+      "native_insertions": 0
+    },
+    {
+      "model": "Large-v3",
+      "id": "fleurs-as_in-test-5798548483160658342",
+      "language": "as",
+      "duration": 33.96,
+      "old_wer": 1.3636363636363635,
+      "native_wer": 1.0,
+      "old_insertions": 16,
+      "native_insertions": 0
+    },
+    {
+      "model": "Large-v3",
+      "id": "fleurs-as_in-test-8689472481838180123",
+      "language": "as",
+      "duration": 30.9,
+      "old_wer": 1.0,
+      "native_wer": 1.0,
+      "old_insertions": 0,
+      "native_insertions": 0
+    }
+  ],
+  "limitations": [
+    "Small native parity cohorts cannot prove all possible decoder behavior.",
+    "Native long-form has stochastic fallback, fixed seed 12, different context/segmentation from short form.",
+    "No human semantic transcript validation; public source integrity was checked.",
+    "Native EOS/cap termination is not directly exposed; do not interpret unknown caps as zero."
+  ]
+}

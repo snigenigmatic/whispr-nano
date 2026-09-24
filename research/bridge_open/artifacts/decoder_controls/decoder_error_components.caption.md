@@ -1,0 +1,1 @@
+Native decoding reduces deletions but increases insertions on this Hindi development sample. Same3 conversations and6,503 reference words; seed12. No confidence intervals at this sample size. Native timestamp decoding uses batch1; fixed-window recipes use batch8. All capped output is retained.

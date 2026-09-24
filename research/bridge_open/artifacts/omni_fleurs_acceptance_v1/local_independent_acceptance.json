@@ -1,0 +1,20 @@
+{
+  "records": 9,
+  "api_agreements": 9,
+  "wall_seconds": 0.9114217940002618,
+  "audio_seconds": 170.52,
+  "model_load_seconds": 39.767625384999974,
+  "runtime": {
+    "official_omnilingual_asr_commit": "81f51e224ce9e74b02cc2a3eaf21b2d91d743455",
+    "pipeline_source_path": "/opt/conda/lib/python3.11/site-packages/omnilingual_asr/models/inference/pipeline.py",
+    "pipeline_source_sha256": "766728688901376dfce1b36115b8e780c1dfc3055798ab49d78a4b9df41fd863",
+    "package_init_path": "/opt/conda/lib/python3.11/site-packages/omnilingual_asr/__init__.py",
+    "package_init_sha256": "1a35a7783b57015efa8a77f7c5d5e0a396e6a7f957036d936425ce4f69753dd8",
+    "parameter_dtypes": [
+      "torch.bfloat16"
+    ],
+    "parameter_count": 975065300,
+    "model_training": false,
+    "requested_pipeline_dtype": "torch.bfloat16"
+  }
+}

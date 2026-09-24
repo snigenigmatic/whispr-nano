@@ -1,0 +1,16 @@
+{
+  "sha256": "38d30947248f12efef4f88150663d624fab916668f38ff6de34b62a554e0e9cb",
+  "files": [
+    "config.json",
+    "environment.json",
+    "feature_validation.json",
+    "hf_receipt.json",
+    "native_receipt.json",
+    "predictions.jsonl",
+    "source_mapping.json",
+    "summary.json",
+    "validation.json",
+    "weight_validation.json"
+  ],
+  "chunks": 90
+}

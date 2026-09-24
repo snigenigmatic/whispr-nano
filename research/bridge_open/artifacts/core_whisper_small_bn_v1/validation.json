@@ -1,0 +1,12 @@
+{
+  "expected_count": 920,
+  "prediction_count": 920,
+  "unique_prediction_ids": 920,
+  "missing_prediction_ids": [],
+  "weight_gate": "passed",
+  "feature_gate": "passed",
+  "native_short_parity_pilot_count": 3,
+  "native_short_parity_not_requested_count": 908,
+  "short_route_count": 911,
+  "long_route_count": 9
+}

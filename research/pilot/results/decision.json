@@ -1,0 +1,8 @@
+{
+  "valid_complete": false,
+  "pilot_positive": false,
+  "decision": "incomplete_after_user_stop",
+  "completed_audited_runs": 5,
+  "required_runs": 9,
+  "scope": "No registered complete-experiment inference; user stopped execution. Unfinished runs are not negative scientific results."
+}

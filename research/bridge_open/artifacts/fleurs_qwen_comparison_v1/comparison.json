@@ -1,0 +1,105 @@
+{
+  "summary": {
+    "Qwen3-ASR-1.7B": {
+      "utterances": 418,
+      "scored_count": 418,
+      "word_errors": 1352,
+      "ref_words": 10326,
+      "character_errors": 2343,
+      "ref_chars": 41487,
+      "micro_wer": 0.13093162889792756,
+      "micro_cer": 0.05647552245281655,
+      "success_count": 418,
+      "empty_output_status_count": 0,
+      "normalized_empty_count": 0,
+      "generation_limit_count": 0,
+      "native_api_completed_count": 0,
+      "native_termination_unknown": 0
+    },
+    "Whisper Turbo": {
+      "utterances": 418,
+      "scored_count": 418,
+      "word_errors": 3237,
+      "ref_words": 10326,
+      "character_errors": 5651,
+      "ref_chars": 41487,
+      "micro_wer": 0.31348053457292274,
+      "micro_cer": 0.1362113433123629,
+      "success_count": 415,
+      "empty_output_status_count": 0,
+      "normalized_empty_count": 0,
+      "generation_limit_count": 2,
+      "native_api_completed_count": 1,
+      "native_termination_unknown": 1
+    },
+    "Whisper Large-v3": {
+      "utterances": 418,
+      "scored_count": 418,
+      "word_errors": 2913,
+      "ref_words": 10326,
+      "character_errors": 4861,
+      "ref_chars": 41487,
+      "micro_wer": 0.2821034282393957,
+      "micro_cer": 0.11716923373586907,
+      "success_count": 416,
+      "empty_output_status_count": 0,
+      "normalized_empty_count": 0,
+      "generation_limit_count": 1,
+      "native_api_completed_count": 1,
+      "native_termination_unknown": 1
+    }
+  },
+  "qwen_audit": {
+    "records": 418,
+    "groups": 53,
+    "observed_eos": 418,
+    "observed_caps": 0,
+    "normalized_empty": 0,
+    "raw_primary_text_match_count": 418,
+    "raw_primary_text_mismatch_ids": [],
+    "group_wall_seconds": 414.6318099329801,
+    "audio_seconds": 4832.220000000001,
+    "audio_seconds_per_group_wall_second": 11.654243317175947,
+    "timing_scope": "one run; API batches plus scoring; excludes loading/setup; not request latency",
+    "measured_bill_usd": null,
+    "source_receipt": {
+      "run_id": "6c7ace07-3a17-4a61-a1e1-6f0b3b55606e",
+      "commit": "6df7cc65424f2108c33a8354d37262e679b9f6b8",
+      "provider_status": "done",
+      "jobId": "6ab2c7ac52d0dbd7f1d7fd9a",
+      "namespace": "snigenigmatic",
+      "url": "https://huggingface.co/jobs/snigenigmatic/6ab2c7ac52d0dbd7f1d7fd9a",
+      "sourceDigest": "62ea71f836d1d745be9675d1e1a2eb8d7a7d8a279d922dd311354ae1de67eee8",
+      "sourcePath": "/Users/prateekraj/.local/share/openresearch/source-snapshots/62ea71f836d1d745be9675d1e1a2eb8d7a7d8a279d922dd311354ae1de67eee8.tar",
+      "sourceSize": 6113280,
+      "portable_archive": "source_snapshot.tar.gz",
+      "portable_archive_sha256": "5fd48a0732cbc7a9f47fc2ff736a82b45c3a3aaff9bebde1fdca15d6fe2c1996"
+    }
+  },
+  "qwen_minus_comparator": {
+    "Whisper Turbo": {
+      "metric": "micro_wer",
+      "difference": -0.18254890567499518,
+      "ci_95": [
+        -0.22068646213673576,
+        -0.15761696266624178
+      ],
+      "draws": 2000,
+      "seed": 12,
+      "cluster_count": 265,
+      "interpretation": "sentence-cluster bootstrap only; not speaker or population fairness inference"
+    },
+    "Whisper Large-v3": {
+      "metric": "micro_wer",
+      "difference": -0.15117179934146815,
+      "ci_95": [
+        -0.18886850023348217,
+        -0.1273474572875499
+      ],
+      "draws": 2000,
+      "seed": 12,
+      "cluster_count": 265,
+      "interpretation": "sentence-cluster bootstrap only; not speaker or population fairness inference"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "metrics_identical": true,
+  "text_identical": true,
+  "selected_raw_sequences_identical": true,
+  "modal_metrics": {
+    "wer": 0.9827586206896551,
+    "cer": 0.7673483863340821,
+    "wil": 0.9963391591875296,
+    "hits": 31,
+    "substitutions": 115,
+    "deletions": 1652,
+    "insertions": 0,
+    "ref_words": 1798,
+    "ref_chars": 8459,
+    "hyp_words": 146,
+    "character_errors": 6491
+  },
+  "hf_metrics": {
+    "wer": 0.9827586206896551,
+    "cer": 0.7673483863340821,
+    "wil": 0.9963391591875296,
+    "hits": 31,
+    "substitutions": 115,
+    "deletions": 1652,
+    "insertions": 0,
+    "ref_words": 1798,
+    "ref_chars": 8459,
+    "hyp_words": 146,
+    "character_errors": 6491
+  },
+  "scope": "One exposed conversation; cross-provider agreement check, not a general hardware equivalence proof."
+}

@@ -1,0 +1,29 @@
+{
+  "valid": true,
+  "cases": [
+    {
+      "case": "summary_scored",
+      "rejected": true,
+      "python_optimization": true,
+      "reason": "ValueError: summary.scored disagrees with recomputed predictions"
+    },
+    {
+      "case": "not_complete",
+      "rejected": true,
+      "python_optimization": true,
+      "reason": "ValueError: Provider receipt is not complete"
+    },
+    {
+      "case": "archive_escape",
+      "rejected": true,
+      "python_optimization": true,
+      "reason": "ValueError: Receipt portable_archive must be a basename under the run directory"
+    },
+    {
+      "case": "changed_runner",
+      "rejected": true,
+      "python_optimization": true,
+      "reason": "ValueError: Qwen execution code does not match frozen Svarah acceptance hashes"
+    }
+  ]
+}

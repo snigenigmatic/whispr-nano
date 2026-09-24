@@ -1,0 +1,274 @@
+{
+  "status": "validated_complete_diagnostic",
+  "recordings": 44,
+  "groups": [
+    {
+      "scope": "all_diagnostic",
+      "language": "hi",
+      "forced": {
+        "n": 11,
+        "word_errors": 107,
+        "reference_words": 308,
+        "micro_wer": 0.3474025974025974,
+        "script_mismatches": 0,
+        "unknown_script": 0,
+        "output_languages": {
+          "hi": 11
+        },
+        "timestamp_flags": 0
+      },
+      "automatic": {
+        "n": 11,
+        "word_errors": 182,
+        "reference_words": 308,
+        "micro_wer": 0.5909090909090909,
+        "script_mismatches": 4,
+        "unknown_script": 0,
+        "output_languages": {
+          "hi": 7,
+          "ur": 4
+        },
+        "timestamp_flags": 0
+      },
+      "automatic_minus_forced": 0.24350649350649356
+    },
+    {
+      "scope": "all_diagnostic",
+      "language": "bn",
+      "forced": {
+        "n": 19,
+        "word_errors": 504,
+        "reference_words": 616,
+        "micro_wer": 0.8181818181818182,
+        "script_mismatches": 0,
+        "unknown_script": 0,
+        "output_languages": {
+          "bn": 19
+        },
+        "timestamp_flags": 2
+      },
+      "automatic": {
+        "n": 19,
+        "word_errors": 504,
+        "reference_words": 616,
+        "micro_wer": 0.8181818181818182,
+        "script_mismatches": 0,
+        "unknown_script": 0,
+        "output_languages": {
+          "bn": 19
+        },
+        "timestamp_flags": 2
+      },
+      "automatic_minus_forced": 0.0
+    },
+    {
+      "scope": "all_diagnostic",
+      "language": "as",
+      "forced": {
+        "n": 14,
+        "word_errors": 362,
+        "reference_words": 335,
+        "micro_wer": 1.0805970149253732,
+        "script_mismatches": 14,
+        "unknown_script": 0,
+        "output_languages": {
+          "as": 14
+        },
+        "timestamp_flags": 2
+      },
+      "automatic": {
+        "n": 14,
+        "word_errors": 316,
+        "reference_words": 335,
+        "micro_wer": 0.9432835820895522,
+        "script_mismatches": 0,
+        "unknown_script": 1,
+        "output_languages": {
+          "bn": 13,
+          "si": 1
+        },
+        "timestamp_flags": 2
+      },
+      "automatic_minus_forced": -0.13731343283582098
+    },
+    {
+      "scope": "sampled_short",
+      "language": "hi",
+      "forced": {
+        "n": 10,
+        "word_errors": 69,
+        "reference_words": 237,
+        "micro_wer": 0.2911392405063291,
+        "script_mismatches": 0,
+        "unknown_script": 0,
+        "output_languages": {
+          "hi": 10
+        },
+        "timestamp_flags": 0
+      },
+      "automatic": {
+        "n": 10,
+        "word_errors": 144,
+        "reference_words": 237,
+        "micro_wer": 0.6075949367088608,
+        "script_mismatches": 4,
+        "unknown_script": 0,
+        "output_languages": {
+          "hi": 6,
+          "ur": 4
+        },
+        "timestamp_flags": 0
+      },
+      "automatic_minus_forced": 0.31645569620253167
+    },
+    {
+      "scope": "sampled_short",
+      "language": "bn",
+      "forced": {
+        "n": 10,
+        "word_errors": 150,
+        "reference_words": 215,
+        "micro_wer": 0.6976744186046512,
+        "script_mismatches": 0,
+        "unknown_script": 0,
+        "output_languages": {
+          "bn": 10
+        },
+        "timestamp_flags": 0
+      },
+      "automatic": {
+        "n": 10,
+        "word_errors": 150,
+        "reference_words": 215,
+        "micro_wer": 0.6976744186046512,
+        "script_mismatches": 0,
+        "unknown_script": 0,
+        "output_languages": {
+          "bn": 10
+        },
+        "timestamp_flags": 0
+      },
+      "automatic_minus_forced": 0.0
+    },
+    {
+      "scope": "sampled_short",
+      "language": "as",
+      "forced": {
+        "n": 10,
+        "word_errors": 184,
+        "reference_words": 162,
+        "micro_wer": 1.1358024691358024,
+        "script_mismatches": 10,
+        "unknown_script": 0,
+        "output_languages": {
+          "as": 10
+        },
+        "timestamp_flags": 1
+      },
+      "automatic": {
+        "n": 10,
+        "word_errors": 155,
+        "reference_words": 162,
+        "micro_wer": 0.9567901234567902,
+        "script_mismatches": 0,
+        "unknown_script": 1,
+        "output_languages": {
+          "bn": 9,
+          "si": 1
+        },
+        "timestamp_flags": 1
+      },
+      "automatic_minus_forced": -0.17901234567901225
+    },
+    {
+      "scope": "all_long",
+      "language": "hi",
+      "forced": {
+        "n": 1,
+        "word_errors": 38,
+        "reference_words": 71,
+        "micro_wer": 0.5352112676056338,
+        "script_mismatches": 0,
+        "unknown_script": 0,
+        "output_languages": {
+          "hi": 1
+        },
+        "timestamp_flags": 0
+      },
+      "automatic": {
+        "n": 1,
+        "word_errors": 38,
+        "reference_words": 71,
+        "micro_wer": 0.5352112676056338,
+        "script_mismatches": 0,
+        "unknown_script": 0,
+        "output_languages": {
+          "hi": 1
+        },
+        "timestamp_flags": 0
+      },
+      "automatic_minus_forced": 0.0
+    },
+    {
+      "scope": "all_long",
+      "language": "bn",
+      "forced": {
+        "n": 9,
+        "word_errors": 354,
+        "reference_words": 401,
+        "micro_wer": 0.8827930174563591,
+        "script_mismatches": 0,
+        "unknown_script": 0,
+        "output_languages": {
+          "bn": 9
+        },
+        "timestamp_flags": 2
+      },
+      "automatic": {
+        "n": 9,
+        "word_errors": 354,
+        "reference_words": 401,
+        "micro_wer": 0.8827930174563591,
+        "script_mismatches": 0,
+        "unknown_script": 0,
+        "output_languages": {
+          "bn": 9
+        },
+        "timestamp_flags": 2
+      },
+      "automatic_minus_forced": 0.0
+    },
+    {
+      "scope": "all_long",
+      "language": "as",
+      "forced": {
+        "n": 4,
+        "word_errors": 178,
+        "reference_words": 173,
+        "micro_wer": 1.0289017341040463,
+        "script_mismatches": 4,
+        "unknown_script": 0,
+        "output_languages": {
+          "as": 4
+        },
+        "timestamp_flags": 1
+      },
+      "automatic": {
+        "n": 4,
+        "word_errors": 161,
+        "reference_words": 173,
+        "micro_wer": 0.930635838150289,
+        "script_mismatches": 0,
+        "unknown_script": 0,
+        "output_languages": {
+          "bn": 4
+        },
+        "timestamp_flags": 1
+      },
+      "automatic_minus_forced": -0.09826589595375723
+    }
+  ],
+  "interpretation": "Exposed-test mechanistic diagnostic; not a population estimate or held-out gain",
+  "measured_cost_usd": null,
+  "prediction_sha256": "dbf1bb022513e23968f2ebb98b34897ae2188c27d215e25b63138bb6e706c276"
+}

@@ -1,0 +1,8 @@
+{
+  "sha256": "90a00a419cd8beb10bab43f32db92d1a1a07201bdc6e8176ee1fabaab57437cf",
+  "files": [
+    "hf_receipt.json",
+    "remote_validation.json"
+  ],
+  "chunks": 1
+}

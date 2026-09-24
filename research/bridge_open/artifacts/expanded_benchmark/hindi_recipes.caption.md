@@ -1,0 +1,1 @@
+Matched Hindi development results for six open ASR recipes. Three conversations (6,503 reference words), fixed 30-second windows; single inference seed 12. Capped and repeated output is retained. No confidence intervals: only three conversation clusters. Precision and decoding differ by family; this is not an isolated architecture comparison or held-out model ranking.

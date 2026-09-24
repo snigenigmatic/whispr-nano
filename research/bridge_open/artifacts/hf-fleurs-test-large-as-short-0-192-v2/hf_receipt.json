@@ -1,0 +1,15 @@
+{
+  "provider": "huggingface",
+  "gpu": "NVIDIA A100-SXM4-80GB",
+  "torch_version": "2.8.0+cu128",
+  "cuda_version": "12.8",
+  "elapsed_seconds": 742.0320851279976,
+  "timeout_seconds": 1800,
+  "hourly_price_usd": 2.5,
+  "provider_bill_verified": false,
+  "cost_note": "Job Starting/Running time includes installation; this elapsed time is not the bill.",
+  "source_sha256": {
+    "experiments/hf_run.py": "bb38343416a6e75d0b84e6588d8ebf8e4c288479d458ce8998398fe0404e3d7b",
+    "experiments/hf_entrypoint.sh": "e5ae5fbcaa0b833f03573c87488b8ca697f73228f913c52d6968504e59274c20"
+  }
+}

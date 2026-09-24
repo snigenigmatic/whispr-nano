@@ -1,0 +1,57 @@
+{
+  "source_repo": "google/fleurs",
+  "source_revision": "70bb2e84b976b7e960aa89f1c648e09c59f894dd",
+  "manifest_path": "/Users/prateekraj/whispr-nano/data/bridge_open/fleurs_test_v1/corpus-v1.jsonl",
+  "manifest_sha256": "e1716a6d59d88adbabadf89016e62cd94c7de0685550bdf9ace09170cc25b010",
+  "code_sha256": "67fcbdbc44e8518e36e600624edc7e59530d9e812779e4efcc65da7708fa64f9",
+  "selection": "All official-test filenames in each of three languages, ordered by SHA256(12:config:filename).",
+  "conversations": 2322,
+  "total_duration_seconds": 29684.16,
+  "qc_pass": 2308,
+  "qc_suspect_ids": [
+    "fleurs-hi_in-test-13003185437122223029",
+    "fleurs-bn_in-test-12869216347907550991",
+    "fleurs-bn_in-test-15809932415234744727",
+    "fleurs-bn_in-test-1591721392866410148",
+    "fleurs-bn_in-test-16169029267663360791",
+    "fleurs-bn_in-test-16686137517726416078",
+    "fleurs-bn_in-test-18340769766236638968",
+    "fleurs-bn_in-test-3111190722628836731",
+    "fleurs-bn_in-test-390639021197582383",
+    "fleurs-bn_in-test-8171667595821800892",
+    "fleurs-as_in-test-10189020253469894562",
+    "fleurs-as_in-test-14532926649110810993",
+    "fleurs-as_in-test-5798548483160658342",
+    "fleurs-as_in-test-8689472481838180123"
+  ],
+  "source_archives": [
+    {
+      "config": "hi_in",
+      "test_split_total_rows": 418,
+      "source_archive_sha256": "47c238b9cf7016ba596639bb3038b0c89dc6e85759f16d09c4f58c6dfa25c65f",
+      "source_archive_bytes": 249331325
+    },
+    {
+      "config": "bn_in",
+      "test_split_total_rows": 920,
+      "source_archive_sha256": "6c1cc66b258b711d49e5bcd8e5508c18484c8cbcbe76d323ad46947756029b0f",
+      "source_archive_bytes": 659700249
+    },
+    {
+      "config": "as_in",
+      "test_split_total_rows": 984,
+      "source_archive_sha256": "56fad7d019b09b9efd0bbf3817c91d6f537ebe17b0f44224becc27a6a7156581",
+      "source_archive_bytes": 656346858
+    }
+  ],
+  "limits": [
+    "Read speech, not a conversational BRIDGE replication.",
+    "Full official-test acquisition; no model results claimed.",
+    "No speaker IDs in these TSVs; sentence IDs are not speaker IDs.",
+    "Automated QC does not establish transcript correctness.",
+    "Public benchmark; model training/evaluation exposure must be disclosed."
+  ],
+  "test_audio_or_references_opened": true,
+  "cloud_cost_usd": 0,
+  "protocol_sha256": "4b55f39dbef86bb6892a11bad59704f5962b91decde188560316536a20c0a4b7"
+}

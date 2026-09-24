@@ -1,0 +1,210 @@
+{
+  "status": "completed_with_quality_flags",
+  "scope": "engineering/public-data pilot; not BRIDGE-matched or population evidence",
+  "attempted": 5,
+  "successful": 1,
+  "scored": 5,
+  "conversation_ids": [
+    "humyn-08-01",
+    "humyn-20-00",
+    "humyn-17-00",
+    "humyn-11-00",
+    "humyn-00-00"
+  ],
+  "per_language": {
+    "as": {
+      "estimand": "all fully processed conversations including empty/capped text; runtime failures reported separately",
+      "conversation_ids": [
+        "humyn-00-00"
+      ],
+      "scored_count": 1,
+      "attempted_count": 1,
+      "clean_completion_count": 1,
+      "generation_limit_count": 0,
+      "word_errors": 444,
+      "ref_words": 446,
+      "character_errors": 2272,
+      "ref_chars": 2319,
+      "micro_wer": 0.9955156950672646,
+      "micro_cer": 0.9797326433807676,
+      "mean_conversation_wer": 0.9955156950672646,
+      "mean_conversation_wil": 0.9999425089111188
+    },
+    "gu": {
+      "estimand": "all fully processed conversations including empty/capped text; runtime failures reported separately",
+      "conversation_ids": [
+        "humyn-11-00"
+      ],
+      "scored_count": 1,
+      "attempted_count": 1,
+      "clean_completion_count": 0,
+      "generation_limit_count": 1,
+      "word_errors": 1891,
+      "ref_words": 2036,
+      "character_errors": 6251,
+      "ref_chars": 8353,
+      "micro_wer": 0.9287819253438114,
+      "micro_cer": 0.748353884831797,
+      "mean_conversation_wer": 0.9287819253438114,
+      "mean_conversation_wil": 0.9788826630848804
+    },
+    "ml": {
+      "estimand": "all fully processed conversations including empty/capped text; runtime failures reported separately",
+      "conversation_ids": [
+        "humyn-20-00"
+      ],
+      "scored_count": 1,
+      "attempted_count": 1,
+      "clean_completion_count": 0,
+      "generation_limit_count": 1,
+      "word_errors": 1792,
+      "ref_words": 1792,
+      "character_errors": 10963,
+      "ref_chars": 12879,
+      "micro_wer": 1.0,
+      "micro_cer": 0.851230685612237,
+      "mean_conversation_wer": 1.0,
+      "mean_conversation_wil": 1.0
+    },
+    "ta": {
+      "estimand": "all fully processed conversations including empty/capped text; runtime failures reported separately",
+      "conversation_ids": [
+        "humyn-17-00"
+      ],
+      "scored_count": 1,
+      "attempted_count": 1,
+      "clean_completion_count": 0,
+      "generation_limit_count": 1,
+      "word_errors": 1723,
+      "ref_words": 1947,
+      "character_errors": 6377,
+      "ref_chars": 12625,
+      "micro_wer": 0.8849512069851053,
+      "micro_cer": 0.5051089108910891,
+      "mean_conversation_wer": 0.8849512069851053,
+      "mean_conversation_wil": 0.9817642234771379
+    },
+    "te": {
+      "estimand": "all fully processed conversations including empty/capped text; runtime failures reported separately",
+      "conversation_ids": [
+        "humyn-08-01"
+      ],
+      "scored_count": 1,
+      "attempted_count": 1,
+      "clean_completion_count": 0,
+      "generation_limit_count": 1,
+      "word_errors": 2025,
+      "ref_words": 2189,
+      "character_errors": 8839,
+      "ref_chars": 12558,
+      "micro_wer": 0.9250799451804477,
+      "micro_cer": 0.7038541168975951,
+      "mean_conversation_wer": 0.9250799451804477,
+      "mean_conversation_wil": 0.9860911345133767
+    }
+  },
+  "results": [
+    {
+      "conversation_id": "humyn-08-01",
+      "language": "te",
+      "status": "generation_limit",
+      "metrics": {
+        "wer": 0.9250799451804477,
+        "cer": 0.7038541168975951,
+        "wil": 0.9860911345133767,
+        "hits": 167,
+        "substitutions": 746,
+        "deletions": 1276,
+        "insertions": 3,
+        "ref_words": 2189,
+        "ref_chars": 12558,
+        "hyp_words": 916,
+        "character_errors": 8839
+      },
+      "wall_seconds": 58.243409998,
+      "real_time_factor": 0.058680665308000986
+    },
+    {
+      "conversation_id": "humyn-20-00",
+      "language": "ml",
+      "status": "generation_limit",
+      "metrics": {
+        "wer": 1.0,
+        "cer": 0.851230685612237,
+        "wil": 1.0,
+        "hits": 0,
+        "substitutions": 1512,
+        "deletions": 280,
+        "insertions": 0,
+        "ref_words": 1792,
+        "ref_chars": 12879,
+        "hyp_words": 1512,
+        "character_errors": 10963
+      },
+      "wall_seconds": 70.044750095,
+      "real_time_factor": 0.07737969734869056
+    },
+    {
+      "conversation_id": "humyn-17-00",
+      "language": "ta",
+      "status": "generation_limit",
+      "metrics": {
+        "wer": 0.8849512069851053,
+        "cer": 0.5051089108910891,
+        "wil": 0.9817642234771379,
+        "hits": 237,
+        "substitutions": 1332,
+        "deletions": 378,
+        "insertions": 13,
+        "ref_words": 1947,
+        "ref_chars": 12625,
+        "hyp_words": 1582,
+        "character_errors": 6377
+      },
+      "wall_seconds": 69.861247459,
+      "real_time_factor": 0.07752713008145419
+    },
+    {
+      "conversation_id": "humyn-11-00",
+      "language": "gu",
+      "status": "generation_limit",
+      "metrics": {
+        "wer": 0.9287819253438114,
+        "cer": 0.748353884831797,
+        "wil": 0.9788826630848804,
+        "hits": 159,
+        "substitutions": 415,
+        "deletions": 1462,
+        "insertions": 14,
+        "ref_words": 2036,
+        "ref_chars": 8353,
+        "hyp_words": 588,
+        "character_errors": 6251
+      },
+      "wall_seconds": 76.67677453900004,
+      "real_time_factor": 0.08546902078330255
+    },
+    {
+      "conversation_id": "humyn-00-00",
+      "language": "as",
+      "status": "success",
+      "metrics": {
+        "wer": 0.9955156950672646,
+        "cer": 0.9797326433807676,
+        "wil": 0.9999425089111188,
+        "hits": 2,
+        "substitutions": 154,
+        "deletions": 290,
+        "insertions": 0,
+        "ref_words": 446,
+        "ref_chars": 2319,
+        "hyp_words": 156,
+        "character_errors": 2272
+      },
+      "wall_seconds": 11.880495463999978,
+      "real_time_factor": 0.03959458226395821
+    }
+  ],
+  "total_wall_seconds": 290.639168563,
+  "cloud_cost_usd": null
+}

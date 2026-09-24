@@ -1,0 +1,20 @@
+{
+  "schema_version": "container-receipt/v1",
+  "provider": "huggingface",
+  "command": "bash experiments/hf_entrypoint.sh",
+  "gpu_flavor": "a100-large",
+  "gpu_contract": "NVIDIA A100 80GB",
+  "timeout_seconds": 1800,
+  "gpu": "NVIDIA A100-SXM4-80GB",
+  "torch_version": "2.8.0+cu128",
+  "cuda_version": "12.8",
+  "elapsed_seconds": 212.141267102008,
+  "worker_failure": null,
+  "source_sha256": {
+    "experiments/hf_run.py": "04b066f3e8f000354f6d30517dfe984b815468859ea4ffd8d6096c59f5189cc1",
+    "research/bridge_open/core_study/resource_suite_config.json": "fdfe1e756485be7e353d62a6ca363169844bdf717fe4f3810558530ec16437c6",
+    "experiments/hf_entrypoint.sh": "70f506f0a7a1bd9bb88dc79e18b7398c0b41c8192a0429021f47756f7b8abfcc",
+    "research/bridge_open/core_study/run_resource_suite.py": "a8667e870e976f79d5ef22cdc964147318d2e2c17815d0b3c2e68b77981c57e0",
+    "research/bridge_open/core_study/resource_profile.py": "aeb16dffecd15b393044751ecc7309189325ce25e81ee750625d0c7c2ab5486f"
+  }
+}

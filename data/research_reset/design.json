@@ -1,0 +1,81 @@
+{
+  "experiment": "label_source_2x2x3",
+  "designated_before_launch": true,
+  "n_runs": 12,
+  "seeds": [
+    12,
+    34,
+    56
+  ],
+  "recording_pools": [
+    "filtered",
+    "matched_random"
+  ],
+  "label_sources": [
+    "reference",
+    "teacher"
+  ],
+  "teacher_hyps_from": "whisper-large-v3",
+  "primary_checkpoint_updates": 2400,
+  "secondary_checkpoint_updates": 600,
+  "primary_normalizer": "capstone",
+  "alternate_normalizer": "whisper",
+  "pairing_contract": "Within each (recording_pool, seed) pair the two label-source arms share initialization, recording order, greedy decoding, and optimizer settings. Do not retune one arm.",
+  "stop_rule": {
+    "metric": "matched_random macro WER at 2400 updates",
+    "teacher_minus_reference_mean_pp": 0.5,
+    "min_seeds_with_deterioration": 2,
+    "alternate_normalizer_must_not_reverse": true,
+    "interpretation": "practical screening threshold, not significance"
+  },
+  "held_out": [
+    "SPIRE-SIES evaluation cohort",
+    "L2-ARCTIC test set"
+  ],
+  "do_not_invent_a_new_loss": true,
+  "training": {
+    "student_model": "openai/whisper-tiny",
+    "teacher_model": "openai/whisper-large-v3",
+    "teacher_decode": {
+      "do_sample": false,
+      "num_beams": 1,
+      "language": "en",
+      "task": "transcribe",
+      "max_new_tokens": 200,
+      "dtype": "float32"
+    },
+    "optimizer": {
+      "name": "adamw",
+      "learning_rate": 3e-05,
+      "weight_decay": 0.1,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "warmup_steps": 60
+    },
+    "batch_size": 8,
+    "freeze_encoder": true,
+    "checkpoints": [
+      600,
+      2400
+    ],
+    "primary_checkpoint": 2400,
+    "primary_normalizer": "capstone",
+    "alternate_normalizer": "whisper"
+  },
+  "run_ids": [
+    "filtered__reference__seed12",
+    "filtered__teacher__seed12",
+    "matched_random__reference__seed12",
+    "matched_random__teacher__seed12",
+    "filtered__reference__seed34",
+    "filtered__teacher__seed34",
+    "matched_random__reference__seed34",
+    "matched_random__teacher__seed34",
+    "filtered__reference__seed56",
+    "filtered__teacher__seed56",
+    "matched_random__reference__seed56",
+    "matched_random__teacher__seed56"
+  ]
+}

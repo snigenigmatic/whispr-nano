@@ -1,0 +1,10 @@
+{
+  "provider": "huggingface",
+  "cap_usd": 50,
+  "reserved_usd": 40.5,
+  "remaining_unreserved_usd": 9.5,
+  "reservation_count": 27,
+  "provider_bill_verified": false,
+  "measured_bill_usd": null,
+  "note": "Conservative reservations retained for all launches; these are not measured billing or remaining account credit."
+}

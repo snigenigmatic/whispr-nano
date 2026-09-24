@@ -1,0 +1,297 @@
+{
+  "status": "completed",
+  "scope": "engineering/public-data pilot; not BRIDGE-matched or population evidence",
+  "attempted": 12,
+  "successful": 12,
+  "scored": 12,
+  "conversation_ids": [
+    "svarah_06413",
+    "svarah_06648",
+    "svarah_06257",
+    "svarah_06387",
+    "svarah_06420",
+    "svarah_06341",
+    "svarah_06269",
+    "svarah_06271",
+    "svarah_06332",
+    "svarah_06284",
+    "svarah_06191",
+    "svarah_06522"
+  ],
+  "per_language": {
+    "en": {
+      "estimand": "all fully processed conversations; runtime failures reported separately",
+      "conversation_ids": [
+        "svarah_06413",
+        "svarah_06648",
+        "svarah_06257",
+        "svarah_06387",
+        "svarah_06420",
+        "svarah_06341",
+        "svarah_06269",
+        "svarah_06271",
+        "svarah_06332",
+        "svarah_06284",
+        "svarah_06191",
+        "svarah_06522"
+      ],
+      "scored_count": 12,
+      "attempted_count": 12,
+      "clean_completion_count": 12,
+      "generation_limit_count": null,
+      "generation_limit_observable": false,
+      "word_errors": 37,
+      "ref_words": 144,
+      "character_errors": 115,
+      "ref_chars": 712,
+      "micro_wer": 0.2569444444444444,
+      "micro_cer": 0.16151685393258428,
+      "mean_conversation_wer": 0.35538903528033966,
+      "mean_conversation_wil": 0.28250005171437115
+    }
+  },
+  "results": [
+    {
+      "conversation_id": "svarah_06413",
+      "language": "en",
+      "status": "success",
+      "metrics": {
+        "wer": 0.021739130434782608,
+        "cer": 0.00390625,
+        "wil": 0.04300567107750475,
+        "hits": 45,
+        "substitutions": 1,
+        "deletions": 0,
+        "insertions": 0,
+        "ref_words": 46,
+        "ref_chars": 256,
+        "hyp_words": 46,
+        "character_errors": 1
+      },
+      "wall_seconds": null,
+      "real_time_factor": null
+    },
+    {
+      "conversation_id": "svarah_06648",
+      "language": "en",
+      "status": "success",
+      "metrics": {
+        "wer": 0.0,
+        "cer": 0.0,
+        "wil": 0.0,
+        "hits": 6,
+        "substitutions": 0,
+        "deletions": 0,
+        "insertions": 0,
+        "ref_words": 6,
+        "ref_chars": 37,
+        "hyp_words": 6,
+        "character_errors": 0
+      },
+      "wall_seconds": null,
+      "real_time_factor": null
+    },
+    {
+      "conversation_id": "svarah_06257",
+      "language": "en",
+      "status": "success",
+      "metrics": {
+        "wer": 0.0,
+        "cer": 0.0,
+        "wil": 0.0,
+        "hits": 1,
+        "substitutions": 0,
+        "deletions": 0,
+        "insertions": 0,
+        "ref_words": 1,
+        "ref_chars": 6,
+        "hyp_words": 1,
+        "character_errors": 0
+      },
+      "wall_seconds": null,
+      "real_time_factor": null
+    },
+    {
+      "conversation_id": "svarah_06387",
+      "language": "en",
+      "status": "success",
+      "metrics": {
+        "wer": 0.0,
+        "cer": 0.0,
+        "wil": 0.0,
+        "hits": 9,
+        "substitutions": 0,
+        "deletions": 0,
+        "insertions": 0,
+        "ref_words": 9,
+        "ref_chars": 39,
+        "hyp_words": 9,
+        "character_errors": 0
+      },
+      "wall_seconds": null,
+      "real_time_factor": null
+    },
+    {
+      "conversation_id": "svarah_06420",
+      "language": "en",
+      "status": "success",
+      "metrics": {
+        "wer": 0.2,
+        "cer": 0.0975609756097561,
+        "wil": 0.3599999999999999,
+        "hits": 8,
+        "substitutions": 2,
+        "deletions": 0,
+        "insertions": 0,
+        "ref_words": 10,
+        "ref_chars": 41,
+        "hyp_words": 10,
+        "character_errors": 4
+      },
+      "wall_seconds": null,
+      "real_time_factor": null
+    },
+    {
+      "conversation_id": "svarah_06341",
+      "language": "en",
+      "status": "success",
+      "metrics": {
+        "wer": 0.3,
+        "cer": 0.05,
+        "wil": 0.4181818181818181,
+        "hits": 8,
+        "substitutions": 2,
+        "deletions": 0,
+        "insertions": 1,
+        "ref_words": 10,
+        "ref_chars": 40,
+        "hyp_words": 11,
+        "character_errors": 2
+      },
+      "wall_seconds": null,
+      "real_time_factor": null
+    },
+    {
+      "conversation_id": "svarah_06269",
+      "language": "en",
+      "status": "success",
+      "metrics": {
+        "wer": 0.08333333333333333,
+        "cer": 0.012345679012345678,
+        "wil": 0.15972222222222232,
+        "hits": 11,
+        "substitutions": 1,
+        "deletions": 0,
+        "insertions": 0,
+        "ref_words": 12,
+        "ref_chars": 81,
+        "hyp_words": 12,
+        "character_errors": 1
+      },
+      "wall_seconds": null,
+      "real_time_factor": null
+    },
+    {
+      "conversation_id": "svarah_06271",
+      "language": "en",
+      "status": "success",
+      "metrics": {
+        "wer": 0.8666666666666667,
+        "cer": 0.7076923076923077,
+        "wil": 0.6,
+        "hits": 12,
+        "substitutions": 2,
+        "deletions": 1,
+        "insertions": 10,
+        "ref_words": 15,
+        "ref_chars": 65,
+        "hyp_words": 24,
+        "character_errors": 46
+      },
+      "wall_seconds": null,
+      "real_time_factor": null
+    },
+    {
+      "conversation_id": "svarah_06332",
+      "language": "en",
+      "status": "success",
+      "metrics": {
+        "wer": 0.1111111111111111,
+        "cer": 0.05714285714285714,
+        "wil": 0.09999999999999998,
+        "hits": 9,
+        "substitutions": 0,
+        "deletions": 0,
+        "insertions": 1,
+        "ref_words": 9,
+        "ref_chars": 35,
+        "hyp_words": 10,
+        "character_errors": 2
+      },
+      "wall_seconds": null,
+      "real_time_factor": null
+    },
+    {
+      "conversation_id": "svarah_06284",
+      "language": "en",
+      "status": "success",
+      "metrics": {
+        "wer": 1.5,
+        "cer": 3.2,
+        "wil": 1.0,
+        "hits": 0,
+        "substitutions": 2,
+        "deletions": 0,
+        "insertions": 1,
+        "ref_words": 2,
+        "ref_chars": 5,
+        "hyp_words": 3,
+        "character_errors": 16
+      },
+      "wall_seconds": null,
+      "real_time_factor": null
+    },
+    {
+      "conversation_id": "svarah_06191",
+      "language": "en",
+      "status": "success",
+      "metrics": {
+        "wer": 0.0,
+        "cer": 0.0,
+        "wil": 0.0,
+        "hits": 13,
+        "substitutions": 0,
+        "deletions": 0,
+        "insertions": 0,
+        "ref_words": 13,
+        "ref_chars": 50,
+        "hyp_words": 13,
+        "character_errors": 0
+      },
+      "wall_seconds": null,
+      "real_time_factor": null
+    },
+    {
+      "conversation_id": "svarah_06522",
+      "language": "en",
+      "status": "success",
+      "metrics": {
+        "wer": 1.1818181818181819,
+        "cer": 0.7543859649122807,
+        "wil": 0.709090909090909,
+        "hits": 8,
+        "substitutions": 2,
+        "deletions": 1,
+        "insertions": 10,
+        "ref_words": 11,
+        "ref_chars": 57,
+        "hyp_words": 20,
+        "character_errors": 43
+      },
+      "wall_seconds": null,
+      "real_time_factor": null
+    }
+  ],
+  "total_wall_seconds": 23.30997859200579,
+  "cloud_cost_usd": null
+}

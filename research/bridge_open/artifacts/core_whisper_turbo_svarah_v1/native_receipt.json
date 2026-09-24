@@ -1,0 +1,7 @@
+{
+  "native_model": "large-v3-turbo",
+  "official_download_url": "https://openaipublic.azureedge.net/main/whisper/models/aff26ae408abcba5fbf8813c21e62b0941638c5f6eebfb145be0c9839262a19a/large-v3-turbo.pt",
+  "official_url_sha256": "aff26ae408abcba5fbf8813c21e62b0941638c5f6eebfb145be0c9839262a19a",
+  "checkpoint_path": "/workspace/repo/model_cache/large-v3-turbo.pt",
+  "checkpoint_sha256": "aff26ae408abcba5fbf8813c21e62b0941638c5f6eebfb145be0c9839262a19a"
+}

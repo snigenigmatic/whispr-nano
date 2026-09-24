@@ -1,0 +1,1234 @@
+{
+  "authorized_total_usd": 30,
+  "prior_work_carryover_allowance_usd": 5,
+  "prior_whole_app_resource_estimate_usd": 1.085227,
+  "prior_invoice_verified": false,
+  "carryover_note": "All sprint apps stopped. Released unused reservations are not spending. Carryover5USD conservatively covers prior1.09 resource estimate and unverified image/build/storage overhead; not an invoice. New pilot maximum reservations will stay below25USD.",
+  "new_jobs": [
+    {
+      "job_id": "data-1/0",
+      "reserved_usd": 0.12,
+      "status": "stopped_data_count_guard",
+      "config": {
+        "speaker_id": "ABA",
+        "native_language": "Arabic",
+        "split": "train",
+        "archive_url": "https://huggingface.co/datasets/chikingsley/l2-arctic-release-v5.0/resolve/cc02fd37197966e5de11ad737f7affd577c61992/ABA.zip",
+        "archive_sha256": "79c2b820946077200908c54972d4562dc9c1e3068519b177e95b4b8e7299509d",
+        "archive_bytes": 349450469,
+        "job_id": "data-1/0"
+      },
+      "note": "An arbitrary1000clip minimum rejected SKA which validly has974. Replaced with exact pinned corpus inventory validation; completed audio retained. Fullreservationremainscounted."
+    },
+    {
+      "job_id": "data-1/1",
+      "reserved_usd": 0.12,
+      "status": "completed",
+      "config": {
+        "speaker_id": "YBAA",
+        "native_language": "Arabic",
+        "split": "train",
+        "archive_url": "https://huggingface.co/datasets/chikingsley/l2-arctic-release-v5.0/resolve/cc02fd37197966e5de11ad737f7affd577c61992/YBAA.zip",
+        "archive_sha256": "f5085f11bf39bafe89a4d01af76c883cd24b2fac923dd817592e1ef32e713091",
+        "archive_bytes": 327984671,
+        "job_id": "data-1/1"
+      },
+      "wall_seconds": 81.133863911,
+      "estimated_resource_cost_usd": 0.00356664465752756
+    },
+    {
+      "job_id": "data-1/2",
+      "reserved_usd": 0.12,
+      "status": "stopped_data_count_guard",
+      "config": {
+        "speaker_id": "SKA",
+        "native_language": "Arabic",
+        "split": "dev",
+        "archive_url": "https://huggingface.co/datasets/chikingsley/l2-arctic-release-v5.0/resolve/cc02fd37197966e5de11ad737f7affd577c61992/SKA.zip",
+        "archive_sha256": "e435e0feb9c55ddfd85b6beecc2051883c90d64c7dd66dced2deebfb53192929",
+        "archive_bytes": 237107659,
+        "job_id": "data-1/2"
+      },
+      "note": "An arbitrary1000clip minimum rejected SKA which validly has974. Replaced with exact pinned corpus inventory validation; completed audio retained. Fullreservationremainscounted."
+    },
+    {
+      "job_id": "data-1/3",
+      "reserved_usd": 0.12,
+      "status": "stopped_data_count_guard",
+      "config": {
+        "speaker_id": "NCC",
+        "native_language": "Mandarin",
+        "split": "train",
+        "archive_url": "https://huggingface.co/datasets/chikingsley/l2-arctic-release-v5.0/resolve/cc02fd37197966e5de11ad737f7affd577c61992/NCC.zip",
+        "archive_sha256": "23432e0fa123b97f566a8bdf9bdbb6c4880c842c1dfba192829848415bc49170",
+        "archive_bytes": 318712266,
+        "job_id": "data-1/3"
+      },
+      "note": "An arbitrary1000clip minimum rejected SKA which validly has974. Replaced with exact pinned corpus inventory validation; completed audio retained. Fullreservationremainscounted."
+    },
+    {
+      "job_id": "data-1/4",
+      "reserved_usd": 0.12,
+      "status": "completed",
+      "config": {
+        "speaker_id": "TXHC",
+        "native_language": "Mandarin",
+        "split": "train",
+        "archive_url": "https://huggingface.co/datasets/chikingsley/l2-arctic-release-v5.0/resolve/cc02fd37197966e5de11ad737f7affd577c61992/TXHC.zip",
+        "archive_sha256": "ea6876726ab2ac71e77962e107d63c1307998686f61d4a13341a63ac9f9e3621",
+        "archive_bytes": 302853365,
+        "job_id": "data-1/4"
+      },
+      "wall_seconds": 63.20117517399999,
+      "estimated_resource_cost_usd": 0.0027783236606490395
+    },
+    {
+      "job_id": "data-1/5",
+      "reserved_usd": 0.12,
+      "status": "stopped_data_count_guard",
+      "config": {
+        "speaker_id": "BWC",
+        "native_language": "Mandarin",
+        "split": "dev",
+        "archive_url": "https://huggingface.co/datasets/chikingsley/l2-arctic-release-v5.0/resolve/cc02fd37197966e5de11ad737f7affd577c61992/BWC.zip",
+        "archive_sha256": "d3b5f304647968babd69468c3fcf691eaac4fc4dd3a55c595ee9cb47cd8e5c2f",
+        "archive_bytes": 354595346,
+        "job_id": "data-1/5"
+      },
+      "note": "An arbitrary1000clip minimum rejected SKA which validly has974. Replaced with exact pinned corpus inventory validation; completed audio retained. Fullreservationremainscounted."
+    },
+    {
+      "job_id": "data-1/6",
+      "reserved_usd": 0.12,
+      "status": "completed",
+      "config": {
+        "speaker_id": "SVBI",
+        "native_language": "Hindi",
+        "split": "train",
+        "archive_url": "https://huggingface.co/datasets/chikingsley/l2-arctic-release-v5.0/resolve/cc02fd37197966e5de11ad737f7affd577c61992/SVBI.zip",
+        "archive_sha256": "b9741aaa999ed89e5c555470fcee8e2c12844f6ac03be1cd985bb786822e5126",
+        "archive_bytes": 243183025,
+        "job_id": "data-1/6"
+      },
+      "wall_seconds": 55.64111159400001,
+      "estimated_resource_cost_usd": 0.0024459832656722404
+    },
+    {
+      "job_id": "data-1/7",
+      "reserved_usd": 0.12,
+      "status": "completed",
+      "config": {
+        "speaker_id": "RRBI",
+        "native_language": "Hindi",
+        "split": "train",
+        "archive_url": "https://huggingface.co/datasets/chikingsley/l2-arctic-release-v5.0/resolve/cc02fd37197966e5de11ad737f7affd577c61992/RRBI.zip",
+        "archive_sha256": "9660858d6100fcb30c34f2230f8044a26d9942693a4334f0b32908f312eaf2ab",
+        "archive_bytes": 291175015,
+        "job_id": "data-1/7"
+      },
+      "wall_seconds": 68.06331751100001,
+      "estimated_resource_cost_usd": 0.0029920634377835604
+    },
+    {
+      "job_id": "data-1/8",
+      "reserved_usd": 0.12,
+      "status": "stopped_data_count_guard",
+      "config": {
+        "speaker_id": "ASI",
+        "native_language": "Hindi",
+        "split": "dev",
+        "archive_url": "https://huggingface.co/datasets/chikingsley/l2-arctic-release-v5.0/resolve/cc02fd37197966e5de11ad737f7affd577c61992/ASI.zip",
+        "archive_sha256": "302dc53af870acb8378c2c8205062fb7af1b3ad8ebc61826f87faf7d3dc4e8ff",
+        "archive_bytes": 252835922,
+        "job_id": "data-1/8"
+      },
+      "note": "An arbitrary1000clip minimum rejected SKA which validly has974. Replaced with exact pinned corpus inventory validation; completed audio retained. Fullreservationremainscounted."
+    },
+    {
+      "job_id": "data-1/9",
+      "reserved_usd": 0.12,
+      "status": "stopped_data_count_guard",
+      "config": {
+        "speaker_id": "HJK",
+        "native_language": "Korean",
+        "split": "train",
+        "archive_url": "https://huggingface.co/datasets/chikingsley/l2-arctic-release-v5.0/resolve/cc02fd37197966e5de11ad737f7affd577c61992/HJK.zip",
+        "archive_sha256": "5d2a19f09a250d8ad0de903ff70b409531a64490f727134168e54391333b7ee4",
+        "archive_bytes": 267841281,
+        "job_id": "data-1/9"
+      },
+      "note": "An arbitrary1000clip minimum rejected SKA which validly has974. Replaced with exact pinned corpus inventory validation; completed audio retained. Fullreservationremainscounted."
+    },
+    {
+      "job_id": "data-1/10",
+      "reserved_usd": 0.12,
+      "status": "stopped_data_count_guard",
+      "config": {
+        "speaker_id": "HKK",
+        "native_language": "Korean",
+        "split": "train",
+        "archive_url": "https://huggingface.co/datasets/chikingsley/l2-arctic-release-v5.0/resolve/cc02fd37197966e5de11ad737f7affd577c61992/HKK.zip",
+        "archive_sha256": "6a2fc1b0ced8c65cfc231a57050016866d66981efe3b9d48c5c0fbcec121e088",
+        "archive_bytes": 322229249,
+        "job_id": "data-1/10"
+      },
+      "note": "An arbitrary1000clip minimum rejected SKA which validly has974. Replaced with exact pinned corpus inventory validation; completed audio retained. Fullreservationremainscounted."
+    },
+    {
+      "job_id": "data-1/11",
+      "reserved_usd": 0.12,
+      "status": "stopped_data_count_guard",
+      "config": {
+        "speaker_id": "YDCK",
+        "native_language": "Korean",
+        "split": "dev",
+        "archive_url": "https://huggingface.co/datasets/chikingsley/l2-arctic-release-v5.0/resolve/cc02fd37197966e5de11ad737f7affd577c61992/YDCK.zip",
+        "archive_sha256": "314ce2580c30508096efb4fab9e287bbb4c7db9cd89bcae53d90afca60417ce3",
+        "archive_bytes": 358685931,
+        "job_id": "data-1/11"
+      },
+      "note": "An arbitrary1000clip minimum rejected SKA which validly has974. Replaced with exact pinned corpus inventory validation; completed audio retained. Fullreservationremainscounted."
+    },
+    {
+      "job_id": "data-1/12",
+      "reserved_usd": 0.12,
+      "status": "stopped_data_count_guard",
+      "config": {
+        "speaker_id": "ERMS",
+        "native_language": "Spanish",
+        "split": "train",
+        "archive_url": "https://huggingface.co/datasets/chikingsley/l2-arctic-release-v5.0/resolve/cc02fd37197966e5de11ad737f7affd577c61992/ERMS.zip",
+        "archive_sha256": "f9242b2b7cf1adae2cdd209751130b3b47c7ffaace3993a5d898b0c388512ac6",
+        "archive_bytes": 342407125,
+        "job_id": "data-1/12"
+      },
+      "note": "An arbitrary1000clip minimum rejected SKA which validly has974. Replaced with exact pinned corpus inventory validation; completed audio retained. Fullreservationremainscounted."
+    },
+    {
+      "job_id": "data-1/13",
+      "reserved_usd": 0.12,
+      "status": "stopped_data_count_guard",
+      "config": {
+        "speaker_id": "MBMPS",
+        "native_language": "Spanish",
+        "split": "train",
+        "archive_url": "https://huggingface.co/datasets/chikingsley/l2-arctic-release-v5.0/resolve/cc02fd37197966e5de11ad737f7affd577c61992/MBMPS.zip",
+        "archive_sha256": "3aa442d3364cd8e6e65a71e489914ac16fe7b0b9045d1707297ff98f6d9197af",
+        "archive_bytes": 371611366,
+        "job_id": "data-1/13"
+      },
+      "note": "An arbitrary1000clip minimum rejected SKA which validly has974. Replaced with exact pinned corpus inventory validation; completed audio retained. Fullreservationremainscounted."
+    },
+    {
+      "job_id": "data-1/14",
+      "reserved_usd": 0.12,
+      "status": "stopped_data_count_guard",
+      "config": {
+        "speaker_id": "EBVS",
+        "native_language": "Spanish",
+        "split": "dev",
+        "archive_url": "https://huggingface.co/datasets/chikingsley/l2-arctic-release-v5.0/resolve/cc02fd37197966e5de11ad737f7affd577c61992/EBVS.zip",
+        "archive_sha256": "12922bf6e2b5ecbda02aa128a37567e2c50633e091e66592e32a744419fe6301",
+        "archive_bytes": 283108726,
+        "job_id": "data-1/14"
+      },
+      "note": "An arbitrary1000clip minimum rejected SKA which validly has974. Replaced with exact pinned corpus inventory validation; completed audio retained. Fullreservationremainscounted."
+    },
+    {
+      "job_id": "data-1/15",
+      "reserved_usd": 0.12,
+      "status": "stopped_data_count_guard",
+      "config": {
+        "speaker_id": "PNV",
+        "native_language": "Vietnamese",
+        "split": "train",
+        "archive_url": "https://huggingface.co/datasets/chikingsley/l2-arctic-release-v5.0/resolve/cc02fd37197966e5de11ad737f7affd577c61992/PNV.zip",
+        "archive_sha256": "71733b2e888c5a68227506d2eb6e078b057bd56e59d40a965bc9e1d9283ea28c",
+        "archive_bytes": 318888354,
+        "job_id": "data-1/15"
+      },
+      "note": "An arbitrary1000clip minimum rejected SKA which validly has974. Replaced with exact pinned corpus inventory validation; completed audio retained. Fullreservationremainscounted."
+    },
+    {
+      "job_id": "data-1/16",
+      "reserved_usd": 0.12,
+      "status": "stopped_data_count_guard",
+      "config": {
+        "speaker_id": "HQTV",
+        "native_language": "Vietnamese",
+        "split": "train",
+        "archive_url": "https://huggingface.co/datasets/chikingsley/l2-arctic-release-v5.0/resolve/cc02fd37197966e5de11ad737f7affd577c61992/HQTV.zip",
+        "archive_sha256": "0ee16e0f024f4cf321bde2f526646b030704367c4dbb11514ac57f74a899984a",
+        "archive_bytes": 324342162,
+        "job_id": "data-1/16"
+      },
+      "note": "An arbitrary1000clip minimum rejected SKA which validly has974. Replaced with exact pinned corpus inventory validation; completed audio retained. Fullreservationremainscounted."
+    },
+    {
+      "job_id": "data-1/17",
+      "reserved_usd": 0.12,
+      "status": "stopped_data_count_guard",
+      "config": {
+        "speaker_id": "TLV",
+        "native_language": "Vietnamese",
+        "split": "dev",
+        "archive_url": "https://huggingface.co/datasets/chikingsley/l2-arctic-release-v5.0/resolve/cc02fd37197966e5de11ad737f7affd577c61992/TLV.zip",
+        "archive_sha256": "86a0bfee50347f6c0cd506deb7d88fad7922155172699f921e20b66395a21461",
+        "archive_bytes": 350502173,
+        "job_id": "data-1/17"
+      },
+      "note": "An arbitrary1000clip minimum rejected SKA which validly has974. Replaced with exact pinned corpus inventory validation; completed audio retained. Fullreservationremainscounted."
+    },
+    {
+      "job_id": "teacher-ready-1/0",
+      "reserved_usd": 0.6,
+      "status": "completed",
+      "config": {
+        "speaker_id": "YBAA",
+        "native_language": "Arabic",
+        "gender": "M",
+        "split": "train",
+        "archive_url": "https://huggingface.co/datasets/chikingsley/l2-arctic-release-v5.0/resolve/cc02fd37197966e5de11ad737f7affd577c61992/YBAA.zip",
+        "archive_sha256": "f5085f11bf39bafe89a4d01af76c883cd24b2fac923dd817592e1ef32e713091",
+        "archive_bytes": 327984671,
+        "purpose": "teacher",
+        "manifest_sha256": "9849d5d0d1214f7129c42fe8006a4ca0b79b36c84e8c80406e228077438931e7",
+        "job_id": "teacher-ready-1/0"
+      },
+      "wall_seconds": 524.287229947,
+      "estimated_resource_cost_usd": 0.19279090019611084
+    },
+    {
+      "job_id": "teacher-ready-1/1",
+      "reserved_usd": 0.6,
+      "status": "completed",
+      "config": {
+        "speaker_id": "TXHC",
+        "native_language": "Mandarin",
+        "gender": "M",
+        "split": "train",
+        "archive_url": "https://huggingface.co/datasets/chikingsley/l2-arctic-release-v5.0/resolve/cc02fd37197966e5de11ad737f7affd577c61992/TXHC.zip",
+        "archive_sha256": "ea6876726ab2ac71e77962e107d63c1307998686f61d4a13341a63ac9f9e3621",
+        "archive_bytes": 302853365,
+        "purpose": "teacher",
+        "manifest_sha256": "9849d5d0d1214f7129c42fe8006a4ca0b79b36c84e8c80406e228077438931e7",
+        "job_id": "teacher-ready-1/1"
+      },
+      "wall_seconds": 528.5191202130001,
+      "estimated_resource_cost_usd": 0.19434705088472437
+    },
+    {
+      "job_id": "teacher-ready-1/2",
+      "reserved_usd": 0.6,
+      "status": "completed",
+      "config": {
+        "speaker_id": "SVBI",
+        "native_language": "Hindi",
+        "gender": "F",
+        "split": "train",
+        "archive_url": "https://huggingface.co/datasets/chikingsley/l2-arctic-release-v5.0/resolve/cc02fd37197966e5de11ad737f7affd577c61992/SVBI.zip",
+        "archive_sha256": "b9741aaa999ed89e5c555470fcee8e2c12844f6ac03be1cd985bb786822e5126",
+        "archive_bytes": 243183025,
+        "purpose": "teacher",
+        "manifest_sha256": "9849d5d0d1214f7129c42fe8006a4ca0b79b36c84e8c80406e228077438931e7",
+        "job_id": "teacher-ready-1/2"
+      },
+      "wall_seconds": 630.616792735,
+      "estimated_resource_cost_usd": 0.2318904070245142
+    },
+    {
+      "job_id": "teacher-ready-1/3",
+      "reserved_usd": 0.6,
+      "status": "completed",
+      "config": {
+        "speaker_id": "RRBI",
+        "native_language": "Hindi",
+        "gender": "M",
+        "split": "train",
+        "archive_url": "https://huggingface.co/datasets/chikingsley/l2-arctic-release-v5.0/resolve/cc02fd37197966e5de11ad737f7affd577c61992/RRBI.zip",
+        "archive_sha256": "9660858d6100fcb30c34f2230f8044a26d9942693a4334f0b32908f312eaf2ab",
+        "archive_bytes": 291175015,
+        "purpose": "teacher",
+        "manifest_sha256": "9849d5d0d1214f7129c42fe8006a4ca0b79b36c84e8c80406e228077438931e7",
+        "job_id": "teacher-ready-1/3"
+      },
+      "wall_seconds": 655.515296125,
+      "estimated_resource_cost_usd": 0.241046084691085
+    },
+    {
+      "job_id": "data-2/0",
+      "reserved_usd": 0.12,
+      "status": "completed",
+      "config": {
+        "speaker_id": "ABA",
+        "native_language": "Arabic",
+        "gender": "M",
+        "split": "train",
+        "archive_url": "https://huggingface.co/datasets/chikingsley/l2-arctic-release-v5.0/resolve/cc02fd37197966e5de11ad737f7affd577c61992/ABA.zip",
+        "archive_sha256": "79c2b820946077200908c54972d4562dc9c1e3068519b177e95b4b8e7299509d",
+        "archive_bytes": 349450469,
+        "expected_wav_count": 1129,
+        "expected_stems_sha256": "d704f17db11fe1cb21b6d25c4fa7dab8eae9da92a6308c0e5476a1cb38bb2eed",
+        "purpose": "prepare_audio",
+        "job_id": "data-2/0"
+      },
+      "wall_seconds": 184.123403061,
+      "estimated_resource_cost_usd": 0.00809406479856156
+    },
+    {
+      "job_id": "data-2/1",
+      "reserved_usd": 0.12,
+      "status": "completed",
+      "config": {
+        "speaker_id": "SKA",
+        "native_language": "Arabic",
+        "gender": "F",
+        "split": "dev",
+        "archive_url": "https://huggingface.co/datasets/chikingsley/l2-arctic-release-v5.0/resolve/cc02fd37197966e5de11ad737f7affd577c61992/SKA.zip",
+        "archive_sha256": "e435e0feb9c55ddfd85b6beecc2051883c90d64c7dd66dced2deebfb53192929",
+        "archive_bytes": 237107659,
+        "expected_wav_count": 974,
+        "expected_stems_sha256": "6549e7e7f6dd2575e4fd81ca54a159f7ca5fdec82e783931b15eeb0788b730db",
+        "purpose": "prepare_audio",
+        "job_id": "data-2/1"
+      },
+      "wall_seconds": 321.128305781,
+      "estimated_resource_cost_usd": 0.01411680032213276
+    },
+    {
+      "job_id": "data-2/2",
+      "reserved_usd": 0.12,
+      "status": "completed",
+      "config": {
+        "speaker_id": "NCC",
+        "native_language": "Mandarin",
+        "gender": "F",
+        "split": "train",
+        "archive_url": "https://huggingface.co/datasets/chikingsley/l2-arctic-release-v5.0/resolve/cc02fd37197966e5de11ad737f7affd577c61992/NCC.zip",
+        "archive_sha256": "23432e0fa123b97f566a8bdf9bdbb6c4880c842c1dfba192829848415bc49170",
+        "archive_bytes": 318712266,
+        "expected_wav_count": 1131,
+        "expected_stems_sha256": "02da9e8a44bd5ebfea5b841e8fb4ad8191de316fd0b5dbd016a0a0f2261dee77",
+        "purpose": "prepare_audio",
+        "job_id": "data-2/2"
+      },
+      "wall_seconds": 401.70407881,
+      "estimated_resource_cost_usd": 0.0176589113044876
+    },
+    {
+      "job_id": "data-2/3",
+      "reserved_usd": 0.12,
+      "status": "completed",
+      "config": {
+        "speaker_id": "BWC",
+        "native_language": "Mandarin",
+        "gender": "M",
+        "split": "dev",
+        "archive_url": "https://huggingface.co/datasets/chikingsley/l2-arctic-release-v5.0/resolve/cc02fd37197966e5de11ad737f7affd577c61992/BWC.zip",
+        "archive_sha256": "d3b5f304647968babd69468c3fcf691eaac4fc4dd3a55c595ee9cb47cd8e5c2f",
+        "archive_bytes": 354595346,
+        "expected_wav_count": 1130,
+        "expected_stems_sha256": "3f2f777e092125fd15f579a3b18811be57fe15ed61107c3af0a40569e88598aa",
+        "purpose": "prepare_audio",
+        "job_id": "data-2/3"
+      },
+      "wall_seconds": 666.52955964,
+      "estimated_resource_cost_usd": 0.029300639441774398
+    },
+    {
+      "job_id": "data-2/4",
+      "reserved_usd": 0.12,
+      "status": "completed",
+      "config": {
+        "speaker_id": "ASI",
+        "native_language": "Hindi",
+        "gender": "M",
+        "split": "dev",
+        "archive_url": "https://huggingface.co/datasets/chikingsley/l2-arctic-release-v5.0/resolve/cc02fd37197966e5de11ad737f7affd577c61992/ASI.zip",
+        "archive_sha256": "302dc53af870acb8378c2c8205062fb7af1b3ad8ebc61826f87faf7d3dc4e8ff",
+        "archive_bytes": 252835922,
+        "expected_wav_count": 1131,
+        "expected_stems_sha256": "02da9e8a44bd5ebfea5b841e8fb4ad8191de316fd0b5dbd016a0a0f2261dee77",
+        "purpose": "prepare_audio",
+        "job_id": "data-2/4"
+      },
+      "wall_seconds": 72.48684501299999,
+      "estimated_resource_cost_usd": 0.0031865217067714798
+    },
+    {
+      "job_id": "data-2/5",
+      "reserved_usd": 0.12,
+      "status": "completed",
+      "config": {
+        "speaker_id": "HJK",
+        "native_language": "Korean",
+        "gender": "F",
+        "split": "train",
+        "archive_url": "https://huggingface.co/datasets/chikingsley/l2-arctic-release-v5.0/resolve/cc02fd37197966e5de11ad737f7affd577c61992/HJK.zip",
+        "archive_sha256": "5d2a19f09a250d8ad0de903ff70b409531a64490f727134168e54391333b7ee4",
+        "archive_bytes": 267841281,
+        "expected_wav_count": 1131,
+        "expected_stems_sha256": "02da9e8a44bd5ebfea5b841e8fb4ad8191de316fd0b5dbd016a0a0f2261dee77",
+        "purpose": "prepare_audio",
+        "job_id": "data-2/5"
+      },
+      "wall_seconds": 83.06908446899999,
+      "estimated_resource_cost_usd": 0.0036517169532572394
+    },
+    {
+      "job_id": "data-2/6",
+      "reserved_usd": 0.12,
+      "status": "completed",
+      "config": {
+        "speaker_id": "HKK",
+        "native_language": "Korean",
+        "gender": "M",
+        "split": "train",
+        "archive_url": "https://huggingface.co/datasets/chikingsley/l2-arctic-release-v5.0/resolve/cc02fd37197966e5de11ad737f7affd577c61992/HKK.zip",
+        "archive_sha256": "6a2fc1b0ced8c65cfc231a57050016866d66981efe3b9d48c5c0fbcec121e088",
+        "archive_bytes": 322229249,
+        "expected_wav_count": 1131,
+        "expected_stems_sha256": "02da9e8a44bd5ebfea5b841e8fb4ad8191de316fd0b5dbd016a0a0f2261dee77",
+        "purpose": "prepare_audio",
+        "job_id": "data-2/6"
+      },
+      "wall_seconds": 76.551955094,
+      "estimated_resource_cost_usd": 0.0033652239459322397
+    },
+    {
+      "job_id": "data-2/7",
+      "reserved_usd": 0.12,
+      "status": "completed",
+      "config": {
+        "speaker_id": "YDCK",
+        "native_language": "Korean",
+        "gender": "F",
+        "split": "dev",
+        "archive_url": "https://huggingface.co/datasets/chikingsley/l2-arctic-release-v5.0/resolve/cc02fd37197966e5de11ad737f7affd577c61992/YDCK.zip",
+        "archive_sha256": "314ce2580c30508096efb4fab9e287bbb4c7db9cd89bcae53d90afca60417ce3",
+        "archive_bytes": 358685931,
+        "expected_wav_count": 1131,
+        "expected_stems_sha256": "02da9e8a44bd5ebfea5b841e8fb4ad8191de316fd0b5dbd016a0a0f2261dee77",
+        "purpose": "prepare_audio",
+        "job_id": "data-2/7"
+      },
+      "wall_seconds": 141.710523843,
+      "estimated_resource_cost_usd": 0.00622959462813828
+    },
+    {
+      "job_id": "data-2/8",
+      "reserved_usd": 0.12,
+      "status": "completed",
+      "config": {
+        "speaker_id": "ERMS",
+        "native_language": "Spanish",
+        "gender": "M",
+        "split": "train",
+        "archive_url": "https://huggingface.co/datasets/chikingsley/l2-arctic-release-v5.0/resolve/cc02fd37197966e5de11ad737f7affd577c61992/ERMS.zip",
+        "archive_sha256": "f9242b2b7cf1adae2cdd209751130b3b47c7ffaace3993a5d898b0c388512ac6",
+        "archive_bytes": 342407125,
+        "expected_wav_count": 1132,
+        "expected_stems_sha256": "bda9851b60783520163f5fdc001c88844d173541b475953fba7b9dcf23791dfa",
+        "purpose": "prepare_audio",
+        "job_id": "data-2/8"
+      },
+      "wall_seconds": 57.19935546299999,
+      "estimated_resource_cost_usd": 0.0025144836661534797
+    },
+    {
+      "job_id": "data-2/9",
+      "reserved_usd": 0.12,
+      "status": "completed",
+      "config": {
+        "speaker_id": "MBMPS",
+        "native_language": "Spanish",
+        "gender": "F",
+        "split": "train",
+        "archive_url": "https://huggingface.co/datasets/chikingsley/l2-arctic-release-v5.0/resolve/cc02fd37197966e5de11ad737f7affd577c61992/MBMPS.zip",
+        "archive_sha256": "3aa442d3364cd8e6e65a71e489914ac16fe7b0b9045d1707297ff98f6d9197af",
+        "archive_bytes": 371611366,
+        "expected_wav_count": 1132,
+        "expected_stems_sha256": "bda9851b60783520163f5fdc001c88844d173541b475953fba7b9dcf23791dfa",
+        "purpose": "prepare_audio",
+        "job_id": "data-2/9"
+      },
+      "wall_seconds": 309.134732561,
+      "estimated_resource_cost_usd": 0.01358956284338156
+    },
+    {
+      "job_id": "data-2/10",
+      "reserved_usd": 0.12,
+      "status": "completed",
+      "config": {
+        "speaker_id": "EBVS",
+        "native_language": "Spanish",
+        "gender": "M",
+        "split": "dev",
+        "archive_url": "https://huggingface.co/datasets/chikingsley/l2-arctic-release-v5.0/resolve/cc02fd37197966e5de11ad737f7affd577c61992/EBVS.zip",
+        "archive_sha256": "12922bf6e2b5ecbda02aa128a37567e2c50633e091e66592e32a744419fe6301",
+        "archive_bytes": 283108726,
+        "expected_wav_count": 1007,
+        "expected_stems_sha256": "d65f779e72f81d8df56b2d0e096ea36ae8d7b1b1b21ff8f2383d2858ea0c69a1",
+        "purpose": "prepare_audio",
+        "job_id": "data-2/10"
+      },
+      "wall_seconds": 89.38285955100002,
+      "estimated_resource_cost_usd": 0.003929270505861961
+    },
+    {
+      "job_id": "data-2/11",
+      "reserved_usd": 0.12,
+      "status": "completed",
+      "config": {
+        "speaker_id": "PNV",
+        "native_language": "Vietnamese",
+        "gender": "F",
+        "split": "train",
+        "archive_url": "https://huggingface.co/datasets/chikingsley/l2-arctic-release-v5.0/resolve/cc02fd37197966e5de11ad737f7affd577c61992/PNV.zip",
+        "archive_sha256": "71733b2e888c5a68227506d2eb6e078b057bd56e59d40a965bc9e1d9283ea28c",
+        "archive_bytes": 318888354,
+        "expected_wav_count": 1132,
+        "expected_stems_sha256": "bda9851b60783520163f5fdc001c88844d173541b475953fba7b9dcf23791dfa",
+        "purpose": "prepare_audio",
+        "job_id": "data-2/11"
+      },
+      "wall_seconds": 55.49077040299997,
+      "estimated_resource_cost_usd": 0.0024393742669158785
+    },
+    {
+      "job_id": "data-2/12",
+      "reserved_usd": 0.12,
+      "status": "completed",
+      "config": {
+        "speaker_id": "HQTV",
+        "native_language": "Vietnamese",
+        "gender": "M",
+        "split": "train",
+        "archive_url": "https://huggingface.co/datasets/chikingsley/l2-arctic-release-v5.0/resolve/cc02fd37197966e5de11ad737f7affd577c61992/HQTV.zip",
+        "archive_sha256": "0ee16e0f024f4cf321bde2f526646b030704367c4dbb11514ac57f74a899984a",
+        "archive_bytes": 324342162,
+        "expected_wav_count": 1132,
+        "expected_stems_sha256": "bda9851b60783520163f5fdc001c88844d173541b475953fba7b9dcf23791dfa",
+        "purpose": "prepare_audio",
+        "job_id": "data-2/12"
+      },
+      "wall_seconds": 104.38129245200003,
+      "estimated_resource_cost_usd": 0.0045886016161899214
+    },
+    {
+      "job_id": "data-2/13",
+      "reserved_usd": 0.12,
+      "status": "completed",
+      "config": {
+        "speaker_id": "TLV",
+        "native_language": "Vietnamese",
+        "gender": "M",
+        "split": "dev",
+        "archive_url": "https://huggingface.co/datasets/chikingsley/l2-arctic-release-v5.0/resolve/cc02fd37197966e5de11ad737f7affd577c61992/TLV.zip",
+        "archive_sha256": "86a0bfee50347f6c0cd506deb7d88fad7922155172699f921e20b66395a21461",
+        "archive_bytes": 350502173,
+        "expected_wav_count": 1132,
+        "expected_stems_sha256": "bda9851b60783520163f5fdc001c88844d173541b475953fba7b9dcf23791dfa",
+        "purpose": "prepare_audio",
+        "job_id": "data-2/13"
+      },
+      "wall_seconds": 92.07005317400001,
+      "estimated_resource_cost_usd": 0.0040473995375290405
+    },
+    {
+      "job_id": "train-smoke-1/0",
+      "reserved_usd": 0.65,
+      "status": "completed_artifacts_recovered_rpc_failed",
+      "config": {
+        "run_name": "train-smoke-1",
+        "purpose": "training_smoke",
+        "training": {
+          "arm_name": "smoke_not_scientific_result",
+          "num_updates": 3,
+          "batch_size": 8,
+          "seed": 0,
+          "eval_every": 0
+        },
+        "job_id": "train-smoke-1/0"
+      },
+      "gpu_training_elapsed_seconds": 18.737311608,
+      "note": "GPU training and 26 unit tests passed. RPC summary TorchVersion required unavailable local torch; JSON round-trip fixes future returns. Full0.65USD reservation retained; remote summary and predictions recovered."
+    },
+    {
+      "job_id": "teacher-ready-2/0",
+      "reserved_usd": 0.6,
+      "status": "completed",
+      "config": {
+        "speaker_id": "ABA",
+        "native_language": "Arabic",
+        "gender": "M",
+        "split": "train",
+        "archive_url": "https://huggingface.co/datasets/chikingsley/l2-arctic-release-v5.0/resolve/cc02fd37197966e5de11ad737f7affd577c61992/ABA.zip",
+        "archive_sha256": "79c2b820946077200908c54972d4562dc9c1e3068519b177e95b4b8e7299509d",
+        "archive_bytes": 349450469,
+        "purpose": "teacher",
+        "manifest_sha256": "9849d5d0d1214f7129c42fe8006a4ca0b79b36c84e8c80406e228077438931e7",
+        "job_id": "teacher-ready-2/0"
+      },
+      "wall_seconds": 628.036335668,
+      "estimated_resource_cost_usd": 0.23094152135183696
+    },
+    {
+      "job_id": "teacher-ready-2/1",
+      "reserved_usd": 0.6,
+      "status": "completed",
+      "config": {
+        "speaker_id": "HJK",
+        "native_language": "Korean",
+        "gender": "F",
+        "split": "train",
+        "archive_url": "https://huggingface.co/datasets/chikingsley/l2-arctic-release-v5.0/resolve/cc02fd37197966e5de11ad737f7affd577c61992/HJK.zip",
+        "archive_sha256": "5d2a19f09a250d8ad0de903ff70b409531a64490f727134168e54391333b7ee4",
+        "archive_bytes": 267841281,
+        "purpose": "teacher",
+        "manifest_sha256": "9849d5d0d1214f7129c42fe8006a4ca0b79b36c84e8c80406e228077438931e7",
+        "job_id": "teacher-ready-2/1"
+      },
+      "wall_seconds": 647.55568148,
+      "estimated_resource_cost_usd": 0.23811917519382558
+    },
+    {
+      "job_id": "teacher-ready-2/2",
+      "reserved_usd": 0.6,
+      "status": "completed",
+      "config": {
+        "speaker_id": "HKK",
+        "native_language": "Korean",
+        "gender": "M",
+        "split": "train",
+        "archive_url": "https://huggingface.co/datasets/chikingsley/l2-arctic-release-v5.0/resolve/cc02fd37197966e5de11ad737f7affd577c61992/HKK.zip",
+        "archive_sha256": "6a2fc1b0ced8c65cfc231a57050016866d66981efe3b9d48c5c0fbcec121e088",
+        "archive_bytes": 322229249,
+        "purpose": "teacher",
+        "manifest_sha256": "9849d5d0d1214f7129c42fe8006a4ca0b79b36c84e8c80406e228077438931e7",
+        "job_id": "teacher-ready-2/2"
+      },
+      "wall_seconds": 646.2537566039999,
+      "estimated_resource_cost_usd": 0.23764043137842283
+    },
+    {
+      "job_id": "teacher-ready-2/3",
+      "reserved_usd": 0.6,
+      "status": "completed",
+      "config": {
+        "speaker_id": "ERMS",
+        "native_language": "Spanish",
+        "gender": "M",
+        "split": "train",
+        "archive_url": "https://huggingface.co/datasets/chikingsley/l2-arctic-release-v5.0/resolve/cc02fd37197966e5de11ad737f7affd577c61992/ERMS.zip",
+        "archive_sha256": "f9242b2b7cf1adae2cdd209751130b3b47c7ffaace3993a5d898b0c388512ac6",
+        "archive_bytes": 342407125,
+        "purpose": "teacher",
+        "manifest_sha256": "9849d5d0d1214f7129c42fe8006a4ca0b79b36c84e8c80406e228077438931e7",
+        "job_id": "teacher-ready-2/3"
+      },
+      "wall_seconds": 486.131042343,
+      "estimated_resource_cost_usd": 0.17876010689036795
+    },
+    {
+      "job_id": "teacher-ready-3/0",
+      "reserved_usd": 0.6,
+      "status": "completed",
+      "config": {
+        "speaker_id": "NCC",
+        "native_language": "Mandarin",
+        "gender": "F",
+        "split": "train",
+        "archive_url": "https://huggingface.co/datasets/chikingsley/l2-arctic-release-v5.0/resolve/cc02fd37197966e5de11ad737f7affd577c61992/NCC.zip",
+        "archive_sha256": "23432e0fa123b97f566a8bdf9bdbb6c4880c842c1dfba192829848415bc49170",
+        "archive_bytes": 318712266,
+        "purpose": "teacher",
+        "manifest_sha256": "9849d5d0d1214f7129c42fe8006a4ca0b79b36c84e8c80406e228077438931e7",
+        "job_id": "teacher-ready-3/0"
+      },
+      "wall_seconds": 577.2102113000001,
+      "estimated_resource_cost_usd": 0.21225173889923601
+    },
+    {
+      "job_id": "teacher-ready-3/1",
+      "reserved_usd": 0.6,
+      "status": "completed",
+      "config": {
+        "speaker_id": "MBMPS",
+        "native_language": "Spanish",
+        "gender": "F",
+        "split": "train",
+        "archive_url": "https://huggingface.co/datasets/chikingsley/l2-arctic-release-v5.0/resolve/cc02fd37197966e5de11ad737f7affd577c61992/MBMPS.zip",
+        "archive_sha256": "3aa442d3364cd8e6e65a71e489914ac16fe7b0b9045d1707297ff98f6d9197af",
+        "archive_bytes": 371611366,
+        "purpose": "teacher",
+        "manifest_sha256": "9849d5d0d1214f7129c42fe8006a4ca0b79b36c84e8c80406e228077438931e7",
+        "job_id": "teacher-ready-3/1"
+      },
+      "wall_seconds": 541.960439235,
+      "estimated_resource_cost_usd": 0.19928969271549418
+    },
+    {
+      "job_id": "teacher-ready-3/2",
+      "reserved_usd": 0.6,
+      "status": "completed",
+      "config": {
+        "speaker_id": "PNV",
+        "native_language": "Vietnamese",
+        "gender": "F",
+        "split": "train",
+        "archive_url": "https://huggingface.co/datasets/chikingsley/l2-arctic-release-v5.0/resolve/cc02fd37197966e5de11ad737f7affd577c61992/PNV.zip",
+        "archive_sha256": "71733b2e888c5a68227506d2eb6e078b057bd56e59d40a965bc9e1d9283ea28c",
+        "archive_bytes": 318888354,
+        "purpose": "teacher",
+        "manifest_sha256": "9849d5d0d1214f7129c42fe8006a4ca0b79b36c84e8c80406e228077438931e7",
+        "job_id": "teacher-ready-3/2"
+      },
+      "wall_seconds": 606.9634607339999,
+      "estimated_resource_cost_usd": 0.22319260378110645
+    },
+    {
+      "job_id": "teacher-ready-3/3",
+      "reserved_usd": 0.6,
+      "status": "completed",
+      "config": {
+        "speaker_id": "HQTV",
+        "native_language": "Vietnamese",
+        "gender": "M",
+        "split": "train",
+        "archive_url": "https://huggingface.co/datasets/chikingsley/l2-arctic-release-v5.0/resolve/cc02fd37197966e5de11ad737f7affd577c61992/HQTV.zip",
+        "archive_sha256": "0ee16e0f024f4cf321bde2f526646b030704367c4dbb11514ac57f74a899984a",
+        "archive_bytes": 324342162,
+        "purpose": "teacher",
+        "manifest_sha256": "9849d5d0d1214f7129c42fe8006a4ca0b79b36c84e8c80406e228077438931e7",
+        "job_id": "teacher-ready-3/3"
+      },
+      "wall_seconds": 597.902335321,
+      "estimated_resource_cost_usd": 0.2198606467442381
+    },
+    {
+      "job_id": "features-1/0",
+      "reserved_usd": 0.1,
+      "status": "completed",
+      "config": {
+        "speaker_id": "ABA",
+        "purpose": "cpu_feature_cache",
+        "job_id": "features-1/0"
+      },
+      "wall_seconds": 67.193984484,
+      "estimated_resource_cost_usd": 0.00295384755791664
+    },
+    {
+      "job_id": "features-1/1",
+      "reserved_usd": 0.1,
+      "status": "completed",
+      "config": {
+        "speaker_id": "ASI",
+        "purpose": "cpu_feature_cache",
+        "job_id": "features-1/1"
+      },
+      "wall_seconds": 80.272636254,
+      "estimated_resource_cost_usd": 0.00352878508972584
+    },
+    {
+      "job_id": "features-1/2",
+      "reserved_usd": 0.1,
+      "status": "completed",
+      "config": {
+        "speaker_id": "BWC",
+        "purpose": "cpu_feature_cache",
+        "job_id": "features-1/2"
+      },
+      "wall_seconds": 93.480970144,
+      "estimated_resource_cost_usd": 0.0041094234475302395
+    },
+    {
+      "job_id": "features-1/3",
+      "reserved_usd": 0.1,
+      "status": "completed",
+      "config": {
+        "speaker_id": "EBVS",
+        "purpose": "cpu_feature_cache",
+        "job_id": "features-1/3"
+      },
+      "wall_seconds": 75.906670529,
+      "estimated_resource_cost_usd": 0.0033368572364548396
+    },
+    {
+      "job_id": "features-1/4",
+      "reserved_usd": 0.1,
+      "status": "completed",
+      "config": {
+        "speaker_id": "ERMS",
+        "purpose": "cpu_feature_cache",
+        "job_id": "features-1/4"
+      },
+      "wall_seconds": 377.37333422899997,
+      "estimated_resource_cost_usd": 0.01658933177270684
+    },
+    {
+      "job_id": "features-1/5",
+      "reserved_usd": 0.1,
+      "status": "completed",
+      "config": {
+        "speaker_id": "HJK",
+        "purpose": "cpu_feature_cache",
+        "job_id": "features-1/5"
+      },
+      "wall_seconds": 69.805951672,
+      "estimated_resource_cost_usd": 0.00306866963550112
+    },
+    {
+      "job_id": "features-1/6",
+      "reserved_usd": 0.1,
+      "status": "completed",
+      "config": {
+        "speaker_id": "HKK",
+        "purpose": "cpu_feature_cache",
+        "job_id": "features-1/6"
+      },
+      "wall_seconds": 350.055895702,
+      "estimated_resource_cost_usd": 0.01538845717505992
+    },
+    {
+      "job_id": "features-1/7",
+      "reserved_usd": 0.1,
+      "status": "completed",
+      "config": {
+        "speaker_id": "HQTV",
+        "purpose": "cpu_feature_cache",
+        "job_id": "features-1/7"
+      },
+      "wall_seconds": 212.232671781,
+      "estimated_resource_cost_usd": 0.00932974825149276
+    },
+    {
+      "job_id": "features-1/8",
+      "reserved_usd": 0.1,
+      "status": "completed",
+      "config": {
+        "speaker_id": "MBMPS",
+        "purpose": "cpu_feature_cache",
+        "job_id": "features-1/8"
+      },
+      "wall_seconds": 178.542948394,
+      "estimated_resource_cost_usd": 0.007848748011400241
+    },
+    {
+      "job_id": "features-1/9",
+      "reserved_usd": 0.1,
+      "status": "completed",
+      "config": {
+        "speaker_id": "NCC",
+        "purpose": "cpu_feature_cache",
+        "job_id": "features-1/9"
+      },
+      "wall_seconds": 193.82410805299997,
+      "estimated_resource_cost_usd": 0.008520507790009879
+    },
+    {
+      "job_id": "features-1/10",
+      "reserved_usd": 0.1,
+      "status": "completed",
+      "config": {
+        "speaker_id": "PNV",
+        "purpose": "cpu_feature_cache",
+        "job_id": "features-1/10"
+      },
+      "wall_seconds": 213.507806445,
+      "estimated_resource_cost_usd": 0.0093858031713222
+    },
+    {
+      "job_id": "features-1/11",
+      "reserved_usd": 0.1,
+      "status": "completed",
+      "config": {
+        "speaker_id": "RRBI",
+        "purpose": "cpu_feature_cache",
+        "job_id": "features-1/11"
+      },
+      "wall_seconds": 178.221844387,
+      "estimated_resource_cost_usd": 0.00783463227925252
+    },
+    {
+      "job_id": "features-1/12",
+      "reserved_usd": 0.1,
+      "status": "completed",
+      "config": {
+        "speaker_id": "SKA",
+        "purpose": "cpu_feature_cache",
+        "job_id": "features-1/12"
+      },
+      "wall_seconds": 60.710609384,
+      "estimated_resource_cost_usd": 0.00266883838852064
+    },
+    {
+      "job_id": "features-1/13",
+      "reserved_usd": 0.1,
+      "status": "completed",
+      "config": {
+        "speaker_id": "SVBI",
+        "purpose": "cpu_feature_cache",
+        "job_id": "features-1/13"
+      },
+      "wall_seconds": 89.960104891,
+      "estimated_resource_cost_usd": 0.00395464621100836
+    },
+    {
+      "job_id": "features-1/14",
+      "reserved_usd": 0.1,
+      "status": "completed",
+      "config": {
+        "speaker_id": "TLV",
+        "purpose": "cpu_feature_cache",
+        "job_id": "features-1/14"
+      },
+      "wall_seconds": 113.899835156,
+      "estimated_resource_cost_usd": 0.00500703675345776
+    },
+    {
+      "job_id": "features-1/15",
+      "reserved_usd": 0.1,
+      "status": "completed",
+      "config": {
+        "speaker_id": "TXHC",
+        "purpose": "cpu_feature_cache",
+        "job_id": "features-1/15"
+      },
+      "wall_seconds": 158.12933707300002,
+      "estimated_resource_cost_usd": 0.0069513656577290805
+    },
+    {
+      "job_id": "features-1/16",
+      "reserved_usd": 0.1,
+      "status": "completed",
+      "config": {
+        "speaker_id": "YBAA",
+        "purpose": "cpu_feature_cache",
+        "job_id": "features-1/16"
+      },
+      "wall_seconds": 165.102244523,
+      "estimated_resource_cost_usd": 0.007257894669231079
+    },
+    {
+      "job_id": "features-1/17",
+      "reserved_usd": 0.1,
+      "status": "completed",
+      "config": {
+        "speaker_id": "YDCK",
+        "purpose": "cpu_feature_cache",
+        "job_id": "features-1/17"
+      },
+      "wall_seconds": 80.090248441,
+      "estimated_resource_cost_usd": 0.0035207673214663598
+    },
+    {
+      "job_id": "train-seed0/0",
+      "reserved_usd": 0.95,
+      "status": "completed",
+      "config": {
+        "run_name": "full_gold-seed0",
+        "purpose": "registered_training",
+        "cache_namespace": "frozen-v1",
+        "training": {
+          "num_updates": 600,
+          "batch_size": 8,
+          "grad_accum_steps": 1,
+          "learning_rate": 1e-05,
+          "weight_decay": 0.01,
+          "max_grad_norm": 1.0,
+          "eval_every": 0,
+          "eval_batch_size": 8,
+          "max_new_tokens": 224,
+          "model_id": "openai/whisper-tiny",
+          "model_revision": "169d4a4341b33bc18d8881c4b69c2e104e1cc0af",
+          "arm_name": "full_gold",
+          "seed": 0,
+          "expected_initial_state_sha256": "30f47af0c6721669a9dec6b0a7934e4723ee2750a95aa3e627d5816a5934ba25",
+          "expected_dev_manifest_sha256": "6ac3cc1e58d8de15cc40d76c5689ae35d090894a9b18694a2eee8ad5bf516292"
+        },
+        "job_id": "train-seed0/0"
+      },
+      "wall_seconds": 751.0100119880001,
+      "estimated_resource_cost_usd": 0.16951797990593137
+    },
+    {
+      "job_id": "train-seed0/1",
+      "reserved_usd": 0.95,
+      "status": "completed",
+      "config": {
+        "run_name": "filtered10_gold-seed0",
+        "purpose": "registered_training",
+        "cache_namespace": "frozen-v1",
+        "training": {
+          "num_updates": 600,
+          "batch_size": 8,
+          "grad_accum_steps": 1,
+          "learning_rate": 1e-05,
+          "weight_decay": 0.01,
+          "max_grad_norm": 1.0,
+          "eval_every": 0,
+          "eval_batch_size": 8,
+          "max_new_tokens": 224,
+          "model_id": "openai/whisper-tiny",
+          "model_revision": "169d4a4341b33bc18d8881c4b69c2e104e1cc0af",
+          "arm_name": "filtered10_gold",
+          "seed": 0,
+          "expected_initial_state_sha256": "30f47af0c6721669a9dec6b0a7934e4723ee2750a95aa3e627d5816a5934ba25",
+          "expected_dev_manifest_sha256": "6ac3cc1e58d8de15cc40d76c5689ae35d090894a9b18694a2eee8ad5bf516292"
+        },
+        "job_id": "train-seed0/1"
+      },
+      "wall_seconds": 745.4343239020001,
+      "estimated_resource_cost_usd": 0.16825943559115947
+    },
+    {
+      "job_id": "train-seed0/2",
+      "reserved_usd": 0.95,
+      "status": "completed",
+      "config": {
+        "run_name": "random_matched_gold-seed0",
+        "purpose": "registered_training",
+        "cache_namespace": "frozen-v1",
+        "training": {
+          "num_updates": 600,
+          "batch_size": 8,
+          "grad_accum_steps": 1,
+          "learning_rate": 1e-05,
+          "weight_decay": 0.01,
+          "max_grad_norm": 1.0,
+          "eval_every": 0,
+          "eval_batch_size": 8,
+          "max_new_tokens": 224,
+          "model_id": "openai/whisper-tiny",
+          "model_revision": "169d4a4341b33bc18d8881c4b69c2e104e1cc0af",
+          "arm_name": "random_matched_gold",
+          "seed": 0,
+          "expected_initial_state_sha256": "30f47af0c6721669a9dec6b0a7934e4723ee2750a95aa3e627d5816a5934ba25",
+          "expected_dev_manifest_sha256": "6ac3cc1e58d8de15cc40d76c5689ae35d090894a9b18694a2eee8ad5bf516292"
+        },
+        "job_id": "train-seed0/2"
+      },
+      "wall_seconds": 752.978589115,
+      "estimated_resource_cost_usd": 0.16996232713503778
+    },
+    {
+      "job_id": "train-seed1/0",
+      "reserved_usd": 0.95,
+      "status": "completed",
+      "config": {
+        "run_name": "full_gold-seed1",
+        "purpose": "registered_training",
+        "cache_namespace": "frozen-v1",
+        "training": {
+          "num_updates": 600,
+          "batch_size": 8,
+          "grad_accum_steps": 1,
+          "learning_rate": 1e-05,
+          "weight_decay": 0.01,
+          "max_grad_norm": 1.0,
+          "eval_every": 0,
+          "eval_batch_size": 8,
+          "max_new_tokens": 224,
+          "model_id": "openai/whisper-tiny",
+          "model_revision": "169d4a4341b33bc18d8881c4b69c2e104e1cc0af",
+          "arm_name": "full_gold",
+          "seed": 1,
+          "expected_initial_state_sha256": "30f47af0c6721669a9dec6b0a7934e4723ee2750a95aa3e627d5816a5934ba25",
+          "expected_dev_manifest_sha256": "6ac3cc1e58d8de15cc40d76c5689ae35d090894a9b18694a2eee8ad5bf516292"
+        },
+        "job_id": "train-seed1/0"
+      },
+      "wall_seconds": 375.324264611,
+      "estimated_resource_cost_usd": 0.08471819300799492
+    },
+    {
+      "job_id": "train-seed1/1",
+      "reserved_usd": 0.95,
+      "status": "completed",
+      "config": {
+        "run_name": "filtered10_gold-seed1",
+        "purpose": "registered_training",
+        "cache_namespace": "frozen-v1",
+        "training": {
+          "num_updates": 600,
+          "batch_size": 8,
+          "grad_accum_steps": 1,
+          "learning_rate": 1e-05,
+          "weight_decay": 0.01,
+          "max_grad_norm": 1.0,
+          "eval_every": 0,
+          "eval_batch_size": 8,
+          "max_new_tokens": 224,
+          "model_id": "openai/whisper-tiny",
+          "model_revision": "169d4a4341b33bc18d8881c4b69c2e104e1cc0af",
+          "arm_name": "filtered10_gold",
+          "seed": 1,
+          "expected_initial_state_sha256": "30f47af0c6721669a9dec6b0a7934e4723ee2750a95aa3e627d5816a5934ba25",
+          "expected_dev_manifest_sha256": "6ac3cc1e58d8de15cc40d76c5689ae35d090894a9b18694a2eee8ad5bf516292"
+        },
+        "job_id": "train-seed1/1"
+      },
+      "wall_seconds": 469.823834122,
+      "estimated_resource_cost_usd": 0.10604863583801784
+    },
+    {
+      "job_id": "train-seed1/2",
+      "reserved_usd": 0.95,
+      "status": "reserved",
+      "config": {
+        "run_name": "random_matched_gold-seed1",
+        "purpose": "registered_training",
+        "cache_namespace": "frozen-v1",
+        "training": {
+          "num_updates": 600,
+          "batch_size": 8,
+          "grad_accum_steps": 1,
+          "learning_rate": 1e-05,
+          "weight_decay": 0.01,
+          "max_grad_norm": 1.0,
+          "eval_every": 0,
+          "eval_batch_size": 8,
+          "max_new_tokens": 224,
+          "model_id": "openai/whisper-tiny",
+          "model_revision": "169d4a4341b33bc18d8881c4b69c2e104e1cc0af",
+          "arm_name": "random_matched_gold",
+          "seed": 1,
+          "expected_initial_state_sha256": "30f47af0c6721669a9dec6b0a7934e4723ee2750a95aa3e627d5816a5934ba25",
+          "expected_dev_manifest_sha256": "6ac3cc1e58d8de15cc40d76c5689ae35d090894a9b18694a2eee8ad5bf516292"
+        },
+        "job_id": "train-seed1/2"
+      }
+    },
+    {
+      "job_id": "h100-v1/full_gold",
+      "reserved_usd": 1.8,
+      "status": "completed",
+      "gpu": "H100",
+      "hard_timeout_seconds": 1200,
+      "startup_timeout_seconds": 180,
+      "wall_seconds": 275.376474744,
+      "estimated_resource_cost_usd": 0.350510192113153
+    },
+    {
+      "job_id": "h100-v1/filtered10_gold",
+      "reserved_usd": 1.8,
+      "status": "completed",
+      "gpu": "H100",
+      "hard_timeout_seconds": 1200,
+      "startup_timeout_seconds": 180,
+      "wall_seconds": 275.059481188,
+      "estimated_resource_cost_usd": 0.35010671003533395
+    },
+    {
+      "job_id": "h100-v1/random_matched_gold",
+      "reserved_usd": 1.8,
+      "status": "completed",
+      "gpu": "H100",
+      "hard_timeout_seconds": 1200,
+      "startup_timeout_seconds": 180,
+      "wall_seconds": 282.489705926,
+      "estimated_resource_cost_usd": 0.3595641972908499
+    }
+  ]
+}

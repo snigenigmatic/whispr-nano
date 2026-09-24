@@ -1,0 +1,170 @@
+{
+  "scope": "Descriptive public FLEURS benchmark; not population, speaker, or fairness evidence.",
+  "manifest": "/Users/prateekraj/whispr-nano/data/bridge_open/fleurs_test_v1/corpus-v2.jsonl",
+  "models": {
+    "Turbo (openai/whisper-large-v3-turbo@41f01f3fe87f28c78e2fbf8b568835947dd65ed9)": {
+      "model_id": "openai/whisper-large-v3-turbo",
+      "model_revision": "41f01f3fe87f28c78e2fbf8b568835947dd65ed9",
+      "output_dirs": [
+        "/Users/prateekraj/whispr-nano/research/bridge_open/artifacts/hf-fleurs-test-turbo-hi-short-v2",
+        "/Users/prateekraj/whispr-nano/research/bridge_open/artifacts/hf-fleurs-test-turbo-bn-short-0-end-v2",
+        "/Users/prateekraj/whispr-nano/research/bridge_open/artifacts/hf-fleurs-test-turbo-as-short-0-end-v2",
+        "/Users/prateekraj/whispr-nano/research/bridge_open/artifacts/hf-fleurs-test-turbo-all-long-0-end-v2"
+      ],
+      "per_language": {
+        "as": {
+          "combined": {
+            "utterances": 984,
+            "scored_count": 984,
+            "word_errors": 26556,
+            "ref_words": 19414,
+            "character_errors": 121831,
+            "ref_chars": 103983,
+            "micro_wer": 1.3678788503142063,
+            "micro_cer": 1.1716434417164343,
+            "success_count": 919,
+            "empty_output_status_count": 0,
+            "normalized_empty_count": 1,
+            "generation_limit_count": 65
+          },
+          "by_inference_route": {
+            "batched_shortform": {
+              "utterances": 980,
+              "scored_count": 980,
+              "word_errors": 25979,
+              "ref_words": 19241,
+              "character_errors": 120016,
+              "ref_chars": 103011,
+              "micro_wer": 1.3501896990800895,
+              "micro_cer": 1.1650794575336614,
+              "success_count": 918,
+              "empty_output_status_count": 0,
+              "normalized_empty_count": 1,
+              "generation_limit_count": 62
+            },
+            "fixed_30s_complete_audio": {
+              "utterances": 4,
+              "scored_count": 4,
+              "word_errors": 577,
+              "ref_words": 173,
+              "character_errors": 1815,
+              "ref_chars": 972,
+              "micro_wer": 3.3352601156069364,
+              "micro_cer": 1.867283950617284,
+              "success_count": 1,
+              "empty_output_status_count": 0,
+              "normalized_empty_count": 0,
+              "generation_limit_count": 3
+            }
+          }
+        },
+        "bn": {
+          "combined": {
+            "utterances": 920,
+            "scored_count": 920,
+            "word_errors": 15280,
+            "ref_words": 17764,
+            "character_errors": 35011,
+            "ref_chars": 98118,
+            "micro_wer": 0.8601666291375816,
+            "micro_cer": 0.3568254550643103,
+            "success_count": 867,
+            "empty_output_status_count": 0,
+            "normalized_empty_count": 0,
+            "generation_limit_count": 53
+          },
+          "by_inference_route": {
+            "batched_shortform": {
+              "utterances": 911,
+              "scored_count": 911,
+              "word_errors": 14895,
+              "ref_words": 17363,
+              "character_errors": 33586,
+              "ref_chars": 95696,
+              "micro_wer": 0.8578586649772505,
+              "micro_cer": 0.3509655575990637,
+              "success_count": 865,
+              "empty_output_status_count": 0,
+              "normalized_empty_count": 0,
+              "generation_limit_count": 46
+            },
+            "fixed_30s_complete_audio": {
+              "utterances": 9,
+              "scored_count": 9,
+              "word_errors": 385,
+              "ref_words": 401,
+              "character_errors": 1425,
+              "ref_chars": 2422,
+              "micro_wer": 0.9600997506234414,
+              "micro_cer": 0.588356729975227,
+              "success_count": 2,
+              "empty_output_status_count": 0,
+              "normalized_empty_count": 0,
+              "generation_limit_count": 7
+            }
+          }
+        },
+        "hi": {
+          "combined": {
+            "utterances": 418,
+            "scored_count": 418,
+            "word_errors": 3370,
+            "ref_words": 10326,
+            "character_errors": 5848,
+            "ref_chars": 41487,
+            "micro_wer": 0.32636064303699397,
+            "micro_cer": 0.1409598187384,
+            "success_count": 415,
+            "empty_output_status_count": 0,
+            "normalized_empty_count": 0,
+            "generation_limit_count": 3
+          },
+          "by_inference_route": {
+            "batched_shortform": {
+              "utterances": 417,
+              "scored_count": 417,
+              "word_errors": 3181,
+              "ref_words": 10255,
+              "character_errors": 5502,
+              "ref_chars": 41180,
+              "micro_wer": 0.3101901511457825,
+              "micro_cer": 0.13360854783875667,
+              "success_count": 415,
+              "empty_output_status_count": 0,
+              "normalized_empty_count": 0,
+              "generation_limit_count": 2
+            },
+            "fixed_30s_complete_audio": {
+              "utterances": 1,
+              "scored_count": 1,
+              "word_errors": 189,
+              "ref_words": 71,
+              "character_errors": 346,
+              "ref_chars": 307,
+              "micro_wer": 2.6619718309859155,
+              "micro_cer": 1.1270358306188926,
+              "success_count": 0,
+              "empty_output_status_count": 0,
+              "normalized_empty_count": 0,
+              "generation_limit_count": 1
+            }
+          }
+        }
+      },
+      "throughput": {
+        "unique_batches": 290,
+        "timed_batches": 290,
+        "audio_seconds": 29230.38,
+        "inference_wall_seconds": 1669.0356976030453,
+        "audio_seconds_per_wall_second": 17.513334221657853,
+        "note": "Unique batch throughput only; this is not per-request latency."
+      }
+    }
+  },
+  "paired_differences": [],
+  "bootstrap": {
+    "draws": 2000,
+    "seed": 12,
+    "unit": "source_sentence_id cluster within language"
+  }
+}

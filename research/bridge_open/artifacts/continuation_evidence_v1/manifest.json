@@ -1,0 +1,541 @@
+{
+  "scope": "Documentation, failure-tail analysis, blinded review v2 and Svarah source-verified extension",
+  "baseline_evidence_commit": "1468f7b42a75c91254823fe0dc7a22999de748e8",
+  "files": [
+    {
+      "path": "research/bridge_open/CONTINUATION_PROTOCOL_20260923.md",
+      "bytes": 6669,
+      "sha256": "e391b33f8a624ceeec8e2e58dbcc8e3288a578f64b18acdb0d77fbbdc47b4c56"
+    },
+    {
+      "path": "research/bridge_open/CURRENT_STATUS.md",
+      "bytes": 5610,
+      "sha256": "1e8f2f67107cef19f9b74e6308c0fb84abb97629a44c1d8e30e8513c993bc22f"
+    },
+    {
+      "path": "research/bridge_open/INDIAN_ENGLISH_ASSET_AUDIT_20260923.md",
+      "bytes": 8199,
+      "sha256": "7e115f0cc355244608c07fe7c21d82f4a3ae2ebea0390968b93280d9c5fd9387"
+    },
+    {
+      "path": "research/bridge_open/PAPER_EVIDENCE_MAP.md",
+      "bytes": 4684,
+      "sha256": "c5a37e996a5a1a270bb8feef260efd94c0f450fd2dcca4584c27ad240fdd83f5"
+    },
+    {
+      "path": "research/bridge_open/README.md",
+      "bytes": 3485,
+      "sha256": "cc0453caa565d96f91b123be027962e064c809d9cb074a07a879a0260b978a27"
+    },
+    {
+      "path": "research/bridge_open/SVARAH_EXECUTION_20260923.md",
+      "bytes": 7922,
+      "sha256": "1bcae8b3849951b6d56b215a3a577513ec702333320f04c21d31045dc50266cf"
+    },
+    {
+      "path": "research/bridge_open/accept_svarah_runs.py",
+      "bytes": 17274,
+      "sha256": "1816814b3124e3b03e561c9a50f3f38391767e9e677a73c266177930482dbf44"
+    },
+    {
+      "path": "research/bridge_open/analyze_failure_tails.py",
+      "bytes": 6832,
+      "sha256": "48734f03a2b1d50f749a43c8bfbaba927b8e7af977bc45267fc3e4701e28a330"
+    },
+    {
+      "path": "research/bridge_open/analyze_svarah.py",
+      "bytes": 7237,
+      "sha256": "1529eb846b4c819c07701a49a28d15cf0648ce4e4ac19a7a49e95ecbab35f9d7"
+    },
+    {
+      "path": "research/bridge_open/analyze_svarah_errors.py",
+      "bytes": 7074,
+      "sha256": "d8922238eda1d496d60f3939dd15ff83bf4e4a616495cb95a54ea3317e2865ad"
+    },
+    {
+      "path": "research/bridge_open/artifacts/failure_tails_v1/RESULTS.md",
+      "bytes": 2014,
+      "sha256": "144606e3f2a38008546539a09ac1f998f780f0f56712b341d11e5f762b287ae7"
+    },
+    {
+      "path": "research/bridge_open/artifacts/failure_tails_v1/analysis.json",
+      "bytes": 5382,
+      "sha256": "4a4b86ad3032387d543c97bcea5219b6ffad80af5930f69f1339a50c93ba79c9"
+    },
+    {
+      "path": "research/bridge_open/artifacts/failure_tails_v1/paired_counts.jsonl",
+      "bytes": 1328865,
+      "sha256": "0baefe27cb965c153e91d071cc2c3337e15f3d1fb5e0552bdc5d064eb2f8c84c"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_svarah_acceptance_v2/committed_run_config.json",
+      "bytes": 2059,
+      "sha256": "e9783e16eab9e9aae4a61ff9414966324db2c36cce633722404d8da6896a8efd"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_svarah_acceptance_v2/config.json",
+      "bytes": 2117,
+      "sha256": "850c05a2a377183621131e30f0b587f61ff31196f01460a25de921e799f0db99"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_svarah_acceptance_v2/environment.json",
+      "bytes": 4697,
+      "sha256": "23fce676e47340e28e4807a6fadc92999d2e8054ee2b2d35a7507c6772e5f95e"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_svarah_acceptance_v2/executed_entrypoint.sh",
+      "bytes": 606,
+      "sha256": "bee5e6421d705af72bf6ff9d939de4925f3cbd5a582f1e5d9846787f223e9b85"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_svarah_acceptance_v2/executed_hf_run.py",
+      "bytes": 4615,
+      "sha256": "4584aec5914d884978ad0f251fe464e0277b7971040dd118c78e725eec1f5e4e"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_svarah_acceptance_v2/hf_receipt.json",
+      "bytes": 659,
+      "sha256": "5df57dcda061dea5db09e76566213129e5d3610fa97ab6d0659498446a00b1ac"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_svarah_acceptance_v2/local_independent_acceptance.json",
+      "bytes": 1108,
+      "sha256": "65033efcd9def5ff3cb61114f7a385ca535599764874dd4343eb2eb584769b59"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_svarah_acceptance_v2/orx_source_receipt.json",
+      "bytes": 696,
+      "sha256": "3c2ef48a9c00b7d1e548e1b5bba2be818e134cf96e5398cd89fb726fde5c820c"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_svarah_acceptance_v2/predictions.jsonl",
+      "bytes": 41901,
+      "sha256": "a134819ad09d6b1a9f8a4aafc850183ee142377d3e553338bb952e997c96cf03"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_svarah_acceptance_v2/remote_validation.json",
+      "bytes": 173,
+      "sha256": "f56f2d80621a1fa3132ca8acde79b675ae40819f9a62169efe8c96f8d389af34"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_svarah_acceptance_v2/source_snapshot.tar.gz",
+      "bytes": 11903668,
+      "sha256": "ded8e458bcc61fe47491524fa727e0aa6ff75a175025e7cda5526e50e987f08a"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_svarah_acceptance_v2/summary.json",
+      "bytes": 7378,
+      "sha256": "7256f9ceb89d1ee689af0e26c9c2e4069c9a51b8e8206f996374edec440dd196"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_svarah_acceptance_v2/transport_receipt.json",
+      "bytes": 256,
+      "sha256": "cc199cedca346504a6b0f495482296d00aa96652c0de60449a38db918f9aeb00"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_svarah_full_v1/committed_run_config.json",
+      "bytes": 12306,
+      "sha256": "b95948d38a9deffb177bfce27d1d10ca05dc201ac7fe06f58f6fd0e75f05cc1b"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_svarah_full_v1/config.json",
+      "bytes": 12358,
+      "sha256": "90ca0c58da4277164042e152de8ddb22d6ee0df39e9503fec4e2113763f2b99c"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_svarah_full_v1/environment.json",
+      "bytes": 114451,
+      "sha256": "40b09a48a4ba90203bd511ee13cc38d045acc70d71fe4da5f06b11ed43eaa95a"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_svarah_full_v1/executed_entrypoint.sh",
+      "bytes": 606,
+      "sha256": "bee5e6421d705af72bf6ff9d939de4925f3cbd5a582f1e5d9846787f223e9b85"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_svarah_full_v1/executed_hf_run.py",
+      "bytes": 4784,
+      "sha256": "c4973396f04bf14c1f31a80068f83c15e12d2ace4f65afd8baa34308909bce60"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_svarah_full_v1/hf_receipt.json",
+      "bytes": 659,
+      "sha256": "05b2ac6fa4289cf2fc3c9b080621544746af617eb59e9c768bc06e06bf9bb4aa"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_svarah_full_v1/local_independent_acceptance.json",
+      "bytes": 1177,
+      "sha256": "aa95535939467dbd9863776bc75d9bd9824a8ac3a25a6b8d8659bdb839af0c62"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_svarah_full_v1/orx_source_receipt.json",
+      "bytes": 697,
+      "sha256": "963ca9c0d82e4db3bff301dc876224ddda9b2d3dd988a1a775b37af24519cdd4"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_svarah_full_v1/predictions.jsonl",
+      "bytes": 1458918,
+      "sha256": "9eae45023c91eaf73dc0d935ae98415cb3dd4c76f213d7ad2a17d02d643ca435"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_svarah_full_v1/remote_validation.json",
+      "bytes": 169,
+      "sha256": "8061dd62ca013693ae6aad70cdfffad6b8b572438afd7ebc2e28689091454432"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_svarah_full_v1/source_snapshot.tar.gz",
+      "bytes": 80774398,
+      "sha256": "0a23eeb04d411d8ac876156453f6d93587d37c9ced30288e4a50559a4e26b3f1"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_svarah_full_v1/summary.json",
+      "bytes": 281618,
+      "sha256": "e6a8f728257409e4df490b74b335e0dabb71fd0791028f84882628a1b4f02812"
+    },
+    {
+      "path": "research/bridge_open/artifacts/omni_svarah_full_v1/transport_receipt.json",
+      "bytes": 258,
+      "sha256": "b8896397e3ab62180c57f06465b92d68a64c214b76dd7a4815d9cf96891d6fad"
+    },
+    {
+      "path": "research/bridge_open/artifacts/qwen_svarah_acceptance_v2/committed_run_config.json",
+      "bytes": 2331,
+      "sha256": "ea03ba3ace2d36c24ee43ee654647c0f74f09d26c5fc952cdfc2ebbdd77b5086"
+    },
+    {
+      "path": "research/bridge_open/artifacts/qwen_svarah_acceptance_v2/config.json",
+      "bytes": 2389,
+      "sha256": "1c366eaf6eb8358dba57b46bd5aef82fb6eeded6494abfd40b981243d9e7cb33"
+    },
+    {
+      "path": "research/bridge_open/artifacts/qwen_svarah_acceptance_v2/environment.json",
+      "bytes": 9084,
+      "sha256": "2964659a293661c0a1b0f47954d37aa9532c1b7a94257ce472d11cc3ca0395c5"
+    },
+    {
+      "path": "research/bridge_open/artifacts/qwen_svarah_acceptance_v2/executed_entrypoint.sh",
+      "bytes": 395,
+      "sha256": "70f506f0a7a1bd9bb88dc79e18b7398c0b41c8192a0429021f47756f7b8abfcc"
+    },
+    {
+      "path": "research/bridge_open/artifacts/qwen_svarah_acceptance_v2/executed_hf_run.py",
+      "bytes": 5941,
+      "sha256": "d41c66be1d6d7b6fa69b176b6c01c47c7ec4c6cead1b2245f8840a5cba4c5e01"
+    },
+    {
+      "path": "research/bridge_open/artifacts/qwen_svarah_acceptance_v2/executed_qwen_trace.py",
+      "bytes": 1662,
+      "sha256": "6331d3c4636351769a4db35812fc6cac5e4186ec14bfe532bdceb220d60a4a3f"
+    },
+    {
+      "path": "research/bridge_open/artifacts/qwen_svarah_acceptance_v2/executed_run_qwen.py",
+      "bytes": 17924,
+      "sha256": "b7e2c3843fcab145bd500c7e3be529314fdf7f5a075207c683ec86a03b6c4315"
+    },
+    {
+      "path": "research/bridge_open/artifacts/qwen_svarah_acceptance_v2/executed_scoring.py",
+      "bytes": 2732,
+      "sha256": "a63c0fdce68e33810bf233c813a5ebad0f3692e6718aad2828a802b2e776ff3c"
+    },
+    {
+      "path": "research/bridge_open/artifacts/qwen_svarah_acceptance_v2/executed_test_native_run.py",
+      "bytes": 8542,
+      "sha256": "866dce0bd452edab359a510090a118d5d164514a91ea495284d8debf4028b8bc"
+    },
+    {
+      "path": "research/bridge_open/artifacts/qwen_svarah_acceptance_v2/executed_test_qwen_trace.py",
+      "bytes": 1178,
+      "sha256": "7f45ace20879859be0eee1336c4abcaf94bf445ba63d3de8356154de8c517dca"
+    },
+    {
+      "path": "research/bridge_open/artifacts/qwen_svarah_acceptance_v2/executed_validate_run.py",
+      "bytes": 20149,
+      "sha256": "2953e22cea83825de2bd0501330ba99da93ff0198beb7ffa899f7ea706da30f3"
+    },
+    {
+      "path": "research/bridge_open/artifacts/qwen_svarah_acceptance_v2/hf_receipt.json",
+      "bytes": 569,
+      "sha256": "a5e3b74b71ddbbdfd1b96b17c7421237183dfa014b087a87da5261b25225630d"
+    },
+    {
+      "path": "research/bridge_open/artifacts/qwen_svarah_acceptance_v2/local_independent_acceptance.json",
+      "bytes": 1116,
+      "sha256": "db2761c520ba06a8f34826a9df9a99a484076a462eb305928b6ce0ec2bc862b3"
+    },
+    {
+      "path": "research/bridge_open/artifacts/qwen_svarah_acceptance_v2/orx_source_receipt.json",
+      "bytes": 695,
+      "sha256": "d30ae046c72578f038efdfc66f17536b344a1d5b86971114456896e477074af4"
+    },
+    {
+      "path": "research/bridge_open/artifacts/qwen_svarah_acceptance_v2/predictions.jsonl",
+      "bytes": 62724,
+      "sha256": "e048428f10e7d44bf5ce286f0d73aa5096a262afa8d165f0bb2c078bba5313a4"
+    },
+    {
+      "path": "research/bridge_open/artifacts/qwen_svarah_acceptance_v2/remote_validation.json",
+      "bytes": 143,
+      "sha256": "b79c2a5eb2513ea52cc883c308f946781325cc81a7e45d55251aaf1c15756caa"
+    },
+    {
+      "path": "research/bridge_open/artifacts/qwen_svarah_acceptance_v2/source_snapshot.tar.gz",
+      "bytes": 2940555,
+      "sha256": "8f13fd174458f7890bd323f068c38f8564800d3ddb8921c372e1d901db7869e2"
+    },
+    {
+      "path": "research/bridge_open/artifacts/qwen_svarah_acceptance_v2/summary.json",
+      "bytes": 7136,
+      "sha256": "e9739f4fc045f643da7f1f86214b2cc7c7b35c59af30ce1c073d08563a84d58f"
+    },
+    {
+      "path": "research/bridge_open/artifacts/qwen_svarah_acceptance_v2/transport_receipt.json",
+      "bytes": 256,
+      "sha256": "0cdaa912ee0f2fbd6202a6f6f1ea475f42c661a730c6d22e214cd6899d0bfbd5"
+    },
+    {
+      "path": "research/bridge_open/artifacts/qwen_svarah_full_v1/committed_run_config.json",
+      "bytes": 12692,
+      "sha256": "0803e30cec8013f19b87907bd083cd43b3b70c9efae5e53b070eb2982049b9c1"
+    },
+    {
+      "path": "research/bridge_open/artifacts/qwen_svarah_full_v1/config.json",
+      "bytes": 12744,
+      "sha256": "1e9e80435f0830f86a85a2a0dc6d3159cf31bc3f3e9097f10934a82f94f8a23f"
+    },
+    {
+      "path": "research/bridge_open/artifacts/qwen_svarah_full_v1/environment.json",
+      "bytes": 9084,
+      "sha256": "4bdc408b0b89ed9067ff1321b8ed154ec1721b0be90640a3b1fe3f3ebd785e87"
+    },
+    {
+      "path": "research/bridge_open/artifacts/qwen_svarah_full_v1/executed_entrypoint.sh",
+      "bytes": 395,
+      "sha256": "70f506f0a7a1bd9bb88dc79e18b7398c0b41c8192a0429021f47756f7b8abfcc"
+    },
+    {
+      "path": "research/bridge_open/artifacts/qwen_svarah_full_v1/executed_hf_run.py",
+      "bytes": 8250,
+      "sha256": "e93d5f4c9f352ea40197741b7cacf408599cfabd82d8f211ed689df6bb7f3ed0"
+    },
+    {
+      "path": "research/bridge_open/artifacts/qwen_svarah_full_v1/executed_qwen_trace.py",
+      "bytes": 1662,
+      "sha256": "6331d3c4636351769a4db35812fc6cac5e4186ec14bfe532bdceb220d60a4a3f"
+    },
+    {
+      "path": "research/bridge_open/artifacts/qwen_svarah_full_v1/executed_run_qwen.py",
+      "bytes": 17924,
+      "sha256": "b7e2c3843fcab145bd500c7e3be529314fdf7f5a075207c683ec86a03b6c4315"
+    },
+    {
+      "path": "research/bridge_open/artifacts/qwen_svarah_full_v1/executed_scoring.py",
+      "bytes": 2732,
+      "sha256": "a63c0fdce68e33810bf233c813a5ebad0f3692e6718aad2828a802b2e776ff3c"
+    },
+    {
+      "path": "research/bridge_open/artifacts/qwen_svarah_full_v1/executed_test_native_run.py",
+      "bytes": 8542,
+      "sha256": "866dce0bd452edab359a510090a118d5d164514a91ea495284d8debf4028b8bc"
+    },
+    {
+      "path": "research/bridge_open/artifacts/qwen_svarah_full_v1/executed_test_qwen_trace.py",
+      "bytes": 1178,
+      "sha256": "7f45ace20879859be0eee1336c4abcaf94bf445ba63d3de8356154de8c517dca"
+    },
+    {
+      "path": "research/bridge_open/artifacts/qwen_svarah_full_v1/executed_validate_run.py",
+      "bytes": 20149,
+      "sha256": "2953e22cea83825de2bd0501330ba99da93ff0198beb7ffa899f7ea706da30f3"
+    },
+    {
+      "path": "research/bridge_open/artifacts/qwen_svarah_full_v1/hf_receipt.json",
+      "bytes": 568,
+      "sha256": "22079d8d3581a7441f63539546d5823d25cfe4b9ae605d79a3234f8ad0858371"
+    },
+    {
+      "path": "research/bridge_open/artifacts/qwen_svarah_full_v1/local_independent_acceptance.json",
+      "bytes": 1172,
+      "sha256": "a2152bc64e2062d348720f367b54d91570387ab836215e1258b1ee4523b91d4b"
+    },
+    {
+      "path": "research/bridge_open/artifacts/qwen_svarah_full_v1/orx_source_receipt.json",
+      "bytes": 696,
+      "sha256": "b1e388c5ec1c740a809722dafdbbf69018307e468b5eac2834b403a60575e93c"
+    },
+    {
+      "path": "research/bridge_open/artifacts/qwen_svarah_full_v1/predictions.jsonl",
+      "bytes": 2096316,
+      "sha256": "f107e20946efdac2e05b4486f72c6b4c1242ad5ad5ca88caa86986a4ccf9e026"
+    },
+    {
+      "path": "research/bridge_open/artifacts/qwen_svarah_full_v1/remote_validation.json",
+      "bytes": 138,
+      "sha256": "80ef2ae8eb2580af36108cf22a19a3aa3d352a378c96a3015593dad70deb1ff0"
+    },
+    {
+      "path": "research/bridge_open/artifacts/qwen_svarah_full_v1/source_snapshot.tar.gz",
+      "bytes": 71811468,
+      "sha256": "0dcf8e4a0cce17c0d1a0f19e72d57cac214032aa80b8ad8e0727c03c9e1042f4"
+    },
+    {
+      "path": "research/bridge_open/artifacts/qwen_svarah_full_v1/summary.json",
+      "bytes": 266596,
+      "sha256": "cda0d3fe8d6b9376e6eaee39c39163b340819bd9ae4f59153cce1f1ff8b8923d"
+    },
+    {
+      "path": "research/bridge_open/artifacts/qwen_svarah_full_v1/transport_receipt.json",
+      "bytes": 258,
+      "sha256": "4b46e64b8a77a16b75271624f730509091277a821c546671e3ff28b24be9d210"
+    },
+    {
+      "path": "research/bridge_open/artifacts/svarah_cancelled_dispatch_v1/receipt.json",
+      "bytes": 736,
+      "sha256": "b95e98455730c0f889f291fad6bd6add55743926c058f66cb2c010da7ddce005"
+    },
+    {
+      "path": "research/bridge_open/artifacts/svarah_comparison_v1/RESULTS.md",
+      "bytes": 3001,
+      "sha256": "e91f8ffb7b261911ab34ebf0e881f289c71289c1666fe4fffe6169560a929080"
+    },
+    {
+      "path": "research/bridge_open/artifacts/svarah_comparison_v1/analysis.json",
+      "bytes": 3765,
+      "sha256": "9f7bd9ec9f53bfbc0d0a32fb79b5d7805b4e9687fa70434077ee26fe0628dccc"
+    },
+    {
+      "path": "research/bridge_open/artifacts/svarah_comparison_v1/largest_disagreements.csv",
+      "bytes": 119072,
+      "sha256": "a3f954e6b5b07d4131bad2537385dbbf1738c39cd369141a91618ab4eaf1e8d5"
+    },
+    {
+      "path": "research/bridge_open/artifacts/svarah_comparison_v1/paired_counts.jsonl",
+      "bytes": 222519,
+      "sha256": "a53567a1b7960a28b498ba28b6736a1b124627ed997ac25210d66f474c0113c9"
+    },
+    {
+      "path": "research/bridge_open/artifacts/svarah_error_diagnostics_v1/RESULTS.md",
+      "bytes": 2358,
+      "sha256": "cb418cc16591702d366802a1c4538664f5250224cfebfe59a0af5690b0762533"
+    },
+    {
+      "path": "research/bridge_open/artifacts/svarah_error_diagnostics_v1/analysis.json",
+      "bytes": 235852,
+      "sha256": "a832f700781090b9429b1e06e8dbf4fdf925e698ddd970630f61ab2b09ad9917"
+    },
+    {
+      "path": "research/bridge_open/artifacts/svarah_evidence_checks_v1/input_negative_checks.json",
+      "bytes": 747,
+      "sha256": "79df411389c53b1f7078b469bb59a34be0e5c9f5154d267cf6bb0ee355676103"
+    },
+    {
+      "path": "research/bridge_open/artifacts/svarah_evidence_checks_v1/negative_checks.json",
+      "bytes": 792,
+      "sha256": "633ae5656038b318f867ad9437e85ac19d2af68837619fdf3e7b78dabb1bc3b1"
+    },
+    {
+      "path": "research/bridge_open/artifacts/svarah_input_audit_shard02_full_v1/all_records.jsonl",
+      "bytes": 562163,
+      "sha256": "4872e3578bc9362f18be9b32515e732a9c5612ff96f52a10ce51eeadbf7477de"
+    },
+    {
+      "path": "research/bridge_open/artifacts/svarah_input_audit_shard02_full_v1/exposure_ids.json",
+      "bytes": 56338,
+      "sha256": "9a0e8955e73e6efe79272766606e35132ab56a6fb61ea8c88487e6ea29296068"
+    },
+    {
+      "path": "research/bridge_open/artifacts/svarah_input_audit_shard02_full_v1/independent_validation.json",
+      "bytes": 114091,
+      "sha256": "d2f2ecfdf047cfa30a2425958430883f485cbf14cbd2285419c2576fe993feaa"
+    },
+    {
+      "path": "research/bridge_open/artifacts/svarah_input_audit_shard02_full_v1/receipt.json",
+      "bytes": 12505,
+      "sha256": "25f7ef22fb5299bcdaa732cf7fc11bedf94540a996f17c7775004cac9deb716f"
+    },
+    {
+      "path": "research/bridge_open/artifacts/svarah_input_audit_shard02_v1/INVALIDATION.md",
+      "bytes": 623,
+      "sha256": "f3fbb088b07f9898faf70397880f9f51fd6766694e8809f4a645a44f16745861"
+    },
+    {
+      "path": "research/bridge_open/artifacts/svarah_input_audit_shard02_v2/all_records.jsonl",
+      "bytes": 562163,
+      "sha256": "4872e3578bc9362f18be9b32515e732a9c5612ff96f52a10ce51eeadbf7477de"
+    },
+    {
+      "path": "research/bridge_open/artifacts/svarah_input_audit_shard02_v2/exposure_ids.json",
+      "bytes": 56338,
+      "sha256": "9a0e8955e73e6efe79272766606e35132ab56a6fb61ea8c88487e6ea29296068"
+    },
+    {
+      "path": "research/bridge_open/artifacts/svarah_input_audit_shard02_v2/independent_validation.json",
+      "bytes": 2879,
+      "sha256": "78e2b72249d9a3ad478c95ebcec114b898f1b3c33f5f1c7e389b9608e713b6a8"
+    },
+    {
+      "path": "research/bridge_open/artifacts/svarah_input_audit_shard02_v2/receipt.json",
+      "bytes": 2280,
+      "sha256": "7687bca679494e52bc0cae81d5e51ee4549f5130015091f679174d88776e455a"
+    },
+    {
+      "path": "research/bridge_open/check_svarah_evidence.py",
+      "bytes": 2020,
+      "sha256": "33bd8633d770d38ae2b5cfd483ae56f13359058f36364c00328d3978bd0d641b"
+    },
+    {
+      "path": "research/bridge_open/listening_review_v2/README.md",
+      "bytes": 1627,
+      "sha256": "78c93c3986bc310112fe1a840636ff88159b383068319a6c05872c4b4ddc95af"
+    },
+    {
+      "path": "research/bridge_open/listening_review_v2/build_packet.py",
+      "bytes": 5000,
+      "sha256": "b116a08ac789f882af9f7820b1bcd18731ee06629c3789eb600b9ac3824e2871"
+    },
+    {
+      "path": "research/bridge_open/listening_review_v2/index.html",
+      "bytes": 8771,
+      "sha256": "94ff0f5895c7595c0bbaa4be2a7e3101eb6896c0dbacd6f580f25dfe62be4692"
+    },
+    {
+      "path": "research/bridge_open/listening_review_v2/packet_metadata.json",
+      "bytes": 1701,
+      "sha256": "041f445208e998a4d7503d47cd5cc29610e5e5b201cc2620ee29fbf6ac2b786d"
+    },
+    {
+      "path": "research/bridge_open/listening_review_v2/review_items.json",
+      "bytes": 125840,
+      "sha256": "a081e9aa8e0a38d63d5b4830cbeba11180dfd0d19ff314d14c3b60d8958683bc"
+    },
+    {
+      "path": "research/bridge_open/listening_review_v2/review_items.jsonl",
+      "bytes": 115347,
+      "sha256": "39a6c49ad10bf3eb3d8e911a68f20df66f018fc9747666bf879b90cf57536a8b"
+    },
+    {
+      "path": "research/bridge_open/listening_review_v2/review_responses.csv",
+      "bytes": 9590,
+      "sha256": "2de3ef66eda226b2dc45d0fe79c6144094194032b8956d9647ab9788d091b45c"
+    },
+    {
+      "path": "research/bridge_open/listening_review_v2/sealed_mapping.json",
+      "bytes": 133303,
+      "sha256": "3b793953331f3de47bed35b60eee6a94ff0e0f24565274d3416c0456cced64c5"
+    },
+    {
+      "path": "research/bridge_open/svarah_extension/PROTOCOL.md",
+      "bytes": 3000,
+      "sha256": "956af0e813e0533fc7f709b4c16c335ffbd6f7c795516c2dff785d255b8053b7"
+    },
+    {
+      "path": "research/bridge_open/svarah_extension/prepare.py",
+      "bytes": 28089,
+      "sha256": "53be1eb24ac2617aa8b29a62882a5ff07232bb61b533170f3b0eae8234b3b8e9"
+    },
+    {
+      "path": "research/bridge_open/validate_svarah_inputs.py",
+      "bytes": 5073,
+      "sha256": "92957d6e1dfdb28c381ac3739ca63d5a2c95db9364fc99a3c6d7d24fc04e2e6f"
+    }
+  ]
+}

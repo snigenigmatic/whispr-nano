@@ -1,0 +1,111 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{booktabs,amsmath}
+\usepackage[hidelinks]{hyperref}
+\usepackage{natbib}
+\title{Recognition Errors and Resource Use in Open ASR for Indian Speech:\\A Reproducible Case Study}
+\author{C. Kaustubh and collaborators\\Working manuscript; authorship order to be confirmed}
+\date{24 September 2026}
+\begin{document}
+\maketitle
+\begin{center}\textbf{Working draft. Planned measurements complete; human review pending.}\end{center}
+\begin{abstract}
+Selecting an open automatic speech recognition system requires more than its mean word error rate (WER). We study a fixed set of six inference recipes on verified public audio, preserving source identity, complete predictions, decoding settings, and failure evidence. The study covers complete selected FLEURS test cohorts for Hindi, Bengali and Assamese and a separately reported availability-selected subset of 518 Indian-English Svarah recordings. Completed measurements show substantial differences between systems and across tracks. On the available Svarah subset, Whisper Small produces 522 word edits over 5,389 reference words (9.69\% WER), compared with 444 edits (8.24\%) for Large-v3, 672 edits (12.47\%) for Turbo and 733 edits (13.60\%) for Qwen3-ASR 1.7B. The same Small recipe has 57.80\% WER on Hindi FLEURS, demonstrating the importance of track-specific selection. A matched GPU panel measures all six systems, while a bounded listening review remains pending. The resource panel is too small to establish a corpus-wide accuracy ranking. We propose no new recognition method and make no demographic fairness, mobile-device, or matched commercial-leaderboard claim.
+\end{abstract}
+
+\section{Research question and positioning}
+The practical question is which of a defined set of open systems is appropriate for the measured speech conditions when recognition error, severe per-recording failures, latency and memory all matter. Our original compact-model motivation is represented by explicit size comparisons, rather than an assumption that parameter count alone determines useful efficiency.
+
+Broad Indian-language evaluation is already established. Vimarsha combines diverse recording conditions with reviewed orthographic alternatives and evaluates demographic and acoustic effects \citep{vimarsha}. OpenWER studies language-dependent normalization and token alignment across languages \citep{openwer}. Responsible ASR evaluates open and commercial systems on Hindi and Indian-English telephony and investigates adaptation \citep{responsible}. Our smaller, differently constructed cohorts do not supersede these contributions. The candidate contribution is a reproducible systems audit that connects declared inference recipes, per-recording failures and measured resource use. Its usefulness must be demonstrated by a concrete model-selection conclusion; additional leaderboard rows alone do not establish novelty.
+
+\section{Data and scope}
+\begin{table}[h]
+\centering
+\begin{tabular}{lrrl}\toprule
+Track & Recordings & Scope & Interpretation \\\midrule
+FLEURS Hindi & 418 & Test & Read speech \\
+FLEURS Bengali & 920 & Test & Read speech \\
+FLEURS Assamese & 984 & Test & Read speech \\
+Svarah English & 518 & Partial & Available shard only \\\bottomrule
+\end{tabular}
+\caption{Frozen evaluation cohorts. Track results are not pooled into a single ranking.}\label{tab:data}
+\end{table}
+FLEURS \citep{fleurs} is pinned to dataset revision \texttt{70bb2e84} (full revision retained in the artifact). Each selected original waveform and reference is joined by identifier and checked by hash against source archives. Audio is decoded with its verified sample rate; a declared 16 kHz input is not obtained by relabeling samples from another rate. Short and long recordings retain their complete waveform under the declared routing policy.
+
+The Svarah extension \citep{svarah} uses all 518 recoverable recordings in one cached shard, corresponding to original global indices 6,138--6,655 in a 6,656-record manifest. The other source shards were not recovered. All 16 clipping-flagged recordings remain included. Of these 518 recordings, 209 had prior exposure in project work. This is consequently neither a representative random sample of the full corpus nor an untouched confirmation set. Speaker identifiers have not been verified, so utterances cannot be treated as independently sampled speakers.
+
+Earlier public conversational examples with inconsistent audio/reference content are excluded from the retained comparison. This does not establish a defect in the private BRIDGE benchmark. Public replacements cannot support a matched comparison with Humyn's published closed-system leaderboard.
+
+\section{Inference and evidence contract}
+The fixed shortlist comprises Whisper-family Small, Turbo and Large-v3 releases \citep{whisper}; Qwen3-ASR 0.6B and 1.7B \citep{qwen}; and OmniASR CTC 1B \citep{omni}. Pinned release artifacts distinguish these versions from the original family papers. Qwen Bengali and Assamese are outside documented support in this plan, yielding 20 supported model--track cells. Every model revision and actual weight digest is recorded.
+
+Whisper uses float32, beam-five HF short-form inference for recordings at most 30 seconds and the accepted official native full-waveform route for longer recordings. Native and HF weights and mel features are checked; Whisper Small uses 80 mel bins, whereas the evaluated Large-v3-family models use 128 mel bins. Qwen uses its native transcription API, BF16, greedy decoding, batch size eight and an explicit supported language. Omni uses its native BF16, batch-one CTC API. These are system recipes with different search and precision settings, not an isolated causal comparison of model architectures.
+
+Acceptance requires exact cohort coverage, no duplicate prediction identifiers, original audio/reference digests, executed source and effective configuration, model assets, and independent metric recomputation. Empty outputs remain scored. Runtime errors remain visible and an incomplete run is not accepted as a complete quality cell. Native CTC has no autoregressive end-of-sequence (EOS) token; native Whisper termination evidence is reported only where the API exposes it. We do not infer successful EOS termination from a nonempty transcript. Acceptance establishes artifact integrity under a declared recipe, not that the recipe is optimal or free of decoding failures.
+
+\section{Measures and analysis}
+The primary scorer applies Unicode NFC normalization, case folding, Unicode-punctuation replacement and whitespace tokenization. It makes no numeral conversion or reference repair. Corpus WER is
+\[
+\mathrm{WER}=\frac{\sum_i(S_i+D_i+I_i)}{\sum_i N_i},
+\]
+with character error rate (CER), utterance word-information loss, coverage and empty-output counts reported alongside it. Empty-output counts refer to normalized text unless specified; raw-empty counts are retained separately because punctuation-only text normalizes to empty. The fraction of utterances with WER at least 100\% describes an edit-count tail, not a human judgment of semantic failure. A word-error denominator is retained for every aggregate. Single-reference spelling differences remain a limitation; we do not change the primary scorer after seeing rankings.
+
+\paragraph{Resource panel.} Every system is measured on the same pre-exposed 12-item Svarah panel, at batch size one on the same A100 80GB hardware class. Original arrays are loaded before the clock. One complete warmup pass precedes three timed passes, with CUDA synchronization surrounding each call. Timed work includes feature preparation, device transfer, decoding and text postprocessing, while model loading, file I/O and scoring are excluded. Timed calls retain per-call audio hashes; warmups are bound to the same preloaded arrays through the archived harness rather than per-call hashes. We record allocated and reserved memory peaks, per-call latency, and corpus real-time factor as summed inference seconds divided by summed audio seconds. Repetitions measure timing variability; they do not create 36 independent reference observations. Panel quality is scored from the final pass. Full-cohort Qwen batch-eight quality is not automatically interchangeable with batch-one resource quality.
+
+\paragraph{Listening review.} The frozen FLEURS review packet contains 50 recordings: 18 Hindi, 16 Bengali and 16 Assamese, with 30 randomly selected and 20 targeted items. Reviewers see anonymized system outputs and judge reference fidelity, language, script and meaning separately. Unclear audio and uncertainty are valid responses. Ratings remain pending until supplied by language-competent reviewers; deterministic Unicode diagnostics do not substitute for listening. The targeted mixture cannot estimate population error prevalence. A separate English packet contains the same 12 pre-exposed resource-panel recordings with 72 anonymous final-pass transcript cards. It adds no independent observations. All actual ratings in both packets remain blank; importer tests use synthetic responses only.
+
+\section{Current measured results}
+\begin{table}[h]
+\centering
+\begin{tabular}{lrrrr}\toprule
+System & Hindi & Bengali & Assamese & Svarah subset \\\midrule
+Whisper Small & 57.80 & 194.58 & 214.50 & 9.69 \\
+Whisper Turbo & 31.35 & 85.86 & 134.71 & 12.47 \\
+Whisper Large-v3 & 28.21 & 74.70 & 113.30 & 8.24 \\
+Qwen3-ASR 0.6B & 18.50 & --- & --- & 16.39 \\
+Qwen3-ASR 1.7B & 13.09 & --- & --- & 13.60 \\
+OmniASR CTC 1B & 21.50 & 24.52 & 33.76 & 64.63 \\\bottomrule
+\end{tabular}
+\caption{Accepted primary corpus WER (\%) for all 20 supported conditions; dashes denote unsupported conditions in the plan. Scores above 100\% include insertions and retained decoding failures. Svarah is reported separately because of its availability-selected sampling.}\label{tab:wer}
+\end{table}
+Table~\ref{tab:wer} shows a concrete reversal: Small outperforms Turbo on the available Svarah shard, but has substantially higher Hindi error. Small has 150 fewer Svarah edits than Turbo, but 78 more than Large-v3 (1.45 percentage points); on Hindi, 21 of its 418 decoded outputs lack observed EOS under the fixed 440-new-token limit and remain included in scoring. No single average across these tracks would be a useful summary. On the available Svarah subset, the smaller Qwen model has 150 additional word edits, or 2.78 percentage points more WER than the 1.7B model. This is a descriptive, paired-cohort size comparison, not an adaptation gain or evidence that the larger model is preferable under every resource constraint.
+
+The mean and tail measures also differ: Large-v3 has lower Svarah corpus WER than Small, but 41 recordings with WER at least 100\%, versus 32 for Small. This threshold depends on reference length and is not a count of independently judged semantic failures.
+
+Omni's available-Svarah WER corresponds to 3,483 edits over the same 5,389 reference words; 26 outputs are empty. Post-hoc Unicode analysis found non-Latin letters in 309 outputs. This observation is not a causal account of the errors: Qwen was explicitly conditioned on English, while the Omni CTC recipe had no matching language-selection control. Human review is required to distinguish language, script and meaning errors. No script-repair method is tested in this audit.
+
+Small's Bengali and Assamese results contain severe decoding failures under the declared forced-language, beam-five recipe with a 440-new-token short-form limit. Bengali has 34,565 edits over 17,764 reference words, including 16,828 insertions; Assamese has 41,643 edits over 19,414 words, including 22,252 insertions. Observed EOS is absent in 285 of 911 Bengali short-form outputs and 300 of 980 Assamese short-form outputs. Normalized-empty counts are 40 and 42, whereas raw-empty counts are only two and one. These outputs remain scored. Source waveform, sample-rate, model-weight and mel-feature checks passed. Three fixed native short-form spotchecks per language reproduced examples of repetition and punctuation-only output, but did not establish full-cohort native/HF equivalence. These high scores characterize the retained recipes and their failures; they are not an exhaustive assessment of Whisper decoding alternatives.
+
+The completed quality matrix contains 13,232 primary predictions over 2,840 unique recordings. The resource measurements are also complete, but human listening review and the assessment of the paper's contribution remain unfinished. FLEURS results do not establish spontaneous conversational robustness or demographic fairness.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lrrr}\toprule
+System & Panel WER (\%) & Corpus RTF & Peak GiB \\\midrule
+Whisper Small & 9.03 & 0.03615 & 1.494 \\
+Whisper Turbo & 12.50 & 0.04040 & 3.491 \\
+Whisper Large-v3 & 15.97 & 0.10947 & 8.346 \\
+Qwen 0.6B & 26.39 & 0.08026 & 1.678 \\
+Qwen 1.7B & 27.08 & 0.09862 & 4.018 \\
+Omni CTC 1B & 62.50 & 0.00377 & 2.449 \\
+\bottomrule\end{tabular}
+\caption{Matched 12-record resource panel: final-pass WER over 144 reference words, median of three pass-level real-time factors, and maximum allocated GPU memory. All calls completed. Model-specific precision and search are retained.}\label{tab:resource}
+\end{table}
+The resource panel in Table~\ref{tab:resource} provides a controlled hardware observation, not a full-corpus ranking. The panel reverses Small and Large-v3's observed quality ordering: Small has lower panel error, whereas Large-v3 has lower error on the full available shard. All three Whisper recipes produce identical panel transcripts in primary batch-eight and resource batch-one runs. Thus these retained predictions illustrate sensitivity to the evaluated subset, not a general compact-model advantage. Qwen's batch-one outputs differ from its primary batch-eight outputs on one of 12 clips for 0.6B and five for 1.7B; accordingly the resource table uses its own matched panel quality. Omni offers low measured RTF but high panel error. All three pass-level timing values and their ranges are retained in the artifact; they are not statistical confidence intervals. Cold-start cost and phone behavior were not measured.
+
+\section{Limitations and release boundary}
+The test cohorts have informed engineering diagnostics and were not reserved for evaluating a subsequently tuned method. Different language conditioning, precision and search prevent architecture-only conclusions. FLEURS read speech and the partial Svarah shard leave important domains uncovered. Reference ambiguity, unverified speaker grouping and pending listening review constrain interpretation. GPU measurements cannot establish phone latency, memory feasibility or battery use, and elapsed worker time is not provider billing.
+
+The intended artifact includes pinned configurations, source checks, retained predictions, metric denominators, resource traces and an offline inspection/review interface. The manuscript's completion gates are the finite supported coverage matrix, accepted common-panel resource measurements, completed bounded listening review, and a defensible distinction from prior work. Publication acceptance is not implied by satisfying engineering checks.
+
+\begin{thebibliography}{9}
+\bibitem[Bhogale et al.(2026)]{vimarsha} Kaushal Bhogale et al. Vimarsha: Faithful ASR Evaluation for Indian Languages with Demographic Diversity, In-the-Wild Audio and Spelling Variations. arXiv:2609.24199, 2026. \url{https://www.alphaxiv.org/pdf/2609.24199}.
+\bibitem[Kuhn and Zimmermann(2026)]{openwer} Korbinian Kuhn and Gottfried Zimmermann. OpenWER: Improving Cross-Lingual ASR Evaluation and Enabling Token-Based Accuracy Metrics. arXiv:2606.21237, 2026. \url{https://www.alphaxiv.org/pdf/2606.21237}.
+\bibitem[Godambe et al.(2026)]{responsible} Tejas Godambe et al. Responsible ASR: Overcoming Challenges of Foundational Models in Narrow-Band and Low-Resource Settings. arXiv:2606.18659, 2026. \url{https://www.alphaxiv.org/pdf/2606.18659}.
+\bibitem[Conneau et al.(2022)]{fleurs} Alexis Conneau et al. FLEURS: Few-shot Learning Evaluation of Universal Representations of Speech. arXiv:2205.12446, 2022. \url{https://www.alphaxiv.org/pdf/2205.12446}.
+\bibitem[Javed et al.(2023)]{svarah} Tahir Javed et al. Svarah: Evaluating English ASR Systems on Indian Accents. Interspeech, 2023. \url{https://www.alphaxiv.org/pdf/2305.15760}.
+\bibitem[Radford et al.(2022)]{whisper} Alec Radford et al. Robust Speech Recognition via Large-Scale Weak Supervision. arXiv:2212.04356, 2022. \url{https://www.alphaxiv.org/pdf/2212.04356}.
+\bibitem[Qwen Team(2026)]{qwen} Qwen Team. Qwen3-ASR Technical Report. arXiv:2601.21337, 2026. \url{https://www.alphaxiv.org/pdf/2601.21337}.
+\bibitem[Omnilingual ASR Team(2025)]{omni} Omnilingual ASR Team. OmniASR-CTC-1B model card and inference implementation. 2025. \url{https://huggingface.co/facebook/omniASR-CTC-1B}. Evaluated revision: \texttt{8c22e3ff}.
+\end{thebibliography}
+\end{document}

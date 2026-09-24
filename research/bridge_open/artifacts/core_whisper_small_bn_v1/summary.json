@@ -1,0 +1,15 @@
+{
+  "status": "completed",
+  "purpose": "fixed public-data Whisper core condition",
+  "total_wall_seconds": 1451.0166718129767,
+  "attempted": 920,
+  "prediction_records": 920,
+  "scored": 920,
+  "runtime_failures": 0,
+  "micro_wer": 1.9457892366584102,
+  "status_counts": {
+    "empty_output": 40,
+    "generation_limit": 247,
+    "success": 633
+  }
+}

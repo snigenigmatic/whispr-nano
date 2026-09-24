@@ -1,4 +1,12 @@
-# Svarah fairness audit — six systems, six structural gaps
+# Svarah fairness audit — historical pilot artifacts
+
+> **Interpretation corrected September 2026.** The [replication and reliability
+> study](../../paper/README.md) supersedes the original claims below. Saaras used
+> a different sample from the open models, Bodo is the only language represented
+> by the Sino-Tibetan label, and the independent Poisson tests ignore dependence
+> and substantial overdispersion. Retained CSVs and summaries reproduce the pilot;
+> their `structural` labels are not validated speaker-population conclusions.
+> Use the new matched-panel analysis and manuscript when citing current findings.
 
 This is the canonical home for the PW25_BJD_05 Phase 3 pivot's audit
 deliverable: **"Whose Indian accent? A significance-tested subgroup audit of
@@ -23,7 +31,7 @@ python assemble.py                # writes master_audit_table.{csv,md}
 python -m pytest test_assemble.py -v   # 9 tests: schema drift + math regression
 ```
 
-## Results: every system tested shows the same structural pattern
+## Historical results under the pilot's scoring and test
 
 | System | Overall WER | ΔDP | Poisson p | Verdict | n | Cost |
 |---|---|---|---|---|---|---|

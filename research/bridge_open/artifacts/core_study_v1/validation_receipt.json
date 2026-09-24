@@ -1,0 +1,50 @@
+{
+  "schema": "core-study-final-validation/v1",
+  "date": "2026-09-24",
+  "checks": {
+    "focused_tests": {
+      "passed": 52,
+      "command": ".venv/bin/python -m pytest -q research/bridge_open/core_study/test_accept_whisper_core.py research/bridge_open/core_study/test_accept_qwen06.py research/bridge_open/core_study/test_summarize_quality.py tests/test_core_review_import.py tests/test_core_resource_profile.py tests/test_core_resources_acceptance.py tests/test_resource_results_provenance.py research/bridge_open/listening_review_core_en_v1/test_review_import.py"
+    },
+    "quality": {
+      "accepted": 20,
+      "pending": 0,
+      "predictions": 13232,
+      "unique_recordings": 2840
+    },
+    "resources": {
+      "accepted": 6,
+      "unique_panel_recordings": 12,
+      "timed_passes": 3
+    },
+    "pdf": {
+      "compiled": true,
+      "pages": 6,
+      "final_pass_undefined_references": false,
+      "visual_qa_pages": [
+        1,
+        4
+      ],
+      "note": "Working article layout, not venue submission formatting; harmless underfull bibliography line."
+    },
+    "viewer": {
+      "built": true,
+      "browser_header_verified": true,
+      "accepted_cells": 20,
+      "pending_cells": 0,
+      "recordings": 2840
+    },
+    "human_review": {
+      "actual_ratings_imported": 0,
+      "complete": false
+    }
+  },
+  "sha256": {
+    "core_audit.tex": "e4e0b2e4fe051ad0beeba391e9727ea49b67a0ec93eb7982a73ee888ddb6e00e",
+    "core_audit.pdf": "859b4970489fc405eb5279b6e614bd4cd5ae625a110b378fc6ccf06744340d4c",
+    "research/bridge_open/core_study/quality_results.json": "0b9c40454b226028dfcad688f03e2efee8bbb2bb99be2b3110bb24b962a77cfe",
+    "research/bridge_open/core_study/resource_results.json": "25a7442aca027911ee069ee64adf90462a942540328edda8e0f825d70a7b896f",
+    "research/bridge_open/core_study/completion_matrix.json": "b196b27a7f3a8ea97af6ec130ef97fa1241d464431737fbe576fa10288dc46fa",
+    "research/bridge_open/artifacts/core_study_v1/index.html": "03716177724c245dd50aa78af41976da42573e09c140474861134e9d3f995788"
+  }
+}

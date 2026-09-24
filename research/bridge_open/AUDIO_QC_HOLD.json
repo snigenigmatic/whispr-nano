@@ -1,0 +1,14 @@
+{
+  "gpu_expansion_allowed": false,
+  "reason": "Five files have nonempty reference intervals over exact digital silence; aligned evaluation panel requires review.",
+  "affected_conversation_ids": [
+    "humyn-00-00",
+    "humyn-00-01",
+    "humyn-01-00",
+    "humyn-01-01",
+    "humyn-02-00"
+  ],
+  "source_revision": "2e4879d569bd57f675c227a41fecf4a2e56f467c",
+  "audit_run_id": "8cc9e313-fcbf-4bc2-8e58-af74d897ede2",
+  "scope": "Local study guard; not a provider-level billing lock."
+}

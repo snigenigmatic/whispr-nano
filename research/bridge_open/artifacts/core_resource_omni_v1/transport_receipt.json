@@ -1,0 +1,15 @@
+{
+  "sha256": "94045ca323b858bb8e4b37ec4e690d550d85b1e795e5849a71a66d3cb2e57623",
+  "files": [
+    "artifact_transport.json",
+    "config.json",
+    "container_receipt.json",
+    "environment.json",
+    "hf_receipt.json",
+    "quality_predictions.jsonl",
+    "quality_summary.json",
+    "remote_validation.json",
+    "resource_profile.json"
+  ],
+  "chunks": 6
+}

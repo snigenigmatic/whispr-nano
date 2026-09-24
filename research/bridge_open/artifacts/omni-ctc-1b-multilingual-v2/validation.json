@@ -1,0 +1,6 @@
+{
+  "valid": true,
+  "output_dir": "research/bridge_open/artifacts/omni-ctc-1b-multilingual-v2",
+  "conversation_count": 30,
+  "errors": []
+}

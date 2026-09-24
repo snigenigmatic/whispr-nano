@@ -1,0 +1,80 @@
+{"event": "reserved_and_uploaded", "job_id": "omni-ctc-1b-multilingual-v1", "reserved_usd": 1.5, "new_spending_cap_usd": 15, "files": 61}
+Traceback (most recent call last):
+  File "/Users/prateekraj/whispr-nano/.venv/lib/python3.12/site-packages/modal/_serialization.py", line 115, in deserialize
+    return Unpickler(client, io.BytesIO(s)).load()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ModuleNotFoundError: No module named 'fairseq2'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/prateekraj/.local/share/openresearch/local-runs/e29469c3-5b88-4b78-a091-ece8aeace755/repo/experiments/publication_run.py", line 11, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/Users/prateekraj/.local/share/openresearch/local-runs/e29469c3-5b88-4b78-a091-ece8aeace755/repo/research/bridge_open/cloud_launcher.py", line 36, in main
+    result = evaluate.remote(config)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/prateekraj/whispr-nano/.venv/lib/python3.12/site-packages/modal/_object.py", line 46, in wrapped
+    return await method(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/prateekraj/whispr-nano/.venv/lib/python3.12/site-packages/modal/_functions.py", line 1841, in remote
+    return await self._call_function(args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/prateekraj/whispr-nano/.venv/lib/python3.12/site-packages/modal/_functions.py", line 1778, in _call_function
+    return await invocation.run_function()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/prateekraj/whispr-nano/.venv/lib/python3.12/site-packages/modal/_functions.py", line 502, in run_function
+    return await _process_result(
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/prateekraj/whispr-nano/.venv/lib/python3.12/site-packages/modal/_utils/function_utils.py", line 547, in _process_result
+    raise ExecutionError(
+modal.exception.ExecutionError: Could not deserialize remote exception due to local error:
+Deserialization failed because the 'fairseq2' module is not available in the local environment.
+This can happen if your local environment does not have the remote exception definitions.
+Here is the remote traceback:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/fairseq2/models/family.py", line 366, in load_model
+    return self._do_load_model(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/fairseq2/models/family.py", line 439, in _do_load_model
+    set_model_state(model, checkpoint, pr)
+  File "/usr/local/lib/python3.12/site-packages/fairseq2/models/utils/checkpoint.py", line 43, in set_model_state
+    for key, tensor in checkpoint:
+                       ^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/fairseq2/models/family.py", line 515, in _do_iter_checkpoint
+    yield from self._checkpoint_loader.lazy_load(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/fairseq2/model_checkpoint/delegating.py", line 75, in lazy_load
+    raise ModelCheckpointError(path, msg)
+fairseq2.model_checkpoint.loader.ModelCheckpointError: /__modal/volumes/vo-g17IN8vb8sTRtUwmFmQ5H2/models--facebook--omniASR-CTC-1B/blobs/e8564fa59dab7caedbcdb54ab7fb9bd6c96989f4d19add2ad81ddd969716952c does not point to any known checkpoints.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/pkg/modal/_runtime/container_io_manager.py", line 977, in handle_input_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 187, in run_input_sync
+    values = io_context.call_function_sync()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/pkg/modal/_runtime/container_io_manager.py", line 265, in call_function_sync
+    expected_value_or_values = self.finalized_function.callable(*args, **kwargs)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/research/bridge_open/modal_omni_worker.py", line 71, in evaluate
+    exit_code = run(path)
+                ^^^^^^^^^
+  File "/root/project/research/bridge_open/run_omni.py", line 138, in run
+    pipeline, assets = _load_pinned_pipeline()
+                       ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/project/research/bridge_open/run_omni.py", line 78, in _load_pinned_pipeline
+    model = load_model(model_card, device=torch.device("cuda"), dtype=torch.bfloat16, progress=False)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/fairseq2/models/hub.py", line 717, in load_model
+    return global_loader.load(card, gangs, device, dtype, config, mmap, progress)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/fairseq2/models/hub.py", line 769, in load
+    return family.load_model(card, gangs, dtype, config, mmap, progress)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/fairseq2/models/family.py", line 379, in load_model
+    raise AssetCardError(name, msg) from ex
+fairseq2.assets.card.AssetCardError: Model checkpoint of the omniASR_CTC_1B asset card cannot be loaded.
+

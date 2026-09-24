@@ -1,0 +1,19 @@
+{
+  "provider": "huggingface",
+  "gpu": "NVIDIA A100-SXM4-80GB",
+  "torch_version": "2.8.0+cu128",
+  "cuda_version": "12.8",
+  "elapsed_seconds": 59.90562604297884,
+  "timeout_seconds": 1800,
+  "cloud_cost_usd": null,
+  "provider_bill_verified": false,
+  "cost_note": "Cost is null: elapsed setup/runtime is not a provider billing record.",
+  "worker_failure": null,
+  "source_sha256": {
+    "experiments/hf_run.py": "59d6fd376df1591d0000a09209c5ad03d1cd5668d96690c9619cb0592e211276",
+    "research/bridge_open/stage_fleurs.py": "6d2c4a53c38a314acf194fa95b0334dd5b85195f39c44785831e10cac4f42b92",
+    "research/bridge_open/omni_extension/run_omni_full.py": "40ab977d1beaae0b9bc63ea08cf87680146a5c0ac1f1dcdb0d598e75c3bb99f0",
+    "research/bridge_open/omni_extension/validate_run.py": "145fdf994410dcc2e04bcabd41a85efecd039ad759b68fcf2bbcfec62f6d83ae",
+    "research/bridge_open/run_config.json": "e056f215b453b6bbb24dcb40b1a687cae5d62f344f47b7e788fddf5d965bdb03"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "model": {
+    "model_id": "openai/whisper-large-v3",
+    "model_revision": "06f233fe06e710322aca913c1bc4249a0d71fce1",
+    "native_model": "large-v3",
+    "expected_native_checkpoint_sha256": "e5b1a55b89c1367dacf97e3e19bfd829a01529dbfdeefa8caeb59b3f1b81dadb"
+  },
+  "gpu": "NVIDIA A100-SXM4-80GB",
+  "model_eval": true,
+  "actual_dtype": "torch.float32",
+  "checkpoint_sha256": "e5b1a55b89c1367dacf97e3e19bfd829a01529dbfdeefa8caeb59b3f1b81dadb",
+  "script_sha256": "aadea61e90b01430c59946c5faf8cb29406186e5abff2e48fc29ff3a5492960b",
+  "scorer_sha256": "a63c0fdce68e33810bf233c813a5ebad0f3692e6718aad2828a802b2e776ff3c",
+  "native_source_sha256": {
+    "audio.py": "36ed287b2de3eaf40207cd2a44a8d45d57ea5c212a39df07401d4fcb4d5a5a1a",
+    "model.py": "473491a97554ad1d0beaaef6fe91d965f12785b466b93ebb61024307b50ad683",
+    "decoding.py": "94084fedc5af74cabf8e1883a85552700057081f00ea669ad49435ecb29039db",
+    "transcribe.py": "848b82877500d6fb8f0b91bee7a08ac67ef670a113591d11b494848d263ad0f6",
+    "tokenizer.py": "3b48e361a7e95b4ec0356ca6d72bba635778aa10269153136ee7bc34cae30b85"
+  },
+  "packages": {
+    "torch": "2.8.0+cu128",
+    "openai-whisper": "20250625",
+    "numpy": "2.2.6",
+    "soundfile": "0.13.1",
+    "jiwer": "4.0.0"
+  },
+  "model_load_seconds": 51.085590157003026,
+  "measured_cost_usd": null
+}

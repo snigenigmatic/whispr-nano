@@ -1,0 +1,12 @@
+{
+  "validation": "pass",
+  "independent_audio_decoder": "scipy.io.wavfile",
+  "files": 36,
+  "per_language": {
+    "hi": 12,
+    "bn": 12,
+    "as": 12
+  },
+  "cloud_cost_usd": 0,
+  "scope": "Hashes, rate, shape, finite/nonzero waveform and development split; not transcript correctness."
+}

@@ -1,0 +1,37 @@
+{
+  "model_id": "openai/whisper-large-v3-turbo",
+  "model_revision": "41f01f3fe87f28c78e2fbf8b568835947dd65ed9",
+  "manifest_path": "/Users/prateekraj/whispr-nano/data/bridge_open/humyn_public_v1/corpus-v1.jsonl",
+  "manifest_sha256": "e6992a043c9448a9974d1707186ee8cbfda87154b1d4aad940c8546c4054aa78",
+  "conversation_ids": [
+    "humyn-13-00",
+    "humyn-13-01",
+    "humyn-14-00"
+  ],
+  "supported_languages": [
+    "as",
+    "bn",
+    "gu",
+    "hi",
+    "kn",
+    "ml",
+    "mr",
+    "pa",
+    "ta",
+    "te"
+  ],
+  "device": "cuda",
+  "seed": 12,
+  "chunk_seconds": 30,
+  "batch_size": 8,
+  "max_new_tokens": 440,
+  "max_wall_seconds": 780,
+  "output_dir": "/tmp/hindi-turbo-cuda-greedy-v1",
+  "metric_protocol": "NFC casefold Unicode punctuation to spaces; whitespace words; whitespace-free Unicode codepoint CER; no numeral conversion; JiWER 4.0.0",
+  "purpose": "public-data engineering pilot, not held-out model ranking",
+  "executor": "modal",
+  "cloud_job_id": "hindi-turbo-cuda-greedy-v1",
+  "num_beams": 1,
+  "return_timestamps": false,
+  "condition_id": "audio_only_fixed_30s_no_overlap_cuda_greedy"
+}
