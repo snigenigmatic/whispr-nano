@@ -1,0 +1,76 @@
+{
+  "forced_hi_app_id": "ap-OMGEIKntgPKsA2aHsgSked",
+  "forced_hi_rows": 176,
+  "auto_rows_available": 800,
+  "matched_rows": 176,
+  "not_full_benchmark": true,
+  "forced_hi_reference_latin_only": 89,
+  "forced_hi_output_longer_than_3x_ref": 12,
+  "forced_hi_outputs_with_token_repeated_4_or_more": 12,
+  "forced_hi_metrics_all_cached": {
+    "WER": {
+      "value": 1.1583577712609971,
+      "errors": 1975,
+      "denominator": 1705
+    },
+    "CER": {
+      "value": 0.999157134256472,
+      "errors": 8298,
+      "denominator": 8305
+    },
+    "TokER[LAT]": {
+      "value": 0.8402777777777778,
+      "errors": 847,
+      "denominator": 1008
+    },
+    "TokER[DEV]": {
+      "value": 0.19225251076040173,
+      "errors": 134,
+      "denominator": 697
+    }
+  },
+  "matched_forced_hi": {
+    "WER": {
+      "value": 1.1583577712609971,
+      "errors": 1975,
+      "denominator": 1705
+    },
+    "CER": {
+      "value": 0.999157134256472,
+      "errors": 8298,
+      "denominator": 8305
+    },
+    "TokER[LAT]": {
+      "value": 0.8402777777777778,
+      "errors": 847,
+      "denominator": 1008
+    },
+    "TokER[DEV]": {
+      "value": 0.19225251076040173,
+      "errors": 134,
+      "denominator": 697
+    }
+  },
+  "matched_auto": {
+    "WER": {
+      "value": 0.30557184750733135,
+      "errors": 521,
+      "denominator": 1705
+    },
+    "CER": {
+      "value": 0.2587597832630945,
+      "errors": 2149,
+      "denominator": 8305
+    },
+    "TokER[LAT]": {
+      "value": 0.21329365079365079,
+      "errors": 215,
+      "denominator": 1008
+    },
+    "TokER[DEV]": {
+      "value": 0.2654232424677188,
+      "errors": 185,
+      "denominator": 697
+    }
+  }
+}
