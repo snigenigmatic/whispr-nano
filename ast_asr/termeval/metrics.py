@@ -129,7 +129,10 @@ def pooled_metrics(rows: Iterable[ScoredUtterance]) -> dict[str, tuple[float | N
     totals: Counter[str] = Counter()
     for row in rows:
         totals.update(row.totals)
+    return _metrics_from_totals(totals)
 
+
+def _metrics_from_totals(totals: Counter[str]) -> dict[str, tuple[float | None, int, int]]:
     def rate(name: str, num: int, den: int) -> tuple[str, tuple[float | None, int, int]]:
         return name, (num / den if den else None, num, den)
 
@@ -148,17 +151,19 @@ def cluster_bootstrap(
     rows: list[ScoredUtterance], *, n_resamples: int = 1000, seed: int = 20261011
 ) -> dict[str, tuple[float | None, float | None]]:
     """95% percentile intervals from resampling speakers/recordings."""
-    by_cluster: dict[str, list[ScoredUtterance]] = defaultdict(list)
+    by_cluster: dict[str, Counter[str]] = defaultdict(Counter)
     for row in rows:
-        by_cluster[row.speaker].append(row)
+        by_cluster[row.speaker].update(row.totals)
     keys = sorted(by_cluster)
     if not keys:
         return {}
     rng = random.Random(seed)
     samples: dict[str, list[float]] = defaultdict(list)
     for _ in range(n_resamples):
-        selected = [row for key in rng.choices(keys, k=len(keys)) for row in by_cluster[key]]
-        for metric, (value, _, _) in pooled_metrics(selected).items():
+        selected: Counter[str] = Counter()
+        for key in rng.choices(keys, k=len(keys)):
+            selected.update(by_cluster[key])
+        for metric, (value, _, _) in _metrics_from_totals(selected).items():
             if value is not None:
                 samples[metric].append(value)
     intervals = {}
