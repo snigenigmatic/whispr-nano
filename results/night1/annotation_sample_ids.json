@@ -1,0 +1,1206 @@
+{
+  "seed": 20261011,
+  "method": "speaker-balanced round-robin; HiACC 50 adult, 50 child",
+  "items": [
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "318923_NhV290ew2hDJfVqc_0076",
+      "speaker": "318923",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "103725_UO5ZLDtkc8QMi9Hk_0006",
+      "speaker": "103725",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "656852_dNHXkqqVPqWYhzis_0026",
+      "speaker": "656852",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "656144_VU6OA7HUqTpQNtm2_0131",
+      "speaker": "656144",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "161768_ZQC2TFqLsvNDq9bP_0006",
+      "speaker": "161768",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "478254_aVTioioyNUVPGF4t_0048",
+      "speaker": "478254",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "118638_nJfFvNUB8tQkaGgp_0040",
+      "speaker": "118638",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "103085_w5Jyq3XMbb3WwiKQ_0062",
+      "speaker": "103085",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "834022_lHGLSlYIb1clRBRF_0035",
+      "speaker": "834022",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "146881_TkzR0GrQyK0vSTuj_0000",
+      "speaker": "146881",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "921151_kvxzesc5pGxL6dnk_0020",
+      "speaker": "921151",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "453832_n3lwFhZkSdbJkOa0_0092",
+      "speaker": "453832",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "508088_RRrEfkw4Rh5TdJkS_0040",
+      "speaker": "508088",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "610773_nImMxiSAAmCMR3yi_0048",
+      "speaker": "610773",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "360746_4oLp3bc9OSJbDrwM_0019",
+      "speaker": "360746",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "388577_LPGZ2Jo8uBX4sx76_0081",
+      "speaker": "388577",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "791308_kGQKLyQ1HtnUNL1d_0106",
+      "speaker": "791308",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "124478_x8iijxWeCf26KNpC_0001",
+      "speaker": "124478",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "957491_4xyIm2P6Xzlin341_0069",
+      "speaker": "957491",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "598753_406yMKxIdSDHRf8H_0101",
+      "speaker": "598753",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "628028_K8YJLqIcMPJ5GftE_0051",
+      "speaker": "628028",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "137494_fpL6MBSZsci9dyAn_0134",
+      "speaker": "137494",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "270589_FV8hkymGWcy53lrf_0055",
+      "speaker": "270589",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "323507_HgEJsLGKNWSFl8T7_0056",
+      "speaker": "323507",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "347099_K5BlLYB9ynemLTVa_0066",
+      "speaker": "347099",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "521245_Psh5UDSFbhWLZ3gk_0019",
+      "speaker": "521245",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "408467_5baFeyjOxK8JQnNG_0022",
+      "speaker": "408467",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "133511_swLUjPHatcTk0wf8_0004",
+      "speaker": "133511",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "918821_jFTbEEy3BCO5axj5_0012",
+      "speaker": "918821",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "847066_Bmcrju1ByfdrXE9P_0063",
+      "speaker": "847066",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "318923_NhV290ew2hDJfVqc_0094",
+      "speaker": "318923",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "103725_UO5ZLDtkc8QMi9Hk_0004",
+      "speaker": "103725",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "656852_dNHXkqqVPqWYhzis_0013",
+      "speaker": "656852",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "656144_VU6OA7HUqTpQNtm2_0060",
+      "speaker": "656144",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "161768_ZQC2TFqLsvNDq9bP_0083",
+      "speaker": "161768",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "478254_aVTioioyNUVPGF4t_0125",
+      "speaker": "478254",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "118638_nJfFvNUB8tQkaGgp_0034",
+      "speaker": "118638",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "103085_w5Jyq3XMbb3WwiKQ_0044",
+      "speaker": "103085",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "834022_lHGLSlYIb1clRBRF_0044",
+      "speaker": "834022",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "146881_TkzR0GrQyK0vSTuj_0038",
+      "speaker": "146881",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "921151_kvxzesc5pGxL6dnk_0070",
+      "speaker": "921151",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "453832_n3lwFhZkSdbJkOa0_0033",
+      "speaker": "453832",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "508088_RRrEfkw4Rh5TdJkS_0070",
+      "speaker": "508088",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "610773_nImMxiSAAmCMR3yi_0043",
+      "speaker": "610773",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "360746_4oLp3bc9OSJbDrwM_0030",
+      "speaker": "360746",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "388577_LPGZ2Jo8uBX4sx76_0001",
+      "speaker": "388577",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "791308_kGQKLyQ1HtnUNL1d_0034",
+      "speaker": "791308",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "124478_x8iijxWeCf26KNpC_0021",
+      "speaker": "124478",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "957491_4xyIm2P6Xzlin341_0149",
+      "speaker": "957491",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "598753_406yMKxIdSDHRf8H_0102",
+      "speaker": "598753",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "628028_K8YJLqIcMPJ5GftE_0157",
+      "speaker": "628028",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "137494_fpL6MBSZsci9dyAn_0101",
+      "speaker": "137494",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "270589_FV8hkymGWcy53lrf_0058",
+      "speaker": "270589",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "323507_HgEJsLGKNWSFl8T7_0003",
+      "speaker": "323507",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "347099_K5BlLYB9ynemLTVa_0033",
+      "speaker": "347099",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "521245_Psh5UDSFbhWLZ3gk_0028",
+      "speaker": "521245",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "408467_5baFeyjOxK8JQnNG_0036",
+      "speaker": "408467",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "133511_swLUjPHatcTk0wf8_0054",
+      "speaker": "133511",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "918821_jFTbEEy3BCO5axj5_0035",
+      "speaker": "918821",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "847066_Bmcrju1ByfdrXE9P_0041",
+      "speaker": "847066",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "318923_NhV290ew2hDJfVqc_0032",
+      "speaker": "318923",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "103725_UO5ZLDtkc8QMi9Hk_0039",
+      "speaker": "103725",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "656852_dNHXkqqVPqWYhzis_0068",
+      "speaker": "656852",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "656144_VU6OA7HUqTpQNtm2_0020",
+      "speaker": "656144",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "161768_ZQC2TFqLsvNDq9bP_0054",
+      "speaker": "161768",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "478254_aVTioioyNUVPGF4t_0035",
+      "speaker": "478254",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "118638_nJfFvNUB8tQkaGgp_0003",
+      "speaker": "118638",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "103085_w5Jyq3XMbb3WwiKQ_0063",
+      "speaker": "103085",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "834022_lHGLSlYIb1clRBRF_0027",
+      "speaker": "834022",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "146881_TkzR0GrQyK0vSTuj_0060",
+      "speaker": "146881",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "921151_kvxzesc5pGxL6dnk_0050",
+      "speaker": "921151",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "453832_n3lwFhZkSdbJkOa0_0101",
+      "speaker": "453832",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "508088_RRrEfkw4Rh5TdJkS_0081",
+      "speaker": "508088",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "610773_nImMxiSAAmCMR3yi_0033",
+      "speaker": "610773",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "360746_4oLp3bc9OSJbDrwM_0044",
+      "speaker": "360746",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "388577_LPGZ2Jo8uBX4sx76_0082",
+      "speaker": "388577",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "791308_kGQKLyQ1HtnUNL1d_0015",
+      "speaker": "791308",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "124478_x8iijxWeCf26KNpC_0011",
+      "speaker": "124478",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "957491_4xyIm2P6Xzlin341_0055",
+      "speaker": "957491",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "598753_406yMKxIdSDHRf8H_0055",
+      "speaker": "598753",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "628028_K8YJLqIcMPJ5GftE_0011",
+      "speaker": "628028",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "137494_fpL6MBSZsci9dyAn_0091",
+      "speaker": "137494",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "270589_FV8hkymGWcy53lrf_0023",
+      "speaker": "270589",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "323507_HgEJsLGKNWSFl8T7_0073",
+      "speaker": "323507",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "347099_K5BlLYB9ynemLTVa_0005",
+      "speaker": "347099",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "521245_Psh5UDSFbhWLZ3gk_0079",
+      "speaker": "521245",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "408467_5baFeyjOxK8JQnNG_0085",
+      "speaker": "408467",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "133511_swLUjPHatcTk0wf8_0044",
+      "speaker": "133511",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "918821_jFTbEEy3BCO5axj5_0005",
+      "speaker": "918821",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "847066_Bmcrju1ByfdrXE9P_0076",
+      "speaker": "847066",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "318923_NhV290ew2hDJfVqc_0097",
+      "speaker": "318923",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "103725_UO5ZLDtkc8QMi9Hk_0022",
+      "speaker": "103725",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "656852_dNHXkqqVPqWYhzis_0059",
+      "speaker": "656852",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "656144_VU6OA7HUqTpQNtm2_0016",
+      "speaker": "656144",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "161768_ZQC2TFqLsvNDq9bP_0014",
+      "speaker": "161768",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "478254_aVTioioyNUVPGF4t_0065",
+      "speaker": "478254",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "118638_nJfFvNUB8tQkaGgp_0042",
+      "speaker": "118638",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "103085_w5Jyq3XMbb3WwiKQ_0043",
+      "speaker": "103085",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "834022_lHGLSlYIb1clRBRF_0038",
+      "speaker": "834022",
+      "group": null
+    },
+    {
+      "dataset": "mucs_hien",
+      "utt_id": "146881_TkzR0GrQyK0vSTuj_0004",
+      "speaker": "146881",
+      "group": null
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "adult_AD40029",
+      "speaker": "adult_AD40",
+      "group": "adult"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "adult_AD21080",
+      "speaker": "adult_AD21",
+      "group": "adult"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "adult_AD63021",
+      "speaker": "adult_AD63",
+      "group": "adult"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "adult_AD41006",
+      "speaker": "adult_AD41",
+      "group": "adult"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "adult_AD31082",
+      "speaker": "adult_AD31",
+      "group": "adult"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "adult_AD15082",
+      "speaker": "adult_AD15",
+      "group": "adult"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "adult_AD28090",
+      "speaker": "adult_AD28",
+      "group": "adult"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "adult_AD35003",
+      "speaker": "adult_AD35",
+      "group": "adult"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "adult_AD16066",
+      "speaker": "adult_AD16",
+      "group": "adult"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "adult_AD60033",
+      "speaker": "adult_AD60",
+      "group": "adult"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "adult_AD34119",
+      "speaker": "adult_AD34",
+      "group": "adult"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "adult_AD43098",
+      "speaker": "adult_AD43",
+      "group": "adult"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "adult_AD26136",
+      "speaker": "adult_AD26",
+      "group": "adult"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "adult_AD25037",
+      "speaker": "adult_AD25",
+      "group": "adult"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "adult_AD23007",
+      "speaker": "adult_AD23",
+      "group": "adult"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "adult_AD59002",
+      "speaker": "adult_AD59",
+      "group": "adult"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "adult_AD30094",
+      "speaker": "adult_AD30",
+      "group": "adult"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "adult_AD42060",
+      "speaker": "adult_AD42",
+      "group": "adult"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "adult_AD36148",
+      "speaker": "adult_AD36",
+      "group": "adult"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "adult_AD22015",
+      "speaker": "adult_AD22",
+      "group": "adult"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "adult_AD47023",
+      "speaker": "adult_AD47",
+      "group": "adult"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "adult_AD27091",
+      "speaker": "adult_AD27",
+      "group": "adult"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "adult_AD13036",
+      "speaker": "adult_AD13",
+      "group": "adult"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "adult_AD09098",
+      "speaker": "adult_AD09",
+      "group": "adult"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "adult_AD40063",
+      "speaker": "adult_AD40",
+      "group": "adult"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "adult_AD21129",
+      "speaker": "adult_AD21",
+      "group": "adult"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "adult_AD63022",
+      "speaker": "adult_AD63",
+      "group": "adult"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "adult_AD41065",
+      "speaker": "adult_AD41",
+      "group": "adult"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "adult_AD31094",
+      "speaker": "adult_AD31",
+      "group": "adult"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "adult_AD15069",
+      "speaker": "adult_AD15",
+      "group": "adult"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "adult_AD28128",
+      "speaker": "adult_AD28",
+      "group": "adult"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "adult_AD35039",
+      "speaker": "adult_AD35",
+      "group": "adult"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "adult_AD16060",
+      "speaker": "adult_AD16",
+      "group": "adult"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "adult_AD60026",
+      "speaker": "adult_AD60",
+      "group": "adult"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "adult_AD34121",
+      "speaker": "adult_AD34",
+      "group": "adult"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "adult_AD43050",
+      "speaker": "adult_AD43",
+      "group": "adult"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "adult_AD26095",
+      "speaker": "adult_AD26",
+      "group": "adult"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "adult_AD25057",
+      "speaker": "adult_AD25",
+      "group": "adult"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "adult_AD23037",
+      "speaker": "adult_AD23",
+      "group": "adult"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "adult_AD59137",
+      "speaker": "adult_AD59",
+      "group": "adult"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "adult_AD30066",
+      "speaker": "adult_AD30",
+      "group": "adult"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "adult_AD42046",
+      "speaker": "adult_AD42",
+      "group": "adult"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "adult_AD36001",
+      "speaker": "adult_AD36",
+      "group": "adult"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "adult_AD22019",
+      "speaker": "adult_AD22",
+      "group": "adult"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "adult_AD47048",
+      "speaker": "adult_AD47",
+      "group": "adult"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "adult_AD27108",
+      "speaker": "adult_AD27",
+      "group": "adult"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "adult_AD13061",
+      "speaker": "adult_AD13",
+      "group": "adult"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "adult_AD09076",
+      "speaker": "adult_AD09",
+      "group": "adult"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "adult_AD40007",
+      "speaker": "adult_AD40",
+      "group": "adult"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "adult_AD21044",
+      "speaker": "adult_AD21",
+      "group": "adult"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "children_CH03008",
+      "speaker": "children_CH03",
+      "group": "children"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "children_CH18050",
+      "speaker": "children_CH18",
+      "group": "children"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "children_CH21077",
+      "speaker": "children_CH21",
+      "group": "children"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "children_CH17064",
+      "speaker": "children_CH17",
+      "group": "children"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "children_CH19010",
+      "speaker": "children_CH19",
+      "group": "children"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "children_CH25085",
+      "speaker": "children_CH25",
+      "group": "children"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "children_CH12094",
+      "speaker": "children_CH12",
+      "group": "children"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "children_CH14016",
+      "speaker": "children_CH14",
+      "group": "children"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "children_CH05021",
+      "speaker": "children_CH05",
+      "group": "children"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "children_CH16067",
+      "speaker": "children_CH16",
+      "group": "children"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "children_CH22045",
+      "speaker": "children_CH22",
+      "group": "children"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "children_CH23039",
+      "speaker": "children_CH23",
+      "group": "children"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "children_CH24078",
+      "speaker": "children_CH24",
+      "group": "children"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "children_CH06029",
+      "speaker": "children_CH06",
+      "group": "children"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "children_CH15060",
+      "speaker": "children_CH15",
+      "group": "children"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "children_CH26087",
+      "speaker": "children_CH26",
+      "group": "children"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "children_CH11066",
+      "speaker": "children_CH11",
+      "group": "children"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "children_CH10008",
+      "speaker": "children_CH10",
+      "group": "children"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "children_CH08102",
+      "speaker": "children_CH08",
+      "group": "children"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "children_CH07024",
+      "speaker": "children_CH07",
+      "group": "children"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "children_CH03023",
+      "speaker": "children_CH03",
+      "group": "children"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "children_CH18053",
+      "speaker": "children_CH18",
+      "group": "children"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "children_CH21026",
+      "speaker": "children_CH21",
+      "group": "children"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "children_CH17074",
+      "speaker": "children_CH17",
+      "group": "children"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "children_CH19009",
+      "speaker": "children_CH19",
+      "group": "children"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "children_CH25072",
+      "speaker": "children_CH25",
+      "group": "children"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "children_CH12002",
+      "speaker": "children_CH12",
+      "group": "children"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "children_CH14013",
+      "speaker": "children_CH14",
+      "group": "children"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "children_CH05097",
+      "speaker": "children_CH05",
+      "group": "children"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "children_CH16014",
+      "speaker": "children_CH16",
+      "group": "children"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "children_CH22068",
+      "speaker": "children_CH22",
+      "group": "children"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "children_CH23056",
+      "speaker": "children_CH23",
+      "group": "children"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "children_CH24088",
+      "speaker": "children_CH24",
+      "group": "children"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "children_CH06012",
+      "speaker": "children_CH06",
+      "group": "children"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "children_CH15027",
+      "speaker": "children_CH15",
+      "group": "children"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "children_CH26073",
+      "speaker": "children_CH26",
+      "group": "children"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "children_CH11090",
+      "speaker": "children_CH11",
+      "group": "children"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "children_CH10079",
+      "speaker": "children_CH10",
+      "group": "children"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "children_CH08074",
+      "speaker": "children_CH08",
+      "group": "children"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "children_CH07004",
+      "speaker": "children_CH07",
+      "group": "children"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "children_CH03028",
+      "speaker": "children_CH03",
+      "group": "children"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "children_CH18024",
+      "speaker": "children_CH18",
+      "group": "children"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "children_CH21066",
+      "speaker": "children_CH21",
+      "group": "children"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "children_CH17062",
+      "speaker": "children_CH17",
+      "group": "children"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "children_CH19051",
+      "speaker": "children_CH19",
+      "group": "children"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "children_CH25102",
+      "speaker": "children_CH25",
+      "group": "children"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "children_CH12046",
+      "speaker": "children_CH12",
+      "group": "children"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "children_CH14011",
+      "speaker": "children_CH14",
+      "group": "children"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "children_CH05119",
+      "speaker": "children_CH05",
+      "group": "children"
+    },
+    {
+      "dataset": "hiacc",
+      "utt_id": "children_CH16012",
+      "speaker": "children_CH16",
+      "group": "children"
+    }
+  ]
+}
