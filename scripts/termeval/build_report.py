@@ -31,6 +31,7 @@ def main() -> None:
     coverage = json.loads((OUT / "annotation_coverage.json").read_text())
     score = json.loads((OUT / "score_receipt.json").read_text())
     heldout = json.loads((OUT / "heldout_lexicon_receipt.json").read_text())
+    overlap = json.loads((OUT / "speaker_holdout_overlap.json").read_text())
     with (OUT / "heldout_lexicon_metrics.csv").open(newline="") as handle:
         heldout_metrics = list(csv.DictReader(handle))
     qc = json.loads((OUT / "language_conditioning_qc.json").read_text())
@@ -106,17 +107,25 @@ def main() -> None:
     ]
     lines += [
         "", "## Speaker-heldout script-equivalence control", "",
-        "[OBSERVED] A speaker-disjoint lexicon-development/evaluation split was frozen before the full decode completed. Only development-speaker references and predictions generate pairs; no heldout reference enters its lexicon. The pairs remain automatic and unreviewed. This control is more defensible than the same-corpus C diagnostic above, but it is still a **scoring protocol**, not a trained ASR improvement.",
-        "", "| Dataset | Dev / heldout speakers | Accepted pairs | Heldout WER A % | Heldout WER C % | Paired A − C points [95% CI] |",
-        "|---|---:|---:|---:|---:|---:|",
+        "[OBSERVED] A speaker-disjoint lexicon-development/evaluation split was frozen before the full decode completed. Only development-speaker references and predictions generate pairs; no heldout reference enters its lexicon. Exact normalized reference text still repeats across speakers, so a second analysis removes those repeated-text utterances. The pairs remain automatic and unreviewed. This is a **scoring protocol**, not a trained ASR improvement.",
+        "", "| Dataset | Heldout subset | Dev / test speakers | Accepted pairs | Utterances | WER A % | WER C % | Paired A − C points [95% CI] |",
+        "|---|---|---:|---:|---:|---:|---:|---:|",
     ]
     for dataset in ("mucs_hien", "hiacc"):
         r = heldout["datasets"][dataset]
-        a = next(x for x in heldout_metrics if x["dataset"] == dataset and x["condition"] == "A_raw" and x["metric"] == "WER")
-        c = next(x for x in heldout_metrics if x["dataset"] == dataset and x["condition"] == "C_dev_lexicon_provisional" and x["metric"] == "WER")
-        delta, low, high = r["paired_delta_wer_pp"]
-        lines.append(f"| {dataset} | {r['dev_speakers']} / {r['heldout_speakers']} | {r['auto_accept_pairs']} | {_pct(a['value'])} | {_pct(c['value'])} | {delta:+.2f} [{low:+.2f}, {high:+.2f}] |")
-    lines += ["[OBSERVED] Complete paired rates and denominators are in [`heldout_lexicon_metrics.csv`](heldout_lexicon_metrics.csv); the frozen speaker assignment is in [`speaker_holdout_split.json`](speaker_holdout_split.json).", ""]
+        if r["exact_reference_overlap_utterances"] != overlap["datasets"][dataset]["exact_reference_overlap_utterances"]:
+            raise ValueError(f"{dataset}: overlap receipt mismatch")
+        for subset in ("all_heldout", "novel_reference"):
+            a = next(x for x in heldout_metrics if x["dataset"] == dataset and x["evaluation_set"] == subset
+                     and x["condition"] == "A_raw" and x["metric"] == "WER")
+            c = next(x for x in heldout_metrics if x["dataset"] == dataset and x["evaluation_set"] == subset
+                     and x["condition"] == "C_dev_lexicon_provisional" and x["metric"] == "WER")
+            stats = r["evaluation_sets"][subset]
+            delta, low, high = stats["paired_delta_wer_pp"]
+            lines.append(f"| {dataset} | {subset} | {r['dev_speakers']} / {stats['speakers']} | {r['auto_accept_pairs']} | {stats['utterances']} | {_pct(a['value'])} | {_pct(c['value'])} | {delta:+.2f} [{low:+.2f}, {high:+.2f}] |")
+    lines += [
+        f"[OBSERVED] Exact normalized reference text overlaps the lexicon-development speakers for {overlap['datasets']['mucs_hien']['exact_reference_overlap_utterances']}/{overlap['datasets']['mucs_hien']['heldout_utterances']} MUCS and {overlap['datasets']['hiacc']['exact_reference_overlap_utterances']}/{overlap['datasets']['hiacc']['heldout_utterances']} HiACC heldout utterances. Complete paired rates and denominators are in [`heldout_lexicon_metrics.csv`](heldout_lexicon_metrics.csv); the frozen speaker assignment and overlap audit are in [`speaker_holdout_split.json`](speaker_holdout_split.json) and [`speaker_holdout_overlap.json`](speaker_holdout_overlap.json).", ""
+    ]
     lines += [
         "## HiACC descriptive group slices", "",
         "[OBSERVED] These are pooled A-raw rates by released group metadata, with speakers as the bootstrap unit. Adult/child and gender are not causal or population-fairness comparisons. The full A/C matrix is in [`metrics.csv`](metrics.csv).",

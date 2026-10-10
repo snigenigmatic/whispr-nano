@@ -42,6 +42,10 @@ def verify_decode() -> dict:
     launch = json.loads((OUT / "decode_launch.json").read_text())
     if sha256(MANIFEST) != launch["manifest_sha256"]:
         raise ValueError("local manifest changed after decode launch")
+    overlap = json.loads((OUT / "speaker_holdout_overlap.json").read_text())
+    if (overlap["manifest_sha256"] != sha256(MANIFEST)
+            or overlap["split_sha256"] != sha256(OUT / "speaker_holdout_split.json")):
+        raise ValueError("speaker-heldout overlap audit inputs changed")
     expected = Counter(r["dataset"] for r in map(json.loads, MANIFEST.open()))
     verified = {}
     for dataset in ("hiacc", "mucs_hien"):

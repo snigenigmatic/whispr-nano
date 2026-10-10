@@ -1,0 +1,19 @@
+{
+  "definition": "exact match after the frozen C3 text normalizer",
+  "manifest_sha256": "2c31c671cf6096d2a7305dc38d72822d8fd8ee61d5670a7542dcca4fe8670216",
+  "split_sha256": "c91a903c39623e470d768c1c968c19b4c015cb60f7632243e7486243dd144cf7",
+  "datasets": {
+    "hiacc": {
+      "heldout_utterances": 2782,
+      "exact_reference_overlap_utterances": 405,
+      "novel_reference_utterances": 2377,
+      "exact_reference_overlap_fraction": 0.1455787203450755
+    },
+    "mucs_hien": {
+      "heldout_utterances": 1584,
+      "exact_reference_overlap_utterances": 143,
+      "novel_reference_utterances": 1441,
+      "exact_reference_overlap_fraction": 0.09027777777777778
+    }
+  }
+}

@@ -10,6 +10,7 @@ import random
 
 from ast_asr.termeval.lexicon import approved_pairs, build_lexicon
 from ast_asr.termeval.metrics import _metrics_from_totals, cluster_bootstrap, pooled_metrics, score_utterance
+from ast_asr.termeval.normalize import normalize
 
 from .score_results import OUT, SEED, load_inputs
 
@@ -63,32 +64,43 @@ def main() -> None:
             writer.writeheader()
             writer.writerows(lexicon)
         pairs = approved_pairs(lexicon)
-        a_rows, c_rows = [], []
-        for prediction in test:
-            row = manifest[prediction["utt_id"]]
-            a_rows.append(score_utterance(prediction["utt_id"], row["speaker"], row["reference"], prediction["text"]))
-            c_rows.append(score_utterance(prediction["utt_id"], row["speaker"], row["reference"], prediction["text"], equivalences=pairs))
-        for condition, rows in (("A_raw", a_rows), ("C_dev_lexicon_provisional", c_rows)):
-            point = pooled_metrics(rows)
-            ci = cluster_bootstrap(rows, n_resamples=1000, seed=SEED)
-            for metric in ("WER", "CER", "TokER[LAT]", "TokER[DEV]", "INS_rate"):
-                value, numerator, denominator = point[metric]
-                if value is None:
-                    continue
-                low, high = ci[metric]
-                metrics.append({"dataset": dataset, "condition": condition, "metric": metric,
-                                "value": value, "ci_low": low, "ci_high": high,
-                                "numerator": numerator, "denominator": denominator,
-                                "n_utterances": len(rows), "n_speakers": len({r.speaker for r in rows}),
-                                "lexicon_pairs": len(pairs)})
+        dev_refs = {normalize(manifest[p["utt_id"]]["reference"]) for p in dev}
+        novel = [p for p in test if normalize(manifest[p["utt_id"]]["reference"]) not in dev_refs]
+        paired = {}
+        for evaluation_set, eval_predictions in (("all_heldout", test), ("novel_reference", novel)):
+            a_rows, c_rows = [], []
+            for prediction in eval_predictions:
+                row = manifest[prediction["utt_id"]]
+                a_rows.append(score_utterance(prediction["utt_id"], row["speaker"], row["reference"], prediction["text"]))
+                c_rows.append(score_utterance(prediction["utt_id"], row["speaker"], row["reference"], prediction["text"], equivalences=pairs))
+            for condition, rows in (("A_raw", a_rows), ("C_dev_lexicon_provisional", c_rows)):
+                point = pooled_metrics(rows)
+                ci = cluster_bootstrap(rows, n_resamples=1000, seed=SEED)
+                for metric in ("WER", "CER", "TokER[LAT]", "TokER[DEV]", "INS_rate"):
+                    value, numerator, denominator = point[metric]
+                    if value is None:
+                        continue
+                    low, high = ci[metric]
+                    metrics.append({"dataset": dataset, "evaluation_set": evaluation_set,
+                                    "condition": condition, "metric": metric,
+                                    "value": value, "ci_low": low, "ci_high": high,
+                                    "numerator": numerator, "denominator": denominator,
+                                    "n_utterances": len(rows), "n_speakers": len({r.speaker for r in rows}),
+                                    "lexicon_pairs": len(pairs)})
+            paired[evaluation_set] = {
+                "utterances": len(eval_predictions),
+                "speakers": len({r.speaker for r in a_rows}),
+                "paired_delta_wer_pp": _paired_delta(a_rows, c_rows, "WER"),
+                "paired_delta_latin_toker_pp": _paired_delta(a_rows, c_rows, "TokER[LAT]"),
+            }
         receipt["datasets"][dataset] = {
             "dev_utterances": len(dev), "heldout_utterances": len(test),
             "dev_speakers": len({manifest[p["utt_id"]]["speaker"] for p in dev}),
             "heldout_speakers": len({manifest[p["utt_id"]]["speaker"] for p in test}),
             "lexicon_status": dict(Counter(r["status"] for r in lexicon)),
             "auto_accept_pairs": len(pairs),
-            "paired_delta_wer_pp": _paired_delta(a_rows, c_rows, "WER"),
-            "paired_delta_latin_toker_pp": _paired_delta(a_rows, c_rows, "TokER[LAT]"),
+            "exact_reference_overlap_utterances": len(test) - len(novel),
+            "evaluation_sets": paired,
         }
     with (OUT / "heldout_lexicon_metrics.csv").open("w", newline="") as handle:
         writer = csv.DictWriter(handle, fieldnames=list(metrics[0]))
