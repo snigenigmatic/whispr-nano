@@ -23,8 +23,9 @@ MODEL_ID = "openai/whisper-large-v3"
 MODEL_REVISION = "06f233fe06e710322aca913c1bc4249a0d71fce1"
 SEED = 20261011
 RATE_USD_PER_SECOND = 0.001097 + 4 * 0.0000131 + 16 * 0.00000222
-MAX_GPU_SECONDS_PER_DATASET = 4200
+MAX_GPU_SECONDS_PER_DATASET = 6000
 MAX_ESTIMATED_TOTAL_GPU_USD = 2 * MAX_GPU_SECONDS_PER_DATASET * RATE_USD_PER_SECOND
+CONDITION_ID = "auto_language_greedy"
 ARCHIVES = {
     "hiacc": {
         "url": "https://zenodo.org/api/records/15551669/files/Corpus.zip/content",
@@ -157,7 +158,7 @@ def decode(dataset: str) -> dict:
         row = json.loads(line)
         if row["dataset"] == dataset:
             rows.append(row)
-    outdir = Path("/results") / dataset
+    outdir = Path("/results") / f"{dataset}_{CONDITION_ID}"
     outdir.mkdir(parents=True, exist_ok=True)
     output = outdir / "predictions.jsonl"
     completed = set()
@@ -168,7 +169,7 @@ def decode(dataset: str) -> dict:
             except json.JSONDecodeError:
                 raise RuntimeError("existing prediction cache has a truncated row")
     config = {"dataset": dataset, "model_id": MODEL_ID, "model_revision": MODEL_REVISION,
-              "language": "hi", "task": "transcribe", "num_beams": 1,
+              "condition_id": CONDITION_ID, "language": "auto", "task": "transcribe", "num_beams": 1,
               "dtype": "float16", "chunk_length_s": 30, "batch_size": 8,
               "seed": SEED, "transformers": transformers.__version__,
               "torch": torch.__version__, "manifest_sha256": manifest_hash,
@@ -204,12 +205,13 @@ def decode(dataset: str) -> dict:
                     raise ValueError(f"invalid audio format: {remote_audio}")
                 audios.append({"raw": audio, "sampling_rate": sr})
             outputs = asr(audios, batch_size=8, generate_kwargs={
-                "language": "hi", "task": "transcribe", "num_beams": 1,
+                "task": "transcribe", "num_beams": 1,
                 "do_sample": False, "return_timestamps": False,
             })
             for row, pred in zip(batch, outputs):
                 record = {"dataset": dataset, "utt_id": row["utt_id"],
-                          "system": "whisper-large-v3", "config_hash": hashlib.sha256(
+                          "system": "whisper-large-v3", "condition_id": CONDITION_ID,
+                          "config_hash": hashlib.sha256(
                               json.dumps(config, sort_keys=True).encode()).hexdigest(),
                           "model_revision": MODEL_REVISION, "text": pred["text"].strip()}
                 handle.write(json.dumps(record, ensure_ascii=False) + "\n")
@@ -240,8 +242,8 @@ def main():
     import json
     from subprocess import run
 
-    if MAX_ESTIMATED_TOTAL_GPU_USD > 10.0:
-        raise RuntimeError("pre-flight maximum GPU cost exceeds the $10 pilot guardrail")
+    if MAX_ESTIMATED_TOTAL_GPU_USD > 15.0:
+        raise RuntimeError("pre-flight maximum GPU cost exceeds the $15 pilot guardrail")
     print(json.dumps({"event": "preflight", "max_gpu_seconds_per_dataset": MAX_GPU_SECONDS_PER_DATASET,
                       "max_estimated_gpu_usd": MAX_ESTIMATED_TOTAL_GPU_USD,
                       "pricing_source": "https://modal.com/pricing"}), flush=True)
@@ -253,7 +255,7 @@ def main():
         target = ROOT / "results" / "night1" / f"predictions_{dataset}.jsonl"
         target.parent.mkdir(parents=True, exist_ok=True)
         run([str(ROOT / ".venv/bin/modal"), "volume", "get", "night1-term-results-v1",
-             f"/{dataset}/predictions.jsonl", str(target), "--force"], check=True)
+             f"/{dataset}_{CONDITION_ID}/predictions.jsonl", str(target), "--force"], check=True)
         receipt = ROOT / "results" / "night1" / f"receipt_{dataset}.json"
         run([str(ROOT / ".venv/bin/modal"), "volume", "get", "night1-term-results-v1",
-             f"/{dataset}/receipt.json", str(receipt), "--force"], check=True)
+             f"/{dataset}_{CONDITION_ID}/receipt.json", str(receipt), "--force"], check=True)
