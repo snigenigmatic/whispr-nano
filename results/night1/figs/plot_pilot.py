@@ -91,6 +91,8 @@ def term_error_stack() -> None:
     for dataset, dlabel in DATASETS:
         for condition, clabel in CONDITIONS:
             counts = Counter(r["status"] for r in rows if r["dataset"] == dataset and r["condition"] == condition)
+            if sum(counts.values()) < 30:
+                continue
             wrong = sum(counts[k] for k in ("SUBSTITUTED", "DELETED", "PARTIAL"))
             labels.append(f"{dlabel} · {clabel}")
             values.append({k: 100 * counts[k] / wrong if wrong else 0 for k in ("SUBSTITUTED", "DELETED", "PARTIAL")})
@@ -145,7 +147,7 @@ def main() -> None:
         "# Draft captions for descriptive pilot figures\n\n"
         "- `forest_metrics`: Error rates on MUCS and pooled HiACC for one Whisper large-v3 decode; intervals are 95% speaker-cluster bootstrap over 1,000 resamples. Candidate TermER uses unreviewed dictionary spans; C is a provisional script equivalence computed from this same evaluation corpus.\n"
         "- `conditions_a_c`: Raw and provisional script-equivalent error rates. C is a scoring diagnostic, not a model improvement; its lexicon was discovered from the same corpus.\n"
-        "- `term_error_types`: Distribution of substitution, deletion, and mixed errors among wrong dictionary candidate terms. Denominators are in `metrics.csv`.\n"
+        "- `term_error_types`: Distribution of substitution, deletion, and mixed errors among wrong dictionary candidate terms, shown only for datasets with at least 30 candidate spans. Denominators are in `metrics.csv`.\n"
         "- `hiacc_groups`: Adult/child and gender slices from pooled HiACC. The released train/validation/test splits share every speaker, and 119 AD63 utterances lack gender metadata. Descriptive only.\n"
     )
 
