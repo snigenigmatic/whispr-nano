@@ -1,0 +1,15 @@
+{
+  "app_id": "ap-hG0DfgIK7hy5dbE8gwORmU",
+  "app_url": "https://modal.com/apps/snigenigmatic/main/ap-hG0DfgIK7hy5dbE8gwORmU",
+  "source_commit": "21fadc25f6604e937b106cb210a4a665ba2487a8",
+  "source_sha256": "12189902e2d2bddd39a0fe57511c02ca86bd104e59325a7916fc26ec3e0f4713",
+  "manifest_sha256": "2c31c671cf6096d2a7305dc38d72822d8fd8ee61d5670a7542dcca4fe8670216",
+  "model_id": "openai/whisper-large-v3",
+  "model_revision": "06f233fe06e710322aca913c1bc4249a0d71fce1",
+  "condition_id": "forced_hi_greedy",
+  "dataset": "mucs_hien",
+  "gpu": "H100",
+  "max_gpu_seconds": 6000,
+  "preflight_resource_upper_bound_usd": 7.10952,
+  "provider_bill_verified": false
+}
