@@ -6,6 +6,7 @@ from collections import Counter, defaultdict
 import csv
 import json
 from pathlib import Path
+import random
 
 from ast_asr.termeval.align import align_words, edit_counts
 from ast_asr.termeval.normalize import normalize
@@ -19,6 +20,7 @@ def main() -> None:
     manifest = {r["utt_id"]: r for r in map(json.loads, (ROOT / "data/termeval/manifest.jsonl").open())}
     flagged = []
     report = {}
+    predictions = {}
     for dataset in ("hiacc", "mucs_hien"):
         file = OUT / f"predictions_{dataset}.jsonl"
         rows = [json.loads(line) for line in file.open()]
@@ -30,6 +32,7 @@ def main() -> None:
         reasons: Counter[str] = Counter()
         for pred in rows:
             utt = pred["utt_id"]
+            predictions[utt] = pred["text"]
             ref = normalize(manifest[utt]["reference"]).split()
             hyp = normalize(pred["text"]).split()
             counts = edit_counts(align_words(ref, hyp))
@@ -59,6 +62,18 @@ def main() -> None:
         writer.writeheader()
         writer.writerows(flagged)
     (OUT / "prediction_qc.json").write_text(json.dumps(report, indent=2))
+    examples = random.Random(20261011).sample(flagged, min(10, len(flagged)))
+    lines = ["# Seed-selected decoder QC flags", "",
+             "Ten flagged utterances are sampled without replacement with seed 20261011. Hypotheses are clipped to 180 characters for display; the complete outputs stay local in the ignored prediction caches.", ""]
+    for i, item in enumerate(examples, 1):
+        utt = item["utt_id"]
+        lines += [f"## {i}. {item['dataset']} / {utt}", "",
+                  f"- Duration: {item['duration_s']} seconds",
+                  f"- Flags: {item['flags']}",
+                  f"- Utterance WER: {100 * item['wer']:.1f}%",
+                  f"- Reference: {manifest[utt]['reference']}",
+                  f"- Hypothesis (first 180 characters): {predictions[utt][:180]}", ""]
+    (OUT / "prediction_qc_examples.md").write_text("\n".join(lines))
     print(json.dumps(report))
 
 
