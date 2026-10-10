@@ -12,7 +12,14 @@ from pathlib import Path
 import modal
 
 
-ROOT = Path(__file__).resolve().parents[2]
+_module_file = Path(__file__).resolve()
+ROOT = _module_file.parents[2] if len(_module_file.parents) > 2 else Path("/root/project")
+SOURCE_MANIFEST = (ROOT / "data/termeval/manifest.jsonl"
+                   if (ROOT / "data/termeval/manifest.jsonl").exists()
+                   else Path("/root/project/manifest.jsonl"))
+SOURCE_IDS = (ROOT / "results/night1/language_probe_ids.json"
+              if (ROOT / "results/night1/language_probe_ids.json").exists()
+              else Path("/root/project/probe_ids.json"))
 MODEL_ID = "openai/whisper-large-v3"
 MODEL_REVISION = "06f233fe06e710322aca913c1bc4249a0d71fce1"
 SEED = 20261011
@@ -29,8 +36,8 @@ image = (modal.Image.debian_slim(python_version="3.12")
          .pip_install("torch==2.8.0", "transformers==4.57.6", "numpy==2.2.6",
                       "soundfile==0.13.1", "huggingface-hub==0.36.2", "accelerate==1.10.1")
          .env({"HF_HOME": "/cache/huggingface", "TOKENIZERS_PARALLELISM": "false"})
-         .add_local_file(ROOT / "data/termeval/manifest.jsonl", "/root/project/manifest.jsonl")
-         .add_local_file(ROOT / "results/night1/language_probe_ids.json", "/root/project/probe_ids.json"))
+         .add_local_file(SOURCE_MANIFEST, "/root/project/manifest.jsonl")
+         .add_local_file(SOURCE_IDS, "/root/project/probe_ids.json"))
 
 
 @app.function(image=image, gpu="H100", cpu=4, memory=16384, timeout=MAX_GPU_SECONDS + 120,
