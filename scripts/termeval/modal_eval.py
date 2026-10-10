@@ -11,7 +11,14 @@ from pathlib import Path
 import modal
 
 
-ROOT = Path(__file__).resolve().parents[2]
+_module_file = Path(__file__).resolve()
+# Modal imports this module as /root/modal_eval.py; the local CLI imports it
+# from scripts/termeval/. The attached manifest exists at a different path in
+# those two contexts.
+ROOT = _module_file.parents[2] if len(_module_file.parents) > 2 else Path("/root/project")
+SOURCE_MANIFEST = (ROOT / "data/termeval/manifest.jsonl"
+                   if (ROOT / "data/termeval/manifest.jsonl").exists()
+                   else Path("/root/project/manifest.jsonl"))
 MODEL_ID = "openai/whisper-large-v3"
 MODEL_REVISION = "06f233fe06e710322aca913c1bc4249a0d71fce1"
 SEED = 20261011
@@ -46,7 +53,7 @@ gpu_image = (
         "soundfile==0.13.1", "huggingface-hub==0.36.2", "accelerate==1.10.1",
     )
     .env({"HF_HOME": "/cache/huggingface", "TOKENIZERS_PARALLELISM": "false"})
-    .add_local_file(ROOT / "data/termeval/manifest.jsonl", "/root/project/manifest.jsonl")
+    .add_local_file(SOURCE_MANIFEST, "/root/project/manifest.jsonl")
 )
 
 
