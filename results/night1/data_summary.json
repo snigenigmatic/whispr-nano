@@ -1,0 +1,267 @@
+{
+  "mucs_hien": {
+    "recordings": 30,
+    "utterances": 3136,
+    "speakers": 30,
+    "source_audio_rate_hz": 16000,
+    "segments_present": true,
+    "duration_s_min": 1.0,
+    "duration_s_median": 5.0,
+    "duration_s_p95": 12.0,
+    "duration_s_max": 41.0,
+    "duration_hours": 5.178208333333333,
+    "token_classes": {
+      "DEV": 28164,
+      "LAT": 9095,
+      "MIX": 55,
+      "NUM": 186
+    },
+    "samples": [
+      "निम्न link पर उपलब्ध video देखें यह spoken tutorial को सारांशित करता है",
+      "options टैब पर click करें",
+      "अब अपने document में columns प्रविष्ट करें",
+      "प्रत्येक भाषा के लिए spell check विशेषता भिन्न होती है",
+      "हम देख सकते हैं कि window का name भी sample dot c में बदल गया है",
+      "आप प्रिव्यू के लिए एक से भी अधिक animation चुन सकते हैं",
+      "सभी चीजों याने ऑब्जेक्ट्स के की पोइंट्स भी दिखाई देते है",
+      "हम निम्न भी सीखेंगे",
+      "यह दिशा इंगित करता है जिसमें control point moved आकार में हेरफेर करने के लिए स्थानांतरित किया जा सकता है",
+      "अट्रिब्यूट पैनल में से  text just बटन पर क्लिक करे सेंटर अलाइन्मन्ट याने मध्य संरेखण को चुनते है पहले बॉक्स के सेंटर में क्लिक करते है ओह मैंने सही जगह नहीं चुनी है कर्सर को हटाने के लिए मैं दूसरी जगह पर क्लिक करती हूँ फिर मैं सही जगह पर क्लिक करुँगी",
+      "इस ट्यूटोरियल में क्लिकिंग याने  लेफ्ट माउस बटन क्लिक करके छोड़ना उसी तरह किसी बटन को चुनना याने आपको उस पर लेफ्ट माउस बटन से क्लिक करना होगा अगर कुछ और ज़रुरी है तो मैं बता दूंगी",
+      "इस व्यापक नियत कार्य की कोशिश करें",
+      "अब हम कुछ plugins को सक्षम करेंगे",
+      "यहाँ आप के लिए एक नियतकार्य है",
+      "slide 1 चुनें",
+      "अतः चलिए एक उदाहरण के साथ देखते हैं कि वे कार्य कैसे करते हैं",
+      "इस तरह document में लिखे गये विविध प्वॉइंट्स के बीच भेद कर सकते हैं",
+      "कंटेंट का font 36 और color blue रखें",
+      "एक निमंत्रण पत्र type करें",
+      "कॉन्टेक्स्ट मेन्यू देखने के लिए दायाँ क्लिक करें और delete पर क्लिक करें"
+    ],
+    "speaker_example": [
+      "103085",
+      "103725",
+      "118638",
+      "124478",
+      "133511"
+    ]
+  },
+  "hiacc": {
+    "groups": {
+      "adult": {
+        "utterances": 3318,
+        "speakers": 24,
+        "speaker_metadata_rows": 24,
+        "missing_speaker_metadata_utterances": {
+          "AD63": 119
+        },
+        "split_counts": {
+          "test": 664,
+          "train": 2322,
+          "val": 332
+        },
+        "split_speaker_overlap": {
+          "train_val": 24,
+          "train_test": 24,
+          "val_test": 24
+        },
+        "hours": 3.217158159722222,
+        "token_classes": {
+          "DEV": 16196,
+          "LAT": 16395,
+          "MIX": 2
+        },
+        "speaker_metadata": {
+          "Gender": {
+            "F": 10,
+            "M": 14
+          },
+          "Age": {
+            "19": 1,
+            "22": 3,
+            "25": 2,
+            "27": 1,
+            "29": 1,
+            "30": 1,
+            "31": 2,
+            "32": 3,
+            "34": 1,
+            "35": 2,
+            "36": 3,
+            "38": 3,
+            "42": 1
+          },
+          "L1": {
+            "Hindi": 24
+          }
+        },
+        "annotation_rows": 3318,
+        "annotation_labels": {
+          "inter-sential": 113,
+          "intra-sential": 1095,
+          "none": 2110
+        },
+        "samples": [
+          "probably",
+          "the बसंत पंचमी",
+          "lunch time था तो मां बाप ने पकड़ के जबरदस्ती बिठा दिया",
+          "खूब सारा खाना बनाया था fruits लेके आए थे",
+          "and",
+          "मैं हूं गुफा का guardian।",
+          "all time favourite series of TV shows",
+          "face",
+          "rainy season में तो ऐसा लगता है कि हम clouds के ऊपर आ गए हैं।",
+          "mountains है उधर peak है",
+          "I can see various other things like",
+          "the secret of the cave began to unfold before them",
+          "ये गुफा उन दोनों के लिए है जो दोस्ती में प्यार में और साथ में हमेश साथ रहते हैं",
+          "तो NCR है तो there is no",
+          "किसी को airport पर लेने आया है शायद और वो",
+          "दोस्ती और साथ में रहना ही असली ख़ुशी है। मिलते हैं अगली कहानी में तब तक अपना ख्याल रखो और दोस्ती को हमेशा",
+          "Literally I enjoyed a lot because I am a water person",
+          "and one is crying",
+          "It's the modern family. Now I remember the name",
+          "दोस्ती और साथ में रहना ही असली ख़ुशी है। मिलते हैं अगली कहानी में"
+        ]
+      },
+      "children": {
+        "utterances": 1858,
+        "speakers": 20,
+        "speaker_metadata_rows": 20,
+        "missing_speaker_metadata_utterances": {},
+        "split_counts": {
+          "test": 372,
+          "train": 1300,
+          "val": 186
+        },
+        "split_speaker_overlap": {
+          "train_val": 20,
+          "train_test": 20,
+          "val_test": 20
+        },
+        "hours": 2.0566326736111114,
+        "token_classes": {
+          "DEV": 14498,
+          "LAT": 3582,
+          "OTHER": 1
+        },
+        "speaker_metadata": {
+          "Gender": {
+            "F": 10,
+            "M": 10
+          },
+          "Age": {
+            "10": 1,
+            "11": 4,
+            "12": 6,
+            "13": 4,
+            "14": 5
+          },
+          "L1": {
+            "Garhwali": 2,
+            "Hindi": 17,
+            "Nepali": 1
+          }
+        },
+        "annotation_rows": 1858,
+        "annotation_labels": {
+          "inter-sential": 32,
+          "intra-sential": 1092,
+          "none": 734
+        },
+        "samples": [
+          "वीर और दिया ने एक छुपी cave खोजने की यातरा पर जाने का निर्णय लिया",
+          "अपने bag में कुछ snack और water pack",
+          "असली magic उनके दिलों में होता है और भाई-बहन का bond सबसे strong magic है",
+          "जहाँ पे मैं रहती हु वहांपे",
+          "symbols को समझने में बिताए",
+          "तो हम वो देखने जाते हैं गर्मियों की छुट्टियों में अच्छा लगता है वहां पे जाना मेरी favourite place है juddo",
+          "तो फिर वो उसके बाद उसपे मारपीट पे",
+          "purple,yellow,brwon और वहां पे एक आदमी भी है वहां पे एक oven है",
+          "लेकिन उन्होने हिम्मत नहीं हारी",
+          "वो सब पे इतना अत्याचार करता है मतलब hospitals में",
+          "की अटारी की खोज कर रहे थे,उन्हें एक dust old book मिली",
+          "in the heart of a city दो sibling रहते थे",
+          "Secret थोड़ा और समझ में आने लगा धीरे धीरे",
+          "जैसे ही वे forest से गुजर रहे थे उन्हें लगा जैसे कोई उन्हें देख रहा है",
+          " recommend something from your place to everyone.",
+          "Deciphering the symbols",
+          "हमेशा पास,हमेशा साथ। एक दिन,Ram और Shyam ने सुना कि उनके पास के forest में एक cave है। यह सुनकर,दोनों ने सोचा कि",
+          "With bated breath,they explored the old house,discovering a hidden passage",
+          "abandoned house खोज निकाला।",
+          "मंदिर भी है और"
+        ]
+      }
+    },
+    "metadata_files": {
+      "adult": {
+        "speaker_info.csv": [
+          "PID",
+          "Gender",
+          "Age",
+          "L1"
+        ],
+        "sentence_stats.csv": [
+          "audio",
+          "sentence",
+          "total_words",
+          "num_english_words",
+          "num_hindi_words",
+          "CMI",
+          "duration_sec",
+          "WPM",
+          "speech_rate",
+          "code_switch_count",
+          "hi_to_en_switch",
+          "en_to_hi_switch"
+        ],
+        "code_switched_labels.json": [
+          "audio",
+          "label",
+          "transcription"
+        ],
+        "speaker_info_rows": 24,
+        "sentence_stats_rows": 3318
+      },
+      "children": {
+        "speaker_info.csv": [
+          "PID",
+          "Gender",
+          "Age",
+          "L1"
+        ],
+        "sentence_stats.csv": [
+          "audio",
+          "sentence",
+          "path",
+          "total_words",
+          "num_english_words",
+          "num_hindi_words",
+          "CMI",
+          "duration_sec",
+          "WPM",
+          "speech_rate",
+          "code_switch_count",
+          "hi_to_en_switch",
+          "en_to_hi_switch"
+        ],
+        "code_switched_labels.json": [
+          "audio_filepath",
+          "label",
+          "transcription"
+        ],
+        "speaker_info_rows": 20,
+        "sentence_stats_rows": 186
+      }
+    },
+    "total_utterances": 5176,
+    "total_speakers": 44,
+    "total_hours": 5.273790833333334,
+    "token_classes": {
+      "DEV": 30694,
+      "LAT": 19977,
+      "MIX": 2,
+      "OTHER": 1
+    }
+  }
+}
