@@ -1,12 +1,11 @@
 """Download, verify, and analyze the completed night-1 Modal decode.
 
-Run from the repository root after both GPU functions finish:
+Run from the repository root after all three full GPU functions finish:
     .venv/bin/python -m scripts.termeval.finalize
 """
 
 from __future__ import annotations
 
-from collections import Counter
 import hashlib
 import json
 from pathlib import Path
@@ -18,7 +17,6 @@ ROOT = Path(__file__).resolve().parents[2]
 OUT = ROOT / "results/night1"
 MANIFEST = ROOT / "data/termeval/manifest.jsonl"
 VOLUME = "night1-term-results-v1"
-CONDITION_ID = "auto_language_greedy"
 
 
 def sha256(path: Path) -> str:
@@ -33,9 +31,9 @@ def run(*args: str) -> None:
     subprocess.run(args, check=True, cwd=ROOT)
 
 
-def get(dataset: str, remote_name: str, local_name: str) -> None:
+def get(dataset: str, condition: str, remote_name: str, local_name: str) -> None:
     run(str(ROOT / ".venv/bin/modal"), "volume", "get", VOLUME,
-        f"/{dataset}_{CONDITION_ID}/{remote_name}", str(OUT / local_name), "--force")
+        f"/{dataset}_{condition}/{remote_name}", str(OUT / local_name), "--force")
 
 
 def verify_decode() -> dict:
@@ -46,43 +44,58 @@ def verify_decode() -> dict:
     if (overlap["manifest_sha256"] != sha256(MANIFEST)
             or overlap["split_sha256"] != sha256(OUT / "speaker_holdout_split.json")):
         raise ValueError("speaker-heldout overlap audit inputs changed")
-    expected = Counter(r["dataset"] for r in map(json.loads, MANIFEST.open()))
+    expected_ids = {dataset: set() for dataset in ("hiacc", "mucs_hien")}
+    for row in map(json.loads, MANIFEST.open()):
+        expected_ids[row["dataset"]].add(row["utt_id"])
+    policy = json.loads((OUT / "decode_policy.json").read_text())
+    specs = [
+        ("hiacc", policy["primary"]["hiacc"]),
+        ("mucs_hien", policy["secondary"]["mucs_hien_auto_language"]),
+        ("mucs_hien", policy["primary"]["mucs_hien"]),
+    ]
     verified = {}
-    for dataset in ("hiacc", "mucs_hien"):
-        get(dataset, "config.json", f"config_{dataset}.json")
-        get(dataset, "receipt.json", f"receipt_{dataset}.json")
-        get(dataset, "predictions.jsonl", f"predictions_{dataset}.jsonl")
-        config = json.loads((OUT / f"config_{dataset}.json").read_text())
-        receipt = json.loads((OUT / f"receipt_{dataset}.json").read_text())
-        predictions = [json.loads(line) for line in (OUT / f"predictions_{dataset}.jsonl").open()]
+    for dataset, spec in specs:
+        condition = spec["condition_id"]
+        get(dataset, condition, "config.json", spec["config_file"])
+        get(dataset, condition, "receipt.json", spec["receipt_file"])
+        get(dataset, condition, "predictions.jsonl", spec["prediction_file"])
+        config = json.loads((OUT / spec["config_file"]).read_text())
+        receipt = json.loads((OUT / spec["receipt_file"]).read_text())
+        predictions = [json.loads(line) for line in (OUT / spec["prediction_file"]).open()]
         config_hash = hashlib.sha256(json.dumps(config, sort_keys=True).encode()).hexdigest()
         if (config["manifest_sha256"] != launch["manifest_sha256"]
                 or config["model_revision"] != launch["model_revision"]
-                or config["condition_id"] != CONDITION_ID):
+                or config["condition_id"] != condition):
             raise ValueError(f"{dataset}: config differs from frozen launch")
-        if (not receipt["complete"] or receipt["target"] != expected[dataset]
-                or receipt["total_cached"] != expected[dataset]
-                or len(predictions) != expected[dataset]
-                or len({p["utt_id"] for p in predictions}) != expected[dataset]
-                or {p["config_hash"] for p in predictions} != {config_hash}):
+        if (not receipt["complete"] or receipt["target"] != len(expected_ids[dataset])
+                or receipt["total_cached"] != len(expected_ids[dataset])
+                or len(predictions) != len(expected_ids[dataset])
+                or {p["utt_id"] for p in predictions} != expected_ids[dataset]
+                or {p["config_hash"] for p in predictions} != {config_hash}
+                or {p["condition_id"] for p in predictions} != {condition}):
             raise ValueError(f"{dataset}: incomplete or inconsistent decode")
-        verified[dataset] = {"predictions": len(predictions), "config_hash": config_hash,
-                             "predictions_sha256": sha256(OUT / f"predictions_{dataset}.jsonl"),
-                             "receipt_sha256": sha256(OUT / f"receipt_{dataset}.json")}
+        verified[f"{dataset}:{condition}"] = {
+            "predictions": len(predictions), "config_hash": config_hash,
+            "predictions_sha256": sha256(OUT / spec["prediction_file"]),
+            "receipt_sha256": sha256(OUT / spec["receipt_file"]),
+        }
     return verified
 
 
 def main() -> None:
     verified = verify_decode()
-    for module in ("validate_predictions", "score_results", "evaluate_heldout_lexicon"):
+    for module in ("validate_predictions", "score_results", "evaluate_heldout_lexicon",
+                   "compare_mucs_decode"):
         run(sys.executable, "-m", f"scripts.termeval.{module}")
     run(sys.executable, str(OUT / "figs/plot_pilot.py"))
     run(sys.executable, "-m", "scripts.termeval.build_report")
     run(sys.executable, "-m", "pytest", "-q", "tests/termeval")
     outputs = ["metrics.csv", "score_receipt.json", "heldout_lexicon_metrics.csv",
-               "heldout_lexicon_receipt.json", "prediction_qc.json", "RUN_REPORT.md"]
+               "heldout_lexicon_receipt.json", "prediction_qc.json",
+               "mucs_full_language_comparison.json", "RUN_REPORT.md"]
     (OUT / "completion_check.json").write_text(json.dumps({
         "decode": verified,
+        "decode_policy_sha256": sha256(OUT / "decode_policy.json"),
         "outputs_sha256": {name: sha256(OUT / name) for name in outputs},
         "tests": "pytest -q tests/termeval passed",
     }, indent=2))

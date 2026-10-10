@@ -29,15 +29,26 @@ def main() -> None:
     audio_qc = json.loads((OUT / "audio_qc.json").read_text())
     prediction_qc = json.loads((OUT / "prediction_qc.json").read_text())
     coverage = json.loads((OUT / "annotation_coverage.json").read_text())
+    decode_policy = json.loads((OUT / "decode_policy.json").read_text())
+    mucs_probe = json.loads((OUT / "mucs_language_probe_qc.json").read_text())
+    language_comparison = json.loads((OUT / "mucs_full_language_comparison.json").read_text())
     score = json.loads((OUT / "score_receipt.json").read_text())
     heldout = json.loads((OUT / "heldout_lexicon_receipt.json").read_text())
     overlap = json.loads((OUT / "speaker_holdout_overlap.json").read_text())
     with (OUT / "heldout_lexicon_metrics.csv").open(newline="") as handle:
         heldout_metrics = list(csv.DictReader(handle))
     qc = json.loads((OUT / "language_conditioning_qc.json").read_text())
-    receipts = {d: json.loads((OUT / f"receipt_{d}.json").read_text()) for d in ("hiacc", "mucs_hien")}
+    receipts = {
+        "hiacc_primary": json.loads((OUT / "receipt_hiacc.json").read_text()),
+        "mucs_hien_primary": json.loads((OUT / "receipt_mucs_hien_forced_hi.json").read_text()),
+        "mucs_hien_auto_diagnostic": json.loads((OUT / "receipt_mucs_hien.json").read_text()),
+        "mucs_hien_forced_hi_probe": json.loads((OUT / "receipt_mucs_hien_forced_hi_probe.json").read_text()),
+    }
     if any(not r["complete"] for r in receipts.values()):
         raise ValueError("cannot write final report with an incomplete GPU receipt")
+    if (decode_policy["primary"]["hiacc"]["condition_id"] != "auto_language_greedy"
+            or decode_policy["primary"]["mucs_hien"]["condition_id"] != "forced_hi_greedy"):
+        raise ValueError("report text disagrees with frozen primary decoder policy")
     figures = ["forest_metrics.pdf", "conditions_a_c.pdf", "term_error_types.pdf", "hiacc_groups.pdf"]
     missing_figures = [name for name in figures if not (OUT / "figs" / name).exists()]
     if missing_figures:
@@ -56,7 +67,7 @@ def main() -> None:
         "| C1 code inventory | Done | [`C1_inventory.md`](C1_inventory.md) |",
         "| C2 datasets | Partial | MUCS and HiACC verified; Lahaja and VITB-HEBiC returned HTTP 401 without accepted access. [`data_card.md`](data_card.md) |",
         "| C3 normalization/scoring | Done for public data | Devanagari-safe normalizer, jiwer-matched raw alignment, pooled metrics and 1,000-resample speaker-cluster CIs; `tests/termeval/`. |",
-        "| C4 ASR decode | Done for public data | Whisper large-v3 auto-language greedy over every public-corpus clip; cache and runtime receipts. Forced-Hindi diagnostic stopped after QC failure. Saaras skipped because vendor permission and a call cap were unavailable. |",
+        "| C4 ASR decode | Done for public data | Whisper large-v3 over every clip: HiACC auto-language and MUCS forced Hindi as frozen in [`decode_policy.json`](decode_policy.json). Full MUCS auto-language output retained as a diagnostic. Initial HiACC forced-Hindi run stopped after QC failure. Saaras skipped because vendor permission and a call cap were unavailable. |",
         "| C5 script lexicon | Provisional | Corpus-derived candidates, explicit collision/low-support guards, no human approval. [`lexicon_v0.csv`](lexicon_v0.csv) |",
         "| C6 TERM annotation | Partial | 200 speaker-balanced utterances receive reproducible dictionary candidate spans, **not LLM or human labels**. [`annotation_guideline.md`](annotation_guideline.md) |",
         "| C7 group slices | Descriptive | HiACC adult/child and gender only where speaker support is adequate; no hypothesis tests. [`metrics.csv`](metrics.csv) |",
@@ -71,7 +82,7 @@ def main() -> None:
         "",
         "## Headline metrics",
         "",
-        "[OBSERVED] Rates are pooled by reference-token or character counts. CER counts spaces as characters. Brackets are 95% percentile CIs from 1,000 speaker-cluster resamples. `C` is a **provisional scoring condition**, not a different ASR model. `TermER` uses only the 200-item dictionary-candidate sample and is omitted when fewer than 30 candidate spans exist.",
+        "[OBSERVED] Primary decode is HiACC auto-language greedy and MUCS forced-Hindi greedy, frozen before the full forced-Hindi MUCS result existed. Rates are pooled by reference-token or character counts. CER counts spaces as characters. Brackets are 95% percentile CIs from 1,000 speaker-cluster resamples. `C` is a **provisional scoring condition**, not a different ASR model. `TermER` uses only the 200-item dictionary-candidate sample and is omitted when fewer than 30 candidate spans exist.",
         "",
         "| Dataset | Scoring | Metric | Rate % [95% CI] | Errors / denominator | Utterances / speakers |",
         "|---|---|---|---:|---:|---:|",
@@ -146,15 +157,17 @@ def main() -> None:
     lines += [
         "", "## Decoder QC decision", "",
         f"[OBSERVED] The forced-Hindi condition was stopped after {qc['forced_hi_rows']} cached HiACC clips. In {qc['matched_rows']} matched early clips, forced Hindi had WER {_pct(forced['value'])}% ({forced['errors']}/{forced['denominator']}) and auto-language decoding had WER {_pct(auto['value'])}% ({auto['errors']}/{auto['denominator']}). These order-biased clips are an engineering QC comparison, not a benchmark result. The forced condition generated outputs with fourfold token repetition in {qc['forced_hi_outputs_with_token_repeated_4_or_more']} of its cached clips. [`language_conditioning_qc.json`](language_conditioning_qc.json)",
+        f"[OBSERVED] A separate {mucs_probe['n_utterances']}-item matched MUCS engineering probe had auto-language WER {_pct(mucs_probe['conditions']['auto_language']['WER'])}% and forced-Hindi WER {_pct(mucs_probe['conditions']['forced_hi']['WER'])}%; Arabic-script outputs changed from {mucs_probe['conditions']['auto_language']['arabic_script_outputs']} to {mucs_probe['conditions']['forced_hi']['arabic_script_outputs']}. The sample came from the first 640 ordered clips and is not a benchmark. [`mucs_language_probe_qc.json`](mucs_language_probe_qc.json)",
+        f"[OBSERVED] On all {language_comparison['n_utterances']} MUCS clips, auto-language WER is {_pct(language_comparison['conditions']['auto_language']['WER'])}% and forced-Hindi WER is {_pct(language_comparison['conditions']['forced_hi']['WER'])}%. The paired A − forced difference is {language_comparison['paired_auto_minus_forced_wer_pp']['point']:+.2f} percentage points [95% speaker-cluster CI {language_comparison['paired_auto_minus_forced_wer_pp']['ci95'][0]:+.2f}, {language_comparison['paired_auto_minus_forced_wer_pp']['ci95'][1]:+.2f}]. Arabic-script outputs are {language_comparison['conditions']['auto_language']['arabic_script_outputs']} versus {language_comparison['conditions']['forced_hi']['arabic_script_outputs']}; fourfold token repetitions are {language_comparison['conditions']['auto_language']['repeated_token_ge4']} versus {language_comparison['conditions']['forced_hi']['repeated_token_ge4']}. This is a post-QC decoder-setting comparison, not a held-out model improvement. [`mucs_full_language_comparison.json`](mucs_full_language_comparison.json)",
         f"[OBSERVED] The full auto-language output QC flags {prediction_qc['hiacc']['flagged_utterances']} HiACC and {prediction_qc['mucs_hien']['flagged_utterances']} MUCS utterances for at least one of: blank output, >3× reference length, ≥4 token repetitions, or ≥200% utterance WER. All remain in the corpus denominator. See [`prediction_qc.json`](prediction_qc.json), [`prediction_qc_flags.csv`](prediction_qc_flags.csv), and ten seed-selected [`prediction_qc_examples.md`](prediction_qc_examples.md).",
-        "[ASSUMED] The runbook's forced `language=hi` setting was replaced with auto language detection before the full run because the public HiACC corpus includes English-only and mixed utterances. Model, revision, greedy decode, and 30-second chunk policy remained fixed.",
+        "[ASSUMED] The runbook's forced `language=hi` setting was replaced with auto language detection for HiACC after a matched QC failure. MUCS uses the original forced-Hindi setting after a separate matched QC probe. The per-corpus choice is adaptive to evaluation-source outputs, so neither corpus is an untouched decoder-selection benchmark. Model, revision, greedy decode, and 30-second chunk policy remained fixed.",
         "",
         "## Assumptions and reproducibility",
         "",
         "- [ASSUMED] NFC text, zero-width removal, Devanagari-to-ASCII digits, nukta removal, Latin-only lowercasing, punctuation removal, and collapsed whitespace are applied identically to references and hypotheses. Number words are unchanged.",
         "- [ASSUMED] HiACC filenames' four-character `PID` prefixes are speaker IDs. This matches `speaker_info.csv` for all but the documented AD63/AD65 mismatch.",
         "- [ASSUMED] C uses only `AUTO_ACCEPT` pairs with ITRANS-based folded distance ≤0.34, at least two observed substitutions, and no static or observed function-word collision. The threshold and guard need human audit.",
-        "- [OBSERVED] ASR model `openai/whisper-large-v3` is pinned to revision `06f233fe06e710322aca913c1bc4249a0d71fce1`; per-dataset config hashes, archive hashes, package versions, audio sample-rate checks, predictions, and token tables are local. The exact launch source commit and app are in [`decode_launch.json`](decode_launch.json). Full corpus text/audio and full predictions are intentionally not committed.",
+        "- [OBSERVED] ASR model `openai/whisper-large-v3` is pinned to revision `06f233fe06e710322aca913c1bc4249a0d71fce1`; per-dataset config hashes, archive hashes, package versions, audio sample-rate checks, predictions, and token tables are local. The first full launch and frozen primary policy are in [`decode_launch.json`](decode_launch.json) and [`decode_policy.json`](decode_policy.json). Full corpus text/audio and full predictions are intentionally not committed.",
         "- [OBSERVED] Raw word alignments match jiwer on 20 fixed random utterances in tests; the C relation is realigned with zero-cost approved pairs. Insertions are reported separately because TokER is reference-anchored.",
         "",
         "## Questions for the team",
@@ -171,11 +184,14 @@ def main() -> None:
         "", "| Dataset | GPU | Function wall seconds | Estimated function-resource USD | Clips >30 s | Clips |", "|---|---|---:|---:|---:|---:|",
     ]
     for dataset, receipt in receipts.items():
-        lines.append(f"| {dataset} | {receipt['gpu']} | {receipt['gpu_wall_seconds']:.1f} | ${receipt['estimated_function_resource_usd']:.2f} | {receipt['longer_than_30s']} | {receipt['target']} |")
+        clips_long = receipt.get("longer_than_30s", "—")
+        lines.append(f"| {dataset} | {receipt['gpu']} | {receipt['gpu_wall_seconds']:.1f} | ${receipt['estimated_function_resource_usd']:.2f} | {clips_long} | {receipt['target']} |")
+    primary_total = sum(receipts[key]["estimated_function_resource_usd"] for key in ("hiacc_primary", "mucs_hien_primary"))
     total = sum(r["estimated_function_resource_usd"] for r in receipts.values())
     lines += [
-        f"| **Main decode sum** | | | **${total:.2f}** | | **{score['predictions']}** |",
-        "[UNVERIFIED] Actual Modal invoice charge and the aborted forced-Hindi diagnostic charge are not included in this estimate.",
+        f"| **Primary decode sum** | | | **${primary_total:.2f}** | | **{score['predictions']}** |",
+        f"| **All completed functions above** | | | **${total:.2f}** | | |",
+        "[UNVERIFIED] Actual Modal invoice charge and the aborted HiACC forced-Hindi diagnostic charge are not included in this estimate.",
         "",
         "## Known limitations",
         "",

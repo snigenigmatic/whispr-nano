@@ -29,9 +29,10 @@ def load_inputs() -> tuple[dict[str, dict], list[dict], dict[str, dict]]:
     manifest = {r["utt_id"]: r for r in rows}
     if len(manifest) != len(rows):
         raise ValueError("duplicate manifest utterance IDs")
+    policy = json.loads((OUT / "decode_policy.json").read_text())["primary"]
     predictions = []
     for dataset in ("hiacc", "mucs_hien"):
-        file = OUT / f"predictions_{dataset}.jsonl"
+        file = OUT / policy[dataset]["prediction_file"]
         if not file.exists():
             raise FileNotFoundError(file)
         subset = [json.loads(line) for line in file.open()]
@@ -42,7 +43,8 @@ def load_inputs() -> tuple[dict[str, dict], list[dict], dict[str, dict]]:
         if len(hashes) != 1:
             raise ValueError(f"{dataset} has mixed config hashes")
         for p in subset:
-            if p["dataset"] != dataset or p["system"] != "whisper-large-v3":
+            if (p["dataset"] != dataset or p["system"] != "whisper-large-v3"
+                    or p["condition_id"] != policy[dataset]["condition_id"]):
                 raise ValueError("prediction identity mismatch")
             if p["model_revision"] != MODEL_REVISION:
                 raise ValueError("model revision mismatch")

@@ -18,17 +18,20 @@ OUT = ROOT / "results/night1"
 
 def main() -> None:
     manifest = {r["utt_id"]: r for r in map(json.loads, (ROOT / "data/termeval/manifest.jsonl").open())}
+    policy = json.loads((OUT / "decode_policy.json").read_text())["primary"]
     flagged = []
     report = {}
     predictions = {}
     for dataset in ("hiacc", "mucs_hien"):
-        file = OUT / f"predictions_{dataset}.jsonl"
+        file = OUT / policy[dataset]["prediction_file"]
         rows = [json.loads(line) for line in file.open()]
         expected = {u for u, row in manifest.items() if row["dataset"] == dataset}
         if len(rows) != len(expected) or {r["utt_id"] for r in rows} != expected:
             raise ValueError(f"{dataset}: missing/duplicate predictions")
         if len({r["config_hash"] for r in rows}) != 1:
             raise ValueError(f"{dataset}: mixed decode configurations")
+        if {r["condition_id"] for r in rows} != {policy[dataset]["condition_id"]}:
+            raise ValueError(f"{dataset}: decode condition disagrees with frozen policy")
         reasons: Counter[str] = Counter()
         for pred in rows:
             utt = pred["utt_id"]

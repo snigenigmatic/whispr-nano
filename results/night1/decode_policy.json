@@ -1,0 +1,30 @@
+{
+  "frozen_at_utc": "2026-10-10 19:57:58 UTC",
+  "purpose": "Choose the per-corpus primary decode setting before the full MUCS forced-Hindi output exists",
+  "primary": {
+    "hiacc": {
+      "condition_id": "auto_language_greedy",
+      "prediction_file": "predictions_hiacc.jsonl",
+      "config_file": "config_hiacc.json",
+      "receipt_file": "receipt_hiacc.json",
+      "reason": "Forced Hindi hallucinated badly on 176 matched early HiACC clips; HiACC mixes English-only and Hindi-English speech."
+    },
+    "mucs_hien": {
+      "condition_id": "forced_hi_greedy",
+      "prediction_file": "predictions_mucs_hien_forced_hi.jsonl",
+      "config_file": "config_mucs_hien_forced_hi.json",
+      "receipt_file": "receipt_mucs_hien_forced_hi.json",
+      "reason": "The adopted runbook prespecified Hindi. A 160-item engineering probe showed auto language detection emitted Arabic-script text on 44 clips; forced Hindi emitted none and reduced matched raw WER from 77.8% to 63.0%."
+    }
+  },
+  "secondary": {
+    "mucs_hien_auto_language": {
+      "condition_id": "auto_language_greedy",
+      "prediction_file": "predictions_mucs_hien.jsonl",
+      "config_file": "config_mucs_hien.json",
+      "receipt_file": "receipt_mucs_hien.json",
+      "purpose": "Full diagnostic comparison, retained rather than overwritten"
+    }
+  },
+  "interpretation": "Adaptive engineering policy selected after QC on evaluation-source clips. Report all configurations and do not claim an untouched publication benchmark."
+}
