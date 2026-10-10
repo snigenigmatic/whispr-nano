@@ -49,6 +49,9 @@ def main() -> None:
     if (decode_policy["primary"]["hiacc"]["condition_id"] != "auto_language_greedy"
             or decode_policy["primary"]["mucs_hien"]["condition_id"] != "forced_hi_greedy"):
         raise ValueError("report text disagrees with frozen primary decoder policy")
+    mucs_raw_wer = _row(metrics, "mucs_hien", "A_raw", "WER")
+    if mucs_raw_wer is None or abs(float(mucs_raw_wer["value"]) - language_comparison["conditions"]["forced_hi"]["WER"]) > 1e-12:
+        raise ValueError("primary MUCS WER disagrees with full decoder comparison")
     figures = ["forest_metrics.pdf", "conditions_a_c.pdf", "term_error_types.pdf", "hiacc_groups.pdf"]
     missing_figures = [name for name in figures if not (OUT / "figs" / name).exists()]
     if missing_figures:
