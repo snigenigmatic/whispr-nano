@@ -60,7 +60,10 @@ def main() -> None:
                 target["errors"] += errors
                 target["reference_words"] += ref_words
                 target["arabic_script_outputs"] += arabic
+                target["arabic_script_reference_words"] += ref_words if arabic else 0
+                target["arabic_script_errors"] += errors if arabic else 0
                 target["repeated_token_ge4"] += repeated
+                target["repeated_token_errors"] += errors if repeated else 0
                 target["empty_outputs"] += not hyp
                 target["utterance_wer_ge200pct"] += score.wer >= 2
         speaker_totals[condition] = by_speaker
