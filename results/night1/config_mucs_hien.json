@@ -1,0 +1,18 @@
+{
+  "dataset": "mucs_hien",
+  "model_id": "openai/whisper-large-v3",
+  "model_revision": "06f233fe06e710322aca913c1bc4249a0d71fce1",
+  "condition_id": "auto_language_greedy",
+  "language": "auto",
+  "task": "transcribe",
+  "num_beams": 1,
+  "dtype": "float16",
+  "chunk_length_s": 30,
+  "batch_size": 8,
+  "seed": 20261011,
+  "transformers": "4.57.6",
+  "torch": "2.8.0+cu128",
+  "manifest_sha256": "2c31c671cf6096d2a7305dc38d72822d8fd8ee61d5670a7542dcca4fe8670216",
+  "maximum_gpu_seconds": 6000,
+  "estimated_upper_bound_usd": 7.109520000000001
+}
