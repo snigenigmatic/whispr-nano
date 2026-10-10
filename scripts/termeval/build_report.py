@@ -52,6 +52,8 @@ def main() -> None:
     mucs_raw_wer = _row(metrics, "mucs_hien", "A_raw", "WER")
     if mucs_raw_wer is None or abs(float(mucs_raw_wer["value"]) - language_comparison["conditions"]["forced_hi"]["WER"]) > 1e-12:
         raise ValueError("primary MUCS WER disagrees with full decoder comparison")
+    if prediction_qc["mucs_hien"]["repetition_loop_errors"] != language_comparison["conditions"]["forced_hi"]["repetition_loop_errors"]:
+        raise ValueError("primary MUCS repetition-error accounting disagrees")
     figures = ["forest_metrics.pdf", "conditions_a_c.pdf", "term_error_types.pdf", "hiacc_groups.pdf"]
     missing_figures = [name for name in figures if not (OUT / "figs" / name).exists()]
     if missing_figures:
@@ -85,7 +87,7 @@ def main() -> None:
         "",
         "## Headline metrics",
         "",
-        "[OBSERVED] Primary decode is HiACC auto-language greedy and MUCS forced-Hindi greedy, frozen before the full forced-Hindi MUCS result existed. Rates are pooled by reference-token or character counts. CER counts spaces as characters. Brackets are 95% percentile CIs from 1,000 speaker-cluster resamples. `C` is a **provisional scoring condition**, not a different ASR model. `TermER` uses only the 200-item dictionary-candidate sample and is omitted when fewer than 30 candidate spans exist.",
+        "[OBSERVED] Primary decode is HiACC auto-language greedy and MUCS forced-Hindi greedy, frozen before the full forced-Hindi MUCS result existed. Rates are pooled by reference-token or character counts. CER counts spaces as characters. Brackets are 95% percentile CIs from 1,000 speaker-cluster resamples. `C` is a **provisional scoring condition**, not a different ASR model. `TermER` uses only the 200-item dictionary-candidate sample and is omitted when fewer than 30 candidate spans exist. Token classes with fewer than 30 reference tokens are retained in `metrics.csv` but omitted from this headline table.",
         "",
         "| Dataset | Scoring | Metric | Rate % [95% CI] | Errors / denominator | Utterances / speakers |",
         "|---|---|---|---:|---:|---:|",
@@ -94,7 +96,9 @@ def main() -> None:
         for condition in ("A_raw", "C_script_equiv_provisional"):
             for metric in ("WER", "CER", "TokER[LAT]", "TokER[DEV]", "TokER[NUM]", "TokER[MIX]", "TokER[OTHER]", "INS_rate", "TermER"):
                 row = _row(metrics, dataset, condition, metric)
-                if row is None or (metric == "TermER" and int(row["denominator"]) < 30):
+                if row is None or (metric == "TermER" and int(row["denominator"]) < 30) or (
+                    metric.startswith("TokER") and int(row["denominator"]) < 30
+                ):
                     continue
                 lines.append(f"| {dataset} | {condition} | {metric} | {_pct(row['value'])} [{_pct(row['ci_low'])}, {_pct(row['ci_high'])}] | {row['numerator']} / {row['denominator']} | {row['n_utterances']} / {row['n_speakers']} |")
     lines += [
@@ -106,7 +110,9 @@ def main() -> None:
         for metric in ("WER", "CER", "TokER[LAT]", "TokER[DEV]", "TokER[NUM]", "TokER[MIX]", "TokER[OTHER]", "INS_rate", "TermER"):
             a = _row(metrics, dataset, "A_raw", metric)
             c = _row(metrics, dataset, "C_script_equiv_provisional", metric)
-            if a is None or c is None or (metric == "TermER" and int(a["denominator"]) < 30):
+            if a is None or c is None or (metric == "TermER" and int(a["denominator"]) < 30) or (
+                metric.startswith("TokER") and int(a["denominator"]) < 30
+            ):
                 continue
             lines.append(f"| {dataset} | {metric} | {_pct(a['value'])} | {_pct(c['value'])} | {100 * (float(a['value']) - float(c['value'])):+.2f} |")
     lines += [
@@ -116,6 +122,10 @@ def main() -> None:
     ]
     for pair in sorted(lexicon, key=lambda p: -int(p["n_occurrences"]))[:30]:
         lines.append(f"| {pair['latin']} | {pair['devanagari']} | {pair['n_occurrences']} | {pair['status']} |")
+    click_pair = next((p for p in lexicon if p["latin"] == "click" and p["devanagari"] == "क्लिक"
+                       and p["status"] == "COLLISION"), None)
+    if click_pair:
+        lines += ["", f"[OBSERVED] The coarse collision guard also rejects `click` ↔ `क्लिक`, despite {click_pair['n_occurrences']} observed substitutions. C therefore misses plausible loanword equivalences as well as risking false accepts; its small A-to-C change is not an estimate of the total script-mismatch burden."]
     if any(p["latin"] == "spot" and p["devanagari"] == "स्पोर्ट" and p["status"] == "AUTO_ACCEPT"
            for p in lexicon):
         lines += ["", "[UNVERIFIED] A sanity scan flags the automatically accepted `spot` ↔ `स्पोर्ट` pair as a probable false friend: *spot* and *sport* are different words. Bilingual review is required before treating C as validated script equivalence."]
@@ -141,6 +151,7 @@ def main() -> None:
             delta, low, high = stats["paired_delta_wer_pp"]
             lines.append(f"| {dataset} | {subset} | {r['dev_speakers']} / {stats['speakers']} | {r['auto_accept_pairs']} | {stats['utterances']} | {_pct(a['value'])} | {_pct(c['value'])} | {delta:+.2f} [{low:+.2f}, {high:+.2f}] |")
     lines += [
+        "",
         f"[OBSERVED] Exact normalized reference text overlaps the lexicon-development speakers for {overlap['datasets']['mucs_hien']['exact_reference_overlap_utterances']}/{overlap['datasets']['mucs_hien']['heldout_utterances']} MUCS and {overlap['datasets']['hiacc']['exact_reference_overlap_utterances']}/{overlap['datasets']['hiacc']['heldout_utterances']} HiACC heldout utterances. Complete paired rates and denominators are in [`heldout_lexicon_metrics.csv`](heldout_lexicon_metrics.csv); the frozen speaker assignment and overlap audit are in [`speaker_holdout_split.json`](speaker_holdout_split.json) and [`speaker_holdout_overlap.json`](speaker_holdout_overlap.json).", ""
     ]
     lines += [
@@ -159,13 +170,13 @@ def main() -> None:
                 if row is None or (metric == "TermER" and int(row["denominator"]) < 30):
                     continue
                 lines.append(f"| {field} | {value} | {metric} | {_pct(row['value'])} [{_pct(row['ci_low'])}, {_pct(row['ci_high'])}] | {row['numerator']} / {row['denominator']} | {row['n_utterances']} / {row['n_speakers']} |")
-    lines += ["[OBSERVED] Group TermER is not reported where fewer than 30 candidate spans exist; missing HiACC gender metadata for AD63 excludes its 119 utterances from the gender slice only.", ""]
+    lines += ["", "[OBSERVED] Group TermER is not reported where fewer than 30 candidate spans exist; missing HiACC gender metadata for AD63 excludes its 119 utterances from the gender slice only.", ""]
     lines += [
         "", "## Decoder QC decision", "",
-        f"[OBSERVED] The forced-Hindi condition was stopped after {qc['forced_hi_rows']} cached HiACC clips. In {qc['matched_rows']} matched early clips, forced Hindi had WER {_pct(forced['value'])}% ({forced['errors']}/{forced['denominator']}) and auto-language decoding had WER {_pct(auto['value'])}% ({auto['errors']}/{auto['denominator']}). These order-biased clips are an engineering QC comparison, not a benchmark result. The forced condition generated outputs with fourfold token repetition in {qc['forced_hi_outputs_with_token_repeated_4_or_more']} of its cached clips. [`language_conditioning_qc.json`](language_conditioning_qc.json)",
+        f"[OBSERVED] The forced-Hindi condition was stopped after {qc['forced_hi_rows']} cached HiACC clips. In {qc['matched_rows']} matched early clips, forced Hindi had WER {_pct(forced['value'])}% ({forced['errors']}/{forced['denominator']}) and auto-language decoding had WER {_pct(auto['value'])}% ({auto['errors']}/{auto['denominator']}). These order-biased clips are an engineering QC comparison, not a benchmark result. The forced condition generated contiguous phrase loops repeated at least four times in {qc['forced_hi_outputs_with_repetition_loop_ge4']} of its cached clips. [`language_conditioning_qc.json`](language_conditioning_qc.json)",
         f"[OBSERVED] A separate {mucs_probe['n_utterances']}-item matched MUCS engineering probe had auto-language WER {_pct(mucs_probe['conditions']['auto_language']['WER'])}% and forced-Hindi WER {_pct(mucs_probe['conditions']['forced_hi']['WER'])}%; Arabic-script outputs changed from {mucs_probe['conditions']['auto_language']['arabic_script_outputs']} to {mucs_probe['conditions']['forced_hi']['arabic_script_outputs']}. The sample came from the first 640 ordered clips and is not a benchmark. [`mucs_language_probe_qc.json`](mucs_language_probe_qc.json)",
-        f"[OBSERVED] On all {language_comparison['n_utterances']} MUCS clips, auto-language WER is {_pct(language_comparison['conditions']['auto_language']['WER'])}% and forced-Hindi WER is {_pct(language_comparison['conditions']['forced_hi']['WER'])}%. The paired auto − forced difference is {language_comparison['paired_auto_minus_forced_wer_pp']['point']:+.2f} percentage points [95% speaker-cluster CI {language_comparison['paired_auto_minus_forced_wer_pp']['ci95'][0]:+.2f}, {language_comparison['paired_auto_minus_forced_wer_pp']['ci95'][1]:+.2f}]. Arabic-script outputs are {language_comparison['conditions']['auto_language']['arabic_script_outputs']} versus {language_comparison['conditions']['forced_hi']['arabic_script_outputs']}; the auto Arabic-script outputs contribute {language_comparison['conditions']['auto_language']['arabic_script_errors']} of {language_comparison['conditions']['auto_language']['errors']} total word errors. Fourfold token repetitions are {language_comparison['conditions']['auto_language']['repeated_token_ge4']} versus {language_comparison['conditions']['forced_hi']['repeated_token_ge4']}. This is a post-QC decoder-setting comparison, not a held-out model improvement. [`mucs_full_language_comparison.json`](mucs_full_language_comparison.json)",
-        f"[OBSERVED] The full auto-language output QC flags {prediction_qc['hiacc']['flagged_utterances']} HiACC and {prediction_qc['mucs_hien']['flagged_utterances']} MUCS utterances for at least one of: blank output, >3× reference length, ≥4 token repetitions, or ≥200% utterance WER. All remain in the corpus denominator. See [`prediction_qc.json`](prediction_qc.json), [`prediction_qc_flags.csv`](prediction_qc_flags.csv), and ten seed-selected [`prediction_qc_examples.md`](prediction_qc_examples.md).",
+        f"[OBSERVED] On all {language_comparison['n_utterances']} MUCS clips, auto-language WER is {_pct(language_comparison['conditions']['auto_language']['WER'])}% and forced-Hindi WER is {_pct(language_comparison['conditions']['forced_hi']['WER'])}%. The paired auto − forced difference is {language_comparison['paired_auto_minus_forced_wer_pp']['point']:+.2f} percentage points [95% speaker-cluster CI {language_comparison['paired_auto_minus_forced_wer_pp']['ci95'][0]:+.2f}, {language_comparison['paired_auto_minus_forced_wer_pp']['ci95'][1]:+.2f}]. Arabic-script outputs are {language_comparison['conditions']['auto_language']['arabic_script_outputs']} versus {language_comparison['conditions']['forced_hi']['arabic_script_outputs']}; the auto Arabic-script outputs contribute {language_comparison['conditions']['auto_language']['arabic_script_errors']} of {language_comparison['conditions']['auto_language']['errors']} total word errors. Contiguous phrase loops repeated at least four times occur in {language_comparison['conditions']['auto_language']['repetition_loop_ge4']} versus {language_comparison['conditions']['forced_hi']['repetition_loop_ge4']} outputs. This is a post-QC decoder-setting comparison, not a held-out model improvement. [`mucs_full_language_comparison.json`](mucs_full_language_comparison.json)",
+        f"[OBSERVED] The primary-output QC flags {prediction_qc['hiacc']['flagged_utterances']} HiACC and {prediction_qc['mucs_hien']['flagged_utterances']} MUCS utterances for at least one of: blank output, >3× reference length, a contiguous 1–4-token phrase repeated four times, or ≥200% utterance WER. HiACC has {prediction_qc['hiacc']['flag_counts'].get('repetition_loop_ge4', 0)} loop-flagged clips contributing {prediction_qc['hiacc']['repetition_loop_errors']} of {prediction_qc['hiacc']['word_errors']} word errors. Forced-Hindi MUCS has {language_comparison['conditions']['forced_hi']['repetition_loop_ge4']} such clips contributing {language_comparison['conditions']['forced_hi']['repetition_loop_errors']} of {language_comparison['conditions']['forced_hi']['errors']} word errors. All remain in the corpus denominator. See [`prediction_qc.json`](prediction_qc.json), [`prediction_qc_flags.csv`](prediction_qc_flags.csv), and ten seed-selected [`prediction_qc_examples.md`](prediction_qc_examples.md).",
         "[ASSUMED] The runbook's forced `language=hi` setting was replaced with auto language detection for HiACC after a matched QC failure. MUCS uses the original forced-Hindi setting after a separate matched QC probe. The per-corpus choice is adaptive to evaluation-source outputs, so neither corpus is an untouched decoder-selection benchmark. Model, revision, greedy decode, and 30-second chunk policy remained fixed.",
         "",
         "## Assumptions and reproducibility",
@@ -174,7 +185,7 @@ def main() -> None:
         "- [ASSUMED] HiACC filenames' four-character `PID` prefixes are speaker IDs. This matches `speaker_info.csv` for all but the documented AD63/AD65 mismatch.",
         "- [ASSUMED] C uses only `AUTO_ACCEPT` pairs with ITRANS-based folded distance ≤0.34, at least two observed substitutions, and no static or observed function-word collision. The threshold and guard need human audit.",
         "- [OBSERVED] ASR model `openai/whisper-large-v3` is pinned to revision `06f233fe06e710322aca913c1bc4249a0d71fce1`; per-dataset config hashes, archive hashes, package versions, audio sample-rate checks, predictions, and token tables are local. Both full launch records and the frozen primary policy are in [`decode_launch.json`](decode_launch.json), [`forced_hi_launch.json`](forced_hi_launch.json), and [`decode_policy.json`](decode_policy.json). Full corpus text/audio and full predictions are intentionally not committed.",
-        "- [OBSERVED] Raw word alignments match jiwer on 20 fixed random utterances in tests; the C relation is realigned with zero-cost approved pairs. Insertions are reported separately because TokER is reference-anchored.",
+        "- [OBSERVED] Raw word alignments match jiwer on 20 fixed random utterances in the scoring preflight; the C relation is realigned with zero-cost approved pairs. Insertions are reported separately because TokER is reference-anchored.",
         "",
         "## Questions for the team",
         "",
@@ -190,7 +201,9 @@ def main() -> None:
         "", "| Dataset | GPU | Function wall seconds | Estimated function-resource USD | Clips >30 s | Clips |", "|---|---|---:|---:|---:|---:|",
     ]
     for dataset, receipt in receipts.items():
-        clips_long = receipt.get("longer_than_30s", "—")
+        clips_long = receipt.get("longer_than_30s", (
+            receipts["mucs_hien_auto_diagnostic"]["longer_than_30s"]
+            if dataset == "mucs_hien_primary" else "—"))
         lines.append(f"| {dataset} | {receipt['gpu']} | {receipt['gpu_wall_seconds']:.1f} | ${receipt['estimated_function_resource_usd']:.2f} | {clips_long} | {receipt['target']} |")
     primary_total = sum(receipts[key]["estimated_function_resource_usd"] for key in ("hiacc_primary", "mucs_hien_primary"))
     total = sum(r["estimated_function_resource_usd"] for r in receipts.values())
@@ -202,11 +215,12 @@ def main() -> None:
         "## Known limitations",
         "",
         "- Training-data contamination is unknown for the model on both public corpora.",
-        "- The C lexicon was mined on evaluation references and must not be used as a held-out claim; candidate TERM labels are unverified and HiACC has insufficient candidate terms for TermER.",
+        "- The C lexicon was mined on evaluation references, may reject genuine loanwords and accept false friends, and must not be used as a validated held-out claim; candidate TERM labels are unverified and HiACC has insufficient candidate terms for TermER.",
         "- Number words are not normalized. CER under C maps only aligned equivalent token pairs to a common spelling before character alignment.",
         "- HiACC's released splits share speakers; it cannot support an unseen-speaker claim without a new speaker-disjoint split.",
         "- MUCS supplies only 30 speaker IDs and no demographics; HiACC adult/child and gender cluster counts limit group precision.",
-        "- This is a one-model, one-decode-condition pilot, not a comparison of state-of-the-art open models or an intervention improving ASR.",
+        "- This is a one-model pilot with per-corpus decode settings, not a comparison of state-of-the-art open models or a trained-model intervention improving ASR.",
+        "- Some MUCS high-error hypotheses resemble neighbouring transcript content; it is unverified whether segment boundaries, annotation timing, or decoder behaviour caused this. Listening review is required.",
         "- ASR output quality on very short clips and transcript errors need human listening review before publication.",
         "",
         "## C1 code inventory",

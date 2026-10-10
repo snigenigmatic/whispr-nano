@@ -8,7 +8,7 @@
       "reference_words": 2389,
       "utterances": 160,
       "arabic_script_outputs": 44,
-      "repeated_token_ge4": 6,
+      "repetition_loop_ge4": 1,
       "utterance_wer_ge200pct": 4,
       "WER": 0.7777312683131017,
       "speakers": {
@@ -17,7 +17,7 @@
           "reference_words": 282,
           "utterances": 20,
           "arabic_script_outputs": 9,
-          "repeated_token_ge4": 0,
+          "repetition_loop_ge4": 0,
           "utterance_wer_ge200pct": 0,
           "WER": 0.6595744680851063
         },
@@ -26,7 +26,7 @@
           "reference_words": 226,
           "utterances": 20,
           "arabic_script_outputs": 0,
-          "repeated_token_ge4": 0,
+          "repetition_loop_ge4": 0,
           "utterance_wer_ge200pct": 0,
           "WER": 0.39823008849557523
         },
@@ -35,7 +35,7 @@
           "reference_words": 475,
           "utterances": 20,
           "arabic_script_outputs": 0,
-          "repeated_token_ge4": 3,
+          "repetition_loop_ge4": 0,
           "utterance_wer_ge200pct": 2,
           "WER": 1.088421052631579
         },
@@ -44,7 +44,7 @@
           "reference_words": 245,
           "utterances": 20,
           "arabic_script_outputs": 11,
-          "repeated_token_ge4": 1,
+          "repetition_loop_ge4": 1,
           "utterance_wer_ge200pct": 1,
           "WER": 1.1673469387755102
         },
@@ -53,7 +53,7 @@
           "reference_words": 352,
           "utterances": 20,
           "arabic_script_outputs": 0,
-          "repeated_token_ge4": 2,
+          "repetition_loop_ge4": 0,
           "utterance_wer_ge200pct": 0,
           "WER": 0.5852272727272727
         },
@@ -62,7 +62,7 @@
           "reference_words": 213,
           "utterances": 20,
           "arabic_script_outputs": 8,
-          "repeated_token_ge4": 0,
+          "repetition_loop_ge4": 0,
           "utterance_wer_ge200pct": 0,
           "WER": 0.6948356807511737
         },
@@ -71,7 +71,7 @@
           "reference_words": 328,
           "utterances": 20,
           "arabic_script_outputs": 7,
-          "repeated_token_ge4": 0,
+          "repetition_loop_ge4": 0,
           "utterance_wer_ge200pct": 1,
           "WER": 0.7835365853658537
         },
@@ -80,7 +80,7 @@
           "reference_words": 268,
           "utterances": 20,
           "arabic_script_outputs": 9,
-          "repeated_token_ge4": 0,
+          "repetition_loop_ge4": 0,
           "utterance_wer_ge200pct": 0,
           "WER": 0.6268656716417911
         }
@@ -91,7 +91,7 @@
       "reference_words": 2389,
       "utterances": 160,
       "arabic_script_outputs": 0,
-      "repeated_token_ge4": 6,
+      "repetition_loop_ge4": 1,
       "utterance_wer_ge200pct": 4,
       "WER": 0.6295521138551695,
       "speakers": {
@@ -100,7 +100,7 @@
           "reference_words": 282,
           "utterances": 20,
           "arabic_script_outputs": 0,
-          "repeated_token_ge4": 0,
+          "repetition_loop_ge4": 0,
           "utterance_wer_ge200pct": 0,
           "WER": 0.41843971631205673
         },
@@ -109,7 +109,7 @@
           "reference_words": 226,
           "utterances": 20,
           "arabic_script_outputs": 0,
-          "repeated_token_ge4": 0,
+          "repetition_loop_ge4": 0,
           "utterance_wer_ge200pct": 0,
           "WER": 0.39823008849557523
         },
@@ -118,7 +118,7 @@
           "reference_words": 475,
           "utterances": 20,
           "arabic_script_outputs": 0,
-          "repeated_token_ge4": 3,
+          "repetition_loop_ge4": 0,
           "utterance_wer_ge200pct": 2,
           "WER": 1.088421052631579
         },
@@ -127,7 +127,7 @@
           "reference_words": 245,
           "utterances": 20,
           "arabic_script_outputs": 0,
-          "repeated_token_ge4": 1,
+          "repetition_loop_ge4": 1,
           "utterance_wer_ge200pct": 1,
           "WER": 0.8530612244897959
         },
@@ -136,7 +136,7 @@
           "reference_words": 352,
           "utterances": 20,
           "arabic_script_outputs": 0,
-          "repeated_token_ge4": 2,
+          "repetition_loop_ge4": 0,
           "utterance_wer_ge200pct": 0,
           "WER": 0.5852272727272727
         },
@@ -145,7 +145,7 @@
           "reference_words": 213,
           "utterances": 20,
           "arabic_script_outputs": 0,
-          "repeated_token_ge4": 0,
+          "repetition_loop_ge4": 0,
           "utterance_wer_ge200pct": 0,
           "WER": 0.4131455399061033
         },
@@ -154,7 +154,7 @@
           "reference_words": 328,
           "utterances": 20,
           "arabic_script_outputs": 0,
-          "repeated_token_ge4": 0,
+          "repetition_loop_ge4": 0,
           "utterance_wer_ge200pct": 1,
           "WER": 0.5426829268292683
         },
@@ -163,7 +163,7 @@
           "reference_words": 268,
           "utterances": 20,
           "arabic_script_outputs": 0,
-          "repeated_token_ge4": 0,
+          "repetition_loop_ge4": 0,
           "utterance_wer_ge200pct": 0,
           "WER": 0.3656716417910448
         }

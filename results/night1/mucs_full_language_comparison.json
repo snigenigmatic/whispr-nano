@@ -1,0 +1,52 @@
+{
+  "purpose": "full-corpus decoder-setting QC; setting selected after a small evaluation-source probe",
+  "n_utterances": 3136,
+  "n_speakers": 30,
+  "bootstrap_resamples": 1000,
+  "bootstrap_unit": "speaker ID",
+  "conditions": {
+    "auto_language": {
+      "condition_id": "auto_language_greedy",
+      "config_hash": "fa3d1b75c5e6e2cbdc55823ea353d992145e1576011b0b6df7cfc02f970fcf6d",
+      "errors": 27830,
+      "reference_words": 37500,
+      "arabic_script_outputs": 799,
+      "arabic_script_reference_words": 9944,
+      "arabic_script_errors": 10858,
+      "repetition_loop_ge4": 23,
+      "repetition_loop_errors": 1922,
+      "empty_outputs": 4,
+      "utterance_wer_ge200pct": 57,
+      "WER": 0.7421333333333333,
+      "WER_ci95": [
+        0.6728353895743026,
+        0.8086375827905194
+      ]
+    },
+    "forced_hi": {
+      "condition_id": "forced_hi_greedy",
+      "config_hash": "b800c167e913181573de2842c1153c34be9e471f6b09f924900f40dbe5107a06",
+      "errors": 22198,
+      "reference_words": 37500,
+      "arabic_script_outputs": 0,
+      "arabic_script_reference_words": 0,
+      "arabic_script_errors": 0,
+      "repetition_loop_ge4": 30,
+      "repetition_loop_errors": 2289,
+      "empty_outputs": 0,
+      "utterance_wer_ge200pct": 62,
+      "WER": 0.5919466666666666,
+      "WER_ci95": [
+        0.5327762251307452,
+        0.662425215234204
+      ]
+    }
+  },
+  "paired_auto_minus_forced_wer_pp": {
+    "point": 15.018666666666668,
+    "ci95": [
+      9.788587909964031,
+      20.858829554950532
+    ]
+  }
+}

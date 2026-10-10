@@ -11,6 +11,7 @@ import unicodedata
 import jiwer
 
 from ast_asr.termeval.normalize import normalize
+from ast_asr.termeval.qc import has_repetition_loop
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -55,15 +56,15 @@ def main() -> None:
             errors = score.substitutions + score.deletions + score.insertions
             ref_words = score.hits + score.substitutions + score.deletions
             arabic = any("ARABIC" in unicodedata.name(c, "") for c in hyp)
-            repeated = any(n >= 4 for n in Counter(hyp.split()).values())
+            repeated = has_repetition_loop(hyp.split())
             for target in (totals, by_speaker[row["speaker"]]):
                 target["errors"] += errors
                 target["reference_words"] += ref_words
                 target["arabic_script_outputs"] += arabic
                 target["arabic_script_reference_words"] += ref_words if arabic else 0
                 target["arabic_script_errors"] += errors if arabic else 0
-                target["repeated_token_ge4"] += repeated
-                target["repeated_token_errors"] += errors if repeated else 0
+                target["repetition_loop_ge4"] += repeated
+                target["repetition_loop_errors"] += errors if repeated else 0
                 target["empty_outputs"] += not hyp
                 target["utterance_wer_ge200pct"] += score.wer >= 2
         speaker_totals[condition] = by_speaker

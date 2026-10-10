@@ -84,7 +84,8 @@ def verify_decode() -> dict:
 
 def main() -> None:
     verified = verify_decode()
-    for module in ("validate_predictions", "score_results", "evaluate_heldout_lexicon",
+    for module in ("diagnose_language", "diagnose_mucs_language", "validate_predictions",
+                   "score_results", "evaluate_heldout_lexicon",
                    "compare_mucs_decode"):
         run(sys.executable, "-m", f"scripts.termeval.{module}")
     run(sys.executable, str(OUT / "figs/plot_pilot.py"))

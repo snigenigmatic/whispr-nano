@@ -10,6 +10,7 @@ import unicodedata
 import jiwer
 
 from ast_asr.termeval.normalize import normalize
+from ast_asr.termeval.qc import has_repetition_loop
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -55,7 +56,7 @@ def main() -> None:
                 target["reference_words"] += n_ref
                 target["utterances"] += 1
                 target["arabic_script_outputs"] += _has_arabic(hypothesis)
-                target["repeated_token_ge4"] += any(n >= 4 for n in Counter(hypothesis.split()).values())
+                target["repetition_loop_ge4"] += has_repetition_loop(hypothesis.split())
                 target["utterance_wer_ge200pct"] += score.wer >= 2
         report["conditions"][condition] = {
             **counts, "WER": counts["errors"] / counts["reference_words"],
@@ -63,7 +64,7 @@ def main() -> None:
                          for speaker, value in sorted(by_speaker.items())},
         }
     (OUT / "mucs_language_probe_qc.json").write_text(json.dumps(report, indent=2))
-    print(json.dumps({condition: {k: value[k] for k in ("WER", "arabic_script_outputs", "repeated_token_ge4")}
+    print(json.dumps({condition: {k: value[k] for k in ("WER", "arabic_script_outputs", "repetition_loop_ge4")}
                       for condition, value in report["conditions"].items()}))
 
 

@@ -1,0 +1,33 @@
+{
+  "decode": {
+    "hiacc:auto_language_greedy": {
+      "predictions": 5176,
+      "config_hash": "6e963648b6c97165323e1de0340e11470afedbfe582fe22171cd13d975c521b7",
+      "predictions_sha256": "6a6f197a93076e33e871d7d7a88942cb27196b740e242ced77ef0471f210c682",
+      "receipt_sha256": "ae3fe8120ec055adce21a7adf51f8f9a6fae683a792751d9378ce3c8581508c6"
+    },
+    "mucs_hien:auto_language_greedy": {
+      "predictions": 3136,
+      "config_hash": "fa3d1b75c5e6e2cbdc55823ea353d992145e1576011b0b6df7cfc02f970fcf6d",
+      "predictions_sha256": "db976c2415f06872ddc6617a2ff810ec513316b424bb35de59a28e43aedc70f2",
+      "receipt_sha256": "26d8eb7b5b8a698b39cf248f2f8a07e576084bbc0f9b41781c6f5fb60173ef4d"
+    },
+    "mucs_hien:forced_hi_greedy": {
+      "predictions": 3136,
+      "config_hash": "b800c167e913181573de2842c1153c34be9e471f6b09f924900f40dbe5107a06",
+      "predictions_sha256": "2a8fa6ebe4599cc53e6e60240f793d057a911187cba160a5ccd54f905d333617",
+      "receipt_sha256": "74b896e173410ac210a2960110b08ac5ad7c012bc7b7c4d77543fe17c26513ee"
+    }
+  },
+  "decode_policy_sha256": "2f0c4fa372b2dcd01940d354e985fce084a0ffcbc80794534e3cbfbcfaeab0e9",
+  "outputs_sha256": {
+    "metrics.csv": "a491d849c724fb10a47d8cffaf771f9c1747357988ff5093fba7407b0ae697fa",
+    "score_receipt.json": "f7df2d7e679741f5ca842499aae0f7797824add62a3bd43c1f1e93ea16a117ae",
+    "heldout_lexicon_metrics.csv": "cc57802d1166e18d13f74f1e6dbab1c5f05d98a3e6e97c67df5c78667ab844c7",
+    "heldout_lexicon_receipt.json": "7780429b1333d2815c5bb1c40548fe6b9bbafbd97267f97a473516b4ae43e750",
+    "prediction_qc.json": "06e6abe5c5537c525cc9bec293d5322dd77e0ee40585e2e5a36b0aceaf75c8b3",
+    "mucs_full_language_comparison.json": "dd0ecbeb17a299cb7de739542c70e6b8a19d47180cab4190fe9379123c4eae83",
+    "RUN_REPORT.md": "e1c1cb57e13cf7e5c860eb59507561f23e21a9577642624bbbd3768b211b129e"
+  },
+  "tests": "pytest -q tests/termeval passed"
+}

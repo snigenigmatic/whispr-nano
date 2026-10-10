@@ -1,0 +1,19 @@
+{
+  "predictions": 8312,
+  "config_hashes": {
+    "hiacc": "6e963648b6c97165323e1de0340e11470afedbfe582fe22171cd13d975c521b7",
+    "mucs_hien": "b800c167e913181573de2842c1153c34be9e471f6b09f924900f40dbe5107a06"
+  },
+  "lexicon_status": {
+    "COLLISION": 2760,
+    "AUTO_ACCEPT": 129,
+    "REVIEW": 2322
+  },
+  "lexicon_auto_accept_pairs": 129,
+  "annotations": 200,
+  "candidate_term_spans": 54,
+  "sampled_term_errors": 33,
+  "available_term_errors": 33,
+  "bootstrap_resamples": 1000,
+  "bootstrap_unit": "speaker ID"
+}

@@ -1,0 +1,93 @@
+{
+  "seed": 20261011,
+  "split_file": "speaker_holdout_split.json",
+  "lexicon_mined_on": "lexicon_dev speakers only",
+  "datasets": {
+    "mucs_hien": {
+      "dev_utterances": 1552,
+      "heldout_utterances": 1584,
+      "dev_speakers": 15,
+      "heldout_speakers": 15,
+      "lexicon_status": {
+        "COLLISION": 718,
+        "REVIEW": 585,
+        "AUTO_ACCEPT": 29
+      },
+      "auto_accept_pairs": 29,
+      "exact_reference_overlap_utterances": 143,
+      "evaluation_sets": {
+        "all_heldout": {
+          "utterances": 1584,
+          "speakers": 15,
+          "paired_delta_wer_pp": [
+            0.406526098975557,
+            0.22474435329812303,
+            0.6390140925429333
+          ],
+          "paired_delta_latin_toker_pp": [
+            1.1702750146284302,
+            0.5133267522211216,
+            1.879362806515128
+          ]
+        },
+        "novel_reference": {
+          "utterances": 1441,
+          "speakers": 15,
+          "paired_delta_wer_pp": [
+            0.38248793691890715,
+            0.19129355806017934,
+            0.6352033244286126
+          ],
+          "paired_delta_latin_toker_pp": [
+            1.0940458657689889,
+            0.4036087369420627,
+            1.9045485099708714
+          ]
+        }
+      }
+    },
+    "hiacc": {
+      "dev_utterances": 2394,
+      "heldout_utterances": 2782,
+      "dev_speakers": 22,
+      "heldout_speakers": 22,
+      "lexicon_status": {
+        "REVIEW": 731,
+        "COLLISION": 479,
+        "AUTO_ACCEPT": 47
+      },
+      "auto_accept_pairs": 47,
+      "exact_reference_overlap_utterances": 405,
+      "evaluation_sets": {
+        "all_heldout": {
+          "utterances": 2782,
+          "speakers": 22,
+          "paired_delta_wer_pp": [
+            0.8445214378518862,
+            0.6067479444286927,
+            1.1126732275557327
+          ],
+          "paired_delta_latin_toker_pp": [
+            1.9132442685139361,
+            1.188820032882254,
+            3.190471126236305
+          ]
+        },
+        "novel_reference": {
+          "utterances": 2377,
+          "speakers": 22,
+          "paired_delta_wer_pp": [
+            0.7601847963040753,
+            0.5256932579839668,
+            1.0372353137995338
+          ],
+          "paired_delta_latin_toker_pp": [
+            1.6741488963711193,
+            0.9694651454197734,
+            2.9011168618904906
+          ]
+        }
+      }
+    }
+  }
+}

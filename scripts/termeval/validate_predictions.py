@@ -10,6 +10,7 @@ import random
 
 from ast_asr.termeval.align import align_words, edit_counts
 from ast_asr.termeval.normalize import normalize
+from ast_asr.termeval.qc import has_repetition_loop
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -33,20 +34,25 @@ def main() -> None:
         if {r["condition_id"] for r in rows} != {policy[dataset]["condition_id"]}:
             raise ValueError(f"{dataset}: decode condition disagrees with frozen policy")
         reasons: Counter[str] = Counter()
+        totals: Counter[str] = Counter()
         for pred in rows:
             utt = pred["utt_id"]
             predictions[utt] = pred["text"]
             ref = normalize(manifest[utt]["reference"]).split()
             hyp = normalize(pred["text"]).split()
             counts = edit_counts(align_words(ref, hyp))
-            wer = (counts["SUB"] + counts["DEL"] + counts["INS"]) / len(ref)
+            errors = counts["SUB"] + counts["DEL"] + counts["INS"]
+            wer = errors / len(ref)
+            totals["reference_words"] += len(ref)
+            totals["word_errors"] += errors
             issues = []
             if not hyp:
                 issues.append("empty_hypothesis")
             if len(hyp) > 3 * len(ref):
                 issues.append("hyp_gt_3x_ref_tokens")
-            if any(n >= 4 for n in Counter(hyp).values()):
-                issues.append("token_repeated_ge_4")
+            if has_repetition_loop(hyp):
+                issues.append("repetition_loop_ge4")
+                totals["repetition_loop_errors"] += errors
             if wer >= 2:
                 issues.append("utterance_wer_ge_200pct")
             if issues:
@@ -58,7 +64,10 @@ def main() -> None:
                                 "wer": round(wer, 4), "flags": ";".join(issues)})
         report[dataset] = {"predictions": len(rows), "config_hash": rows[0]["config_hash"],
                            "flag_counts": dict(reasons),
-                           "flagged_utterances": sum(r["dataset"] == dataset for r in flagged)}
+                           "flagged_utterances": sum(r["dataset"] == dataset for r in flagged),
+                           "reference_words": totals["reference_words"],
+                           "word_errors": totals["word_errors"],
+                           "repetition_loop_errors": totals["repetition_loop_errors"]}
     with (OUT / "prediction_qc_flags.csv").open("w", newline="") as handle:
         writer = csv.DictWriter(handle, fieldnames=["dataset", "utt_id", "speaker", "duration_s",
                                                        "reference_tokens", "hypothesis_tokens", "wer", "flags"])
@@ -75,7 +84,7 @@ def main() -> None:
                   f"- Flags: {item['flags']}",
                   f"- Utterance WER: {100 * item['wer']:.1f}%",
                   f"- Reference: {manifest[utt]['reference']}",
-                  f"- Hypothesis (first 180 characters): {predictions[utt][:180]}", ""]
+                  f"- Hypothesis (first 180 characters): {predictions[utt][:180].rstrip()}", ""]
     (OUT / "prediction_qc_examples.md").write_text("\n".join(lines))
     print(json.dumps(report))
 

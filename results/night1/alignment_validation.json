@@ -1,0 +1,127 @@
+{
+  "seed": 20261011,
+  "n": 20,
+  "all_match_jiwer": true,
+  "items": [
+    {
+      "utt_id": "921151_kvxzesc5pGxL6dnk_0022",
+      "sub": 2,
+      "del": 2,
+      "ins": 3
+    },
+    {
+      "utt_id": "137494_fpL6MBSZsci9dyAn_0145",
+      "sub": 2,
+      "del": 1,
+      "ins": 0
+    },
+    {
+      "utt_id": "921151_kvxzesc5pGxL6dnk_0086",
+      "sub": 4,
+      "del": 3,
+      "ins": 2
+    },
+    {
+      "utt_id": "137494_fpL6MBSZsci9dyAn_0004",
+      "sub": 0,
+      "del": 0,
+      "ins": 0
+    },
+    {
+      "utt_id": "children_CH26033",
+      "sub": 0,
+      "del": 0,
+      "ins": 0
+    },
+    {
+      "utt_id": "adult_AD41059",
+      "sub": 0,
+      "del": 0,
+      "ins": 0
+    },
+    {
+      "utt_id": "adult_AD36040",
+      "sub": 1,
+      "del": 0,
+      "ins": 0
+    },
+    {
+      "utt_id": "270589_FV8hkymGWcy53lrf_0016",
+      "sub": 1,
+      "del": 0,
+      "ins": 0
+    },
+    {
+      "utt_id": "834022_lHGLSlYIb1clRBRF_0068",
+      "sub": 4,
+      "del": 0,
+      "ins": 83
+    },
+    {
+      "utt_id": "adult_AD26011",
+      "sub": 1,
+      "del": 0,
+      "ins": 0
+    },
+    {
+      "utt_id": "adult_AD47136",
+      "sub": 2,
+      "del": 2,
+      "ins": 0
+    },
+    {
+      "utt_id": "137494_fpL6MBSZsci9dyAn_0124",
+      "sub": 8,
+      "del": 0,
+      "ins": 3
+    },
+    {
+      "utt_id": "children_CH07064",
+      "sub": 1,
+      "del": 0,
+      "ins": 0
+    },
+    {
+      "utt_id": "adult_AD31046",
+      "sub": 1,
+      "del": 0,
+      "ins": 1
+    },
+    {
+      "utt_id": "791308_kGQKLyQ1HtnUNL1d_0067",
+      "sub": 4,
+      "del": 0,
+      "ins": 0
+    },
+    {
+      "utt_id": "adult_AD43047",
+      "sub": 5,
+      "del": 1,
+      "ins": 0
+    },
+    {
+      "utt_id": "adult_AD26072",
+      "sub": 0,
+      "del": 0,
+      "ins": 0
+    },
+    {
+      "utt_id": "children_CH11088",
+      "sub": 0,
+      "del": 0,
+      "ins": 0
+    },
+    {
+      "utt_id": "children_CH16068",
+      "sub": 9,
+      "del": 0,
+      "ins": 0
+    },
+    {
+      "utt_id": "adult_AD40094",
+      "sub": 3,
+      "del": 0,
+      "ins": 0
+    }
+  ]
+}

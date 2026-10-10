@@ -1,0 +1,29 @@
+{
+  "hiacc": {
+    "predictions": 5176,
+    "config_hash": "6e963648b6c97165323e1de0340e11470afedbfe582fe22171cd13d975c521b7",
+    "flag_counts": {
+      "hyp_gt_3x_ref_tokens": 37,
+      "repetition_loop_ge4": 31,
+      "utterance_wer_ge_200pct": 48,
+      "empty_hypothesis": 1
+    },
+    "flagged_utterances": 51,
+    "reference_words": 50674,
+    "word_errors": 18765,
+    "repetition_loop_errors": 2568
+  },
+  "mucs_hien": {
+    "predictions": 3136,
+    "config_hash": "b800c167e913181573de2842c1153c34be9e471f6b09f924900f40dbe5107a06",
+    "flag_counts": {
+      "hyp_gt_3x_ref_tokens": 42,
+      "utterance_wer_ge_200pct": 62,
+      "repetition_loop_ge4": 30
+    },
+    "flagged_utterances": 63,
+    "reference_words": 37500,
+    "word_errors": 22198,
+    "repetition_loop_errors": 2289
+  }
+}
