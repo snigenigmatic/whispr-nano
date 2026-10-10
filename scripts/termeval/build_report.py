@@ -28,6 +28,7 @@ def main() -> None:
     data = json.loads((OUT / "data_summary.json").read_text())
     audio_qc = json.loads((OUT / "audio_qc.json").read_text())
     prediction_qc = json.loads((OUT / "prediction_qc.json").read_text())
+    coverage = json.loads((OUT / "annotation_coverage.json").read_text())
     score = json.loads((OUT / "score_receipt.json").read_text())
     heldout = json.loads((OUT / "heldout_lexicon_receipt.json").read_text())
     with (OUT / "heldout_lexicon_metrics.csv").open(newline="") as handle:
@@ -101,7 +102,7 @@ def main() -> None:
     for pair in sorted(lexicon, key=lambda p: -int(p["n_occurrences"]))[:30]:
         lines.append(f"| {pair['latin']} | {pair['devanagari']} | {pair['n_occurrences']} | {pair['status']} |")
     lines += [
-        "", f"[OBSERVED] The 200 sampled utterances contain {score['candidate_term_spans']} dictionary-generated TERM spans. No LLM annotation service or human reviewer was used. The exact candidate guideline and sample IDs are in [`annotation_guideline.md`](annotation_guideline.md) and [`annotation_sample_ids.json`](annotation_sample_ids.json).",
+        "", f"[OBSERVED] The 200 sampled utterances contain {score['candidate_term_spans']} dictionary-generated TERM spans. Across the full reference corpora, this dictionary matches {coverage['mucs_hien']['candidate_TERM_spans']} MUCS and only {coverage['hiacc']['candidate_TERM_spans']} HiACC candidate TERM spans. The HiACC sample cannot support a term-error comparison. No LLM annotation service or human reviewer was used. The exact candidate guideline, coverage, and sample IDs are in [`annotation_guideline.md`](annotation_guideline.md), [`annotation_coverage.json`](annotation_coverage.json), and [`annotation_sample_ids.json`](annotation_sample_ids.json).",
     ]
     lines += [
         "", "## Speaker-heldout script-equivalence control", "",

@@ -1,0 +1,16 @@
+{
+  "hiacc": {
+    "utterances": 5176,
+    "tokens": 50674,
+    "candidate_TERM_spans": 44,
+    "candidate_EN_DEV_spans": 6,
+    "utterances_with_candidate_TERM": 41
+  },
+  "mucs_hien": {
+    "utterances": 3136,
+    "tokens": 37500,
+    "candidate_TERM_spans": 1504,
+    "candidate_EN_DEV_spans": 631,
+    "utterances_with_candidate_TERM": 1078
+  }
+}

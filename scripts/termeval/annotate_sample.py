@@ -6,7 +6,7 @@ check possible when no annotation API or reviewer is available.
 
 from __future__ import annotations
 
-from collections import defaultdict
+from collections import Counter, defaultdict
 import json
 from pathlib import Path
 import random
@@ -90,8 +90,16 @@ def spans_for(text: str) -> tuple[list[str], list[dict]]:
 def main() -> None:
     rows = [json.loads(line) for line in MANIFEST.open()]
     by_dataset = defaultdict(list)
+    coverage: dict[str, Counter[str]] = defaultdict(Counter)
     for row in rows:
         by_dataset[row["dataset"]].append(row)
+        tokens, spans = spans_for(row["reference"])
+        item = coverage[row["dataset"]]
+        item["utterances"] += 1
+        item["tokens"] += len(tokens)
+        item["candidate_TERM_spans"] += sum(s["label"] == "TERM" for s in spans)
+        item["candidate_EN_DEV_spans"] += sum(s["label"] == "EN_DEV" for s in spans)
+        item["utterances_with_candidate_TERM"] += any(s["label"] == "TERM" for s in spans)
     rng = random.Random(SEED)
     selected = round_robin_sample(by_dataset["mucs_hien"], 100, rng)
     for group in ("adult", "children"):
@@ -104,6 +112,8 @@ def main() -> None:
                                        "items": [{"dataset": r["dataset"], "utt_id": r["utt_id"],
                                                   "speaker": r["speaker"], "group": r.get("group")}
                                                  for r in selected]}, indent=2))
+    (OUT / "annotation_coverage.json").write_text(json.dumps(
+        {dataset: dict(counts) for dataset, counts in sorted(coverage.items())}, indent=2))
     annotations = OUT / "annotations_heuristic_v0.jsonl"
     n_spans = 0
     with annotations.open("w") as handle:
