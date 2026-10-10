@@ -1,0 +1,12 @@
+{
+  "dataset": "mucs_hien",
+  "cached_before": 0,
+  "processed_this_run": 160,
+  "total_cached": 160,
+  "target": 160,
+  "gpu_wall_seconds": 83.04603087,
+  "estimated_function_resource_usd": 0.0984029028984804,
+  "provider_bill_verified": false,
+  "gpu": "NVIDIA H100 80GB HBM3",
+  "complete": true
+}
