@@ -8,10 +8,13 @@ import json
 from pathlib import Path
 import random
 
+import jiwer
 import pandas as pd
 
+from ast_asr.termeval.align import align_words, edit_counts
 from ast_asr.termeval.lexicon import approved_pairs, build_lexicon
 from ast_asr.termeval.metrics import cluster_bootstrap, pooled_metrics, score_utterance
+from ast_asr.termeval.normalize import normalize
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -53,6 +56,21 @@ def load_inputs() -> tuple[dict[str, dict], list[dict], dict[str, dict]]:
 
 def main() -> None:
     manifest, predictions, annotations = load_inputs()
+    alignment_checks = []
+    for prediction in random.Random(SEED).sample(predictions, 20):
+        utt = prediction["utt_id"]
+        ref, hyp = normalize(manifest[utt]["reference"]), normalize(prediction["text"])
+        counts = edit_counts(align_words(ref.split(), hyp.split()))
+        expected = jiwer.process_words(ref, hyp)
+        if (counts["SUB"], counts["DEL"], counts["INS"]) != (
+            expected.substitutions, expected.deletions, expected.insertions
+        ):
+            raise ValueError(f"alignment counts differ from jiwer: {utt}")
+        alignment_checks.append({"utt_id": utt, "sub": counts["SUB"],
+                                 "del": counts["DEL"], "ins": counts["INS"]})
+    (OUT / "alignment_validation.json").write_text(json.dumps(
+        {"seed": SEED, "n": len(alignment_checks), "all_match_jiwer": True,
+         "items": alignment_checks}, indent=2))
     lexicon = build_lexicon(predictions, {u: r["reference"] for u, r in manifest.items()})
     with (OUT / "lexicon_v0.csv").open("w", newline="") as handle:
         writer = csv.DictWriter(handle, fieldnames=["latin", "devanagari", "romanized", "dist",
