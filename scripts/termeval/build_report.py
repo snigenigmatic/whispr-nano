@@ -113,6 +113,9 @@ def main() -> None:
     ]
     for pair in sorted(lexicon, key=lambda p: -int(p["n_occurrences"]))[:30]:
         lines.append(f"| {pair['latin']} | {pair['devanagari']} | {pair['n_occurrences']} | {pair['status']} |")
+    if any(p["latin"] == "spot" and p["devanagari"] == "स्पोर्ट" and p["status"] == "AUTO_ACCEPT"
+           for p in lexicon):
+        lines += ["", "[UNVERIFIED] A sanity scan flags the automatically accepted `spot` ↔ `स्पोर्ट` pair as a probable false friend: *spot* and *sport* are different words. Bilingual review is required before treating C as validated script equivalence."]
     lines += [
         "", f"[OBSERVED] The 200 sampled utterances contain {score['candidate_term_spans']} dictionary-generated TERM spans. Across the full reference corpora, this dictionary matches {coverage['mucs_hien']['candidate_TERM_spans']} MUCS and only {coverage['hiacc']['candidate_TERM_spans']} HiACC candidate TERM spans. The HiACC sample cannot support a term-error comparison. No LLM annotation service or human reviewer was used. The exact candidate guideline, coverage, and sample IDs are in [`annotation_guideline.md`](annotation_guideline.md), [`annotation_coverage.json`](annotation_coverage.json), and [`annotation_sample_ids.json`](annotation_sample_ids.json).",
     ]
