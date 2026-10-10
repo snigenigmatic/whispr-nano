@@ -27,6 +27,9 @@ def main() -> None:
     audio_qc = json.loads((OUT / "audio_qc.json").read_text())
     prediction_qc = json.loads((OUT / "prediction_qc.json").read_text())
     score = json.loads((OUT / "score_receipt.json").read_text())
+    heldout = json.loads((OUT / "heldout_lexicon_receipt.json").read_text())
+    with (OUT / "heldout_lexicon_metrics.csv").open(newline="") as handle:
+        heldout_metrics = list(csv.DictReader(handle))
     qc = json.loads((OUT / "language_conditioning_qc.json").read_text())
     receipts = {d: json.loads((OUT / f"receipt_{d}.json").read_text()) for d in ("hiacc", "mucs_hien")}
     if any(not r["complete"] for r in receipts.values()):
@@ -89,6 +92,19 @@ def main() -> None:
                 continue
             lines.append(f"| {dataset} | {metric} | {_pct(a['value'])} | {_pct(c['value'])} | {100 * (float(a['value']) - float(c['value'])):+.2f} |")
     lines += [
+        "", "## Speaker-heldout script-equivalence control", "",
+        "[OBSERVED] A speaker-disjoint lexicon-development/evaluation split was frozen before the full decode completed. Only development-speaker references and predictions generate pairs; no heldout reference enters its lexicon. The pairs remain automatic and unreviewed. This control is more defensible than the same-corpus C diagnostic above, but it is still a **scoring protocol**, not a trained ASR improvement.",
+        "", "| Dataset | Dev / heldout speakers | Accepted pairs | Heldout WER A % | Heldout WER C % | Paired A − C points [95% CI] |",
+        "|---|---:|---:|---:|---:|---:|",
+    ]
+    for dataset in ("mucs_hien", "hiacc"):
+        r = heldout["datasets"][dataset]
+        a = next(x for x in heldout_metrics if x["dataset"] == dataset and x["condition"] == "A_raw" and x["metric"] == "WER")
+        c = next(x for x in heldout_metrics if x["dataset"] == dataset and x["condition"] == "C_dev_lexicon_provisional" and x["metric"] == "WER")
+        delta, low, high = r["paired_delta_wer_pp"]
+        lines.append(f"| {dataset} | {r['dev_speakers']} / {r['heldout_speakers']} | {r['auto_accept_pairs']} | {_pct(a['value'])} | {_pct(c['value'])} | {delta:+.2f} [{low:+.2f}, {high:+.2f}] |")
+    lines += ["[OBSERVED] Complete paired rates and denominators are in [`heldout_lexicon_metrics.csv`](heldout_lexicon_metrics.csv); the frozen speaker assignment is in [`speaker_holdout_split.json`](speaker_holdout_split.json).", ""]
+    lines += [
         "", "## Decoder QC decision", "",
         f"[OBSERVED] The forced-Hindi condition was stopped after {qc['forced_hi_rows']} cached HiACC clips. In {qc['matched_rows']} matched early clips, forced Hindi had WER {_pct(forced['value'])}% ({forced['errors']}/{forced['denominator']}) and auto-language decoding had WER {_pct(auto['value'])}% ({auto['errors']}/{auto['denominator']}). These order-biased clips are an engineering QC comparison, not a benchmark result. The forced condition generated outputs with fourfold token repetition in {qc['forced_hi_outputs_with_token_repeated_4_or_more']} of its cached clips. [`language_conditioning_qc.json`](language_conditioning_qc.json)",
         f"[OBSERVED] The full auto-language output QC flags {prediction_qc['hiacc']['flagged_utterances']} HiACC and {prediction_qc['mucs_hien']['flagged_utterances']} MUCS utterances for at least one of: blank output, >3× reference length, ≥4 token repetitions, or ≥200% utterance WER. All remain in the corpus denominator. See [`prediction_qc.json`](prediction_qc.json) and [`prediction_qc_flags.csv`](prediction_qc_flags.csv).",
@@ -107,7 +123,7 @@ def main() -> None:
         "1. Can the team obtain approved Lahaja and VITB-HEBiC access, and does VITB actually release speaker-region metadata?",
         "2. Which HiACC group comparisons are scientifically justified after its split and metadata issues? Adult/child may still be descriptive; gender is confounded with collection context.",
         "3. Can a bilingual reviewer audit all accepted script pairs and label domain terms in a fixed 200-item sample? The present dictionary candidates are not ground truth.",
-        "4. Should the script lexicon be frozen on a speaker-disjoint development partition and measured on untouched speakers before any publication claim?",
+        "4. How should the speaker-heldout script-equivalence analysis be externally validated, given the lexicon is still automatically generated?",
         "5. Which target paper venue and claim fit the data without implying a model improvement or population fairness result?",
         "",
         "## Cost and time",

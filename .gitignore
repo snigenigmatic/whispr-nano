@@ -6,6 +6,7 @@ __pycache__/
 
 # Virtual environments
 .venv/
+.venv-bridge/
 venv/
 
 # uv / model caches
@@ -38,3 +39,14 @@ research/pilot/runs/
 research/pilot/selections_preflight_failed/
 research/h100/runs/
 research/h100/plans.json
+
+# Local numeric-ASR audio acquisition (receipts stay in research/numeric_asr)
+data/numeric_asr/
+data/bridge_open/
+
+# Night-1 public-corpus pilot: retain full text and predictions locally only.
+data/termeval/
+data/mucs_hien/
+data/hiacc/
+results/night1/predictions_*.jsonl
+results/night1/tokens_*.parquet
