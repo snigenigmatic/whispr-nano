@@ -93,18 +93,26 @@ def score_utterance(
         # A boundary insertion sits between a term and its neighbouring token.
         # Count it separately without changing the reference-anchored outcome.
         boundary_ins = 0
+        internal_ins = 0
         for pos, edit in enumerate(edits):
             if edit.op != "INS":
                 continue
             prev_ref = next((e.ref_idx for e in reversed(edits[:pos]) if e.ref_idx is not None), None)
             next_ref = next((e.ref_idx for e in edits[pos + 1 :] if e.ref_idx is not None), None)
-            if (prev_ref == start - 1 and next_ref == start) or (
-                prev_ref == end - 1 and next_ref == end
+            if ((prev_ref if prev_ref is not None else -1) == start - 1 and next_ref == start) or (
+                prev_ref == end - 1 and (next_ref if next_ref is not None else len(ref)) == end
             ):
                 boundary_ins += 1
+            elif prev_ref is not None and next_ref is not None and (
+                start <= prev_ref < end - 1 and next_ref == prev_ref + 1
+            ):
+                internal_ins += 1
+        if status == "CORRECT" and internal_ins:
+            status = "PARTIAL"
         term_rows.append(
             {"utt_id": utt_id, "speaker": speaker, "term_id": idx, "start": start, "end": end,
-             "status": status, "boundary_ins": boundary_ins, "text": " ".join(ref[start:end])}
+             "status": status, "boundary_ins": boundary_ins,
+             "internal_ins": internal_ins, "text": " ".join(ref[start:end])}
         )
         totals["terms_n"] += 1
         totals[f"terms_{status.lower()}"] += 1

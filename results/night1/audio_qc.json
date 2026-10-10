@@ -1,0 +1,29 @@
+{
+  "mucs_hien": {
+    "counts": {
+      "utterances": 3136,
+      "near_clipped_peak_ge_0.999": 716,
+      "saturated_samples_ge_0.1_percent": 1,
+      "reference_lt_0.2_tokens_per_sec": 1,
+      "near_silent_rms_lt_0.001": 4,
+      "reference_gt_8_tokens_per_sec": 1
+    },
+    "max_manifest_duration_error_s": 4.973799150320701e-14,
+    "median_manifest_duration_error_s": 0.0,
+    "exact_duplicate_audio_groups": 0,
+    "exact_duplicate_audio_utterances": 0,
+    "duplicate_examples": []
+  },
+  "hiacc": {
+    "counts": {
+      "utterances": 5176,
+      "reference_lt_0.2_tokens_per_sec": 1,
+      "near_clipped_peak_ge_0.999": 4
+    },
+    "max_manifest_duration_error_s": 0.0,
+    "median_manifest_duration_error_s": 0.0,
+    "exact_duplicate_audio_groups": 0,
+    "exact_duplicate_audio_utterances": 0,
+    "duplicate_examples": []
+  }
+}

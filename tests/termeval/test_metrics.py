@@ -20,3 +20,13 @@ def test_condition_c_recomputes_word_and_character_error():
     assert pooled_metrics([raw])["WER"][0] == 1.0
     assert pooled_metrics([equiv])["WER"][0] == 0.0
     assert pooled_metrics([equiv])["CER"][0] == 0.0
+
+
+def test_internal_insertion_breaks_multiword_term_but_boundary_does_not():
+    span = [{"start": 0, "end": 2, "label": "TERM"}]
+    inside = score_utterance("u", "s", "python code", "python extra code", spans=span)
+    boundary = score_utterance("u", "s", "python code", "extra python code", spans=span)
+    assert inside.term_rows[0]["status"] == "PARTIAL"
+    assert inside.term_rows[0]["internal_ins"] == 1
+    assert boundary.term_rows[0]["status"] == "CORRECT"
+    assert boundary.term_rows[0]["boundary_ins"] == 1
