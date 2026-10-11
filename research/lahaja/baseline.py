@@ -31,7 +31,7 @@ MODEL_ID = "openai/whisper-small"
 MODEL_REVISION = "973afd24965f72e36ca33b3055d56a652f456b4d"
 SEED = 20261011
 PER_SPEAKER_SCENARIO = 2
-OUTPUT = Path.home() / ".local/share/openresearch/lahaja-pilot-v1"
+OUTPUT = Path.home() / ".local/share/openresearch/lahaja-cpu-control-v1"
 
 
 def _token() -> str | None:
@@ -126,6 +126,7 @@ def main() -> dict:
     path = Path(hf_hub_download(DATASET_ID, DATA_FILE, repo_type="dataset",
                                 revision=DATASET_REVISION, token=token))
     all_rows, selected = _metadata(path)
+    selected = selected[:10]
     audios = _audio(path, {r["row_index"] for r in selected})
     if any(abs(len(audios[r["row_index"]][0]) / 16000 - r["duration"]) > 0.12
            for r in selected):
@@ -135,13 +136,11 @@ def main() -> dict:
                       "shard_rows": len(all_rows), "selected_rows": len(selected),
                       "selected_speakers": len({r["sp_id"] for r in selected}),
                       "selected_states": len({r["native_state"] for r in selected}),
-                      "selection": "two seeded clips per speaker and scenario, duration 2-25 s",
+                      "selection": "first ten in frozen two-per-speaker/scenario sample, duration 2-25 s",
                       "reference": "verbatim", "model": MODEL_ID,
                       "model_revision": MODEL_REVISION}, sort_keys=True), flush=True)
-    device = "mps" if torch.backends.mps.is_available() else (
-        "cuda" if torch.cuda.is_available() else "cpu"
-    )
-    dtype = torch.float16 if device != "cpu" else torch.float32
+    device = "cpu"
+    dtype = torch.float32
     processor = AutoProcessor.from_pretrained(MODEL_ID, revision=MODEL_REVISION)
     model = WhisperForConditionalGeneration.from_pretrained(
         MODEL_ID, revision=MODEL_REVISION, dtype=dtype,
@@ -183,7 +182,7 @@ def main() -> dict:
               for name in sorted({r["native_state"] for r in scored})}
     result = {"status": "pilot_complete", "dataset": DATASET_ID,
               "dataset_revision": DATASET_REVISION, "shard": DATA_FILE,
-              "sample_policy": "two seeded clips per speaker and scenario, 2-25 seconds",
+              "sample_policy": "first ten in frozen two-per-speaker/scenario sample, 2-25 seconds",
               "model": MODEL_ID, "model_revision": MODEL_REVISION, "device": device,
               "scorer": "NFC lowercase, keep Unicode letters/marks/numbers, pooled word edits",
               "overall": overall, "scenarios": scenarios, "states_descriptive_only": states,
