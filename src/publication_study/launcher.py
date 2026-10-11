@@ -1036,6 +1036,9 @@ def main() -> int:
         result = run_tune_global_pseudo2real(config, contract)
     elif config["action"] == "tune_sc_correction_bank":
         result = run_tune_sc_correction_bank(config)
+    elif config["action"] == "lahaja_baseline":
+        from research.lahaja.baseline import main as run_lahaja_baseline
+        result = run_lahaja_baseline()
     else:
         raise SystemExit(f"unknown publication action: {config['action']}")
     print("===== RESULT SUMMARY =====", flush=True)
