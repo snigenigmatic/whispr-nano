@@ -29,11 +29,11 @@ DATASET_ID = "ai4bharat/Lahaja"
 DATASET_REVISION = "d4ffd2ecbdd933e37c917ddcf620eef159ceb3a7"
 DEV_FILE = "data/test-00000-of-00004.parquet"
 DATA_FILES = tuple(f"data/test-{i:05d}-of-00004.parquet" for i in (1, 2, 3))
-MODEL_ID = "openai/whisper-large-v3-turbo"
-MODEL_REVISION = "41f01f3fe87f28c78e2fbf8b568835947dd65ed9"
+MODEL_ID = "openai/whisper-small"
+MODEL_REVISION = "973afd24965f72e36ca33b3055d56a652f456b4d"
 SEED = 20261011
 PER_SPEAKER_SCENARIO = 2
-OUTPUT = Path.home() / ".local/share/openresearch/lahaja-turbo-heldout-405-v1"
+OUTPUT = Path.home() / ".local/share/openresearch/lahaja-small-heldout-405-v1"
 
 
 def _token() -> str | None:
@@ -163,6 +163,8 @@ def main() -> dict:
         [(r["data_file"], r["row_index"], r["sp_id"]) for r in selected],
         separators=(",", ":")
     ).encode()).hexdigest()
+    if selection_sha256 != "6134e2a9eabd65f590bf4f7f7829626e520379a66e058d9dd51ce4acf36c4060":
+        raise ValueError("held-out selection changed from pinned Turbo reference")
     audios = _audio(paths, {(r["data_file"], r["row_index"]) for r in selected})
     if any(abs(len(audios[(r["data_file"], r["row_index"])][0]) / 16000 - r["duration"]) > 0.12
            for r in selected):
@@ -182,7 +184,7 @@ def main() -> dict:
                       "transformers": transformers.__version__, "torch": torch.__version__},
                      sort_keys=True), flush=True)
     device = "mps"
-    dtype = torch.float32
+    dtype = torch.float16
     processor = AutoProcessor.from_pretrained(MODEL_ID, revision=MODEL_REVISION)
     model = WhisperForConditionalGeneration.from_pretrained(
         MODEL_ID, revision=MODEL_REVISION, dtype=dtype,
@@ -194,11 +196,9 @@ def main() -> dict:
     with predictions_path.open("w") as handle, torch.inference_mode():
         for position, row in enumerate(selected, 1):
             audio, sr = audios[(row["data_file"], row["row_index"])]
-            inputs = processor(audio, sampling_rate=sr, return_tensors="pt",
-                               return_attention_mask=True)
+            inputs = processor(audio, sampling_rate=sr, return_tensors="pt")
             features = inputs.input_features.to(device=device, dtype=dtype)
-            mask = inputs.attention_mask.to(device=device)
-            tokens = model.generate(features, attention_mask=mask, language="hi", task="transcribe",
+            tokens = model.generate(features, language="hi", task="transcribe",
                                     num_beams=1, do_sample=False, max_new_tokens=256)
             hyp = processor.batch_decode(tokens, skip_special_tokens=True)[0].strip()
             ref = row["verbatim"]
