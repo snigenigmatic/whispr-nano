@@ -1,0 +1,52 @@
+{
+  "scope": "First Lahaja Parquet shard, deterministic two clips per speaker per scenario; development pilot, not full-corpus or held-out model comparison",
+  "dataset": "ai4bharat/Lahaja",
+  "dataset_revision": "d4ffd2ecbdd933e37c917ddcf620eef159ceb3a7",
+  "sample": {
+    "clips": 104,
+    "speakers": 26,
+    "states": 11,
+    "read_clips": 52,
+    "extempore_clips": 52,
+    "audio_minutes_by_metadata": 14.513
+  },
+  "primary": {
+    "model": "openai/whisper-large-v3-turbo",
+    "model_revision": "41f01f3fe87f28c78e2fbf8b568835947dd65ed9",
+    "run_id": "33cdb67d-09b2-4b60-83b0-ad59d1cba90d",
+    "code_commit": "8671b2d9a61de73736abe1149dbf711b1b4f3a3d",
+    "predictions_sha256": "3d8aa9f00e35a543a0a009eee92091ef341affae1e1b723d997c9fc2b4d4e669",
+    "word_errors": 793,
+    "reference_words": 1992,
+    "wer_percent": 39.80923694779116,
+    "speaker_bootstrap_95_ci_percent": [
+      36.043747028055165,
+      43.668931417120696
+    ],
+    "read_wer_percent": 45.225027442371015,
+    "extempore_wer_percent": 35.24514338575393,
+    "observed_quality": {
+      "generated_token_cap_256_count": 0,
+      "hypothesis_at_least_3x_reference_words_count": 0,
+      "utterance_wer_over_100_percent_count": 0
+    },
+    "decoder_note": "The returned Whisper sequence in Transformers 5.16.1 omits EOS during postprocessing; the run summary's eos_missing field is invalid and is excluded here."
+  },
+  "diagnostic": {
+    "model": "openai/whisper-small",
+    "model_revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+    "run_id": "85e94d4f-b9ea-4227-be40-cefbc9cb705c",
+    "predictions_sha256": "ccb5bd8fc1621fd90597876fa58f8c04078cabba6a48e812f26177fd951d303d",
+    "raw_wer_percent": 120.63253012048192,
+    "utterance_wer_over_100_percent_count": 27,
+    "hypothesis_at_least_3x_reference_words_count": 12,
+    "status": "Decode-quality failure; do not treat this raw WER as a model capability estimate"
+  },
+  "scoring": "NFC lowercase, keep Unicode letters/marks/numbers, pooled word edits",
+  "limits": [
+    "No number-word equivalence mapping; spoken numerals versus written digits inflate raw WER.",
+    "Pilot model choice followed a ten-clip QC check; this is not a held-out model comparison.",
+    "States with few speakers cannot support regional fairness conclusions."
+  ],
+  "packaging_script_sha256": "7ce514cf6a4879efe9c6b65130cf76203d5ea84bb572f2f933faf85d8db0f332"
+}

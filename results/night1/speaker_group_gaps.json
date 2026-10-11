@@ -1,0 +1,84 @@
+{
+  "source": "results/night1/tokens_hiacc_whisper-large-v3_A_raw.parquet",
+  "source_sha256": "a8ed20ecacc1135e60ca312bb22b1e914a5fd8e268a5605bd06c8d8e3752ab5e",
+  "model": "openai/whisper-large-v3",
+  "condition": "HiACC automatic language detection, raw reference scoring",
+  "bootstrap_unit": "verified HiACC speaker ID, resampled within adult/children groups",
+  "resamples": 4000,
+  "seed": 20261011,
+  "counts": {
+    "adult": {
+      "all": [
+        12267,
+        32593
+      ],
+      "LAT": [
+        4398,
+        16395
+      ],
+      "DEV": [
+        4903,
+        16196
+      ]
+    },
+    "children": {
+      "all": [
+        6498,
+        18081
+      ],
+      "LAT": [
+        2354,
+        3582
+      ],
+      "DEV": [
+        3358,
+        14498
+      ]
+    }
+  },
+  "estimates": {
+    "adult_wer": {
+      "point_percentage_points": 37.63691590218758,
+      "ci95_percentage_points": [
+        32.54845065821342,
+        42.810322139889344
+      ]
+    },
+    "children_wer": {
+      "point_percentage_points": 35.93827775012444,
+      "ci95_percentage_points": [
+        32.12300073163017,
+        40.50134925054827
+      ]
+    },
+    "children_minus_adult_wer": {
+      "point_percentage_points": -1.6986381520631422,
+      "ci95_percentage_points": [
+        -8.206073045175618,
+        5.204193822711714
+      ]
+    },
+    "adult_lat_minus_dev": {
+      "point_percentage_points": -3.447655289492374,
+      "ci95_percentage_points": [
+        -11.586647450250828,
+        4.345610271086086
+      ]
+    },
+    "children_lat_minus_dev": {
+      "point_percentage_points": 42.555660847423155,
+      "ci95_percentage_points": [
+        29.837056419236056,
+        56.56410499323206
+      ]
+    },
+    "children_minus_adult_script_gap": {
+      "point_percentage_points": 46.00331613691553,
+      "ci95_percentage_points": [
+        30.733675657146193,
+        62.14928694179599
+      ]
+    }
+  },
+  "interpretation": "Descriptive only: script does not uniquely identify language, and age groups differ in content/collection context."
+}
