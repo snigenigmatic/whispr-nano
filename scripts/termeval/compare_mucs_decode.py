@@ -45,7 +45,9 @@ def main() -> None:
     speaker_totals: dict[str, dict[str, Counter[str]]] = {}
     report = {"purpose": "full-corpus decoder-setting QC; setting selected after a small evaluation-source probe",
               "n_utterances": len(manifest), "n_speakers": len({r["speaker"] for r in manifest.values()}),
-              "bootstrap_resamples": 1000, "bootstrap_unit": "speaker ID", "conditions": {}}
+              "n_clusters": len({r["recording"] for r in manifest.values()}),
+              "bootstrap_resamples": 1000,
+              "bootstrap_unit": "tutorial/recording surrogate ID (speaker identity unverified)", "conditions": {}}
     for condition, rows in by_condition.items():
         totals: Counter[str] = Counter()
         by_speaker: dict[str, Counter[str]] = defaultdict(Counter)

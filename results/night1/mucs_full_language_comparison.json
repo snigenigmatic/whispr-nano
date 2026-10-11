@@ -2,8 +2,9 @@
   "purpose": "full-corpus decoder-setting QC; setting selected after a small evaluation-source probe",
   "n_utterances": 3136,
   "n_speakers": 30,
+  "n_clusters": 30,
   "bootstrap_resamples": 1000,
-  "bootstrap_unit": "speaker ID",
+  "bootstrap_unit": "tutorial/recording surrogate ID (speaker identity unverified)",
   "conditions": {
     "auto_language": {
       "condition_id": "auto_language_greedy",

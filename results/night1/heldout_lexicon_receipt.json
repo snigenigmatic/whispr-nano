@@ -1,9 +1,10 @@
 {
   "seed": 20261011,
   "split_file": "speaker_holdout_split.json",
-  "lexicon_mined_on": "lexicon_dev speakers only",
+  "lexicon_mined_on": "lexicon_dev clusters only",
   "datasets": {
     "mucs_hien": {
+      "cluster_unit": "tutorial_recording_surrogate",
       "dev_utterances": 1552,
       "heldout_utterances": 1584,
       "dev_speakers": 15,
@@ -47,6 +48,7 @@
       }
     },
     "hiacc": {
+      "cluster_unit": "verified_speaker_id",
       "dev_utterances": 2394,
       "heldout_utterances": 2782,
       "dev_speakers": 22,

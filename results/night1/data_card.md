@@ -5,10 +5,10 @@
 ## MUCS Hindi-English test
 
 [OBSERVED] Source: [OpenSLR SLR104](https://www.openslr.org/104/), CC BY-SA 4.0. The downloaded `Hindi-English_test.tar.gz` has SHA-256 `93e358b3bf8233a897fcd353c1f4f98fdda6b8c01b7eed17a70c7dd26e984b37`.
-[OBSERVED] Layout: `test/*.wav` plus `test/transcripts/{text,segments,utt2spk,spk2utt,wav.scp,spkr_list}`; 30 long recordings, 3136 sentence segments, 30 speaker IDs. The source is 16-kHz audio; segments were cut into mono 16-kHz clips.
+[OBSERVED] Layout: `test/*.wav` plus `test/transcripts/{text,segments,utt2spk,spk2utt,wav.scp,spkr_list}`; 30 long recordings, 3136 sentence segments, 30 source-provided `utt2spk` IDs. In this release each ID maps one-to-one to a recording. The [MUCS paper](https://arxiv.org/html/2104.00235) states that actual speaker identity was unavailable and assumes a different speaker for each tutorial. These IDs are recording/tutorial clusters, **not verified distinct speakers**. The source is 16-kHz audio; segments were cut into mono 16-kHz clips.
 [OBSERVED] Segment hours 5.178; duration min/median/95th/max 1.00/5.00/12.00/41.00 seconds. The `segments` file is required to turn long recordings into utterances.
 [OBSERVED] Normalized reference token scripts: DEV: 28,164 (75.1%), LAT: 9,095 (24.3%), MIX: 55 (0.1%), NUM: 186 (0.5%).
-[OBSERVED] Speaker and recording IDs are present. `utt2spk` is used for cluster bootstrap, with 30 clusters.
+[OBSERVED] Recording IDs and `utt2spk` tutorial surrogates are present. `utt2spk` is used for cluster bootstrap, with 30 recording/tutorial clusters. The resulting intervals do not establish variation across distinct people.
 
 ### 20 seed-selected MUCS transcript lines
 
@@ -110,5 +110,5 @@
 ## Scope limits
 
 [ASSUMED] All released HiACC splits are pooled for a corpus feasibility audit. The original split label is retained in the local manifest so split-specific scores can be reported. The pooled result must not be framed as a held-out speaker benchmark.
-[OBSERVED] MUCS speaker IDs and HiACC filename prefixes are available for speaker-cluster bootstrap; demographic metadata is unavailable for MUCS.
+[OBSERVED] MUCS tutorial/recording surrogate IDs and HiACC speaker IDs are available for cluster bootstrap; verified speaker identity and demographic metadata are unavailable for MUCS.
 [UNVERIFIED] Model training-data overlap with either corpus is unknown.

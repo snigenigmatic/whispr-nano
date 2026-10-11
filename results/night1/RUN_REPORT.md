@@ -8,25 +8,25 @@
 |---|---|---|
 | C1 code inventory | Done | [`C1_inventory.md`](C1_inventory.md) |
 | C2 datasets | Partial | MUCS and HiACC verified; Lahaja and VITB-HEBiC returned HTTP 401 without accepted access. [`data_card.md`](data_card.md) |
-| C3 normalization/scoring | Done for public data | Devanagari-safe normalizer, jiwer-matched raw alignment, pooled metrics and 1,000-resample speaker-cluster CIs; `tests/termeval/`. |
+| C3 normalization/scoring | Done for public data | Devanagari-safe normalizer, jiwer-matched raw alignment, pooled metrics and 1,000-resample cluster CIs (HiACC speakers; MUCS tutorials/recordings); `tests/termeval/`. |
 | C4 ASR decode | Done for public data | Whisper large-v3 over every clip: HiACC auto-language and MUCS forced Hindi as frozen in [`decode_policy.json`](decode_policy.json). Full MUCS auto-language output retained as a diagnostic. Initial HiACC forced-Hindi run stopped after QC failure. Saaras skipped because vendor permission and a call cap were unavailable. |
 | C5 script lexicon | Provisional | Corpus-derived candidates, explicit collision/low-support guards, no human approval. [`lexicon_v0.csv`](lexicon_v0.csv) |
-| C6 TERM annotation | Partial | 200 speaker-balanced utterances receive reproducible dictionary candidate spans, **not LLM or human labels**. [`annotation_guideline.md`](annotation_guideline.md) |
+| C6 TERM annotation | Partial | 200 cluster-balanced utterances receive reproducible dictionary candidate spans, **not LLM or human labels**. [`annotation_guideline.md`](annotation_guideline.md) |
 | C7 group slices | Descriptive | HiACC adult/child and gender only where speaker support is adequate; no hypothesis tests. [`metrics.csv`](metrics.csv) |
 | C8 plots/examples | Done with support limits | Vector plots in [`figs/`](figs/) and seed-selected candidate errors in [`examples_term_errors.md`](examples_term_errors.md). |
 
 ## Data card summary
 
-[OBSERVED] MUCS Hindi-English test: 3,136 sentence segments from 30 long recordings and 30 speaker IDs; 5.178 hours by segment timestamps. The full archive SHA-256 and source license are in [`data_card.md`](data_card.md).
+[OBSERVED] MUCS Hindi-English test: 3,136 sentence segments from 30 long recordings and 30 source-provided `utt2spk` IDs; 5.178 hours by segment timestamps. Each ID maps one-to-one to a recording here. The [dataset authors](https://arxiv.org/html/2104.00235) state that speaker identity was unavailable and they assumed each tutorial had a different speaker; these are **recording/tutorial clusters, not verified distinct people**. The full archive SHA-256 and source license are in [`data_card.md`](data_card.md).
 [OBSERVED] HiACC: 5,176 clips, 44 speaker IDs, 5.274 hours by WAV headers. Adult and child speaker IDs recur in **all three** released splits. `AD63` has 119 utterances but no demographic row; `AD65` has a metadata row but no audio. The released code-switch labels are utterance-level.
 [OBSERVED] Lahaja and VITB-HEBiC content could not be accessed in this runtime. Their metadata claims were not converted into measured counts.
 [OBSERVED] Every local clip was reread before scoring: all 8,312 are mono 16 kHz with manifest duration agreement and no exact duplicate audio hashes. MUCS has 4 near-silent clips and 1 clip with ≥0.1% saturated samples; all remain in the denominator. [`audio_qc.json`](audio_qc.json)
 
 ## Headline metrics
 
-[OBSERVED] Primary decode is HiACC auto-language greedy and MUCS forced-Hindi greedy, frozen before the full forced-Hindi MUCS result existed. Rates are pooled by reference-token or character counts. CER counts spaces as characters. Brackets are 95% percentile CIs from 1,000 speaker-cluster resamples. `C` is a **provisional scoring condition**, not a different ASR model. `TermER` uses only the 200-item dictionary-candidate sample and is omitted when fewer than 30 candidate spans exist. Token classes with fewer than 30 reference tokens are retained in `metrics.csv` but omitted from this headline table.
+[OBSERVED] Primary decode is HiACC auto-language greedy and MUCS forced-Hindi greedy, frozen before the full forced-Hindi MUCS result existed. Rates are pooled by reference-token or character counts. CER counts spaces as characters. Brackets are 95% percentile CIs from 1,000 cluster resamples: verified speaker IDs for HiACC and recording/tutorial IDs for MUCS. `C` is a **provisional scoring condition**, not a different ASR model. `TermER` uses only the 200-item dictionary-candidate sample and is omitted when fewer than 30 candidate spans exist. Token classes with fewer than 30 reference tokens are retained in `metrics.csv` but omitted from this headline table.
 
-| Dataset | Scoring | Metric | Rate % [95% CI] | Errors / denominator | Utterances / speakers |
+| Dataset | Scoring | Metric | Rate % [95% CI] | Errors / denominator | Utterances / clusters |
 |---|---|---|---:|---:|---:|
 | mucs_hien | A_raw | WER | 59.19 [53.28, 66.24] | 22198 / 37500 | 3136 / 30 |
 | mucs_hien | A_raw | CER | 50.31 [44.93, 56.78] | 96383 / 191566 | 3136 / 30 |
@@ -120,16 +120,16 @@
 
 ## Speaker-heldout script-equivalence control
 
-[OBSERVED] A speaker-disjoint lexicon-development/evaluation split was frozen before the full decode completed. Only development-speaker references and predictions generate pairs; no heldout reference enters its lexicon. Exact normalized reference text still repeats across speakers, so a second analysis removes those repeated-text utterances. The pairs remain automatic and unreviewed. This is a **scoring protocol**, not a trained ASR improvement.
+[OBSERVED] A cluster-disjoint lexicon-development/evaluation split was frozen before the full decode completed: by verified speaker for HiACC and by tutorial/recording surrogate ID for MUCS. Only development-cluster references and predictions generate pairs; no heldout reference enters its lexicon. Exact normalized reference text still repeats across clusters, so a second analysis removes those repeated-text utterances. MUCS speaker identities are unverified, so its split is **not proven speaker-disjoint**. The pairs remain automatic and unreviewed. This is a **scoring protocol**, not a trained ASR improvement.
 
-| Dataset | Heldout subset | Dev / test speakers | Accepted pairs | Utterances | WER A % | WER C % | Paired A − C points [95% CI] |
+| Dataset | Heldout subset | Dev / test clusters | Accepted pairs | Utterances | WER A % | WER C % | Paired A − C points [95% CI] |
 |---|---|---:|---:|---:|---:|---:|---:|
 | mucs_hien | all_heldout | 15 / 15 | 29 | 1584 | 58.08 | 57.68 | +0.41 [+0.22, +0.64] |
 | mucs_hien | novel_reference | 15 / 15 | 29 | 1441 | 58.21 | 57.83 | +0.38 [+0.19, +0.64] |
 | hiacc | all_heldout | 22 / 22 | 47 | 2782 | 38.34 | 37.49 | +0.84 [+0.61, +1.11] |
 | hiacc | novel_reference | 22 / 22 | 47 | 2377 | 40.40 | 39.64 | +0.76 [+0.53, +1.04] |
 
-[OBSERVED] Exact normalized reference text overlaps the lexicon-development speakers for 143/1584 MUCS and 405/2782 HiACC heldout utterances. Complete paired rates and denominators are in [`heldout_lexicon_metrics.csv`](heldout_lexicon_metrics.csv); the frozen speaker assignment and overlap audit are in [`speaker_holdout_split.json`](speaker_holdout_split.json) and [`speaker_holdout_overlap.json`](speaker_holdout_overlap.json).
+[OBSERVED] Exact normalized reference text overlaps the lexicon-development clusters for 143/1584 MUCS and 405/2782 HiACC heldout utterances. Complete paired rates and denominators are in [`heldout_lexicon_metrics.csv`](heldout_lexicon_metrics.csv); the frozen assignment (whose historical `unit: speaker ID` label is only a surrogate for MUCS) and overlap audit are in [`speaker_holdout_split.json`](speaker_holdout_split.json) and [`speaker_holdout_overlap.json`](speaker_holdout_overlap.json).
 
 ## HiACC descriptive group slices
 
@@ -161,7 +161,7 @@
 
 [OBSERVED] The forced-Hindi condition was stopped after 176 cached HiACC clips. In 176 matched early clips, forced Hindi had WER 115.84% (1975/1705) and auto-language decoding had WER 30.56% (521/1705). These order-biased clips are an engineering QC comparison, not a benchmark result. The forced condition generated contiguous phrase loops repeated at least four times in 11 of its cached clips. [`language_conditioning_qc.json`](language_conditioning_qc.json)
 [OBSERVED] A separate 160-item matched MUCS engineering probe had auto-language WER 77.77% and forced-Hindi WER 62.96%; Arabic-script outputs changed from 44 to 0. The sample came from the first 640 ordered clips and is not a benchmark. [`mucs_language_probe_qc.json`](mucs_language_probe_qc.json)
-[OBSERVED] On all 3136 MUCS clips, auto-language WER is 74.21% and forced-Hindi WER is 59.19%. The paired auto − forced difference is +15.02 percentage points [95% speaker-cluster CI +9.79, +20.86]. Arabic-script outputs are 799 versus 0; the auto Arabic-script outputs contribute 10858 of 27830 total word errors. Contiguous phrase loops repeated at least four times occur in 23 versus 30 outputs. This is a post-QC decoder-setting comparison, not a held-out model improvement. [`mucs_full_language_comparison.json`](mucs_full_language_comparison.json)
+[OBSERVED] On all 3136 MUCS clips, auto-language WER is 74.21% and forced-Hindi WER is 59.19%. The paired auto − forced difference is +15.02 percentage points [95% recording-cluster CI +9.79, +20.86]. Arabic-script outputs are 799 versus 0; the auto Arabic-script outputs contribute 10858 of 27830 total word errors. Contiguous phrase loops repeated at least four times occur in 23 versus 30 outputs. This is a post-QC decoder-setting comparison, not a held-out model improvement. [`mucs_full_language_comparison.json`](mucs_full_language_comparison.json)
 [OBSERVED] The primary-output QC flags 51 HiACC and 63 MUCS utterances for at least one of: blank output, >3× reference length, a contiguous 1–4-token phrase repeated four times, or ≥200% utterance WER. HiACC has 31 loop-flagged clips contributing 2568 of 18765 word errors. Forced-Hindi MUCS has 30 such clips contributing 2289 of 22198 word errors. All remain in the corpus denominator. See [`prediction_qc.json`](prediction_qc.json), [`prediction_qc_flags.csv`](prediction_qc_flags.csv), and ten seed-selected [`prediction_qc_examples.md`](prediction_qc_examples.md).
 [ASSUMED] The runbook's forced `language=hi` setting was replaced with auto language detection for HiACC after a matched QC failure. MUCS uses the original forced-Hindi setting after a separate matched QC probe. The per-corpus choice is adaptive to evaluation-source outputs, so neither corpus is an untouched decoder-selection benchmark. Model, revision, greedy decode, and 30-second chunk policy remained fixed.
 
@@ -178,7 +178,7 @@
 1. Can the team obtain approved Lahaja and VITB-HEBiC access, and does VITB actually release speaker-region metadata?
 2. Which HiACC group comparisons are scientifically justified after its split and metadata issues? Adult/child may still be descriptive; gender is confounded with collection context.
 3. Can a bilingual reviewer audit all accepted script pairs and label domain terms in a fixed 200-item sample? The present dictionary candidates are not ground truth.
-4. How should the speaker-heldout script-equivalence analysis be externally validated, given the lexicon is still automatically generated?
+4. How should the cluster-heldout script-equivalence analysis be externally validated, given the lexicon is still automatically generated and MUCS speaker identities are unknown?
 5. Which target paper venue and claim fit the data without implying a model improvement or population fairness result?
 
 ## Cost and time
@@ -201,7 +201,8 @@
 - The C lexicon was mined on evaluation references, may reject genuine loanwords and accept false friends, and must not be used as a validated held-out claim; candidate TERM labels are unverified and HiACC has insufficient candidate terms for TermER.
 - Number words are not normalized. CER under C maps only aligned equivalent token pairs to a common spelling before character alignment.
 - HiACC's released splits share speakers; it cannot support an unseen-speaker claim without a new speaker-disjoint split.
-- MUCS supplies only 30 speaker IDs and no demographics; HiACC adult/child and gender cluster counts limit group precision.
+- MUCS supplies 30 tutorial/recording surrogate IDs, not verified speaker identities or demographics; HiACC adult/child and gender cluster counts limit group precision.
+- The [MUCS authors](https://arxiv.org/html/2104.00235) document subtitle/segment misalignment and incomplete audio, and describe manual transcript correction for the blind test. This pilot uses the released *test* split, so high-error examples need listening before any model-failure attribution.
 - This is a one-model pilot with per-corpus decode settings, not a comparison of state-of-the-art open models or a trained-model intervention improving ASR.
 - Some MUCS high-error hypotheses resemble neighbouring transcript content; it is unverified whether segment boundaries, annotation timing, or decoder behaviour caused this. Listening review is required.
 - ASR output quality on very short clips and transcript errors need human listening review before publication.

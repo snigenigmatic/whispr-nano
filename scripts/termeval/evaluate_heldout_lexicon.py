@@ -52,7 +52,7 @@ def main() -> None:
         raise ValueError("speaker split does not cover manifest")
     metrics = []
     receipt = {"seed": SEED, "split_file": "speaker_holdout_split.json",
-               "lexicon_mined_on": "lexicon_dev speakers only", "datasets": {}}
+               "lexicon_mined_on": "lexicon_dev clusters only", "datasets": {}}
     for dataset in ("mucs_hien", "hiacc"):
         d_preds = [p for p in predictions if p["dataset"] == dataset]
         dev = [p for p in d_preds if assignments[manifest[p["utt_id"]]["speaker"]] == "lexicon_dev"]
@@ -86,6 +86,7 @@ def main() -> None:
                                     "value": value, "ci_low": low, "ci_high": high,
                                     "numerator": numerator, "denominator": denominator,
                                     "n_utterances": len(rows), "n_speakers": len({r.speaker for r in rows}),
+                                    "cluster_unit": "tutorial_recording_surrogate" if dataset == "mucs_hien" else "verified_speaker_id",
                                     "lexicon_pairs": len(pairs)})
             paired[evaluation_set] = {
                 "utterances": len(eval_predictions),
@@ -94,6 +95,7 @@ def main() -> None:
                 "paired_delta_latin_toker_pp": _paired_delta(a_rows, c_rows, "TokER[LAT]"),
             }
         receipt["datasets"][dataset] = {
+            "cluster_unit": "tutorial_recording_surrogate" if dataset == "mucs_hien" else "verified_speaker_id",
             "dev_utterances": len(dev), "heldout_utterances": len(test),
             "dev_speakers": len({manifest[p["utt_id"]]["speaker"] for p in dev}),
             "heldout_speakers": len({manifest[p["utt_id"]]["speaker"] for p in test}),

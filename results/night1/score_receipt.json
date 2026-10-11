@@ -15,5 +15,5 @@
   "sampled_term_errors": 33,
   "available_term_errors": 33,
   "bootstrap_resamples": 1000,
-  "bootstrap_unit": "speaker ID"
+  "bootstrap_unit": "HiACC: speaker ID; MUCS: tutorial/recording surrogate ID (identity unverified)"
 }

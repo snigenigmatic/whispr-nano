@@ -131,6 +131,7 @@ def main() -> None:
                                  "numerator": num, "denominator": den,
                                  "n_utterances": len(rows),
                                  "n_speakers": len({r.speaker for r in rows}),
+                                 "cluster_unit": "tutorial_recording_surrogate" if dataset == "mucs_hien" else "verified_speaker_id",
                                  "annotation_method": "dictionary_candidates_unverified_v0" if metric == "TermER" else "ground_truth_transcript"})
 
     for (dataset, condition), rows in scored.items():
@@ -182,7 +183,8 @@ def main() -> None:
         "annotations": len(annotations), "candidate_term_spans": sum(
             len([s for s in a["spans"] if s["label"] == "TERM"]) for a in annotations.values()),
         "sampled_term_errors": len(selected), "available_term_errors": len(candidates),
-        "bootstrap_resamples": 1000, "bootstrap_unit": "speaker ID"}
+        "bootstrap_resamples": 1000,
+        "bootstrap_unit": "HiACC: speaker ID; MUCS: tutorial/recording surrogate ID (identity unverified)"}
     (OUT / "score_receipt.json").write_text(json.dumps(summary, indent=2))
     print(json.dumps(summary))
 
