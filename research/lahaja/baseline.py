@@ -20,6 +20,7 @@ import numpy as np
 import pyarrow.parquet as pq
 import soundfile as sf
 import torch
+import transformers
 from huggingface_hub import hf_hub_download
 from transformers import AutoProcessor, WhisperForConditionalGeneration
 
@@ -31,7 +32,7 @@ MODEL_ID = "openai/whisper-large-v3-turbo"
 MODEL_REVISION = "41f01f3fe87f28c78e2fbf8b568835947dd65ed9"
 SEED = 20261011
 PER_SPEAKER_SCENARIO = 2
-OUTPUT = Path.home() / ".local/share/openresearch/lahaja-turbo-ten-v1"
+OUTPUT = Path.home() / ".local/share/openresearch/lahaja-turbo-104-v1"
 
 
 def _token() -> str | None:
@@ -118,6 +119,23 @@ def _pooled(rows: list[dict]) -> dict:
             "clips": len(rows), "speakers": len({r["sp_id"] for r in rows})}
 
 
+def _speaker_interval(rows: list[dict], resamples: int = 4000) -> list[float]:
+    speaker_counts = defaultdict(lambda: [0, 0])
+    for row in rows:
+        bucket = speaker_counts[row["sp_id"]]
+        bucket[0] += row["word_errors"]
+        bucket[1] += row["ref_words"]
+    speakers = sorted(speaker_counts)
+    rng = np.random.default_rng(SEED)
+    samples = []
+    for _ in range(resamples):
+        drawn = rng.choice(speakers, size=len(speakers), replace=True)
+        errors = sum(speaker_counts[s][0] for s in drawn)
+        words = sum(speaker_counts[s][1] for s in drawn)
+        samples.append(errors / words)
+    return [float(x) for x in np.percentile(samples, [2.5, 97.5])]
+
+
 def main() -> dict:
     started = time.monotonic()
     token = _token()
@@ -126,7 +144,6 @@ def main() -> dict:
     path = Path(hf_hub_download(DATASET_ID, DATA_FILE, repo_type="dataset",
                                 revision=DATASET_REVISION, token=token))
     all_rows, selected = _metadata(path)
-    selected = selected[:10]
     audios = _audio(path, {r["row_index"] for r in selected})
     if any(abs(len(audios[r["row_index"]][0]) / 16000 - r["duration"]) > 0.12
            for r in selected):
@@ -136,9 +153,12 @@ def main() -> dict:
                       "shard_rows": len(all_rows), "selected_rows": len(selected),
                       "selected_speakers": len({r["sp_id"] for r in selected}),
                       "selected_states": len({r["native_state"] for r in selected}),
-                      "selection": "first ten in frozen two-per-speaker/scenario sample, duration 2-25 s",
+                      "selection": "frozen two-per-speaker/scenario sample, duration 2-25 s",
                       "reference": "verbatim", "model": MODEL_ID,
-                      "model_revision": MODEL_REVISION}, sort_keys=True), flush=True)
+                      "model_revision": MODEL_REVISION,
+                      "code_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
+                      "transformers": transformers.__version__, "torch": torch.__version__},
+                     sort_keys=True), flush=True)
     device = "mps"
     dtype = torch.float32
     processor = AutoProcessor.from_pretrained(MODEL_ID, revision=MODEL_REVISION)
@@ -159,12 +179,14 @@ def main() -> dict:
             tokens = model.generate(features, attention_mask=mask, language="hi", task="transcribe",
                                     num_beams=1, do_sample=False, max_new_tokens=256)
             hyp = processor.batch_decode(tokens, skip_special_tokens=True)[0].strip()
+            eos_present = int(model.config.eos_token_id) in tokens[0].tolist()
             ref = row["verbatim"]
             counts = jiwer.process_words(_normalize(ref), _normalize(hyp))
             record = {k: row[k] for k in ("row_index", "fname", "sp_id", "scenario",
                                              "native_language", "native_state", "native_district",
                                              "duration", "age_group", "gender")}
             record.update({"reference": ref, "prediction": hyp,
+                           "eos_present": eos_present, "generated_tokens": int(tokens.shape[-1]),
                            "ref_words": len(_normalize(ref).split()),
                            "word_errors": counts.substitutions + counts.deletions + counts.insertions,
                            "substitutions": counts.substitutions,
@@ -177,16 +199,24 @@ def main() -> dict:
                                   "total": len(selected), "elapsed_s": round(time.monotonic()-started, 1),
                                   "pooled_wer": _pooled(scored)["wer"]}), flush=True)
     overall = _pooled(scored)
+    overall["speaker_bootstrap_95_ci_wer"] = _speaker_interval(scored)
     scenarios = {name: _pooled([r for r in scored if r["scenario"] == name])
                  for name in sorted({r["scenario"] for r in scored})}
     states = {name: _pooled([r for r in scored if r["native_state"] == name])
               for name in sorted({r["native_state"] for r in scored})}
     result = {"status": "pilot_complete", "dataset": DATASET_ID,
               "dataset_revision": DATASET_REVISION, "shard": DATA_FILE,
-              "sample_policy": "first ten in frozen two-per-speaker/scenario sample, 2-25 seconds",
+              "sample_policy": "frozen two-per-speaker/scenario sample, 2-25 seconds",
               "model": MODEL_ID, "model_revision": MODEL_REVISION, "device": device,
+              "dtype": str(dtype), "num_beams": 1, "max_new_tokens": 256,
               "scorer": "NFC lowercase, keep Unicode letters/marks/numbers, pooled word edits",
               "overall": overall, "scenarios": scenarios, "states_descriptive_only": states,
+              "decoder_quality": {"eos_missing": sum(not r["eos_present"] for r in scored),
+                                  "hypothesis_ge_3x_reference_words": sum(
+                                      len(_normalize(r["prediction"]).split()) >= 3 * r["ref_words"]
+                                      for r in scored),
+                                  "wer_gt_100_percent": sum(
+                                      r["word_errors"] > r["ref_words"] for r in scored)},
               "elapsed_s": time.monotonic() - started,
               "predictions_path": str(predictions_path)}
     (OUTPUT / "summary.json").write_text(json.dumps(result, indent=2, ensure_ascii=False))
