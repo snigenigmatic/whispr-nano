@@ -27,11 +27,11 @@ from transformers import AutoProcessor, WhisperForConditionalGeneration
 DATASET_ID = "ai4bharat/Lahaja"
 DATASET_REVISION = "d4ffd2ecbdd933e37c917ddcf620eef159ceb3a7"
 DATA_FILE = "data/test-00000-of-00004.parquet"
-MODEL_ID = "openai/whisper-small"
-MODEL_REVISION = "973afd24965f72e36ca33b3055d56a652f456b4d"
+MODEL_ID = "openai/whisper-large-v3-turbo"
+MODEL_REVISION = "41f01f3fe87f28c78e2fbf8b568835947dd65ed9"
 SEED = 20261011
 PER_SPEAKER_SCENARIO = 2
-OUTPUT = Path.home() / ".local/share/openresearch/lahaja-attention-mask-control-v1"
+OUTPUT = Path.home() / ".local/share/openresearch/lahaja-turbo-ten-v1"
 
 
 def _token() -> str | None:
@@ -139,7 +139,7 @@ def main() -> dict:
                       "selection": "first ten in frozen two-per-speaker/scenario sample, duration 2-25 s",
                       "reference": "verbatim", "model": MODEL_ID,
                       "model_revision": MODEL_REVISION}, sort_keys=True), flush=True)
-    device = "cpu"
+    device = "mps"
     dtype = torch.float32
     processor = AutoProcessor.from_pretrained(MODEL_ID, revision=MODEL_REVISION)
     model = WhisperForConditionalGeneration.from_pretrained(
