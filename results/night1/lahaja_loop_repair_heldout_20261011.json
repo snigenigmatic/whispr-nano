@@ -1,0 +1,70 @@
+{
+  "status": "validated_speaker_disjoint_result",
+  "dataset": "ai4bharat/Lahaja",
+  "dataset_revision": "d4ffd2ecbdd933e37c917ddcf620eef159ceb3a7",
+  "model": "openai/whisper-small",
+  "model_revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+  "split": "heldout",
+  "clips": 405,
+  "speakers": 106,
+  "speaker_overlap_with_development": 0,
+  "heldout_selection_sha256": "6134e2a9eabd65f590bf4f7f7829626e520379a66e058d9dd51ce4acf36c4060",
+  "reference_words": 7339,
+  "raw_word_errors": 8787,
+  "repaired_word_errors": 5709,
+  "raw_wer_percent": 119.73020847526911,
+  "repaired_wer_percent": 77.78988963073988,
+  "repaired_minus_raw_wer_points": -41.94031884452923,
+  "paired_speaker_bootstrap_95_ci_difference_points": [
+    -52.14335982141922,
+    -32.363177758817585
+  ],
+  "clips_changed": 88,
+  "words_removed": 4307,
+  "clips_helped": 84,
+  "clips_harmed": 0,
+  "raw_utterances_over_100_percent_wer": 99,
+  "repaired_utterances_over_100_percent_wer": 24,
+  "scenarios_descriptive_only": {
+    "Extempore": {
+      "clips": 200,
+      "speakers": 101,
+      "raw_wer_percent": 131.0983237428071,
+      "repaired_wer_percent": 83.0122591943958,
+      "repaired_minus_raw_wer_points": -48.08606454841131,
+      "clips_changed": 58,
+      "clips_harmed": 0
+    },
+    "Read": {
+      "clips": 205,
+      "speakers": 103,
+      "raw_wer_percent": 106.13405146618791,
+      "repaired_wer_percent": 71.54398563734291,
+      "repaired_minus_raw_wer_points": -34.590065828845006,
+      "clips_changed": 30,
+      "clips_harmed": 0
+    }
+  },
+  "posthoc_bracket_tag_sensitivity": {
+    "bracketed_reference_rows": 66,
+    "bracketed_items": 108,
+    "reference_words_without_bracketed_items": 7229,
+    "raw_wer_percent": 120.625259371974,
+    "repaired_wer_percent": 77.68709365057407,
+    "repaired_minus_raw_wer_points": -42.93816572139992,
+    "interpretation": "Exploratory sensitivity only; the predeclared headline retains the literal verbatim reference."
+  },
+  "policy_sha256": "4a89775ecae07364dd69a661e1ac612a3ffd10c7991f76305b45ae48c8873867",
+  "source_predictions_sha256": "359d322efcfceb671869042418bb8d07684816e528c7afa785dd15fa5e773b09",
+  "repaired_predictions_sha256": "ba5f49ad659b4ab7c24981592344a4639aa1ebc419c0213d301e4c28c063effd",
+  "source_run_id": "b01c023b-d98f-4b28-9338-6655f95a82b4",
+  "source_code_commit": "662adfbe145f614a836266360e0eef3ad5d53e6d",
+  "run_id": "4c1caf10-3070-4f27-9711-b8ab152fd549",
+  "code_commit": "d29b220ffefd68f1e235c8d77309ba15e80b924a",
+  "limits": [
+    "The rule was frozen using only first-shard speakers before this evaluation; the model's own predictions are the only inference-time input.",
+    "Raw WER keeps number words distinct from written digits and does not measure semantic number correctness.",
+    "The rule suppresses only long adjacent single-word loops; it does not correct recognition or preserve natural repetitions of five or more copies."
+  ],
+  "packaging_script_sha256": "2591147685563293c9eac35378991c573570b3e639beffed186561ad0f0f3fda"
+}

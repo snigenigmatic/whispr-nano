@@ -25,15 +25,46 @@
   "clips_harmed": 0,
   "raw_utterances_over_100_percent_wer": 27,
   "repaired_utterances_over_100_percent_wer": 3,
+  "scenarios_descriptive_only": {
+    "Extempore": {
+      "clips": 52,
+      "speakers": 26,
+      "raw_wer_percent": 151.24884366327476,
+      "repaired_wer_percent": 78.44588344125809,
+      "repaired_minus_raw_wer_points": -72.80296022201665,
+      "clips_changed": 21,
+      "clips_harmed": 0
+    },
+    "Read": {
+      "clips": 52,
+      "speakers": 26,
+      "raw_wer_percent": 84.30296377607026,
+      "repaired_wer_percent": 66.95938529088913,
+      "repaired_minus_raw_wer_points": -17.34357848518112,
+      "clips_changed": 4,
+      "clips_harmed": 0
+    }
+  },
+  "posthoc_bracket_tag_sensitivity": {
+    "bracketed_reference_rows": 22,
+    "bracketed_items": 36,
+    "reference_words_without_bracketed_items": 1955,
+    "raw_wer_percent": 121.79028132992327,
+    "repaired_wer_percent": 72.89002557544757,
+    "repaired_minus_raw_wer_points": -48.9002557544757,
+    "interpretation": "Exploratory sensitivity only; the predeclared headline retains the literal verbatim reference."
+  },
   "policy_sha256": "4a89775ecae07364dd69a661e1ac612a3ffd10c7991f76305b45ae48c8873867",
   "source_predictions_sha256": "ccb5bd8fc1621fd90597876fa58f8c04078cabba6a48e812f26177fd951d303d",
   "repaired_predictions_sha256": "46e6a27663d0c984d50db643ebc39d0e41bce6763368a280df5ebe324925b188",
+  "source_run_id": "85e94d4f-b9ea-4227-be40-cefbc9cb705c",
+  "source_code_commit": "efaa2b000442cf804e5c4bfb8fed28e0352407e7",
   "run_id": "e330ad46-9119-4fb6-8f7b-5e7a7b101316",
-  "code_commit": "42fdc9b",
+  "code_commit": "42fdc9b3c259c023957eadd983d639bf27cfd4bf",
   "limits": [
     "This is a development sample used to select the repair threshold; it is not an unbiased improvement estimate.",
     "Raw WER keeps number words distinct from written digits and does not measure semantic number correctness.",
     "The rule suppresses only long adjacent single-word loops; it does not correct recognition or preserve natural repetitions of five or more copies."
   ],
-  "packaging_script_sha256": "715ecccfe9f9c91727664259d96a14dec9dca20089718bb05ada65b585e81c95"
+  "packaging_script_sha256": "2591147685563293c9eac35378991c573570b3e639beffed186561ad0f0f3fda"
 }

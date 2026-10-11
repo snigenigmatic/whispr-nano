@@ -7,6 +7,7 @@ from collections import defaultdict
 import hashlib
 import json
 from pathlib import Path
+import re
 import sys
 import unicodedata
 
@@ -28,6 +29,10 @@ RESAMPLES = 4000
 SPLITS = {
     "dev": ("lahaja-pilot-v1", "lahaja-loop-repair-dev-v1", 104, 26),
     "heldout": ("lahaja-small-heldout-405-v1", "lahaja-loop-repair-heldout-v1", 405, 106),
+}
+SOURCE_PROVENANCE = {
+    "dev": ("85e94d4f-b9ea-4227-be40-cefbc9cb705c", "efaa2b000442cf804e5c4bfb8fed28e0352407e7"),
+    "heldout": ("b01c023b-d98f-4b28-9338-6655f95a82b4", "662adfbe145f614a836266360e0eef3ad5d53e6d"),
 }
 
 
@@ -135,6 +140,29 @@ def package(split: str, run_id: str, code_commit: str) -> dict:
         raise ValueError("repair summary disagrees with independent count")
     if not np.allclose(ci, summary["paired_speaker_bootstrap_95_ci_difference_points"]):
         raise ValueError("speaker-bootstrap difference changed")
+    bracket_rows = bracket_tokens = clean_words = clean_raw_errors = clean_repaired_errors = 0
+    for row in checked:
+        tags = re.findall(r"\[[^\]]+\]", row["reference"])
+        bracket_rows += bool(tags)
+        bracket_tokens += len(tags)
+        clean_reference = re.sub(r"\[[^\]]+\]", " ", row["reference"])
+        clean_words += len(_words(clean_reference))
+        clean_raw_errors += _errors(clean_reference, row["raw_prediction"])
+        clean_repaired_errors += _errors(clean_reference, row["repaired_prediction"])
+    scenario_slices = {}
+    for name in sorted({r["scenario"] for r in checked}):
+        group = [r for r in checked if r["scenario"] == name]
+        group_words = sum(r["ref_words"] for r in group)
+        group_raw = sum(r["raw_errors"] for r in group)
+        group_repaired = sum(r["repaired_errors"] for r in group)
+        scenario_slices[name] = {
+            "clips": len(group), "speakers": len({r["sp_id"] for r in group}),
+            "raw_wer_percent": 100 * group_raw / group_words,
+            "repaired_wer_percent": 100 * group_repaired / group_words,
+            "repaired_minus_raw_wer_points": 100 * (group_repaired - group_raw) / group_words,
+            "clips_changed": sum(r["removed_words"] > 0 for r in group),
+            "clips_harmed": sum(r["repaired_errors"] > r["raw_errors"] for r in group),
+        }
     result = {
         "status": "validated_development_result" if split == "dev" else "validated_speaker_disjoint_result",
         "dataset": source_summary["dataset"],
@@ -159,9 +187,21 @@ def package(split: str, run_id: str, code_commit: str) -> dict:
         "clips_harmed": sum(r["repaired_errors"] > r["raw_errors"] for r in checked),
         "raw_utterances_over_100_percent_wer": sum(r["raw_errors"] > r["ref_words"] for r in checked),
         "repaired_utterances_over_100_percent_wer": sum(r["repaired_errors"] > r["ref_words"] for r in checked),
+        "scenarios_descriptive_only": scenario_slices,
+        "posthoc_bracket_tag_sensitivity": {
+            "bracketed_reference_rows": bracket_rows,
+            "bracketed_items": bracket_tokens,
+            "reference_words_without_bracketed_items": clean_words,
+            "raw_wer_percent": 100 * clean_raw_errors / clean_words,
+            "repaired_wer_percent": 100 * clean_repaired_errors / clean_words,
+            "repaired_minus_raw_wer_points": 100 * (clean_repaired_errors - clean_raw_errors) / clean_words,
+            "interpretation": "Exploratory sensitivity only; the predeclared headline retains the literal verbatim reference.",
+        },
         "policy_sha256": _sha(policy_path),
         "source_predictions_sha256": _sha(source_path),
         "repaired_predictions_sha256": _sha(repair_path),
+        "source_run_id": SOURCE_PROVENANCE[split][0],
+        "source_code_commit": SOURCE_PROVENANCE[split][1],
         "run_id": run_id,
         "code_commit": code_commit,
         "limits": [
