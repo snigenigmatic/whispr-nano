@@ -72,8 +72,10 @@ def main() -> dict:
     if _sha(source_predictions) != EXPECTED_SOURCE_SHA256:
         raise ValueError("frozen source prediction hash changed")
     rows = [json.loads(line) for line in source_predictions.read_text().splitlines()]
-    if len(rows) != EXPECTED_CLIPS or len({r["row_index"] for r in rows}) != EXPECTED_CLIPS:
-        raise ValueError("development source is incomplete or contains duplicate rows")
+    if len(rows) != EXPECTED_CLIPS or len({
+        (r["data_file"], r["row_index"]) for r in rows
+    }) != EXPECTED_CLIPS:
+        raise ValueError("held-out source is incomplete or contains duplicate rows")
     if len({r["sp_id"] for r in rows}) != EXPECTED_SPEAKERS:
         raise ValueError("held-out speaker count changed")
     if source_summary["model"] != "openai/whisper-small":
