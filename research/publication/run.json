@@ -1,4 +1,4 @@
 {
-  "action": "lahaja_baseline",
-  "run_id": "lahaja-whisper-small-first-shard-v1"
+  "action": "lahaja_loop_repair",
+  "run_id": "lahaja-loop-repair-dev-v1"
 }
