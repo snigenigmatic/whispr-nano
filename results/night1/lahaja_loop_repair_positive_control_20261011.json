@@ -1,0 +1,42 @@
+{
+  "status": "oracle_structural_counterexample",
+  "dataset": "Scicom-intl/Whisper-Hallucination",
+  "dataset_revision": "8126be4a4b83afefeef9394ff1312b635a499d82",
+  "config": "reduplication/test",
+  "source_parquet_sha256": "07375ad512f9a05d677b513d99474f1c0a4810f5b227b5f5efc2070a7dcf88a1",
+  "policy_sha256": "4a89775ecae07364dd69a661e1ac612a3ffd10c7991f76305b45ae48c8873867",
+  "rows": 1440,
+  "perfect_transcripts_altered": 960,
+  "by_intended_repetition_count": {
+    "3": {
+      "rows": 240,
+      "perfect_transcripts_altered": 0
+    },
+    "4": {
+      "rows": 240,
+      "perfect_transcripts_altered": 0
+    },
+    "5": {
+      "rows": 240,
+      "perfect_transcripts_altered": 240
+    },
+    "6": {
+      "rows": 240,
+      "perfect_transcripts_altered": 240
+    },
+    "8": {
+      "rows": 240,
+      "perfect_transcripts_altered": 240
+    },
+    "12": {
+      "rows": 240,
+      "perfect_transcripts_altered": 240
+    }
+  },
+  "reference_words": 9120,
+  "words_deleted_from_perfect_transcripts": 6480,
+  "oracle_wer_percent_if_repaired": 71.05263157894737,
+  "interpretation": "Applying this text-only policy to perfect transcripts deletes genuinely repeated words. This is a structural safety counterexample, not an observed ASR false-positive rate.",
+  "limit": "The dataset uses synthetic repeated speech; actual model predictions on its audio have not been evaluated here.",
+  "script_sha256": "2a718fe5910e022aaebd5f9fbdb89f10281c7c02c236d71ecc447c138e447bab"
+}
