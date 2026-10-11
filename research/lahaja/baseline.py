@@ -31,7 +31,7 @@ MODEL_ID = "openai/whisper-small"
 MODEL_REVISION = "973afd24965f72e36ca33b3055d56a652f456b4d"
 SEED = 20261011
 PER_SPEAKER_SCENARIO = 2
-OUTPUT = Path.home() / ".local/share/openresearch/lahaja-cpu-control-v1"
+OUTPUT = Path.home() / ".local/share/openresearch/lahaja-attention-mask-control-v1"
 
 
 def _token() -> str | None:
@@ -152,10 +152,11 @@ def main() -> dict:
     with predictions_path.open("w") as handle, torch.inference_mode():
         for position, row in enumerate(selected, 1):
             audio, sr = audios[row["row_index"]]
-            features = processor(audio, sampling_rate=sr, return_tensors="pt").input_features.to(
-                device=device, dtype=dtype
-            )
-            tokens = model.generate(features, language="hi", task="transcribe",
+            inputs = processor(audio, sampling_rate=sr, return_tensors="pt",
+                               return_attention_mask=True)
+            features = inputs.input_features.to(device=device, dtype=dtype)
+            mask = inputs.attention_mask.to(device=device)
+            tokens = model.generate(features, attention_mask=mask, language="hi", task="transcribe",
                                     num_beams=1, do_sample=False, max_new_tokens=256)
             hyp = processor.batch_decode(tokens, skip_special_tokens=True)[0].strip()
             ref = row["verbatim"]
