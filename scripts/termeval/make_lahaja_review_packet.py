@@ -154,6 +154,8 @@ def main() -> None:
         "`uncertain` rather than guessing. Resolve disagreements only after both "
         "sheets are complete. These are development examples; do not use held-out "
         "speaker predictions to choose or tune a correction.\n"
+        "After both reviewers finish, run `python scripts/termeval/score_lahaja_review.py` "
+        "from the repository root to compute per-field agreement and Cohen's κ.\n"
     )
     print(json.dumps({"packet": str(OUT), "items": len(manifest),
                       "read": sum(x["scenario"] == "Read" for x in manifest),
