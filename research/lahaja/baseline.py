@@ -31,7 +31,7 @@ MODEL_ID = "openai/whisper-small"
 MODEL_REVISION = "973afd24965f72e36ca33b3055d56a652f456b4d"
 SEED = 20261011
 PER_SPEAKER_SCENARIO = 2
-OUTPUT = Path.home() / ".local/share/openresearch/lahaja-pilot-v1"
+OUTPUT = Path.home() / ".local/share/openresearch/lahaja-small-beam5-dev-v1"
 
 
 def _token() -> str | None:
@@ -157,7 +157,7 @@ def main() -> dict:
                 device=device, dtype=dtype
             )
             tokens = model.generate(features, language="hi", task="transcribe",
-                                    num_beams=1, do_sample=False, max_new_tokens=256)
+                                    num_beams=5, do_sample=False, max_new_tokens=256)
             hyp = processor.batch_decode(tokens, skip_special_tokens=True)[0].strip()
             ref = row["verbatim"]
             counts = jiwer.process_words(_normalize(ref), _normalize(hyp))
@@ -165,6 +165,7 @@ def main() -> dict:
                                              "native_language", "native_state", "native_district",
                                              "duration", "age_group", "gender")}
             record.update({"reference": ref, "prediction": hyp,
+                           "generated_tokens": int(tokens.shape[-1]),
                            "ref_words": len(_normalize(ref).split()),
                            "word_errors": counts.substitutions + counts.deletions + counts.insertions,
                            "substitutions": counts.substitutions,
@@ -185,8 +186,16 @@ def main() -> dict:
               "dataset_revision": DATASET_REVISION, "shard": DATA_FILE,
               "sample_policy": "two seeded clips per speaker and scenario, 2-25 seconds",
               "model": MODEL_ID, "model_revision": MODEL_REVISION, "device": device,
+              "num_beams": 5, "max_new_tokens": 256,
               "scorer": "NFC lowercase, keep Unicode letters/marks/numbers, pooled word edits",
               "overall": overall, "scenarios": scenarios, "states_descriptive_only": states,
+              "decoder_quality": {"generated_token_cap_256_count": sum(
+                                      r["generated_tokens"] >= 256 for r in scored),
+                                  "hypothesis_ge_3x_reference_words": sum(
+                                      len(_normalize(r["prediction"]).split()) >= 3 * r["ref_words"]
+                                      for r in scored),
+                                  "wer_gt_100_percent": sum(
+                                      r["word_errors"] > r["ref_words"] for r in scored)},
               "elapsed_s": time.monotonic() - started,
               "predictions_path": str(predictions_path)}
     (OUTPUT / "summary.json").write_text(json.dumps(result, indent=2, ensure_ascii=False))
