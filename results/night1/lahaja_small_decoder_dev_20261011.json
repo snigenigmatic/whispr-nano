@@ -1,0 +1,47 @@
+{
+  "status": "completed_development_decoder_control",
+  "dataset": "ai4bharat/Lahaja",
+  "dataset_revision": "d4ffd2ecbdd933e37c917ddcf620eef159ceb3a7",
+  "model": "openai/whisper-small",
+  "model_revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+  "greedy_run_id": "85e94d4f-b9ea-4227-be40-cefbc9cb705c",
+  "beam5_run_id": "916e8365-1d40-4a5f-a2a9-5f327923bafa",
+  "greedy_code_commit": "efaa2b0",
+  "beam5_code_commit": "1c3254d942e341f4828cb808ecb0d489e1643a83",
+  "clips": 104,
+  "speakers": 26,
+  "reference_words": 1992,
+  "greedy": {
+    "word_errors": 2403,
+    "wer_percent": 120.63253012048193,
+    "quality": {
+      "generated_token_cap_256_count": null,
+      "hypothesis_at_least_3x_reference_words_count": 12,
+      "utterance_wer_over_100_percent_count": 27
+    },
+    "predictions_sha256": "ccb5bd8fc1621fd90597876fa58f8c04078cabba6a48e812f26177fd951d303d"
+  },
+  "beam5": {
+    "word_errors": 1583,
+    "wer_percent": 79.46787148594377,
+    "quality": {
+      "generated_token_cap_256_count": 18,
+      "hypothesis_at_least_3x_reference_words_count": 5,
+      "utterance_wer_over_100_percent_count": 12
+    },
+    "predictions_sha256": "98885b5fc6288b949cbfc026160e70fae9ee4f91af7dd4b2f9e0a9bd2eb32134"
+  },
+  "beam5_minus_greedy_wer_points": -41.16465863453815,
+  "paired_speaker_bootstrap_95_ci_difference_points": [
+    -58.66438553535939,
+    -24.810719802169967
+  ],
+  "bootstrap_resamples": 4000,
+  "bootstrap_seed": 20261011,
+  "limits": [
+    "This is the same first-shard development sample used to diagnose greedy failure; it is not a held-out paper result.",
+    "Beam size also changes inference cost; latency and memory were not compared in this receipt.",
+    "The scorer preserves written digit versus spoken number-word differences."
+  ],
+  "packaging_script_sha256": "4fa570b59e17390cd91daff0a05f8249bbf49aeb1df02f5a813ec32cf9bd6a71"
+}

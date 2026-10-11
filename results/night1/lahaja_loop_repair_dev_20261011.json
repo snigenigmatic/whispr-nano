@@ -1,0 +1,39 @@
+{
+  "status": "validated_development_result",
+  "dataset": "ai4bharat/Lahaja",
+  "dataset_revision": "d4ffd2ecbdd933e37c917ddcf620eef159ceb3a7",
+  "model": "openai/whisper-small",
+  "model_revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+  "split": "dev",
+  "clips": 104,
+  "speakers": 26,
+  "speaker_overlap_with_development": null,
+  "heldout_selection_sha256": null,
+  "reference_words": 1992,
+  "raw_word_errors": 2403,
+  "repaired_word_errors": 1458,
+  "raw_wer_percent": 120.63253012048193,
+  "repaired_wer_percent": 73.19277108433735,
+  "repaired_minus_raw_wer_points": -47.43975903614458,
+  "paired_speaker_bootstrap_95_ci_difference_points": [
+    -63.530641907663544,
+    -33.26519009928257
+  ],
+  "clips_changed": 25,
+  "words_removed": 1264,
+  "clips_helped": 25,
+  "clips_harmed": 0,
+  "raw_utterances_over_100_percent_wer": 27,
+  "repaired_utterances_over_100_percent_wer": 3,
+  "policy_sha256": "4a89775ecae07364dd69a661e1ac612a3ffd10c7991f76305b45ae48c8873867",
+  "source_predictions_sha256": "ccb5bd8fc1621fd90597876fa58f8c04078cabba6a48e812f26177fd951d303d",
+  "repaired_predictions_sha256": "46e6a27663d0c984d50db643ebc39d0e41bce6763368a280df5ebe324925b188",
+  "run_id": "e330ad46-9119-4fb6-8f7b-5e7a7b101316",
+  "code_commit": "42fdc9b",
+  "limits": [
+    "This is a development sample used to select the repair threshold; it is not an unbiased improvement estimate.",
+    "Raw WER keeps number words distinct from written digits and does not measure semantic number correctness.",
+    "The rule suppresses only long adjacent single-word loops; it does not correct recognition or preserve natural repetitions of five or more copies."
+  ],
+  "packaging_script_sha256": "715ecccfe9f9c91727664259d96a14dec9dca20089718bb05ada65b585e81c95"
+}
