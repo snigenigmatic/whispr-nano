@@ -1,0 +1,54 @@
+{
+  "status": "speaker_disjoint_open_model_baseline_complete",
+  "dataset": "ai4bharat/Lahaja",
+  "dataset_revision": "d4ffd2ecbdd933e37c917ddcf620eef159ceb3a7",
+  "selection": "exclude first-shard speakers, then two-per-speaker/scenario in shards 1-3, 2-25 seconds",
+  "selection_sha256": "6134e2a9eabd65f590bf4f7f7829626e520379a66e058d9dd51ce4acf36c4060",
+  "development_speakers": 26,
+  "heldout_speakers": 106,
+  "speaker_overlap": 0,
+  "heldout_clips": 405,
+  "heldout_states": 17,
+  "heldout_audio_minutes_by_metadata": 57.569,
+  "model": "openai/whisper-large-v3-turbo",
+  "model_revision": "41f01f3fe87f28c78e2fbf8b568835947dd65ed9",
+  "run_id": "48514944-d432-4179-82ee-89eb054ee122",
+  "code_commit": "fc90d23b5f4425650d881e46db11eea58e02ae01",
+  "predictions_sha256": "f68944364e33d5858d4b440fa490878b7f333345686ea411a3289204fc9188dc",
+  "word_errors": 2869,
+  "reference_words": 7339,
+  "wer_percent": 39.092519416814284,
+  "speaker_bootstrap_95_ci_percent": [
+    36.67236446830824,
+    41.82147730930896
+  ],
+  "scenarios": {
+    "Extempore": {
+      "clips": 200,
+      "speakers": 101,
+      "word_errors": 1338,
+      "reference_words": 3997,
+      "wer_percent": 33.47510632974731
+    },
+    "Read": {
+      "clips": 205,
+      "speakers": 103,
+      "word_errors": 1531,
+      "reference_words": 3342,
+      "wer_percent": 45.810891681627766
+    }
+  },
+  "observed_decoder_quality": {
+    "generated_token_cap_256_count": 2,
+    "hypothesis_at_least_3x_reference_words_count": 1,
+    "utterance_wer_over_100_percent_count": 3
+  },
+  "scoring": "NFC lowercase, keep Unicode letters/marks/numbers, pooled word edits",
+  "limits": [
+    "The model/decoder recipe was frozen after a first-shard QC pilot; this score tests new speakers, not new corpus collection conditions.",
+    "No number-word equivalence mapping; written digits versus spoken words inflate raw WER.",
+    "Regional slices require adequate speaker counts and content-matched comparisons.",
+    "The full 6,152 clips were not decoded; this is a speaker-balanced sample."
+  ],
+  "packaging_script_sha256": "33863192952cfdc569c5e053a52fd5fbb269f9cf80a80d9a19e7c163a223f33c"
+}
