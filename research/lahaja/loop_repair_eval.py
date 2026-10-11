@@ -1,4 +1,4 @@
-"""Evaluate the frozen adjacent-word-loop repair on the Lahaja dev sample."""
+"""Evaluate the frozen adjacent-word-loop repair on unseen Lahaja speakers."""
 
 from __future__ import annotations
 
@@ -16,12 +16,14 @@ from publication_study.loop_repair import MIN_REPETITIONS, suppress_adjacent_wor
 
 
 RUNS = Path.home() / ".local/share/openresearch"
-SOURCE = RUNS / "lahaja-pilot-v1"
-OUTPUT = RUNS / "lahaja-loop-repair-dev-v1"
+SOURCE = RUNS / "lahaja-small-heldout-405-v1"
+OUTPUT = RUNS / "lahaja-loop-repair-heldout-v1"
 POLICY = Path(__file__).resolve().parents[2] / "src/publication_study/loop_repair.py"
-EXPECTED_CLIPS = 104
-EXPECTED_SPEAKERS = 26
-EXPECTED_SOURCE_SHA256 = "ccb5bd8fc1621fd90597876fa58f8c04078cabba6a48e812f26177fd951d303d"
+EXPECTED_CLIPS = 405
+EXPECTED_SPEAKERS = 106
+EXPECTED_SOURCE_SHA256 = "359d322efcfceb671869042418bb8d07684816e528c7afa785dd15fa5e773b09"
+EXPECTED_POLICY_SHA256 = "4a89775ecae07364dd69a661e1ac612a3ffd10c7991f76305b45ae48c8873867"
+EXPECTED_SELECTION_SHA256 = "6134e2a9eabd65f590bf4f7f7829626e520379a66e058d9dd51ce4acf36c4060"
 SEED = 20261011
 RESAMPLES = 4000
 
@@ -73,11 +75,20 @@ def main() -> dict:
     if len(rows) != EXPECTED_CLIPS or len({r["row_index"] for r in rows}) != EXPECTED_CLIPS:
         raise ValueError("development source is incomplete or contains duplicate rows")
     if len({r["sp_id"] for r in rows}) != EXPECTED_SPEAKERS:
-        raise ValueError("development speaker count changed")
+        raise ValueError("held-out speaker count changed")
     if source_summary["model"] != "openai/whisper-small":
         raise ValueError("unexpected source model")
     if source_summary["dataset_revision"] != "d4ffd2ecbdd933e37c917ddcf620eef159ceb3a7":
         raise ValueError("unexpected Lahaja dataset revision")
+    if source_summary["selection_sha256"] != EXPECTED_SELECTION_SHA256:
+        raise ValueError("held-out clip selection changed")
+    if _sha(POLICY) != EXPECTED_POLICY_SHA256:
+        raise ValueError("development-frozen policy changed")
+    dev_rows = [json.loads(line) for line in (
+        RUNS / "lahaja-pilot-v1/predictions.jsonl"
+    ).read_text().splitlines()]
+    if {r["sp_id"] for r in rows} & {r["sp_id"] for r in dev_rows}:
+        raise ValueError("held-out speakers overlap development speakers")
     OUTPUT.mkdir(parents=True, exist_ok=True)
     output_predictions = OUTPUT / "predictions.jsonl"
     scored = []
@@ -91,7 +102,8 @@ def main() -> dict:
             if repaired_words != ref_words:
                 raise ValueError("reference token count changed")
             record = {
-                "row_index": row["row_index"], "sp_id": row["sp_id"],
+                "data_file": row["data_file"], "row_index": row["row_index"],
+                "sp_id": row["sp_id"],
                 "scenario": row["scenario"], "reference": row["reference"],
                 "raw_prediction": row["prediction"], "repaired_prediction": repaired,
                 "raw_errors": raw_errors, "repaired_errors": repaired_errors,
@@ -106,7 +118,9 @@ def main() -> dict:
                            source_summary["overall"]["ref_words"]):
         raise ValueError("source summary disagrees with recomputed pooled edits")
     result = {
-        "status": "development_loop_repair_complete",
+        "status": "speaker_disjoint_loop_repair_complete",
+        "selection_sha256": EXPECTED_SELECTION_SHA256,
+        "speaker_overlap_with_development": 0,
         "dataset": source_summary["dataset"],
         "dataset_revision": source_summary["dataset_revision"],
         "model": source_summary["model"],
