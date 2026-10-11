@@ -27,12 +27,13 @@ from transformers import AutoProcessor, WhisperForConditionalGeneration
 
 DATASET_ID = "ai4bharat/Lahaja"
 DATASET_REVISION = "d4ffd2ecbdd933e37c917ddcf620eef159ceb3a7"
-DATA_FILE = "data/test-00000-of-00004.parquet"
+DEV_FILE = "data/test-00000-of-00004.parquet"
+DATA_FILES = tuple(f"data/test-{i:05d}-of-00004.parquet" for i in (1, 2, 3))
 MODEL_ID = "openai/whisper-large-v3-turbo"
 MODEL_REVISION = "41f01f3fe87f28c78e2fbf8b568835947dd65ed9"
 SEED = 20261011
 PER_SPEAKER_SCENARIO = 2
-OUTPUT = Path.home() / ".local/share/openresearch/lahaja-turbo-104-v1"
+OUTPUT = Path.home() / ".local/share/openresearch/lahaja-turbo-heldout-405-v1"
 
 
 def _token() -> str | None:
@@ -62,20 +63,25 @@ def _pick(rows: list[dict]) -> list[dict]:
     chosen = []
     for key, group in sorted(groups.items()):
         group.sort(key=lambda r: hashlib.sha256(
-            f"{SEED}|{r['row_index']}|{r['fname']}".encode()
+            f"{SEED}|{r['data_file']}|{r['row_index']}|{r['fname']}".encode()
         ).hexdigest())
         chosen.extend(group[:PER_SPEAKER_SCENARIO])
-    chosen.sort(key=lambda r: r["row_index"])
+    chosen.sort(key=lambda r: (r["data_file"], r["row_index"]))
     return chosen
 
 
-def _metadata(path: Path) -> tuple[list[dict], list[dict]]:
+def _metadata(paths: dict[str, Path], excluded_speakers: set[str]) -> tuple[list[dict], list[dict]]:
     columns = ["text", "verbatim", "normalized", "duration", "scenario",
                "fname", "native_language", "native_state", "native_district",
                "sp_id", "lang", "gender", "age_group"]
-    rows = pq.read_table(path, columns=columns).to_pylist()
-    for idx, row in enumerate(rows):
-        row["row_index"] = idx
+    rows = []
+    for data_file, path in sorted(paths.items()):
+        for idx, row in enumerate(pq.read_table(path, columns=columns).to_pylist()):
+            if row["sp_id"] in excluded_speakers:
+                continue
+            row["data_file"] = data_file
+            row["row_index"] = idx
+            rows.append(row)
     if not rows or any(not r["sp_id"] or not r["verbatim"] for r in rows):
         raise ValueError("missing Lahaja speaker or verbatim reference")
     if any(r["lang"] != "hi" for r in rows):
@@ -87,26 +93,28 @@ def _metadata(path: Path) -> tuple[list[dict], list[dict]]:
     return rows, _pick(rows)
 
 
-def _audio(path: Path, selected: set[int]) -> dict[int, tuple[np.ndarray, int]]:
+def _audio(paths: dict[str, Path], selected: set[tuple[str, int]]) -> dict[tuple[str, int], tuple[np.ndarray, int]]:
     got = {}
-    pf = pq.ParquetFile(path)
-    offset = 0
-    for rg in range(pf.metadata.num_row_groups):
-        count = pf.metadata.row_group(rg).num_rows
-        wanted = selected & set(range(offset, offset + count))
-        if wanted:
-            values = pf.read_row_group(rg, columns=["audio_filepath"]).to_pylist()
-            for idx in sorted(wanted):
-                raw = values[idx - offset]["audio_filepath"]["bytes"]
-                if not raw:
-                    raise ValueError(f"missing embedded audio at row {idx}")
-                audio, sr = sf.read(io.BytesIO(raw), dtype="float32", always_2d=True)
-                if sr != 16000 or audio.shape[1] != 1:
-                    raise ValueError(f"unexpected Lahaja audio format at row {idx}: {sr}, {audio.shape}")
-                if not np.isfinite(audio).all():
-                    raise ValueError(f"nonfinite audio at row {idx}")
-                got[idx] = (audio[:, 0], sr)
-        offset += count
+    for data_file, path in sorted(paths.items()):
+        pf = pq.ParquetFile(path)
+        offset = 0
+        wanted_in_file = {idx for shard, idx in selected if shard == data_file}
+        for rg in range(pf.metadata.num_row_groups):
+            count = pf.metadata.row_group(rg).num_rows
+            wanted = wanted_in_file & set(range(offset, offset + count))
+            if wanted:
+                values = pf.read_row_group(rg, columns=["audio_filepath"]).to_pylist()
+                for idx in sorted(wanted):
+                    raw = values[idx - offset]["audio_filepath"]["bytes"]
+                    if not raw:
+                        raise ValueError(f"missing embedded audio at {data_file} row {idx}")
+                    audio, sr = sf.read(io.BytesIO(raw), dtype="float32", always_2d=True)
+                    if sr != 16000 or audio.shape[1] != 1:
+                        raise ValueError(f"unexpected Lahaja audio format at {data_file} row {idx}: {sr}, {audio.shape}")
+                    if not np.isfinite(audio).all():
+                        raise ValueError(f"nonfinite audio at {data_file} row {idx}")
+                    got[(data_file, idx)] = (audio[:, 0], sr)
+            offset += count
     if set(got) != selected:
         raise ValueError("selected audio rows not completely recovered")
     return got
@@ -141,20 +149,34 @@ def main() -> dict:
     token = _token()
     if not token:
         raise RuntimeError("Hugging Face token unavailable")
-    path = Path(hf_hub_download(DATASET_ID, DATA_FILE, repo_type="dataset",
-                                revision=DATASET_REVISION, token=token))
-    all_rows, selected = _metadata(path)
-    audios = _audio(path, {r["row_index"] for r in selected})
-    if any(abs(len(audios[r["row_index"]][0]) / 16000 - r["duration"]) > 0.12
+    dev_path = Path(hf_hub_download(DATASET_ID, DEV_FILE, repo_type="dataset",
+                                    revision=DATASET_REVISION, token=token))
+    dev_speakers = set(pq.read_table(dev_path, columns=["sp_id"]).column("sp_id").to_pylist())
+    paths = {data_file: Path(hf_hub_download(DATASET_ID, data_file, repo_type="dataset",
+                                             revision=DATASET_REVISION, token=token))
+             for data_file in DATA_FILES}
+    all_rows, selected = _metadata(paths, dev_speakers)
+    if (len(dev_speakers), len(selected), len({r["sp_id"] for r in selected}),
+        len({r["native_state"] for r in selected})) != (26, 405, 106, 17):
+        raise ValueError("speaker-disjoint Lahaja selection does not match frozen preflight")
+    selection_sha256 = hashlib.sha256(json.dumps(
+        [(r["data_file"], r["row_index"], r["sp_id"]) for r in selected],
+        separators=(",", ":")
+    ).encode()).hexdigest()
+    audios = _audio(paths, {(r["data_file"], r["row_index"]) for r in selected})
+    if any(abs(len(audios[(r["data_file"], r["row_index"])][0]) / 16000 - r["duration"]) > 0.12
            for r in selected):
         raise ValueError("audio duration does not match released metadata")
     print(json.dumps({"event": "preflight", "dataset_id": DATASET_ID,
-                      "dataset_revision": DATASET_REVISION, "shard": DATA_FILE,
-                      "shard_rows": len(all_rows), "selected_rows": len(selected),
+                      "dataset_revision": DATASET_REVISION, "shards": DATA_FILES,
+                      "eligible_rows_after_exclusion": len(all_rows), "selected_rows": len(selected),
+                      "excluded_first_shard_speakers": len(dev_speakers),
                       "selected_speakers": len({r["sp_id"] for r in selected}),
                       "selected_states": len({r["native_state"] for r in selected}),
-                      "selection": "frozen two-per-speaker/scenario sample, duration 2-25 s",
+                      "selection_sha256": selection_sha256,
+                      "selection": "first-shard-speaker-disjoint two-per-speaker/scenario sample, duration 2-25 s",
                       "reference": "verbatim", "model": MODEL_ID,
+                      "language": "hi", "task": "transcribe",
                       "model_revision": MODEL_REVISION,
                       "code_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
                       "transformers": transformers.__version__, "torch": torch.__version__},
@@ -171,7 +193,7 @@ def main() -> dict:
     scored = []
     with predictions_path.open("w") as handle, torch.inference_mode():
         for position, row in enumerate(selected, 1):
-            audio, sr = audios[row["row_index"]]
+            audio, sr = audios[(row["data_file"], row["row_index"])]
             inputs = processor(audio, sampling_rate=sr, return_tensors="pt",
                                return_attention_mask=True)
             features = inputs.input_features.to(device=device, dtype=dtype)
@@ -179,14 +201,13 @@ def main() -> dict:
             tokens = model.generate(features, attention_mask=mask, language="hi", task="transcribe",
                                     num_beams=1, do_sample=False, max_new_tokens=256)
             hyp = processor.batch_decode(tokens, skip_special_tokens=True)[0].strip()
-            eos_present = int(model.config.eos_token_id) in tokens[0].tolist()
             ref = row["verbatim"]
             counts = jiwer.process_words(_normalize(ref), _normalize(hyp))
-            record = {k: row[k] for k in ("row_index", "fname", "sp_id", "scenario",
+            record = {k: row[k] for k in ("data_file", "row_index", "fname", "sp_id", "scenario",
                                              "native_language", "native_state", "native_district",
                                              "duration", "age_group", "gender")}
             record.update({"reference": ref, "prediction": hyp,
-                           "eos_present": eos_present, "generated_tokens": int(tokens.shape[-1]),
+                           "generated_tokens": int(tokens.shape[-1]),
                            "ref_words": len(_normalize(ref).split()),
                            "word_errors": counts.substitutions + counts.deletions + counts.insertions,
                            "substitutions": counts.substitutions,
@@ -205,13 +226,17 @@ def main() -> dict:
     states = {name: _pooled([r for r in scored if r["native_state"] == name])
               for name in sorted({r["native_state"] for r in scored})}
     result = {"status": "pilot_complete", "dataset": DATASET_ID,
-              "dataset_revision": DATASET_REVISION, "shard": DATA_FILE,
-              "sample_policy": "frozen two-per-speaker/scenario sample, 2-25 seconds",
+              "dataset_revision": DATASET_REVISION, "shards": DATA_FILES,
+              "excluded_first_shard_speakers": len(dev_speakers),
+              "selection_sha256": selection_sha256,
+              "sample_policy": "exclude first-shard speakers, then two-per-speaker/scenario in shards 1-3, 2-25 seconds",
               "model": MODEL_ID, "model_revision": MODEL_REVISION, "device": device,
-              "dtype": str(dtype), "num_beams": 1, "max_new_tokens": 256,
+              "dtype": str(dtype), "language": "hi", "task": "transcribe",
+              "num_beams": 1, "max_new_tokens": 256,
               "scorer": "NFC lowercase, keep Unicode letters/marks/numbers, pooled word edits",
               "overall": overall, "scenarios": scenarios, "states_descriptive_only": states,
-              "decoder_quality": {"eos_missing": sum(not r["eos_present"] for r in scored),
+              "decoder_quality": {"generated_token_cap_256_count": sum(
+                                      r["generated_tokens"] >= 256 for r in scored),
                                   "hypothesis_ge_3x_reference_words": sum(
                                       len(_normalize(r["prediction"]).split()) >= 3 * r["ref_words"]
                                       for r in scored),
