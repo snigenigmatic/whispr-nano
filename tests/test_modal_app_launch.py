@@ -12,6 +12,7 @@ def test_app_has_bounded_lifetime_and_no_warm_workers():
     o=m.function_options('L4',15)
     assert o['timeout']==900 and o['min_containers']==o['buffer_containers']==o['retries']==0
     assert o['max_containers']==1 and o['single_use_containers'] and o['scaledown_window']==2
+    assert not o['serialized'] # Avoid host/image Python minor-version coupling.
 
 
 def test_old_sandbox_reservations_still_count_towards_app_cap(tmp_path):
@@ -21,3 +22,12 @@ def test_old_sandbox_reservations_still_count_towards_app_cap(tmp_path):
     with patch.object(m,'LEDGER',ledger):
         with pytest.raises(SystemExit,match='budget refused'):m.reserve('exp','commit','L4',15,False)
     assert json.loads(ledger.read_text())==initial
+
+
+def test_retry_refuses_any_possibly_dispatched_app(tmp_path):
+    row=dict(id='hold',experiment='exp',commit='sha',provider='modal',runtime='App.function',flavor='L4',timeout_minutes=15,reserved_usd=.75)
+    ledger=tmp_path/'ledger.json';ledger.write_text(json.dumps(dict(reservations=[row])))
+    (tmp_path/'modal-app-hold.json').write_text(json.dumps(dict(status='failed',app_id='ap-registered')))
+    with patch.object(m,'LEDGER',ledger):
+        with pytest.raises(SystemExit,match='possible worker dispatch'):
+            m.retry_preflight('hold','exp','sha','L4',15)
