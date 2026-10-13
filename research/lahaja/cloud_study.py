@@ -23,10 +23,10 @@ import numpy as np
 import pyarrow.parquet as pq
 import soundfile as sf
 import torch
-from huggingface_hub import hf_hub_download
+from huggingface_hub import hf_hub_download, HfApi
 from transformers import AutoProcessor, WhisperForConditionalGeneration
 from research.lahaja import baseline as b
-from research.lahaja.artifact_transport import emit
+from research.lahaja.artifact_transport import emit, recover
 from publication_study.loop_repair import suppress_adjacent_word_loops
 
 CONFIG = Path(__file__).with_suffix('.json')
@@ -175,11 +175,29 @@ def main():
             ['torch','transformers','numpy','pyarrow','soundfile','openai-whisper','jiwer','huggingface-hub']},
         code_sha256=sha(Path(__file__).read_bytes()),manifest_sha256=sha((out/'manifest.json').read_bytes()),
         repair_policy_sha256=sha((Path(__file__).parents[2]/'src/publication_study/loop_repair.py').read_bytes()))
+    predictions=[]
+    if cfg.get('resume_job_id'):
+        cache=out.parent/(cfg['run_id']+'-source')
+        log=out.parent/(cfg['run_id']+'-source.log')
+        log.write_text('\n'.join(HfApi().fetch_job_logs(job_id=cfg['resume_job_id'],namespace='snigenigmatic',follow=False)))
+        recover(log,cache)
+        source_env=json.loads((cache/'environment.json').read_text())
+        source_summary=json.loads((cache/'summary.json').read_text())
+        assert sha((cache/'predictions.jsonl').read_bytes())==cfg['resume_predictions_sha256']==source_summary['predictions_sha256']
+        assert source_env['manifest_sha256']==env['manifest_sha256']
+        assert source_env['decoder']==env['decoder'] and source_env['packages']==env['packages']
+        assert source_env['config']['seed']==cfg['seed']
+        predictions=[json.loads(line) for line in (cache/'predictions.jsonl').read_text().splitlines()]
+        assert len(predictions)==source_summary['completed']<len(rows)
+        for r,m in zip(predictions,ma):assert all(r[k]==v for k,v in m.items())
+        env['resume']=dict(job_id=cfg['resume_job_id'],source_predictions_sha256=cfg['resume_predictions_sha256'],
+            preserved=len(predictions),source_environment=source_env,source_summary=source_summary)
     (out/'environment.json').write_text(json.dumps(env,indent=2));print(json.dumps(dict(event='preflight',**env)),flush=True)
-    predictions=[];batch=[];start_decode=time.monotonic()
+    batch=[];start_decode=time.monotonic()
     try:
         with (out/'predictions.jsonl').open('w') as fh, torch.inference_mode():
-            for pos,row in enumerate(rows,1):
+            for saved in predictions:fh.write(json.dumps(saved,ensure_ascii=False)+'\n')
+            for pos,row in enumerate(rows[len(predictions):],len(predictions)+1):
                 if time.monotonic()-start_decode>cfg['max_inference_seconds']:
                     raise TimeoutError('Committed inference time budget reached')
                 # Seed separately per recording so prior clip fallbacks do not alter sampling.

@@ -1,7 +1,9 @@
 {
   "mode": "official_no_speech_skip",
-  "run_id": "short-hindi-no-speech-skip-v1",
+  "run_id": "short-hindi-no-skip-complete-v1",
   "seed": 20261013,
-  "max_inference_seconds": 2100,
-  "expected_manifest_sha256": "ab7da06da199001f450d4958a25cffda2a5b452579f4261b07a08bac82db000a"
+  "max_inference_seconds": 900,
+  "expected_manifest_sha256": "ab7da06da199001f450d4958a25cffda2a5b452579f4261b07a08bac82db000a",
+  "resume_job_id": "6ace1a035ccb47ba0f787b9d",
+  "resume_predictions_sha256": "700dc67e6ce9f3cfcbefc7e7bb7c6986e29430aa2dda90f1628d2d72f8b9cfd0"
 }
