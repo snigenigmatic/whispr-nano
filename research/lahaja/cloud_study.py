@@ -115,7 +115,11 @@ def summary(rows):
         e=sum(r['raw_counts']['word_errors'] for r in rr)
         er=sum(r['repair_counts']['word_errors'] for r in rr)
         out[cohort]=dict(clips=len(rr),speakers=len({r['sp_id'] for r in rr}),ref_words=n,
-            raw_errors=e,repair_errors=er,raw_wer=e/n,repair_wer=er/n,
+            raw_errors=e,repair_errors=er,raw_wer=e/n if n else None,repair_wer=er/n if n else None,
+            raw_exact=sum(b._normalize(r['prediction'])==b._normalize(r['reference']) for r in rr),
+            repair_exact=sum(b._normalize(r['repaired_prediction'])==b._normalize(r['reference']) for r in rr),
+            raw_empty=sum(not b._normalize(r['prediction']) for r in rr),
+            repair_empty=sum(not b._normalize(r['repaired_prediction']) for r in rr),
             altered=sum(r['removed_words']>0 for r in rr),
             helped=sum(r['repair_counts']['word_errors']<r['raw_counts']['word_errors'] for r in rr),
             harmed=sum(r['repair_counts']['word_errors']>r['raw_counts']['word_errors'] for r in rr))
@@ -135,18 +139,19 @@ def make_decoder(mode):
             return proc.batch_decode(tokens,skip_special_tokens=True)[0].strip(),dict(generated_tokens=int(tokens.shape[-1]))
         return decode,dict(model=b.MODEL_ID,revision=b.MODEL_REVISION,dtype='float16',num_beams=5,
             max_new_tokens=256,attention_mask='not passed; exact prior single-clip padded recipe')
-    if mode=='official_default':
+    if mode in ('official_default','official_no_speech_skip'):
         import whisper
         model=whisper.load_model('small',device='cuda').eval()
         url=whisper._MODELS['small']
         def decode(audio,language):
             result=model.transcribe(audio,language=language,task='transcribe',verbose=None,
-                beam_size=5,best_of=5,fp16=True)
+                beam_size=5,best_of=5,fp16=True,
+                no_speech_threshold=.6 if mode=='official_default' else None)
             meta=[{k:s[k] for k in ('start','end','temperature','avg_logprob','compression_ratio','no_speech_prob')} for s in result['segments']]
             return result['text'].strip(),dict(segments=meta)
         return decode,dict(model='openai-whisper/small',url=url,checkpoint_sha256=url.split('/')[-2],
             dtype='float16',temperature=[0,.2,.4,.6,.8,1.],beam_size=5,best_of=5,
-            compression_ratio_threshold=2.4,logprob_threshold=-1.,no_speech_threshold=.6,
+            compression_ratio_threshold=2.4,logprob_threshold=-1.,no_speech_threshold=.6 if mode=='official_default' else None,
             condition_on_previous_text=True,implementation='openai-whisper==20250625')
     raise ValueError(mode)
 
@@ -157,16 +162,15 @@ def main():
     torch.set_num_threads(4)
     torch.manual_seed(cfg['seed']); np.random.seed(cfg['seed']); random.seed(cfg['seed'])
     started=time.monotonic()
-    rows=prepare(); ma=manifest(rows)
-    for label,matching in [('lahaja',[r for r in ma if r['cohort'].startswith('lahaja')]),
-                            ('commands',[r for r in ma if r['cohort'].startswith('commands')])]:
-        digest=sha(json.dumps(matching,sort_keys=True,ensure_ascii=False).encode())
-        assert digest==cfg[f'expected_{label}_selection_sha256'], (label,digest)
+    from research.lahaja.short_hindi import prepare as prepare_short
+    rows=prepare_short();ma=manifest(rows)
+    digest=sha(json.dumps(ma,sort_keys=True,ensure_ascii=False).encode())
+    assert digest==cfg['expected_manifest_sha256'],digest
     out=Path.home()/'.local/share/openresearch'/cfg['run_id'];out.mkdir(parents=True,exist_ok=True)
     (out/'manifest.json').write_text(json.dumps(ma,sort_keys=True,ensure_ascii=False))
     decode,dcfg=make_decoder(cfg['mode'])
     env=dict(config=cfg,decoder=dcfg,dataset_revision=b.DATASET_REVISION,
-        commands_archive_sha256=COMMAND_SHA,commands_url=COMMAND_URL,
+        dataset_protocol='short_hindi_v1',silence_revision='8126be4a4b83afefeef9394ff1312b635a499d82',
         gpu=torch.cuda.get_device_name(0),packages={p:importlib.metadata.version(p) for p in
             ['torch','transformers','numpy','pyarrow','soundfile','openai-whisper','jiwer','huggingface-hub']},
         code_sha256=sha(Path(__file__).read_bytes()),manifest_sha256=sha((out/'manifest.json').read_bytes()),
