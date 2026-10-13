@@ -1,0 +1,42 @@
+{
+  "status": "validated_exploratory_speaker_disjoint_result",
+  "dataset": "ai4bharat/Lahaja",
+  "dataset_revision": "d4ffd2ecbdd933e37c917ddcf620eef159ceb3a7",
+  "model": "openai/whisper-small",
+  "model_revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+  "selection_sha256": "6134e2a9eabd65f590bf4f7f7829626e520379a66e058d9dd51ce4acf36c4060",
+  "clips": 405,
+  "speakers": 106,
+  "speaker_overlap_with_development": 0,
+  "reference_words": 7339,
+  "beam5_word_errors": 5752,
+  "beam5_wer_percent": 78.37580051778171,
+  "beam5_plus_repair_word_errors": 4761,
+  "beam5_plus_repair_wer_percent": 64.87259844665486,
+  "difference_wer_points": -13.503202071126857,
+  "paired_speaker_bootstrap_95_ci_difference_points": [
+    -19.181209112751187,
+    -8.391912998881011
+  ],
+  "bootstrap_resamples": 4000,
+  "bootstrap_seed": 20261011,
+  "clips_changed": 31,
+  "clips_helped": 30,
+  "clips_harmed": 0,
+  "words_removed": 1377,
+  "policy_sha256": "4a89775ecae07364dd69a661e1ac612a3ffd10c7991f76305b45ae48c8873867",
+  "source_predictions_sha256": "4ec9ba54049f2c692b146b17cda2a3150d11b931d76f72e424efee41637b73a4",
+  "repaired_predictions_sha256": "3d0b547551d806346a2d4b0fd59f6d437f55173c570a4a7a781ed56e78db86a2",
+  "source_run_id": "36217bd3-5caa-48ea-8521-0660ca15d7f0",
+  "run_id": "9f3eb87b-7716-44c0-a2fb-3574b963a0ca",
+  "code_commit": "fc83ff5d02c24977f218f2e48f6e522379bec27f",
+  "limits": [
+    "The five-beam-plus-repair combination was proposed after inspecting the held-out five-beam aggregate; treat this as exploratory, not a predeclared confirmatory test.",
+    "The exact repair rule was frozen on different first-shard speakers and was not retuned for beam5.",
+    "A positive control shows the text-only rule can erase genuinely spoken repetition; it is not a generally safe ASR correction.",
+    "Raw WER counts written digits and spoken number words separately and does not measure number-value correctness.",
+    "Lahaja is Hindi, so this does not establish an Indian-English or Hinglish improvement.",
+    "Gated Lahaja references and raw predictions remain local; this file contains only aggregates and hashes."
+  ],
+  "packaging_script_sha256": "942eff94c2e61497ea73c1864f4d705c711592c5147bb471278bb96f04a852c7"
+}
