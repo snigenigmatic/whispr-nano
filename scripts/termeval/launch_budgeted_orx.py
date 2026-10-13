@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
-"""Reserve the full timeout cost before launching ORX; separate $20 provider caps.
+"""Reserve the full timeout cost before launching an ORX Hugging Face job.
 
 Reservations stay counted even for failed submissions until provider billing is
 reconciled. The Modal rate is a conservative allowance, not a measured price.
 Only GPU shapes whose charges are bounded by these rates are allowed here.
+Modal launches are disabled here: ORX uses Sandboxes, whereas this project now
+requires Modal Apps with bounded function lifetimes and no warm containers.
 """
 import argparse
 from datetime import datetime, timezone
@@ -30,6 +32,8 @@ def main():
     p.add_argument('experiment');p.add_argument('--provider',choices=['hf','modal'],required=True)
     p.add_argument('--flavor',required=True);p.add_argument('--minutes',type=int,required=True)
     p.add_argument('--dry-run',action='store_true');a=p.parse_args()
+    if a.provider=='modal':
+        raise SystemExit('Modal Sandboxes are disabled for this project. Use a bounded Modal App; this ORX backend creates Sandboxes.')
     amount=reservation(a.provider,a.flavor,a.minutes)
     LEDGER.parent.mkdir(parents=True,exist_ok=True)
     with LEDGER.with_suffix('.lock').open('a') as lock:

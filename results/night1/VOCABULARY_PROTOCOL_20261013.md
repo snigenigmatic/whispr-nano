@@ -1,0 +1,22 @@
+# Fixed development vocabulary: a bounded isolated-word diagnostic
+
+Recorded before the new candidate likelihoods or predictions are produced. Earlier short-word decoding results have already been inspected. This is an exploratory follow-up, not an independent confirmation or a proposed new general-purpose ASR method.
+
+The vocabulary is the 92 distinct normalized single-word references shorter than two seconds from Lahaja's first shard (the excluded development speakers). Its SHA-256 is `9ee472963446475f3bfd67081bf357ea703f001c7772598bc14d15a85632e849`. It covers 196 of the 414 previously frozen short-word evaluation clips. No evaluation transcript contributes a candidate. For each input, retain the original official Small transcription as an additional candidate after the same scoring normalization, and include the empty string. Evaluate all 414 speech inputs and all 36 byte-deduplicated silence controls. Report in-vocabulary and out-of-vocabulary speech separately, plus all-speech results and silence emissions. Constructed multiword repetition is outside this isolated-word task.
+
+Use the unchanged official Whisper Small checkpoint. Share each audio encoder result across batches of candidate transcripts. Teacher-force each candidate with a Hindi/transcribe/no-timestamps prefix and a leading text space, then score only its text tokens and end-of-text token under the unmodified full-vocabulary softmax. Forced prefix probabilities and right padding do not count. Compare four fixed choices: summed log likelihood, mean log likelihood including EOT, summed likelihood minus the identical candidate's zero-audio likelihood, and the corresponding mean difference. The null audio is thirty seconds of digital zero, using Whisper's standard mel frontend. Candidates that exceed model context cause abstention to the original output. Exact ties choose the first candidate in the fixed order: empty, sorted development vocabulary, original output if distinct. There is no tuned correction strength.
+
+The primary diagnostic contrast is **mean prior-corrected score versus mean likelihood**, measured by exact-word accuracy and WER over all 414 speech clips, with paired speaker-bootstrap 95% intervals. Also compare both with the original transcription. Improvement needs a positive exact-accuracy interval and no increase in observed silence emissions; report any correct original outputs damaged, especially outside the vocabulary. All four conditions remain visible even if the primary comparison fails. This gate is evidence for a further held-out test, not a publication or safety guarantee.
+
+## What the arithmetic does and does not prove
+
+For a fixed candidate set and positive probabilities, Bayes' identity gives `log p(y|x) − log p(y) = log p(x|y) − log p(x)`. Thus if the null-audio model distribution exactly equalled the transcript prior, maximizing the summed difference would maximize `p(x|y)` over those candidates. In practice `p(y|zero audio)` is only a proxy for that prior, and dividing by candidate length changes the objective again. The identity therefore proves neither improved word accuracy nor safe silence rejection. This experiment tests those empirical questions. Prior correction and constrained vocabulary recognition are established ideas; no novelty is asserted here.
+
+## Execution and evidence
+
+- ORX experiment: `70f2fb79-6c83-4e55-a052-4d00c4c61050`; parent: completed short-Small resume `4ebfa72c-b874-43f6-babe-520a5005939e`.
+- HF A100 job, 30-minute provider timeout, 20-minute scoring guard; reserve $1.50 under the existing separate $20 HF cap. No Modal Sandbox.
+- Baseline prediction SHA: `08f7f4ef28821ecc8442d558a91f838d697c410c9b4f8a07d6e2d6347f9e876b`.
+- Save every candidate's score, null score, token count, selected index, input/audio hash, timing, model identity and pinned package versions. Independently reconstruct the decisions and rescore word errors.
+- Test the prefix/EOT/padding mask on known synthetic logits locally, without loading a neural model. Before GPU scoring, compare batched and individual candidate likelihoods.
+- Implementation references: [official Whisper tokenizer](https://github.com/openai/whisper/blob/v20250625/whisper/tokenizer.py), [official model methods](https://github.com/openai/whisper/blob/v20250625/whisper/model.py).

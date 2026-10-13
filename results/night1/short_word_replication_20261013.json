@@ -1,0 +1,120 @@
+{
+  "status": "independently_validated",
+  "conditions": {
+    "official_default": {
+      "source_clips": 102,
+      "source_speakers": 102,
+      "baseline_correct": 20,
+      "baseline_accuracy_percent": 19.607843137254903,
+      "baseline_decode_seconds": 182.2932026819908,
+      "copies": {
+        "5": {
+          "correct": 17,
+          "accuracy_percent": 16.666666666666664,
+          "difference_points": -2.941176470588235,
+          "paired_speaker_bootstrap_95_ci_points": [
+            -11.76470588235294,
+            5.88235294117647
+          ],
+          "helped": 9,
+          "harmed": 12,
+          "tied": 81,
+          "decode_seconds": 291.3334551629596,
+          "measured_decode_time_multiplier": 1.5981586305836577
+        },
+        "8": {
+          "correct": 18,
+          "accuracy_percent": 17.647058823529413,
+          "difference_points": -1.9607843137254901,
+          "paired_speaker_bootstrap_95_ci_points": [
+            -11.76470588235294,
+            7.8431372549019605
+          ],
+          "helped": 11,
+          "harmed": 13,
+          "tied": 78,
+          "decode_seconds": 647.6269435779759,
+          "measured_decode_time_multiplier": 3.5526664409300905
+        }
+      }
+    },
+    "official_turbo": {
+      "source_clips": 102,
+      "source_speakers": 102,
+      "baseline_correct": 32,
+      "baseline_accuracy_percent": 31.372549019607842,
+      "baseline_decode_seconds": 53.645786366963875,
+      "copies": {
+        "5": {
+          "correct": 28,
+          "accuracy_percent": 27.450980392156865,
+          "difference_points": -3.9215686274509802,
+          "paired_speaker_bootstrap_95_ci_points": [
+            -13.725490196078432,
+            5.88235294117647
+          ],
+          "helped": 10,
+          "harmed": 14,
+          "tied": 78,
+          "decode_seconds": 192.4409423380057,
+          "measured_decode_time_multiplier": 3.587251774475145
+        },
+        "8": {
+          "correct": 24,
+          "accuracy_percent": 23.52941176470588,
+          "difference_points": -7.8431372549019605,
+          "paired_speaker_bootstrap_95_ci_points": [
+            -16.666666666666664,
+            0.9803921568627451
+          ],
+          "helped": 8,
+          "harmed": 16,
+          "tied": 78,
+          "decode_seconds": 290.24519698596123,
+          "measured_decode_time_multiplier": 5.410400641730548
+        }
+      }
+    },
+    "official_no_speech_skip": {
+      "source_clips": 102,
+      "source_speakers": 102,
+      "baseline_correct": 20,
+      "baseline_accuracy_percent": 19.607843137254903,
+      "baseline_decode_seconds": 192.83558643399738,
+      "copies": {
+        "5": {
+          "correct": 17,
+          "accuracy_percent": 16.666666666666664,
+          "difference_points": -2.941176470588235,
+          "paired_speaker_bootstrap_95_ci_points": [
+            -11.76470588235294,
+            5.88235294117647
+          ],
+          "helped": 9,
+          "harmed": 12,
+          "tied": 81,
+          "decode_seconds": 294.7788590299824,
+          "measured_decode_time_multiplier": 1.5286538365722115
+        },
+        "8": {
+          "correct": 18,
+          "accuracy_percent": 17.647058823529413,
+          "difference_points": -1.9607843137254901,
+          "paired_speaker_bootstrap_95_ci_points": [
+            -11.76470588235294,
+            7.8431372549019605
+          ],
+          "helped": 11,
+          "harmed": 13,
+          "tied": 78,
+          "decode_seconds": 653.3079306129803,
+          "measured_decode_time_multiplier": 3.3879012826120176
+        }
+      }
+    }
+  },
+  "selector": "most frequent normalized token; first occurrence breaks ties; empty remains empty",
+  "scope": "Explicit isolated-word recognition only. Not a general ASR postprocessor.",
+  "source_evidence_sha256": "d59f295be6bbc8f93fa38e2ef95294553d7272292cef5df4a8661f20bce8b7d5",
+  "analysis_script_sha256": "8cb3d34674fa0cf87d6325fa9377282458e881df9f488849299136065c5e1c75"
+}

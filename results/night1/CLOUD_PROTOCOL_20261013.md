@@ -30,6 +30,8 @@ The earlier Scicom oracle check remains a structural counterexample, but its 1,4
 
 ## Compute, evidence and spending
 
+**Execution change, 13 October:** Kaustubh requires Modal Apps, not Modal Sandboxes. The ORX Modal backend currently creates Sandboxes, so `launch_budgeted_orx.py` now refuses that backend before reserving credit or contacting a provider. Future Modal work must use bounded App functions with zero warm containers, explicit timeouts, no automatic retries and a recorded spending reservation. Existing HF Jobs remain supported. At the changeover, the account's active Sandbox list was empty and the `openresearch` App reported zero running tasks. Earlier completed Sandbox runs remain historical evidence; this change does not relabel how they ran.
+
 All model inference runs on CUDA in HF Jobs or Modal, tracked by ORX. The Mac handles preparation, launch and independent scoring only. The previous Modal failure was caused by a missing Python 3.14 CA trust bundle; installing the existing certifi bundle repaired default TLS verification. Verification was not disabled.
 
 | Condition | Commit | ORX run | Provider |

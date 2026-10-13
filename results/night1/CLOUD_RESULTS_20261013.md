@@ -53,7 +53,29 @@ The one-clip Small improvement is inconclusive; its interval reaches zero. This 
 
 ## Short-Hindi follow-up
 
-Still running. No short-Hindi quality claims are made until complete artifacts pass validation.
+The one-setting ablation compares official Small with its no-speech skip disabled. Both use the same A100 hardware, pinned model and 654-input manifest.
+
+| Condition | Short-word WER / exact accuracy (414) | Empty short-word outputs | Five-repeat Hindi WER (102) | Eight-repeat Hindi WER (102) | Silence inputs emitting words (36) |
+|---|---:|---:|---:|---:|---:|
+| official_default | 125.36% / 19.81% | 8 | 106.27% | 108.09% | 0/36 |
+| official_turbo | 121.01% / 28.74% | 0 | 94.12% | 99.26% | 36/36 |
+| official_no_speech_skip | 149.28% / 19.81% | 2 | 106.86% | 108.70% | 34/36 |
+
+Disabling skipping changes short-word WER by +23.91 points, paired speaker-bootstrap 95% CI [+0.74, +59.95]; 0 clips improve and 5 worsen. Silence has no reference-word denominator, so its WER is undefined and is never pooled into speech WER.
+
+[Full short-Hindi evidence](short_hindi_validated_20261013.json) · [Frozen protocol](SHORT_HINDI_PROTOCOL_20261013.md)
+
+### Secondary isolated-word diagnostic
+
+This assumes the task requires exactly one word; it is not a general transcription method. All conditions select the most frequent normalized hypothesis word, resolving ties by first occurrence. No reference word is used for selection.
+
+| Decoder | Original accuracy | Five-copy accuracy | Eight-copy accuracy |
+|---|---:|---:|---:|
+| official_default | 19.61% | 16.67% | 17.65% |
+| official_turbo | 31.37% | 27.45% | 23.53% |
+| official_no_speech_skip | 19.61% | 16.67% | 17.65% |
+
+[Complete paired effects and time costs](short_word_replication_20261013.json) · [Diagnostic specification](SHORT_WORD_REPLICATION_DIAGNOSTIC_20261013.md). These 102 examples have one source speaker each; this is exploratory, not proof of novelty or independent confirmation.
 
 ## Limits and reproducibility
 

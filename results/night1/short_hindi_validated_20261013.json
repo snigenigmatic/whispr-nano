@@ -1,0 +1,1341 @@
+{
+  "status": "independently_validated",
+  "runs": {
+    "official_default": {
+      "environment": {
+        "config": {
+          "mode": "official_default",
+          "run_id": "short-hindi-small-complete-v1",
+          "seed": 20261013,
+          "max_inference_seconds": 600,
+          "expected_manifest_sha256": "ab7da06da199001f450d4958a25cffda2a5b452579f4261b07a08bac82db000a",
+          "resume_job_id": "6ace1874c66288145222a61d",
+          "resume_predictions_sha256": "3ba2c12f4844e5bab50c980535d9daab82f2e1cd19f8d44ac9581a98c4f33827"
+        },
+        "decoder": {
+          "model": "openai-whisper/small",
+          "url": "https://openaipublic.azureedge.net/main/whisper/models/9ecf779972d90ba49c06d968637d720dd632c55bbf19d441fb42bf17a411e794/small.pt",
+          "checkpoint_sha256": "9ecf779972d90ba49c06d968637d720dd632c55bbf19d441fb42bf17a411e794",
+          "dtype": "float16",
+          "temperature": [
+            0,
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "beam_size": 5,
+          "best_of": 5,
+          "compression_ratio_threshold": 2.4,
+          "logprob_threshold": -1.0,
+          "no_speech_threshold": 0.6,
+          "condition_on_previous_text": true,
+          "implementation": "openai-whisper==20250625"
+        },
+        "dataset_revision": "d4ffd2ecbdd933e37c917ddcf620eef159ceb3a7",
+        "dataset_protocol": "short_hindi_v1",
+        "silence_revision": "8126be4a4b83afefeef9394ff1312b635a499d82",
+        "gpu": "NVIDIA A100-SXM4-80GB",
+        "packages": {
+          "torch": "2.6.0+cu124",
+          "transformers": "5.16.1",
+          "numpy": "2.4.6",
+          "pyarrow": "25.0.1",
+          "soundfile": "0.14.0",
+          "openai-whisper": "20250625",
+          "jiwer": "4.0.0",
+          "huggingface-hub": "1.29.0"
+        },
+        "code_sha256": "12c6929823d1fa12c8e52431121bab06bd0412e2021afaea74b195d581b2c78a",
+        "manifest_sha256": "ab7da06da199001f450d4958a25cffda2a5b452579f4261b07a08bac82db000a",
+        "repair_policy_sha256": "4a89775ecae07364dd69a661e1ac612a3ffd10c7991f76305b45ae48c8873867",
+        "resume": {
+          "job_id": "6ace1874c66288145222a61d",
+          "source_predictions_sha256": "3ba2c12f4844e5bab50c980535d9daab82f2e1cd19f8d44ac9581a98c4f33827",
+          "preserved": 635,
+          "source_environment": {
+            "config": {
+              "mode": "official_default",
+              "run_id": "short-hindi-official-v1",
+              "seed": 20261013,
+              "max_inference_seconds": 2100,
+              "expected_manifest_sha256": "ab7da06da199001f450d4958a25cffda2a5b452579f4261b07a08bac82db000a"
+            },
+            "decoder": {
+              "model": "openai-whisper/small",
+              "url": "https://openaipublic.azureedge.net/main/whisper/models/9ecf779972d90ba49c06d968637d720dd632c55bbf19d441fb42bf17a411e794/small.pt",
+              "checkpoint_sha256": "9ecf779972d90ba49c06d968637d720dd632c55bbf19d441fb42bf17a411e794",
+              "dtype": "float16",
+              "temperature": [
+                0,
+                0.2,
+                0.4,
+                0.6,
+                0.8,
+                1.0
+              ],
+              "beam_size": 5,
+              "best_of": 5,
+              "compression_ratio_threshold": 2.4,
+              "logprob_threshold": -1.0,
+              "no_speech_threshold": 0.6,
+              "condition_on_previous_text": true,
+              "implementation": "openai-whisper==20250625"
+            },
+            "dataset_revision": "d4ffd2ecbdd933e37c917ddcf620eef159ceb3a7",
+            "dataset_protocol": "short_hindi_v1",
+            "silence_revision": "8126be4a4b83afefeef9394ff1312b635a499d82",
+            "gpu": "NVIDIA A100-SXM4-80GB",
+            "packages": {
+              "torch": "2.6.0+cu124",
+              "transformers": "5.16.1",
+              "numpy": "2.4.6",
+              "pyarrow": "25.0.1",
+              "soundfile": "0.14.0",
+              "openai-whisper": "20250625",
+              "jiwer": "4.0.0",
+              "huggingface-hub": "1.29.0"
+            },
+            "code_sha256": "a6a4f12f9d7f4ef348218aa768f4ebe8702a9396fde28a43652b18175c90cd6c",
+            "manifest_sha256": "ab7da06da199001f450d4958a25cffda2a5b452579f4261b07a08bac82db000a",
+            "repair_policy_sha256": "4a89775ecae07364dd69a661e1ac612a3ffd10c7991f76305b45ae48c8873867"
+          },
+          "source_summary": {
+            "status": "partial",
+            "expected": 654,
+            "completed": 635,
+            "cohorts": {
+              "hindi_repeat_5": {
+                "clips": 102,
+                "speakers": 102,
+                "ref_words": 510,
+                "raw_errors": 542,
+                "repair_errors": 542,
+                "raw_wer": 1.0627450980392157,
+                "repair_wer": 1.0627450980392157,
+                "raw_exact": 1,
+                "repair_exact": 0,
+                "raw_empty": 5,
+                "repair_empty": 5,
+                "altered": 19,
+                "helped": 3,
+                "harmed": 1
+              },
+              "hindi_repeat_8": {
+                "clips": 102,
+                "speakers": 102,
+                "ref_words": 816,
+                "raw_errors": 882,
+                "repair_errors": 807,
+                "raw_wer": 1.0808823529411764,
+                "repair_wer": 0.9889705882352942,
+                "raw_exact": 0,
+                "repair_exact": 0,
+                "raw_empty": 4,
+                "repair_empty": 4,
+                "altered": 11,
+                "helped": 6,
+                "harmed": 0
+              },
+              "hindi_short_natural": {
+                "clips": 414,
+                "speakers": 102,
+                "ref_words": 414,
+                "raw_errors": 519,
+                "repair_errors": 519,
+                "raw_wer": 1.2536231884057971,
+                "repair_wer": 1.2536231884057971,
+                "raw_exact": 82,
+                "repair_exact": 82,
+                "raw_empty": 8,
+                "repair_empty": 8,
+                "altered": 0,
+                "helped": 0,
+                "harmed": 0
+              },
+              "silence_control": {
+                "clips": 17,
+                "speakers": 17,
+                "ref_words": 0,
+                "raw_errors": 0,
+                "repair_errors": 0,
+                "raw_wer": null,
+                "repair_wer": null,
+                "raw_exact": 17,
+                "repair_exact": 17,
+                "raw_empty": 17,
+                "repair_empty": 17,
+                "altered": 0,
+                "helped": 0,
+                "harmed": 0
+              }
+            },
+            "elapsed_s": 2130.1276144119984,
+            "predictions_sha256": "3ba2c12f4844e5bab50c980535d9daab82f2e1cd19f8d44ac9581a98c4f33827"
+          }
+        }
+      },
+      "predictions_sha256": "08f7f4ef28821ecc8442d558a91f838d697c410c9b4f8a07d6e2d6347f9e876b",
+      "cohorts": {
+        "hindi_short_natural": {
+          "raw": {
+            "clips": 414,
+            "reference_words": 414,
+            "word_errors": 519,
+            "wer_percent": 125.3623188405797,
+            "exact": 82,
+            "exact_percent": 19.806763285024154,
+            "empty": 8,
+            "emitted": 406,
+            "substitutions": 323,
+            "deletions": 8,
+            "insertions": 188
+          },
+          "text_loop_repair": {
+            "clips": 414,
+            "reference_words": 414,
+            "word_errors": 519,
+            "wer_percent": 125.3623188405797,
+            "exact": 82,
+            "exact_percent": 19.806763285024154,
+            "empty": 8,
+            "emitted": 406,
+            "substitutions": 323,
+            "deletions": 8,
+            "insertions": 188
+          },
+          "duration_cap": {
+            "clips": 414,
+            "reference_words": 414,
+            "word_errors": 450,
+            "wer_percent": 108.69565217391305,
+            "exact": 82,
+            "exact_percent": 19.806763285024154,
+            "empty": 8,
+            "emitted": 406,
+            "substitutions": 323,
+            "deletions": 8,
+            "insertions": 119
+          },
+          "text_loop_repair_effect": {
+            "clips": 414,
+            "speakers": 102,
+            "reference_words": 414,
+            "first_word_errors": 519,
+            "second_word_errors": 519,
+            "first_wer_percent": 125.3623188405797,
+            "second_wer_percent": 125.3623188405797,
+            "difference_points": 0.0,
+            "paired_speaker_bootstrap_95_ci_points": [
+              0.0,
+              0.0
+            ],
+            "helped": 0,
+            "harmed": 0,
+            "tied": 414
+          },
+          "duration_cap_effect": {
+            "clips": 414,
+            "speakers": 102,
+            "reference_words": 414,
+            "first_word_errors": 519,
+            "second_word_errors": 450,
+            "first_wer_percent": 125.3623188405797,
+            "second_wer_percent": 108.69565217391305,
+            "difference_points": -16.666666666666668,
+            "paired_speaker_bootstrap_95_ci_points": [
+              -32.000248138957815,
+              -4.580152671755725
+            ],
+            "helped": 9,
+            "harmed": 0,
+            "tied": 405
+          }
+        },
+        "hindi_repeat_5": {
+          "raw": {
+            "clips": 102,
+            "reference_words": 510,
+            "word_errors": 542,
+            "wer_percent": 106.27450980392157,
+            "exact": 1,
+            "exact_percent": 0.9803921568627451,
+            "empty": 5,
+            "emitted": 97,
+            "substitutions": 219,
+            "deletions": 262,
+            "insertions": 61
+          },
+          "text_loop_repair": {
+            "clips": 102,
+            "reference_words": 510,
+            "word_errors": 542,
+            "wer_percent": 106.27450980392157,
+            "exact": 0,
+            "exact_percent": 0.0,
+            "empty": 5,
+            "emitted": 97,
+            "substitutions": 147,
+            "deletions": 338,
+            "insertions": 57
+          },
+          "duration_cap": {
+            "clips": 102,
+            "reference_words": 510,
+            "word_errors": 542,
+            "wer_percent": 106.27450980392157,
+            "exact": 1,
+            "exact_percent": 0.9803921568627451,
+            "empty": 5,
+            "emitted": 97,
+            "substitutions": 219,
+            "deletions": 262,
+            "insertions": 61
+          },
+          "text_loop_repair_effect": {
+            "clips": 102,
+            "speakers": 102,
+            "reference_words": 510,
+            "first_word_errors": 542,
+            "second_word_errors": 542,
+            "first_wer_percent": 106.27450980392157,
+            "second_wer_percent": 106.27450980392157,
+            "difference_points": 0.0,
+            "paired_speaker_bootstrap_95_ci_points": [
+              -1.5686274509803921,
+              1.9607843137254901
+            ],
+            "helped": 3,
+            "harmed": 1,
+            "tied": 98
+          },
+          "duration_cap_effect": {
+            "clips": 102,
+            "speakers": 102,
+            "reference_words": 510,
+            "first_word_errors": 542,
+            "second_word_errors": 542,
+            "first_wer_percent": 106.27450980392157,
+            "second_wer_percent": 106.27450980392157,
+            "difference_points": 0.0,
+            "paired_speaker_bootstrap_95_ci_points": [
+              0.0,
+              0.0
+            ],
+            "helped": 0,
+            "harmed": 0,
+            "tied": 102
+          }
+        },
+        "hindi_repeat_8": {
+          "raw": {
+            "clips": 102,
+            "reference_words": 816,
+            "word_errors": 882,
+            "wer_percent": 108.08823529411765,
+            "exact": 0,
+            "exact_percent": 0.0,
+            "empty": 4,
+            "emitted": 98,
+            "substitutions": 219,
+            "deletions": 570,
+            "insertions": 93
+          },
+          "text_loop_repair": {
+            "clips": 102,
+            "reference_words": 816,
+            "word_errors": 807,
+            "wer_percent": 98.8970588235294,
+            "exact": 0,
+            "exact_percent": 0.0,
+            "empty": 4,
+            "emitted": 98,
+            "substitutions": 166,
+            "deletions": 623,
+            "insertions": 18
+          },
+          "duration_cap": {
+            "clips": 102,
+            "reference_words": 816,
+            "word_errors": 860,
+            "wer_percent": 105.3921568627451,
+            "exact": 0,
+            "exact_percent": 0.0,
+            "empty": 4,
+            "emitted": 98,
+            "substitutions": 219,
+            "deletions": 570,
+            "insertions": 71
+          },
+          "text_loop_repair_effect": {
+            "clips": 102,
+            "speakers": 102,
+            "reference_words": 816,
+            "first_word_errors": 882,
+            "second_word_errors": 807,
+            "first_wer_percent": 108.08823529411765,
+            "second_wer_percent": 98.8970588235294,
+            "difference_points": -9.191176470588236,
+            "paired_speaker_bootstrap_95_ci_points": [
+              -24.877450980392158,
+              -0.6127450980392157
+            ],
+            "helped": 6,
+            "harmed": 0,
+            "tied": 96
+          },
+          "duration_cap_effect": {
+            "clips": 102,
+            "speakers": 102,
+            "reference_words": 816,
+            "first_word_errors": 882,
+            "second_word_errors": 860,
+            "first_wer_percent": 108.08823529411765,
+            "second_wer_percent": 105.3921568627451,
+            "difference_points": -2.696078431372549,
+            "paired_speaker_bootstrap_95_ci_points": [
+              -8.088235294117647,
+              0.0
+            ],
+            "helped": 1,
+            "harmed": 0,
+            "tied": 101
+          }
+        },
+        "silence_control": {
+          "raw": {
+            "clips": 36,
+            "reference_words": 0,
+            "word_errors": 0,
+            "wer_percent": null,
+            "exact": 36,
+            "exact_percent": 100.0,
+            "empty": 36,
+            "emitted": 0,
+            "substitutions": 0,
+            "deletions": 0,
+            "insertions": 0
+          },
+          "text_loop_repair": {
+            "clips": 36,
+            "reference_words": 0,
+            "word_errors": 0,
+            "wer_percent": null,
+            "exact": 36,
+            "exact_percent": 100.0,
+            "empty": 36,
+            "emitted": 0,
+            "substitutions": 0,
+            "deletions": 0,
+            "insertions": 0
+          },
+          "duration_cap": {
+            "clips": 36,
+            "reference_words": 0,
+            "word_errors": 0,
+            "wer_percent": null,
+            "exact": 36,
+            "exact_percent": 100.0,
+            "empty": 36,
+            "emitted": 0,
+            "substitutions": 0,
+            "deletions": 0,
+            "insertions": 0
+          }
+        }
+      },
+      "resume_lineage": {
+        "status": "verified_against_original_export",
+        "preserved": 635,
+        "newly_decoded": 19,
+        "source_predictions_sha256": "3ba2c12f4844e5bab50c980535d9daab82f2e1cd19f8d44ac9581a98c4f33827",
+        "original_artifacts": "/Users/prateekraj/.local/share/openresearch/recovered-cloud/e0553e70-2973-486e-9553-befe8b2ded6c"
+      },
+      "run_id": "cbb9fc07-bf12-42b1-87aa-e6ca0340cff0",
+      "log_sha256": "62ac7033d9459ec24b6f518b66447cf58f27d9aeb9b55519b4f077d0e5f68e85",
+      "private_artifacts": "/Users/prateekraj/.local/share/openresearch/recovered-cloud/cbb9fc07-bf12-42b1-87aa-e6ca0340cff0"
+    },
+    "official_turbo": {
+      "environment": {
+        "config": {
+          "mode": "official_turbo",
+          "run_id": "short-hindi-turbo-official-v1",
+          "seed": 20261013,
+          "max_inference_seconds": 2100,
+          "expected_manifest_sha256": "ab7da06da199001f450d4958a25cffda2a5b452579f4261b07a08bac82db000a"
+        },
+        "decoder": {
+          "model": "openai-whisper/turbo",
+          "url": "https://openaipublic.azureedge.net/main/whisper/models/aff26ae408abcba5fbf8813c21e62b0941638c5f6eebfb145be0c9839262a19a/large-v3-turbo.pt",
+          "checkpoint_sha256": "aff26ae408abcba5fbf8813c21e62b0941638c5f6eebfb145be0c9839262a19a",
+          "dtype": "float16",
+          "temperature": [
+            0,
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "beam_size": 5,
+          "best_of": 5,
+          "compression_ratio_threshold": 2.4,
+          "logprob_threshold": -1.0,
+          "no_speech_threshold": 0.6,
+          "condition_on_previous_text": true,
+          "implementation": "openai-whisper==20250625"
+        },
+        "dataset_revision": "d4ffd2ecbdd933e37c917ddcf620eef159ceb3a7",
+        "dataset_protocol": "short_hindi_v1",
+        "silence_revision": "8126be4a4b83afefeef9394ff1312b635a499d82",
+        "gpu": "NVIDIA A100-SXM4-80GB",
+        "packages": {
+          "torch": "2.6.0+cu124",
+          "transformers": "5.16.1",
+          "numpy": "2.4.6",
+          "pyarrow": "25.0.1",
+          "soundfile": "0.14.0",
+          "openai-whisper": "20250625",
+          "jiwer": "4.0.0",
+          "huggingface-hub": "1.29.0"
+        },
+        "code_sha256": "98e2fdc82175071cd2d16fee7ca994cb6e974ec2b4ee5664048d1bfc380337e4",
+        "manifest_sha256": "ab7da06da199001f450d4958a25cffda2a5b452579f4261b07a08bac82db000a",
+        "repair_policy_sha256": "4a89775ecae07364dd69a661e1ac612a3ffd10c7991f76305b45ae48c8873867"
+      },
+      "predictions_sha256": "a3fdb745ebee25e1f4bf622f3d67de376d21f2af97a20c53bcf5337ccfcee3b4",
+      "cohorts": {
+        "hindi_short_natural": {
+          "raw": {
+            "clips": 414,
+            "reference_words": 414,
+            "word_errors": 501,
+            "wer_percent": 121.01449275362319,
+            "exact": 119,
+            "exact_percent": 28.743961352657006,
+            "empty": 0,
+            "emitted": 414,
+            "substitutions": 290,
+            "deletions": 0,
+            "insertions": 211
+          },
+          "text_loop_repair": {
+            "clips": 414,
+            "reference_words": 414,
+            "word_errors": 501,
+            "wer_percent": 121.01449275362319,
+            "exact": 119,
+            "exact_percent": 28.743961352657006,
+            "empty": 0,
+            "emitted": 414,
+            "substitutions": 290,
+            "deletions": 0,
+            "insertions": 211
+          },
+          "duration_cap": {
+            "clips": 414,
+            "reference_words": 414,
+            "word_errors": 390,
+            "wer_percent": 94.20289855072464,
+            "exact": 119,
+            "exact_percent": 28.743961352657006,
+            "empty": 0,
+            "emitted": 414,
+            "substitutions": 290,
+            "deletions": 0,
+            "insertions": 100
+          },
+          "text_loop_repair_effect": {
+            "clips": 414,
+            "speakers": 102,
+            "reference_words": 414,
+            "first_word_errors": 501,
+            "second_word_errors": 501,
+            "first_wer_percent": 121.01449275362319,
+            "second_wer_percent": 121.01449275362319,
+            "difference_points": 0.0,
+            "paired_speaker_bootstrap_95_ci_points": [
+              0.0,
+              0.0
+            ],
+            "helped": 0,
+            "harmed": 0,
+            "tied": 414
+          },
+          "duration_cap_effect": {
+            "clips": 414,
+            "speakers": 102,
+            "reference_words": 414,
+            "first_word_errors": 501,
+            "second_word_errors": 390,
+            "first_wer_percent": 121.01449275362319,
+            "second_wer_percent": 94.20289855072464,
+            "difference_points": -26.81159420289855,
+            "paired_speaker_bootstrap_95_ci_points": [
+              -68.55824017962772,
+              0.0
+            ],
+            "helped": 3,
+            "harmed": 0,
+            "tied": 411
+          }
+        },
+        "hindi_repeat_5": {
+          "raw": {
+            "clips": 102,
+            "reference_words": 510,
+            "word_errors": 480,
+            "wer_percent": 94.11764705882354,
+            "exact": 13,
+            "exact_percent": 12.745098039215685,
+            "empty": 0,
+            "emitted": 102,
+            "substitutions": 273,
+            "deletions": 138,
+            "insertions": 69
+          },
+          "text_loop_repair": {
+            "clips": 102,
+            "reference_words": 510,
+            "word_errors": 500,
+            "wer_percent": 98.03921568627452,
+            "exact": 0,
+            "exact_percent": 0.0,
+            "empty": 0,
+            "emitted": 102,
+            "substitutions": 148,
+            "deletions": 323,
+            "insertions": 29
+          },
+          "duration_cap": {
+            "clips": 102,
+            "reference_words": 510,
+            "word_errors": 480,
+            "wer_percent": 94.11764705882354,
+            "exact": 13,
+            "exact_percent": 12.745098039215685,
+            "empty": 0,
+            "emitted": 102,
+            "substitutions": 273,
+            "deletions": 138,
+            "insertions": 69
+          },
+          "text_loop_repair_effect": {
+            "clips": 102,
+            "speakers": 102,
+            "reference_words": 510,
+            "first_word_errors": 480,
+            "second_word_errors": 500,
+            "first_wer_percent": 94.11764705882354,
+            "second_wer_percent": 98.03921568627452,
+            "difference_points": 3.9215686274509802,
+            "paired_speaker_bootstrap_95_ci_points": [
+              -4.117647058823529,
+              11.568627450980392
+            ],
+            "helped": 18,
+            "harmed": 15,
+            "tied": 69
+          },
+          "duration_cap_effect": {
+            "clips": 102,
+            "speakers": 102,
+            "reference_words": 510,
+            "first_word_errors": 480,
+            "second_word_errors": 480,
+            "first_wer_percent": 94.11764705882354,
+            "second_wer_percent": 94.11764705882354,
+            "difference_points": 0.0,
+            "paired_speaker_bootstrap_95_ci_points": [
+              0.0,
+              0.0
+            ],
+            "helped": 0,
+            "harmed": 0,
+            "tied": 102
+          }
+        },
+        "hindi_repeat_8": {
+          "raw": {
+            "clips": 102,
+            "reference_words": 816,
+            "word_errors": 810,
+            "wer_percent": 99.26470588235294,
+            "exact": 2,
+            "exact_percent": 1.9607843137254901,
+            "empty": 0,
+            "emitted": 102,
+            "substitutions": 325,
+            "deletions": 405,
+            "insertions": 80
+          },
+          "text_loop_repair": {
+            "clips": 102,
+            "reference_words": 816,
+            "word_errors": 804,
+            "wer_percent": 98.52941176470588,
+            "exact": 0,
+            "exact_percent": 0.0,
+            "empty": 0,
+            "emitted": 102,
+            "substitutions": 182,
+            "deletions": 599,
+            "insertions": 23
+          },
+          "duration_cap": {
+            "clips": 102,
+            "reference_words": 816,
+            "word_errors": 810,
+            "wer_percent": 99.26470588235294,
+            "exact": 2,
+            "exact_percent": 1.9607843137254901,
+            "empty": 0,
+            "emitted": 102,
+            "substitutions": 325,
+            "deletions": 405,
+            "insertions": 80
+          },
+          "text_loop_repair_effect": {
+            "clips": 102,
+            "speakers": 102,
+            "reference_words": 816,
+            "first_word_errors": 810,
+            "second_word_errors": 804,
+            "first_wer_percent": 99.26470588235294,
+            "second_wer_percent": 98.52941176470588,
+            "difference_points": -0.7352941176470589,
+            "paired_speaker_bootstrap_95_ci_points": [
+              -7.352941176470588,
+              5.392156862745098
+            ],
+            "helped": 14,
+            "harmed": 9,
+            "tied": 79
+          },
+          "duration_cap_effect": {
+            "clips": 102,
+            "speakers": 102,
+            "reference_words": 816,
+            "first_word_errors": 810,
+            "second_word_errors": 810,
+            "first_wer_percent": 99.26470588235294,
+            "second_wer_percent": 99.26470588235294,
+            "difference_points": 0.0,
+            "paired_speaker_bootstrap_95_ci_points": [
+              0.0,
+              0.0
+            ],
+            "helped": 0,
+            "harmed": 0,
+            "tied": 102
+          }
+        },
+        "silence_control": {
+          "raw": {
+            "clips": 36,
+            "reference_words": 0,
+            "word_errors": 67,
+            "wer_percent": null,
+            "exact": 0,
+            "exact_percent": 0.0,
+            "empty": 0,
+            "emitted": 36,
+            "substitutions": 0,
+            "deletions": 0,
+            "insertions": 67
+          },
+          "text_loop_repair": {
+            "clips": 36,
+            "reference_words": 0,
+            "word_errors": 67,
+            "wer_percent": null,
+            "exact": 0,
+            "exact_percent": 0.0,
+            "empty": 0,
+            "emitted": 36,
+            "substitutions": 0,
+            "deletions": 0,
+            "insertions": 67
+          },
+          "duration_cap": {
+            "clips": 36,
+            "reference_words": 0,
+            "word_errors": 67,
+            "wer_percent": null,
+            "exact": 0,
+            "exact_percent": 0.0,
+            "empty": 0,
+            "emitted": 36,
+            "substitutions": 0,
+            "deletions": 0,
+            "insertions": 67
+          }
+        }
+      },
+      "resume_lineage": null,
+      "run_id": "99925ecb-28d1-45ec-9a22-b3a2f4e9259b",
+      "log_sha256": "e09ecb813a167a7b68bc83d9d4270ce5ab2a423befd8cd7b4479ded925fd6368",
+      "private_artifacts": "/Users/prateekraj/.local/share/openresearch/recovered-cloud/99925ecb-28d1-45ec-9a22-b3a2f4e9259b"
+    },
+    "official_no_speech_skip": {
+      "environment": {
+        "config": {
+          "mode": "official_no_speech_skip",
+          "run_id": "short-hindi-no-skip-complete-v1",
+          "seed": 20261013,
+          "max_inference_seconds": 900,
+          "expected_manifest_sha256": "ab7da06da199001f450d4958a25cffda2a5b452579f4261b07a08bac82db000a",
+          "resume_job_id": "6ace1a035ccb47ba0f787b9d",
+          "resume_predictions_sha256": "700dc67e6ce9f3cfcbefc7e7bb7c6986e29430aa2dda90f1628d2d72f8b9cfd0"
+        },
+        "decoder": {
+          "model": "openai-whisper/small",
+          "url": "https://openaipublic.azureedge.net/main/whisper/models/9ecf779972d90ba49c06d968637d720dd632c55bbf19d441fb42bf17a411e794/small.pt",
+          "checkpoint_sha256": "9ecf779972d90ba49c06d968637d720dd632c55bbf19d441fb42bf17a411e794",
+          "dtype": "float16",
+          "temperature": [
+            0,
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "beam_size": 5,
+          "best_of": 5,
+          "compression_ratio_threshold": 2.4,
+          "logprob_threshold": -1.0,
+          "no_speech_threshold": null,
+          "condition_on_previous_text": true,
+          "implementation": "openai-whisper==20250625"
+        },
+        "dataset_revision": "d4ffd2ecbdd933e37c917ddcf620eef159ceb3a7",
+        "dataset_protocol": "short_hindi_v1",
+        "silence_revision": "8126be4a4b83afefeef9394ff1312b635a499d82",
+        "gpu": "NVIDIA A100-SXM4-80GB",
+        "packages": {
+          "torch": "2.6.0+cu124",
+          "transformers": "5.16.1",
+          "numpy": "2.4.6",
+          "pyarrow": "25.0.1",
+          "soundfile": "0.14.0",
+          "openai-whisper": "20250625",
+          "jiwer": "4.0.0",
+          "huggingface-hub": "1.29.0"
+        },
+        "code_sha256": "12c6929823d1fa12c8e52431121bab06bd0412e2021afaea74b195d581b2c78a",
+        "manifest_sha256": "ab7da06da199001f450d4958a25cffda2a5b452579f4261b07a08bac82db000a",
+        "repair_policy_sha256": "4a89775ecae07364dd69a661e1ac612a3ffd10c7991f76305b45ae48c8873867",
+        "resume": {
+          "job_id": "6ace1a035ccb47ba0f787b9d",
+          "source_predictions_sha256": "700dc67e6ce9f3cfcbefc7e7bb7c6986e29430aa2dda90f1628d2d72f8b9cfd0",
+          "preserved": 628,
+          "source_environment": {
+            "config": {
+              "mode": "official_no_speech_skip",
+              "run_id": "short-hindi-no-speech-skip-v1",
+              "seed": 20261013,
+              "max_inference_seconds": 2100,
+              "expected_manifest_sha256": "ab7da06da199001f450d4958a25cffda2a5b452579f4261b07a08bac82db000a"
+            },
+            "decoder": {
+              "model": "openai-whisper/small",
+              "url": "https://openaipublic.azureedge.net/main/whisper/models/9ecf779972d90ba49c06d968637d720dd632c55bbf19d441fb42bf17a411e794/small.pt",
+              "checkpoint_sha256": "9ecf779972d90ba49c06d968637d720dd632c55bbf19d441fb42bf17a411e794",
+              "dtype": "float16",
+              "temperature": [
+                0,
+                0.2,
+                0.4,
+                0.6,
+                0.8,
+                1.0
+              ],
+              "beam_size": 5,
+              "best_of": 5,
+              "compression_ratio_threshold": 2.4,
+              "logprob_threshold": -1.0,
+              "no_speech_threshold": null,
+              "condition_on_previous_text": true,
+              "implementation": "openai-whisper==20250625"
+            },
+            "dataset_revision": "d4ffd2ecbdd933e37c917ddcf620eef159ceb3a7",
+            "dataset_protocol": "short_hindi_v1",
+            "silence_revision": "8126be4a4b83afefeef9394ff1312b635a499d82",
+            "gpu": "NVIDIA A100-SXM4-80GB",
+            "packages": {
+              "torch": "2.6.0+cu124",
+              "transformers": "5.16.1",
+              "numpy": "2.4.6",
+              "pyarrow": "25.0.1",
+              "soundfile": "0.14.0",
+              "openai-whisper": "20250625",
+              "jiwer": "4.0.0",
+              "huggingface-hub": "1.29.0"
+            },
+            "code_sha256": "a6a4f12f9d7f4ef348218aa768f4ebe8702a9396fde28a43652b18175c90cd6c",
+            "manifest_sha256": "ab7da06da199001f450d4958a25cffda2a5b452579f4261b07a08bac82db000a",
+            "repair_policy_sha256": "4a89775ecae07364dd69a661e1ac612a3ffd10c7991f76305b45ae48c8873867"
+          },
+          "source_summary": {
+            "status": "partial",
+            "expected": 654,
+            "completed": 628,
+            "cohorts": {
+              "hindi_repeat_5": {
+                "clips": 102,
+                "speakers": 102,
+                "ref_words": 510,
+                "raw_errors": 545,
+                "repair_errors": 545,
+                "raw_wer": 1.0686274509803921,
+                "repair_wer": 1.0686274509803921,
+                "raw_exact": 1,
+                "repair_exact": 0,
+                "raw_empty": 0,
+                "repair_empty": 0,
+                "altered": 19,
+                "helped": 3,
+                "harmed": 1
+              },
+              "hindi_repeat_8": {
+                "clips": 102,
+                "speakers": 102,
+                "ref_words": 816,
+                "raw_errors": 887,
+                "repair_errors": 812,
+                "raw_wer": 1.0870098039215685,
+                "repair_wer": 0.9950980392156863,
+                "raw_exact": 0,
+                "repair_exact": 0,
+                "raw_empty": 0,
+                "repair_empty": 0,
+                "altered": 11,
+                "helped": 6,
+                "harmed": 0
+              },
+              "hindi_short_natural": {
+                "clips": 414,
+                "speakers": 102,
+                "ref_words": 414,
+                "raw_errors": 618,
+                "repair_errors": 618,
+                "raw_wer": 1.4927536231884058,
+                "repair_wer": 1.4927536231884058,
+                "raw_exact": 82,
+                "repair_exact": 82,
+                "raw_empty": 2,
+                "repair_empty": 2,
+                "altered": 0,
+                "helped": 0,
+                "harmed": 0
+              },
+              "silence_control": {
+                "clips": 10,
+                "speakers": 10,
+                "ref_words": 0,
+                "raw_errors": 126,
+                "repair_errors": 126,
+                "raw_wer": null,
+                "repair_wer": null,
+                "raw_exact": 1,
+                "repair_exact": 1,
+                "raw_empty": 1,
+                "repair_empty": 1,
+                "altered": 0,
+                "helped": 0,
+                "harmed": 0
+              }
+            },
+            "elapsed_s": 2142.934966959998,
+            "predictions_sha256": "700dc67e6ce9f3cfcbefc7e7bb7c6986e29430aa2dda90f1628d2d72f8b9cfd0"
+          }
+        }
+      },
+      "predictions_sha256": "b43d8affb807f81f2108ce10e740df59c7de727a1204be8438fd95d165b4e2e7",
+      "cohorts": {
+        "hindi_short_natural": {
+          "raw": {
+            "clips": 414,
+            "reference_words": 414,
+            "word_errors": 618,
+            "wer_percent": 149.2753623188406,
+            "exact": 82,
+            "exact_percent": 19.806763285024154,
+            "empty": 2,
+            "emitted": 412,
+            "substitutions": 329,
+            "deletions": 2,
+            "insertions": 287
+          },
+          "text_loop_repair": {
+            "clips": 414,
+            "reference_words": 414,
+            "word_errors": 618,
+            "wer_percent": 149.2753623188406,
+            "exact": 82,
+            "exact_percent": 19.806763285024154,
+            "empty": 2,
+            "emitted": 412,
+            "substitutions": 329,
+            "deletions": 2,
+            "insertions": 287
+          },
+          "duration_cap": {
+            "clips": 414,
+            "reference_words": 414,
+            "word_errors": 463,
+            "wer_percent": 111.83574879227054,
+            "exact": 82,
+            "exact_percent": 19.806763285024154,
+            "empty": 2,
+            "emitted": 412,
+            "substitutions": 329,
+            "deletions": 2,
+            "insertions": 132
+          },
+          "text_loop_repair_effect": {
+            "clips": 414,
+            "speakers": 102,
+            "reference_words": 414,
+            "first_word_errors": 618,
+            "second_word_errors": 618,
+            "first_wer_percent": 149.2753623188406,
+            "second_wer_percent": 149.2753623188406,
+            "difference_points": 0.0,
+            "paired_speaker_bootstrap_95_ci_points": [
+              0.0,
+              0.0
+            ],
+            "helped": 0,
+            "harmed": 0,
+            "tied": 414
+          },
+          "duration_cap_effect": {
+            "clips": 414,
+            "speakers": 102,
+            "reference_words": 414,
+            "first_word_errors": 618,
+            "second_word_errors": 463,
+            "first_wer_percent": 149.2753623188406,
+            "second_wer_percent": 111.83574879227054,
+            "difference_points": -37.43961352657005,
+            "paired_speaker_bootstrap_95_ci_points": [
+              -73.58771478065452,
+              -10.254975124378104
+            ],
+            "helped": 11,
+            "harmed": 0,
+            "tied": 403
+          }
+        },
+        "hindi_repeat_5": {
+          "raw": {
+            "clips": 102,
+            "reference_words": 510,
+            "word_errors": 545,
+            "wer_percent": 106.86274509803921,
+            "exact": 1,
+            "exact_percent": 0.9803921568627451,
+            "empty": 0,
+            "emitted": 102,
+            "substitutions": 237,
+            "deletions": 244,
+            "insertions": 64
+          },
+          "text_loop_repair": {
+            "clips": 102,
+            "reference_words": 510,
+            "word_errors": 545,
+            "wer_percent": 106.86274509803921,
+            "exact": 0,
+            "exact_percent": 0.0,
+            "empty": 0,
+            "emitted": 102,
+            "substitutions": 165,
+            "deletions": 320,
+            "insertions": 60
+          },
+          "duration_cap": {
+            "clips": 102,
+            "reference_words": 510,
+            "word_errors": 545,
+            "wer_percent": 106.86274509803921,
+            "exact": 1,
+            "exact_percent": 0.9803921568627451,
+            "empty": 0,
+            "emitted": 102,
+            "substitutions": 237,
+            "deletions": 244,
+            "insertions": 64
+          },
+          "text_loop_repair_effect": {
+            "clips": 102,
+            "speakers": 102,
+            "reference_words": 510,
+            "first_word_errors": 545,
+            "second_word_errors": 545,
+            "first_wer_percent": 106.86274509803921,
+            "second_wer_percent": 106.86274509803921,
+            "difference_points": 0.0,
+            "paired_speaker_bootstrap_95_ci_points": [
+              -1.5686274509803921,
+              1.9607843137254901
+            ],
+            "helped": 3,
+            "harmed": 1,
+            "tied": 98
+          },
+          "duration_cap_effect": {
+            "clips": 102,
+            "speakers": 102,
+            "reference_words": 510,
+            "first_word_errors": 545,
+            "second_word_errors": 545,
+            "first_wer_percent": 106.86274509803921,
+            "second_wer_percent": 106.86274509803921,
+            "difference_points": 0.0,
+            "paired_speaker_bootstrap_95_ci_points": [
+              0.0,
+              0.0
+            ],
+            "helped": 0,
+            "harmed": 0,
+            "tied": 102
+          }
+        },
+        "hindi_repeat_8": {
+          "raw": {
+            "clips": 102,
+            "reference_words": 816,
+            "word_errors": 887,
+            "wer_percent": 108.70098039215686,
+            "exact": 0,
+            "exact_percent": 0.0,
+            "empty": 0,
+            "emitted": 102,
+            "substitutions": 230,
+            "deletions": 559,
+            "insertions": 98
+          },
+          "text_loop_repair": {
+            "clips": 102,
+            "reference_words": 816,
+            "word_errors": 812,
+            "wer_percent": 99.50980392156863,
+            "exact": 0,
+            "exact_percent": 0.0,
+            "empty": 0,
+            "emitted": 102,
+            "substitutions": 177,
+            "deletions": 612,
+            "insertions": 23
+          },
+          "duration_cap": {
+            "clips": 102,
+            "reference_words": 816,
+            "word_errors": 865,
+            "wer_percent": 106.00490196078431,
+            "exact": 0,
+            "exact_percent": 0.0,
+            "empty": 0,
+            "emitted": 102,
+            "substitutions": 230,
+            "deletions": 559,
+            "insertions": 76
+          },
+          "text_loop_repair_effect": {
+            "clips": 102,
+            "speakers": 102,
+            "reference_words": 816,
+            "first_word_errors": 887,
+            "second_word_errors": 812,
+            "first_wer_percent": 108.70098039215686,
+            "second_wer_percent": 99.50980392156863,
+            "difference_points": -9.191176470588236,
+            "paired_speaker_bootstrap_95_ci_points": [
+              -24.877450980392158,
+              -0.6127450980392157
+            ],
+            "helped": 6,
+            "harmed": 0,
+            "tied": 96
+          },
+          "duration_cap_effect": {
+            "clips": 102,
+            "speakers": 102,
+            "reference_words": 816,
+            "first_word_errors": 887,
+            "second_word_errors": 865,
+            "first_wer_percent": 108.70098039215686,
+            "second_wer_percent": 106.00490196078431,
+            "difference_points": -2.696078431372549,
+            "paired_speaker_bootstrap_95_ci_points": [
+              -8.088235294117647,
+              0.0
+            ],
+            "helped": 1,
+            "harmed": 0,
+            "tied": 101
+          }
+        },
+        "silence_control": {
+          "raw": {
+            "clips": 36,
+            "reference_words": 0,
+            "word_errors": 546,
+            "wer_percent": null,
+            "exact": 2,
+            "exact_percent": 5.555555555555555,
+            "empty": 2,
+            "emitted": 34,
+            "substitutions": 0,
+            "deletions": 0,
+            "insertions": 546
+          },
+          "text_loop_repair": {
+            "clips": 36,
+            "reference_words": 0,
+            "word_errors": 541,
+            "wer_percent": null,
+            "exact": 2,
+            "exact_percent": 5.555555555555555,
+            "empty": 2,
+            "emitted": 34,
+            "substitutions": 0,
+            "deletions": 0,
+            "insertions": 541
+          },
+          "duration_cap": {
+            "clips": 36,
+            "reference_words": 0,
+            "word_errors": 502,
+            "wer_percent": null,
+            "exact": 2,
+            "exact_percent": 5.555555555555555,
+            "empty": 2,
+            "emitted": 34,
+            "substitutions": 0,
+            "deletions": 0,
+            "insertions": 502
+          }
+        }
+      },
+      "resume_lineage": {
+        "status": "verified_against_original_export",
+        "preserved": 628,
+        "newly_decoded": 26,
+        "source_predictions_sha256": "700dc67e6ce9f3cfcbefc7e7bb7c6986e29430aa2dda90f1628d2d72f8b9cfd0",
+        "original_artifacts": "/Users/prateekraj/.local/share/openresearch/recovered-cloud/8182a293-4ea8-41ae-9b1a-bca3532caef0"
+      },
+      "run_id": "8d5cd6cc-6a28-4152-b3e5-1d688f6c1eda",
+      "log_sha256": "48cb23fba458f34d8712196e4364731e74dce19afb8264fa5a6a9b5108ee6d48",
+      "private_artifacts": "/Users/prateekraj/.local/share/openresearch/recovered-cloud/8d5cd6cc-6a28-4152-b3e5-1d688f6c1eda"
+    }
+  },
+  "no_speech_skip_ablation": {
+    "hindi_short_natural": {
+      "clips": 414,
+      "speakers": 102,
+      "reference_words": 414,
+      "first_word_errors": 519,
+      "second_word_errors": 618,
+      "first_wer_percent": 125.3623188405797,
+      "second_wer_percent": 149.2753623188406,
+      "difference_points": 23.91304347826087,
+      "paired_speaker_bootstrap_95_ci_points": [
+        0.7443249701314218,
+        59.95025510204082
+      ],
+      "helped": 0,
+      "harmed": 5,
+      "tied": 409,
+      "changed_outputs": 7,
+      "recovered_from_empty": 6
+    },
+    "hindi_repeat_5": {
+      "clips": 102,
+      "speakers": 102,
+      "reference_words": 510,
+      "first_word_errors": 542,
+      "second_word_errors": 545,
+      "first_wer_percent": 106.27450980392157,
+      "second_wer_percent": 106.86274509803921,
+      "difference_points": 0.5882352941176471,
+      "paired_speaker_bootstrap_95_ci_points": [
+        0.0,
+        1.7647058823529411
+      ],
+      "helped": 0,
+      "harmed": 1,
+      "tied": 101,
+      "changed_outputs": 5,
+      "recovered_from_empty": 5
+    },
+    "hindi_repeat_8": {
+      "clips": 102,
+      "speakers": 102,
+      "reference_words": 816,
+      "first_word_errors": 882,
+      "second_word_errors": 887,
+      "first_wer_percent": 108.08823529411765,
+      "second_wer_percent": 108.70098039215686,
+      "difference_points": 0.6127450980392157,
+      "paired_speaker_bootstrap_95_ci_points": [
+        0.0,
+        1.838235294117647
+      ],
+      "helped": 0,
+      "harmed": 1,
+      "tied": 101,
+      "changed_outputs": 4,
+      "recovered_from_empty": 4
+    },
+    "silence_control": {
+      "default": {
+        "clips": 36,
+        "reference_words": 0,
+        "word_errors": 0,
+        "wer_percent": null,
+        "exact": 36,
+        "exact_percent": 100.0,
+        "empty": 36,
+        "emitted": 0,
+        "substitutions": 0,
+        "deletions": 0,
+        "insertions": 0
+      },
+      "skip_disabled": {
+        "clips": 36,
+        "reference_words": 0,
+        "word_errors": 546,
+        "wer_percent": null,
+        "exact": 2,
+        "exact_percent": 5.555555555555555,
+        "empty": 2,
+        "emitted": 34,
+        "substitutions": 0,
+        "deletions": 0,
+        "insertions": 546
+      },
+      "interpretation": "36 constructed/calibration inputs; descriptive counts only, not a population false-positive rate.",
+      "changed_outputs": 36,
+      "recovered_from_empty": 34
+    }
+  },
+  "recording_overlap_with_long_study": 0,
+  "bootstrap": {
+    "seed": 20261013,
+    "resamples": 4000,
+    "cluster": "speaker"
+  },
+  "limits": [
+    "One-word clips selected using released transcript and duration metadata; no speaker-independent confirmation beyond the earlier development exclusion.",
+    "Constructed repetitions reuse one source recording per speaker; not natural conversational repetition.",
+    "Silence controls are artificial/calibration floors explicitly cropped at 25 seconds and byte-deduplicated; empty-reference WER is undefined.",
+    "This ablation was motivated after inspecting prior long-clip and Commands outcomes. Intervals are exploratory, without multiplicity adjustment.",
+    "Disabling speech skipping is an existing decoder option, not a new ASR method."
+  ],
+  "validation_script_sha256": "299f86192d3d2486e63a214ea20555cd7fafa053da3944e271749b87af2e0129"
+}

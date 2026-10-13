@@ -36,4 +36,15 @@ The original study also adds an official Turbo decoder control (`32e3fc8`, run `
 
 ## Interpretation rule
 
+### Completion receipts
+
+The two Small jobs stopped at the committed inference guard after 635 and 628 inputs respectively; neither partial export was accepted as a complete run. Two child jobs verified the original prediction hashes and decoded only the missing silence tails:
+
+| Completion | Commit | ORX run | HF job |
+|---|---|---|---|
+| Standard Small, 19 new inputs | `74f5dd4` | `cbb9fc07-bf12-42b1-87aa-e6ca0340cff0` | [A100 job](https://huggingface.co/jobs/snigenigmatic/6ace2167c66288145222b738) |
+| Skip disabled, 26 new inputs | `d2de824` | `8d5cd6cc-6a28-4152-b3e5-1d688f6c1eda` | [A100 job](https://huggingface.co/jobs/snigenigmatic/6ace23fe5ccb47ba0f788db7) |
+
+The independent validator compared every preserved prediction object with the separately recovered original export, along with model, package, GPU, seed and manifest identity. All three final conditions have 654 validated inputs. The resume reservations are $0.88 and $1.09. [Validated results](short_hindi_validated_20261013.json).
+
 If the no-speech ablation improves speech but increases silence emissions, report the tradeoff; do not call it safe. If it changes nothing or degrades results, retain that negative result and stop that intervention. No successful publication, fairness improvement or Indian-English transfer is inferred from this Hindi experiment.

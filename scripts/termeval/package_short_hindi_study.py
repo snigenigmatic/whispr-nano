@@ -14,6 +14,30 @@ MANIFEST='ab7da06da199001f450d4958a25cffda2a5b452579f4261b07a08bac82db000a'
 EXPECTED={'hindi_short_natural':414,'hindi_repeat_5':102,'hindi_repeat_8':102,'silence_control':36}
 
 
+def validate_resume(folder, rows, env):
+    """Compare a resumed prefix with the separately exported original evidence."""
+    resume=env.get('resume')
+    if not resume:return None
+    matches=[p for p in folder.parent.glob('*/predictions.jsonl')
+             if p.parent!=folder and sha(p)==resume['source_predictions_sha256']]
+    assert matches, 'Original resume evidence is missing or its hash differs'
+    source=matches[0].parent
+    old=[json.loads(line) for line in (source/'predictions.jsonl').read_text().splitlines()]
+    old_env=json.loads((source/'environment.json').read_text())
+    old_summary=json.loads((source/'summary.json').read_text())
+    assert old_env==resume['source_environment'] and old_summary==resume['source_summary']
+    assert old_summary['predictions_sha256']==resume['source_predictions_sha256']
+    n=resume['preserved']
+    assert n==len(old)==old_summary['completed'] and 0<n<len(rows)
+    assert rows[:n]==old, 'Resumed predictions changed the original prefix'
+    for key in ('decoder','packages','manifest_sha256','gpu'):
+        assert old_env[key]==env[key]
+    assert old_env['config']['seed']==env['config']['seed']
+    return dict(status='verified_against_original_export',preserved=n,newly_decoded=len(rows)-n,
+                source_predictions_sha256=resume['source_predictions_sha256'],
+                original_artifacts=str(source))
+
+
 def describe(rows, field):
     edits=[counts(r['reference'],r[field]) for r in rows]
     n=sum(c['ref_words'] for c in edits);e=sum(c['word_errors'] for c in edits)
@@ -32,6 +56,7 @@ def validate(folder):
     assert s['status']=='complete' and s['expected']==s['completed']==len(rows)==654
     assert sha(folder/'manifest.json')==env['manifest_sha256']==MANIFEST
     assert sha(folder/'predictions.jsonl')==s['predictions_sha256']
+    lineage=validate_resume(folder,rows,env)
     assert env['repair_policy_sha256']==POLICY==sha(ROOT/'src/publication_study/loop_repair.py')
     assert env['dataset_protocol']=='short_hindi_v1'
     assert env['dataset_revision']=='d4ffd2ecbdd933e37c917ddcf620eef159ceb3a7'
@@ -71,7 +96,8 @@ def validate(folder):
             cohorts[name]['text_loop_repair_effect']=paired(rr,lambda r:r['raw_counts']['word_errors'],lambda r:r['repair_counts']['word_errors'])
             cap_errors={r['id']:counts(r['reference'],r['duration_capped_prediction'])['word_errors'] for r in rr}
             cohorts[name]['duration_cap_effect']=paired(rr,lambda r:r['raw_counts']['word_errors'],lambda r:cap_errors[r['id']])
-    return rows,dict(environment=env,predictions_sha256=sha(folder/'predictions.jsonl'),cohorts=cohorts)
+    return rows,dict(environment=env,predictions_sha256=sha(folder/'predictions.jsonl'),cohorts=cohorts,
+                    resume_lineage=lineage)
 
 
 def main():

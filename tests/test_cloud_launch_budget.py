@@ -33,4 +33,14 @@ class CloudBudgetTest(unittest.TestCase):
         for minutes in (0,-1,121,float('nan')):
             with self.assertRaises(ValueError):m.reservation('hf','a100-large',minutes)
 
+    def test_modal_sandbox_path_refused_before_ledger_or_provider(self):
+        with tempfile.TemporaryDirectory() as td:
+            ledger=Path(td)/'must-not-be-created'/'ledger.json'
+            argv=['launch','exp','--provider','modal','--flavor','h100','--minutes','5']
+            with patch.object(m,'LEDGER',ledger),patch.object(sys,'argv',argv),patch.object(m.subprocess,'run') as run:
+                with self.assertRaisesRegex(SystemExit,'Modal Sandboxes are disabled'):
+                    m.main()
+                run.assert_not_called()
+                self.assertFalse(ledger.parent.exists())
+
 if __name__=='__main__':unittest.main()
