@@ -1,0 +1,28 @@
+{
+  "official_default": {
+    "clips": 6,
+    "same_decoder": true,
+    "same_packages": true,
+    "same_gpu": true,
+    "audio_mismatch": 0,
+    "reference_mismatch": 0,
+    "raw_hypothesis_changes": 2,
+    "normalized_hypothesis_changes": 2,
+    "first_errors": 98,
+    "second_errors": 99,
+    "reference_words": 153
+  },
+  "official_turbo": {
+    "clips": 6,
+    "same_decoder": true,
+    "same_packages": true,
+    "same_gpu": true,
+    "audio_mismatch": 0,
+    "reference_mismatch": 0,
+    "raw_hypothesis_changes": 1,
+    "normalized_hypothesis_changes": 1,
+    "first_errors": 105,
+    "second_errors": 104,
+    "reference_words": 153
+  }
+}

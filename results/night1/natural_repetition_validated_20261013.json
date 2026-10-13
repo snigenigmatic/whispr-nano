@@ -1,0 +1,231 @@
+{
+  "status": "independently_validated",
+  "runs": {
+    "official_default": {
+      "environment": {
+        "config": {
+          "mode": "official_default",
+          "run_id": "natural-hindi-small-v1",
+          "seed": 20261013,
+          "max_inference_seconds": 600,
+          "expected_manifest_sha256": "bcfedf6257fca9c6293cf435433483c312c9e1826b9c9bd73d529df701e023db"
+        },
+        "decoder": {
+          "model": "openai-whisper/small",
+          "url": "https://openaipublic.azureedge.net/main/whisper/models/9ecf779972d90ba49c06d968637d720dd632c55bbf19d441fb42bf17a411e794/small.pt",
+          "checkpoint_sha256": "9ecf779972d90ba49c06d968637d720dd632c55bbf19d441fb42bf17a411e794",
+          "dtype": "float16",
+          "temperature": [
+            0,
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "beam_size": 5,
+          "best_of": 5,
+          "compression_ratio_threshold": 2.4,
+          "logprob_threshold": -1.0,
+          "no_speech_threshold": 0.6,
+          "condition_on_previous_text": true,
+          "implementation": "openai-whisper==20250625"
+        },
+        "dataset_revision": "d4ffd2ecbdd933e37c917ddcf620eef159ceb3a7",
+        "dataset_protocol": "natural_repetition_v1",
+        "gpu": "NVIDIA H100 80GB HBM3",
+        "packages": {
+          "torch": "2.6.0+cu124",
+          "transformers": "5.16.1",
+          "numpy": "2.4.6",
+          "pyarrow": "25.0.1",
+          "soundfile": "0.14.0",
+          "openai-whisper": "20250625",
+          "jiwer": "4.0.0",
+          "huggingface-hub": "1.29.0"
+        },
+        "code_sha256": "ea278789888a51308ee05b2cbcbf916c3c5959f69da64a7d88072a3113969e38",
+        "manifest_sha256": "bcfedf6257fca9c6293cf435433483c312c9e1826b9c9bd73d529df701e023db",
+        "repair_policy_sha256": "4a89775ecae07364dd69a661e1ac612a3ffd10c7991f76305b45ae48c8873867"
+      },
+      "predictions_sha256": "ffa28ce0a5183dc9e0d094e1a6ff38471218bca176b664a5ae9daa9d27757946",
+      "cohorts": {
+        "natural_hindi_repetition": {
+          "clips": 27,
+          "speakers": 24,
+          "reference_words": 728,
+          "first_word_errors": 525,
+          "second_word_errors": 521,
+          "first_wer_percent": 72.11538461538461,
+          "second_wer_percent": 71.56593406593407,
+          "difference_points": -0.5494505494505495,
+          "paired_speaker_bootstrap_95_ci_points": [
+            -1.8237776019763778,
+            0.0
+          ],
+          "helped": 1,
+          "harmed": 0,
+          "tied": 26,
+          "altered": 2,
+          "audio_seconds": 343.5929375,
+          "decode_seconds": 149.56789800699994
+        }
+      },
+      "run_id": "e02c3605-6d31-4003-82b5-50e7bf7442c0",
+      "log_sha256": "e858220d6b9ebdcae2f0bcaedb4b493e38eddc9498cca7cf4630959805cc59bc",
+      "private_artifacts": "/Users/prateekraj/.local/share/openresearch/recovered-cloud/e02c3605-6d31-4003-82b5-50e7bf7442c0"
+    },
+    "official_turbo": {
+      "environment": {
+        "config": {
+          "mode": "official_turbo",
+          "run_id": "natural-hindi-turbo-v1",
+          "seed": 20261013,
+          "max_inference_seconds": 600,
+          "expected_manifest_sha256": "bcfedf6257fca9c6293cf435433483c312c9e1826b9c9bd73d529df701e023db"
+        },
+        "decoder": {
+          "model": "openai-whisper/turbo",
+          "url": "https://openaipublic.azureedge.net/main/whisper/models/aff26ae408abcba5fbf8813c21e62b0941638c5f6eebfb145be0c9839262a19a/large-v3-turbo.pt",
+          "checkpoint_sha256": "aff26ae408abcba5fbf8813c21e62b0941638c5f6eebfb145be0c9839262a19a",
+          "dtype": "float16",
+          "temperature": [
+            0,
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "beam_size": 5,
+          "best_of": 5,
+          "compression_ratio_threshold": 2.4,
+          "logprob_threshold": -1.0,
+          "no_speech_threshold": 0.6,
+          "condition_on_previous_text": true,
+          "implementation": "openai-whisper==20250625"
+        },
+        "dataset_revision": "d4ffd2ecbdd933e37c917ddcf620eef159ceb3a7",
+        "dataset_protocol": "natural_repetition_v1",
+        "gpu": "NVIDIA H100 80GB HBM3",
+        "packages": {
+          "torch": "2.6.0+cu124",
+          "transformers": "5.16.1",
+          "numpy": "2.4.6",
+          "pyarrow": "25.0.1",
+          "soundfile": "0.14.0",
+          "openai-whisper": "20250625",
+          "jiwer": "4.0.0",
+          "huggingface-hub": "1.29.0"
+        },
+        "code_sha256": "ea278789888a51308ee05b2cbcbf916c3c5959f69da64a7d88072a3113969e38",
+        "manifest_sha256": "bcfedf6257fca9c6293cf435433483c312c9e1826b9c9bd73d529df701e023db",
+        "repair_policy_sha256": "4a89775ecae07364dd69a661e1ac612a3ffd10c7991f76305b45ae48c8873867"
+      },
+      "predictions_sha256": "52a7bc3185bd1d4c032f2b245686d239fcd193f661288919f56e24b6e6fc7dcf",
+      "cohorts": {
+        "natural_hindi_repetition": {
+          "clips": 27,
+          "speakers": 24,
+          "reference_words": 728,
+          "first_word_errors": 434,
+          "second_word_errors": 434,
+          "first_wer_percent": 59.61538461538461,
+          "second_wer_percent": 59.61538461538461,
+          "difference_points": 0.0,
+          "paired_speaker_bootstrap_95_ci_points": [
+            0.0,
+            0.0
+          ],
+          "helped": 0,
+          "harmed": 0,
+          "tied": 27,
+          "altered": 0,
+          "audio_seconds": 343.5929375,
+          "decode_seconds": 18.763413927999977
+        }
+      },
+      "run_id": "137009b1-3102-4e2a-a552-5897b879a257",
+      "log_sha256": "fc0d30559c7a9b53fb1670f290f8d0dd0ef177482b3277cd3f565074ae5cfdc9",
+      "private_artifacts": "/Users/prateekraj/.local/share/openresearch/recovered-cloud/137009b1-3102-4e2a-a552-5897b879a257"
+    }
+  },
+  "official_minus_hf_beam5": {},
+  "prespecified_loop_trigger_cascades": {},
+  "published_duration_character_cap": {
+    "official_default": {
+      "natural_hindi_repetition": {
+        "clips": 27,
+        "speakers": 24,
+        "reference_words": 728,
+        "first_word_errors": 525,
+        "second_word_errors": 525,
+        "first_wer_percent": 72.11538461538461,
+        "second_wer_percent": 72.11538461538461,
+        "difference_points": 0.0,
+        "paired_speaker_bootstrap_95_ci_points": [
+          0.0,
+          0.0
+        ],
+        "helped": 0,
+        "harmed": 0,
+        "tied": 27,
+        "altered": 0
+      }
+    },
+    "official_turbo": {
+      "natural_hindi_repetition": {
+        "clips": 27,
+        "speakers": 24,
+        "reference_words": 728,
+        "first_word_errors": 434,
+        "second_word_errors": 434,
+        "first_wer_percent": 59.61538461538461,
+        "second_wer_percent": 59.61538461538461,
+        "difference_points": 0.0,
+        "paired_speaker_bootstrap_95_ci_points": [
+          0.0,
+          0.0
+        ],
+        "helped": 0,
+        "harmed": 0,
+        "tied": 27,
+        "altered": 0
+      }
+    }
+  },
+  "additional_decoder_comparisons": {
+    "official_turbo_minus_official_default": {
+      "natural_hindi_repetition": {
+        "clips": 27,
+        "speakers": 24,
+        "reference_words": 728,
+        "first_word_errors": 525,
+        "second_word_errors": 434,
+        "first_wer_percent": 72.11538461538461,
+        "second_wer_percent": 59.61538461538461,
+        "difference_points": -12.5,
+        "paired_speaker_bootstrap_95_ci_points": [
+          -19.902631979309295,
+          -4.824929971988789
+        ],
+        "helped": 18,
+        "harmed": 5,
+        "tied": 4
+      }
+    }
+  },
+  "bootstrap": {
+    "seed": 20261013,
+    "resamples": 4000,
+    "cluster": "speaker"
+  },
+  "limits": [
+    "All 27 released-reference-marked examples among 4,556 non-development-speaker recordings; descriptive and selected by reference property.",
+    "Only one reference contains at least five identical adjacent words. Most examples cannot test five-word collapse on an exactly correct hypothesis.",
+    "References are dataset annotations, not newly independently adjudicated listening labels.",
+    "There are 24 speakers; overlap with earlier study recordings must be separately reported. Not a new untouched population sample.",
+    "No model intervention, population safety guarantee, Indian-English result or publication novelty is established."
+  ],
+  "validation_script_sha256": "6a9c69fa1e9edbcd840b96dca1a7ca286c81d5e0b157646da9b56be9072e6a48"
+}

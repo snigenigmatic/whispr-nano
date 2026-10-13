@@ -52,7 +52,19 @@ def main():
         '\n## Why the loop-only branch is closed for the proper Small baseline',
         '\nThe official Small decoder has **zero five-word-loop triggers across all 801 Hindi recordings**. Any repair constrained to leave a hypothesis unchanged when that trigger is absent must therefore return the original hypothesis on every recording here. Formally, if `T(h_i)=0` for every evaluated `i` and `R(x,h)=h` whenever `T(h)=0`, then `R(x_i,h_i)=h_i` for every `i`; all edit counts and pooled WER are exactly unchanged. This is a finite-sample identity, not a claim that repetition never occurs in other data.',
         '\nA simulated loop-trigger cascade from HF Small to Turbo scores 61.41% on fresh Hindi, but its difference from official Small has a 95% interval crossing zero [−4.11, +2.91]. It adds a larger model without establishing an improvement over the proper Small baseline. The zero-duration gate on Turbo likewise has a fresh-Hindi gain whose interval reaches zero. Neither is accepted as the research contribution.',
-        '\n## Short-Hindi follow-up']
+        '\n## Natural-reference repetition check']
+    natural_path=OUT/'natural_repetition_validated_20261013.json'
+    if natural_path.exists():
+        natural=json.loads(natural_path.read_text());assert natural['status']=='independently_validated'
+        lines += ['\nAll 27 non-development-speaker Lahaja recordings with at least three adjacent identical reference words were evaluated (24 speakers; six recording IDs overlap earlier evaluation). Only one reference has five or more repetitions. These are released annotations, not newly adjudicated listening labels.',
+            '\n| Official decoder | Raw WER | Text-collapse WER | Clips helped / harmed |',
+            '|---|---:|---:|---:|']
+        for mode,r in natural['runs'].items():
+            c=r['cohorts']['natural_hindi_repetition']
+            lines.append(f"| {mode} | {c['first_wer_percent']:.2f}% | {c['second_wer_percent']:.2f}% | {c['helped']} / {c['harmed']} |")
+        lines.append('\nThe one-clip Small improvement is inconclusive; its interval reaches zero. This selected set cannot estimate a population failure rate. [Natural-control evidence](natural_repetition_validated_20261013.json) · [Selection protocol](NATURAL_REPETITION_PROTOCOL_20261013.md).')
+    else:lines.append('\nNot yet independently validated.')
+    lines.append('\n## Short-Hindi follow-up')
     short_path=OUT/'short_hindi_validated_20261013.json'
     if short_path.exists():
         short=json.loads(short_path.read_text());assert short['status']=='independently_validated'
@@ -80,6 +92,7 @@ def main():
     lines += ['\n## Limits and reproducibility',
         '\nThe fresh Hindi recordings share speakers with earlier evaluation. No population fairness claim is justified. Repeated-speech controls concatenate recorded words and are not naturally repeated conversation. Silence controls are artificial/calibration floors, cropped explicitly and deduplicated. One decoded run is used per condition; bootstrap intervals describe sampling uncertainty over speakers, not seed variance, and are not multiplicity-adjusted.',
         '\nAll neural inference ran on HF A100 or Modal H100. Hardware differs across recipe comparisons, so their raw timing ratios are not decoder speedups. Per-recording seeds, model/package revisions, code commits, manifests, audio hashes, hypotheses, complete word edits and prediction hashes are saved. The independent validator refuses incomplete bundles, corrupted hashes or mismatched cohorts. Gated references remain private.',
+        '\nA repeatability check on the six recordings shared by the natural-repetition extension and earlier runs found minor differences despite matching audio, references, decoder settings, packages, GPU type and per-recording seed policy. Small changed two hypotheses (98 → 99 errors over 153 words); Turbo changed one (105 → 104). The cause is not isolated. These single-run scores must not be interpreted as bitwise deterministic, and the speaker-bootstrap intervals do not include this run-to-run variation. [Repeatability receipt](cloud_repeated_recordings_20261013.json).',
         '\n[Full aggregate evidence](cloud_decoder_validated_20261013.json) · [Main protocol and prior work](CLOUD_PROTOCOL_20261013.md) · [Validation code](../../scripts/termeval/package_cloud_decoder_study.py) · [Short-study validation](../../scripts/termeval/package_short_hindi_study.py)',
         '\n## Research decision',
         '\nThe defensible result so far is a decoder-and-evaluation audit: the apparent repair gain depends strongly on the baseline recipe, and pooled WER can conceal deletion of valid repeated speech. This is real, reproducible evidence, but it does not yet establish a novel deployable improvement or guarantee a publication. Keep the properly configured decoder as the baseline, report failed controls, and use any positive short-word result only to justify a separately held-out follow-up. Do not launch training merely to spend the remaining credits.']
