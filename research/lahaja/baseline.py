@@ -33,7 +33,7 @@ MODEL_ID = "openai/whisper-small"
 MODEL_REVISION = "973afd24965f72e36ca33b3055d56a652f456b4d"
 SEED = 20261011
 PER_SPEAKER_SCENARIO = 2
-OUTPUT = Path.home() / ".local/share/openresearch/lahaja-small-beam5-heldout-405-v1"
+OUTPUT = Path.home() / ".local/share/openresearch/lahaja-small-beam5-cuda-heldout-405-v1"
 
 
 def _token() -> str | None:
@@ -183,7 +183,9 @@ def main() -> dict:
                       "code_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
                       "transformers": transformers.__version__, "torch": torch.__version__},
                      sort_keys=True), flush=True)
-    device = "mps"
+    if not torch.cuda.is_available():
+        raise RuntimeError("CUDA GPU is required for this cloud replication")
+    device = "cuda"
     dtype = torch.float16
     processor = AutoProcessor.from_pretrained(MODEL_ID, revision=MODEL_REVISION)
     model = WhisperForConditionalGeneration.from_pretrained(
