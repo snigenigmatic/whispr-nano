@@ -1,6 +1,6 @@
 {
-  "mode": "official_default",
-  "run_id": "natural-hindi-small-v1",
+  "mode": "official_turbo",
+  "run_id": "natural-hindi-turbo-v1",
   "seed": 20261013,
   "max_inference_seconds": 600,
   "expected_manifest_sha256": "bcfedf6257fca9c6293cf435433483c312c9e1826b9c9bd73d529df701e023db"
