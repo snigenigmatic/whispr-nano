@@ -1,6 +1,6 @@
 # Capstone evidence brief for the 16 October review
 
-**Team: C. Kaustubh et al. · Status: 11 October 2026**
+**Team: C. Kaustubh et al. · Updated: 13 October 2026**
 
 We have completed auditable public-data ASR baselines and one **frozen, speaker-disjoint inference-time control**. On 405 Lahaja clips from 106 speakers unseen during development, Whisper-small greedy decoding scored **119.73% WER**; a fixed word-loop repair scored **77.79%**, a paired reduction of **41.94 points [32.36, 52.14]**. This is a real reduction in catastrophic decoding errors, but still a poor ASR score and not a generally safe correction. A stronger Whisper large-v3-turbo reference scored **39.09% WER** on the same clips. For the original Indian-English goal, two open models were independently accepted on the same **518 Svarah recordings** from one recovered shard. We also retain complete predictions for **3,136 MUCS Hindi–English lecture segments** and **5,176 HiACC adult/child Hinglish clips**. Model/data revisions, decode settings, hashes, predictions, and scores are recorded locally; only aggregate Lahaja receipts are shared. [Svarah paired comparison](../../research/bridge_open/artifacts/svarah_comparison_v1/RESULTS.md) · [MUCS/HiACC report](RUN_REPORT.md) · [Lahaja paired receipt](lahaja_loop_repair_heldout_20261011.json) · [Turbo reference receipt](lahaja_heldout_20261011.json). No trained-model improvement or population fairness result is claimed.
 
