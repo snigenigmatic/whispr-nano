@@ -1,0 +1,42 @@
+{
+  "status": "completed_aggregate_only_cloud_replication",
+  "dataset": "ai4bharat/Lahaja",
+  "dataset_revision": "d4ffd2ecbdd933e37c917ddcf620eef159ceb3a7",
+  "selection_sha256": "6134e2a9eabd65f590bf4f7f7829626e520379a66e058d9dd51ce4acf36c4060",
+  "model": "openai/whisper-small",
+  "model_revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+  "num_beams": 5,
+  "clips": 405,
+  "speakers": 106,
+  "reference_words": 7339,
+  "huggingface": {
+    "job_url": "https://huggingface.co/jobs/snigenigmatic/6ace098a24c0e0c53d7cea30",
+    "orx_run_id": "5f3ff635-6b53-4e85-a2a0-b655423caab3",
+    "code_commit": "7f06b432d975d6c5b2a32d951d4b414e7810342c",
+    "device": "cuda",
+    "gpu_class": "a100-large",
+    "torch_version": "2.6.0+cu124",
+    "transformers_version": "5.16.1",
+    "word_errors": 5828,
+    "wer_percent": 79.41136394604169,
+    "generation_cap_count": 52,
+    "runner_elapsed_seconds": 588.5207738699974,
+    "log_sha256": "2791b4fd665a05bd7f1cb1dd2f82f90c092fd5bbab1602f0294919cf05b083d1"
+  },
+  "local_mps": {
+    "orx_run_id": "36217bd3-5caa-48ea-8521-0660ca15d7f0",
+    "device": "mps",
+    "word_errors": 5752,
+    "wer_percent": 78.37580051778171,
+    "generation_cap_count": 51,
+    "runner_elapsed_seconds": 3074.2814022910025
+  },
+  "gpu_minus_mps_wer_points": 1.0355634282599808,
+  "limits": [
+    "ORX records the full cloud summary and preflight, but this run did not export its per-clip GPU predictions; we cannot independently re-score or form a paired GPU-versus-MPS interval.",
+    "The two runs have different PyTorch versions and hardware; this aggregate discrepancy is unresolved and must not be called bitwise parity.",
+    "The cloud runner time includes model/data setup and is not a controlled inference-latency benchmark or a verified bill.",
+    "The MPS run remains the source of the independently validated per-clip comparison with greedy decoding and frozen repair."
+  ],
+  "packaging_script_sha256": "9f8abb60cf535ec07ff0ba699ff3e1dc12fc9528ca3365677792de1edae94b3b"
+}
