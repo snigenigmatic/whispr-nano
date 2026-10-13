@@ -1,0 +1,26 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ASR repetition audit · C. Kaustubh</title><style>
+body{font:16px/1.6 system-ui,sans-serif;background:#f5f3ee;color:#17252b;max-width:920px;margin:40px auto;padding:0 22px}h1{font-size:34px;line-height:1.2}article{background:white;border:1px solid #d1d8d8;border-radius:12px;padding:22px;margin:22px 0}dt,.tag{font-weight:650}dd{margin:5px 0 15px;overflow-wrap:anywhere}.output{max-height:150px;overflow:auto;padding:10px;background:#f4f7f7}audio{width:100%;margin:12px 0}code{font-size:12px;overflow-wrap:anywhere}a{color:#116e85}img{max-width:100%}footer{font-size:13px}strong{color:#7b2b0b}
+</style><h1>Lower WER can hide damaged speech</h1><p>C. Kaustubh · Reproducible cloud inference audit · 13 October 2026</p>
+<p>These are actual decoded outputs. The audio repeats a labelled human word recording with 150 ms gaps. Listen, then compare the original model output with a rule that collapses five or more repeated words.</p>
+<p><strong>Illustrative cases selected after scoring; not a random sample.</strong> The full paired study contains 100 original keyword recordings, each tested with one, five and eight copies. These constructed controls do not represent natural conversational repetition.</p>
+<img src="../figures/repetition_tradeoff.svg" alt="Pooled WER improves while text collapse harms 77 of 100 five-repeat utterances."><article><p class="tag">1 · correct speech damaged · official_default</p>
+<audio controls preload="none" src="example-1.wav"></audio>
+<dl><dt>Known spoken words</dt><dd>down down down down down</dd>
+<dt>Actual model output</dt><dd class="output">down, down, down, down, down.</dd>
+<dt>After text collapse</dt><dd class="output">down,</dd></dl>
+<p><strong>Word edits: 0 → 4</strong> / 5 reference words.</p>
+<details><summary>Source and audio hash</summary><code>./down/4c6167ca_nohash_7.wav<br>a18854154268a6f52e06455823565755328af1cff401f039aaa68d9e873ab4a4</code></details></article><article><p class="tag">2 · correct speech damaged · hf_turbo_beam5</p>
+<audio controls preload="none" src="example-2.wav"></audio>
+<dl><dt>Known spoken words</dt><dd>down down down down down down down down</dd>
+<dt>Actual model output</dt><dd class="output">down down down down down down down down</dd>
+<dt>After text collapse</dt><dd class="output">down</dd></dl>
+<p><strong>Word edits: 0 → 7</strong> / 8 reference words.</p>
+<details><summary>Source and audio hash</summary><code>./down/67961766_nohash_0.wav<br>cca89013e8decdeebb76ca1e71afb4ab16991629b4b48cc29cb824a34d6ab8bd</code></details></article><article><p class="tag">3 · large insertion error reduced · hf_turbo_beam5</p>
+<audio controls preload="none" src="example-3.wav"></audio>
+<dl><dt>Known spoken words</dt><dd>on on on on on</dd>
+<dt>Actual model output</dt><dd class="output">Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann</dd>
+<dt>After text collapse</dt><dd class="output">Hann</dd></dl>
+<p><strong>Word edits: 256 → 5</strong> / 5 reference words.</p>
+<details><summary>Source and audio hash</summary><code>./on/91b03183_nohash_2.wav<br>9c1d2843c9ff992ebafb31fbeb1a80eb758b086f59ec9adef146d2c6412c3e29</code></details></article>
+<footer><p>Audio: <a href="https://www.tensorflow.org/datasets/catalog/speech_commands">Speech Commands v0.02</a>, Pete Warden / TensorFlow, CC BY 4.0. Adaptation: deterministic selection and waveform concatenation. No Lahaja audio, gated transcripts, or API keys are included.</p><p>These examples diagnose failure; they do not establish a publishable method or an Indian-English improvement. <a href="examples.json">Download exact example records</a>.</p></footer></html>

@@ -1,0 +1,80 @@
+[
+  {
+    "id": "./down/4c6167ca_nohash_7.wav|repeat=5",
+    "reference": "down down down down down",
+    "prediction": "down, down, down, down, down.",
+    "repaired_prediction": "down,",
+    "audio_sha256": "a18854154268a6f52e06455823565755328af1cff401f039aaa68d9e873ab4a4",
+    "raw_counts": {
+      "ref_words": 5,
+      "word_errors": 0,
+      "substitutions": 0,
+      "deletions": 0,
+      "insertions": 0
+    },
+    "repair_counts": {
+      "ref_words": 5,
+      "word_errors": 4,
+      "substitutions": 0,
+      "deletions": 4,
+      "insertions": 0
+    },
+    "source_id": "./down/4c6167ca_nohash_7.wav",
+    "n_repeats": 5,
+    "mode": "official_default",
+    "selection": "correct speech damaged",
+    "audio_file": "example-1.wav"
+  },
+  {
+    "id": "./down/67961766_nohash_0.wav|repeat=8",
+    "reference": "down down down down down down down down",
+    "prediction": "down down down down down down down down",
+    "repaired_prediction": "down",
+    "audio_sha256": "cca89013e8decdeebb76ca1e71afb4ab16991629b4b48cc29cb824a34d6ab8bd",
+    "raw_counts": {
+      "ref_words": 8,
+      "word_errors": 0,
+      "substitutions": 0,
+      "deletions": 0,
+      "insertions": 0
+    },
+    "repair_counts": {
+      "ref_words": 8,
+      "word_errors": 7,
+      "substitutions": 0,
+      "deletions": 7,
+      "insertions": 0
+    },
+    "source_id": "./down/67961766_nohash_0.wav",
+    "n_repeats": 8,
+    "mode": "hf_turbo_beam5",
+    "selection": "correct speech damaged",
+    "audio_file": "example-2.wav"
+  },
+  {
+    "id": "./on/91b03183_nohash_2.wav|repeat=5",
+    "reference": "on on on on on",
+    "prediction": "Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann Hann",
+    "repaired_prediction": "Hann",
+    "audio_sha256": "9c1d2843c9ff992ebafb31fbeb1a80eb758b086f59ec9adef146d2c6412c3e29",
+    "raw_counts": {
+      "ref_words": 5,
+      "word_errors": 256,
+      "substitutions": 5,
+      "deletions": 0,
+      "insertions": 251
+    },
+    "repair_counts": {
+      "ref_words": 5,
+      "word_errors": 5,
+      "substitutions": 1,
+      "deletions": 4,
+      "insertions": 0
+    },
+    "source_id": "./on/91b03183_nohash_2.wav",
+    "n_repeats": 5,
+    "mode": "hf_turbo_beam5",
+    "selection": "large insertion error reduced",
+    "audio_file": "example-3.wav"
+  }
+]

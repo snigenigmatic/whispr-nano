@@ -648,6 +648,162 @@
       "run_id": "d05fb40e-7fe1-4781-b158-b049f7521b29",
       "log_sha256": "55d6efe772a31934dd77aabd686ad526f72af6c92b1f8036d19bbdb401cccc2e",
       "private_artifacts": "/Users/prateekraj/.local/share/openresearch/recovered-cloud/d05fb40e-7fe1-4781-b158-b049f7521b29"
+    },
+    "official_turbo": {
+      "environment": {
+        "config": {
+          "mode": "official_turbo",
+          "run_id": "cloud-official-turbo-safety-v1",
+          "seed": 20261013,
+          "max_inference_seconds": 2700,
+          "expected_lahaja_selection_sha256": "18dfa27387197bc02b29740d6be96ea266019823e72b27eb592e5450a84854b6",
+          "expected_commands_selection_sha256": "4d2eca6827649275174c7ea18031a92eff0002e0de702967dbb2ae0a2d4bea37"
+        },
+        "decoder": {
+          "model": "openai-whisper/turbo",
+          "url": "https://openaipublic.azureedge.net/main/whisper/models/aff26ae408abcba5fbf8813c21e62b0941638c5f6eebfb145be0c9839262a19a/large-v3-turbo.pt",
+          "checkpoint_sha256": "aff26ae408abcba5fbf8813c21e62b0941638c5f6eebfb145be0c9839262a19a",
+          "dtype": "float16",
+          "temperature": [
+            0,
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1.0
+          ],
+          "beam_size": 5,
+          "best_of": 5,
+          "compression_ratio_threshold": 2.4,
+          "logprob_threshold": -1.0,
+          "no_speech_threshold": 0.6,
+          "condition_on_previous_text": true,
+          "implementation": "openai-whisper==20250625"
+        },
+        "dataset_revision": "d4ffd2ecbdd933e37c917ddcf620eef159ceb3a7",
+        "commands_archive_sha256": "cc2a00c1147c2254e9be3fa0f779d8c17421dc349b86366567a8edfa9acd51df",
+        "commands_url": "https://storage.googleapis.com/download.tensorflow.org/data/speech_commands_test_set_v0.02.tar.gz",
+        "gpu": "NVIDIA H100 80GB HBM3",
+        "packages": {
+          "torch": "2.6.0+cu124",
+          "transformers": "5.16.1",
+          "numpy": "2.4.6",
+          "pyarrow": "25.0.1",
+          "soundfile": "0.14.0",
+          "openai-whisper": "20250625",
+          "jiwer": "4.0.0",
+          "huggingface-hub": "1.29.0"
+        },
+        "code_sha256": "5e6e13b542b4af5ef3a35b87cec7cb71b9bcc9509d2943e1042786080c5a517e",
+        "manifest_sha256": "0bd487ed2058439515b8d44255e3169573ed900ada9eceb1c7c59f6fe9929d8c",
+        "repair_policy_sha256": "4a89775ecae07364dd69a661e1ac612a3ffd10c7991f76305b45ae48c8873867"
+      },
+      "predictions_sha256": "7a34e8d4ca728be7da594f9a70e4b696cb97a9a4dfdeeb8d5c2730ae6c0c4f3b",
+      "cohorts": {
+        "commands_repeat_1": {
+          "clips": 100,
+          "speakers": 68,
+          "reference_words": 100,
+          "first_word_errors": 22,
+          "second_word_errors": 22,
+          "first_wer_percent": 22.0,
+          "second_wer_percent": 22.0,
+          "difference_points": 0.0,
+          "paired_speaker_bootstrap_95_ci_points": [
+            0.0,
+            0.0
+          ],
+          "helped": 0,
+          "harmed": 0,
+          "tied": 100,
+          "altered": 0,
+          "audio_seconds": 100.0,
+          "decode_seconds": 7.576082410000595
+        },
+        "commands_repeat_5": {
+          "clips": 100,
+          "speakers": 68,
+          "reference_words": 500,
+          "first_word_errors": 202,
+          "second_word_errors": 399,
+          "first_wer_percent": 40.4,
+          "second_wer_percent": 79.8,
+          "difference_points": 39.4,
+          "paired_speaker_bootstrap_95_ci_points": [
+            31.27649903288201,
+            47.37988904299584
+          ],
+          "helped": 2,
+          "harmed": 51,
+          "tied": 47,
+          "altered": 59,
+          "audio_seconds": 560.0,
+          "decode_seconds": 17.812451936999537
+        },
+        "commands_repeat_8": {
+          "clips": 100,
+          "speakers": 68,
+          "reference_words": 800,
+          "first_word_errors": 528,
+          "second_word_errors": 743,
+          "first_wer_percent": 66.0,
+          "second_wer_percent": 92.875,
+          "difference_points": 26.875,
+          "paired_speaker_bootstrap_95_ci_points": [
+            19.813767061421114,
+            34.14002743598271
+          ],
+          "helped": 0,
+          "harmed": 33,
+          "tied": 67,
+          "altered": 40,
+          "audio_seconds": 905.0000000000001,
+          "decode_seconds": 32.903299730000185
+        },
+        "lahaja_fresh_audio": {
+          "clips": 396,
+          "speakers": 106,
+          "reference_words": 7111,
+          "first_word_errors": 2750,
+          "second_word_errors": 2750,
+          "first_wer_percent": 38.6724792574884,
+          "second_wer_percent": 38.6724792574884,
+          "difference_points": 0.0,
+          "paired_speaker_bootstrap_95_ci_points": [
+            0.0,
+            0.0
+          ],
+          "helped": 0,
+          "harmed": 0,
+          "tied": 396,
+          "altered": 0,
+          "audio_seconds": 3309.217375,
+          "decode_seconds": 371.3452911760003
+        },
+        "lahaja_replication": {
+          "clips": 405,
+          "speakers": 106,
+          "reference_words": 7339,
+          "first_word_errors": 2829,
+          "second_word_errors": 2829,
+          "first_wer_percent": 38.547486033519554,
+          "second_wer_percent": 38.547486033519554,
+          "difference_points": 0.0,
+          "paired_speaker_bootstrap_95_ci_points": [
+            0.0,
+            0.0
+          ],
+          "helped": 0,
+          "harmed": 0,
+          "tied": 405,
+          "altered": 0,
+          "audio_seconds": 3454.0955,
+          "decode_seconds": 419.581620615
+        }
+      },
+      "run_id": "aa0ebb98-c8e5-48df-a79f-f723cec9105e",
+      "log_sha256": "d085ce2474e2ac9b556769d9b5a22ac8c0d77bd7597e717ffb375c1fe05d17d4",
+      "private_artifacts": "/Users/prateekraj/.local/share/openresearch/recovered-cloud/aa0ebb98-c8e5-48df-a79f-f723cec9105e"
     }
   },
   "official_minus_hf_beam5": {
@@ -1369,9 +1525,276 @@
         "tied": 404,
         "altered": 1
       }
+    },
+    "official_turbo": {
+      "commands_repeat_1": {
+        "clips": 100,
+        "speakers": 68,
+        "reference_words": 100,
+        "first_word_errors": 22,
+        "second_word_errors": 22,
+        "first_wer_percent": 22.0,
+        "second_wer_percent": 22.0,
+        "difference_points": 0.0,
+        "paired_speaker_bootstrap_95_ci_points": [
+          0.0,
+          0.0
+        ],
+        "helped": 0,
+        "harmed": 0,
+        "tied": 100,
+        "altered": 0
+      },
+      "commands_repeat_5": {
+        "clips": 100,
+        "speakers": 68,
+        "reference_words": 500,
+        "first_word_errors": 202,
+        "second_word_errors": 202,
+        "first_wer_percent": 40.4,
+        "second_wer_percent": 40.4,
+        "difference_points": 0.0,
+        "paired_speaker_bootstrap_95_ci_points": [
+          0.0,
+          0.0
+        ],
+        "helped": 0,
+        "harmed": 0,
+        "tied": 100,
+        "altered": 0
+      },
+      "commands_repeat_8": {
+        "clips": 100,
+        "speakers": 68,
+        "reference_words": 800,
+        "first_word_errors": 528,
+        "second_word_errors": 528,
+        "first_wer_percent": 66.0,
+        "second_wer_percent": 66.0,
+        "difference_points": 0.0,
+        "paired_speaker_bootstrap_95_ci_points": [
+          0.0,
+          0.0
+        ],
+        "helped": 0,
+        "harmed": 0,
+        "tied": 100,
+        "altered": 0
+      },
+      "lahaja_fresh_audio": {
+        "clips": 396,
+        "speakers": 106,
+        "reference_words": 7111,
+        "first_word_errors": 2750,
+        "second_word_errors": 2750,
+        "first_wer_percent": 38.6724792574884,
+        "second_wer_percent": 38.6724792574884,
+        "difference_points": 0.0,
+        "paired_speaker_bootstrap_95_ci_points": [
+          0.0,
+          0.0
+        ],
+        "helped": 0,
+        "harmed": 0,
+        "tied": 396,
+        "altered": 0
+      },
+      "lahaja_replication": {
+        "clips": 405,
+        "speakers": 106,
+        "reference_words": 7339,
+        "first_word_errors": 2829,
+        "second_word_errors": 2829,
+        "first_wer_percent": 38.547486033519554,
+        "second_wer_percent": 38.547486033519554,
+        "difference_points": 0.0,
+        "paired_speaker_bootstrap_95_ci_points": [
+          0.0,
+          0.0
+        ],
+        "helped": 0,
+        "harmed": 0,
+        "tied": 405,
+        "altered": 0
+      }
     }
   },
-  "additional_decoder_comparisons": {},
+  "additional_decoder_comparisons": {
+    "official_turbo_minus_hf_turbo_beam5": {
+      "commands_repeat_1": {
+        "clips": 100,
+        "speakers": 68,
+        "reference_words": 100,
+        "first_word_errors": 29,
+        "second_word_errors": 22,
+        "first_wer_percent": 29.0,
+        "second_wer_percent": 22.0,
+        "difference_points": -7.0,
+        "paired_speaker_bootstrap_95_ci_points": [
+          -17.346938775510203,
+          2.4633304572907835
+        ],
+        "helped": 10,
+        "harmed": 4,
+        "tied": 86
+      },
+      "commands_repeat_5": {
+        "clips": 100,
+        "speakers": 68,
+        "reference_words": 500,
+        "first_word_errors": 1156,
+        "second_word_errors": 202,
+        "first_wer_percent": 231.2,
+        "second_wer_percent": 40.4,
+        "difference_points": -190.8,
+        "paired_speaker_bootstrap_95_ci_points": [
+          -400.0095238095238,
+          -29.37783588093322
+        ],
+        "helped": 16,
+        "harmed": 33,
+        "tied": 51
+      },
+      "commands_repeat_8": {
+        "clips": 100,
+        "speakers": 68,
+        "reference_words": 800,
+        "first_word_errors": 1696,
+        "second_word_errors": 528,
+        "first_wer_percent": 212.0,
+        "second_wer_percent": 66.0,
+        "difference_points": -146.0,
+        "paired_speaker_bootstrap_95_ci_points": [
+          -280.6657529239766,
+          -34.58626944357448
+        ],
+        "helped": 26,
+        "harmed": 50,
+        "tied": 24
+      },
+      "lahaja_fresh_audio": {
+        "clips": 396,
+        "speakers": 106,
+        "reference_words": 7111,
+        "first_word_errors": 2795,
+        "second_word_errors": 2750,
+        "first_wer_percent": 39.30530164533821,
+        "second_wer_percent": 38.6724792574884,
+        "difference_points": -0.6328223878498102,
+        "paired_speaker_bootstrap_95_ci_points": [
+          -2.300835825162384,
+          0.7540973379811634
+        ],
+        "helped": 67,
+        "harmed": 71,
+        "tied": 258
+      },
+      "lahaja_replication": {
+        "clips": 405,
+        "speakers": 106,
+        "reference_words": 7339,
+        "first_word_errors": 2802,
+        "second_word_errors": 2829,
+        "first_wer_percent": 38.179588499795614,
+        "second_wer_percent": 38.547486033519554,
+        "difference_points": 0.3678975337239406,
+        "paired_speaker_bootstrap_95_ci_points": [
+          -1.3072708836699738,
+          1.7347515186136144
+        ],
+        "helped": 59,
+        "harmed": 68,
+        "tied": 278
+      }
+    },
+    "official_turbo_minus_official_default": {
+      "commands_repeat_1": {
+        "clips": 100,
+        "speakers": 68,
+        "reference_words": 100,
+        "first_word_errors": 26,
+        "second_word_errors": 22,
+        "first_wer_percent": 26.0,
+        "second_wer_percent": 22.0,
+        "difference_points": -4.0,
+        "paired_speaker_bootstrap_95_ci_points": [
+          -12.5,
+          4.001010101010105
+        ],
+        "helped": 6,
+        "harmed": 4,
+        "tied": 90
+      },
+      "commands_repeat_5": {
+        "clips": 100,
+        "speakers": 68,
+        "reference_words": 500,
+        "first_word_errors": 120,
+        "second_word_errors": 202,
+        "first_wer_percent": 24.0,
+        "second_wer_percent": 40.4,
+        "difference_points": 16.4,
+        "paired_speaker_bootstrap_95_ci_points": [
+          6.0775122549019605,
+          26.51210251542478
+        ],
+        "helped": 10,
+        "harmed": 36,
+        "tied": 54
+      },
+      "commands_repeat_8": {
+        "clips": 100,
+        "speakers": 68,
+        "reference_words": 800,
+        "first_word_errors": 294,
+        "second_word_errors": 528,
+        "first_wer_percent": 36.75,
+        "second_wer_percent": 66.0,
+        "difference_points": 29.25,
+        "paired_speaker_bootstrap_95_ci_points": [
+          18.358950407608695,
+          40.315398118706945
+        ],
+        "helped": 19,
+        "harmed": 52,
+        "tied": 29
+      },
+      "lahaja_fresh_audio": {
+        "clips": 396,
+        "speakers": 106,
+        "reference_words": 7111,
+        "first_word_errors": 4418,
+        "second_word_errors": 2750,
+        "first_wer_percent": 62.12909576712136,
+        "second_wer_percent": 38.6724792574884,
+        "difference_points": -23.456616509632962,
+        "paired_speaker_bootstrap_95_ci_points": [
+          -26.510025893205974,
+          -20.519166468052866
+        ],
+        "helped": 324,
+        "harmed": 27,
+        "tied": 45
+      },
+      "lahaja_replication": {
+        "clips": 405,
+        "speakers": 106,
+        "reference_words": 7339,
+        "first_word_errors": 4426,
+        "second_word_errors": 2829,
+        "first_wer_percent": 60.30794386156152,
+        "second_wer_percent": 38.547486033519554,
+        "difference_points": -21.760457828041968,
+        "paired_speaker_bootstrap_95_ci_points": [
+          -24.41331748187548,
+          -19.20910284455986
+        ],
+        "helped": 338,
+        "harmed": 33,
+        "tied": 34
+      }
+    }
+  },
   "bootstrap": {
     "seed": 20261013,
     "resamples": 4000,
