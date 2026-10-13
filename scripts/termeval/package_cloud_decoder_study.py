@@ -12,8 +12,9 @@ import numpy as np
 
 ROOT=Path(__file__).resolve().parents[2]
 sys.path.insert(0,str(ROOT));sys.path.insert(0,str(ROOT/'src'))
-from research.bridge_open.artifact_transport import recover
+from publication_study.artifact_transport import recover
 from publication_study.loop_repair import suppress_adjacent_word_loops
+from publication_study.alignment_repair import repair_zero_duration,duration_character_cap
 POLICY='4a89775ecae07364dd69a661e1ac612a3ffd10c7991f76305b45ae48c8873867'
 PINNED={'lahaja':'18dfa27387197bc02b29740d6be96ea266019823e72b27eb592e5450a84854b6',
         'commands':'4d2eca6827649275174c7ea18031a92eff0002e0de702967dbb2ae0a2d4bea37'}
@@ -59,7 +60,19 @@ def validate(folder):
         assert hashlib.sha256(json.dumps(selected,sort_keys=True,ensure_ascii=False).encode()).hexdigest()==PINNED[key]
     for r,m in zip(rows,manifest):
         assert all(r[k]==v for k,v in m.items())
-        repaired,removed=suppress_adjacent_word_loops(r['prediction'])
+        if env['config']['mode'].startswith('alignment_zero'):
+            assert env['alignment_policy_sha256']==sha(ROOT/'src/publication_study/alignment_repair.py')
+            state=r['alignment_status']['status']
+            assert state!='alignment_error', 'A run with alignment exceptions cannot establish the intended hypothesis'
+            if state in ('not_triggered','abstain_context_length'):
+                repaired,removed=r['prediction'],0
+                if state=='not_triggered':assert suppress_adjacent_word_loops(r['prediction'])[1]==0
+            else:
+                assert all(np.isfinite(w[k]) for w in r['alignment'] for k in ('start','end','probability'))
+                repaired,meta=repair_zero_duration(r['prediction'],r['alignment']);removed=meta['removed']
+                assert meta==r['alignment_status']
+        else:
+            repaired,removed=suppress_adjacent_word_loops(r['prediction'])
         assert (repaired,removed)==(r['repaired_prediction'],r['removed_words'])
         assert counts(r['reference'],r['prediction'])==r['raw_counts']
         assert counts(r['reference'],repaired)==r['repair_counts']
@@ -73,6 +86,9 @@ def validate(folder):
         logged=summary['cohorts'][name]
         assert (result['clips'],result['reference_words'],result['first_word_errors'],result['second_word_errors'],result['altered'],result['helped'],result['harmed'])==(
             logged['clips'],logged['ref_words'],logged['raw_errors'],logged['repair_errors'],logged['altered'],logged['helped'],logged['harmed'])
+        if env['config']['mode'].startswith('alignment_zero'):
+            result['alignment_seconds']=sum(r['alignment_seconds'] for r in rr)
+            result['alignment_statuses']={state:sum(r['alignment_status']['status']==state for r in rr) for state in sorted({r['alignment_status']['status'] for r in rr})}
         cohorts[name]=result
     return rows,dict(environment=env,predictions_sha256=sha(folder/'predictions.jsonl'),cohorts=cohorts)
 
@@ -87,6 +103,14 @@ def main():
         assert mode not in outputs
         result['run_id']=log.stem;result['log_sha256']=sha(log);result['private_artifacts']=str(folder)
         outputs[mode]=result;all_rows[mode]=rows
+    for mode,rows in all_rows.items():
+        if not mode.startswith('alignment_zero'):continue
+        cfg=outputs[mode]['environment']['config'];source_mode=cfg['source_mode']
+        if source_mode in all_rows:
+            assert outputs[source_mode]['predictions_sha256']==cfg['source_predictions_sha256']
+            source={r['id']:r for r in all_rows[source_mode]}
+            for r in rows:
+                assert (r['prediction'],r['raw_counts'],r['audio_sha256'])==(source[r['id']]['prediction'],source[r['id']]['raw_counts'],source[r['id']]['audio_sha256'])
     comparisons={}
     if {'hf_beam5','official_default'}<=set(all_rows):
         b={r['id']:r for r in all_rows['hf_beam5']};o={r['id']:r for r in all_rows['official_default']}
@@ -117,8 +141,31 @@ def main():
                     entry['versus_official_small']=paired(rr,lambda r:official[r['id']]['raw_counts']['word_errors'],cascade_errors)
                 cohorts[cohort]=entry
             cascades[alternative]=cohorts
+    # Published length control, applied to raw hypotheses without reference access.
+    duration_controls={}
+    for mode,rows in all_rows.items():
+        if mode.startswith('alignment_zero'):continue
+        cohorts={}
+        for cohort in outputs[mode]['cohorts']:
+            rr=[r for r in rows if r['cohort']==cohort]
+            capped={r['id']:duration_character_cap(r['prediction'],r['duration_s']) for r in rr}
+            errors={r['id']:counts(r['reference'],capped[r['id']])['word_errors'] for r in rr}
+            entry=paired(rr,lambda r:r['raw_counts']['word_errors'],lambda r:errors[r['id']])
+            entry['altered']=sum(capped[r['id']]!=r['prediction'] for r in rr)
+            cohorts[cohort]=entry
+        duration_controls[mode]=cohorts
+    factorial={}
+    for first,second in [('hf_turbo_beam5','official_turbo'),('official_default','official_turbo')]:
+        if not {first,second}<=set(all_rows):continue
+        a=all_rows[first];b={r['id']:r for r in all_rows[second]}
+        assert {r['id'] for r in a}==set(b)
+        assert outputs[first]['environment']['manifest_sha256']==outputs[second]['environment']['manifest_sha256']
+        factorial[f'{second}_minus_{first}']={cohort:paired([r for r in a if r['cohort']==cohort],
+            lambda r:r['raw_counts']['word_errors'],lambda r:b[r['id']]['raw_counts']['word_errors'])
+            for cohort in outputs[first]['cohorts']}
     result=dict(status='independently_validated',runs=outputs,official_minus_hf_beam5=comparisons,
         prespecified_loop_trigger_cascades=cascades,
+        published_duration_character_cap=duration_controls,additional_decoder_comparisons=factorial,
         bootstrap=dict(seed=20261013,resamples=4000,cluster='speaker'),
         limits=['Fresh Lahaja clips share speakers with the previous heldout sample; audio-disjoint only.',
                 'The repetition stress is constructed from labelled human keyword recordings, not natural repeated conversation.',
