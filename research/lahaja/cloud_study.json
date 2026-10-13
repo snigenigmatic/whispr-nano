@@ -1,9 +1,9 @@
 {
-  "mode": "official_default",
-  "run_id": "short-hindi-small-complete-v1",
+  "mode": "development_vocabulary",
+  "run_id": "short-hindi-vocabulary-prior-v1",
   "seed": 20261013,
-  "max_inference_seconds": 600,
+  "max_inference_seconds": 1200,
   "expected_manifest_sha256": "ab7da06da199001f450d4958a25cffda2a5b452579f4261b07a08bac82db000a",
-  "resume_job_id": "6ace1874c66288145222a61d",
-  "resume_predictions_sha256": "3ba2c12f4844e5bab50c980535d9daab82f2e1cd19f8d44ac9581a98c4f33827"
+  "baseline_job_id": "6ace2167c66288145222b738",
+  "baseline_predictions_sha256": "08f7f4ef28821ecc8442d558a91f838d697c410c9b4f8a07d6e2d6347f9e876b"
 }

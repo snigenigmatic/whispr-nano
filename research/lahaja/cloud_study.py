@@ -158,6 +158,9 @@ def make_decoder(mode):
 
 def main():
     cfg=json.loads(CONFIG.read_text())
+    if cfg['mode']=='development_vocabulary':
+        from research.lahaja.vocabulary_study import main as vocabulary_main
+        return vocabulary_main()
     assert torch.cuda.is_available(), 'Cloud CUDA required; no local fallback'
     torch.set_num_threads(4)
     torch.manual_seed(cfg['seed']); np.random.seed(cfg['seed']); random.seed(cfg['seed'])
