@@ -1,4 +1,4 @@
 {
-  "action": "lahaja_baseline",
-  "run_id": "lahaja-whisper-small-beam5-dev-v1"
+  "action": "lahaja_selective_beam_dev",
+  "run_id": "lahaja-selective-beam-dev-v1"
 }

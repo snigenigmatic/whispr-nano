@@ -1039,6 +1039,9 @@ def main() -> int:
     elif config["action"] == "lahaja_baseline":
         from research.lahaja.baseline import main as run_lahaja_baseline
         result = run_lahaja_baseline()
+    elif config["action"] == "lahaja_selective_beam_dev":
+        from research.lahaja.selective_beam_dev import main as run_lahaja_selective_beam_dev
+        result = run_lahaja_selective_beam_dev()
     else:
         raise SystemExit(f"unknown publication action: {config['action']}")
     print("===== RESULT SUMMARY =====", flush=True)
