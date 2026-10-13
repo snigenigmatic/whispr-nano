@@ -2,6 +2,7 @@
 from __future__ import annotations
 import argparse
 from collections import defaultdict
+from itertools import groupby
 import hashlib
 import json
 from pathlib import Path
@@ -50,14 +51,24 @@ def validate(folder):
     rows=[json.loads(l) for l in (folder/'predictions.jsonl').read_text().splitlines()]
     summary=json.loads((folder/'summary.json').read_text());env=json.loads((folder/'environment.json').read_text())
     manifest=json.loads((folder/'manifest.json').read_text())
-    assert summary['status']=='complete' and summary['expected']==summary['completed']==len(rows)==1101
+    natural=env.get('dataset_protocol')=='natural_repetition_v1'
+    expected=27 if natural else 1101
+    assert summary['status']=='complete' and summary['expected']==summary['completed']==len(rows)==expected
     assert len({r['id'] for r in rows})==len(rows)
     assert sha(folder/'predictions.jsonl')==summary['predictions_sha256']
     assert sha(folder/'manifest.json')==env['manifest_sha256']
     assert env['repair_policy_sha256']==sha(ROOT/'src/publication_study/loop_repair.py')==POLICY
-    for key in PINNED:
-        selected=[r for r in manifest if r['cohort'].startswith(key)]
-        assert hashlib.sha256(json.dumps(selected,sort_keys=True,ensure_ascii=False).encode()).hexdigest()==PINNED[key]
+    if natural:
+        assert sha(folder/'manifest.json')=='bcfedf6257fca9c6293cf435433483c312c9e1826b9c9bd73d529df701e023db'
+        assert len({r['sp_id'] for r in manifest})==24
+        for r in manifest:
+            longest=max(len(list(g)) for _,g in groupby(normalize(r['reference']).split()))
+            assert longest==r['reference_max_adjacent_run'] and longest>=3
+            assert r['cohort']=='natural_hindi_repetition' and 0<r['duration_s']<=25
+    else:
+        for key in PINNED:
+            selected=[r for r in manifest if r['cohort'].startswith(key)]
+            assert hashlib.sha256(json.dumps(selected,sort_keys=True,ensure_ascii=False).encode()).hexdigest()==PINNED[key]
     for r,m in zip(rows,manifest):
         assert all(r[k]==v for k,v in m.items())
         if env['config']['mode'].startswith('alignment_zero'):
@@ -175,6 +186,12 @@ def main():
                 'Frozen repair was selected on prior Lahaja development; no tuning on these outcomes.',
                 'No publication novelty or acceptance is established by a WER reduction.'],
         validation_script_sha256=sha(__file__))
+    if all(r['environment'].get('dataset_protocol')=='natural_repetition_v1' for r in outputs.values()):
+        result['limits']=['All 27 released-reference-marked examples among 4,556 non-development-speaker recordings; descriptive and selected by reference property.',
+            'Only one reference contains at least five identical adjacent words. Most examples cannot test five-word collapse on an exactly correct hypothesis.',
+            'References are dataset annotations, not newly independently adjudicated listening labels.',
+            'There are 24 speakers; overlap with earlier study recordings must be separately reported. Not a new untouched population sample.',
+            'No model intervention, population safety guarantee, Indian-English result or publication novelty is established.']
     out=Path(args.out);out.parent.mkdir(parents=True,exist_ok=True);out.write_text(json.dumps(result,indent=2,ensure_ascii=False)+'\n')
     print(json.dumps({'out':str(out),'cohorts':{m:r['cohorts'] for m,r in outputs.items()}},indent=2))
 
