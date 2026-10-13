@@ -2,7 +2,7 @@
   "mode": "development_vocabulary",
   "run_id": "short-hindi-vocabulary-prior-v1",
   "seed": 20261013,
-  "max_inference_seconds": 1200,
+  "max_inference_seconds": 600,
   "expected_manifest_sha256": "ab7da06da199001f450d4958a25cffda2a5b452579f4261b07a08bac82db000a",
   "baseline_job_id": "6ace2167c66288145222b738",
   "baseline_predictions_sha256": "08f7f4ef28821ecc8442d558a91f838d697c410c9b4f8a07d6e2d6347f9e876b"
