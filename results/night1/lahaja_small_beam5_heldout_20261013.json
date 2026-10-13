@@ -1,0 +1,60 @@
+{
+  "status": "validated_speaker_disjoint_decoder_control",
+  "dataset": "ai4bharat/Lahaja",
+  "dataset_revision": "d4ffd2ecbdd933e37c917ddcf620eef159ceb3a7",
+  "model": "openai/whisper-small",
+  "model_revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+  "selection_sha256": "6134e2a9eabd65f590bf4f7f7829626e520379a66e058d9dd51ce4acf36c4060",
+  "clips": 405,
+  "speakers": 106,
+  "speaker_overlap_with_development": 0,
+  "reference_words": 7339,
+  "conditions": {
+    "greedy": {
+      "word_errors": 8787,
+      "wer_percent": 119.73020847526911,
+      "generation_cap_count": 110,
+      "wall_seconds": 621.0064168749959,
+      "predictions_sha256": "359d322efcfceb671869042418bb8d07684816e528c7afa785dd15fa5e773b09",
+      "run_id": "b01c023b-d98f-4b28-9338-6655f95a82b4"
+    },
+    "beam5": {
+      "word_errors": 5752,
+      "wer_percent": 78.37580051778171,
+      "generation_cap_count": 51,
+      "wall_seconds": 3074.2814022910025,
+      "predictions_sha256": "4ec9ba54049f2c692b146b17cda2a3150d11b931d76f72e424efee41637b73a4",
+      "run_id": "36217bd3-5caa-48ea-8521-0660ca15d7f0",
+      "code_commit": "5f5915046463ae14cd83ec7f6c06f84310b14953"
+    },
+    "greedy_plus_frozen_loop_repair": {
+      "word_errors": 5709,
+      "wer_percent": 77.78988963073988,
+      "predictions_sha256": "ba5f49ad659b4ab7c24981592344a4639aa1ebc419c0213d301e4c28c063effd",
+      "run_id": "4c1caf10-3070-4f27-9711-b8ab152fd549"
+    }
+  },
+  "beam5_minus_greedy_wer_points": -41.354407957487396,
+  "beam5_minus_greedy_speaker_bootstrap_95_ci_points": [
+    -52.831169886737484,
+    -30.495831652548066
+  ],
+  "beam5_minus_repair_wer_points": 0.5859108870418314,
+  "beam5_minus_repair_speaker_bootstrap_95_ci_points": [
+    -5.841629758830806,
+    7.196181938371946
+  ],
+  "bootstrap_seed": 20261011,
+  "bootstrap_resamples": 4000,
+  "beam5_clips_better_than_repair": 193,
+  "beam5_clips_worse_than_repair": 96,
+  "beam5_clips_tied_with_repair": 116,
+  "limits": [
+    "The small-model decoder was selected after first-shard development; this frozen 405-clip speaker-disjoint comparison is a secondary control.",
+    "Wall times include setup and run on one Mac MPS GPU and are not a controlled latency benchmark.",
+    "The text-only loop rule is unsafe for genuinely repeated speech; a separate positive control documents this failure.",
+    "Raw WER keeps written digits distinct from spoken number words.",
+    "Only aggregates are shared because Lahaja access is gated; raw predictions and references remain local."
+  ],
+  "packaging_script_sha256": "d65909f3f6ee989fccbf58106c2601494e00f4b5c2cbaf3a0e435daa95ea332a"
+}
