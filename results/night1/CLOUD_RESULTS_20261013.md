@@ -77,11 +77,29 @@ This assumes the task requires exactly one word; it is not a general transcripti
 
 [Complete paired effects and time costs](short_word_replication_20261013.json) · [Diagnostic specification](SHORT_WORD_REPLICATION_DIAGNOSTIC_20261013.md). These 102 examples have one source speaker each; this is exploratory, not proof of novelty or independent confirmation.
 
+## Fixed-vocabulary diagnostic
+
+This tests isolated-word recognition with 92 candidate words from development speakers, plus the original ASR output and an empty candidate. The vocabulary covers 196/414 evaluation words. The remaining 218 clips and all 36 silence controls are retained. No evaluation reference enters the candidate list.
+
+| Candidate objective | All-speech WER | All-speech exact accuracy | In-vocabulary accuracy (196) | Out-of-vocabulary accuracy (218) | Silence emissions (36) |
+|---|---:|---:|---:|---:|---:|
+| baseline | 125.36% | 19.81% | 28.57% | 11.93% | 0/36 |
+| sum_ll | 83.57% | 25.60% | 42.35% | 10.55% | 14/36 |
+| mean_ll | 96.86% | 23.67% | 36.73% | 11.93% | 36/36 |
+| sum_prior_corrected | 93.96% | 23.91% | 37.76% | 11.47% | 32/36 |
+| mean_prior_corrected | 88.41% | 26.81% | 44.39% | 11.01% | 32/36 |
+
+The specified primary contrast, mean prior correction minus mean likelihood, changes exact accuracy by +3.14 points (paired speaker-bootstrap 95% CI [+0.00, +6.56]). It gains 25 correct outputs and loses 12.
+
+The declared improvement gate fails: the primary accuracy interval touches zero and mean prior correction emits words on 32/36 silence controls, compared with 0/36 for the original decoder. Ordinary summed likelihood also achieves lower WER than the prior-corrected choices. The speech improvement is therefore a limited vocabulary-assisted result; it is not evidence that the proposed prior correction is a safe or superior method.
+
+A useful limitation follows directly from the candidate set: if the true word lies outside the fixed vocabulary, the original ASR output is the only candidate that could be correct. This selector can preserve or damage out-of-vocabulary exact accuracy, but cannot increase it. Changes in total WER must therefore be read alongside exact-word accuracy and coverage. This is a known constrained-recognition/prior-correction diagnostic, not a new unrestricted ASR architecture. [Validated candidate evidence](vocabulary_validated_20261013.json) · [Protocol and conditional mathematical identity](VOCABULARY_PROTOCOL_20261013.md).
+
 ## Limits and reproducibility
 
 The fresh Hindi recordings share speakers with earlier evaluation. No population fairness claim is justified. Repeated-speech controls concatenate recorded words and are not naturally repeated conversation. Silence controls are artificial/calibration floors, cropped explicitly and deduplicated. One decoded run is used per condition; bootstrap intervals describe sampling uncertainty over speakers, not seed variance, and are not multiplicity-adjusted.
 
-All neural inference ran on HF A100 or Modal H100. Hardware differs across recipe comparisons, so their raw timing ratios are not decoder speedups. Per-recording seeds, model/package revisions, code commits, manifests, audio hashes, hypotheses, complete word edits and prediction hashes are saved. The independent validator refuses incomplete bundles, corrupted hashes or mismatched cohorts. Gated references remain private.
+All neural inference ran on cloud GPUs: HF A100 or Modal H100 for decoding, with a native Modal L4 App for the candidate-scoring follow-up. Hardware differs across recipe comparisons, so raw timing ratios are not decoder speedups. Per-recording seeds, model/package revisions, code commits, manifests, audio hashes, hypotheses, complete word edits and prediction hashes are saved. The independent validator refuses incomplete bundles, corrupted hashes or mismatched cohorts. Gated references remain private. Modal Sandboxes are disabled; new Modal runs use bounded Apps with no warm workers.
 
 A repeatability check on the six recordings shared by the natural-repetition extension and earlier runs found minor differences despite matching audio, references, decoder settings, packages, GPU type and per-recording seed policy. Small changed two hypotheses (98 → 99 errors over 153 words); Turbo changed one (105 → 104). The cause is not isolated. These single-run scores must not be interpreted as bitwise deterministic, and the speaker-bootstrap intervals do not include this run-to-run variation. [Repeatability receipt](cloud_repeated_recordings_20261013.json).
 

@@ -31,3 +31,14 @@ def test_retry_refuses_any_possibly_dispatched_app(tmp_path):
     with patch.object(m,'LEDGER',ledger):
         with pytest.raises(SystemExit,match='possible worker dispatch'):
             m.retry_preflight('hold','exp','sha','L4',15)
+
+
+def test_only_one_retry_can_claim_a_failed_preflight_hold(tmp_path):
+    row=dict(id='hold',experiment='exp',commit='sha',provider='modal',runtime='App.function',flavor='L4',timeout_minutes=15,reserved_usd=.75)
+    ledger=tmp_path/'ledger.json';ledger.write_text(json.dumps(dict(reservations=[row])))
+    (tmp_path/'modal-app-hold.json').write_text(json.dumps(dict(status='failed')))
+    with patch.object(m,'LEDGER',ledger):
+        claimed,_=m.retry_preflight('hold','exp','sha','L4',15)
+        assert claimed==row
+        with pytest.raises(SystemExit,match='possible worker dispatch'):
+            m.retry_preflight('hold','exp','sha','L4',15)

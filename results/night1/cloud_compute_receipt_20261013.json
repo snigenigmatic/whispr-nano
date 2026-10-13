@@ -1,12 +1,12 @@
 {
-  "checked_at": "2026-10-13T16:07:39.272509+00:00",
+  "checked_at": "2026-10-13T16:24:36.465683+00:00",
   "caps_usd": {
     "hf": 20.0,
     "modal": 20.0
   },
   "reserved_usd": {
     "hf": 16.23,
-    "modal": 19.0
+    "modal": 19.75
   },
   "hf_jobs": [
     {
@@ -67,18 +67,67 @@
     },
     {
       "id": "6ace5665c66288145222dd73",
-      "status": "SCHEDULING",
-      "started_at": "None",
-      "finished_at": "None",
-      "running_seconds": null
+      "status": "CANCELED",
+      "started_at": null,
+      "finished_at": null,
+      "running_seconds": 0
     }
   ],
   "completed_hf_runtime_estimate_usd": 5.9689,
+  "modal_app": {
+    "id": "084a9f07-007f-4ca9-8818-339cb8c6fcdb",
+    "experiment": "09c15ef9-1a96-412d-be9a-ebb181a9c0ba",
+    "commit": "61ea30fa9b61ad3f2a49bab97dd95d3cf607386c",
+    "provider": "modal",
+    "runtime": "App.function",
+    "flavor": "L4",
+    "timeout_minutes": 15,
+    "reserved_usd": 0.75,
+    "rate_usd_per_hour": 2.0,
+    "created_at": "2026-10-13T16:12:27.551779+00:00",
+    "status": "completed",
+    "source_archive_sha256": "9ff6e9cc5aae06761919c9d6095558e0664093464d425eaae1682c26e4f8ed93",
+    "image": "pytorch/pytorch:2.6.0-cuda12.4-cudnn9-runtime",
+    "function_options": {
+      "gpu": "L4",
+      "cpu": [
+        4,
+        4
+      ],
+      "memory": [
+        16384,
+        16384
+      ],
+      "timeout": 900,
+      "startup_timeout": 90,
+      "min_containers": 0,
+      "max_containers": 1,
+      "buffer_containers": 0,
+      "scaledown_window": 2,
+      "retries": 0,
+      "single_use_containers": true,
+      "serialized": false,
+      "include_source": false
+    },
+    "launcher_sha256": "a3670fcbbda3ce67ccc98a68a202cc1a73e0c4aed9c1bb682fbe0955ef3c7bbd",
+    "provider_bill_verified": false,
+    "app_id": "ap-lWs3z8FwdPVqYVnNATGg3w",
+    "returncode": 0,
+    "worker_seconds": 242.916145518,
+    "log": "/Users/prateekraj/.local/share/openresearch/run-logs/modal-app-084a9f07-007f-4ca9-8818-339cb8c6fcdb.log",
+    "finished_at": "2026-10-13T16:21:49.152367+00:00",
+    "worker_module_sha256": "0de40e86c7c5a8435c5f79fc0d8fb67fd1284d98f8bdc53f2169c0ba67aae1d1",
+    "worker_resource_estimate_usd": 0.07528457181893856
+  },
   "provider_bill_verified": false,
   "modal_policy": "Apps only; Sandbox backend blocked before reservation",
+  "active_sandboxes": 0,
+  "active_modal_app_workers": 0,
   "notes": [
     "Reservations are full timeout allowances, not charges.",
-    "Runtime estimate excludes any charges outside recorded RUNNING intervals.",
-    "No reservation released based on this estimate."
+    "Runtime estimates exclude image build, startup and other charges outside recorded execution intervals.",
+    "No reservation released based on these estimates.",
+    "The native App preflight was retried under the same hold only after function registration failed before any possible GPU dispatch.",
+    "HF vocabulary job was canceled while queued and never entered RUNNING."
   ]
 }

@@ -31,16 +31,21 @@ def function_options(gpu,minutes):
 
 def retry_preflight(reservation_id,experiment,commit,gpu,minutes):
     """Reuse only a hold whose prior attempt never entered the running App."""
-    data=json.loads(LEDGER.read_text())
-    row=next(r for r in data['reservations'] if r['id']==reservation_id)
-    for k,v in dict(experiment=experiment,commit=commit,provider='modal',runtime='App.function',flavor=gpu,timeout_minutes=minutes).items():
-        if row[k]!=v:raise SystemExit('Retry reservation does not match immutable execution request')
-    old_path=LEDGER.parent/f'modal-app-{reservation_id}.json'
-    old=json.loads(old_path.read_text())
-    if old['status']!='failed' or 'app_id' in old:
-        raise SystemExit('Cannot reuse a reservation after App registration or possible worker dispatch')
-    history=LEDGER.parent/f'modal-app-{reservation_id}-preflight-{uuid.uuid4()}.json'
-    history.write_text(old_path.read_text())
+    with LEDGER.with_suffix('.lock').open('a') as lock:
+        fcntl.flock(lock,fcntl.LOCK_EX)
+        data=json.loads(LEDGER.read_text())
+        row=next(r for r in data['reservations'] if r['id']==reservation_id)
+        for k,v in dict(experiment=experiment,commit=commit,provider='modal',runtime='App.function',flavor=gpu,timeout_minutes=minutes).items():
+            if row[k]!=v:raise SystemExit('Retry reservation does not match immutable execution request')
+        old_path=LEDGER.parent/f'modal-app-{reservation_id}.json'
+        old=json.loads(old_path.read_text())
+        if old['status']!='failed' or 'app_id' in old:
+            raise SystemExit('Cannot reuse a reservation after App registration or possible worker dispatch')
+        history=LEDGER.parent/f'modal-app-{reservation_id}-preflight-{uuid.uuid4()}.json'
+        history.write_text(old_path.read_text())
+        # Claim the hold before releasing the lock; a concurrent retry must fail.
+        old['status']='retry_claimed'
+        tmp=old_path.with_suffix('.tmp');tmp.write_text(json.dumps(old,indent=2)+'\n');tmp.replace(old_path)
     print(json.dumps(dict(reusing_preflight_reservation=reservation_id,reserved_usd=row['reserved_usd'])),flush=True)
     return row,function_options(gpu,minutes)
 
@@ -103,6 +108,7 @@ def main():
         try:
             with modal.enable_output(),app.run(detach=False):
                 receipt['app_id']=app.app_id;receipt['status']='running'
+                receipt['image_id']=image.object_id
                 receipt_path.write_text(json.dumps(receipt,indent=2)+'\n')
                 result=worker.remote(archive_sha)
                 log_path.write_text(result.pop('stdout')+'\n'+result.pop('stderr'))

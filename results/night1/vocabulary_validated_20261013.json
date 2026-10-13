@@ -1,0 +1,1064 @@
+{
+  "status": "independently_validated",
+  "run_id": "modal-app-084a9f07-007f-4ca9-8818-339cb8c6fcdb",
+  "environment": {
+    "config": {
+      "mode": "development_vocabulary",
+      "run_id": "short-hindi-vocabulary-prior-v1",
+      "seed": 20261013,
+      "max_inference_seconds": 600,
+      "expected_manifest_sha256": "ab7da06da199001f450d4958a25cffda2a5b452579f4261b07a08bac82db000a",
+      "baseline_job_id": "6ace2167c66288145222b738",
+      "baseline_predictions_sha256": "08f7f4ef28821ecc8442d558a91f838d697c410c9b4f8a07d6e2d6347f9e876b"
+    },
+    "baseline_environment": {
+      "config": {
+        "mode": "official_default",
+        "run_id": "short-hindi-small-complete-v1",
+        "seed": 20261013,
+        "max_inference_seconds": 600,
+        "expected_manifest_sha256": "ab7da06da199001f450d4958a25cffda2a5b452579f4261b07a08bac82db000a",
+        "resume_job_id": "6ace1874c66288145222a61d",
+        "resume_predictions_sha256": "3ba2c12f4844e5bab50c980535d9daab82f2e1cd19f8d44ac9581a98c4f33827"
+      },
+      "decoder": {
+        "model": "openai-whisper/small",
+        "url": "https://openaipublic.azureedge.net/main/whisper/models/9ecf779972d90ba49c06d968637d720dd632c55bbf19d441fb42bf17a411e794/small.pt",
+        "checkpoint_sha256": "9ecf779972d90ba49c06d968637d720dd632c55bbf19d441fb42bf17a411e794",
+        "dtype": "float16",
+        "temperature": [
+          0,
+          0.2,
+          0.4,
+          0.6,
+          0.8,
+          1.0
+        ],
+        "beam_size": 5,
+        "best_of": 5,
+        "compression_ratio_threshold": 2.4,
+        "logprob_threshold": -1.0,
+        "no_speech_threshold": 0.6,
+        "condition_on_previous_text": true,
+        "implementation": "openai-whisper==20250625"
+      },
+      "dataset_revision": "d4ffd2ecbdd933e37c917ddcf620eef159ceb3a7",
+      "dataset_protocol": "short_hindi_v1",
+      "silence_revision": "8126be4a4b83afefeef9394ff1312b635a499d82",
+      "gpu": "NVIDIA A100-SXM4-80GB",
+      "packages": {
+        "torch": "2.6.0+cu124",
+        "transformers": "5.16.1",
+        "numpy": "2.4.6",
+        "pyarrow": "25.0.1",
+        "soundfile": "0.14.0",
+        "openai-whisper": "20250625",
+        "jiwer": "4.0.0",
+        "huggingface-hub": "1.29.0"
+      },
+      "code_sha256": "12c6929823d1fa12c8e52431121bab06bd0412e2021afaea74b195d581b2c78a",
+      "manifest_sha256": "ab7da06da199001f450d4958a25cffda2a5b452579f4261b07a08bac82db000a",
+      "repair_policy_sha256": "4a89775ecae07364dd69a661e1ac612a3ffd10c7991f76305b45ae48c8873867",
+      "resume": {
+        "job_id": "6ace1874c66288145222a61d",
+        "source_predictions_sha256": "3ba2c12f4844e5bab50c980535d9daab82f2e1cd19f8d44ac9581a98c4f33827",
+        "preserved": 635,
+        "source_environment": {
+          "config": {
+            "mode": "official_default",
+            "run_id": "short-hindi-official-v1",
+            "seed": 20261013,
+            "max_inference_seconds": 2100,
+            "expected_manifest_sha256": "ab7da06da199001f450d4958a25cffda2a5b452579f4261b07a08bac82db000a"
+          },
+          "decoder": {
+            "model": "openai-whisper/small",
+            "url": "https://openaipublic.azureedge.net/main/whisper/models/9ecf779972d90ba49c06d968637d720dd632c55bbf19d441fb42bf17a411e794/small.pt",
+            "checkpoint_sha256": "9ecf779972d90ba49c06d968637d720dd632c55bbf19d441fb42bf17a411e794",
+            "dtype": "float16",
+            "temperature": [
+              0,
+              0.2,
+              0.4,
+              0.6,
+              0.8,
+              1.0
+            ],
+            "beam_size": 5,
+            "best_of": 5,
+            "compression_ratio_threshold": 2.4,
+            "logprob_threshold": -1.0,
+            "no_speech_threshold": 0.6,
+            "condition_on_previous_text": true,
+            "implementation": "openai-whisper==20250625"
+          },
+          "dataset_revision": "d4ffd2ecbdd933e37c917ddcf620eef159ceb3a7",
+          "dataset_protocol": "short_hindi_v1",
+          "silence_revision": "8126be4a4b83afefeef9394ff1312b635a499d82",
+          "gpu": "NVIDIA A100-SXM4-80GB",
+          "packages": {
+            "torch": "2.6.0+cu124",
+            "transformers": "5.16.1",
+            "numpy": "2.4.6",
+            "pyarrow": "25.0.1",
+            "soundfile": "0.14.0",
+            "openai-whisper": "20250625",
+            "jiwer": "4.0.0",
+            "huggingface-hub": "1.29.0"
+          },
+          "code_sha256": "a6a4f12f9d7f4ef348218aa768f4ebe8702a9396fde28a43652b18175c90cd6c",
+          "manifest_sha256": "ab7da06da199001f450d4958a25cffda2a5b452579f4261b07a08bac82db000a",
+          "repair_policy_sha256": "4a89775ecae07364dd69a661e1ac612a3ffd10c7991f76305b45ae48c8873867"
+        },
+        "source_summary": {
+          "status": "partial",
+          "expected": 654,
+          "completed": 635,
+          "cohorts": {
+            "hindi_repeat_5": {
+              "clips": 102,
+              "speakers": 102,
+              "ref_words": 510,
+              "raw_errors": 542,
+              "repair_errors": 542,
+              "raw_wer": 1.0627450980392157,
+              "repair_wer": 1.0627450980392157,
+              "raw_exact": 1,
+              "repair_exact": 0,
+              "raw_empty": 5,
+              "repair_empty": 5,
+              "altered": 19,
+              "helped": 3,
+              "harmed": 1
+            },
+            "hindi_repeat_8": {
+              "clips": 102,
+              "speakers": 102,
+              "ref_words": 816,
+              "raw_errors": 882,
+              "repair_errors": 807,
+              "raw_wer": 1.0808823529411764,
+              "repair_wer": 0.9889705882352942,
+              "raw_exact": 0,
+              "repair_exact": 0,
+              "raw_empty": 4,
+              "repair_empty": 4,
+              "altered": 11,
+              "helped": 6,
+              "harmed": 0
+            },
+            "hindi_short_natural": {
+              "clips": 414,
+              "speakers": 102,
+              "ref_words": 414,
+              "raw_errors": 519,
+              "repair_errors": 519,
+              "raw_wer": 1.2536231884057971,
+              "repair_wer": 1.2536231884057971,
+              "raw_exact": 82,
+              "repair_exact": 82,
+              "raw_empty": 8,
+              "repair_empty": 8,
+              "altered": 0,
+              "helped": 0,
+              "harmed": 0
+            },
+            "silence_control": {
+              "clips": 17,
+              "speakers": 17,
+              "ref_words": 0,
+              "raw_errors": 0,
+              "repair_errors": 0,
+              "raw_wer": null,
+              "repair_wer": null,
+              "raw_exact": 17,
+              "repair_exact": 17,
+              "raw_empty": 17,
+              "repair_empty": 17,
+              "altered": 0,
+              "helped": 0,
+              "harmed": 0
+            }
+          },
+          "elapsed_s": 2130.1276144119984,
+          "predictions_sha256": "3ba2c12f4844e5bab50c980535d9daab82f2e1cd19f8d44ac9581a98c4f33827"
+        }
+      }
+    },
+    "model_url": "https://openaipublic.azureedge.net/main/whisper/models/9ecf779972d90ba49c06d968637d720dd632c55bbf19d441fb42bf17a411e794/small.pt",
+    "gpu": "NVIDIA L4",
+    "packages": {
+      "torch": "2.6.0+cu124",
+      "openai-whisper": "20250625",
+      "numpy": "2.4.6",
+      "pyarrow": "25.0.1",
+      "soundfile": "0.14.0",
+      "huggingface-hub": "1.29.0"
+    },
+    "code_sha256": "1656e250602b20419f7e93170244e967bfe7b43853c4272001edaefbbb7f5b88",
+    "scoring_sha256": "1795fc2fd8a55c239b92d5111455a5ecc8783041dab859d60a0b82bf345c60ac",
+    "vocabulary_sha256": "9ee472963446475f3bfd67081bf357ea703f001c7772598bc14d15a85632e849",
+    "manifest_sha256": "7a8d46697bb2071ecf8213aff24892de8d2fa29484c204921c6e6344f35ef8f2",
+    "prefix_tokens": [
+      50258,
+      50276,
+      50359,
+      50363
+    ],
+    "primary_contrast": "mean_prior_corrected versus mean_ll",
+    "scope": "isolated-word recognition with development vocabulary, original-ASR and empty escape candidates",
+    "probability": "unmodified full-vocabulary softmax; score candidate tokens and EOT, exclude forced prefix and padding",
+    "batch_single_max_tolerance": 0.12,
+    "batch_single_observed_differences": [
+      0.0040435791015625,
+      0.022871017456054688,
+      0.011458396911621094
+    ]
+  },
+  "summary": {
+    "status": "complete",
+    "expected": 450,
+    "completed": 450,
+    "elapsed_seconds": 227.08551120099997,
+    "predictions_sha256": "f5870bd2bbe1950bc29f03ca85d2505d39a0f5f04396e3a796f456bc1b24c423"
+  },
+  "private_artifacts": "/Users/prateekraj/.local/share/openresearch/recovered-cloud/modal-app-084a9f07-007f-4ca9-8818-339cb8c6fcdb",
+  "log_sha256": "bd5b993b2a6eb28b9eb538ade929bfee1c1bc1ca3e00ca4a07fcca59ca49be11",
+  "validation_script_sha256": "266f7b810c6e1f234a9033161f898893c3e6621f93d4dee03baf984bd6b7ea69",
+  "source_evidence_sha256": "d59f295be6bbc8f93fa38e2ef95294553d7272292cef5df4a8661f20bce8b7d5",
+  "cohorts": {
+    "all_speech": {
+      "baseline": {
+        "clips": 414,
+        "reference_words": 414,
+        "word_errors": 519,
+        "wer_percent": 125.3623188405797,
+        "exact": 82,
+        "exact_percent": 19.806763285024154,
+        "empty": 8,
+        "emitted": 406,
+        "substitutions": 323,
+        "deletions": 8,
+        "insertions": 188
+      },
+      "sum_ll": {
+        "clips": 414,
+        "reference_words": 414,
+        "word_errors": 346,
+        "wer_percent": 83.57487922705315,
+        "exact": 106,
+        "exact_percent": 25.603864734299517,
+        "empty": 59,
+        "emitted": 355,
+        "substitutions": 249,
+        "deletions": 59,
+        "insertions": 38
+      },
+      "mean_ll": {
+        "clips": 414,
+        "reference_words": 414,
+        "word_errors": 401,
+        "wer_percent": 96.85990338164251,
+        "exact": 98,
+        "exact_percent": 23.67149758454106,
+        "empty": 0,
+        "emitted": 414,
+        "substitutions": 315,
+        "deletions": 0,
+        "insertions": 86
+      },
+      "sum_prior_corrected": {
+        "clips": 414,
+        "reference_words": 414,
+        "word_errors": 389,
+        "wer_percent": 93.96135265700484,
+        "exact": 99,
+        "exact_percent": 23.91304347826087,
+        "empty": 0,
+        "emitted": 414,
+        "substitutions": 314,
+        "deletions": 0,
+        "insertions": 75
+      },
+      "mean_prior_corrected": {
+        "clips": 414,
+        "reference_words": 414,
+        "word_errors": 366,
+        "wer_percent": 88.40579710144928,
+        "exact": 111,
+        "exact_percent": 26.81159420289855,
+        "empty": 4,
+        "emitted": 410,
+        "substitutions": 299,
+        "deletions": 4,
+        "insertions": 63
+      }
+    },
+    "in_vocabulary": {
+      "baseline": {
+        "clips": 196,
+        "reference_words": 196,
+        "word_errors": 219,
+        "wer_percent": 111.73469387755102,
+        "exact": 56,
+        "exact_percent": 28.571428571428573,
+        "empty": 3,
+        "emitted": 193,
+        "substitutions": 137,
+        "deletions": 3,
+        "insertions": 79
+      },
+      "sum_ll": {
+        "clips": 196,
+        "reference_words": 196,
+        "word_errors": 126,
+        "wer_percent": 64.28571428571429,
+        "exact": 83,
+        "exact_percent": 42.3469387755102,
+        "empty": 12,
+        "emitted": 184,
+        "substitutions": 101,
+        "deletions": 12,
+        "insertions": 13
+      },
+      "mean_ll": {
+        "clips": 196,
+        "reference_words": 196,
+        "word_errors": 164,
+        "wer_percent": 83.6734693877551,
+        "exact": 72,
+        "exact_percent": 36.734693877551024,
+        "empty": 0,
+        "emitted": 196,
+        "substitutions": 124,
+        "deletions": 0,
+        "insertions": 40
+      },
+      "sum_prior_corrected": {
+        "clips": 196,
+        "reference_words": 196,
+        "word_errors": 142,
+        "wer_percent": 72.44897959183673,
+        "exact": 74,
+        "exact_percent": 37.755102040816325,
+        "empty": 0,
+        "emitted": 196,
+        "substitutions": 122,
+        "deletions": 0,
+        "insertions": 20
+      },
+      "mean_prior_corrected": {
+        "clips": 196,
+        "reference_words": 196,
+        "word_errors": 130,
+        "wer_percent": 66.3265306122449,
+        "exact": 87,
+        "exact_percent": 44.38775510204081,
+        "empty": 0,
+        "emitted": 196,
+        "substitutions": 109,
+        "deletions": 0,
+        "insertions": 21
+      }
+    },
+    "out_of_vocabulary": {
+      "baseline": {
+        "clips": 218,
+        "reference_words": 218,
+        "word_errors": 300,
+        "wer_percent": 137.61467889908258,
+        "exact": 26,
+        "exact_percent": 11.926605504587156,
+        "empty": 5,
+        "emitted": 213,
+        "substitutions": 186,
+        "deletions": 5,
+        "insertions": 109
+      },
+      "sum_ll": {
+        "clips": 218,
+        "reference_words": 218,
+        "word_errors": 220,
+        "wer_percent": 100.91743119266054,
+        "exact": 23,
+        "exact_percent": 10.55045871559633,
+        "empty": 47,
+        "emitted": 171,
+        "substitutions": 148,
+        "deletions": 47,
+        "insertions": 25
+      },
+      "mean_ll": {
+        "clips": 218,
+        "reference_words": 218,
+        "word_errors": 237,
+        "wer_percent": 108.71559633027523,
+        "exact": 26,
+        "exact_percent": 11.926605504587156,
+        "empty": 0,
+        "emitted": 218,
+        "substitutions": 191,
+        "deletions": 0,
+        "insertions": 46
+      },
+      "sum_prior_corrected": {
+        "clips": 218,
+        "reference_words": 218,
+        "word_errors": 247,
+        "wer_percent": 113.30275229357798,
+        "exact": 25,
+        "exact_percent": 11.46788990825688,
+        "empty": 0,
+        "emitted": 218,
+        "substitutions": 192,
+        "deletions": 0,
+        "insertions": 55
+      },
+      "mean_prior_corrected": {
+        "clips": 218,
+        "reference_words": 218,
+        "word_errors": 236,
+        "wer_percent": 108.25688073394495,
+        "exact": 24,
+        "exact_percent": 11.009174311926605,
+        "empty": 4,
+        "emitted": 214,
+        "substitutions": 190,
+        "deletions": 4,
+        "insertions": 42
+      }
+    },
+    "silence": {
+      "baseline": {
+        "clips": 36,
+        "reference_words": 0,
+        "word_errors": 0,
+        "wer_percent": null,
+        "exact": 36,
+        "exact_percent": 100.0,
+        "empty": 36,
+        "emitted": 0,
+        "substitutions": 0,
+        "deletions": 0,
+        "insertions": 0
+      },
+      "sum_ll": {
+        "clips": 36,
+        "reference_words": 0,
+        "word_errors": 14,
+        "wer_percent": null,
+        "exact": 22,
+        "exact_percent": 61.111111111111114,
+        "empty": 22,
+        "emitted": 14,
+        "substitutions": 0,
+        "deletions": 0,
+        "insertions": 14
+      },
+      "mean_ll": {
+        "clips": 36,
+        "reference_words": 0,
+        "word_errors": 36,
+        "wer_percent": null,
+        "exact": 0,
+        "exact_percent": 0.0,
+        "empty": 0,
+        "emitted": 36,
+        "substitutions": 0,
+        "deletions": 0,
+        "insertions": 36
+      },
+      "sum_prior_corrected": {
+        "clips": 36,
+        "reference_words": 0,
+        "word_errors": 32,
+        "wer_percent": null,
+        "exact": 4,
+        "exact_percent": 11.11111111111111,
+        "empty": 4,
+        "emitted": 32,
+        "substitutions": 0,
+        "deletions": 0,
+        "insertions": 32
+      },
+      "mean_prior_corrected": {
+        "clips": 36,
+        "reference_words": 0,
+        "word_errors": 32,
+        "wer_percent": null,
+        "exact": 4,
+        "exact_percent": 11.11111111111111,
+        "empty": 4,
+        "emitted": 32,
+        "substitutions": 0,
+        "deletions": 0,
+        "insertions": 32
+      }
+    }
+  },
+  "contrasts": {
+    "all_speech": {
+      "mean_prior_corrected_minus_mean_ll": {
+        "exact": {
+          "first_correct": 98,
+          "second_correct": 111,
+          "difference_points": 3.140096618357488,
+          "paired_speaker_bootstrap_95_ci_points": [
+            0.0,
+            6.557676199593157
+          ],
+          "correct_gained": 25,
+          "correct_lost": 12
+        },
+        "wer": {
+          "clips": 414,
+          "speakers": 102,
+          "reference_words": 414,
+          "first_word_errors": 401,
+          "second_word_errors": 366,
+          "first_wer_percent": 96.85990338164251,
+          "second_wer_percent": 88.40579710144928,
+          "difference_points": -8.454106280193237,
+          "paired_speaker_bootstrap_95_ci_points": [
+            -18.51007339855064,
+            -1.6238492627797312
+          ],
+          "helped": 29,
+          "harmed": 12,
+          "tied": 373
+        }
+      },
+      "sum_ll_minus_baseline": {
+        "exact": {
+          "first_correct": 82,
+          "second_correct": 106,
+          "difference_points": 5.797101449275362,
+          "paired_speaker_bootstrap_95_ci_points": [
+            3.244797895240373,
+            8.612533886341774
+          ],
+          "correct_gained": 28,
+          "correct_lost": 4
+        },
+        "wer": {
+          "clips": 414,
+          "speakers": 102,
+          "reference_words": 414,
+          "first_word_errors": 519,
+          "second_word_errors": 346,
+          "first_wer_percent": 125.3623188405797,
+          "second_wer_percent": 83.57487922705315,
+          "difference_points": -41.78743961352657,
+          "paired_speaker_bootstrap_95_ci_points": [
+            -65.62723214285714,
+            -23.471752241238796
+          ],
+          "helped": 64,
+          "harmed": 4,
+          "tied": 346
+        }
+      },
+      "mean_ll_minus_baseline": {
+        "exact": {
+          "first_correct": 82,
+          "second_correct": 98,
+          "difference_points": 3.864734299516908,
+          "paired_speaker_bootstrap_95_ci_points": [
+            2.1949884279864698,
+            5.783132530120482
+          ],
+          "correct_gained": 16,
+          "correct_lost": 0
+        },
+        "wer": {
+          "clips": 414,
+          "speakers": 102,
+          "reference_words": 414,
+          "first_word_errors": 519,
+          "second_word_errors": 401,
+          "first_wer_percent": 125.3623188405797,
+          "second_wer_percent": 96.85990338164251,
+          "difference_points": -28.502415458937197,
+          "paired_speaker_bootstrap_95_ci_points": [
+            -48.13127379716165,
+            -13.019160919215329
+          ],
+          "helped": 32,
+          "harmed": 0,
+          "tied": 382
+        }
+      },
+      "sum_prior_corrected_minus_baseline": {
+        "exact": {
+          "first_correct": 82,
+          "second_correct": 99,
+          "difference_points": 4.106280193236715,
+          "paired_speaker_bootstrap_95_ci_points": [
+            1.7498229847494553,
+            6.582427401340284
+          ],
+          "correct_gained": 22,
+          "correct_lost": 5
+        },
+        "wer": {
+          "clips": 414,
+          "speakers": 102,
+          "reference_words": 414,
+          "first_word_errors": 519,
+          "second_word_errors": 389,
+          "first_wer_percent": 125.3623188405797,
+          "second_wer_percent": 93.96135265700484,
+          "difference_points": -31.40096618357488,
+          "paired_speaker_bootstrap_95_ci_points": [
+            -52.74242094574993,
+            -14.705689362359115
+          ],
+          "helped": 36,
+          "harmed": 5,
+          "tied": 373
+        }
+      },
+      "mean_prior_corrected_minus_baseline": {
+        "exact": {
+          "first_correct": 82,
+          "second_correct": 111,
+          "difference_points": 7.004830917874396,
+          "paired_speaker_bootstrap_95_ci_points": [
+            4.021384341388905,
+            10.432776606861374
+          ],
+          "correct_gained": 35,
+          "correct_lost": 6
+        },
+        "wer": {
+          "clips": 414,
+          "speakers": 102,
+          "reference_words": 414,
+          "first_word_errors": 519,
+          "second_word_errors": 366,
+          "first_wer_percent": 125.3623188405797,
+          "second_wer_percent": 88.40579710144928,
+          "difference_points": -36.95652173913044,
+          "paired_speaker_bootstrap_95_ci_points": [
+            -60.35912992199168,
+            -19.082722501734903
+          ],
+          "helped": 54,
+          "harmed": 6,
+          "tied": 354
+        }
+      },
+      "sum_prior_corrected_minus_sum_ll": {
+        "exact": {
+          "first_correct": 106,
+          "second_correct": 99,
+          "difference_points": -1.6908212560386473,
+          "paired_speaker_bootstrap_95_ci_points": [
+            -4.807753164556962,
+            1.2078025757097242
+          ],
+          "correct_gained": 16,
+          "correct_lost": 23
+        },
+        "wer": {
+          "clips": 414,
+          "speakers": 102,
+          "reference_words": 414,
+          "first_word_errors": 346,
+          "second_word_errors": 389,
+          "first_wer_percent": 83.57487922705315,
+          "second_wer_percent": 93.96135265700484,
+          "difference_points": 10.38647342995169,
+          "paired_speaker_bootstrap_95_ci_points": [
+            3.8343579004255894,
+            17.191547082213386
+          ],
+          "helped": 16,
+          "harmed": 44,
+          "tied": 354
+        }
+      }
+    },
+    "in_vocabulary": {
+      "mean_prior_corrected_minus_mean_ll": {
+        "exact": {
+          "first_correct": 72,
+          "second_correct": 87,
+          "difference_points": 7.653061224489796,
+          "paired_speaker_bootstrap_95_ci_points": [
+            1.1363636363636365,
+            14.14779656319291
+          ],
+          "correct_gained": 25,
+          "correct_lost": 10
+        },
+        "wer": {
+          "clips": 196,
+          "speakers": 99,
+          "reference_words": 196,
+          "first_word_errors": 164,
+          "second_word_errors": 130,
+          "first_wer_percent": 83.6734693877551,
+          "second_wer_percent": 66.3265306122449,
+          "difference_points": -17.346938775510203,
+          "paired_speaker_bootstrap_95_ci_points": [
+            -37.322025828029915,
+            -3.7632515523247005
+          ],
+          "helped": 26,
+          "harmed": 10,
+          "tied": 160
+        }
+      },
+      "sum_ll_minus_baseline": {
+        "exact": {
+          "first_correct": 56,
+          "second_correct": 83,
+          "difference_points": 13.775510204081632,
+          "paired_speaker_bootstrap_95_ci_points": [
+            9.03954802259887,
+            18.72217465753425
+          ],
+          "correct_gained": 28,
+          "correct_lost": 1
+        },
+        "wer": {
+          "clips": 196,
+          "speakers": 99,
+          "reference_words": 196,
+          "first_word_errors": 219,
+          "second_word_errors": 126,
+          "first_wer_percent": 111.73469387755102,
+          "second_wer_percent": 64.28571428571429,
+          "difference_points": -47.44897959183673,
+          "paired_speaker_bootstrap_95_ci_points": [
+            -77.20225328352814,
+            -21.27576893396538
+          ],
+          "helped": 40,
+          "harmed": 1,
+          "tied": 155
+        }
+      },
+      "mean_ll_minus_baseline": {
+        "exact": {
+          "first_correct": 56,
+          "second_correct": 72,
+          "difference_points": 8.16326530612245,
+          "paired_speaker_bootstrap_95_ci_points": [
+            4.6875,
+            12.060518107780283
+          ],
+          "correct_gained": 16,
+          "correct_lost": 0
+        },
+        "wer": {
+          "clips": 196,
+          "speakers": 99,
+          "reference_words": 196,
+          "first_word_errors": 219,
+          "second_word_errors": 164,
+          "first_wer_percent": 111.73469387755102,
+          "second_wer_percent": 83.6734693877551,
+          "difference_points": -28.06122448979592,
+          "paired_speaker_bootstrap_95_ci_points": [
+            -53.09917979710771,
+            -8.51063829787234
+          ],
+          "helped": 22,
+          "harmed": 0,
+          "tied": 174
+        }
+      },
+      "sum_prior_corrected_minus_baseline": {
+        "exact": {
+          "first_correct": 56,
+          "second_correct": 74,
+          "difference_points": 9.183673469387756,
+          "paired_speaker_bootstrap_95_ci_points": [
+            4.522613065326633,
+            13.90408787695022
+          ],
+          "correct_gained": 22,
+          "correct_lost": 4
+        },
+        "wer": {
+          "clips": 196,
+          "speakers": 99,
+          "reference_words": 196,
+          "first_word_errors": 219,
+          "second_word_errors": 142,
+          "first_wer_percent": 111.73469387755102,
+          "second_wer_percent": 72.44897959183673,
+          "difference_points": -39.285714285714285,
+          "paired_speaker_bootstrap_95_ci_points": [
+            -69.38803390208543,
+            -12.80712917350848
+          ],
+          "helped": 29,
+          "harmed": 4,
+          "tied": 163
+        }
+      },
+      "mean_prior_corrected_minus_baseline": {
+        "exact": {
+          "first_correct": 56,
+          "second_correct": 87,
+          "difference_points": 15.816326530612244,
+          "paired_speaker_bootstrap_95_ci_points": [
+            10.095229289940828,
+            22.07207207207207
+          ],
+          "correct_gained": 35,
+          "correct_lost": 4
+        },
+        "wer": {
+          "clips": 196,
+          "speakers": 99,
+          "reference_words": 196,
+          "first_word_errors": 219,
+          "second_word_errors": 130,
+          "first_wer_percent": 111.73469387755102,
+          "second_wer_percent": 66.3265306122449,
+          "difference_points": -45.40816326530612,
+          "paired_speaker_bootstrap_95_ci_points": [
+            -76.47549019607843,
+            -18.316831683168317
+          ],
+          "helped": 41,
+          "harmed": 4,
+          "tied": 151
+        }
+      },
+      "sum_prior_corrected_minus_sum_ll": {
+        "exact": {
+          "first_correct": 83,
+          "second_correct": 74,
+          "difference_points": -4.591836734693878,
+          "paired_speaker_bootstrap_95_ci_points": [
+            -11.055336780054118,
+            1.666899441340783
+          ],
+          "correct_gained": 14,
+          "correct_lost": 23
+        },
+        "wer": {
+          "clips": 196,
+          "speakers": 99,
+          "reference_words": 196,
+          "first_word_errors": 126,
+          "second_word_errors": 142,
+          "first_wer_percent": 64.28571428571429,
+          "second_wer_percent": 72.44897959183673,
+          "difference_points": 8.16326530612245,
+          "paired_speaker_bootstrap_95_ci_points": [
+            0.0,
+            16.822921790457453
+          ],
+          "helped": 14,
+          "harmed": 27,
+          "tied": 155
+        }
+      }
+    },
+    "out_of_vocabulary": {
+      "mean_prior_corrected_minus_mean_ll": {
+        "exact": {
+          "first_correct": 26,
+          "second_correct": 24,
+          "difference_points": -0.9174311926605505,
+          "paired_speaker_bootstrap_95_ci_points": [
+            -2.3367228291869595,
+            0.0
+          ],
+          "correct_gained": 0,
+          "correct_lost": 2
+        },
+        "wer": {
+          "clips": 218,
+          "speakers": 82,
+          "reference_words": 218,
+          "first_word_errors": 237,
+          "second_word_errors": 236,
+          "first_wer_percent": 108.71559633027523,
+          "second_wer_percent": 108.25688073394495,
+          "difference_points": -0.45871559633027525,
+          "paired_speaker_bootstrap_95_ci_points": [
+            -3.03059108192188,
+            1.7857142857142858
+          ],
+          "helped": 3,
+          "harmed": 2,
+          "tied": 213
+        }
+      },
+      "sum_ll_minus_baseline": {
+        "exact": {
+          "first_correct": 26,
+          "second_correct": 23,
+          "difference_points": -1.3761467889908257,
+          "paired_speaker_bootstrap_95_ci_points": [
+            -3.125,
+            0.0
+          ],
+          "correct_gained": 0,
+          "correct_lost": 3
+        },
+        "wer": {
+          "clips": 218,
+          "speakers": 82,
+          "reference_words": 218,
+          "first_word_errors": 300,
+          "second_word_errors": 220,
+          "first_wer_percent": 137.61467889908258,
+          "second_wer_percent": 100.91743119266054,
+          "difference_points": -36.69724770642202,
+          "paired_speaker_bootstrap_95_ci_points": [
+            -64.51698242020822,
+            -15.583956138201419
+          ],
+          "helped": 24,
+          "harmed": 3,
+          "tied": 191
+        }
+      },
+      "mean_ll_minus_baseline": {
+        "exact": {
+          "first_correct": 26,
+          "second_correct": 26,
+          "difference_points": 0.0,
+          "paired_speaker_bootstrap_95_ci_points": [
+            0.0,
+            0.0
+          ],
+          "correct_gained": 0,
+          "correct_lost": 0
+        },
+        "wer": {
+          "clips": 218,
+          "speakers": 82,
+          "reference_words": 218,
+          "first_word_errors": 300,
+          "second_word_errors": 237,
+          "first_wer_percent": 137.61467889908258,
+          "second_wer_percent": 108.71559633027523,
+          "difference_points": -28.89908256880734,
+          "paired_speaker_bootstrap_95_ci_points": [
+            -56.11084103062713,
+            -9.693877551020408
+          ],
+          "helped": 10,
+          "harmed": 0,
+          "tied": 208
+        }
+      },
+      "sum_prior_corrected_minus_baseline": {
+        "exact": {
+          "first_correct": 26,
+          "second_correct": 25,
+          "difference_points": -0.45871559633027525,
+          "paired_speaker_bootstrap_95_ci_points": [
+            -1.4564882784750177,
+            0.0
+          ],
+          "correct_gained": 0,
+          "correct_lost": 1
+        },
+        "wer": {
+          "clips": 218,
+          "speakers": 82,
+          "reference_words": 218,
+          "first_word_errors": 300,
+          "second_word_errors": 247,
+          "first_wer_percent": 137.61467889908258,
+          "second_wer_percent": 113.30275229357798,
+          "difference_points": -24.31192660550459,
+          "paired_speaker_bootstrap_95_ci_points": [
+            -51.60310344827586,
+            -5.139523152081561
+          ],
+          "helped": 7,
+          "harmed": 1,
+          "tied": 210
+        }
+      },
+      "mean_prior_corrected_minus_baseline": {
+        "exact": {
+          "first_correct": 26,
+          "second_correct": 24,
+          "difference_points": -0.9174311926605505,
+          "paired_speaker_bootstrap_95_ci_points": [
+            -2.3367228291869595,
+            0.0
+          ],
+          "correct_gained": 0,
+          "correct_lost": 2
+        },
+        "wer": {
+          "clips": 218,
+          "speakers": 82,
+          "reference_words": 218,
+          "first_word_errors": 300,
+          "second_word_errors": 236,
+          "first_wer_percent": 137.61467889908258,
+          "second_wer_percent": 108.25688073394495,
+          "difference_points": -29.357798165137616,
+          "paired_speaker_bootstrap_95_ci_points": [
+            -56.68783422459893,
+            -9.811943055857418
+          ],
+          "helped": 13,
+          "harmed": 2,
+          "tied": 203
+        }
+      },
+      "sum_prior_corrected_minus_sum_ll": {
+        "exact": {
+          "first_correct": 23,
+          "second_correct": 25,
+          "difference_points": 0.9174311926605505,
+          "paired_speaker_bootstrap_95_ci_points": [
+            0.0,
+            2.4038461538461537
+          ],
+          "correct_gained": 2,
+          "correct_lost": 0
+        },
+        "wer": {
+          "clips": 218,
+          "speakers": 82,
+          "reference_words": 218,
+          "first_word_errors": 220,
+          "second_word_errors": 247,
+          "first_wer_percent": 100.91743119266054,
+          "second_wer_percent": 113.30275229357798,
+          "difference_points": 12.385321100917432,
+          "paired_speaker_bootstrap_95_ci_points": [
+            3.7037037037037037,
+            23.36478941619129
+          ],
+          "helped": 2,
+          "harmed": 17,
+          "tied": 199
+        }
+      }
+    }
+  },
+  "independent_tokenizer": {
+    "model": "openai/whisper-small",
+    "revision": "973afd24965f72e36ca33b3055d56a652f456b4d",
+    "implementation": "Transformers AutoTokenizer",
+    "eot": 50257
+  },
+  "bootstrap": {
+    "seed": 20261013,
+    "resamples": 4000,
+    "cluster": "speaker"
+  },
+  "limits": [
+    "Outcome-motivated exploratory candidate scoring on previously exposed evaluation speakers; not an independent confirmation.",
+    "Fixed development vocabulary covers 196/414 speech clips; this is an isolated-word recognition task, not general ASR.",
+    "Digital-zero likelihood is a proxy for a language prior; prior correction is not asserted to be novel.",
+    "Constructed silence controls do not estimate a population false-positive rate."
+  ]
+}
