@@ -1,4 +1,1 @@
-{
-  "action": "lahaja_baseline",
-  "run_id": "lahaja-whisper-small-beam5-heldout-405-v1"
-}
+{"action":"lahaja_cloud_study","run_id":"cloud-beam5-safety-v1"}
