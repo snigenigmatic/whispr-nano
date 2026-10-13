@@ -139,19 +139,20 @@ def make_decoder(mode):
             return proc.batch_decode(tokens,skip_special_tokens=True)[0].strip(),dict(generated_tokens=int(tokens.shape[-1]))
         return decode,dict(model=b.MODEL_ID,revision=b.MODEL_REVISION,dtype='float16',num_beams=5,
             max_new_tokens=256,attention_mask='not passed; exact prior single-clip padded recipe')
-    if mode in ('official_default','official_no_speech_skip'):
+    if mode in ('official_default','official_no_speech_skip','official_turbo'):
         import whisper
-        model=whisper.load_model('small',device='cuda').eval()
-        url=whisper._MODELS['small']
+        model_name='turbo' if mode=='official_turbo' else 'small'
+        model=whisper.load_model(model_name,device='cuda').eval()
+        url=whisper._MODELS[model_name]
         def decode(audio,language):
             result=model.transcribe(audio,language=language,task='transcribe',verbose=None,
                 beam_size=5,best_of=5,fp16=True,
-                no_speech_threshold=.6 if mode=='official_default' else None)
+                no_speech_threshold=None if mode=='official_no_speech_skip' else .6)
             meta=[{k:s[k] for k in ('start','end','temperature','avg_logprob','compression_ratio','no_speech_prob')} for s in result['segments']]
             return result['text'].strip(),dict(segments=meta)
-        return decode,dict(model='openai-whisper/small',url=url,checkpoint_sha256=url.split('/')[-2],
+        return decode,dict(model='openai-whisper/'+model_name,url=url,checkpoint_sha256=url.split('/')[-2],
             dtype='float16',temperature=[0,.2,.4,.6,.8,1.],beam_size=5,best_of=5,
-            compression_ratio_threshold=2.4,logprob_threshold=-1.,no_speech_threshold=.6 if mode=='official_default' else None,
+            compression_ratio_threshold=2.4,logprob_threshold=-1.,no_speech_threshold=None if mode=='official_no_speech_skip' else .6,
             condition_on_previous_text=True,implementation='openai-whisper==20250625')
     raise ValueError(mode)
 
