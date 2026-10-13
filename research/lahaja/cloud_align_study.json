@@ -1,0 +1,10 @@
+{
+  "mode": "alignment_zero_turbo",
+  "run_id": "cloud-turbo-alignment-v1",
+  "source_job_id": "6ace105cc6628814522299c2",
+  "source_mode": "hf_turbo_beam5",
+  "alignment_model_name": "turbo",
+  "source_predictions_sha256": "a7ef87d0447e723117e1d7e98fa636026872d869d7cfa0dba9cca0aa53cb3feb",
+  "manifest_sha256": "0bd487ed2058439515b8d44255e3169573ed900ada9eceb1c7c59f6fe9929d8c",
+  "max_inference_seconds": 1200
+}
