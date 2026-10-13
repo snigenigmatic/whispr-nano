@@ -1,6 +1,6 @@
 {
-  "mode": "official_default",
-  "run_id": "cloud-official-safety-v1",
+  "mode": "official_turbo",
+  "run_id": "cloud-official-turbo-safety-v1",
   "seed": 20261013,
   "max_inference_seconds": 2700,
   "expected_lahaja_selection_sha256": "18dfa27387197bc02b29740d6be96ea266019823e72b27eb592e5450a84854b6",
