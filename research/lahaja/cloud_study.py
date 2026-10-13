@@ -135,16 +135,17 @@ def make_decoder(mode):
             return proc.batch_decode(tokens,skip_special_tokens=True)[0].strip(),dict(generated_tokens=int(tokens.shape[-1]))
         return decode,dict(model=b.MODEL_ID,revision=b.MODEL_REVISION,dtype='float16',num_beams=5,
             max_new_tokens=256,attention_mask='not passed; exact prior single-clip padded recipe')
-    if mode=='official_default':
+    if mode in ('official_default','official_turbo'):
         import whisper
-        model=whisper.load_model('small',device='cuda').eval()
-        url=whisper._MODELS['small']
+        model_name='turbo' if mode=='official_turbo' else 'small'
+        model=whisper.load_model(model_name,device='cuda').eval()
+        url=whisper._MODELS[model_name]
         def decode(audio,language):
             result=model.transcribe(audio,language=language,task='transcribe',verbose=None,
                 beam_size=5,best_of=5,fp16=True)
             meta=[{k:s[k] for k in ('start','end','temperature','avg_logprob','compression_ratio','no_speech_prob')} for s in result['segments']]
             return result['text'].strip(),dict(segments=meta)
-        return decode,dict(model='openai-whisper/small',url=url,checkpoint_sha256=url.split('/')[-2],
+        return decode,dict(model='openai-whisper/'+model_name,url=url,checkpoint_sha256=url.split('/')[-2],
             dtype='float16',temperature=[0,.2,.4,.6,.8,1.],beam_size=5,best_of=5,
             compression_ratio_threshold=2.4,logprob_threshold=-1.,no_speech_threshold=.6,
             condition_on_previous_text=True,implementation='openai-whisper==20250625')
@@ -157,16 +158,14 @@ def main():
     torch.set_num_threads(4)
     torch.manual_seed(cfg['seed']); np.random.seed(cfg['seed']); random.seed(cfg['seed'])
     started=time.monotonic()
-    rows=prepare(); ma=manifest(rows)
-    for label,matching in [('lahaja',[r for r in ma if r['cohort'].startswith('lahaja')]),
-                            ('commands',[r for r in ma if r['cohort'].startswith('commands')])]:
-        digest=sha(json.dumps(matching,sort_keys=True,ensure_ascii=False).encode())
-        assert digest==cfg[f'expected_{label}_selection_sha256'], (label,digest)
+    from research.lahaja.natural_repetition import prepare as prepare_natural
+    rows=prepare_natural();ma=manifest(rows)
+    assert sha(json.dumps(ma,sort_keys=True,ensure_ascii=False).encode())==cfg['expected_manifest_sha256']
     out=Path.home()/'.local/share/openresearch'/cfg['run_id'];out.mkdir(parents=True,exist_ok=True)
     (out/'manifest.json').write_text(json.dumps(ma,sort_keys=True,ensure_ascii=False))
     decode,dcfg=make_decoder(cfg['mode'])
     env=dict(config=cfg,decoder=dcfg,dataset_revision=b.DATASET_REVISION,
-        commands_archive_sha256=COMMAND_SHA,commands_url=COMMAND_URL,
+        dataset_protocol='natural_repetition_v1',
         gpu=torch.cuda.get_device_name(0),packages={p:importlib.metadata.version(p) for p in
             ['torch','transformers','numpy','pyarrow','soundfile','openai-whisper','jiwer','huggingface-hub']},
         code_sha256=sha(Path(__file__).read_bytes()),manifest_sha256=sha((out/'manifest.json').read_bytes()),

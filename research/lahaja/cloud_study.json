@@ -1,8 +1,7 @@
 {
   "mode": "official_default",
-  "run_id": "cloud-official-safety-v1",
+  "run_id": "natural-hindi-small-v1",
   "seed": 20261013,
-  "max_inference_seconds": 2700,
-  "expected_lahaja_selection_sha256": "18dfa27387197bc02b29740d6be96ea266019823e72b27eb592e5450a84854b6",
-  "expected_commands_selection_sha256": "4d2eca6827649275174c7ea18031a92eff0002e0de702967dbb2ae0a2d4bea37"
+  "max_inference_seconds": 600,
+  "expected_manifest_sha256": "bcfedf6257fca9c6293cf435433483c312c9e1826b9c9bd73d529df701e023db"
 }
