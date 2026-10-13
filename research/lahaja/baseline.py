@@ -33,7 +33,7 @@ MODEL_ID = "openai/whisper-small"
 MODEL_REVISION = "973afd24965f72e36ca33b3055d56a652f456b4d"
 SEED = 20261011
 PER_SPEAKER_SCENARIO = 2
-OUTPUT = Path.home() / ".local/share/openresearch/lahaja-small-heldout-405-v1"
+OUTPUT = Path.home() / ".local/share/openresearch/lahaja-small-beam5-heldout-405-v1"
 
 
 def _token() -> str | None:
@@ -199,7 +199,7 @@ def main() -> dict:
             inputs = processor(audio, sampling_rate=sr, return_tensors="pt")
             features = inputs.input_features.to(device=device, dtype=dtype)
             tokens = model.generate(features, language="hi", task="transcribe",
-                                    num_beams=1, do_sample=False, max_new_tokens=256)
+                                    num_beams=5, do_sample=False, max_new_tokens=256)
             hyp = processor.batch_decode(tokens, skip_special_tokens=True)[0].strip()
             ref = row["verbatim"]
             counts = jiwer.process_words(_normalize(ref), _normalize(hyp))
@@ -232,7 +232,7 @@ def main() -> dict:
               "sample_policy": "exclude first-shard speakers, then two-per-speaker/scenario in shards 1-3, 2-25 seconds",
               "model": MODEL_ID, "model_revision": MODEL_REVISION, "device": device,
               "dtype": str(dtype), "language": "hi", "task": "transcribe",
-              "num_beams": 1, "max_new_tokens": 256,
+              "num_beams": 5, "max_new_tokens": 256,
               "scorer": "NFC lowercase, keep Unicode letters/marks/numbers, pooled word edits",
               "overall": overall, "scenarios": scenarios, "states_descriptive_only": states,
               "decoder_quality": {"generated_token_cap_256_count": sum(
