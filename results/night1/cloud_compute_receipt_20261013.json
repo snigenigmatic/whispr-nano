@@ -1,0 +1,84 @@
+{
+  "checked_at": "2026-10-13T16:07:39.272509+00:00",
+  "caps_usd": {
+    "hf": 20.0,
+    "modal": 20.0
+  },
+  "reserved_usd": {
+    "hf": 16.23,
+    "modal": 19.0
+  },
+  "hf_jobs": [
+    {
+      "id": "6ace0f7d5ccb47ba0f786c1f",
+      "status": "COMPLETED",
+      "started_at": "2026-10-13 11:01:24.964000+00:00",
+      "finished_at": "2026-10-13 11:24:28.762000+00:00",
+      "running_seconds": 1383.798
+    },
+    {
+      "id": "6ace105cc6628814522299c2",
+      "status": "COMPLETED",
+      "started_at": "2026-10-13 11:05:07.836000+00:00",
+      "finished_at": "2026-10-13 11:15:08.390000+00:00",
+      "running_seconds": 600.554
+    },
+    {
+      "id": "6ace1395c662881452229f36",
+      "status": "COMPLETED",
+      "started_at": "2026-10-13 11:18:52.672000+00:00",
+      "finished_at": "2026-10-13 11:23:58.129000+00:00",
+      "running_seconds": 305.457
+    },
+    {
+      "id": "6ace1874c66288145222a61d",
+      "status": "ERROR",
+      "started_at": "2026-10-13 11:39:39.996000+00:00",
+      "finished_at": "2026-10-13 12:15:44.862000+00:00",
+      "running_seconds": 2164.866
+    },
+    {
+      "id": "6ace1a035ccb47ba0f787b9d",
+      "status": "ERROR",
+      "started_at": "2026-10-13 11:46:18.638000+00:00",
+      "finished_at": "2026-10-13 12:22:36.548000+00:00",
+      "running_seconds": 2177.91
+    },
+    {
+      "id": "6ace1d36c66288145222af4a",
+      "status": "COMPLETED",
+      "started_at": "2026-10-13 11:59:57.007000+00:00",
+      "finished_at": "2026-10-13 12:14:20.483000+00:00",
+      "running_seconds": 863.476
+    },
+    {
+      "id": "6ace2167c66288145222b738",
+      "status": "COMPLETED",
+      "started_at": "2026-10-13 12:17:50.267000+00:00",
+      "finished_at": "2026-10-13 12:24:40.009000+00:00",
+      "running_seconds": 409.742
+    },
+    {
+      "id": "6ace23fe5ccb47ba0f788db7",
+      "status": "COMPLETED",
+      "started_at": "2026-10-13 12:30:56.413000+00:00",
+      "finished_at": "2026-10-13 12:42:25.830000+00:00",
+      "running_seconds": 689.417
+    },
+    {
+      "id": "6ace5665c66288145222dd73",
+      "status": "SCHEDULING",
+      "started_at": "None",
+      "finished_at": "None",
+      "running_seconds": null
+    }
+  ],
+  "completed_hf_runtime_estimate_usd": 5.9689,
+  "provider_bill_verified": false,
+  "modal_policy": "Apps only; Sandbox backend blocked before reservation",
+  "notes": [
+    "Reservations are full timeout allowances, not charges.",
+    "Runtime estimate excludes any charges outside recorded RUNNING intervals.",
+    "No reservation released based on this estimate."
+  ]
+}

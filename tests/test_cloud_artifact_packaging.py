@@ -11,6 +11,7 @@ sys.path.insert(0,str(ROOT/'src'))
 sys.path.insert(0,str(ROOT/'scripts/termeval'))
 from publication_study.artifact_transport import emit,recover
 from package_short_hindi_study import describe,validate_resume,sha
+from package_vocabulary_study import verify_choices
 
 
 def test_incomplete_or_conflicting_exports_are_rejected(tmp_path):
@@ -52,3 +53,16 @@ def test_resume_cannot_silently_replace_original_predictions(tmp_path):
     rows[0]=dict(id='one',prediction='silently replaced')
     with pytest.raises(AssertionError,match='changed the original prefix'):
         validate_resume(target,rows,resumed)
+
+
+def test_candidate_receipt_rejects_injected_reference_or_changed_winner():
+    row=dict(baseline_prediction='beta',candidates=['','alpha','beta'],
+        log_likelihoods=[-1.,-2.,-3.],null_log_likelihoods=[-.5,-4.,-1.],token_counts=[1,2,2],
+        selected_indices=dict(sum_ll=0,mean_ll=0,sum_prior_corrected=1,mean_prior_corrected=1),
+        predictions=dict(sum_ll='',mean_ll='',sum_prior_corrected='alpha',mean_prior_corrected='alpha'),
+        scoring_seconds=.1)
+    verify_choices(row,['alpha'])
+    row['selected_indices']['sum_ll']=1
+    with pytest.raises(AssertionError,match='decisions disagree'):verify_choices(row,['alpha'])
+    row['candidates'].append('gold answer')
+    with pytest.raises(AssertionError,match='Candidate list differs'):verify_choices(row,['alpha'])
