@@ -26,8 +26,11 @@ Total: **654 inputs; 36.0746 audio minutes**. Audio is mono, finite, float32, 16
 |---|---|---|---|
 | Standard no-speech skip | `ba9386e` | `e0553e70-2973-486e-9553-befe8b2ded6c` | [A100 job](https://huggingface.co/jobs/snigenigmatic/6ace1874c66288145222a61d) |
 | Skip disabled | `dd67a0f` | `8182a293-4ea8-41ae-9b1a-bca3532caef0` | [A100 job](https://huggingface.co/jobs/snigenigmatic/6ace1a035ccb47ba0f787b9d) |
+| Official Turbo reference | `a16abbe` | `99925ecb-28d1-45ec-9a22-b3a2f4e9259b` | [A100 job](https://huggingface.co/jobs/snigenigmatic/6ace1d36c66288145222af4a) |
 
 Both runs use the fixed ORX command `bash experiments/cloud_entrypoint.sh`, a 40-minute provider timeout and 35-minute inference guard. Each reserves $1.92 within the separate $20 HF limit. Reservations are upper allowances, not measured charges. Full prediction/artifact bundles are hash-checked and independently rescored by `scripts/termeval/package_short_hindi_study.py`. No gated audio or reference transcripts are added to public Git.
+
+The Turbo reference was added before inspecting short-stratum quality outcomes. It uses the same official decoding recipe, manifest and HF A100 hardware, changing only checkpoint/model size. Its reservation is also $1.92. This prevents evaluating an isolated-word diagnostic only against the smaller model's baseline. The separately recorded [acoustic replication diagnostic](SHORT_WORD_REPLICATION_DIAGNOSTIC_20261013.md) consumes these existing predictions without a new inference run.
 
 The original study also adds an official Turbo decoder control (`32e3fc8`, run `aa0ebb98-c8e5-48df-a79f-f723cec9105e`) after inspecting the other three cells. It completes the two-model/two-decoder-recipe comparison on the original 1,101 inputs. It is explicitly an outcome-motivated control. It runs on Modal H100 with a 45-minute timeout and $6.25 reservation. This comparison changes complete decoding recipes, so it cannot isolate temperature fallback from timestamp segmentation or implementation differences.
 
