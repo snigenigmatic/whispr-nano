@@ -123,9 +123,10 @@ def summary(rows):
 
 
 def make_decoder(mode):
-    if mode=='hf_beam5':
-        proc=AutoProcessor.from_pretrained(b.MODEL_ID,revision=b.MODEL_REVISION)
-        model=WhisperForConditionalGeneration.from_pretrained(b.MODEL_ID,revision=b.MODEL_REVISION,
+    if mode in ('hf_beam5','hf_turbo_beam5'):
+        model_id,revision=(b.MODEL_ID,b.MODEL_REVISION) if mode=='hf_beam5' else ('openai/whisper-large-v3-turbo','41f01f3fe87f28c78e2fbf8b568835947dd65ed9')
+        proc=AutoProcessor.from_pretrained(model_id,revision=revision)
+        model=WhisperForConditionalGeneration.from_pretrained(model_id,revision=revision,
             dtype=torch.float16,attn_implementation='sdpa').to('cuda').eval()
         def decode(audio,language):
             inputs=proc(audio,sampling_rate=16000,return_tensors='pt')
@@ -133,7 +134,7 @@ def make_decoder(mode):
             tokens=model.generate(features,language=language,task='transcribe',num_beams=5,
                 do_sample=False,max_new_tokens=256)
             return proc.batch_decode(tokens,skip_special_tokens=True)[0].strip(),dict(generated_tokens=int(tokens.shape[-1]))
-        return decode,dict(model=b.MODEL_ID,revision=b.MODEL_REVISION,dtype='float16',num_beams=5,
+        return decode,dict(model=model_id,revision=revision,dtype='float16',num_beams=5,
             max_new_tokens=256,attention_mask='not passed; exact prior single-clip padded recipe')
     if mode=='official_default':
         import whisper
