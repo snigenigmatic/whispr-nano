@@ -1,0 +1,165 @@
+{
+  "status": "independently_validated",
+  "runs": {
+    "hf_turbo_beam5": {
+      "environment": {
+        "config": {
+          "mode": "hf_turbo_beam5",
+          "run_id": "cloud-turbo-safety-v1",
+          "seed": 20261013,
+          "max_inference_seconds": 2700,
+          "expected_lahaja_selection_sha256": "18dfa27387197bc02b29740d6be96ea266019823e72b27eb592e5450a84854b6",
+          "expected_commands_selection_sha256": "4d2eca6827649275174c7ea18031a92eff0002e0de702967dbb2ae0a2d4bea37"
+        },
+        "decoder": {
+          "model": "openai/whisper-large-v3-turbo",
+          "revision": "41f01f3fe87f28c78e2fbf8b568835947dd65ed9",
+          "dtype": "float16",
+          "num_beams": 5,
+          "max_new_tokens": 256,
+          "attention_mask": "not passed; exact prior single-clip padded recipe"
+        },
+        "dataset_revision": "d4ffd2ecbdd933e37c917ddcf620eef159ceb3a7",
+        "commands_archive_sha256": "cc2a00c1147c2254e9be3fa0f779d8c17421dc349b86366567a8edfa9acd51df",
+        "commands_url": "https://storage.googleapis.com/download.tensorflow.org/data/speech_commands_test_set_v0.02.tar.gz",
+        "gpu": "NVIDIA A100-SXM4-80GB",
+        "packages": {
+          "torch": "2.6.0+cu124",
+          "transformers": "5.16.1",
+          "numpy": "2.4.6",
+          "pyarrow": "25.0.1",
+          "soundfile": "0.14.0",
+          "openai-whisper": "20250625",
+          "jiwer": "4.0.0",
+          "huggingface-hub": "1.29.0"
+        },
+        "code_sha256": "849b4ffd67855b8bbde337b8201d8d55fed91c10a7115ec6ff3c8424b9c7d90b",
+        "manifest_sha256": "0bd487ed2058439515b8d44255e3169573ed900ada9eceb1c7c59f6fe9929d8c",
+        "repair_policy_sha256": "4a89775ecae07364dd69a661e1ac612a3ffd10c7991f76305b45ae48c8873867"
+      },
+      "predictions_sha256": "a7ef87d0447e723117e1d7e98fa636026872d869d7cfa0dba9cca0aa53cb3feb",
+      "cohorts": {
+        "commands_repeat_1": {
+          "clips": 100,
+          "speakers": 68,
+          "reference_words": 100,
+          "first_word_errors": 29,
+          "second_word_errors": 29,
+          "first_wer_percent": 29.0,
+          "second_wer_percent": 29.0,
+          "difference_points": 0.0,
+          "paired_speaker_bootstrap_95_ci_points": [
+            0.0,
+            0.0
+          ],
+          "helped": 0,
+          "harmed": 0,
+          "tied": 100,
+          "altered": 0,
+          "audio_seconds": 100.0,
+          "decode_seconds": 5.350565470973379
+        },
+        "commands_repeat_5": {
+          "clips": 100,
+          "speakers": 68,
+          "reference_words": 500,
+          "first_word_errors": 1156,
+          "second_word_errors": 587,
+          "first_wer_percent": 231.2,
+          "second_wer_percent": 117.4,
+          "difference_points": -113.8,
+          "paired_speaker_bootstrap_95_ci_points": [
+            -292.4515848892749,
+            19.6471560846561
+          ],
+          "helped": 7,
+          "harmed": 77,
+          "tied": 16,
+          "altered": 94,
+          "audio_seconds": 560.0,
+          "decode_seconds": 19.55463363995659
+        },
+        "commands_repeat_8": {
+          "clips": 100,
+          "speakers": 68,
+          "reference_words": 800,
+          "first_word_errors": 1696,
+          "second_word_errors": 736,
+          "first_wer_percent": 212.0,
+          "second_wer_percent": 92.0,
+          "difference_points": -120.0,
+          "paired_speaker_bootstrap_95_ci_points": [
+            -261.6128419452887,
+            -5.038786908805791
+          ],
+          "helped": 20,
+          "harmed": 74,
+          "tied": 6,
+          "altered": 99,
+          "audio_seconds": 905.0000000000001,
+          "decode_seconds": 29.602262790955137
+        },
+        "lahaja_fresh_audio": {
+          "clips": 396,
+          "speakers": 106,
+          "reference_words": 7111,
+          "first_word_errors": 2795,
+          "second_word_errors": 2723,
+          "first_wer_percent": 39.30530164533821,
+          "second_wer_percent": 38.29278582477851,
+          "difference_points": -1.0125158205596962,
+          "paired_speaker_bootstrap_95_ci_points": [
+            -2.573266619013581,
+            0.0
+          ],
+          "helped": 2,
+          "harmed": 0,
+          "tied": 394,
+          "altered": 2,
+          "audio_seconds": 3309.217375,
+          "decode_seconds": 219.18521867699747
+        },
+        "lahaja_replication": {
+          "clips": 405,
+          "speakers": 106,
+          "reference_words": 7339,
+          "first_word_errors": 2802,
+          "second_word_errors": 2756,
+          "first_wer_percent": 38.179588499795614,
+          "second_wer_percent": 37.552800109006675,
+          "difference_points": -0.6267883907889358,
+          "paired_speaker_bootstrap_95_ci_points": [
+            -1.982794256178884,
+            0.0
+          ],
+          "helped": 1,
+          "harmed": 0,
+          "tied": 404,
+          "altered": 1,
+          "audio_seconds": 3454.0955,
+          "decode_seconds": 235.12941972901172
+        }
+      },
+      "run_id": "1db19e10-e1e4-4597-b0f5-8aec5a2078b4",
+      "log_sha256": "207a2608d18bfb913d450add52c2d802ac8f81ff9a45783f03f5eef5ed98d310",
+      "private_artifacts": "/Users/prateekraj/.local/share/openresearch/recovered-cloud/1db19e10-e1e4-4597-b0f5-8aec5a2078b4"
+    }
+  },
+  "official_minus_hf_beam5": {},
+  "prespecified_loop_trigger_cascades": {},
+  "bootstrap": {
+    "seed": 20261013,
+    "resamples": 4000,
+    "cluster": "speaker"
+  },
+  "limits": [
+    "Fresh Lahaja clips share speakers with the previous heldout sample; audio-disjoint only.",
+    "The repetition stress is constructed from labelled human keyword recordings, not natural repeated conversation.",
+    "The two decoder stacks change multiple settings and implementations; this is a recipe comparison.",
+    "Different GPU types preclude interpreting raw timing ratios as decoder speedups.",
+    "This Hindi result does not establish an Indian English improvement.",
+    "Frozen repair was selected on prior Lahaja development; no tuning on these outcomes.",
+    "No publication novelty or acceptance is established by a WER reduction."
+  ],
+  "validation_script_sha256": "4a6fdba09c706bc83361b6c159ac2c3ef565d7688bae3bbc8ae902b1052e1bc1"
+}
